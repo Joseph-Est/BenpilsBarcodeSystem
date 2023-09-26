@@ -54,14 +54,21 @@ namespace BenpilsBarcodeSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
-            UserCredentials uc = new UserCredentials();
-            uc.Close();
+            UserCredentials userCredentials = new UserCredentials();
+            userCredentials.Close();
             this.Close();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Purchasing purchasing = new Purchasing();
+            purchasing.Show();
+            this.Close();
         }
     }
 }

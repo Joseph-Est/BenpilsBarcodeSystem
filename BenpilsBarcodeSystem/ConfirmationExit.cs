@@ -16,5 +16,15 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
         }
+
+        private void btnyes_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit(); 
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

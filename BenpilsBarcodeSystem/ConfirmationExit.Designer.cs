@@ -52,6 +52,7 @@
             this.btnNo.TabIndex = 12;
             this.btnNo.Text = "No";
             this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // btnyes
             // 
@@ -61,6 +62,7 @@
             this.btnyes.TabIndex = 11;
             this.btnyes.Text = "Yes";
             this.btnyes.UseVisualStyleBackColor = true;
+            this.btnyes.Click += new System.EventHandler(this.btnyes_Click);
             // 
             // panel1
             // 

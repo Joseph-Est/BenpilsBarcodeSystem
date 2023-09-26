@@ -56,8 +56,7 @@ namespace BenpilsBarcodeSystem
         {
             UserCredentials userCredentials = new UserCredentials();
             userCredentials.Show();
-            UserCredentials uc = new UserCredentials();
-            uc.Show();
+       
             this.Close();
         }
 

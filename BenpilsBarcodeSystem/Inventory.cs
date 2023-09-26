@@ -74,7 +74,13 @@ namespace BenpilsBarcodeSystem
 
         private void label6_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+        }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ConfirmationExit ce = new ConfirmationExit();
+            ce.Show();
         }
     }
 }

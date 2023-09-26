@@ -29,49 +29,63 @@ namespace BenpilsBarcodeSystem
         {
             Dashboard dash = new Dashboard();
             dash.Show();
-            this.Close();
+            dash.StartPosition = FormStartPosition.Manual;
+            dash.Location = this.Location;
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos = new PointOfSales();
             pos.Show();
-            this.Close();
+            pos.StartPosition = FormStartPosition.Manual;
+            pos.Location = this.Location;
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory();
-            inv.Close();
-            this.Close();
+            inv.Show();
+            inv.StartPosition = FormStartPosition.Manual;
+            inv.Location = this.Location;
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Purchasing purchasing = new Purchasing();
             purchasing.Show();
-            this.Close();
+            purchasing.StartPosition = FormStartPosition.Manual;
+            purchasing.Location = this.Location;
+            this.Hide();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport statisticReport = new StatisticReport();
             statisticReport.Show();
-            this.Close();
+            statisticReport.StartPosition = FormStartPosition.Manual;
+            statisticReport.Location = this.Location;
+            this.Hide();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials credentials = new UserCredentials();    
             credentials.Show();
-            this.Close();
+            credentials.StartPosition = FormStartPosition.Manual;
+            credentials.Location = this.Location;
+            this.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
             set.Show();
-            this.Close();
+            set.StartPosition = FormStartPosition.Manual;
+            set.Location = this.Location;
+            this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

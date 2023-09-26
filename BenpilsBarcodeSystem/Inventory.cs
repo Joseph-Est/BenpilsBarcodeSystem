@@ -23,7 +23,9 @@ namespace BenpilsBarcodeSystem
         {
             Dashboard dash = new Dashboard();
             dash.Show();
-            this.Close();
+            dash.StartPosition = FormStartPosition.Manual;
+            dash.Location = this.Location;
+            this.Hide();
 
         }
 
@@ -31,7 +33,9 @@ namespace BenpilsBarcodeSystem
         {
             PointOfSales pos = new PointOfSales();
             pos.Show();
-            this.Close();
+            pos.StartPosition = FormStartPosition.Manual;
+            pos.Location = this.Location;
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -43,35 +47,45 @@ namespace BenpilsBarcodeSystem
         {
             Purchasing purchase = new Purchasing();
             purchase.Show();
-            this.Close();
+            purchase.StartPosition = FormStartPosition.Manual;
+            purchase.Location = this.Location;
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Reports rp = new Reports();
             rp.Show();
-            this.Close();
+            rp.StartPosition = FormStartPosition.Manual;
+            rp.Location = this.Location;
+            this.Hide();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport sreport = new StatisticReport();
             sreport.Show();
-            this.Close();
+            sreport.StartPosition = FormStartPosition.Manual;
+            sreport.Location = this.Location;
+            this.Hide();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials Uc = new UserCredentials();
             Uc.Show();
-            this.Close();
+            Uc.StartPosition = FormStartPosition.Manual;
+            Uc.Location = this.Location;
+            this.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
             set.Show();
-            this.Close();
+            set.StartPosition = FormStartPosition.Manual;
+            set.Location = this.Location;
+            this.Hide();
         }
 
         private void label6_Click(object sender, EventArgs e)

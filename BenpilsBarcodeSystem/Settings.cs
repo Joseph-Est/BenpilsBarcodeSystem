@@ -23,43 +23,54 @@ namespace BenpilsBarcodeSystem
         {
             Dashboard dash = new Dashboard();
             dash.Show();
-            this.Close();
+            dash.StartPosition = FormStartPosition.Manual;
+            dash.Location = this.Location;
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos = new PointOfSales();
             pos.Show();
-            this.Close();
+            pos.StartPosition = FormStartPosition.Manual;
+            pos.Location = this.Location;
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory();
             inv.Show();
-            this.Close();
+            inv.StartPosition = FormStartPosition.Manual;
+            inv.Location = this.Location;
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Reports rep = new Reports();
             rep.Show();
-            this.Close();
+            rep.StartPosition = FormStartPosition.Manual;
+            rep.Location = this.Location;
+            this.Hide();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport stat = new StatisticReport();
             stat.Show();
-            this.Close();
+            stat.StartPosition = FormStartPosition.Manual;
+            stat.Location = this.Location;
+            this.Hide();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials userCredentials = new UserCredentials();
             userCredentials.Show();
-       
-            this.Close();
+            userCredentials.StartPosition = FormStartPosition.Manual;
+            userCredentials.Location = this.Location;      
+            this.Hide();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -71,7 +82,9 @@ namespace BenpilsBarcodeSystem
         {
             Purchasing purchasing = new Purchasing();
             purchasing.Show();
-            this.Close();
+            purchasing.StartPosition = FormStartPosition.Manual;
+            purchasing.Location = this.Location;
+            this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

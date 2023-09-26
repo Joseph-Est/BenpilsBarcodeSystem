@@ -55,7 +55,7 @@ namespace BenpilsBarcodeSystem
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials userCredentials = new UserCredentials();
-            userCredentials.Close();
+            userCredentials.Show();
             this.Close();
         }
 

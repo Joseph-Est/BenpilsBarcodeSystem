@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem
             {
                 try
                 {
-                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU\\MSSQLSERVER2022;Initial Catalog=UserLogin;Integrated Security=True");
+                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-D6B01T4;Initial Catalog=UserLogin;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand("select * from tbl_login where username = @username and password = @password", con);
                     cmd.Parameters.AddWithValue("@username", textBox1.Text);
                     cmd.Parameters.AddWithValue("@password", textBox2.Text);
@@ -73,7 +73,7 @@ namespace BenpilsBarcodeSystem
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimiz
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

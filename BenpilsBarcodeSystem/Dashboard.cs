@@ -14,7 +14,7 @@ namespace BenpilsBarcodeSystem
     public partial class Dashboard : Form
     {
         private bool IsDragging = false;
-        private Point lastCursorPosition;
+        private int mouseX,mouseY;
        
         public Dashboard()
         {
@@ -97,8 +97,9 @@ namespace BenpilsBarcodeSystem
         {
             if (e.Button == MouseButtons.Left)
             {
-                IsDragging = true;
-                lastCursorPosition = e.Location;
+               IsDragging = true;
+                mouseX = e.X;
+                mouseY = e.Y;
             }
         }
 
@@ -106,15 +107,19 @@ namespace BenpilsBarcodeSystem
         {
             if (IsDragging)
             {
-                Point newLocation = panel1.Location;
-                newLocation.Offset(e.X - lastCursorPosition.X, e.Y - lastCursorPosition.Y);
-                panel1.Location = newLocation;
+                this.Left += e.X - mouseX;
+                this.Top += e.Y - mouseY;
             }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

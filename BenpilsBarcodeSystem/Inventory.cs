@@ -13,7 +13,7 @@ namespace BenpilsBarcodeSystem
     public partial class Inventory : Form
     {
         private bool IsDragging = false;
-        private Point lastCursorPosition;
+        private int mouseX,mouseY;
         public Inventory()
         {
             InitializeComponent();
@@ -90,7 +90,8 @@ namespace BenpilsBarcodeSystem
             if (e.Button == MouseButtons.Left)
             {
                 IsDragging = true;
-                lastCursorPosition = e.Location;
+                mouseX = e.X;
+                mouseY = e.Y;
             }
         }
 
@@ -98,9 +99,8 @@ namespace BenpilsBarcodeSystem
         {
             if (IsDragging)
             {
-                Point newLocation = panel1.Location;
-                newLocation.Offset(e.X - lastCursorPosition.X, e.Y - lastCursorPosition.Y);
-                panel1.Location = newLocation;
+                this.Left += e.X - mouseX;
+                this.Top += e.Y - mouseY;
             }
         }
 

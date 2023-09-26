@@ -59,9 +59,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button10 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -407,19 +407,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1058, 35);
             this.panel1.TabIndex = 15;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(309, 447);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(136, 74);
-            this.button10.TabIndex = 21;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // label6
             // 
@@ -433,6 +424,19 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Statistic Report";
             this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(309, 447);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(136, 74);
+            this.button10.TabIndex = 21;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // StatisticReport
             // 

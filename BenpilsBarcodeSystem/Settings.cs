@@ -12,6 +12,8 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Settings : Form
     {
+        private bool isDragging = false;
+        private Point lastCursorPosition;
         public Settings()
         {
             InitializeComponent();
@@ -81,6 +83,30 @@ namespace BenpilsBarcodeSystem
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                lastCursorPosition = e.Location;
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point newLocation = panel1.Location;
+                newLocation.Offset(e.X - lastCursorPosition.X, e.Y - lastCursorPosition.Y);
+                panel1.Location = newLocation;
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
         }
     }
 }

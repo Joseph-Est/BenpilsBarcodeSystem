@@ -65,5 +65,15 @@ namespace BenpilsBarcodeSystem
             settings.Show();
             this.Close();
         }
+
+        private void StatisticReport_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

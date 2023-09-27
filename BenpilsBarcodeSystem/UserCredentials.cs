@@ -120,6 +120,8 @@ namespace BenpilsBarcodeSystem
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'userCredentialsDataSet.tbl_login' table. You can move, or remove it, as needed.
+            this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
 
         }
 

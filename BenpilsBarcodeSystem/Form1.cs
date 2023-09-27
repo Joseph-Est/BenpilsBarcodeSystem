@@ -35,7 +35,7 @@ namespace BenpilsBarcodeSystem
             {
                 try
                 {
-                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserLoginn;Integrated Security=True");
+                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True");
                     SqlCommand cmd = new SqlCommand("select * from tbl_login where username = @username and password = @password", con);
                     cmd.Parameters.AddWithValue("@username", textBox1.Text);
                     cmd.Parameters.AddWithValue("@password", textBox2.Text);
@@ -57,7 +57,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("username and password is invalid");
+                        MessageBox.Show("invalid username and password!");
                     }
                 }
                 catch (Exception ex)

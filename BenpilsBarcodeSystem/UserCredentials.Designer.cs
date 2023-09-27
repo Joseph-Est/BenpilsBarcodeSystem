@@ -93,6 +93,7 @@
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userCredentialsDataSet = new BenpilsBarcodeSystem.UserCredentialsDataSet();
             this.tbl_loginTableAdapter = new BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -545,7 +546,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(276, 452);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(157, 20);
             this.textBox1.TabIndex = 27;
@@ -553,7 +554,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(276, 477);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(157, 20);
             this.textBox2.TabIndex = 28;
@@ -562,7 +563,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(276, 501);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(157, 20);
             this.textBox3.TabIndex = 29;
@@ -571,7 +572,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(276, 524);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(157, 20);
             this.textBox4.TabIndex = 30;
@@ -580,7 +581,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(276, 547);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(157, 20);
             this.textBox5.TabIndex = 31;
@@ -588,7 +589,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(276, 571);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(157, 20);
             this.textBox6.TabIndex = 32;
@@ -596,7 +597,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(276, 595);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(157, 20);
             this.textBox7.TabIndex = 33;
@@ -605,7 +606,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(530, 459);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 54);
             this.button4.TabIndex = 34;
@@ -627,7 +628,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(256, 87);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(130, 20);
             this.textBox8.TabIndex = 0;
@@ -636,7 +637,7 @@
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(663, 459);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 39;
@@ -647,18 +648,19 @@
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(530, 536);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(93, 54);
             this.button11.TabIndex = 40;
             this.button11.Text = "Update";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(663, 536);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(93, 54);
             this.button12.TabIndex = 41;
@@ -765,11 +767,19 @@
             // 
             this.tbl_loginTableAdapter.ClearBeforeFill = true;
             // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(276, 621);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(154, 20);
+            this.textBox9.TabIndex = 43;
+            // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 680);
+            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -890,5 +900,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }

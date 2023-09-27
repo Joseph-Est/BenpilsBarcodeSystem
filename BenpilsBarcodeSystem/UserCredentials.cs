@@ -207,6 +207,30 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            string updateQuery = "UPDATE tbl_login SET firstname = @NewFirstName, [lastname] = @NewLastName, username = @NewUserName, [password] = @NewPassword, designation = @NewDesignation, address = @NewAddress, [contactno] = @NewContactNo WHERE SomeIdentifierColumn = @id";
+
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
+                {
+                    cmd.Parameters.AddWithValue("@NewFirstName", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@NewLastName", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@NewUserName", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@NewPassword", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@NewDesignation", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@NewAddress", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@NewContactNo", textBox7.Text);
+                    cmd.Parameters.AddWithValue("@IdentifierValue", textBox9.Text);
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

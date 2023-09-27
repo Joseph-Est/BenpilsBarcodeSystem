@@ -209,104 +209,13 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-      
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                int identifier = Convert.ToInt32(selectedRow.Cells["YourIdentifierColumn"].Value);
-
-                string newFirstName = textBox1.Text;
-                string newLastName = textBox2.Text;
-                string newUserName = textBox3.Text;
-                string newPassword = textBox4.Text;
-                string newDesignation = textBox5.Text;
-                string newAddress = textBox6.Text;
-                string newContactNo = textBox7.Text;
-
-           
-                if (UpdateRecord(identifier, newFirstName, newLastName, newUserName, newPassword, newDesignation, newAddress, newContactNo))
-                {
-                  
-                    UpdateDataGridView();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to update.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+     
         }
-
-    
-
-
         private void button10_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-             
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                
-                int identifier = Convert.ToInt32(selectedRow.Cells["YourIdentifierColumn"].Value);
-
-              
-                if (DeleteRecord(identifier))
-                {
-                   
-                    UpdateDataGridView();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+     
         }
-        private bool UpdateRecord(int identifier, string newFirstName, string newLastName, string newUserName, string newPassword, string newDesignation, string newAddress, string newContactNo)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-            {
-                con.Open();
 
-                string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE YourIdentifierColumn = @Identifier";
-
-                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Identifier", identifier);
-                    cmd.Parameters.AddWithValue("@FirstName", newFirstName);
-                    cmd.Parameters.AddWithValue("@LastName", newLastName);
-                    cmd.Parameters.AddWithValue("@UserName", newUserName);
-                    cmd.Parameters.AddWithValue("@Password", newPassword);
-                    cmd.Parameters.AddWithValue("@Designation", newDesignation);
-                    cmd.Parameters.AddWithValue("@Address", newAddress);
-                    cmd.Parameters.AddWithValue("@ContactNo", newContactNo);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    return rowsAffected > 0; 
-                }
-            }
-        }
-        private bool DeleteRecord(int identifier)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-            {
-                con.Open();
-
-                string deleteQuery = "DELETE FROM tbl_login WHERE YourIdentifierColumn = @Identifier";
-
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Identifier", identifier);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    return rowsAffected > 0; 
-                }
-            }
-        }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

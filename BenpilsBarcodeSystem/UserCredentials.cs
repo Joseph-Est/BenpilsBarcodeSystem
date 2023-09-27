@@ -16,13 +16,13 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX,mouseY;
-        private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True";
+        
 
         public UserCredentials()
         {
             InitializeComponent();
         }
-
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True");
         private void button1_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();
@@ -170,26 +170,10 @@ namespace BenpilsBarcodeSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO tbl_login (firstname, [second name], username, [password], designation, address, [contact number]) " +
-                       "VALUES (@FirstName, @SecondName, @UserName, @Password, @Designation, @Address, @ContactNumber)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@SecondName", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
-                    cmd.Parameters.AddWithValue("@Address", textBox6.Text);
-                    cmd.Parameters.AddWithValue("@ContactNumber", textBox7.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
+            con.Open();
+            SqlCommand com = new SqlCommand("exec dbo.tbl_login '" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','" + textBox7.Text + "','", con);
+            com.ExecuteNonQuery();
+            MessageBox.Show("Succesfully Saved");
 
 
         }

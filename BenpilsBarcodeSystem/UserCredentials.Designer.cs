@@ -61,7 +61,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -82,6 +81,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -97,6 +97,7 @@
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -448,16 +449,6 @@
             // 
             this.timer1.Interval = 1000;
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel6.Location = new System.Drawing.Point(205, 118);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(822, 297);
-            this.panel6.TabIndex = 19;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -630,12 +621,12 @@
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(641, 459);
+            this.button10.Location = new System.Drawing.Point(663, 459);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 39;
-            this.button10.Text = "Add";
+            this.button10.Text = "Delete";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button11
@@ -646,25 +637,35 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(93, 54);
             this.button11.TabIndex = 40;
-            this.button11.Text = "Add";
+            this.button11.Text = "Update";
             this.button11.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(641, 535);
+            this.button12.Location = new System.Drawing.Point(663, 536);
             this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(93, 54);
             this.button12.TabIndex = 41;
-            this.button12.Text = "Add";
+            this.button12.Text = "Undecided";
             this.button12.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(206, 124);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(825, 310);
+            this.dataGridView1.TabIndex = 42;
             // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 680);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -685,7 +686,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
@@ -712,6 +712,7 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,7 +751,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -771,5 +771,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

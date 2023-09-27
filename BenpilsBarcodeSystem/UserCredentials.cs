@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
@@ -15,6 +16,7 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX,mouseY;
+        private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True";
 
         public UserCredentials()
         {
@@ -121,7 +123,7 @@ namespace BenpilsBarcodeSystem
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'userCredentialsDataSet.tbl_login' table. You can move, or remove it, as needed.
+        
             this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
 
         }
@@ -168,20 +170,25 @@ namespace BenpilsBarcodeSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            SqlCommand cmd = new SqlCommand("insert into tbl_login values (@Firstname,@Lastname,@Username,@Password,@Designation,@Address,@ContactNo)",con);
-            cmd.Parameters.AddWithValue("@Firstname", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Lastname", textBox2.Text);
-            cmd.Parameters.AddWithValue("@Username", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-            cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
-            cmd.Parameters.AddWithValue("@Address", textBox6.Text);
-            cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
-            cmd.ExecuteNonQuery();
+            string insertQuery = "INSERT INTO tbl_login (Column2, Column3, Column4, Column5, Column6, Column7, Column8) VALUES (@Column2, @Column3, @Column4, @Column5, @Column6, @Column7, @Column8)";
 
-            con.Close();
-            MessageBox.Show("Account Added");
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Column2", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@Column3", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@Column4", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@Column5", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@Column6", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@Column7", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@Column8", textBox7.Text);
 
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
 
 
         }

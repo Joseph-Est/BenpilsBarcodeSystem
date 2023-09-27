@@ -552,7 +552,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(276, 594);
+            this.textBox2.Location = new System.Drawing.Point(276, 477);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(157, 20);
@@ -561,7 +561,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 476);
+            this.textBox3.Location = new System.Drawing.Point(276, 501);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(157, 20);
@@ -570,7 +570,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(276, 499);
+            this.textBox4.Location = new System.Drawing.Point(276, 524);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(157, 20);
@@ -579,7 +579,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(276, 522);
+            this.textBox5.Location = new System.Drawing.Point(276, 547);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(157, 20);
@@ -587,7 +587,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(276, 546);
+            this.textBox6.Location = new System.Drawing.Point(276, 571);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(157, 20);
@@ -595,7 +595,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(276, 570);
+            this.textBox7.Location = new System.Drawing.Point(276, 595);
             this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(157, 20);

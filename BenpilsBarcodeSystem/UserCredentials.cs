@@ -148,6 +148,21 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

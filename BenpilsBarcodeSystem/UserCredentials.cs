@@ -190,6 +190,21 @@ namespace BenpilsBarcodeSystem
                     con.Close();
                 }
             }
+            UpdateDataGridView();
+        }
+
+        private void UpdateDataGridView()
+        {
+            string selectQuery = "SELECT * FROM tbl_login";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

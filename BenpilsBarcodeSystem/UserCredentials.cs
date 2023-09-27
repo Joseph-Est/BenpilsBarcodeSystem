@@ -170,19 +170,20 @@ namespace BenpilsBarcodeSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO tbl_login (Column2, Column3, Column4, Column5, Column6, Column7, Column8) VALUES (@Column2, @Column3, @Column4, @Column5, @Column6, @Column7, @Column8)";
+            string insertQuery = "INSERT INTO tbl_login (firstname, [second name], username, [password], designation, address, [contact number]) " +
+                       "VALUES (@FirstName, @SecondName, @UserName, @Password, @Designation, @Address, @ContactNumber)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@Column2", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@Column3", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@Column4", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@Column5", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@Column6", textBox5.Text);
-                    cmd.Parameters.AddWithValue("@Column7", textBox6.Text);
-                    cmd.Parameters.AddWithValue("@Column8", textBox7.Text);
+                    cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@SecondName", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@Password", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@Address", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@ContactNumber", textBox7.Text);
 
                     con.Open();
                     cmd.ExecuteNonQuery();

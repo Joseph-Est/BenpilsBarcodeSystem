@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -162,6 +163,26 @@ namespace BenpilsBarcodeSystem
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            SqlCommand cmd = new SqlCommand("insert into tbl_login values (@Firstname,@Lastname,@Username,@Password,@Designation,@Address,@ContactNo)",con);
+            cmd.Parameters.AddWithValue("@Firstname", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Lastname", textBox2.Text);
+            cmd.Parameters.AddWithValue("@Username", textBox3.Text);
+            cmd.Parameters.AddWithValue("@Password", textBox4.Text);
+            cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
+            cmd.Parameters.AddWithValue("@Address", textBox6.Text);
+            cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+            MessageBox.Show("Account Added");
+
+
 
         }
 

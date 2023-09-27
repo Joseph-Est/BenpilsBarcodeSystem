@@ -104,6 +104,19 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void Showpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Showpassword.Checked == true)
+            {
+                textBox2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBox2.UseSystemPasswordChar= true;
+            }
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

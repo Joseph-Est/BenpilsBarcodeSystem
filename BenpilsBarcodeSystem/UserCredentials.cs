@@ -209,7 +209,43 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-     
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, " +
+                                     "[password] = @Password, designation = @Designation, address = @Address, [contactno] = @ContactNo " +
+                                     "WHERE ID = @ID";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        // Get the selected row's ID
+                        int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                        int id = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ID"].Value);
+
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
+                        cmd.Parameters.AddWithValue("@Password", textBox4.Text);
+                        cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
+                        cmd.Parameters.AddWithValue("@Address", textBox6.Text);
+                        cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+
+              
+    
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.");
+            }
         }
         private void button10_Click_1(object sender, EventArgs e)
         {

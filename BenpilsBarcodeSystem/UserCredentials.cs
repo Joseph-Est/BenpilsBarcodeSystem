@@ -238,14 +238,24 @@ namespace BenpilsBarcodeSystem
                     }
                 }
 
-              
-    
+
+                Clear();
                 UpdateDataGridView();
             }
             else
             {
                 MessageBox.Show("Please select a row to update.");
             }
+        }
+        private void Clear()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
         }
         private void button10_Click_1(object sender, EventArgs e)
         {

@@ -209,26 +209,7 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                // Update the selected row's data
-                selectedRow.Cells["firstname"].Value = textBox1.Text;
-                selectedRow.Cells["lastname"].Value = textBox2.Text;
-                selectedRow.Cells["username"].Value = textBox3.Text;
-                selectedRow.Cells["password"].Value = textBox4.Text;
-                selectedRow.Cells["designation"].Value = textBox5.Text;
-                selectedRow.Cells["address"].Value = textBox6.Text;
-                selectedRow.Cells["contactno"].Value = textBox7.Text;
-
-                // Clear the text boxes after updating
-                Clear();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to update.");
-            }
+            
         }
         private void Clear()
         {
@@ -246,29 +227,25 @@ namespace BenpilsBarcodeSystem
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-           
-                string firstName = selectedRow.Cells["firstname"].Value.ToString();
-                string lastName = selectedRow.Cells["lastname"].Value.ToString();
-                string userName = selectedRow.Cells["username"].Value.ToString();
-             
+                // Get the ID from the selected row
+                int idToDelete = Convert.ToInt32(selectedRow.Cells["ID"].Value);
 
-             
+                // Delete the row from the database
+                string deleteQuery = "DELETE FROM tbl_login WHERE ID = @ID";
+
                 using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
                 {
-                    con.Open();
-                    using (SqlCommand cmd = new SqlCommand("DELETE FROM tbl_login WHERE firstname = @FirstName AND [lastname] = @LastName AND username = @UserName", con))
+                    using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@FirstName", firstName);
-                        cmd.Parameters.AddWithValue("@LastName", lastName);
-                        cmd.Parameters.AddWithValue("@UserName", userName);
-                    
+                        cmd.Parameters.AddWithValue("@ID", idToDelete);
 
+                        con.Open();
                         cmd.ExecuteNonQuery();
+                        con.Close();
                     }
-                    con.Close();
                 }
 
-            
+                // Remove the selected row from the DataGridView
                 dataGridView1.Rows.Remove(selectedRow);
             }
             else

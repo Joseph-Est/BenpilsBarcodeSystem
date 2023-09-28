@@ -242,14 +242,34 @@ namespace BenpilsBarcodeSystem
         }
         private void button10_Click_1(object sender, EventArgs e)
         {
-            // Check if a row is selected in dataGridView1
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                dataGridView1.Rows.Remove(selectedRow);
 
-                // Clear the text boxes after deleting
-                ClearTextBoxes();
+           
+                string firstName = selectedRow.Cells["firstname"].Value.ToString();
+                string lastName = selectedRow.Cells["lastname"].Value.ToString();
+                string userName = selectedRow.Cells["username"].Value.ToString();
+             
+
+             
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("DELETE FROM tbl_login WHERE firstname = @FirstName AND [lastname] = @LastName AND username = @UserName", con))
+                    {
+                        cmd.Parameters.AddWithValue("@FirstName", firstName);
+                        cmd.Parameters.AddWithValue("@LastName", lastName);
+                        cmd.Parameters.AddWithValue("@UserName", userName);
+                    
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+
+            
+                dataGridView1.Rows.Remove(selectedRow);
             }
             else
             {

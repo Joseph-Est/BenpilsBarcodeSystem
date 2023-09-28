@@ -209,7 +209,44 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+              
+                int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
+                int idToUpdate = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ID"].Value);
+
+           
+                string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, " +
+                                     "username = @UserName, [password] = @Password, " +
+                                     "designation = @Designation, address = @Address, [contactno] = @ContactNo " +
+                                     "WHERE ID = @id";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idToUpdate);
+                        cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
+                        cmd.Parameters.AddWithValue("@Password", textBox4.Text);
+                        cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
+                        cmd.Parameters.AddWithValue("@Address", textBox6.Text);
+                        cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+
+               
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.");
+            }
         }
         private void Clear()
         {
@@ -223,35 +260,7 @@ namespace BenpilsBarcodeSystem
         }
         private void button10_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                // Get the ID from the selected row
-                int idToDelete = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
-                // Delete the row from the database
-                string deleteQuery = "DELETE FROM tbl_login WHERE ID = @ID";
-
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@ID", idToDelete);
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
-
-                // Remove the selected row from the DataGridView
-                dataGridView1.Rows.Remove(selectedRow);
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.");
-            }
+         
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

@@ -209,55 +209,9 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-              
-                int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
-                int idToUpdate = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ID"].Value);
-
-           
-                string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, " +
-                                     "username = @UserName, [password] = @Password, " +
-                                     "designation = @Designation, address = @Address, [contactno] = @ContactNo " +
-                                     "WHERE ID = @id";
-
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@id", idToUpdate);
-                        cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
-                        cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
-                        cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
-                        cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                        cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
-                        cmd.Parameters.AddWithValue("@Address", textBox6.Text);
-                        cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
-
-               
-                UpdateDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to update.");
-            }
+       
         }
-        private void Clear()
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
-        }
+   
         private void button10_Click_1(object sender, EventArgs e)
         {
          

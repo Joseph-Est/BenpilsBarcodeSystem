@@ -211,36 +211,19 @@ namespace BenpilsBarcodeSystem
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, " +
-                                     "[password] = @Password, designation = @Designation, address = @Address, [contactno] = @ContactNo " +
-                                     "WHERE ID = @ID";
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                    {
-                        // Get the selected row's ID
-                        int selectedRowIndex = dataGridView1.SelectedRows[0].Index;
-                        int id = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ID"].Value);
+                // Update the selected row's data
+                selectedRow.Cells["firstname"].Value = textBox1.Text;
+                selectedRow.Cells["lastname"].Value = textBox2.Text;
+                selectedRow.Cells["username"].Value = textBox3.Text;
+                selectedRow.Cells["password"].Value = textBox4.Text;
+                selectedRow.Cells["designation"].Value = textBox5.Text;
+                selectedRow.Cells["address"].Value = textBox6.Text;
+                selectedRow.Cells["contactno"].Value = textBox7.Text;
 
-                        cmd.Parameters.AddWithValue("@ID", id);
-                        cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
-                        cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
-                        cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
-                        cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                        cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
-                        cmd.Parameters.AddWithValue("@Address", textBox6.Text);
-                        cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
-
-
+                // Clear the text boxes after updating
                 Clear();
-                UpdateDataGridView();
             }
             else
             {
@@ -259,7 +242,19 @@ namespace BenpilsBarcodeSystem
         }
         private void button10_Click_1(object sender, EventArgs e)
         {
-     
+            // Check if a row is selected in dataGridView1
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                dataGridView1.Rows.Remove(selectedRow);
+
+                // Clear the text boxes after deleting
+                ClearTextBoxes();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete.");
+            }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

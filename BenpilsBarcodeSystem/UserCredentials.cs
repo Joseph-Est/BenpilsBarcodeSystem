@@ -227,7 +227,7 @@ namespace BenpilsBarcodeSystem
                     "[contactno] = @ContactNo " +
                     "WHERE ID = @ID";
 
-                using (SqlConnection con = new SqlConnection("YourConnectionString"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                     {

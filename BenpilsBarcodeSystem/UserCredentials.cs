@@ -21,6 +21,7 @@ namespace BenpilsBarcodeSystem
         public UserCredentials()
         {
             InitializeComponent();
+    
         }
     
         private void button1_Click(object sender, EventArgs e)
@@ -181,9 +182,9 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
                     cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
                     cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@Designation", textBox5.Text);
-                    cmd.Parameters.AddWithValue("@Address", textBox6.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", textBox7.Text);
+                    cmd.Parameters.AddWithValue("@Address", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@ContactNo", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@Designation", comboBox1.Text);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -209,12 +210,19 @@ namespace BenpilsBarcodeSystem
 
         private void button11_Click(object sender, EventArgs e)
         {
-       
+            
         }
    
         private void button10_Click_1(object sender, EventArgs e)
         {
          
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Admin");
+            comboBox1.Items.Add("SuperAdmin");
+            comboBox1.Items.Add("Employee");
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

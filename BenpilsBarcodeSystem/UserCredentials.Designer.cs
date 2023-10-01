@@ -74,7 +74,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -93,7 +92,7 @@
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userCredentialsDataSet = new BenpilsBarcodeSystem.UserCredentialsDataSet();
             this.tbl_loginTableAdapter = new BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -562,7 +561,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 501);
+            this.textBox3.Location = new System.Drawing.Point(276, 504);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(157, 20);
@@ -571,7 +570,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(276, 524);
+            this.textBox4.Location = new System.Drawing.Point(276, 526);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(157, 20);
@@ -580,7 +579,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(276, 547);
+            this.textBox5.Location = new System.Drawing.Point(276, 574);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(157, 20);
@@ -588,19 +587,11 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(276, 571);
+            this.textBox6.Location = new System.Drawing.Point(276, 595);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(157, 20);
             this.textBox6.TabIndex = 32;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(276, 595);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(157, 20);
-            this.textBox7.TabIndex = 33;
             // 
             // button4
             // 
@@ -768,19 +759,21 @@
             // 
             this.tbl_loginTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox9
+            // comboBox1
             // 
-            this.textBox9.Location = new System.Drawing.Point(276, 621);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(154, 20);
-            this.textBox9.TabIndex = 43;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(276, 551);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 21);
+            this.comboBox1.TabIndex = 43;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 680);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -788,7 +781,6 @@
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
@@ -882,7 +874,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox8;
@@ -901,6 +892,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

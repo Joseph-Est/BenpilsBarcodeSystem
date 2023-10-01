@@ -225,13 +225,13 @@ namespace BenpilsBarcodeSystem
                     "SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, " +
                     "[password] = @Password, designation = @Designation, address = @Address, " +
                     "[contactno] = @ContactNo " +
-                    "WHERE ID = @ID";
+                    "WHERE ID = @id";
 
                 using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
                         cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
                         cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
@@ -257,7 +257,43 @@ namespace BenpilsBarcodeSystem
    
         private void button10_Click_1(object sender, EventArgs e)
         {
-         
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                int id = Convert.ToInt32(selectedRow.Cells["id"].Value);
+
+                string updateQuery = "UPDATE tbl_login " +
+                    "SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, " +
+                    "[password] = @Password, designation = @Designation, address = @Address, " +
+                    "[contactno] = @ContactNo " +
+                    "WHERE ID = @id";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
+                        cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
+                        cmd.Parameters.AddWithValue("@Password", textBox4.Text);
+                        cmd.Parameters.AddWithValue("@Address", textBox5.Text);
+                        cmd.Parameters.AddWithValue("@ContactNo", textBox6.Text);
+                        cmd.Parameters.AddWithValue("@Designation", comboBox1.Text);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

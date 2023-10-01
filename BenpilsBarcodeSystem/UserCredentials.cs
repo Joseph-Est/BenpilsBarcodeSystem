@@ -21,7 +21,9 @@ namespace BenpilsBarcodeSystem
         public UserCredentials()
         {
             InitializeComponent();
-    
+            comboBox1.Items.Add("Admin");
+            comboBox1.Items.Add("SuperAdmin");
+            comboBox1.Items.Add("Employee");
         }
     
         private void button1_Click(object sender, EventArgs e)
@@ -220,9 +222,7 @@ namespace BenpilsBarcodeSystem
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Admin");
-            comboBox1.Items.Add("SuperAdmin");
-            comboBox1.Items.Add("Employee");
+          
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

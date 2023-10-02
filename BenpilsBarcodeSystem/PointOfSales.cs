@@ -90,7 +90,7 @@ namespace BenpilsBarcodeSystem
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
-            ce.Show();
+            ce.ShowDialog();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

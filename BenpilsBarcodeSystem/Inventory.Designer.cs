@@ -74,18 +74,18 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.TxtBarcode = new System.Windows.Forms.TextBox();
+            this.TxtPriceCode = new System.Windows.Forms.TextBox();
+            this.TxtUnitPrice = new System.Windows.Forms.TextBox();
+            this.TxtQuantity = new System.Windows.Forms.TextBox();
+            this.TxtSize = new System.Windows.Forms.TextBox();
+            this.TxtCategory = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtMotorBrand = new System.Windows.Forms.TextBox();
+            this.TxtBrand = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -580,47 +580,47 @@
             this.textBox1.Size = new System.Drawing.Size(183, 20);
             this.textBox1.TabIndex = 55;
             // 
-            // textBox2
+            // TxtBarcode
             // 
-            this.textBox2.Location = new System.Drawing.Point(286, 501);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 20);
-            this.textBox2.TabIndex = 56;
+            this.TxtBarcode.Location = new System.Drawing.Point(286, 501);
+            this.TxtBarcode.Name = "TxtBarcode";
+            this.TxtBarcode.Size = new System.Drawing.Size(183, 20);
+            this.TxtBarcode.TabIndex = 56;
             // 
-            // textBox5
+            // TxtPriceCode
             // 
-            this.textBox5.Location = new System.Drawing.Point(286, 612);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(183, 20);
-            this.textBox5.TabIndex = 59;
+            this.TxtPriceCode.Location = new System.Drawing.Point(286, 612);
+            this.TxtPriceCode.Name = "TxtPriceCode";
+            this.TxtPriceCode.Size = new System.Drawing.Size(183, 20);
+            this.TxtPriceCode.TabIndex = 59;
             // 
-            // textBox6
+            // TxtUnitPrice
             // 
-            this.textBox6.Location = new System.Drawing.Point(563, 458);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(183, 20);
-            this.textBox6.TabIndex = 60;
+            this.TxtUnitPrice.Location = new System.Drawing.Point(563, 458);
+            this.TxtUnitPrice.Name = "TxtUnitPrice";
+            this.TxtUnitPrice.Size = new System.Drawing.Size(183, 20);
+            this.TxtUnitPrice.TabIndex = 60;
             // 
-            // textBox7
+            // TxtQuantity
             // 
-            this.textBox7.Location = new System.Drawing.Point(563, 496);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(183, 20);
-            this.textBox7.TabIndex = 61;
+            this.TxtQuantity.Location = new System.Drawing.Point(563, 496);
+            this.TxtQuantity.Name = "TxtQuantity";
+            this.TxtQuantity.Size = new System.Drawing.Size(183, 20);
+            this.TxtQuantity.TabIndex = 61;
             // 
-            // textBox9
+            // TxtSize
             // 
-            this.textBox9.Location = new System.Drawing.Point(563, 536);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(183, 20);
-            this.textBox9.TabIndex = 62;
+            this.TxtSize.Location = new System.Drawing.Point(563, 536);
+            this.TxtSize.Name = "TxtSize";
+            this.TxtSize.Size = new System.Drawing.Size(183, 20);
+            this.TxtSize.TabIndex = 62;
             // 
-            // textBox10
+            // TxtCategory
             // 
-            this.textBox10.Location = new System.Drawing.Point(563, 573);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(183, 20);
-            this.textBox10.TabIndex = 63;
+            this.TxtCategory.Location = new System.Drawing.Point(563, 573);
+            this.TxtCategory.Name = "TxtCategory";
+            this.TxtCategory.Size = new System.Drawing.Size(183, 20);
+            this.TxtCategory.TabIndex = 63;
             // 
             // button4
             // 
@@ -667,37 +667,37 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // textBox3
+            // TxtMotorBrand
             // 
-            this.textBox3.Location = new System.Drawing.Point(286, 536);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 20);
-            this.textBox3.TabIndex = 68;
+            this.TxtMotorBrand.Location = new System.Drawing.Point(286, 536);
+            this.TxtMotorBrand.Name = "TxtMotorBrand";
+            this.TxtMotorBrand.Size = new System.Drawing.Size(183, 20);
+            this.TxtMotorBrand.TabIndex = 68;
             // 
-            // textBox4
+            // TxtBrand
             // 
-            this.textBox4.Location = new System.Drawing.Point(286, 573);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 20);
-            this.textBox4.TabIndex = 69;
+            this.TxtBrand.Location = new System.Drawing.Point(286, 573);
+            this.TxtBrand.Name = "TxtBrand";
+            this.TxtBrand.Size = new System.Drawing.Size(183, 20);
+            this.TxtBrand.TabIndex = 69;
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 679);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TxtBrand);
+            this.Controls.Add(this.TxtMotorBrand);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TxtCategory);
+            this.Controls.Add(this.TxtSize);
+            this.Controls.Add(this.TxtQuantity);
+            this.Controls.Add(this.TxtUnitPrice);
+            this.Controls.Add(this.TxtPriceCode);
+            this.Controls.Add(this.TxtBarcode);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -788,17 +788,17 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox TxtBarcode;
+        private System.Windows.Forms.TextBox TxtPriceCode;
+        private System.Windows.Forms.TextBox TxtUnitPrice;
+        private System.Windows.Forms.TextBox TxtQuantity;
+        private System.Windows.Forms.TextBox TxtSize;
+        private System.Windows.Forms.TextBox TxtCategory;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtMotorBrand;
+        private System.Windows.Forms.TextBox TxtBrand;
     }
 }

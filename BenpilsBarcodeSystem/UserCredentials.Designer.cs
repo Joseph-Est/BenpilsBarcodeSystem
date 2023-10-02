@@ -68,18 +68,18 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.TxtFirstName = new System.Windows.Forms.TextBox();
+            this.TxtLastName = new System.Windows.Forms.TextBox();
+            this.TxtUsername = new System.Windows.Forms.TextBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.TxtAddress = new System.Windows.Forms.TextBox();
+            this.TxtContactNo = new System.Windows.Forms.TextBox();
+            this.Addbtn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.ArchiveBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,7 +102,7 @@
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userCredentialsDataSet = new BenpilsBarcodeSystem.UserCredentialsDataSet();
             this.tbl_loginTableAdapter = new BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ComboDesignation = new System.Windows.Forms.ComboBox();
             this.userCredentialsDataSet1 = new BenpilsBarcodeSystem.UserCredentialsDataSet1();
             this.tblloginBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_loginTableAdapter1 = new BenpilsBarcodeSystem.UserCredentialsDataSet1TableAdapters.tbl_loginTableAdapter();
@@ -565,68 +565,68 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Contact No:";
             // 
-            // textBox1
+            // TxtFirstName
             // 
-            this.textBox1.Location = new System.Drawing.Point(276, 452);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 20);
-            this.textBox1.TabIndex = 27;
+            this.TxtFirstName.Location = new System.Drawing.Point(276, 452);
+            this.TxtFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtFirstName.Name = "TxtFirstName";
+            this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
+            this.TxtFirstName.TabIndex = 27;
             // 
-            // textBox2
+            // TxtLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(276, 477);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.TxtLastName.Location = new System.Drawing.Point(276, 477);
+            this.TxtLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtLastName.Name = "TxtLastName";
+            this.TxtLastName.Size = new System.Drawing.Size(157, 20);
+            this.TxtLastName.TabIndex = 28;
+            this.TxtLastName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // TxtUsername
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 504);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 29;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.TxtUsername.Location = new System.Drawing.Point(276, 504);
+            this.TxtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtUsername.Name = "TxtUsername";
+            this.TxtUsername.Size = new System.Drawing.Size(157, 20);
+            this.TxtUsername.TabIndex = 29;
+            this.TxtUsername.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox4
+            // TxtPassword
             // 
-            this.textBox4.Location = new System.Drawing.Point(276, 526);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(157, 20);
-            this.textBox4.TabIndex = 30;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.TxtPassword.Location = new System.Drawing.Point(276, 526);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(157, 20);
+            this.TxtPassword.TabIndex = 30;
+            this.TxtPassword.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox5
+            // TxtAddress
             // 
-            this.textBox5.Location = new System.Drawing.Point(276, 574);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(157, 20);
-            this.textBox5.TabIndex = 31;
+            this.TxtAddress.Location = new System.Drawing.Point(276, 574);
+            this.TxtAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtAddress.Name = "TxtAddress";
+            this.TxtAddress.Size = new System.Drawing.Size(157, 20);
+            this.TxtAddress.TabIndex = 31;
             // 
-            // textBox6
+            // TxtContactNo
             // 
-            this.textBox6.Location = new System.Drawing.Point(276, 595);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(157, 20);
-            this.textBox6.TabIndex = 32;
+            this.TxtContactNo.Location = new System.Drawing.Point(276, 595);
+            this.TxtContactNo.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtContactNo.Name = "TxtContactNo";
+            this.TxtContactNo.Size = new System.Drawing.Size(157, 20);
+            this.TxtContactNo.TabIndex = 32;
             // 
-            // button4
+            // Addbtn
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(530, 459);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 54);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Addbtn.Location = new System.Drawing.Point(530, 459);
+            this.Addbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Addbtn.Name = "Addbtn";
+            this.Addbtn.Size = new System.Drawing.Size(93, 54);
+            this.Addbtn.TabIndex = 34;
+            this.Addbtn.Text = "Add";
+            this.Addbtn.UseVisualStyleBackColor = true;
+            this.Addbtn.Click += new System.EventHandler(this.button4_Click);
             // 
             // label14
             // 
@@ -647,40 +647,40 @@
             this.textBox8.Size = new System.Drawing.Size(130, 20);
             this.textBox8.TabIndex = 0;
             // 
-            // button10
+            // DeleteBtn
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(663, 459);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(93, 54);
-            this.button10.TabIndex = 39;
-            this.button10.Text = "Delete";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteBtn.Location = new System.Drawing.Point(663, 459);
+            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(93, 54);
+            this.DeleteBtn.TabIndex = 39;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.button10_Click_1);
             // 
-            // button11
+            // UpdateBtn
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(530, 536);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(93, 54);
-            this.button11.TabIndex = 40;
-            this.button11.Text = "Update";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Location = new System.Drawing.Point(530, 536);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
+            this.UpdateBtn.TabIndex = 40;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button12
+            // ArchiveBtn
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(663, 536);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(93, 54);
-            this.button12.TabIndex = 41;
-            this.button12.Text = "Archive";
-            this.button12.UseVisualStyleBackColor = true;
+            this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchiveBtn.Location = new System.Drawing.Point(663, 536);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ArchiveBtn.Name = "ArchiveBtn";
+            this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
+            this.ArchiveBtn.TabIndex = 41;
+            this.ArchiveBtn.Text = "Archive";
+            this.ArchiveBtn.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -849,14 +849,14 @@
             // 
             this.tbl_loginTableAdapter.ClearBeforeFill = true;
             // 
-            // comboBox1
+            // ComboDesignation
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(276, 551);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 21);
-            this.comboBox1.TabIndex = 43;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.ComboDesignation.FormattingEnabled = true;
+            this.ComboDesignation.Location = new System.Drawing.Point(276, 551);
+            this.ComboDesignation.Name = "ComboDesignation";
+            this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
+            this.ComboDesignation.TabIndex = 43;
+            this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // userCredentialsDataSet1
             // 
@@ -895,20 +895,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 680);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.ComboDesignation);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.ArchiveBtn);
+            this.Controls.Add(this.UpdateBtn);
+            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Addbtn);
+            this.Controls.Add(this.TxtContactNo);
+            this.Controls.Add(this.TxtAddress);
+            this.Controls.Add(this.TxtPassword);
+            this.Controls.Add(this.TxtUsername);
+            this.Controls.Add(this.TxtLastName);
+            this.Controls.Add(this.TxtFirstName);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -996,23 +996,23 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox TxtFirstName;
+        private System.Windows.Forms.TextBox TxtLastName;
+        private System.Windows.Forms.TextBox TxtUsername;
+        private System.Windows.Forms.TextBox TxtPassword;
+        private System.Windows.Forms.TextBox TxtAddress;
+        private System.Windows.Forms.TextBox TxtContactNo;
+        private System.Windows.Forms.Button Addbtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private UserCredentialsDataSet userCredentialsDataSet;
         private System.Windows.Forms.BindingSource tblloginBindingSource;
         private UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter tbl_loginTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ComboDesignation;
         private UserCredentialsDataSet1 userCredentialsDataSet1;
         private System.Windows.Forms.BindingSource tblloginBindingSource1;
         private UserCredentialsDataSet1TableAdapters.tbl_loginTableAdapter tbl_loginTableAdapter1;

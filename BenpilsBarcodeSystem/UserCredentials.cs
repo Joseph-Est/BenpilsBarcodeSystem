@@ -21,9 +21,9 @@ namespace BenpilsBarcodeSystem
         public UserCredentials()
         {
             InitializeComponent();
-            comboBox1.Items.Add("Admin");
-            comboBox1.Items.Add("SuperAdmin");
-            comboBox1.Items.Add("Employee");
+            ComboDesignation.Items.Add("Admin");
+            ComboDesignation.Items.Add("SuperAdmin");
+            ComboDesignation.Items.Add("Employee");
         }
     
         private void button1_Click(object sender, EventArgs e)
@@ -186,13 +186,13 @@ namespace BenpilsBarcodeSystem
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@Address", textBox5.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", textBox6.Text);
-                    cmd.Parameters.AddWithValue("@Designation", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@FirstName", TxtFirstName.Text);
+                    cmd.Parameters.AddWithValue("@LastName", TxtLastName.Text);
+                    cmd.Parameters.AddWithValue("@UserName", TxtUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
+                    cmd.Parameters.AddWithValue("@Address", TxtAddress.Text);
+                    cmd.Parameters.AddWithValue("@ContactNo", TxtContactNo.Text);
+                    cmd.Parameters.AddWithValue("@Designation", ComboDesignation.Text);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -235,13 +235,13 @@ namespace BenpilsBarcodeSystem
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@ID", selectedRowID);
-                    cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@UserName", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@Password", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@Address", textBox5.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", textBox6.Text);
-                    cmd.Parameters.AddWithValue("@Designation", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@FirstName", TxtFirstName.Text);
+                    cmd.Parameters.AddWithValue("@LastName", TxtLastName.Text);
+                    cmd.Parameters.AddWithValue("@UserName", TxtUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
+                    cmd.Parameters.AddWithValue("@Address", TxtAddress.Text);
+                    cmd.Parameters.AddWithValue("@ContactNo", TxtContactNo.Text);
+                    cmd.Parameters.AddWithValue("@Designation", ComboDesignation.Text);
 
                     con.Open();
                     cmd.ExecuteNonQuery();

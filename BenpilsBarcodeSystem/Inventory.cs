@@ -128,6 +128,11 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;

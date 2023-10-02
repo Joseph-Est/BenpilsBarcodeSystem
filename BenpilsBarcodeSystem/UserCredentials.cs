@@ -21,6 +21,10 @@ namespace BenpilsBarcodeSystem
         public UserCredentials()
         {
             InitializeComponent();
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
             ComboDesignation.Items.Add("Admin");
             ComboDesignation.Items.Add("SuperAdmin");
             ComboDesignation.Items.Add("Employee");
@@ -303,6 +307,12 @@ namespace BenpilsBarcodeSystem
         private void TxtFirstName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = "TIME: " + DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = "DATE: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

@@ -18,6 +18,10 @@ namespace BenpilsBarcodeSystem
         public Reports()
         {
             InitializeComponent();
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -116,6 +120,12 @@ namespace BenpilsBarcodeSystem
                 this.Left += e.X - mouseX;
                 this.Top += e.Y - mouseY;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = "TIME: " + DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = "DATE: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

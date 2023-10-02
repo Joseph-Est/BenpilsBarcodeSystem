@@ -74,11 +74,8 @@
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.TxtAddress = new System.Windows.Forms.TextBox();
             this.TxtContactNo = new System.Windows.Forms.TextBox();
-            this.Addbtn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.DeleteBtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,7 +99,6 @@
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userCredentialsDataSet = new BenpilsBarcodeSystem.UserCredentialsDataSet();
             this.tbl_loginTableAdapter = new BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter();
-            this.ComboDesignation = new System.Windows.Forms.ComboBox();
             this.userCredentialsDataSet1 = new BenpilsBarcodeSystem.UserCredentialsDataSet1();
             this.tblloginBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_loginTableAdapter1 = new BenpilsBarcodeSystem.UserCredentialsDataSet1TableAdapters.tbl_loginTableAdapter();
@@ -110,6 +106,10 @@
             this.tblusercredentialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_usercredentialTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseDataSetTableAdapters.tbl_usercredentialTableAdapter();
             this.tbl_usercredentialTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseDataSet1TableAdapters.tbl_usercredentialTableAdapter();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.DeleteBtn = new System.Windows.Forms.Button();
+            this.ComboDesignation = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -572,6 +572,7 @@
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
             this.TxtFirstName.TabIndex = 27;
+            this.TxtFirstName.TextChanged += new System.EventHandler(this.TxtFirstName_TextChanged);
             // 
             // TxtLastName
             // 
@@ -616,18 +617,6 @@
             this.TxtContactNo.Size = new System.Drawing.Size(157, 20);
             this.TxtContactNo.TabIndex = 32;
             // 
-            // Addbtn
-            // 
-            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbtn.Location = new System.Drawing.Point(530, 459);
-            this.Addbtn.Margin = new System.Windows.Forms.Padding(2);
-            this.Addbtn.Name = "Addbtn";
-            this.Addbtn.Size = new System.Drawing.Size(93, 54);
-            this.Addbtn.TabIndex = 34;
-            this.Addbtn.Text = "Add";
-            this.Addbtn.UseVisualStyleBackColor = true;
-            this.Addbtn.Click += new System.EventHandler(this.button4_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -646,30 +635,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(130, 20);
             this.textBox8.TabIndex = 0;
-            // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBtn.Location = new System.Drawing.Point(663, 459);
-            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(93, 54);
-            this.DeleteBtn.TabIndex = 39;
-            this.DeleteBtn.Text = "Delete";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
-            this.DeleteBtn.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(530, 536);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
-            this.UpdateBtn.TabIndex = 40;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.Click += new System.EventHandler(this.button11_Click);
             // 
             // ArchiveBtn
             // 
@@ -849,15 +814,6 @@
             // 
             this.tbl_loginTableAdapter.ClearBeforeFill = true;
             // 
-            // ComboDesignation
-            // 
-            this.ComboDesignation.FormattingEnabled = true;
-            this.ComboDesignation.Location = new System.Drawing.Point(276, 551);
-            this.ComboDesignation.Name = "ComboDesignation";
-            this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
-            this.ComboDesignation.TabIndex = 43;
-            this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // userCredentialsDataSet1
             // 
             this.userCredentialsDataSet1.DataSetName = "UserCredentialsDataSet1";
@@ -890,19 +846,58 @@
             // 
             this.tbl_usercredentialTableAdapter1.ClearBeforeFill = true;
             // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(530, 536);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
+            this.UpdateBtn.TabIndex = 44;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click_1);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Location = new System.Drawing.Point(530, 460);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(93, 54);
+            this.AddBtn.TabIndex = 45;
+            this.AddBtn.Text = "Add";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(663, 460);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(93, 54);
+            this.DeleteBtn.TabIndex = 46;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // ComboDesignation
+            // 
+            this.ComboDesignation.FormattingEnabled = true;
+            this.ComboDesignation.Location = new System.Drawing.Point(276, 551);
+            this.ComboDesignation.Name = "ComboDesignation";
+            this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
+            this.ComboDesignation.TabIndex = 47;
+            this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
+            // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 680);
             this.Controls.Add(this.ComboDesignation);
+            this.Controls.Add(this.DeleteBtn);
+            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ArchiveBtn);
-            this.Controls.Add(this.UpdateBtn);
-            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.Addbtn);
             this.Controls.Add(this.TxtContactNo);
             this.Controls.Add(this.TxtAddress);
             this.Controls.Add(this.TxtPassword);
@@ -1002,17 +997,13 @@
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtAddress;
         private System.Windows.Forms.TextBox TxtContactNo;
-        private System.Windows.Forms.Button Addbtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button DeleteBtn;
-        private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private UserCredentialsDataSet userCredentialsDataSet;
         private System.Windows.Forms.BindingSource tblloginBindingSource;
         private UserCredentialsDataSetTableAdapters.tbl_loginTableAdapter tbl_loginTableAdapter;
-        private System.Windows.Forms.ComboBox ComboDesignation;
         private UserCredentialsDataSet1 userCredentialsDataSet1;
         private System.Windows.Forms.BindingSource tblloginBindingSource1;
         private UserCredentialsDataSet1TableAdapters.tbl_loginTableAdapter tbl_loginTableAdapter1;
@@ -1038,5 +1029,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.ComboBox ComboDesignation;
     }
 }

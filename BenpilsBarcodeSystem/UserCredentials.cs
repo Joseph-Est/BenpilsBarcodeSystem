@@ -177,7 +177,21 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+       
+
+     
+   
+     
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+
+   
+
+        private void AddBtn_Click(object sender, EventArgs e)
         {
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
                          "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
@@ -202,21 +216,9 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
-        private void UpdateDataGridView()
-        {
-            string selectQuery = "SELECT * FROM tbl_usercredential";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
-            }
-        }
+      
 
-        private void button11_Click(object sender, EventArgs e)
+        private void UpdateBtn_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -224,7 +226,7 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-      
+
             int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
             string updateQuery = "UPDATE tbl_usercredential SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
@@ -251,8 +253,8 @@ namespace BenpilsBarcodeSystem
 
             UpdateDataGridView();
         }
-   
-        private void button10_Click_1(object sender, EventArgs e)
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
@@ -279,9 +281,28 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateDataGridView()
         {
-          
+            string selectQuery = "SELECT * FROM tbl_usercredential";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+        }
+
+        private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

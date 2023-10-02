@@ -29,7 +29,7 @@ namespace BenpilsBarcodeSystem
             ComboDesignation.Items.Add("SuperAdmin");
             ComboDesignation.Items.Add("Employee");
         }
-    
+        //DashBoard Button
         private void button1_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();
@@ -38,7 +38,7 @@ namespace BenpilsBarcodeSystem
             dash.Location = this.Location;
             this.Hide();
         }
-
+        //Point of sales button
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos = new PointOfSales();
@@ -47,7 +47,7 @@ namespace BenpilsBarcodeSystem
             pos.Location = this.Location;
             this.Hide();
         }
-
+        //Inventory Button
         private void button2_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory();
@@ -56,7 +56,7 @@ namespace BenpilsBarcodeSystem
             inv.Location = this.Location;
             this.Hide();
         }
-
+        //Purchasing Button
         private void button5_Click(object sender, EventArgs e)
         {
             Purchasing purchasing = new Purchasing();
@@ -65,7 +65,7 @@ namespace BenpilsBarcodeSystem
             purchasing.Location = this.Location;
             this.Hide();
         }
-
+        //Reports Button
         private void button6_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports();
@@ -74,7 +74,7 @@ namespace BenpilsBarcodeSystem
             reports.Location = this.Location;
             this.Hide();
         }
-
+        //Statistics Report Button
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport sreport = new StatisticReport();
@@ -88,7 +88,7 @@ namespace BenpilsBarcodeSystem
         {
           
         }
-
+        //Settings Button
         private void button9_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
@@ -97,13 +97,13 @@ namespace BenpilsBarcodeSystem
             settings.Location = this.Location;
             this.Hide();
         }
-
+        //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
             ce.ShowDialog();
         }
-
+        //Minimize button
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -161,10 +161,7 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
@@ -187,10 +184,7 @@ namespace BenpilsBarcodeSystem
    
      
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
+   
 
 
    
@@ -313,6 +307,11 @@ namespace BenpilsBarcodeSystem
         {
             label4.Text = "TIME: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "DATE: " + DateTime.Now.ToString("yyyy-MM-dd");
+        }
+
+        private void TxtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

@@ -75,7 +75,7 @@
             this.TxtAddress = new System.Windows.Forms.TextBox();
             this.TxtContactNo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -629,13 +629,14 @@
             this.label14.TabIndex = 38;
             this.label14.Text = "Search:";
             // 
-            // textBox8
+            // TxtSearchBar
             // 
-            this.textBox8.Location = new System.Drawing.Point(256, 87);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(130, 20);
-            this.textBox8.TabIndex = 0;
+            this.TxtSearchBar.Location = new System.Drawing.Point(256, 87);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSearchBar.Name = "TxtSearchBar";
+            this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
+            this.TxtSearchBar.TabIndex = 0;
+            this.TxtSearchBar.TextChanged += new System.EventHandler(this.TxtSearchBar_TextChanged);
             // 
             // ArchiveBtn
             // 
@@ -897,7 +898,7 @@
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ArchiveBtn);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.TxtSearchBar);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TxtContactNo);
             this.Controls.Add(this.TxtAddress);
@@ -999,7 +1000,7 @@
         private System.Windows.Forms.TextBox TxtAddress;
         private System.Windows.Forms.TextBox TxtContactNo;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private UserCredentialsDataSet userCredentialsDataSet;

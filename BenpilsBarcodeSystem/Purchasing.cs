@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem
         {
 
         }
-
+        //Dashboard Button
         private void button1_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();
@@ -36,7 +36,7 @@ namespace BenpilsBarcodeSystem
             dash.Location = this.Location;
             this.Hide();
         }
-
+        //Point Of Sales Button
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos = new PointOfSales();
@@ -45,7 +45,7 @@ namespace BenpilsBarcodeSystem
             pos.Location = this.Location;
             this.Hide();
         }
-
+        //Inventory Button
         private void button2_Click(object sender, EventArgs e)
         {
             Inventory inventory = new Inventory();
@@ -54,7 +54,7 @@ namespace BenpilsBarcodeSystem
             inventory.Location = this.Location;
             this.Hide();
         }
-
+        //Reports Button
         private void button6_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports();
@@ -63,7 +63,7 @@ namespace BenpilsBarcodeSystem
             reports.Location = this.Location;
             this.Hide();
         }
-
+        //Statistic Reports Button
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport sreport = new StatisticReport();
@@ -72,7 +72,7 @@ namespace BenpilsBarcodeSystem
             sreport.Location = this.Location;
             this.Hide();
         }
-
+        //UserCredentials Button
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials credentials = new UserCredentials();
@@ -81,7 +81,7 @@ namespace BenpilsBarcodeSystem
             credentials.Location = this.Location;
             this.Hide();
         }
-
+        //Settings Button
         private void button9_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
@@ -90,13 +90,13 @@ namespace BenpilsBarcodeSystem
             set.Location = this.Location;
             this.Hide();
         }
-
+        //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
             ce.ShowDialog();
         }
-
+        //Close Button
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;

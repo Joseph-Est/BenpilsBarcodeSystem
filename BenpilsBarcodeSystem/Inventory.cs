@@ -22,7 +22,7 @@ namespace BenpilsBarcodeSystem
             timer.Tick += timer1_Tick;
             timer.Start();
         }
-
+        //Dashboard Button
         private void button1_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();
@@ -32,7 +32,7 @@ namespace BenpilsBarcodeSystem
             this.Hide();
 
         }
-
+        //Point Of Sales Button
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos = new PointOfSales();
@@ -46,7 +46,7 @@ namespace BenpilsBarcodeSystem
         {
          
         }
-
+        //Purchasing Button
         private void button5_Click(object sender, EventArgs e)
         {
             Purchasing purchase = new Purchasing();
@@ -55,7 +55,7 @@ namespace BenpilsBarcodeSystem
             purchase.Location = this.Location;
             this.Hide();
         }
-
+        //Reports Button
         private void button6_Click(object sender, EventArgs e)
         {
             Reports rp = new Reports();
@@ -64,7 +64,7 @@ namespace BenpilsBarcodeSystem
             rp.Location = this.Location;
             this.Hide();
         }
-
+        //StatisticReports Button
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport sreport = new StatisticReport();
@@ -73,7 +73,7 @@ namespace BenpilsBarcodeSystem
             sreport.Location = this.Location;
             this.Hide();
         }
-
+        //Usercredentials Button
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials Uc = new UserCredentials();
@@ -82,7 +82,7 @@ namespace BenpilsBarcodeSystem
             Uc.Location = this.Location;
             this.Hide();
         }
-
+        //Settings Button
         private void button9_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
@@ -91,12 +91,12 @@ namespace BenpilsBarcodeSystem
             set.Location = this.Location;
             this.Hide();
         }
-
+        //Minimize Button
         private void label6_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();

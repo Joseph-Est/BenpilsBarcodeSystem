@@ -95,7 +95,7 @@ namespace BenpilsBarcodeSystem
             credentials.Location = this.Location;
             this.Hide();
         }
-
+        //Settings Button
         private void button9_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();

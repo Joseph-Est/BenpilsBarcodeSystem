@@ -254,7 +254,29 @@ namespace BenpilsBarcodeSystem
    
         private void button10_Click_1(object sender, EventArgs e)
         {
-          
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.");
+                return;
+            }
+
+            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+            string deleteQuery = "DELETE FROM tbl_usercredential WHERE ID = @ID";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

@@ -15,21 +15,22 @@ namespace BenpilsBarcodeSystem
     {
         private bool IsDragging = false;
         private int mouseX,mouseY;
-       
+        
         public Dashboard()
         {
             InitializeComponent();
             Timer timer = new Timer();
-            timer.Interval = 1000; // 1 second
+            timer.Interval = 1000; 
             timer.Tick += timer1_Tick;
             timer.Start();
+            
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
+        //To point of sales
         private void button3_Click(object sender, EventArgs e)
         {
             PointOfSales pos =  new PointOfSales();
@@ -38,18 +39,18 @@ namespace BenpilsBarcodeSystem
             pos.Location = this.Location;
             this.Hide();
         }
-
+        //close button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
             ce.ShowDialog();
         }
-
+        //minimize button
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        //inventory button
         private void button2_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory();
@@ -58,7 +59,7 @@ namespace BenpilsBarcodeSystem
             inv.Location = this.Location;
             this.Hide();
         }
-
+        //purchasing button
         private void button5_Click(object sender, EventArgs e)
         {
             Purchasing purchasing = new Purchasing();
@@ -67,7 +68,7 @@ namespace BenpilsBarcodeSystem
             purchasing.Location = this.Location;
             this.Hide();
         }
-
+        //reports button
         private void button6_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports();
@@ -76,7 +77,7 @@ namespace BenpilsBarcodeSystem
             reports.Location = this.Location;
             this.Hide();
         }
-
+        //Statistic reports button
         private void button7_Click(object sender, EventArgs e)
         {
             StatisticReport statisticReport = new StatisticReport();
@@ -85,7 +86,7 @@ namespace BenpilsBarcodeSystem
             statisticReport.Location = this.Location;
             this.Hide();
         }
-
+        //Usercredentials button
         private void button8_Click(object sender, EventArgs e)
         {
             UserCredentials credentials = new UserCredentials();
@@ -132,13 +133,11 @@ namespace BenpilsBarcodeSystem
         {
             IsDragging = false;
         }
-   
+    
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label4.Text = DateTime.Now.ToString("HH:mm:ss");
-
-           
-            label3.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            label4.Text = "TIME: " + DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = "DATE: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -17,6 +17,10 @@ namespace BenpilsBarcodeSystem
         public Inventory()
         {
             InitializeComponent();
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)

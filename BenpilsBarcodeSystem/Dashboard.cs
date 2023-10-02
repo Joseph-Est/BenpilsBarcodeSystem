@@ -19,6 +19,10 @@ namespace BenpilsBarcodeSystem
         public Dashboard()
         {
             InitializeComponent();
+            Timer timer = new Timer();
+            timer.Interval = 1000; // 1 second
+            timer.Tick += timer1_Tick;
+            timer.Start();
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -128,11 +132,13 @@ namespace BenpilsBarcodeSystem
         {
             IsDragging = false;
         }
-
+   
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label4.Text = DateTime.Now.ToString("hh:mm:ss");
-            label3.Text = DateTime.Now.ToString("dd-MMM-yyyy");
+            label4.Text = DateTime.Now.ToString("HH:mm:ss");
+
+           
+            label3.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

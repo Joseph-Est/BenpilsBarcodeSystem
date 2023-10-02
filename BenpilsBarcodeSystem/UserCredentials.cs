@@ -126,6 +126,12 @@ namespace BenpilsBarcodeSystem
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet1.tbl_usercredential' table. You can move, or remove it, as needed.
+            this.tbl_usercredentialTableAdapter1.Fill(this.benpillMotorcycleDatabaseDataSet1.tbl_usercredential);
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet.tbl_usercredential' table. You can move, or remove it, as needed.
+            this.tbl_usercredentialTableAdapter.Fill(this.benpillMotorcycleDatabaseDataSet.tbl_usercredential);
+            // TODO: This line of code loads data into the 'userCredentialsDataSet1.tbl_login' table. You can move, or remove it, as needed.
+            this.tbl_loginTableAdapter1.Fill(this.userCredentialsDataSet1.tbl_login);
 
             this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
 
@@ -173,10 +179,10 @@ namespace BenpilsBarcodeSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO tbl_login (firstname, [lastname], username, [password], designation, address, [contactno]) " +
+            string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
                          "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
 
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -198,8 +204,8 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateDataGridView()
         {
-            string selectQuery = "SELECT * FROM tbl_login";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            string selectQuery = "SELECT * FROM tbl_usercredential";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {
@@ -219,16 +225,16 @@ namespace BenpilsBarcodeSystem
             }
 
       
-            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["id"].Value);
 
             string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
-                                 "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @ID";
+                                 "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @id";
 
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
+                    cmd.Parameters.AddWithValue("@id", selectedRowID);
                     cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
                     cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
                     cmd.Parameters.AddWithValue("@UserName", textBox3.Text);

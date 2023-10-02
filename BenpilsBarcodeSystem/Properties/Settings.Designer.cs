@@ -33,5 +33,16 @@ namespace BenpilsBarcodeSystem.Properties {
                 return ((string)(this["UserCredentialsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated " +
+            "Security=True")]
+        public string BenpillMotorcycleDatabaseConnectionString {
+            get {
+                return ((string)(this["BenpillMotorcycleDatabaseConnectionString"]));
+            }
+        }
     }
 }

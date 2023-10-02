@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BenpillMotorcycleDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +118,11 @@
     <Compile Include="UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserCredentialsDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UserCredentialsDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +167,28 @@
     <EmbeddedResource Include="UserCredentials.resx">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BenpillMotorcycleDatabaseDataSet.xsc">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet.xss">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet1.xsc">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,6 +198,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UserCredentialsDataSet11.xsc">
+      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="UserCredentialsDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserCredentialsDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserCredentialsDataSet11.xss">
+      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
+    </None>
     <None Include="UserCredentialsDataSet2.xsc">
       <DependentUpon>UserCredentialsDataSet2.xsd</DependentUpon>
     </None>

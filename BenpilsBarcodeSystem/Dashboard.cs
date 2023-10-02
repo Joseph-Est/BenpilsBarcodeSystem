@@ -129,6 +129,12 @@ namespace BenpilsBarcodeSystem
             IsDragging = false;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = DateTime.Now.ToString("dd-MMM-yyyy");
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

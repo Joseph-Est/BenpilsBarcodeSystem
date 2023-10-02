@@ -225,16 +225,16 @@ namespace BenpilsBarcodeSystem
             }
 
       
-            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["id"].Value);
+            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
-            string updateQuery = "UPDATE tbl_login SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
-                                 "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @id";
+            string updateQuery = "UPDATE tbl_usercredential SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
+                                 "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @ID";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@id", selectedRowID);
+                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
                     cmd.Parameters.AddWithValue("@FirstName", textBox1.Text);
                     cmd.Parameters.AddWithValue("@LastName", textBox2.Text);
                     cmd.Parameters.AddWithValue("@UserName", textBox3.Text);

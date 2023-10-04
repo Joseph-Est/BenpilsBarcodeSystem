@@ -195,6 +195,7 @@ namespace BenpilsBarcodeSystem
             if (AddBtn != null)
             {
                 MessageBox.Show("Please fill up the textboxes below.");
+                return;
             }
            
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +

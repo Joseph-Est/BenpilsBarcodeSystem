@@ -15,31 +15,34 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        private Settings settingForm;
+ 
         public ConfirmationLogout()
         {
             InitializeComponent();
 
         }
-        private void OpenSettingForm()
-        {
-            settingForm = new Settings();
-            settingForm.Show();
-        }
+ 
  
         
 
         private void YesBtn_Click(object sender, EventArgs e)
         {
-            if(settingForm != null)
+            foreach (Form form in Application.OpenForms)
             {
-                settingForm.Close();
+                if (form is Settings)
+                {
+                    form.Close();
+                    break;
+                }
             }
-          
+
+           
+            this.Close();
+
+         
             Form1 form1 = new Form1();
             form1.Show();
-            this.Close();
-            
+
         }
 
         private void NoBtn_Click(object sender, EventArgs e)

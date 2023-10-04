@@ -192,6 +192,7 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+           
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
                          "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
 
@@ -213,6 +214,18 @@ namespace BenpilsBarcodeSystem
                 }
             }
             UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
+
+        private void ClearAllTextBoxes()
+        {
+            TxtFirstName.Text = "";
+            TxtFirstName.Text = "";
+            TxtFirstName.Text = "";
+            TxtFirstName.Text = "";
+            TxtFirstName.Text = "";
+            TxtFirstName.Text = "";
+            ComboDesignation.Text = "";
         }
 
       
@@ -251,6 +264,7 @@ namespace BenpilsBarcodeSystem
             }
 
             UpdateDataGridView();
+            ClearAllTextBoxes();
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)

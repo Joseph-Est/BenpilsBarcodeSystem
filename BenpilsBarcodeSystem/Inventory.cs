@@ -103,7 +103,7 @@ namespace BenpilsBarcodeSystem
             ce.StartPosition = FormStartPosition.CenterScreen;
             ce.ShowDialog();
         }
-
+        
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

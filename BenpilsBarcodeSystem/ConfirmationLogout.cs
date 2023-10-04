@@ -23,11 +23,13 @@ namespace BenpilsBarcodeSystem
 
         private void YesBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Settings settings = new Settings();
-            settings.Close();
+            Settings set = new Settings();
+            set.Close();
+          
             Form1 form1 = new Form1();
             form1.Show();
+            this.Close();
+            
         }
 
         private void NoBtn_Click(object sender, EventArgs e)

@@ -20,54 +20,7 @@ namespace BenpilsBarcodeSystem
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            if (textBox1.Text == "")
-            {
-                MessageBox.Show("Enter the username:");
-            }
-            else if (textBox2.Text == "")
-            {
-                MessageBox.Show("Enter the password");
-            }
-            else
-            {
-                try
-                {
-                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
-                    SqlCommand cmd = new SqlCommand("select * from tbl_usercredential where username = @username and password = @password", con);
-                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@password", textBox2.Text);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
-                    {
-                        string username = dt.Rows[0]["username"].ToString();
-
-                        MessageBox.Show("login succesfull");
-                        Dashboard dash = new Dashboard();
-                        dash.Show();
-                        dash.StartPosition = FormStartPosition.Manual;
-                        dash.Location = this.Location;
-                        this.Hide();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("invalid username and password!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
-                }
-
-
-            }
-        }
+       
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -115,6 +68,54 @@ namespace BenpilsBarcodeSystem
                 textBox2.UseSystemPasswordChar= true;
             }
 
+        }
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Enter the username:");
+            }
+            else if (textBox2.Text == "")
+            {
+                MessageBox.Show("Enter the password");
+            }
+            else
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
+                    SqlCommand cmd = new SqlCommand("select * from tbl_usercredential where username = @username and password = @password", con);
+                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@password", textBox2.Text);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+
+                    da.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        string username = dt.Rows[0]["username"].ToString();
+
+                        MessageBox.Show("login succesfull");
+                        Dashboard dash = new Dashboard();
+                        dash.Show();
+                        dash.StartPosition = FormStartPosition.Manual;
+                        dash.Location = this.Location;
+                        this.Hide();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalid username and password!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+
+
+            }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

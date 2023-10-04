@@ -25,6 +25,7 @@ namespace BenpilsBarcodeSystem
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
+            ce.StartPosition = FormStartPosition.CenterScreen;
             ce.ShowDialog();
         }
 
@@ -99,7 +100,7 @@ namespace BenpilsBarcodeSystem
                         MessageBox.Show("login succesfull");
                         Dashboard dash = new Dashboard();
                         dash.Show();
-                        dash.StartPosition = FormStartPosition.Manual;
+                        dash.StartPosition = FormStartPosition.CenterParent;
                         dash.Location = this.Location;
                         this.Hide();
 

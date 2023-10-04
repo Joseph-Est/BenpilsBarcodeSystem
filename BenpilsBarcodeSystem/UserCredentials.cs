@@ -195,14 +195,20 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (AddBtn != null)
+            if (string.IsNullOrWhiteSpace(TxtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(TxtLastName.Text) ||
+                string.IsNullOrWhiteSpace(TxtUsername.Text) ||
+                string.IsNullOrWhiteSpace(TxtPassword.Text) ||
+                string.IsNullOrWhiteSpace(TxtAddress.Text) ||
+                string.IsNullOrWhiteSpace(TxtContactNo.Text) ||
+                string.IsNullOrWhiteSpace(ComboDesignation.Text))
             {
-                MessageBox.Show("Please fill up the textboxes below.");
+                MessageBox.Show("Please fill up all the textboxes below.");
                 return;
             }
-           
+
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
-                         "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
+                                 "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
@@ -221,6 +227,7 @@ namespace BenpilsBarcodeSystem
                     con.Close();
                 }
             }
+
             UpdateDataGridView();
             ClearAllTextBoxes();
         }

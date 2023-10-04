@@ -62,6 +62,12 @@
     <Compile Include="ConfirmationExit.Designer.cs">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmationLogout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmationLogout.Designer.cs">
+      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="ConfirmationExit.resx">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmationLogout.resx">
+      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

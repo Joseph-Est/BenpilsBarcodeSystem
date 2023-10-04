@@ -500,6 +500,7 @@
             this.pictureBox15.TabIndex = 23;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.UseWaitCursor = true;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // label7
             // 

@@ -234,13 +234,13 @@ namespace BenpilsBarcodeSystem
 
         private void ClearAllTextBoxes()
         {
-            TxtFirstName.Text = "";
-            TxtFirstName.Text = "";
-            TxtFirstName.Text = "";
-            TxtFirstName.Text = "";
-            TxtFirstName.Text = "";
-            TxtFirstName.Text = "";
-            ComboDesignation.Text = "";
+            TxtFirstName.Text = string.Empty;
+            TxtFirstName.Text = string.Empty;
+            TxtFirstName.Text = string.Empty;
+            TxtFirstName.Text = string.Empty;
+            TxtFirstName.Text = string.Empty;
+            TxtFirstName.Text = string.Empty;
+            ComboDesignation.Text = string.Empty;
         }
 
       

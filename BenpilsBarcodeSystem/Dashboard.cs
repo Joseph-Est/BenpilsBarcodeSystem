@@ -28,8 +28,7 @@ namespace BenpilsBarcodeSystem
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Employee")
             {
-                button8.Enabled = false;
-                MessageBox.Show("You don't have access on this module");
+                button8.Enabled = false;  
             }
         }
 

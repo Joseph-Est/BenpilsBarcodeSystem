@@ -31,7 +31,6 @@ namespace BenpilsBarcodeSystem
                 AutomaticBackupBtn.Enabled = false;
                 ManualBackupBtn.Enabled = false;
                 ArchiveButtonBtn.Enabled = false;
-                MessageBox.Show("You don't have access on this module");
             }
         }
         //Dashboard Button

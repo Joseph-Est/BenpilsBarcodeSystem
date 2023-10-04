@@ -148,8 +148,8 @@ namespace BenpilsBarcodeSystem
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label4.Text = "TIME: " + DateTime.Now.ToString("hh:mm:ss");
-            label3.Text = "DATE: " + DateTime.Now.ToString("yyyy-MM-dd");
+            label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

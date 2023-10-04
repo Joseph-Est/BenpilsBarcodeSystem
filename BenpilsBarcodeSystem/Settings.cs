@@ -32,6 +32,10 @@ namespace BenpilsBarcodeSystem
                 ManualBackupBtn.Enabled = false;
                 ArchiveButtonBtn.Enabled = false;
             }
+            else if (user.Designation == "admin")
+            {
+                ArchiveButtonBtn.Enabled = false;
+            }
         }
         //Dashboard Button
         private void button1_Click(object sender, EventArgs e)
@@ -143,7 +147,7 @@ namespace BenpilsBarcodeSystem
         {
 
         }
-
+        //logout button
         private void pictureBox15_Click(object sender, EventArgs e)
         {
             ConfirmationLogout CL = new ConfirmationLogout();

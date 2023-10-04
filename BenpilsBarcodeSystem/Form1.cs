@@ -100,8 +100,7 @@ namespace BenpilsBarcodeSystem
                         MessageBox.Show("login succesfull");
                         Dashboard dash = new Dashboard();
                         dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                        dash.Location = this.Location;
+                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;                   
                         this.Hide();
 
                     }

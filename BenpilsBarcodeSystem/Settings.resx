@@ -447,7 +447,7 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ArchiveButtonBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAADcxJREFUeF7t
         3VuoZnUdxvFxbMysyEwKqosgKaNzQRcFRRcRYSKJSGhDUZp2JQRBF12UQSChRReJHRBSItKLSCsJJYMI
@@ -512,7 +512,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AutomaticBackupBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAKtZJREFUeF7t
         3QmUdVdZJmD/JCSEJIQZgggBREEGGQLI0IQwiCAYRYFFZBIQkG5mJAwqQRoEmhZQUAYXKIPdqC2iiNgu
@@ -700,7 +700,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY2Pd93/8HYN/XYncVo6cAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ManualBackupBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAARV1JREFUeF7t
         3QnYbWPdx/H3HNM5h4NjHjMPoTIUColIplBkCJU4SCLDS6GUMYUMJWSeQiSKCkmUWRlTISpjUmQs5f39

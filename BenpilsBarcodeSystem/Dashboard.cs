@@ -26,6 +26,10 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
+            if (user.Designation == "Employee")
+            {
+                button8.Enabled = false;
+            }
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
@@ -107,7 +111,7 @@ namespace BenpilsBarcodeSystem
             settings.Location = this.Location;
             this.Hide();
         }
-
+    
         private void button1_Click(object sender, EventArgs e)
         {
 

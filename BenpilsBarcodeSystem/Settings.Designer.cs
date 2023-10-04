@@ -61,9 +61,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.ArchiveButtonBtn = new System.Windows.Forms.PictureBox();
+            this.AutomaticBackupBtn = new System.Windows.Forms.PictureBox();
+            this.ManualBackupBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -88,9 +88,9 @@
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArchiveButtonBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutomaticBackupBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ManualBackupBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -456,38 +456,38 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox12
+            // ArchiveButtonBtn
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(13, 14);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(219, 189);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 20;
-            this.pictureBox12.TabStop = false;
+            this.ArchiveButtonBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ArchiveButtonBtn.Image = ((System.Drawing.Image)(resources.GetObject("ArchiveButtonBtn.Image")));
+            this.ArchiveButtonBtn.Location = new System.Drawing.Point(13, 14);
+            this.ArchiveButtonBtn.Name = "ArchiveButtonBtn";
+            this.ArchiveButtonBtn.Size = new System.Drawing.Size(219, 189);
+            this.ArchiveButtonBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ArchiveButtonBtn.TabIndex = 20;
+            this.ArchiveButtonBtn.TabStop = false;
             // 
-            // pictureBox13
+            // AutomaticBackupBtn
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(15, 14);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(219, 189);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 21;
-            this.pictureBox13.TabStop = false;
+            this.AutomaticBackupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AutomaticBackupBtn.Image = ((System.Drawing.Image)(resources.GetObject("AutomaticBackupBtn.Image")));
+            this.AutomaticBackupBtn.Location = new System.Drawing.Point(15, 14);
+            this.AutomaticBackupBtn.Name = "AutomaticBackupBtn";
+            this.AutomaticBackupBtn.Size = new System.Drawing.Size(219, 189);
+            this.AutomaticBackupBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AutomaticBackupBtn.TabIndex = 21;
+            this.AutomaticBackupBtn.TabStop = false;
             // 
-            // pictureBox14
+            // ManualBackupBtn
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(13, 15);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(219, 189);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 22;
-            this.pictureBox14.TabStop = false;
+            this.ManualBackupBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManualBackupBtn.Image = ((System.Drawing.Image)(resources.GetObject("ManualBackupBtn.Image")));
+            this.ManualBackupBtn.Location = new System.Drawing.Point(13, 15);
+            this.ManualBackupBtn.Name = "ManualBackupBtn";
+            this.ManualBackupBtn.Size = new System.Drawing.Size(219, 189);
+            this.ManualBackupBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ManualBackupBtn.TabIndex = 22;
+            this.ManualBackupBtn.TabStop = false;
             // 
             // pictureBox15
             // 
@@ -545,7 +545,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel6.Controls.Add(this.pictureBox12);
+            this.panel6.Controls.Add(this.ArchiveButtonBtn);
             this.panel6.Location = new System.Drawing.Point(336, 110);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(248, 215);
@@ -554,7 +554,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel7.Controls.Add(this.pictureBox13);
+            this.panel7.Controls.Add(this.AutomaticBackupBtn);
             this.panel7.Location = new System.Drawing.Point(651, 110);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(248, 215);
@@ -563,7 +563,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel8.Controls.Add(this.pictureBox14);
+            this.panel8.Controls.Add(this.ManualBackupBtn);
             this.panel8.Location = new System.Drawing.Point(336, 374);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(248, 215);
@@ -617,9 +617,9 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArchiveButtonBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutomaticBackupBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ManualBackupBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -663,9 +663,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox ArchiveButtonBtn;
+        private System.Windows.Forms.PictureBox AutomaticBackupBtn;
+        private System.Windows.Forms.PictureBox ManualBackupBtn;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

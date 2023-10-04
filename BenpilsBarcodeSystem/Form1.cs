@@ -96,18 +96,18 @@ namespace BenpilsBarcodeSystem
                     if (dt.Rows.Count > 0)
                     {
                         string username = dt.Rows[0]["username"].ToString();
-                        string designation = dt.Rows[0]["designation"].ToString(); // Assuming 'designation' is a column in your table.
+                        string designation = dt.Rows[0]["designation"].ToString();
 
                         MessageBox.Show("Login successful");
 
-                        // Create a User object to store user information
+
                         User user = new User
                         {
                             Username = username,
                             Designation = designation
                         };
 
-                        // Open the Dashboard form and pass the User object
+                     
                         Dashboard dash = new Dashboard(user);
                         dash.Show();
                         dash.StartPosition = FormStartPosition.WindowsDefaultBounds;

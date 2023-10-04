@@ -31,6 +31,10 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
+            if (user.Designation == "Employee")
+            {
+                button8.Enabled = false;
+            }
         }
         //DashBoard Button
         private void button1_Click(object sender, EventArgs e)

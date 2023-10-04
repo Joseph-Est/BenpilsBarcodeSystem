@@ -26,6 +26,10 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
+            if (user.Designation == "Employee")
+            {
+                button8.Enabled = false;
+            }
         }
 
         private void Reports_Load(object sender, EventArgs e)

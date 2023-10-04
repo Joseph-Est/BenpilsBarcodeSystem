@@ -75,11 +75,11 @@ namespace BenpilsBarcodeSystem
         {
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Enter the username:");
+                MessageBox.Show("Enter the username.");
             }
             else if (textBox2.Text == "")
             {
-                MessageBox.Show("Enter the password");
+                MessageBox.Show("Enter the password.");
             }
             else
             {
@@ -96,25 +96,32 @@ namespace BenpilsBarcodeSystem
                     if (dt.Rows.Count > 0)
                     {
                         string username = dt.Rows[0]["username"].ToString();
+                        string designation = dt.Rows[0]["designation"].ToString(); // Assuming 'designation' is a column in your table.
 
-                        MessageBox.Show("login succesfull");
-                        Dashboard dash = new Dashboard();
+                        MessageBox.Show("Login successful");
+
+                        // Create a User object to store user information
+                        User user = new User
+                        {
+                            Username = username,
+                            Designation = designation
+                        };
+
+                        // Open the Dashboard form and pass the User object
+                        Dashboard dash = new Dashboard(user);
                         dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;                   
+                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
                         this.Hide();
-
                     }
                     else
                     {
-                        MessageBox.Show("invalid username and password!");
+                        MessageBox.Show("Invalid username and password!");
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("" + ex);
                 }
-
-
             }
         }
 

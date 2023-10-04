@@ -14,13 +14,17 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX,mouseY;
-        public Purchasing()
+        private User user;
+        public Purchasing(User user)
         {
             InitializeComponent();
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start();
+            this.user = user;
+            label1.Text = "Username: " + user.Username;
+            label2.Text = "Designation: " + user.Designation;
         }
 
         private void Purchasing_Load(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace BenpilsBarcodeSystem
         //Dashboard Button
         private void button1_Click(object sender, EventArgs e)
         {
-            Dashboard dash = new Dashboard();
+            Dashboard dash = new Dashboard(user);
             dash.Show();
             dash.StartPosition = FormStartPosition.Manual;
             dash.Location = this.Location;
@@ -39,7 +43,7 @@ namespace BenpilsBarcodeSystem
         //Point Of Sales Button
         private void button3_Click(object sender, EventArgs e)
         {
-            PointOfSales pos = new PointOfSales();
+            PointOfSales pos = new PointOfSales(user);
             pos.Show();
             pos.StartPosition = FormStartPosition.Manual;
             pos.Location = this.Location;
@@ -48,7 +52,7 @@ namespace BenpilsBarcodeSystem
         //Inventory Button
         private void button2_Click(object sender, EventArgs e)
         {
-            Inventory inventory = new Inventory();
+            Inventory inventory = new Inventory(user);
             inventory.Show();
             inventory.StartPosition = FormStartPosition.Manual;
             inventory.Location = this.Location;
@@ -57,7 +61,7 @@ namespace BenpilsBarcodeSystem
         //Reports Button
         private void button6_Click(object sender, EventArgs e)
         {
-            Reports reports = new Reports();
+            Reports reports = new Reports(user);
             reports.Show();
             reports.StartPosition = FormStartPosition.Manual;
             reports.Location = this.Location;
@@ -66,7 +70,7 @@ namespace BenpilsBarcodeSystem
         //Statistic Reports Button
         private void button7_Click(object sender, EventArgs e)
         {
-            StatisticReport sreport = new StatisticReport();
+            StatisticReport sreport = new StatisticReport(user);
             sreport.Show();
             sreport.StartPosition = FormStartPosition.Manual;
             sreport.Location = this.Location;
@@ -75,7 +79,7 @@ namespace BenpilsBarcodeSystem
         //UserCredentials Button
         private void button8_Click(object sender, EventArgs e)
         {
-            UserCredentials credentials = new UserCredentials();
+            UserCredentials credentials = new UserCredentials(user);
             credentials.Show();
             credentials.StartPosition = FormStartPosition.Manual;
             credentials.Location = this.Location;
@@ -84,7 +88,7 @@ namespace BenpilsBarcodeSystem
         //Settings Button
         private void button9_Click(object sender, EventArgs e)
         {
-            Settings set = new Settings();
+            Settings set = new Settings(user);
             set.Show();
             set.StartPosition = FormStartPosition.Manual;
             set.Location = this.Location;

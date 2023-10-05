@@ -84,7 +84,7 @@
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.TxtBrand = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cmdMotorbrand = new System.Windows.Forms.ComboBox();
+            this.cmbMotorbrand = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -673,20 +673,20 @@
             this.textBox2.Size = new System.Drawing.Size(183, 20);
             this.textBox2.TabIndex = 70;
             // 
-            // cmdMotorbrand
+            // cmbMotorbrand
             // 
-            this.cmdMotorbrand.FormattingEnabled = true;
-            this.cmdMotorbrand.Location = new System.Drawing.Point(286, 535);
-            this.cmdMotorbrand.Name = "cmdMotorbrand";
-            this.cmdMotorbrand.Size = new System.Drawing.Size(183, 21);
-            this.cmdMotorbrand.TabIndex = 71;
+            this.cmbMotorbrand.FormattingEnabled = true;
+            this.cmbMotorbrand.Location = new System.Drawing.Point(286, 535);
+            this.cmbMotorbrand.Name = "cmbMotorbrand";
+            this.cmbMotorbrand.Size = new System.Drawing.Size(183, 21);
+            this.cmbMotorbrand.TabIndex = 71;
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 679);
-            this.Controls.Add(this.cmdMotorbrand);
+            this.Controls.Add(this.cmbMotorbrand);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.TxtBrand);
             this.Controls.Add(this.ArchiveBtn);
@@ -797,6 +797,6 @@
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.TextBox TxtBrand;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox cmdMotorbrand;
+        private System.Windows.Forms.ComboBox cmbMotorbrand;
     }
 }

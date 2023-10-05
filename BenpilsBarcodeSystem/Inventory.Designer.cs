@@ -79,13 +79,13 @@
             this.TxtUnitPrice = new System.Windows.Forms.TextBox();
             this.TxtQuantity = new System.Windows.Forms.TextBox();
             this.TxtSize = new System.Windows.Forms.TextBox();
-            this.TxtCategory = new System.Windows.Forms.TextBox();
             this.AddBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.TxtMotorBrand = new System.Windows.Forms.TextBox();
             this.TxtBrand = new System.Windows.Forms.TextBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -624,13 +624,6 @@
             this.TxtSize.Size = new System.Drawing.Size(183, 20);
             this.TxtSize.TabIndex = 62;
             // 
-            // TxtCategory
-            // 
-            this.TxtCategory.Location = new System.Drawing.Point(563, 573);
-            this.TxtCategory.Name = "TxtCategory";
-            this.TxtCategory.Size = new System.Drawing.Size(183, 20);
-            this.TxtCategory.TabIndex = 63;
-            // 
             // AddBtn
             // 
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -692,18 +685,26 @@
             this.TxtBrand.Size = new System.Drawing.Size(183, 20);
             this.TxtBrand.TabIndex = 69;
             // 
+            // cmbCategory
+            // 
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(563, 574);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(183, 21);
+            this.cmbCategory.TabIndex = 70;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 679);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.TxtBrand);
             this.Controls.Add(this.TxtMotorBrand);
             this.Controls.Add(this.ArchiveBtn);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.TxtCategory);
             this.Controls.Add(this.TxtSize);
             this.Controls.Add(this.TxtQuantity);
             this.Controls.Add(this.TxtUnitPrice);
@@ -804,12 +805,12 @@
         private System.Windows.Forms.TextBox TxtUnitPrice;
         private System.Windows.Forms.TextBox TxtQuantity;
         private System.Windows.Forms.TextBox TxtSize;
-        private System.Windows.Forms.TextBox TxtCategory;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.TextBox TxtMotorBrand;
         private System.Windows.Forms.TextBox TxtBrand;
+        private System.Windows.Forms.ComboBox cmbCategory;
     }
 }

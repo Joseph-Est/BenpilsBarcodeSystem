@@ -212,18 +212,6 @@ namespace BenpilsBarcodeSystem
         {
 
         }
-
-       
-
-     
-   
-     
-
-   
-
-
-   
-
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TxtFirstName.Text) ||

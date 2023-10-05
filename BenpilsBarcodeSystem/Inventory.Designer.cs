@@ -641,6 +641,7 @@
             this.AddBtn.TabIndex = 64;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -663,6 +664,7 @@
             this.UpdateBtn.TabIndex = 66;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // ArchiveBtn
             // 

@@ -66,9 +66,9 @@
             this.tabInventoryreport = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabAudittrail = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPostranslogs = new System.Windows.Forms.TabPage();
+            this.tabSuppliertranslogs = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -85,10 +85,9 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabSalereport.SuspendLayout();
-            this.tabInventoryreport.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabAudittrail.SuspendLayout();
+            this.tabControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -461,7 +460,6 @@
             // 
             // tabSalereport
             // 
-            this.tabSalereport.Controls.Add(this.button10);
             this.tabSalereport.Location = new System.Drawing.Point(4, 22);
             this.tabSalereport.Name = "tabSalereport";
             this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
@@ -472,7 +470,6 @@
             // 
             // tabInventoryreport
             // 
-            this.tabInventoryreport.Controls.Add(this.button4);
             this.tabInventoryreport.Location = new System.Drawing.Point(4, 22);
             this.tabInventoryreport.Name = "tabInventoryreport";
             this.tabInventoryreport.Padding = new System.Windows.Forms.Padding(3);
@@ -491,7 +488,7 @@
             // 
             // tabAudittrail
             // 
-            this.tabAudittrail.Controls.Add(this.button11);
+            this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
             this.tabAudittrail.Size = new System.Drawing.Size(856, 541);
@@ -499,32 +496,35 @@
             this.tabAudittrail.Text = "Audit Trail / Transaction Logs";
             this.tabAudittrail.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // tabControl2
             // 
-            this.button4.Location = new System.Drawing.Point(29, 25);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(184, 143);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.tabControl2.Controls.Add(this.tabPostranslogs);
+            this.tabControl2.Controls.Add(this.tabSuppliertranslogs);
+            this.tabControl2.Location = new System.Drawing.Point(-4, 15);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(864, 511);
+            this.tabControl2.TabIndex = 0;
             // 
-            // button10
+            // tabPostranslogs
             // 
-            this.button10.Location = new System.Drawing.Point(310, 311);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(184, 143);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.tabPostranslogs.Location = new System.Drawing.Point(4, 22);
+            this.tabPostranslogs.Name = "tabPostranslogs";
+            this.tabPostranslogs.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPostranslogs.Size = new System.Drawing.Size(849, 497);
+            this.tabPostranslogs.TabIndex = 0;
+            this.tabPostranslogs.Text = "POS Transaction Logs";
+            this.tabPostranslogs.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // tabSuppliertranslogs
             // 
-            this.button11.Location = new System.Drawing.Point(639, 48);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(184, 143);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.tabSuppliertranslogs.Location = new System.Drawing.Point(4, 22);
+            this.tabSuppliertranslogs.Name = "tabSuppliertranslogs";
+            this.tabSuppliertranslogs.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSuppliertranslogs.Size = new System.Drawing.Size(856, 485);
+            this.tabSuppliertranslogs.TabIndex = 1;
+            this.tabSuppliertranslogs.Text = "Supplier Transaction Logs";
+            this.tabSuppliertranslogs.UseVisualStyleBackColor = true;
             // 
             // Reports
             // 
@@ -559,10 +559,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabSalereport.ResumeLayout(false);
-            this.tabInventoryreport.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tabAudittrail.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -605,8 +604,8 @@
         private System.Windows.Forms.TabPage tabSalereport;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TabPage tabAudittrail;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPostranslogs;
+        private System.Windows.Forms.TabPage tabSuppliertranslogs;
     }
 }

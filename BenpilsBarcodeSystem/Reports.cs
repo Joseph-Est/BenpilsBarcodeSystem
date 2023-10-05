@@ -29,6 +29,14 @@ namespace BenpilsBarcodeSystem
             if (user.Designation == "Employee")
             {
                 button8.Enabled = false;
+                button6.Enabled = false;
+            }
+            else if (user.Designation == "Cashier")
+            {
+                button2.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
             }
         }
 

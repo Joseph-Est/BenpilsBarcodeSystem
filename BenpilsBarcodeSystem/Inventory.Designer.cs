@@ -80,12 +80,11 @@
             this.TxtQuantity = new System.Windows.Forms.TextBox();
             this.TxtSize = new System.Windows.Forms.TextBox();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.DeleteBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.ArchiveBtn = new System.Windows.Forms.Button();
-            this.TxtMotorBrand = new System.Windows.Forms.TextBox();
             this.TxtBrand = new System.Windows.Forms.TextBox();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cmdMotorbrand = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -636,21 +635,10 @@
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBtn.Location = new System.Drawing.Point(917, 458);
-            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(93, 54);
-            this.DeleteBtn.TabIndex = 65;
-            this.DeleteBtn.Text = "Delete";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
-            // 
             // UpdateBtn
             // 
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(800, 539);
+            this.UpdateBtn.Location = new System.Drawing.Point(922, 458);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
@@ -662,7 +650,7 @@
             // ArchiveBtn
             // 
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(917, 539);
+            this.ArchiveBtn.Location = new System.Drawing.Point(864, 536);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -671,13 +659,6 @@
             this.ArchiveBtn.UseVisualStyleBackColor = true;
             this.ArchiveBtn.Click += new System.EventHandler(this.button12_Click);
             // 
-            // TxtMotorBrand
-            // 
-            this.TxtMotorBrand.Location = new System.Drawing.Point(286, 536);
-            this.TxtMotorBrand.Name = "TxtMotorBrand";
-            this.TxtMotorBrand.Size = new System.Drawing.Size(183, 20);
-            this.TxtMotorBrand.TabIndex = 68;
-            // 
             // TxtBrand
             // 
             this.TxtBrand.Location = new System.Drawing.Point(286, 573);
@@ -685,25 +666,31 @@
             this.TxtBrand.Size = new System.Drawing.Size(183, 20);
             this.TxtBrand.TabIndex = 69;
             // 
-            // cmbCategory
+            // textBox2
             // 
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(563, 574);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(183, 21);
-            this.cmbCategory.TabIndex = 70;
+            this.textBox2.Location = new System.Drawing.Point(563, 573);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(183, 20);
+            this.textBox2.TabIndex = 70;
+            // 
+            // cmdMotorbrand
+            // 
+            this.cmdMotorbrand.FormattingEnabled = true;
+            this.cmdMotorbrand.Location = new System.Drawing.Point(286, 535);
+            this.cmdMotorbrand.Name = "cmdMotorbrand";
+            this.cmdMotorbrand.Size = new System.Drawing.Size(183, 21);
+            this.cmdMotorbrand.TabIndex = 71;
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1057, 679);
-            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.cmdMotorbrand);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.TxtBrand);
-            this.Controls.Add(this.TxtMotorBrand);
             this.Controls.Add(this.ArchiveBtn);
             this.Controls.Add(this.UpdateBtn);
-            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.TxtSize);
             this.Controls.Add(this.TxtQuantity);
@@ -806,11 +793,10 @@
         private System.Windows.Forms.TextBox TxtQuantity;
         private System.Windows.Forms.TextBox TxtSize;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button ArchiveBtn;
-        private System.Windows.Forms.TextBox TxtMotorBrand;
         private System.Windows.Forms.TextBox TxtBrand;
-        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cmdMotorbrand;
     }
 }

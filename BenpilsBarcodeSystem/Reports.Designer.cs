@@ -67,8 +67,9 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabAudittrail = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPostranslogs = new System.Windows.Forms.TabPage();
-            this.tabSuppliertranslogs = new System.Windows.Forms.TabPage();
+            this.tabPosaudit = new System.Windows.Forms.TabPage();
+            this.tabSupplieraudit = new System.Windows.Forms.TabPage();
+            this.tabInventoryaudit = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -455,7 +456,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(864, 567);
+            this.tabControl1.Size = new System.Drawing.Size(861, 567);
             this.tabControl1.TabIndex = 0;
             // 
             // tabSalereport
@@ -463,7 +464,7 @@
             this.tabSalereport.Location = new System.Drawing.Point(4, 22);
             this.tabSalereport.Name = "tabSalereport";
             this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalereport.Size = new System.Drawing.Size(856, 541);
+            this.tabSalereport.Size = new System.Drawing.Size(853, 541);
             this.tabSalereport.TabIndex = 1;
             this.tabSalereport.Text = "Sales Report";
             this.tabSalereport.UseVisualStyleBackColor = true;
@@ -473,7 +474,7 @@
             this.tabInventoryreport.Location = new System.Drawing.Point(4, 22);
             this.tabInventoryreport.Name = "tabInventoryreport";
             this.tabInventoryreport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventoryreport.Size = new System.Drawing.Size(856, 541);
+            this.tabInventoryreport.Size = new System.Drawing.Size(853, 541);
             this.tabInventoryreport.TabIndex = 0;
             this.tabInventoryreport.Text = "Inventory Report";
             this.tabInventoryreport.UseVisualStyleBackColor = true;
@@ -491,40 +492,50 @@
             this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
-            this.tabAudittrail.Size = new System.Drawing.Size(856, 541);
+            this.tabAudittrail.Size = new System.Drawing.Size(853, 541);
             this.tabAudittrail.TabIndex = 2;
-            this.tabAudittrail.Text = "Audit Trail / Transaction Logs";
+            this.tabAudittrail.Text = "Audit Trail ";
             this.tabAudittrail.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tabPostranslogs);
-            this.tabControl2.Controls.Add(this.tabSuppliertranslogs);
+            this.tabControl2.Controls.Add(this.tabPosaudit);
+            this.tabControl2.Controls.Add(this.tabSupplieraudit);
+            this.tabControl2.Controls.Add(this.tabInventoryaudit);
             this.tabControl2.Location = new System.Drawing.Point(-4, 15);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(864, 511);
+            this.tabControl2.Size = new System.Drawing.Size(861, 511);
             this.tabControl2.TabIndex = 0;
             // 
-            // tabPostranslogs
+            // tabPosaudit
             // 
-            this.tabPostranslogs.Location = new System.Drawing.Point(4, 22);
-            this.tabPostranslogs.Name = "tabPostranslogs";
-            this.tabPostranslogs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPostranslogs.Size = new System.Drawing.Size(849, 497);
-            this.tabPostranslogs.TabIndex = 0;
-            this.tabPostranslogs.Text = "POS Transaction Logs";
-            this.tabPostranslogs.UseVisualStyleBackColor = true;
+            this.tabPosaudit.Location = new System.Drawing.Point(4, 22);
+            this.tabPosaudit.Name = "tabPosaudit";
+            this.tabPosaudit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPosaudit.Size = new System.Drawing.Size(853, 485);
+            this.tabPosaudit.TabIndex = 0;
+            this.tabPosaudit.Text = "POS Audit Trail";
+            this.tabPosaudit.UseVisualStyleBackColor = true;
             // 
-            // tabSuppliertranslogs
+            // tabSupplieraudit
             // 
-            this.tabSuppliertranslogs.Location = new System.Drawing.Point(4, 22);
-            this.tabSuppliertranslogs.Name = "tabSuppliertranslogs";
-            this.tabSuppliertranslogs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSuppliertranslogs.Size = new System.Drawing.Size(856, 485);
-            this.tabSuppliertranslogs.TabIndex = 1;
-            this.tabSuppliertranslogs.Text = "Supplier Transaction Logs";
-            this.tabSuppliertranslogs.UseVisualStyleBackColor = true;
+            this.tabSupplieraudit.Location = new System.Drawing.Point(4, 22);
+            this.tabSupplieraudit.Name = "tabSupplieraudit";
+            this.tabSupplieraudit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSupplieraudit.Size = new System.Drawing.Size(853, 485);
+            this.tabSupplieraudit.TabIndex = 1;
+            this.tabSupplieraudit.Text = "Supplier Audit Trail";
+            this.tabSupplieraudit.UseVisualStyleBackColor = true;
+            // 
+            // tabInventoryaudit
+            // 
+            this.tabInventoryaudit.Location = new System.Drawing.Point(4, 22);
+            this.tabInventoryaudit.Name = "tabInventoryaudit";
+            this.tabInventoryaudit.Size = new System.Drawing.Size(853, 485);
+            this.tabInventoryaudit.TabIndex = 2;
+            this.tabInventoryaudit.Text = "Inventory Audit Trail";
+            this.tabInventoryaudit.UseVisualStyleBackColor = true;
             // 
             // Reports
             // 
@@ -605,7 +616,8 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TabPage tabAudittrail;
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPostranslogs;
-        private System.Windows.Forms.TabPage tabSuppliertranslogs;
+        private System.Windows.Forms.TabPage tabPosaudit;
+        private System.Windows.Forms.TabPage tabSupplieraudit;
+        private System.Windows.Forms.TabPage tabInventoryaudit;
     }
 }

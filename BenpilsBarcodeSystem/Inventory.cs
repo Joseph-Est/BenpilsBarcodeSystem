@@ -22,6 +22,11 @@ namespace BenpilsBarcodeSystem
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start();
+            cmbMotorbrand.Items.Add("YAMAHA");
+            cmbMotorbrand.Items.Add("SUZUKI");
+            cmbMotorbrand.Items.Add("HONDA");
+            cmbMotorbrand.Items.Add("RUSI");
+            cmbMotorbrand.Items.Add("KAWASAKI");
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;

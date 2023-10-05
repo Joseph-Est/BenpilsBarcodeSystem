@@ -505,7 +505,7 @@
             this.tabControl2.Location = new System.Drawing.Point(-4, 15);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(861, 511);
+            this.tabControl2.Size = new System.Drawing.Size(861, 530);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPosaudit
@@ -513,7 +513,7 @@
             this.tabPosaudit.Location = new System.Drawing.Point(4, 22);
             this.tabPosaudit.Name = "tabPosaudit";
             this.tabPosaudit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPosaudit.Size = new System.Drawing.Size(853, 485);
+            this.tabPosaudit.Size = new System.Drawing.Size(853, 504);
             this.tabPosaudit.TabIndex = 0;
             this.tabPosaudit.Text = "POS Audit Trail";
             this.tabPosaudit.UseVisualStyleBackColor = true;

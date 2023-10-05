@@ -61,6 +61,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabSalereport = new System.Windows.Forms.TabPage();
+            this.tabInventoryreport = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tabAudittrail = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -76,6 +84,11 @@
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabSalereport.SuspendLayout();
+            this.tabInventoryreport.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tabAudittrail.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -435,11 +448,90 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabInventoryreport);
+            this.tabControl1.Controls.Add(this.tabSalereport);
+            this.tabControl1.Controls.Add(this.tabAudittrail);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(864, 567);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabSalereport
+            // 
+            this.tabSalereport.Controls.Add(this.button10);
+            this.tabSalereport.Location = new System.Drawing.Point(4, 22);
+            this.tabSalereport.Name = "tabSalereport";
+            this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSalereport.Size = new System.Drawing.Size(856, 541);
+            this.tabSalereport.TabIndex = 1;
+            this.tabSalereport.Text = "Sales Report";
+            this.tabSalereport.UseVisualStyleBackColor = true;
+            // 
+            // tabInventoryreport
+            // 
+            this.tabInventoryreport.Controls.Add(this.button4);
+            this.tabInventoryreport.Location = new System.Drawing.Point(4, 22);
+            this.tabInventoryreport.Name = "tabInventoryreport";
+            this.tabInventoryreport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInventoryreport.Size = new System.Drawing.Size(856, 541);
+            this.tabInventoryreport.TabIndex = 0;
+            this.tabInventoryreport.Text = "Inventory Report";
+            this.tabInventoryreport.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tabControl1);
+            this.panel6.Location = new System.Drawing.Point(188, 74);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(864, 567);
+            this.panel6.TabIndex = 19;
+            // 
+            // tabAudittrail
+            // 
+            this.tabAudittrail.Controls.Add(this.button11);
+            this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
+            this.tabAudittrail.Name = "tabAudittrail";
+            this.tabAudittrail.Size = new System.Drawing.Size(856, 541);
+            this.tabAudittrail.TabIndex = 2;
+            this.tabAudittrail.Text = "Audit Trail / Transaction Logs";
+            this.tabAudittrail.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(29, 25);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(184, 143);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(310, 311);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(184, 143);
+            this.button10.TabIndex = 1;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(639, 48);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(184, 143);
+            this.button11.TabIndex = 2;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 681);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
@@ -466,6 +558,11 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabSalereport.ResumeLayout(false);
+            this.tabInventoryreport.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tabAudittrail.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -503,5 +600,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabInventoryreport;
+        private System.Windows.Forms.TabPage tabSalereport;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TabPage tabAudittrail;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

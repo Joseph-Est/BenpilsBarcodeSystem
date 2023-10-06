@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -164,7 +165,37 @@ namespace BenpilsBarcodeSystem
 
         }
 
-    
+        private void AddBtn_Click_1(object sender, EventArgs e)
+        {
+            string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
+                                "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@FirstName", TxtFirstName.Text);
+                    cmd.Parameters.AddWithValue("@LastName", TxtLastName.Text);
+                    cmd.Parameters.AddWithValue("@UserName", TxtUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
+                    cmd.Parameters.AddWithValue("@Address", TxtAddress.Text);
+                    cmd.Parameters.AddWithValue("@ContactNo", TxtContactNo.Text);
+                    cmd.Parameters.AddWithValue("@Designation", ComboDesignation.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
+
+        public void ClearAllTextBoxes()
+        {
+            txt
+        }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

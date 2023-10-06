@@ -91,6 +91,7 @@
             this.Name = "ConfirmationLogout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfirmationLogout";
+            this.Load += new System.EventHandler(this.ConfirmationLogout_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

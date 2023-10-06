@@ -69,6 +69,11 @@ namespace BenpilsBarcodeSystem
             isDragging = false;
         }
 
+        private void ConfirmationLogout_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = YesBtn;
+        }
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

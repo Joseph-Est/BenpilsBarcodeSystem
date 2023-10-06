@@ -18,6 +18,7 @@ namespace BenpilsBarcodeSystem
         public Form1()
         {
             InitializeComponent();
+          
         }
 
        
@@ -123,6 +124,11 @@ namespace BenpilsBarcodeSystem
                     MessageBox.Show("" + ex);
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = LoginBtn;
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

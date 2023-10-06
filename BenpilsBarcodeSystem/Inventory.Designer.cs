@@ -65,7 +65,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.TxtCategory = new System.Windows.Forms.TextBox();
             this.TxtSize = new System.Windows.Forms.TextBox();
@@ -90,6 +89,7 @@
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.CmbMotorBrand = new System.Windows.Forms.ComboBox();
             this.CmbBrand = new System.Windows.Forms.ComboBox();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -490,10 +490,10 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.CmbBrand);
             this.tabItemmasterdata.Controls.Add(this.CmbMotorBrand);
             this.tabItemmasterdata.Controls.Add(this.button10);
-            this.tabItemmasterdata.Controls.Add(this.button4);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
@@ -532,17 +532,6 @@
             this.button10.TabIndex = 68;
             this.button10.Text = "Archive";
             this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(746, 332);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 54);
-            this.button4.TabIndex = 67;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // AddBtn
             // 
@@ -748,6 +737,18 @@
             this.CmbBrand.Size = new System.Drawing.Size(200, 21);
             this.CmbBrand.TabIndex = 70;
             // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Location = new System.Drawing.Point(741, 332);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
+            this.UpdateBtn.TabIndex = 71;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click_1);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,9 +847,9 @@
         private System.Windows.Forms.TextBox TxtPriceCode;
         private System.Windows.Forms.TextBox TxtItemName;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox CmbBrand;
         private System.Windows.Forms.ComboBox CmbMotorBrand;
+        private System.Windows.Forms.Button UpdateBtn;
     }
 }

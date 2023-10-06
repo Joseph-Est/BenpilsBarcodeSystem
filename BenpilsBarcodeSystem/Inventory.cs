@@ -26,6 +26,12 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
+            CmbMotorBrand.Items.Add("Rusi");
+            CmbMotorBrand.Items.Add("Kawasaki");
+            CmbMotorBrand.Items.Add("Suzuki");
+            CmbMotorBrand.Items.Add("Honda");
+            CmbMotorBrand.Items.Add("Yamaha");
+    
             if (user.Designation == "Employee")
             {
                 button8.Enabled = false;

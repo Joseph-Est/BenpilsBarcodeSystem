@@ -184,12 +184,12 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
                     cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", CmbBrand.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnityPrice.Text);
                     cmd.Parameters.AddWithValue("@Quantity", TxtQuantity.Text);
                     cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+                    cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -206,12 +206,12 @@ namespace BenpilsBarcodeSystem
             txtBarcode.Text =      "";
             TxtItemName.Text =     "";
             CmbMotorBrand.Text =   "";
-            CmbBrand.Text =        "";
+            TxtBrand.Text =        "";
             TxtPriceCode.Text =    "";
-            TxtUnitPrice.Text =    "";
+            TxtUnityPrice.Text =   "";
             TxtQuantity.Text =     "";
             TxtSize.Text =         "";
-            TxtCategory.Text =     "";
+            txtCategory.Text =     "";
         }
 
         private void UpdateDataGridView()
@@ -259,12 +259,12 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
                     cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", CmbBrand.Text);
-                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-                    cmd.Parameters.AddWithValue("@Quantity", TxtQuantity.Text);
-                    cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@PriceCode", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtPriceCode.Text);
+                    cmd.Parameters.AddWithValue("@Quantity", TxtUnityPrice.Text);
+                    cmd.Parameters.AddWithValue("@Size", TxtQuantity.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtSize.Text);
                   
                     con.Open();
                     cmd.ExecuteNonQuery();

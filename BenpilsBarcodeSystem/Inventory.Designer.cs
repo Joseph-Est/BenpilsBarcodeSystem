@@ -66,15 +66,15 @@
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.TxtCategory = new System.Windows.Forms.TextBox();
             this.TxtSize = new System.Windows.Forms.TextBox();
             this.TxtQuantity = new System.Windows.Forms.TextBox();
+            this.TxtUnityPrice = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.TxtUnitPrice = new System.Windows.Forms.TextBox();
             this.TxtPriceCode = new System.Windows.Forms.TextBox();
+            this.TxtBrand = new System.Windows.Forms.TextBox();
             this.TxtItemName = new System.Windows.Forms.TextBox();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -88,8 +88,8 @@
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.CmbMotorBrand = new System.Windows.Forms.ComboBox();
-            this.CmbBrand = new System.Windows.Forms.ComboBox();
             this.UpdateBtn = new System.Windows.Forms.Button();
+            this.txtCategory = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -490,20 +490,20 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.txtCategory);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
-            this.tabItemmasterdata.Controls.Add(this.CmbBrand);
             this.tabItemmasterdata.Controls.Add(this.CmbMotorBrand);
             this.tabItemmasterdata.Controls.Add(this.button10);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
-            this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
             this.tabItemmasterdata.Controls.Add(this.TxtQuantity);
+            this.tabItemmasterdata.Controls.Add(this.TxtUnityPrice);
             this.tabItemmasterdata.Controls.Add(this.label16);
             this.tabItemmasterdata.Controls.Add(this.label15);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.label12);
-            this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
             this.tabItemmasterdata.Controls.Add(this.TxtPriceCode);
+            this.tabItemmasterdata.Controls.Add(this.TxtBrand);
             this.tabItemmasterdata.Controls.Add(this.TxtItemName);
             this.tabItemmasterdata.Controls.Add(this.txtBarcode);
             this.tabItemmasterdata.Controls.Add(this.label11);
@@ -545,26 +545,26 @@
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click_1);
             // 
-            // TxtCategory
-            // 
-            this.TxtCategory.Location = new System.Drawing.Point(379, 444);
-            this.TxtCategory.Name = "TxtCategory";
-            this.TxtCategory.Size = new System.Drawing.Size(200, 20);
-            this.TxtCategory.TabIndex = 60;
-            // 
             // TxtSize
             // 
-            this.TxtSize.Location = new System.Drawing.Point(379, 408);
+            this.TxtSize.Location = new System.Drawing.Point(379, 406);
             this.TxtSize.Name = "TxtSize";
             this.TxtSize.Size = new System.Drawing.Size(200, 20);
-            this.TxtSize.TabIndex = 59;
+            this.TxtSize.TabIndex = 60;
             // 
             // TxtQuantity
             // 
             this.TxtQuantity.Location = new System.Drawing.Point(379, 369);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.Size = new System.Drawing.Size(200, 20);
-            this.TxtQuantity.TabIndex = 58;
+            this.TxtQuantity.TabIndex = 59;
+            // 
+            // TxtUnityPrice
+            // 
+            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 332);
+            this.TxtUnityPrice.Name = "TxtUnityPrice";
+            this.TxtUnityPrice.Size = new System.Drawing.Size(200, 20);
+            this.TxtUnityPrice.TabIndex = 58;
             // 
             // label16
             // 
@@ -602,19 +602,19 @@
             this.label12.TabIndex = 54;
             this.label12.Text = "Unit Price:";
             // 
-            // TxtUnitPrice
-            // 
-            this.TxtUnitPrice.Location = new System.Drawing.Point(379, 329);
-            this.TxtUnitPrice.Name = "TxtUnitPrice";
-            this.TxtUnitPrice.Size = new System.Drawing.Size(200, 20);
-            this.TxtUnitPrice.TabIndex = 53;
-            // 
             // TxtPriceCode
             // 
             this.TxtPriceCode.Location = new System.Drawing.Point(79, 482);
             this.TxtPriceCode.Name = "TxtPriceCode";
             this.TxtPriceCode.Size = new System.Drawing.Size(200, 20);
-            this.TxtPriceCode.TabIndex = 52;
+            this.TxtPriceCode.TabIndex = 53;
+            // 
+            // TxtBrand
+            // 
+            this.TxtBrand.Location = new System.Drawing.Point(79, 444);
+            this.TxtBrand.Name = "TxtBrand";
+            this.TxtBrand.Size = new System.Drawing.Size(200, 20);
+            this.TxtBrand.TabIndex = 52;
             // 
             // TxtItemName
             // 
@@ -729,14 +729,6 @@
             this.CmbMotorBrand.Size = new System.Drawing.Size(200, 21);
             this.CmbMotorBrand.TabIndex = 69;
             // 
-            // CmbBrand
-            // 
-            this.CmbBrand.FormattingEnabled = true;
-            this.CmbBrand.Location = new System.Drawing.Point(79, 444);
-            this.CmbBrand.Name = "CmbBrand";
-            this.CmbBrand.Size = new System.Drawing.Size(200, 21);
-            this.CmbBrand.TabIndex = 70;
-            // 
             // UpdateBtn
             // 
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -748,6 +740,13 @@
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click_1);
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.Location = new System.Drawing.Point(379, 447);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(200, 20);
+            this.txtCategory.TabIndex = 72;
             // 
             // Inventory
             // 
@@ -836,20 +835,20 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox TxtCategory;
         private System.Windows.Forms.TextBox TxtSize;
         private System.Windows.Forms.TextBox TxtQuantity;
+        private System.Windows.Forms.TextBox TxtUnityPrice;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TxtUnitPrice;
         private System.Windows.Forms.TextBox TxtPriceCode;
+        private System.Windows.Forms.TextBox TxtBrand;
         private System.Windows.Forms.TextBox TxtItemName;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.ComboBox CmbBrand;
         private System.Windows.Forms.ComboBox CmbMotorBrand;
         private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.TextBox txtCategory;
     }
 }

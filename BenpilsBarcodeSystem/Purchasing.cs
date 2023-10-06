@@ -30,13 +30,6 @@ namespace BenpilsBarcodeSystem
                 button8.Enabled = false;
                 button6.Enabled = false;
             }
-            else if (user.Designation == "Cashier")
-            {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-            }
         }
 
         private void Purchasing_Load(object sender, EventArgs e)

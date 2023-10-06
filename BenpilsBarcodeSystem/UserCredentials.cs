@@ -28,7 +28,6 @@ namespace BenpilsBarcodeSystem
             ComboDesignation.Items.Add("Admin");
             ComboDesignation.Items.Add("SuperAdmin");
             ComboDesignation.Items.Add("Employee");
-            ComboDesignation.Items.Add("Cashier");
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
@@ -64,20 +63,7 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Address"].ReadOnly = true;
                 dataGridView1.Columns["ContactNo"].ReadOnly = true;
             }
-            else if (user.Designation == "Cashier")
-            {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-                dataGridView1.Columns["FirstName"].ReadOnly = true;
-                dataGridView1.Columns["LastName"].ReadOnly = true;
-                dataGridView1.Columns["UserName"].ReadOnly = true;
-                dataGridView1.Columns["Password"].ReadOnly = true;
-                dataGridView1.Columns["Designation"].ReadOnly = true;
-                dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
-            }
+           
         }
 
         //DashBoard Button

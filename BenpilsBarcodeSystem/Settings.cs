@@ -37,13 +37,6 @@ namespace BenpilsBarcodeSystem
             {
                 ArchiveButtonBtn.Enabled = false;
             }
-            else if (user.Designation == "Cashier")
-            {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-            }
         }
         //Dashboard Button
         private void button1_Click(object sender, EventArgs e)

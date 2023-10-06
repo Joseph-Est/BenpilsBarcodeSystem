@@ -39,7 +39,7 @@ namespace BenpilsBarcodeSystem
             {
 
             }
-            else if (user.Designation == "Cashier")
+            else if (user.Designation == "Employee")
             {
                 button2.Enabled = false;
                 button5.Enabled = false;

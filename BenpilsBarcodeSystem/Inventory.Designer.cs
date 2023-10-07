@@ -576,7 +576,7 @@
             // txtCategory
             // 
             this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCategory.Location = new System.Drawing.Point(379, 588);
+            this.txtCategory.Location = new System.Drawing.Point(379, 589);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(200, 20);
             this.txtCategory.TabIndex = 72;

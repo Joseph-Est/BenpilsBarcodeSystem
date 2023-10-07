@@ -21,10 +21,8 @@ namespace BenpilsBarcodeSystem
         public UserCredentials(User user)
         {
             InitializeComponent();
-            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+           
 
-       
-          
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -348,61 +346,27 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-
-  
-
-        private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void TxtSearchBar_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void FillTextboxt_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-            TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
-            TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
-            TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
-            TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
-            TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
-            TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
-            ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (e.RowIndex >= 0) 
             {
-                return;
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+           
+                TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
+                TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
+                TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
+                TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
+                TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
+                TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
+                ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
             }
-
-
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
- 
-            TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
-            TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
-            TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
-            TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
-            TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
-            TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
-            ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

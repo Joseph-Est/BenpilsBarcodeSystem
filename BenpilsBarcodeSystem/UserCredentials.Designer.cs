@@ -598,7 +598,6 @@
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
             this.TxtFirstName.TabIndex = 27;
-            this.TxtFirstName.TextChanged += new System.EventHandler(this.TxtFirstName_TextChanged);
             // 
             // TxtLastName
             // 
@@ -666,7 +665,6 @@
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 0;
-            this.TxtSearchBar.TextChanged += new System.EventHandler(this.TxtSearchBar_TextChanged);
             // 
             // ArchiveBtn
             // 
@@ -711,7 +709,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(788, 310);
             this.dataGridView1.TabIndex = 42;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // ID
             // 
@@ -913,7 +911,6 @@
             this.ComboDesignation.Name = "ComboDesignation";
             this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
             this.ComboDesignation.TabIndex = 47;
-            this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
             // 
             // UserCredentials
             // 

@@ -158,12 +158,6 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            ConfirmationExit ce = new ConfirmationExit();
-            ce.ShowDialog();
-        }
-
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

@@ -72,17 +72,11 @@
             this.button10 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.TxtSize = new System.Windows.Forms.TextBox();
-            this.TxtQuantity = new System.Windows.Forms.TextBox();
-            this.TxtUnityPrice = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.TxtPriceCode = new System.Windows.Forms.TextBox();
             this.TxtBrand = new System.Windows.Forms.TextBox();
             this.TxtItemName = new System.Windows.Forms.TextBox();
             this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -104,6 +98,10 @@
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
+            this.TxtUnityPrice = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtPriceCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -550,11 +548,9 @@
             this.tabItemmasterdata.Controls.Add(this.button10);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
-            this.tabItemmasterdata.Controls.Add(this.TxtQuantity);
             this.tabItemmasterdata.Controls.Add(this.TxtUnityPrice);
             this.tabItemmasterdata.Controls.Add(this.label16);
             this.tabItemmasterdata.Controls.Add(this.label15);
-            this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.label12);
             this.tabItemmasterdata.Controls.Add(this.TxtPriceCode);
             this.tabItemmasterdata.Controls.Add(this.TxtBrand);
@@ -580,7 +576,7 @@
             // txtCategory
             // 
             this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCategory.Location = new System.Drawing.Point(379, 634);
+            this.txtCategory.Location = new System.Drawing.Point(379, 588);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(200, 20);
             this.txtCategory.TabIndex = 72;
@@ -641,35 +637,17 @@
             // TxtSize
             // 
             this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtSize.Location = new System.Drawing.Point(379, 593);
+            this.TxtSize.Location = new System.Drawing.Point(379, 556);
             this.TxtSize.Name = "TxtSize";
             this.TxtSize.Size = new System.Drawing.Size(200, 20);
             this.TxtSize.TabIndex = 60;
             this.TxtSize.UseWaitCursor = true;
             // 
-            // TxtQuantity
-            // 
-            this.TxtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtQuantity.Location = new System.Drawing.Point(379, 556);
-            this.TxtQuantity.Name = "TxtQuantity";
-            this.TxtQuantity.Size = new System.Drawing.Size(200, 20);
-            this.TxtQuantity.TabIndex = 59;
-            this.TxtQuantity.UseWaitCursor = true;
-            // 
-            // TxtUnityPrice
-            // 
-            this.TxtUnityPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 519);
-            this.TxtUnityPrice.Name = "TxtUnityPrice";
-            this.TxtUnityPrice.Size = new System.Drawing.Size(200, 20);
-            this.TxtUnityPrice.TabIndex = 58;
-            this.TxtUnityPrice.UseWaitCursor = true;
-            // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(317, 634);
+            this.label16.Location = new System.Drawing.Point(317, 592);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 57;
@@ -680,43 +658,12 @@
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(317, 595);
+            this.label15.Location = new System.Drawing.Point(317, 557);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 56;
             this.label15.Text = "Size:";
             this.label15.UseWaitCursor = true;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(317, 556);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 55;
-            this.label13.Text = "Quantity:";
-            this.label13.UseWaitCursor = true;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(317, 519);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 13);
-            this.label12.TabIndex = 54;
-            this.label12.Text = "Unit Price:";
-            this.label12.UseWaitCursor = true;
-            // 
-            // TxtPriceCode
-            // 
-            this.TxtPriceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtPriceCode.Location = new System.Drawing.Point(79, 669);
-            this.TxtPriceCode.Name = "TxtPriceCode";
-            this.TxtPriceCode.Size = new System.Drawing.Size(200, 20);
-            this.TxtPriceCode.TabIndex = 53;
-            this.TxtPriceCode.UseWaitCursor = true;
             // 
             // TxtBrand
             // 
@@ -744,17 +691,6 @@
             this.txtBarcode.Size = new System.Drawing.Size(200, 20);
             this.txtBarcode.TabIndex = 49;
             this.txtBarcode.UseWaitCursor = true;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 672);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 13);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "Price Code:";
-            this.label11.UseWaitCursor = true;
             // 
             // label10
             // 
@@ -824,6 +760,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1175, 442);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // iDDataGridViewTextBoxColumn
@@ -955,6 +892,46 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
+            // TxtUnityPrice
+            // 
+            this.TxtUnityPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 519);
+            this.TxtUnityPrice.Name = "TxtUnityPrice";
+            this.TxtUnityPrice.Size = new System.Drawing.Size(200, 20);
+            this.TxtUnityPrice.TabIndex = 58;
+            this.TxtUnityPrice.UseWaitCursor = true;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(317, 519);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 13);
+            this.label12.TabIndex = 54;
+            this.label12.Text = "Unit Price:";
+            this.label12.UseWaitCursor = true;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 672);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Price Code:";
+            this.label11.UseWaitCursor = true;
+            // 
+            // TxtPriceCode
+            // 
+            this.TxtPriceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtPriceCode.Location = new System.Drawing.Point(79, 669);
+            this.TxtPriceCode.Name = "TxtPriceCode";
+            this.TxtPriceCode.Size = new System.Drawing.Size(200, 20);
+            this.TxtPriceCode.TabIndex = 53;
+            this.TxtPriceCode.UseWaitCursor = true;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1039,7 +1016,6 @@
         private System.Windows.Forms.TabPage tabBarcodegenerator;
         private System.Windows.Forms.TabPage tabStockmanagement;
         private System.Windows.Forms.TextBox txtBarcode;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -1048,13 +1024,8 @@
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox TxtSize;
-        private System.Windows.Forms.TextBox TxtQuantity;
-        private System.Windows.Forms.TextBox TxtUnityPrice;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TxtPriceCode;
         private System.Windows.Forms.TextBox TxtBrand;
         private System.Windows.Forms.TextBox TxtItemName;
         private System.Windows.Forms.Button button10;
@@ -1076,5 +1047,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox TxtUnityPrice;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TxtPriceCode;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -176,8 +176,8 @@ namespace BenpilsBarcodeSystem
         private void AddBtn_Click_1(object sender, EventArgs e)
         {
             txtBarcode.ReadOnly = true;
-            string insertQuery = "INSERT INTO tbl_inventory (barcode, [itemname], motorbrand, [brand], pricecode, unitprice, [quantity] , size, [category]) " +
-                                "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Quantity ,@Size,@Category)";
+            string insertQuery = "INSERT INTO tbl_inventory (barcode, [itemname], motorbrand, [brand], pricecode, unitprice, size, [category]) " +
+                      "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Size, @Category)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
@@ -188,8 +188,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnityPrice.Text);
-                    cmd.Parameters.AddWithValue("@Quantity", TxtQuantity.Text);
+                    cmd.Parameters.AddWithValue("@Unitprice" ,TxtUnityPrice.Text);
                     cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
                     cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
                     con.Open();
@@ -211,7 +210,6 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text =        "";
             TxtPriceCode.Text =    "";
             TxtUnityPrice.Text =   "";
-            TxtQuantity.Text =     "";
             TxtSize.Text =         "";
             txtCategory.Text =     "";
         }
@@ -248,7 +246,7 @@ namespace BenpilsBarcodeSystem
             int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
             string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand," +
-                              "pricecode = @PriceCode ,[unitprice] = @UnitPrice , size = @Size ,[category] = @Category  WHERE ID = @ID";
+                         "pricecode = @PriceCode ,[unitprice] = @UnitPrice , size = @Size ,[category] = @Category  WHERE ID = @ID";
 
 
 
@@ -263,10 +261,9 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@Quantity", TxtUnityPrice.Text);
-                    cmd.Parameters.AddWithValue("@Size", TxtQuantity.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtSize.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnityPrice.Text);
+                    cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
+                    cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
                   
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -296,14 +293,12 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-
+                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
                 TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
                 CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
-                TxtUnityPrice.Text = selectedRow.Cells["address"].Value.ToString();
-                TxtQuantity.Text = selectedRow.Cells["quantity"].Value.ToString();
+                TxtUnityPrice.Text = selectedRow.Cells["unityprice"].Value.ToString();
                 TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
                 txtCategory.Text = selectedRow.Cells["category"].Value.ToString();
             }
@@ -312,6 +307,11 @@ namespace BenpilsBarcodeSystem
    
 
         private void Archive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

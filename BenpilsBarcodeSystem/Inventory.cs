@@ -16,9 +16,11 @@ namespace BenpilsBarcodeSystem
         private bool IsDragging = false;
         private int mouseX,mouseY;
         private User user;
+        
         public Inventory(User user)
         {
             InitializeComponent();
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -283,20 +285,6 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
@@ -304,6 +292,26 @@ namespace BenpilsBarcodeSystem
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+
+                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
+                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
+                TxtUnityPrice.Text = selectedRow.Cells["address"].Value.ToString();
+                TxtQuantity.Text = selectedRow.Cells["quantity"].Value.ToString();
+                TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
+                txtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+            }
+        }
+
+   
+
+        private void Archive_Click(object sender, EventArgs e)
         {
 
         }

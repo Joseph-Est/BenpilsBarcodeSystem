@@ -58,6 +58,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -86,15 +88,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
-            this.TxtSearchBar = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
-            this.tabStockmanagement = new System.Windows.Forms.TabPage();
-            this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +97,13 @@
             this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
+            this.TxtSearchBar = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
+            this.tabStockmanagement = new System.Windows.Forms.TabPage();
+            this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -118,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -125,7 +126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -235,7 +235,6 @@
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel3
             // 
@@ -343,7 +342,6 @@
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label4
             // 
@@ -465,7 +463,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 843);
             this.panel2.TabIndex = 17;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(38, 769);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox12.TabIndex = 31;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 757);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Logout";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -519,7 +538,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1320, 750);
+            this.tabControl1.Size = new System.Drawing.Size(1317, 750);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.UseWaitCursor = true;
             // 
@@ -551,8 +570,8 @@
             this.tabItemmasterdata.Controls.Add(this.label14);
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
-            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabItemmasterdata.Size = new System.Drawing.Size(1312, 724);
+            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItemmasterdata.Size = new System.Drawing.Size(1309, 724);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
@@ -571,8 +590,8 @@
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(1198, 519);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateBtn.Location = new System.Drawing.Point(887, 516);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 71;
@@ -595,21 +614,22 @@
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(1141, 597);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Location = new System.Drawing.Point(830, 594);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 68;
             this.button10.Text = "Archive";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.UseWaitCursor = true;
+            this.button10.Click += new System.EventHandler(this.Archive_Click);
             // 
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(1081, 519);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddBtn.Location = new System.Drawing.Point(770, 516);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 66;
@@ -801,88 +821,10 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1299, 442);
+            this.dataGridView1.Size = new System.Drawing.Size(1175, 442);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // tblinventoryBindingSource
-            // 
-            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
-            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
-            // 
-            // benpillBarcodeDatabaseInventory
-            // 
-            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
-            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TxtSearchBar
-            // 
-            this.TxtSearchBar.Location = new System.Drawing.Point(63, 14);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtSearchBar.Name = "TxtSearchBar";
-            this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
-            this.TxtSearchBar.TabIndex = 41;
-            this.TxtSearchBar.UseWaitCursor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(10, 15);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 15);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "Search:";
-            this.label14.UseWaitCursor = true;
-            // 
-            // tabBarcodegenerator
-            // 
-            this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
-            this.tabBarcodegenerator.Name = "tabBarcodegenerator";
-            this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(1312, 724);
-            this.tabBarcodegenerator.TabIndex = 1;
-            this.tabBarcodegenerator.Text = "Barcode Generator";
-            this.tabBarcodegenerator.UseVisualStyleBackColor = true;
-            this.tabBarcodegenerator.UseWaitCursor = true;
-            // 
-            // tabStockmanagement
-            // 
-            this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
-            this.tabStockmanagement.Name = "tabStockmanagement";
-            this.tabStockmanagement.Size = new System.Drawing.Size(1312, 511);
-            this.tabStockmanagement.TabIndex = 2;
-            this.tabStockmanagement.Text = "Stock Management";
-            this.tabStockmanagement.UseVisualStyleBackColor = true;
-            this.tabStockmanagement.UseWaitCursor = true;
-            // 
-            // tbl_inventoryTableAdapter
-            // 
-            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 769);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox12.TabIndex = 31;
-            this.pictureBox12.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 757);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Logout";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -957,6 +899,62 @@
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             this.categoryDataGridViewTextBoxColumn.Width = 125;
             // 
+            // tblinventoryBindingSource
+            // 
+            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
+            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
+            // 
+            // benpillBarcodeDatabaseInventory
+            // 
+            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
+            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TxtSearchBar
+            // 
+            this.TxtSearchBar.Location = new System.Drawing.Point(63, 14);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSearchBar.Name = "TxtSearchBar";
+            this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
+            this.TxtSearchBar.TabIndex = 41;
+            this.TxtSearchBar.UseWaitCursor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(10, 15);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 15);
+            this.label14.TabIndex = 42;
+            this.label14.Text = "Search:";
+            this.label14.UseWaitCursor = true;
+            // 
+            // tabBarcodegenerator
+            // 
+            this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
+            this.tabBarcodegenerator.Name = "tabBarcodegenerator";
+            this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBarcodegenerator.Size = new System.Drawing.Size(1309, 724);
+            this.tabBarcodegenerator.TabIndex = 1;
+            this.tabBarcodegenerator.Text = "Barcode Generator";
+            this.tabBarcodegenerator.UseVisualStyleBackColor = true;
+            this.tabBarcodegenerator.UseWaitCursor = true;
+            // 
+            // tabStockmanagement
+            // 
+            this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
+            this.tabStockmanagement.Name = "tabStockmanagement";
+            this.tabStockmanagement.Size = new System.Drawing.Size(1309, 724);
+            this.tabStockmanagement.TabIndex = 2;
+            this.tabStockmanagement.Text = "Stock Management";
+            this.tabStockmanagement.UseVisualStyleBackColor = true;
+            this.tabStockmanagement.UseWaitCursor = true;
+            // 
+            // tbl_inventoryTableAdapter
+            // 
+            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -988,6 +986,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -997,7 +996,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }

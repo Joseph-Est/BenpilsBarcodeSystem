@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "admin")
             {
-             
+               
             }
         }
         //Dashboard Button

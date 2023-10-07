@@ -505,14 +505,16 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabItemmasterdata);
             this.tabControl1.Controls.Add(this.tabBarcodegenerator);
             this.tabControl1.Controls.Add(this.tabStockmanagement);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(863, 566);
+            this.tabControl1.Size = new System.Drawing.Size(863, 563);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.UseWaitCursor = true;
             // 
@@ -545,211 +547,233 @@
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
             this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabItemmasterdata.Size = new System.Drawing.Size(855, 540);
+            this.tabItemmasterdata.Size = new System.Drawing.Size(855, 537);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
+            this.tabItemmasterdata.UseWaitCursor = true;
             // 
             // txtCategory
             // 
             this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCategory.Location = new System.Drawing.Point(379, 450);
+            this.txtCategory.Location = new System.Drawing.Point(379, 447);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(200, 20);
             this.txtCategory.TabIndex = 72;
+            this.txtCategory.UseWaitCursor = true;
             // 
             // UpdateBtn
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(741, 335);
+            this.UpdateBtn.Location = new System.Drawing.Point(741, 332);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 71;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.UseWaitCursor = true;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click_1);
             // 
             // CmbMotorBrand
             // 
             this.CmbMotorBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CmbMotorBrand.FormattingEnabled = true;
-            this.CmbMotorBrand.Location = new System.Drawing.Point(79, 408);
+            this.CmbMotorBrand.Location = new System.Drawing.Point(79, 405);
             this.CmbMotorBrand.Name = "CmbMotorBrand";
             this.CmbMotorBrand.Size = new System.Drawing.Size(200, 21);
             this.CmbMotorBrand.TabIndex = 69;
+            this.CmbMotorBrand.UseWaitCursor = true;
             // 
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(684, 413);
+            this.button10.Location = new System.Drawing.Point(684, 410);
             this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 68;
             this.button10.Text = "Archive";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseWaitCursor = true;
             // 
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(624, 335);
+            this.AddBtn.Location = new System.Drawing.Point(624, 332);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 66;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.UseWaitCursor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click_1);
             // 
             // TxtSize
             // 
             this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtSize.Location = new System.Drawing.Point(379, 409);
+            this.TxtSize.Location = new System.Drawing.Point(379, 406);
             this.TxtSize.Name = "TxtSize";
             this.TxtSize.Size = new System.Drawing.Size(200, 20);
             this.TxtSize.TabIndex = 60;
+            this.TxtSize.UseWaitCursor = true;
             // 
             // TxtQuantity
             // 
             this.TxtQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtQuantity.Location = new System.Drawing.Point(379, 372);
+            this.TxtQuantity.Location = new System.Drawing.Point(379, 369);
             this.TxtQuantity.Name = "TxtQuantity";
             this.TxtQuantity.Size = new System.Drawing.Size(200, 20);
             this.TxtQuantity.TabIndex = 59;
+            this.TxtQuantity.UseWaitCursor = true;
             // 
             // TxtUnityPrice
             // 
             this.TxtUnityPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 335);
+            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 332);
             this.TxtUnityPrice.Name = "TxtUnityPrice";
             this.TxtUnityPrice.Size = new System.Drawing.Size(200, 20);
             this.TxtUnityPrice.TabIndex = 58;
+            this.TxtUnityPrice.UseWaitCursor = true;
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(317, 450);
+            this.label16.Location = new System.Drawing.Point(317, 447);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 57;
             this.label16.Text = "Category:";
+            this.label16.UseWaitCursor = true;
             // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(317, 411);
+            this.label15.Location = new System.Drawing.Point(317, 408);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 56;
             this.label15.Text = "Size:";
+            this.label15.UseWaitCursor = true;
             // 
             // label13
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(317, 372);
+            this.label13.Location = new System.Drawing.Point(317, 369);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 55;
             this.label13.Text = "Quantity:";
+            this.label13.UseWaitCursor = true;
             // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(317, 335);
+            this.label12.Location = new System.Drawing.Point(317, 332);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 13);
             this.label12.TabIndex = 54;
             this.label12.Text = "Unit Price:";
+            this.label12.UseWaitCursor = true;
             // 
             // TxtPriceCode
             // 
             this.TxtPriceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtPriceCode.Location = new System.Drawing.Point(79, 485);
+            this.TxtPriceCode.Location = new System.Drawing.Point(79, 482);
             this.TxtPriceCode.Name = "TxtPriceCode";
             this.TxtPriceCode.Size = new System.Drawing.Size(200, 20);
             this.TxtPriceCode.TabIndex = 53;
+            this.TxtPriceCode.UseWaitCursor = true;
             // 
             // TxtBrand
             // 
             this.TxtBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtBrand.Location = new System.Drawing.Point(79, 447);
+            this.TxtBrand.Location = new System.Drawing.Point(79, 444);
             this.TxtBrand.Name = "TxtBrand";
             this.TxtBrand.Size = new System.Drawing.Size(200, 20);
             this.TxtBrand.TabIndex = 52;
+            this.TxtBrand.UseWaitCursor = true;
             // 
             // TxtItemName
             // 
             this.TxtItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtItemName.Location = new System.Drawing.Point(79, 369);
+            this.TxtItemName.Location = new System.Drawing.Point(79, 366);
             this.TxtItemName.Name = "TxtItemName";
             this.TxtItemName.Size = new System.Drawing.Size(200, 20);
             this.TxtItemName.TabIndex = 50;
+            this.TxtItemName.UseWaitCursor = true;
             // 
             // txtBarcode
             // 
             this.txtBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBarcode.Location = new System.Drawing.Point(79, 332);
+            this.txtBarcode.Location = new System.Drawing.Point(79, 329);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(200, 20);
             this.txtBarcode.TabIndex = 49;
+            this.txtBarcode.UseWaitCursor = true;
             // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 488);
+            this.label11.Location = new System.Drawing.Point(7, 485);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 13);
             this.label11.TabIndex = 48;
             this.label11.Text = "Price Code:";
+            this.label11.UseWaitCursor = true;
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 450);
+            this.label10.Location = new System.Drawing.Point(7, 447);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 47;
             this.label10.Text = "Brand:";
+            this.label10.UseWaitCursor = true;
             // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 411);
+            this.label9.Location = new System.Drawing.Point(7, 408);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 46;
             this.label9.Text = "Motor Brand:";
+            this.label9.UseWaitCursor = true;
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 372);
+            this.label8.Location = new System.Drawing.Point(7, 369);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 45;
             this.label8.Text = "Item Name:";
+            this.label8.UseWaitCursor = true;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 335);
+            this.label7.Location = new System.Drawing.Point(6, 332);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 44;
             this.label7.Text = "Barcode:";
+            this.label7.UseWaitCursor = true;
             // 
             // dataGridView1
             // 
@@ -773,8 +797,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(842, 255);
             this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.UseWaitCursor = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 

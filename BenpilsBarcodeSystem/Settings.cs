@@ -28,14 +28,12 @@ namespace BenpilsBarcodeSystem
             if (user.Designation == "Employee")
             {
                 button8.Enabled = false;
-                AutomaticBackupBtn.Enabled = false;
-                ManualBackupBtn.Enabled = false;
-                ArchiveButtonBtn.Enabled = false;
+               
                 button6.Enabled = false;
             }
             else if (user.Designation == "admin")
             {
-                ArchiveButtonBtn.Enabled = false;
+             
             }
         }
         //Dashboard Button

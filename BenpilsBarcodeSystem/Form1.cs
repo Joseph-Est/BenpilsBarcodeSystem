@@ -18,28 +18,17 @@ namespace BenpilsBarcodeSystem
         public Form1()
         {
             InitializeComponent();
-          
         }
-
-       
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
             ce.StartPosition = FormStartPosition.CenterScreen;
             ce.ShowDialog();
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -49,7 +38,6 @@ namespace BenpilsBarcodeSystem
                 mouseY = e.Y;
             }
         }
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -58,7 +46,6 @@ namespace BenpilsBarcodeSystem
                 this.Top += e.Y - mouseY;
             }
         }
-
         private void Showpassword_CheckedChanged(object sender, EventArgs e)
         {
             if (Showpassword.Checked == true)
@@ -71,7 +58,6 @@ namespace BenpilsBarcodeSystem
             }
 
         }
-
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -125,12 +111,10 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             this.AcceptButton = LoginBtn;
         }
-
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

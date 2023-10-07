@@ -127,11 +127,6 @@ namespace BenpilsBarcodeSystem
             settings.Location = this.Location;
             this.Hide();
         }
-    
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -161,11 +156,6 @@ namespace BenpilsBarcodeSystem
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

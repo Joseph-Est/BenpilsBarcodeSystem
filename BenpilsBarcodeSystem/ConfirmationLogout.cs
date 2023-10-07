@@ -50,11 +50,6 @@ namespace BenpilsBarcodeSystem
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)

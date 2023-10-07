@@ -424,7 +424,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1055, 35);
             this.panel1.TabIndex = 15;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -440,7 +439,6 @@
             this.label6.Size = new System.Drawing.Size(109, 18);
             this.label6.TabIndex = 22;
             this.label6.Text = "Statistic Report";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // timer1
             // 
@@ -460,7 +458,6 @@
             this.Name = "StatisticReport";
             this.Text = "StatisticReport";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.StatisticReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();

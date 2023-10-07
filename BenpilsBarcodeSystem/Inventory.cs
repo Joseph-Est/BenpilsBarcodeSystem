@@ -227,15 +227,9 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void UpdateBtn_Click_1(object sender, EventArgs e)
         {
-            
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row to update.");
@@ -264,7 +258,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
                     cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
                     cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-                  
+
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();

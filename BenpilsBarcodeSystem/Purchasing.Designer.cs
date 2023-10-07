@@ -58,6 +58,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -91,8 +93,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPurchaseorderlist = new System.Windows.Forms.TabPage();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -107,12 +107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSuppliermasterdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -454,6 +454,28 @@
             this.panel2.TabIndex = 17;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(38, 802);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox12.TabIndex = 33;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.White;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(26, 790);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(153, 52);
+            this.button11.TabIndex = 32;
+            this.button11.Text = "Logout";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
@@ -789,33 +811,11 @@
             this.tabPurchaseorderlist.Location = new System.Drawing.Point(4, 22);
             this.tabPurchaseorderlist.Name = "tabPurchaseorderlist";
             this.tabPurchaseorderlist.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPurchaseorderlist.Size = new System.Drawing.Size(1230, 718);
+            this.tabPurchaseorderlist.Size = new System.Drawing.Size(1309, 718);
             this.tabPurchaseorderlist.TabIndex = 1;
             this.tabPurchaseorderlist.Text = "Purchase Order List";
             this.tabPurchaseorderlist.UseVisualStyleBackColor = true;
             this.tabPurchaseorderlist.Click += new System.EventHandler(this.tabPurchaseorderlist_Click);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 802);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox12.TabIndex = 33;
-            this.pictureBox12.TabStop = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.White;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(26, 790);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(153, 52);
-            this.button11.TabIndex = 32;
-            this.button11.Text = "Logout";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button11.UseVisualStyleBackColor = false;
             // 
             // Purchasing
             // 
@@ -848,6 +848,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -855,7 +856,6 @@
             this.tabSuppliermasterdata.ResumeLayout(false);
             this.tabSuppliermasterdata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -514,7 +514,6 @@
             this.label7.Size = new System.Drawing.Size(70, 15);
             this.label7.TabIndex = 20;
             this.label7.Text = "First Name:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -539,7 +538,6 @@
             this.label9.Size = new System.Drawing.Size(68, 15);
             this.label9.TabIndex = 22;
             this.label9.Text = "Username:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -564,7 +562,6 @@
             this.label11.Size = new System.Drawing.Size(76, 15);
             this.label11.TabIndex = 24;
             this.label11.Text = "Designation:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -607,7 +604,6 @@
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(157, 20);
             this.TxtLastName.TabIndex = 28;
-            this.TxtLastName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TxtUsername
             // 
@@ -617,7 +613,6 @@
             this.TxtUsername.Name = "TxtUsername";
             this.TxtUsername.Size = new System.Drawing.Size(157, 20);
             this.TxtUsername.TabIndex = 29;
-            this.TxtUsername.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // TxtPassword
             // 
@@ -627,7 +622,6 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(157, 20);
             this.TxtPassword.TabIndex = 30;
-            this.TxtPassword.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // TxtAddress
             // 

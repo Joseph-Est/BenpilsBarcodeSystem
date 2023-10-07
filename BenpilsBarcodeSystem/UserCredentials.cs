@@ -21,7 +21,7 @@ namespace BenpilsBarcodeSystem
         public UserCredentials(User user)
         {
             InitializeComponent();
-           
+            dataGridView1.CellClick += dataGridView1_CellClick;
 
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -180,40 +180,7 @@ namespace BenpilsBarcodeSystem
             this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
 
         }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

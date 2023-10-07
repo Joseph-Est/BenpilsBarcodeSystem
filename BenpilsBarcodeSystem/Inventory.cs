@@ -288,7 +288,16 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+      
+
+   
+
+        private void Archive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Check if a valid row is clicked (not header)
             {
@@ -304,18 +313,6 @@ namespace BenpilsBarcodeSystem
                 TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
             }
-        }
-
-   
-
-        private void Archive_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

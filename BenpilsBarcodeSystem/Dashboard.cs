@@ -11,6 +11,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BenpilsBarcodeSystem
 {
+
+    
     public partial class Dashboard : Form
     {
         private bool IsDragging = false;
@@ -161,6 +163,11 @@ namespace BenpilsBarcodeSystem
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

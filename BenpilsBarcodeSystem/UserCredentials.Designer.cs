@@ -109,7 +109,6 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.ComboDesignation = new System.Windows.Forms.ComboBox();
-            this.FillTextboxt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -673,7 +672,7 @@
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(530, 543);
+            this.ArchiveBtn.Location = new System.Drawing.Point(591, 543);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -712,6 +711,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(788, 310);
             this.dataGridView1.TabIndex = 42;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // ID
             // 
@@ -915,25 +915,11 @@
             this.ComboDesignation.TabIndex = 47;
             this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
             // 
-            // FillTextboxt
-            // 
-            this.FillTextboxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.FillTextboxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FillTextboxt.Location = new System.Drawing.Point(654, 543);
-            this.FillTextboxt.Margin = new System.Windows.Forms.Padding(2);
-            this.FillTextboxt.Name = "FillTextboxt";
-            this.FillTextboxt.Size = new System.Drawing.Size(93, 54);
-            this.FillTextboxt.TabIndex = 48;
-            this.FillTextboxt.Text = "Fill TextBox";
-            this.FillTextboxt.UseVisualStyleBackColor = true;
-            this.FillTextboxt.Click += new System.EventHandler(this.FillTextboxt_Click);
-            // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 682);
-            this.Controls.Add(this.FillTextboxt);
             this.Controls.Add(this.ComboDesignation);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.UpdateBtn);
@@ -1076,6 +1062,5 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox ComboDesignation;
-        private System.Windows.Forms.Button FillTextboxt;
     }
 }

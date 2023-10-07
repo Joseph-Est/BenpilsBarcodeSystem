@@ -66,12 +66,10 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
-            this.txtCategory = new System.Windows.Forms.TextBox();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.CmbMotorBrand = new System.Windows.Forms.ComboBox();
             this.button10 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.TxtSize = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.TxtBrand = new System.Windows.Forms.TextBox();
@@ -98,10 +96,12 @@
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
-            this.TxtUnityPrice = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.TxtPriceCode = new System.Windows.Forms.TextBox();
+            this.TxtUnitPrice = new System.Windows.Forms.TextBox();
+            this.TxtSize = new System.Windows.Forms.TextBox();
+            this.TxtCategory = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -542,13 +542,13 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.txtCategory);
+            this.tabItemmasterdata.Controls.Add(this.TxtCategory);
+            this.tabItemmasterdata.Controls.Add(this.TxtSize);
+            this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.CmbMotorBrand);
             this.tabItemmasterdata.Controls.Add(this.button10);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
-            this.tabItemmasterdata.Controls.Add(this.TxtSize);
-            this.tabItemmasterdata.Controls.Add(this.TxtUnityPrice);
             this.tabItemmasterdata.Controls.Add(this.label16);
             this.tabItemmasterdata.Controls.Add(this.label15);
             this.tabItemmasterdata.Controls.Add(this.label12);
@@ -572,15 +572,6 @@
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtCategory.Location = new System.Drawing.Point(379, 589);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(200, 20);
-            this.txtCategory.TabIndex = 72;
-            this.txtCategory.UseWaitCursor = true;
             // 
             // UpdateBtn
             // 
@@ -633,15 +624,6 @@
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.UseWaitCursor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click_1);
-            // 
-            // TxtSize
-            // 
-            this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtSize.Location = new System.Drawing.Point(379, 556);
-            this.TxtSize.Name = "TxtSize";
-            this.TxtSize.Size = new System.Drawing.Size(200, 20);
-            this.TxtSize.TabIndex = 60;
-            this.TxtSize.UseWaitCursor = true;
             // 
             // label16
             // 
@@ -892,15 +874,6 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
-            // TxtUnityPrice
-            // 
-            this.TxtUnityPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtUnityPrice.Location = new System.Drawing.Point(379, 519);
-            this.TxtUnityPrice.Name = "TxtUnityPrice";
-            this.TxtUnityPrice.Size = new System.Drawing.Size(200, 20);
-            this.TxtUnityPrice.TabIndex = 58;
-            this.TxtUnityPrice.UseWaitCursor = true;
-            // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -931,6 +904,33 @@
             this.TxtPriceCode.Size = new System.Drawing.Size(200, 20);
             this.TxtPriceCode.TabIndex = 53;
             this.TxtPriceCode.UseWaitCursor = true;
+            // 
+            // TxtUnitPrice
+            // 
+            this.TxtUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtUnitPrice.Location = new System.Drawing.Point(388, 516);
+            this.TxtUnitPrice.Name = "TxtUnitPrice";
+            this.TxtUnitPrice.Size = new System.Drawing.Size(200, 20);
+            this.TxtUnitPrice.TabIndex = 73;
+            this.TxtUnitPrice.UseWaitCursor = true;
+            // 
+            // TxtSize
+            // 
+            this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtSize.Location = new System.Drawing.Point(388, 554);
+            this.TxtSize.Name = "TxtSize";
+            this.TxtSize.Size = new System.Drawing.Size(200, 20);
+            this.TxtSize.TabIndex = 74;
+            this.TxtSize.UseWaitCursor = true;
+            // 
+            // TxtCategory
+            // 
+            this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtCategory.Location = new System.Drawing.Point(388, 592);
+            this.TxtCategory.Name = "TxtCategory";
+            this.TxtCategory.Size = new System.Drawing.Size(200, 20);
+            this.TxtCategory.TabIndex = 75;
+            this.TxtCategory.UseWaitCursor = true;
             // 
             // Inventory
             // 
@@ -1023,7 +1023,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox TxtSize;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TxtBrand;
@@ -1032,7 +1031,6 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox CmbMotorBrand;
         private System.Windows.Forms.Button UpdateBtn;
-        private System.Windows.Forms.TextBox txtCategory;
         private BenpillBarcodeDatabaseInventory benpillBarcodeDatabaseInventory;
         private System.Windows.Forms.BindingSource tblinventoryBindingSource;
         private BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter tbl_inventoryTableAdapter;
@@ -1047,9 +1045,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox TxtUnityPrice;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TxtPriceCode;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TxtCategory;
+        private System.Windows.Forms.TextBox TxtSize;
+        private System.Windows.Forms.TextBox TxtUnitPrice;
     }
 }

@@ -20,7 +20,7 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -188,9 +188,9 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@Unitprice" ,TxtUnityPrice.Text);
+                    cmd.Parameters.AddWithValue("@Unitprice" ,TxtUnitPrice.Text);
                     cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                    cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -209,9 +209,9 @@ namespace BenpilsBarcodeSystem
             CmbMotorBrand.Text =   "";
             TxtBrand.Text =        "";
             TxtPriceCode.Text =    "";
-            TxtUnityPrice.Text =   "";
+            TxtUnitPrice.Text =   "";
             TxtSize.Text =         "";
-            txtCategory.Text =     "";
+            TxtCategory.Text =     "";
         }
 
         private void UpdateDataGridView()
@@ -261,9 +261,9 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnityPrice.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
                     cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                    cmd.Parameters.AddWithValue("@Category", txtCategory.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
                   
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -290,17 +290,19 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0) // Check if a valid row is clicked (not header)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                // Fill the textboxes with data from the selected row
                 txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
                 TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
                 CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
-                TxtUnityPrice.Text = selectedRow.Cells["unityprice"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
                 TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
-                txtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
             }
         }
 

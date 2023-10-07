@@ -379,6 +379,11 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void GtrBtn_Click(object sender, EventArgs e)
+        {
+            FillTextBoxes
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

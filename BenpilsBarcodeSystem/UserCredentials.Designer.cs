@@ -109,6 +109,7 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.ComboDesignation = new System.Windows.Forms.ComboBox();
+            this.GtrBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -672,7 +673,7 @@
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(593, 537);
+            this.ArchiveBtn.Location = new System.Drawing.Point(530, 538);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -914,11 +915,22 @@
             this.ComboDesignation.TabIndex = 47;
             this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
             // 
+            // GtrBtn
+            // 
+            this.GtrBtn.Location = new System.Drawing.Point(654, 538);
+            this.GtrBtn.Name = "GtrBtn";
+            this.GtrBtn.Size = new System.Drawing.Size(93, 54);
+            this.GtrBtn.TabIndex = 48;
+            this.GtrBtn.Text = "Get Text Row";
+            this.GtrBtn.UseVisualStyleBackColor = true;
+            this.GtrBtn.Click += new System.EventHandler(this.GtrBtn_Click);
+            // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 682);
+            this.Controls.Add(this.GtrBtn);
             this.Controls.Add(this.ComboDesignation);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.UpdateBtn);
@@ -1061,5 +1073,6 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox ComboDesignation;
+        private System.Windows.Forms.Button GtrBtn;
     }
 }

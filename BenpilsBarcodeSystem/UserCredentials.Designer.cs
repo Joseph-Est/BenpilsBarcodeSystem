@@ -109,7 +109,7 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.ComboDesignation = new System.Windows.Forms.ComboBox();
-            this.GtrBtn = new System.Windows.Forms.Button();
+            this.FillTextboxt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -915,23 +915,25 @@
             this.ComboDesignation.TabIndex = 47;
             this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
             // 
-            // GtrBtn
+            // FillTextboxt
             // 
-            this.GtrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.GtrBtn.Location = new System.Drawing.Point(654, 538);
-            this.GtrBtn.Name = "GtrBtn";
-            this.GtrBtn.Size = new System.Drawing.Size(93, 54);
-            this.GtrBtn.TabIndex = 48;
-            this.GtrBtn.Text = "Get Text Row";
-            this.GtrBtn.UseVisualStyleBackColor = true;
-            this.GtrBtn.Click += new System.EventHandler(this.GtrBtn_Click);
+            this.FillTextboxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FillTextboxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FillTextboxt.Location = new System.Drawing.Point(654, 538);
+            this.FillTextboxt.Margin = new System.Windows.Forms.Padding(2);
+            this.FillTextboxt.Name = "FillTextboxt";
+            this.FillTextboxt.Size = new System.Drawing.Size(93, 54);
+            this.FillTextboxt.TabIndex = 48;
+            this.FillTextboxt.Text = "Fill TextBox";
+            this.FillTextboxt.UseVisualStyleBackColor = true;
+            this.FillTextboxt.Click += new System.EventHandler(this.FillTextboxt_Click);
             // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 682);
-            this.Controls.Add(this.GtrBtn);
+            this.Controls.Add(this.FillTextboxt);
             this.Controls.Add(this.ComboDesignation);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.UpdateBtn);
@@ -1074,6 +1076,6 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ComboBox ComboDesignation;
-        private System.Windows.Forms.Button GtrBtn;
+        private System.Windows.Forms.Button FillTextboxt;
     }
 }

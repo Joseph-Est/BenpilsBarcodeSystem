@@ -345,18 +345,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void FillTextBoxes()
-        {
-            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-            TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
-            TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
-            TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
-            TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
-            TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
-            TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
-            ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
-        }
+  
 
         private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -379,9 +368,17 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void GtrBtn_Click(object sender, EventArgs e)
+        private void FillTextboxt_Click(object sender, EventArgs e)
         {
-            FillTextBoxes();
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+            TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
+            TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
+            TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
+            TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
+            TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
+            TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
+            ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

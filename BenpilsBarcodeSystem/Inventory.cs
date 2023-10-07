@@ -235,7 +235,7 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateBtn_Click_1(object sender, EventArgs e)
         {
-            txtBarcode.ReadOnly = true;
+            
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row to update.");
@@ -245,11 +245,11 @@ namespace BenpilsBarcodeSystem
 
             int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
 
-            string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand," + 
-                                       "pricecode = @PriceCode ,[unitprice] = @UnitPrice , size = @Size ,[category] = @Category  WHERE ID = @ID";
+            string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand," +
+                              "pricecode = @PriceCode ,[unitprice] = @UnitPrice , size = @Size ,[category] = @Category  WHERE ID = @ID";
 
 
-            
+
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
@@ -274,6 +274,13 @@ namespace BenpilsBarcodeSystem
 
             UpdateDataGridView();
             ClearAllTextBoxes();
+        }
+
+        private void Inventory_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillBarcodeDatabaseInventory.tbl_inventory' table. You can move, or remove it, as needed.
+            this.tbl_inventoryTableAdapter.Fill(this.benpillBarcodeDatabaseInventory.tbl_inventory);
+
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

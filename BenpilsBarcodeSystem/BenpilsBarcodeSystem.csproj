@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BenpillBarcodeDatabaseInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -177,6 +182,17 @@
     <EmbeddedResource Include="UserCredentials.resx">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BenpillBarcodeDatabaseInventory.xsc">
+      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillBarcodeDatabaseInventory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillBarcodeDatabaseInventory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillBarcodeDatabaseInventory.xss">
+      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleDatabaseDataSet.xsc">
       <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
     </None>

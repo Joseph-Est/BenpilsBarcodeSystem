@@ -21,6 +21,10 @@ namespace BenpilsBarcodeSystem
         public UserCredentials(User user)
         {
             InitializeComponent();
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+
+       
+          
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -372,6 +376,26 @@ namespace BenpilsBarcodeSystem
         {
             DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
+            TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
+            TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
+            TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
+            TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
+            TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
+            TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
+            ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+ 
             TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
             TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
             TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();

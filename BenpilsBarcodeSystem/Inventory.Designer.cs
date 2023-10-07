@@ -86,16 +86,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
@@ -105,6 +95,15 @@
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -796,7 +795,6 @@
             this.brandDataGridViewTextBoxColumn,
             this.priceCodeDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
             this.sizeDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblinventoryBindingSource;
@@ -807,6 +805,84 @@
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // tblinventoryBindingSource
+            // 
+            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
+            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
+            // 
+            // benpillBarcodeDatabaseInventory
+            // 
+            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
+            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TxtSearchBar
+            // 
+            this.TxtSearchBar.Location = new System.Drawing.Point(63, 14);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearchBar.Name = "TxtSearchBar";
+            this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
+            this.TxtSearchBar.TabIndex = 41;
+            this.TxtSearchBar.UseWaitCursor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(10, 15);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 15);
+            this.label14.TabIndex = 42;
+            this.label14.Text = "Search:";
+            this.label14.UseWaitCursor = true;
+            // 
+            // tabBarcodegenerator
+            // 
+            this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
+            this.tabBarcodegenerator.Name = "tabBarcodegenerator";
+            this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabBarcodegenerator.Size = new System.Drawing.Size(1312, 724);
+            this.tabBarcodegenerator.TabIndex = 1;
+            this.tabBarcodegenerator.Text = "Barcode Generator";
+            this.tabBarcodegenerator.UseVisualStyleBackColor = true;
+            this.tabBarcodegenerator.UseWaitCursor = true;
+            // 
+            // tabStockmanagement
+            // 
+            this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
+            this.tabStockmanagement.Name = "tabStockmanagement";
+            this.tabStockmanagement.Size = new System.Drawing.Size(1312, 511);
+            this.tabStockmanagement.TabIndex = 2;
+            this.tabStockmanagement.Text = "Stock Management";
+            this.tabStockmanagement.UseVisualStyleBackColor = true;
+            this.tabStockmanagement.UseWaitCursor = true;
+            // 
+            // tbl_inventoryTableAdapter
+            // 
+            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(38, 769);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox12.TabIndex = 31;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 757);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Logout";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -865,14 +941,6 @@
             this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
             this.unitPriceDataGridViewTextBoxColumn.Width = 125;
             // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 125;
-            // 
             // sizeDataGridViewTextBoxColumn
             // 
             this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
@@ -888,84 +956,6 @@
             this.categoryDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             this.categoryDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // tblinventoryBindingSource
-            // 
-            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
-            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
-            // 
-            // benpillBarcodeDatabaseInventory
-            // 
-            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
-            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TxtSearchBar
-            // 
-            this.TxtSearchBar.Location = new System.Drawing.Point(63, 14);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtSearchBar.Name = "TxtSearchBar";
-            this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
-            this.TxtSearchBar.TabIndex = 41;
-            this.TxtSearchBar.UseWaitCursor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(10, 15);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 15);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "Search:";
-            this.label14.UseWaitCursor = true;
-            // 
-            // tabBarcodegenerator
-            // 
-            this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
-            this.tabBarcodegenerator.Name = "tabBarcodegenerator";
-            this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(1312, 511);
-            this.tabBarcodegenerator.TabIndex = 1;
-            this.tabBarcodegenerator.Text = "Barcode Generator";
-            this.tabBarcodegenerator.UseVisualStyleBackColor = true;
-            this.tabBarcodegenerator.UseWaitCursor = true;
-            // 
-            // tabStockmanagement
-            // 
-            this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
-            this.tabStockmanagement.Name = "tabStockmanagement";
-            this.tabStockmanagement.Size = new System.Drawing.Size(1312, 511);
-            this.tabStockmanagement.TabIndex = 2;
-            this.tabStockmanagement.Text = "Stock Management";
-            this.tabStockmanagement.UseVisualStyleBackColor = true;
-            this.tabStockmanagement.UseWaitCursor = true;
-            // 
-            // tbl_inventoryTableAdapter
-            // 
-            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 769);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox12.TabIndex = 31;
-            this.pictureBox12.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 757);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Logout";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // Inventory
             // 
@@ -1077,6 +1067,8 @@
         private BenpillBarcodeDatabaseInventory benpillBarcodeDatabaseInventory;
         private System.Windows.Forms.BindingSource tblinventoryBindingSource;
         private BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter tbl_inventoryTableAdapter;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
@@ -1084,10 +1076,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Button button4;
     }
 }

@@ -925,7 +925,7 @@
             this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
             this.tabBarcodegenerator.Name = "tabBarcodegenerator";
             this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(855, 537);
+            this.tabBarcodegenerator.Size = new System.Drawing.Size(1312, 511);
             this.tabBarcodegenerator.TabIndex = 1;
             this.tabBarcodegenerator.Text = "Barcode Generator";
             this.tabBarcodegenerator.UseVisualStyleBackColor = true;
@@ -935,7 +935,7 @@
             // 
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
             this.tabStockmanagement.Name = "tabStockmanagement";
-            this.tabStockmanagement.Size = new System.Drawing.Size(1023, 718);
+            this.tabStockmanagement.Size = new System.Drawing.Size(1312, 511);
             this.tabStockmanagement.TabIndex = 2;
             this.tabStockmanagement.Text = "Stock Management";
             this.tabStockmanagement.UseVisualStyleBackColor = true;

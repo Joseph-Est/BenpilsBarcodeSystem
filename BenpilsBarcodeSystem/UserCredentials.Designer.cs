@@ -917,6 +917,7 @@
             // 
             // GtrBtn
             // 
+            this.GtrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.GtrBtn.Location = new System.Drawing.Point(654, 538);
             this.GtrBtn.Name = "GtrBtn";
             this.GtrBtn.Size = new System.Drawing.Size(93, 54);

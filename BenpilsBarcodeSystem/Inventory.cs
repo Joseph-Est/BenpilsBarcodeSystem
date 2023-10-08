@@ -315,6 +315,20 @@ namespace BenpilsBarcodeSystem
             CL.ShowDialog();
         }
 
+        private void GenerateBtn_Click(object sender, EventArgs e)
+        {
+            string barCode = txtBarcodefiller.Text;
+            try
+            {
+                Zen.Barcode.Code128BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
+                pictureBox1.Image = brCode.Draw(barCode, 60);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;

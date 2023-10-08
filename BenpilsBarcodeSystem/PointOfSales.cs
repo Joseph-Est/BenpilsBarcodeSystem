@@ -143,21 +143,6 @@ namespace BenpilsBarcodeSystem
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

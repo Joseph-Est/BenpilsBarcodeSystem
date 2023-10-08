@@ -152,10 +152,11 @@ namespace BenpilsBarcodeSystem
             IsDragging = false;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationLogout cl = new ConfirmationLogout();
-            cl.ShowDialog();
+            ConfirmationLogout ce = new ConfirmationLogout();
+            ce.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

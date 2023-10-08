@@ -59,7 +59,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Logoutbtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -421,7 +421,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox12);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.Logoutbtn);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.pictureBox10);
@@ -457,17 +457,18 @@
             this.pictureBox12.TabIndex = 29;
             this.pictureBox12.TabStop = false;
             // 
-            // button4
+            // Logoutbtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 784);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Logout";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.Logoutbtn.BackColor = System.Drawing.Color.White;
+            this.Logoutbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logoutbtn.Location = new System.Drawing.Point(26, 784);
+            this.Logoutbtn.Name = "Logoutbtn";
+            this.Logoutbtn.Size = new System.Drawing.Size(153, 52);
+            this.Logoutbtn.TabIndex = 28;
+            this.Logoutbtn.Text = "Logout";
+            this.Logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Logoutbtn.UseVisualStyleBackColor = false;
+            this.Logoutbtn.Click += new System.EventHandler(this.Logoutbtn_Click);
             // 
             // label9
             // 
@@ -806,6 +807,6 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Logoutbtn;
     }
 }

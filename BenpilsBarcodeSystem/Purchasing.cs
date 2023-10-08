@@ -162,6 +162,12 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            ConfirmationLogout CL = new ConfirmationLogout();
+            CL.ShowDialog();
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

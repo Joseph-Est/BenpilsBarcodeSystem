@@ -116,7 +116,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(546, 3);
+            this.label5.Location = new System.Drawing.Point(555, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
@@ -166,7 +166,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1483, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(1502, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 32);
             this.pictureBox2.TabIndex = 7;
@@ -227,7 +227,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(182, 35);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1338, 36);
+            this.panel3.Size = new System.Drawing.Size(1357, 36);
             this.panel3.TabIndex = 16;
             // 
             // label3
@@ -237,7 +237,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1172, 6);
+            this.label3.Location = new System.Drawing.Point(1191, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
@@ -250,7 +250,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(568, 6);
+            this.label2.Location = new System.Drawing.Point(577, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
@@ -309,7 +309,7 @@
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1439, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(1458, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 32);
             this.pictureBox3.TabIndex = 8;
@@ -411,9 +411,9 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 872);
+            this.panel5.Location = new System.Drawing.Point(182, 875);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1338, 35);
+            this.panel5.Size = new System.Drawing.Size(1357, 35);
             this.panel5.TabIndex = 18;
             // 
             // panel2
@@ -443,7 +443,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 872);
+            this.panel2.Size = new System.Drawing.Size(182, 875);
             this.panel2.TabIndex = 17;
             // 
             // label9
@@ -468,7 +468,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1520, 35);
+            this.panel1.Size = new System.Drawing.Size(1539, 35);
             this.panel1.TabIndex = 15;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -499,10 +499,10 @@
             this.tabControl1.Controls.Add(this.tabInventoryreport);
             this.tabControl1.Controls.Add(this.tabSalereport);
             this.tabControl1.Controls.Add(this.tabAudittrail);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1323, 732);
+            this.tabControl1.Size = new System.Drawing.Size(1264, 501);
             this.tabControl1.TabIndex = 0;
             // 
             // tabInventoryreport
@@ -510,7 +510,7 @@
             this.tabInventoryreport.Location = new System.Drawing.Point(4, 22);
             this.tabInventoryreport.Name = "tabInventoryreport";
             this.tabInventoryreport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventoryreport.Size = new System.Drawing.Size(1312, 742);
+            this.tabInventoryreport.Size = new System.Drawing.Size(1256, 392);
             this.tabInventoryreport.TabIndex = 0;
             this.tabInventoryreport.Text = "Inventory Report";
             this.tabInventoryreport.UseVisualStyleBackColor = true;
@@ -520,7 +520,7 @@
             this.tabSalereport.Location = new System.Drawing.Point(4, 22);
             this.tabSalereport.Name = "tabSalereport";
             this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalereport.Size = new System.Drawing.Size(1315, 742);
+            this.tabSalereport.Size = new System.Drawing.Size(1256, 392);
             this.tabSalereport.TabIndex = 1;
             this.tabSalereport.Text = "Sales Report";
             this.tabSalereport.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@
             this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
-            this.tabAudittrail.Size = new System.Drawing.Size(1315, 706);
+            this.tabAudittrail.Size = new System.Drawing.Size(1256, 475);
             this.tabAudittrail.TabIndex = 2;
             this.tabAudittrail.Text = "Audit Trail ";
             this.tabAudittrail.UseVisualStyleBackColor = true;
@@ -669,9 +669,9 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.tabControl1);
-            this.panel6.Location = new System.Drawing.Point(188, 74);
+            this.panel6.Location = new System.Drawing.Point(192, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1326, 792);
+            this.panel6.Size = new System.Drawing.Size(1336, 686);
             this.panel6.TabIndex = 19;
             // 
             // pictureBox12
@@ -700,7 +700,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1520, 907);
+            this.ClientSize = new System.Drawing.Size(1539, 910);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);

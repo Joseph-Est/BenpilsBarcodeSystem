@@ -333,6 +333,7 @@ namespace BenpilsBarcodeSystem
                 TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
                 TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
                 ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
+                AddBtn.Enabled = false;
             }
         }
 

@@ -100,12 +100,12 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
+            this.GenerateBtn = new System.Windows.Forms.Button();
+            this.txtBarcodefiller = new System.Windows.Forms.TextBox();
+            this.BarcodeLabel = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.BarcodeLabel = new System.Windows.Forms.Label();
-            this.txtBarcodefiller = new System.Windows.Forms.TextBox();
-            this.GenerateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -928,6 +928,45 @@
             this.tabBarcodegenerator.UseVisualStyleBackColor = true;
             this.tabBarcodegenerator.UseWaitCursor = true;
             // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.Location = new System.Drawing.Point(331, 161);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
+            this.GenerateBtn.TabIndex = 3;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.UseWaitCursor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
+            // 
+            // txtBarcodefiller
+            // 
+            this.txtBarcodefiller.Location = new System.Drawing.Point(87, 161);
+            this.txtBarcodefiller.Name = "txtBarcodefiller";
+            this.txtBarcodefiller.Size = new System.Drawing.Size(223, 20);
+            this.txtBarcodefiller.TabIndex = 2;
+            this.txtBarcodefiller.UseWaitCursor = true;
+            // 
+            // BarcodeLabel
+            // 
+            this.BarcodeLabel.AutoSize = true;
+            this.BarcodeLabel.Location = new System.Drawing.Point(28, 164);
+            this.BarcodeLabel.Name = "BarcodeLabel";
+            this.BarcodeLabel.Size = new System.Drawing.Size(50, 13);
+            this.BarcodeLabel.TabIndex = 1;
+            this.BarcodeLabel.Text = "Barcode:";
+            this.BarcodeLabel.UseWaitCursor = true;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox13.Location = new System.Drawing.Point(87, 69);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(223, 65);
+            this.pictureBox13.TabIndex = 0;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.UseWaitCursor = true;
+            // 
             // tabStockmanagement
             // 
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
@@ -941,40 +980,6 @@
             // tbl_inventoryTableAdapter
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Location = new System.Drawing.Point(87, 73);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(223, 65);
-            this.pictureBox13.TabIndex = 0;
-            this.pictureBox13.TabStop = false;
-            // 
-            // BarcodeLabel
-            // 
-            this.BarcodeLabel.AutoSize = true;
-            this.BarcodeLabel.Location = new System.Drawing.Point(28, 164);
-            this.BarcodeLabel.Name = "BarcodeLabel";
-            this.BarcodeLabel.Size = new System.Drawing.Size(50, 13);
-            this.BarcodeLabel.TabIndex = 1;
-            this.BarcodeLabel.Text = "Barcode:";
-            // 
-            // txtBarcodefiller
-            // 
-            this.txtBarcodefiller.Location = new System.Drawing.Point(87, 161);
-            this.txtBarcodefiller.Name = "txtBarcodefiller";
-            this.txtBarcodefiller.Size = new System.Drawing.Size(223, 20);
-            this.txtBarcodefiller.TabIndex = 2;
-            // 
-            // GenerateBtn
-            // 
-            this.GenerateBtn.Location = new System.Drawing.Point(331, 161);
-            this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
-            this.GenerateBtn.TabIndex = 3;
-            this.GenerateBtn.Text = "Generate";
-            this.GenerateBtn.UseVisualStyleBackColor = true;
-            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
             // Inventory
             // 

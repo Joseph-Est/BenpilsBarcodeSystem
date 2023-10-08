@@ -930,7 +930,7 @@
             // 
             // GenerateBtn
             // 
-            this.GenerateBtn.Location = new System.Drawing.Point(331, 161);
+            this.GenerateBtn.Location = new System.Drawing.Point(641, 250);
             this.GenerateBtn.Name = "GenerateBtn";
             this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
             this.GenerateBtn.TabIndex = 3;
@@ -941,7 +941,7 @@
             // 
             // txtBarcodefiller
             // 
-            this.txtBarcodefiller.Location = new System.Drawing.Point(87, 161);
+            this.txtBarcodefiller.Location = new System.Drawing.Point(397, 252);
             this.txtBarcodefiller.Name = "txtBarcodefiller";
             this.txtBarcodefiller.Size = new System.Drawing.Size(223, 20);
             this.txtBarcodefiller.TabIndex = 2;
@@ -950,7 +950,7 @@
             // BarcodeLabel
             // 
             this.BarcodeLabel.AutoSize = true;
-            this.BarcodeLabel.Location = new System.Drawing.Point(28, 164);
+            this.BarcodeLabel.Location = new System.Drawing.Point(335, 255);
             this.BarcodeLabel.Name = "BarcodeLabel";
             this.BarcodeLabel.Size = new System.Drawing.Size(50, 13);
             this.BarcodeLabel.TabIndex = 1;
@@ -960,7 +960,7 @@
             // pictureBox13
             // 
             this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox13.Location = new System.Drawing.Point(87, 69);
+            this.pictureBox13.Location = new System.Drawing.Point(397, 162);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(223, 65);
             this.pictureBox13.TabIndex = 0;

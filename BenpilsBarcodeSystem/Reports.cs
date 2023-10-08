@@ -139,6 +139,11 @@ namespace BenpilsBarcodeSystem
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

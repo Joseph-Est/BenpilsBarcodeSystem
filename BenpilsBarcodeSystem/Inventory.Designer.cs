@@ -100,6 +100,10 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
+            this.GenerateBtn = new System.Windows.Forms.Button();
+            this.txtBarcodefiller = new System.Windows.Forms.TextBox();
+            this.BarcodeLabel = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -124,6 +128,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
+            this.tabBarcodegenerator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -909,20 +915,63 @@
             // 
             // tabBarcodegenerator
             // 
+            this.tabBarcodegenerator.Controls.Add(this.GenerateBtn);
+            this.tabBarcodegenerator.Controls.Add(this.txtBarcodefiller);
+            this.tabBarcodegenerator.Controls.Add(this.BarcodeLabel);
+            this.tabBarcodegenerator.Controls.Add(this.pictureBox13);
             this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
             this.tabBarcodegenerator.Name = "tabBarcodegenerator";
             this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(1342, 724);
+            this.tabBarcodegenerator.Size = new System.Drawing.Size(1348, 724);
             this.tabBarcodegenerator.TabIndex = 1;
             this.tabBarcodegenerator.Text = "Barcode Generator";
             this.tabBarcodegenerator.UseVisualStyleBackColor = true;
             this.tabBarcodegenerator.UseWaitCursor = true;
             // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.Location = new System.Drawing.Point(641, 250);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
+            this.GenerateBtn.TabIndex = 3;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.UseWaitCursor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
+            // 
+            // txtBarcodefiller
+            // 
+            this.txtBarcodefiller.Location = new System.Drawing.Point(397, 252);
+            this.txtBarcodefiller.Name = "txtBarcodefiller";
+            this.txtBarcodefiller.Size = new System.Drawing.Size(223, 20);
+            this.txtBarcodefiller.TabIndex = 2;
+            this.txtBarcodefiller.UseWaitCursor = true;
+            // 
+            // BarcodeLabel
+            // 
+            this.BarcodeLabel.AutoSize = true;
+            this.BarcodeLabel.Location = new System.Drawing.Point(335, 255);
+            this.BarcodeLabel.Name = "BarcodeLabel";
+            this.BarcodeLabel.Size = new System.Drawing.Size(50, 13);
+            this.BarcodeLabel.TabIndex = 1;
+            this.BarcodeLabel.Text = "Barcode:";
+            this.BarcodeLabel.UseWaitCursor = true;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox13.Location = new System.Drawing.Point(397, 162);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(223, 65);
+            this.pictureBox13.TabIndex = 0;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.UseWaitCursor = true;
+            // 
             // tabStockmanagement
             // 
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
             this.tabStockmanagement.Name = "tabStockmanagement";
-            this.tabStockmanagement.Size = new System.Drawing.Size(1342, 724);
+            this.tabStockmanagement.Size = new System.Drawing.Size(1348, 724);
             this.tabStockmanagement.TabIndex = 2;
             this.tabStockmanagement.Text = "Stock Management";
             this.tabStockmanagement.UseVisualStyleBackColor = true;
@@ -973,6 +1022,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
+            this.tabBarcodegenerator.ResumeLayout(false);
+            this.tabBarcodegenerator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1051,5 +1103,9 @@
         private System.Windows.Forms.TextBox TxtCategory;
         private System.Windows.Forms.TextBox TxtSize;
         private System.Windows.Forms.TextBox TxtUnitPrice;
+        private System.Windows.Forms.Button GenerateBtn;
+        private System.Windows.Forms.TextBox txtBarcodefiller;
+        private System.Windows.Forms.Label BarcodeLabel;
+        private System.Windows.Forms.PictureBox pictureBox13;
     }
 }

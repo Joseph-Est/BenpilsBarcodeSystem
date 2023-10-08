@@ -78,6 +78,22 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblusercredentialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabaseDataSet1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseDataSet1();
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -93,14 +109,6 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.ComboDesignation = new System.Windows.Forms.ComboBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -427,9 +435,9 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(182, 647);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(873, 35);
@@ -583,7 +591,7 @@
             // 
             this.TxtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtFirstName.Location = new System.Drawing.Point(276, 452);
-            this.TxtFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
             this.TxtFirstName.TabIndex = 27;
@@ -592,7 +600,7 @@
             // 
             this.TxtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtLastName.Location = new System.Drawing.Point(276, 477);
-            this.TxtLastName.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(157, 20);
             this.TxtLastName.TabIndex = 28;
@@ -601,7 +609,7 @@
             // 
             this.TxtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtUsername.Location = new System.Drawing.Point(276, 504);
-            this.TxtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtUsername.Name = "TxtUsername";
             this.TxtUsername.Size = new System.Drawing.Size(157, 20);
             this.TxtUsername.TabIndex = 29;
@@ -610,7 +618,7 @@
             // 
             this.TxtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtPassword.Location = new System.Drawing.Point(276, 530);
-            this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(157, 20);
             this.TxtPassword.TabIndex = 30;
@@ -619,7 +627,7 @@
             // 
             this.TxtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtAddress.Location = new System.Drawing.Point(276, 583);
-            this.TxtAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtAddress.Name = "TxtAddress";
             this.TxtAddress.Size = new System.Drawing.Size(157, 20);
             this.TxtAddress.TabIndex = 31;
@@ -628,7 +636,7 @@
             // 
             this.TxtContactNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtContactNo.Location = new System.Drawing.Point(276, 612);
-            this.TxtContactNo.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtContactNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtContactNo.Name = "TxtContactNo";
             this.TxtContactNo.Size = new System.Drawing.Size(157, 20);
             this.TxtContactNo.TabIndex = 32;
@@ -647,7 +655,7 @@
             // TxtSearchBar
             // 
             this.TxtSearchBar.Location = new System.Drawing.Point(256, 87);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 0;
@@ -657,7 +665,7 @@
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ArchiveBtn.Location = new System.Drawing.Point(588, 538);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
             this.ArchiveBtn.TabIndex = 41;
@@ -680,7 +688,15 @@
             this.Password,
             this.Designation,
             this.Address,
-            this.ContactNo});
+            this.ContactNo,
+            this.iDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.userNameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.designationDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblusercredentialBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(206, 119);
             this.dataGridView1.Name = "dataGridView1";
@@ -688,6 +704,136 @@
             this.dataGridView1.Size = new System.Drawing.Size(788, 310);
             this.dataGridView1.TabIndex = 42;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Width = 125;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.Width = 125;
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 125;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.Width = 125;
+            // 
+            // Designation
+            // 
+            this.Designation.DataPropertyName = "Designation";
+            this.Designation.HeaderText = "Designation";
+            this.Designation.MinimumWidth = 6;
+            this.Designation.Name = "Designation";
+            this.Designation.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Width = 125;
+            // 
+            // ContactNo
+            // 
+            this.ContactNo.DataPropertyName = "ContactNo";
+            this.ContactNo.HeaderText = "ContactNo";
+            this.ContactNo.MinimumWidth = 6;
+            this.ContactNo.Name = "ContactNo";
+            this.ContactNo.Width = 125;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "Designation";
+            this.designationDataGridViewTextBoxColumn.HeaderText = "Designation";
+            this.designationDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            this.designationDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // contactNoDataGridViewTextBoxColumn
+            // 
+            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
+            this.contactNoDataGridViewTextBoxColumn.Width = 125;
             // 
             // tblusercredentialBindingSource1
             // 
@@ -775,71 +921,6 @@
             this.ComboDesignation.Name = "ComboDesignation";
             this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
             this.ComboDesignation.TabIndex = 47;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Width = 125;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.Width = 125;
-            // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "UserName";
-            this.UserName.MinimumWidth = 6;
-            this.UserName.Name = "UserName";
-            this.UserName.Width = 125;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.Width = 125;
-            // 
-            // Designation
-            // 
-            this.Designation.DataPropertyName = "Designation";
-            this.Designation.HeaderText = "Designation";
-            this.Designation.MinimumWidth = 6;
-            this.Designation.Name = "Designation";
-            this.Designation.Width = 125;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.Width = 125;
-            // 
-            // ContactNo
-            // 
-            this.ContactNo.DataPropertyName = "ContactNo";
-            this.ContactNo.HeaderText = "ContactNo";
-            this.ContactNo.MinimumWidth = 6;
-            this.ContactNo.Name = "ContactNo";
-            this.ContactNo.Width = 125;
             // 
             // UserCredentials
             // 
@@ -980,5 +1061,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Designation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
     }
 }

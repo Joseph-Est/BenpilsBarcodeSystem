@@ -533,10 +533,10 @@
             this.tabControl1.Controls.Add(this.tabItemmasterdata);
             this.tabControl1.Controls.Add(this.tabBarcodegenerator);
             this.tabControl1.Controls.Add(this.tabStockmanagement);
-            this.tabControl1.Location = new System.Drawing.Point(3, 0);
+            this.tabControl1.Location = new System.Drawing.Point(-3, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1350, 750);
+            this.tabControl1.Size = new System.Drawing.Size(1356, 750);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.UseWaitCursor = true;
             // 
@@ -567,7 +567,7 @@
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
             this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItemmasterdata.Size = new System.Drawing.Size(1342, 724);
+            this.tabItemmasterdata.Size = new System.Drawing.Size(1348, 724);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
@@ -604,7 +604,7 @@
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(1044, 536);
+            this.UpdateBtn.Location = new System.Drawing.Point(1050, 536);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
@@ -628,7 +628,7 @@
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(987, 614);
+            this.button10.Location = new System.Drawing.Point(993, 614);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
@@ -642,7 +642,7 @@
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(927, 536);
+            this.AddBtn.Location = new System.Drawing.Point(933, 536);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
@@ -797,7 +797,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(63, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 431);
+            this.dataGridView1.Size = new System.Drawing.Size(1189, 431);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);

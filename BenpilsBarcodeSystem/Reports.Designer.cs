@@ -502,7 +502,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1323, 765);
+            this.tabControl1.Size = new System.Drawing.Size(1323, 732);
             this.tabControl1.TabIndex = 0;
             // 
             // tabInventoryreport
@@ -530,7 +530,7 @@
             this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
-            this.tabAudittrail.Size = new System.Drawing.Size(1315, 739);
+            this.tabAudittrail.Size = new System.Drawing.Size(1315, 706);
             this.tabAudittrail.TabIndex = 2;
             this.tabAudittrail.Text = "Audit Trail ";
             this.tabAudittrail.UseVisualStyleBackColor = true;
@@ -662,7 +662,7 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(3, 56);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1334, 643);
+            this.dataGridView3.Size = new System.Drawing.Size(1313, 617);
             this.dataGridView3.TabIndex = 46;
             // 
             // panel6

@@ -143,6 +143,12 @@ namespace BenpilsBarcodeSystem
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            ConfirmationLogout CL = new ConfirmationLogout();
+            CL.ShowDialog();
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

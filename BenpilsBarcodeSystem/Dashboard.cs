@@ -151,7 +151,13 @@ namespace BenpilsBarcodeSystem
         {
             IsDragging = false;
         }
-    
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ConfirmationLogout cl = new ConfirmationLogout();
+            cl.ShowDialog();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");

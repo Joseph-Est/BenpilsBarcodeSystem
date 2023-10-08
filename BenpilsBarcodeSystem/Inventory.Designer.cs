@@ -59,7 +59,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -437,7 +437,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox12);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.pictureBox10);
             this.panel2.Controls.Add(this.pictureBox7);
@@ -472,17 +472,18 @@
             this.pictureBox12.TabIndex = 31;
             this.pictureBox12.TabStop = false;
             // 
-            // button4
+            // LogoutBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 757);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Logout";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.LogoutBtn.BackColor = System.Drawing.Color.White;
+            this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.Location = new System.Drawing.Point(26, 757);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(153, 52);
+            this.LogoutBtn.TabIndex = 30;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogoutBtn.UseVisualStyleBackColor = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // panel1
             // 
@@ -911,7 +912,7 @@
             this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
             this.tabBarcodegenerator.Name = "tabBarcodegenerator";
             this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(1329, 724);
+            this.tabBarcodegenerator.Size = new System.Drawing.Size(1342, 724);
             this.tabBarcodegenerator.TabIndex = 1;
             this.tabBarcodegenerator.Text = "Barcode Generator";
             this.tabBarcodegenerator.UseVisualStyleBackColor = true;
@@ -921,7 +922,7 @@
             // 
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
             this.tabStockmanagement.Name = "tabStockmanagement";
-            this.tabStockmanagement.Size = new System.Drawing.Size(1309, 724);
+            this.tabStockmanagement.Size = new System.Drawing.Size(1342, 724);
             this.tabStockmanagement.TabIndex = 2;
             this.tabStockmanagement.Text = "Stock Management";
             this.tabStockmanagement.UseVisualStyleBackColor = true;
@@ -1034,7 +1035,7 @@
         private System.Windows.Forms.BindingSource tblinventoryBindingSource;
         private BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter tbl_inventoryTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button LogoutBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;

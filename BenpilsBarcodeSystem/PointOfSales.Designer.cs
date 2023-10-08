@@ -199,7 +199,6 @@
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -212,7 +211,6 @@
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Designation:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button9
             // 
@@ -296,7 +294,6 @@
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel4
             // 

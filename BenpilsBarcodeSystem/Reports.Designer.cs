@@ -502,7 +502,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1318, 780);
+            this.tabControl1.Size = new System.Drawing.Size(1318, 687);
             this.tabControl1.TabIndex = 0;
             // 
             // tabInventoryreport
@@ -510,7 +510,7 @@
             this.tabInventoryreport.Location = new System.Drawing.Point(4, 22);
             this.tabInventoryreport.Name = "tabInventoryreport";
             this.tabInventoryreport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventoryreport.Size = new System.Drawing.Size(1256, 392);
+            this.tabInventoryreport.Size = new System.Drawing.Size(1310, 661);
             this.tabInventoryreport.TabIndex = 0;
             this.tabInventoryreport.Text = "Inventory Report";
             this.tabInventoryreport.UseVisualStyleBackColor = true;
@@ -520,7 +520,7 @@
             this.tabSalereport.Location = new System.Drawing.Point(4, 22);
             this.tabSalereport.Name = "tabSalereport";
             this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalereport.Size = new System.Drawing.Size(1256, 392);
+            this.tabSalereport.Size = new System.Drawing.Size(1310, 661);
             this.tabSalereport.TabIndex = 1;
             this.tabSalereport.Text = "Sales Report";
             this.tabSalereport.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@
             this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
-            this.tabAudittrail.Size = new System.Drawing.Size(1310, 754);
+            this.tabAudittrail.Size = new System.Drawing.Size(1310, 661);
             this.tabAudittrail.TabIndex = 2;
             this.tabAudittrail.Text = "Audit Trail ";
             this.tabAudittrail.UseVisualStyleBackColor = true;
@@ -543,7 +543,7 @@
             this.tabControl2.Location = new System.Drawing.Point(-4, 15);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1348, 752);
+            this.tabControl2.Size = new System.Drawing.Size(1348, 650);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPosaudit
@@ -554,7 +554,7 @@
             this.tabPosaudit.Location = new System.Drawing.Point(4, 22);
             this.tabPosaudit.Name = "tabPosaudit";
             this.tabPosaudit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPosaudit.Size = new System.Drawing.Size(1340, 726);
+            this.tabPosaudit.Size = new System.Drawing.Size(1340, 624);
             this.tabPosaudit.TabIndex = 0;
             this.tabPosaudit.Text = "POS Audit Trail";
             this.tabPosaudit.UseVisualStyleBackColor = true;
@@ -564,7 +564,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 56);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1304, 658);
+            this.dataGridView1.Size = new System.Drawing.Size(1304, 565);
             this.dataGridView1.TabIndex = 45;
             // 
             // TxtSearchBar
@@ -594,7 +594,7 @@
             this.tabSupplieraudit.Location = new System.Drawing.Point(4, 22);
             this.tabSupplieraudit.Name = "tabSupplieraudit";
             this.tabSupplieraudit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplieraudit.Size = new System.Drawing.Size(1340, 726);
+            this.tabSupplieraudit.Size = new System.Drawing.Size(1340, 624);
             this.tabSupplieraudit.TabIndex = 1;
             this.tabSupplieraudit.Text = "Supplier Audit Trail";
             this.tabSupplieraudit.UseVisualStyleBackColor = true;
@@ -604,7 +604,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(3, 56);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1331, 664);
+            this.dataGridView2.Size = new System.Drawing.Size(1331, 568);
             this.dataGridView2.TabIndex = 46;
             // 
             // textBox1
@@ -633,7 +633,7 @@
             this.tabInventoryaudit.Controls.Add(this.dataGridView3);
             this.tabInventoryaudit.Location = new System.Drawing.Point(4, 22);
             this.tabInventoryaudit.Name = "tabInventoryaudit";
-            this.tabInventoryaudit.Size = new System.Drawing.Size(1340, 726);
+            this.tabInventoryaudit.Size = new System.Drawing.Size(1340, 624);
             this.tabInventoryaudit.TabIndex = 2;
             this.tabInventoryaudit.Text = "Inventory Audit Trail";
             this.tabInventoryaudit.UseVisualStyleBackColor = true;
@@ -671,7 +671,7 @@
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Location = new System.Drawing.Point(192, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1324, 805);
+            this.panel6.Size = new System.Drawing.Size(1324, 712);
             this.panel6.TabIndex = 19;
             // 
             // pictureBox12

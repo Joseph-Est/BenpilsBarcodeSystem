@@ -157,6 +157,8 @@ namespace BenpilsBarcodeSystem
         {
             ConfirmationLogout ce = new ConfirmationLogout();
             ce.ShowDialog();
+            ConfirmationLogout CL = (ConfirmationLogout)Application.OpenForms["ConfirmationLogout"];
+            CL.BringToFront();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -311,8 +311,10 @@ namespace BenpilsBarcodeSystem
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationLogout CL = new ConfirmationLogout();
-            CL.ShowDialog();
+            ConfirmationLogout ce = new ConfirmationLogout();
+            ce.ShowDialog();
+            ConfirmationLogout CL = (ConfirmationLogout)Application.OpenForms["ConfirmationLogout"];
+            CL.BringToFront();
         }
 
         private void GenerateBtn_Click(object sender, EventArgs e)

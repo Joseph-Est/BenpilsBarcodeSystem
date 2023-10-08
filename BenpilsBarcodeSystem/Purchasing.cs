@@ -164,8 +164,10 @@ namespace BenpilsBarcodeSystem
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationLogout CL = new ConfirmationLogout();
-            CL.ShowDialog();
+            ConfirmationLogout ce = new ConfirmationLogout();
+            ce.ShowDialog();
+            ConfirmationLogout CL = (ConfirmationLogout)Application.OpenForms["ConfirmationLogout"];
+            CL.BringToFront();
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

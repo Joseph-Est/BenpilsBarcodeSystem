@@ -515,7 +515,7 @@
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Location = new System.Drawing.Point(185, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1340, 766);
+            this.panel6.Size = new System.Drawing.Size(1340, 740);
             this.panel6.TabIndex = 19;
             // 
             // tabControl1
@@ -804,7 +804,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 50);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1083, 378);
+            this.dataGridView1.Size = new System.Drawing.Size(1291, 378);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPurchaseorderlist

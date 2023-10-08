@@ -58,6 +58,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -80,8 +82,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -96,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAudittrail.SuspendLayout();
@@ -107,7 +108,6 @@
             this.tabInventoryaudit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -408,10 +408,10 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 904);
+            this.panel5.Location = new System.Drawing.Point(182, 873);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1355, 35);
             this.panel5.TabIndex = 18;
@@ -443,8 +443,30 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 904);
+            this.panel2.Size = new System.Drawing.Size(182, 873);
             this.panel2.TabIndex = 17;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(38, 794);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 784);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "Logout";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -502,7 +524,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1318, 687);
+            this.tabControl1.Size = new System.Drawing.Size(1318, 784);
             this.tabControl1.TabIndex = 0;
             // 
             // tabInventoryreport
@@ -520,7 +542,7 @@
             this.tabSalereport.Location = new System.Drawing.Point(4, 22);
             this.tabSalereport.Name = "tabSalereport";
             this.tabSalereport.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSalereport.Size = new System.Drawing.Size(1310, 661);
+            this.tabSalereport.Size = new System.Drawing.Size(1310, 758);
             this.tabSalereport.TabIndex = 1;
             this.tabSalereport.Text = "Sales Report";
             this.tabSalereport.UseVisualStyleBackColor = true;
@@ -530,7 +552,7 @@
             this.tabAudittrail.Controls.Add(this.tabControl2);
             this.tabAudittrail.Location = new System.Drawing.Point(4, 22);
             this.tabAudittrail.Name = "tabAudittrail";
-            this.tabAudittrail.Size = new System.Drawing.Size(1310, 661);
+            this.tabAudittrail.Size = new System.Drawing.Size(1310, 758);
             this.tabAudittrail.TabIndex = 2;
             this.tabAudittrail.Text = "Audit Trail ";
             this.tabAudittrail.UseVisualStyleBackColor = true;
@@ -543,7 +565,7 @@
             this.tabControl2.Location = new System.Drawing.Point(-4, 15);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1348, 650);
+            this.tabControl2.Size = new System.Drawing.Size(1348, 743);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPosaudit
@@ -554,7 +576,7 @@
             this.tabPosaudit.Location = new System.Drawing.Point(4, 22);
             this.tabPosaudit.Name = "tabPosaudit";
             this.tabPosaudit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPosaudit.Size = new System.Drawing.Size(1340, 624);
+            this.tabPosaudit.Size = new System.Drawing.Size(1340, 717);
             this.tabPosaudit.TabIndex = 0;
             this.tabPosaudit.Text = "POS Audit Trail";
             this.tabPosaudit.UseVisualStyleBackColor = true;
@@ -564,7 +586,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 56);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1304, 565);
+            this.dataGridView1.Size = new System.Drawing.Size(1304, 658);
             this.dataGridView1.TabIndex = 45;
             // 
             // TxtSearchBar
@@ -671,37 +693,15 @@
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Location = new System.Drawing.Point(192, 77);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1324, 712);
+            this.panel6.Size = new System.Drawing.Size(1324, 790);
             this.panel6.TabIndex = 19;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 794);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 784);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Logout";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1537, 939);
+            this.ClientSize = new System.Drawing.Size(1537, 908);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -729,6 +729,7 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -744,7 +745,6 @@
             this.tabInventoryaudit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }

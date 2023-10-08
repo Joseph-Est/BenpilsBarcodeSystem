@@ -416,10 +416,10 @@
             // 
             // panel5
             // 
-            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(182, 876);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(182, 875);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1347, 35);
             this.panel5.TabIndex = 18;

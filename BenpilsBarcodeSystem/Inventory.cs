@@ -321,7 +321,7 @@ namespace BenpilsBarcodeSystem
             try
             {
                 Zen.Barcode.Code128BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                pictureBox2.Image = brCode.Draw(barCode, 60);
+                pictureBox13.Image = brCode.Draw(barCode, 60);
             }
             catch (Exception)
             {

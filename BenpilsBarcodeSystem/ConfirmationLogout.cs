@@ -27,26 +27,15 @@ namespace BenpilsBarcodeSystem
 
         private void YesBtn_Click(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is Settings)
-                {
-                    form.Close();
-                    break;
-                }
-            }
-
-           
+            this.DialogResult = DialogResult.OK;
             this.Close();
-
-         
-            Form1 form1 = new Form1();
-            form1.Show();
-
+            Form1 form = new Form1();
+            form.Show();
         }
 
         private void NoBtn_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

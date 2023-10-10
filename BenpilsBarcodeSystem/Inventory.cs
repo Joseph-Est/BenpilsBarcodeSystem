@@ -325,14 +325,15 @@ namespace BenpilsBarcodeSystem
 
 
              
-                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["itemName"].Value.ToString();
+                CmbMotorBrand.Text = selectedRow.Cells["motorBrand"].Value.ToString();
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
                 TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
                 AddBtn.Enabled = false;
+               
             }
         }
 

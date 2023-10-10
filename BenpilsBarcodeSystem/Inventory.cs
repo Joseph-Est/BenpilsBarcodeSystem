@@ -324,7 +324,7 @@ namespace BenpilsBarcodeSystem
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
 
-                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
+             
                 TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
                 CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();

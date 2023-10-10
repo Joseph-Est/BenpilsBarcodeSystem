@@ -324,20 +324,39 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Check if a valid row is clicked (not header)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-                // Fill the textboxes with data from the selected row
-                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
-                TxtSize.Text = selectedRow.Cells["Size"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
+                MessageBox.Show("Please select a row to update.");
+                return;
             }
+
+            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+            string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand, " +
+                                 "pricecode = @PriceCode, unitprice = @UnitPrice, size = @Size, [category] = @Category WHERE ID = @ID";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
+                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
+                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
+                    cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)

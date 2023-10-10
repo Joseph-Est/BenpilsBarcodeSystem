@@ -106,6 +106,7 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
+            this.ScanBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -549,6 +550,7 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.ScanBtn);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
             this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
@@ -583,7 +585,7 @@
             // TxtCategory
             // 
             this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtCategory.Location = new System.Drawing.Point(442, 589);
+            this.TxtCategory.Location = new System.Drawing.Point(478, 590);
             this.TxtCategory.Name = "TxtCategory";
             this.TxtCategory.Size = new System.Drawing.Size(200, 20);
             this.TxtCategory.TabIndex = 75;
@@ -592,7 +594,7 @@
             // TxtSize
             // 
             this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtSize.Location = new System.Drawing.Point(442, 551);
+            this.TxtSize.Location = new System.Drawing.Point(478, 546);
             this.TxtSize.Name = "TxtSize";
             this.TxtSize.Size = new System.Drawing.Size(200, 20);
             this.TxtSize.TabIndex = 74;
@@ -601,7 +603,7 @@
             // TxtUnitPrice
             // 
             this.TxtUnitPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtUnitPrice.Location = new System.Drawing.Point(442, 513);
+            this.TxtUnitPrice.Location = new System.Drawing.Point(478, 513);
             this.TxtUnitPrice.Name = "TxtUnitPrice";
             this.TxtUnitPrice.Size = new System.Drawing.Size(200, 20);
             this.TxtUnitPrice.TabIndex = 73;
@@ -663,7 +665,7 @@
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(371, 589);
+            this.label16.Location = new System.Drawing.Point(416, 593);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 57;
@@ -674,7 +676,7 @@
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(371, 554);
+            this.label15.Location = new System.Drawing.Point(416, 550);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(30, 13);
             this.label15.TabIndex = 56;
@@ -685,7 +687,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(371, 516);
+            this.label12.Location = new System.Drawing.Point(416, 516);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 13);
             this.label12.TabIndex = 54;
@@ -727,6 +729,7 @@
             this.txtBarcode.Size = new System.Drawing.Size(200, 20);
             this.txtBarcode.TabIndex = 49;
             this.txtBarcode.UseWaitCursor = true;
+            this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             // 
             // label11
             // 
@@ -983,6 +986,16 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
+            // ScanBtn
+            // 
+            this.ScanBtn.Location = new System.Drawing.Point(339, 513);
+            this.ScanBtn.Name = "ScanBtn";
+            this.ScanBtn.Size = new System.Drawing.Size(57, 23);
+            this.ScanBtn.TabIndex = 76;
+            this.ScanBtn.Text = "Scan";
+            this.ScanBtn.UseVisualStyleBackColor = true;
+            this.ScanBtn.Click += new System.EventHandler(this.ScanBtn_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1109,5 +1122,6 @@
         private System.Windows.Forms.TextBox txtBarcodefiller;
         private System.Windows.Forms.Label BarcodeLabel;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Button ScanBtn;
     }
 }

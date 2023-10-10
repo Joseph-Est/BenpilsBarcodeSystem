@@ -166,11 +166,6 @@ namespace BenpilsBarcodeSystem
             CL.ShowDialog();
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

@@ -193,30 +193,43 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click_1(object sender, EventArgs e)
         {
-            txtBarcode.ReadOnly = true;
-            string insertQuery = "INSERT INTO tbl_inventory (barcode, [itemname], motorbrand, [brand], pricecode, unitprice, size, [category]) " +
-                      "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Size, @Category)";
+            string zenCode = "YOUR_ZEN_CODE"; 
 
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            if (txtBarcode.Text.Trim() == zenCode)
             {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@Unitprice" ,TxtUnitPrice.Text);
-                    cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
+               
+                txtBarcode.ReadOnly = true;
 
-            UpdateDataGridView();
-            ClearAllTextBoxes();
+                string insertQuery = "INSERT INTO tbl_inventory (barcode, [itemname], motorbrand, [brand], pricecode, unitprice, size, [category]) " +
+                           "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Size, @Category)";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
+                        cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
+                        cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
+                        cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                        cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
+                        cmd.Parameters.AddWithValue("@Unitprice", TxtUnitPrice.Text);
+                        cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
+                        cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+
+                UpdateDataGridView();
+                ClearAllTextBoxes();
+            }
+            else
+            {
+               
+                MessageBox.Show("Invalid barcode. Please enter the zen code.");
+                txtBarcode.Clear();
+            }
         }
 
 

@@ -16,11 +16,11 @@ namespace BenpilsBarcodeSystem
         private bool IsDragging = false;
         private int mouseX,mouseY;
         private User user;
-        private string scannedData = "";
+     
         public Inventory(User user)
         {
             InitializeComponent();
-            txtBarcode.Enabled = true;
+            txtBarcode.Enabled = false;
          
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();

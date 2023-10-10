@@ -21,7 +21,6 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-            txtBarcode.Enabled = false;
             txtBarcode.KeyPress += txtBarcode_KeyPress;
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();

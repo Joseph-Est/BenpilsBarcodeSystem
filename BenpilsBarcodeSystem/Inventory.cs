@@ -16,10 +16,11 @@ namespace BenpilsBarcodeSystem
         private bool IsDragging = false;
         private int mouseX,mouseY;
         private User user;
-        
+    
         public Inventory(User user)
         {
             InitializeComponent();
+            txtBarcode.ReadOnly = true;
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -33,7 +34,6 @@ namespace BenpilsBarcodeSystem
             CmbMotorBrand.Items.Add("Suzuki");
             CmbMotorBrand.Items.Add("Honda");
             CmbMotorBrand.Items.Add("Yamaha");
-            txtBarcode.TextChanged += txtBarcode_TextChanged;
             if (user.Designation == "Superadmin")
             {
             }
@@ -365,19 +365,8 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void ScanBtn_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtBarcode_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        private void SimulateBarcodeScan(string barcode)
-        {
-            txtBarcode.Text = barcode;
-        }
+  
+    
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

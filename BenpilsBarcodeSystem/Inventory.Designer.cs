@@ -106,7 +106,6 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
-            this.ScanBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -550,7 +549,6 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.ScanBtn);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
             this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
@@ -729,7 +727,6 @@
             this.txtBarcode.Size = new System.Drawing.Size(200, 20);
             this.txtBarcode.TabIndex = 49;
             this.txtBarcode.UseWaitCursor = true;
-            this.txtBarcode.TextChanged += new System.EventHandler(this.txtBarcode_TextChanged);
             // 
             // label11
             // 
@@ -986,16 +983,6 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
-            // ScanBtn
-            // 
-            this.ScanBtn.Location = new System.Drawing.Point(339, 513);
-            this.ScanBtn.Name = "ScanBtn";
-            this.ScanBtn.Size = new System.Drawing.Size(57, 23);
-            this.ScanBtn.TabIndex = 76;
-            this.ScanBtn.Text = "Scan";
-            this.ScanBtn.UseVisualStyleBackColor = true;
-            this.ScanBtn.Click += new System.EventHandler(this.ScanBtn_Click);
-            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1122,6 +1109,5 @@
         private System.Windows.Forms.TextBox txtBarcodefiller;
         private System.Windows.Forms.Label BarcodeLabel;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Button ScanBtn;
     }
 }

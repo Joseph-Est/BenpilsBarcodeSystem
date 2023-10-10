@@ -373,13 +373,9 @@ namespace BenpilsBarcodeSystem
              
                 SystemSounds.Beep.Play();
 
-          
-                HandleScannedData(txtBarcode.Text);
 
-            
-                txtBarcode.Clear();
-
-                e.Handled = true;
+                PointOfSales pos = new PointOfSales(user);
+                pos.Show();
             }
         }
         private void HandleScannedData(string data)

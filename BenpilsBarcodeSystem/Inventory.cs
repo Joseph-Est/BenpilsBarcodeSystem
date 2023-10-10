@@ -20,8 +20,8 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-            txtBarcode.ReadOnly = true;
-            txtBarcode.KeyPress += txtBarcode_KeyPress;
+            txtBarcode.Enabled = true;
+         
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -366,33 +366,8 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                // Handle the scanned data (you can replace this with your own logic).
-                HandleScannedData(scannedData);
 
-                // Clear the TextBox for the next input.
-                txtBarcode.Clear();
 
-                // Reset the scanned data.
-                scannedData = "";
-
-                // Prevent the Enter key from being displayed in the TextBox.
-                e.Handled = true;
-            }
-            else
-            {
-                // Append the character to the scanned data.
-                scannedData += e.KeyChar;
-            }
-        }
-        private void HandleScannedData(string data)
-        {
-            // Handle the scanned data (you can replace this with your own logic).
-            MessageBox.Show("Scanned Data: " + data);
-        }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;

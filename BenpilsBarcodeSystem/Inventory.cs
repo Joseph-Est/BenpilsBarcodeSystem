@@ -329,14 +329,14 @@ namespace BenpilsBarcodeSystem
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
                 // Fill the textboxes with data from the selected row
-                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
-                TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                CmbMotorBrand.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                TxtSize.Text = selectedRow.Cells["Size"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
             }
         }
 

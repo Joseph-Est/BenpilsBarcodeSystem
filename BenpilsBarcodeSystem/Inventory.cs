@@ -367,18 +367,12 @@ namespace BenpilsBarcodeSystem
 
         private void ScanBtn_Click(object sender, EventArgs e)
         {
-            SimulateBarcodeScan("YourBarcodeHere");
+           
         }
 
         private void txtBarcode_TextChanged(object sender, EventArgs e)
         {
-            string scannedBarcode = txtBarcode.Text;
-
-         
-            MessageBox.Show("Scanned Barcode: " + scannedBarcode);
-
-           
-            txtBarcode.Clear();
+            
         }
         private void SimulateBarcodeScan(string barcode)
         {

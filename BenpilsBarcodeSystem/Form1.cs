@@ -60,6 +60,15 @@ namespace BenpilsBarcodeSystem
         }
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+         
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = loginbtn;
+        }
+
+        private void loginbtn_Click_1(object sender, EventArgs e)
+        {
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Enter the username.");
@@ -94,7 +103,7 @@ namespace BenpilsBarcodeSystem
                             Designation = designation
                         };
 
-                     
+
                         Dashboard dash = new Dashboard(user);
                         dash.Show();
                         dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
@@ -111,10 +120,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.AcceptButton = LoginBtn;
-        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

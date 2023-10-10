@@ -33,13 +33,31 @@ namespace BenpilsBarcodeSystem
             CmbMotorBrand.Items.Add("Suzuki");
             CmbMotorBrand.Items.Add("Honda");
             CmbMotorBrand.Items.Add("Yamaha");
-    
-            if (user.Designation == "Employee")
+
+            if (user.Designation == "Superadmin")
             {
-                button8.Enabled = false;
-                button6.Enabled = false;
             }
-         
+            else if (user.Designation == "Admin")
+            {
+            }
+            else if (user.Designation == "Inventory Manager")
+            {
+                button3.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
+                button9.Enabled = false;
+            }
+            else if (user.Designation == "Cashier")
+            {
+                button2.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
+                button9.Enabled = false;
+            }
+
         }
         //Dashboard Button
         private void button1_Click(object sender, EventArgs e)

@@ -22,50 +22,73 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             dataGridView1.CellClick += dataGridView1_CellClick;
-
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start();
             ComboDesignation.Items.Add("Admin");
             ComboDesignation.Items.Add("SuperAdmin");
-            ComboDesignation.Items.Add("Employee");
+            ComboDesignation.Items.Add("Inventory Manager");
+            ComboDesignation.Items.Add("Cashier");
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
-            if (user.Designation == "Employee")
+            if (user.Designation == "Superadmin")
             {
-                button6.Enabled = false;
-                button8.Enabled = false;
+                dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
                 dataGridView1.Columns["UserName"].ReadOnly = true;
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+                dataGridView1.Columns["Category"].ReadOnly = true;
             }
             else if (user.Designation == "Admin")
             {
+                dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
                 dataGridView1.Columns["UserName"].ReadOnly = true;
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+                dataGridView1.Columns["Category"].ReadOnly = true;
             }
-            else if (user.Designation == "SuperAdmin")
+            else if (user.Designation == "Inventory Manager")
             {
+                button3.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
+                button9.Enabled = false;
+                dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
                 dataGridView1.Columns["UserName"].ReadOnly = true;
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+                dataGridView1.Columns["Category"].ReadOnly = true;
             }
-           
+            else if (user.Designation == "Cashier")
+            {
+                button2.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
+                button9.Enabled = false;
+                dataGridView1.Columns["ID"].ReadOnly = true;
+                dataGridView1.Columns["FirstName"].ReadOnly = true;
+                dataGridView1.Columns["LastName"].ReadOnly = true;
+                dataGridView1.Columns["UserName"].ReadOnly = true;
+                dataGridView1.Columns["Password"].ReadOnly = true;
+                dataGridView1.Columns["Designation"].ReadOnly = true;
+                dataGridView1.Columns["Address"].ReadOnly = true;
+                dataGridView1.Columns["Category"].ReadOnly = true;
+            }
+
         }
 
         //DashBoard Button

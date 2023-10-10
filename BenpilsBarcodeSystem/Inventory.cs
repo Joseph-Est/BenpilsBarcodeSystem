@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             txtBarcode.Enabled = false;
-         
+            txtBarcode.KeyPress += txtBarcode_KeyPress;
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -366,8 +367,27 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+             
+                SystemSounds.Beep.Play();
 
+          
+                HandleScannedData(txtBarcode.Text);
 
+            
+                txtBarcode.Clear();
+
+                e.Handled = true;
+            }
+        }
+        private void HandleScannedData(string data)
+        {
+           
+            MessageBox.Show("Scanned Data: " + data);
+        }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;

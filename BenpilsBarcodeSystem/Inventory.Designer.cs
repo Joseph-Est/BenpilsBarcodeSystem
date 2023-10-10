@@ -727,6 +727,7 @@
             this.txtBarcode.Size = new System.Drawing.Size(200, 20);
             this.txtBarcode.TabIndex = 49;
             this.txtBarcode.UseWaitCursor = true;
+            this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
             // 
             // label11
             // 

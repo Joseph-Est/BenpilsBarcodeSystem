@@ -340,5 +340,10 @@ namespace BenpilsBarcodeSystem
                 AddBtn.Enabled = false;
             }
         }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

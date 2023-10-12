@@ -170,9 +170,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 18);
+            this.label6.Size = new System.Drawing.Size(82, 18);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Dashboard";
+            this.label6.Text = "Purchasing";
             // 
             // label5
             // 

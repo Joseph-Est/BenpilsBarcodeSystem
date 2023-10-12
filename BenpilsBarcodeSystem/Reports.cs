@@ -114,29 +114,29 @@ namespace BenpilsBarcodeSystem
 
         private void StatisticsBtn_Click(object sender, EventArgs e)
         {
-            StatisticReport SR = new StatisticReport(user);
-            SR.Show();
-            SR.StartPosition = FormStartPosition.Manual;
-            SR.Location = this.Location;
-            SR.Close();
+            StatisticReport statisticReport = new StatisticReport(user);
+            statisticReport.Show();
+            statisticReport.StartPosition = FormStartPosition.Manual;
+            statisticReport.Location = this.Location;
+            this.Hide();
         }
 
         private void UserCredentialsBtn_Click(object sender, EventArgs e)
         {
-            UserCredentials UC = new UserCredentials(user);
-            UC.Show();
-            UC.StartPosition = FormStartPosition.Manual;
-            UC.Location = this.Location;
-            UC.Close();
+            UserCredentials userCredentials = new UserCredentials(user);
+            userCredentials.Show();
+            userCredentials.StartPosition = FormStartPosition.Manual;
+            userCredentials.Location = this.Location;
+            this.Hide();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            Settings set = new Settings(user);
-            set.Show();
-            set.StartPosition = FormStartPosition.Manual;
-            set.Location = this.Location;
-            set.Close();
+            Settings settings = new Settings(user);
+            settings.Show();
+            settings.StartPosition = FormStartPosition.Manual;
+            settings.Location = this.Location;
+            this.Hide();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)

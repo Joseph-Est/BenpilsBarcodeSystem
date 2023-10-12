@@ -127,7 +127,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 806);
+            this.panel5.Location = new System.Drawing.Point(182, 790);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1352, 35);
             this.panel5.TabIndex = 22;
@@ -212,7 +212,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 806);
+            this.panel2.Size = new System.Drawing.Size(182, 790);
             this.panel2.TabIndex = 21;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -533,7 +533,7 @@
             this.panel3.Controls.Add(this.tabControl1);
             this.panel3.Location = new System.Drawing.Point(189, 78);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1338, 703);
+            this.panel3.Size = new System.Drawing.Size(1338, 691);
             this.panel3.TabIndex = 24;
             // 
             // tabControl1
@@ -544,7 +544,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1330, 697);
+            this.tabControl1.Size = new System.Drawing.Size(1330, 665);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -552,7 +552,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1322, 671);
+            this.tabPage1.Size = new System.Drawing.Size(1322, 639);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Iventory Report";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -562,7 +562,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1322, 671);
+            this.tabPage2.Size = new System.Drawing.Size(1322, 630);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sales Report";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -572,7 +572,7 @@
             this.tabPage3.Controls.Add(this.tabControl2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1322, 671);
+            this.tabPage3.Size = new System.Drawing.Size(1322, 639);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Audit Trail";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -585,7 +585,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 21);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1322, 647);
+            this.tabControl2.Size = new System.Drawing.Size(1322, 622);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage4
@@ -596,7 +596,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1314, 621);
+            this.tabPage4.Size = new System.Drawing.Size(1314, 596);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "POS Audit Trail";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -606,7 +606,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 61);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1287, 554);
+            this.dataGridView1.Size = new System.Drawing.Size(1287, 530);
             this.dataGridView1.TabIndex = 41;
             // 
             // TxtSearchBar
@@ -636,7 +636,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1314, 621);
+            this.tabPage5.Size = new System.Drawing.Size(1314, 596);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Supplier Audit Trail";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -646,7 +646,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(16, 57);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1283, 558);
+            this.dataGridView2.Size = new System.Drawing.Size(1283, 534);
             this.dataGridView2.TabIndex = 44;
             // 
             // textBox1
@@ -675,7 +675,7 @@
             this.tabPage6.Controls.Add(this.label2);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1314, 621);
+            this.tabPage6.Size = new System.Drawing.Size(1314, 596);
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "Inventory Audit Trail";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -685,7 +685,7 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(16, 57);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1282, 561);
+            this.dataGridView3.Size = new System.Drawing.Size(1282, 536);
             this.dataGridView3.TabIndex = 44;
             // 
             // textBox2
@@ -711,7 +711,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1534, 841);
+            this.ClientSize = new System.Drawing.Size(1534, 825);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);

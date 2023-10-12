@@ -374,7 +374,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 814);
+            this.panel5.Location = new System.Drawing.Point(182, 802);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1386, 35);
             this.panel5.TabIndex = 18;
@@ -407,7 +407,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 814);
+            this.panel2.Size = new System.Drawing.Size(182, 802);
             this.panel2.TabIndex = 17;
             // 
             // pictureBox13
@@ -500,7 +500,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1568, 849);
+            this.ClientSize = new System.Drawing.Size(1568, 837);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);

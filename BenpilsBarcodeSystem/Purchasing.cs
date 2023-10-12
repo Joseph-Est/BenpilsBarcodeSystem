@@ -434,6 +434,11 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

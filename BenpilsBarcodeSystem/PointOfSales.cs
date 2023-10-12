@@ -12,8 +12,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class PointOfSales : Form
     {
-        private bool isDragging = false;
-        private int mouseX,mouseY;
         private User user;
         public PointOfSales(User user)
         {
@@ -130,31 +128,6 @@ namespace BenpilsBarcodeSystem
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void PointOfSales_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Left += e.X - mouseY;
-                this.Top += e.Y - mouseX;
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
@@ -165,6 +138,7 @@ namespace BenpilsBarcodeSystem
         {
             this.Hide();
             ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.CenterScreen;
             if (cl.ShowDialog() == DialogResult.OK)
             {
                 this.Close();
@@ -179,11 +153,6 @@ namespace BenpilsBarcodeSystem
         {
             ConfirmationExit cl = new ConfirmationExit();
             cl.ShowDialog();
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
         }
     }
 }

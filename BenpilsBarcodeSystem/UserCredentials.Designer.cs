@@ -311,6 +311,7 @@
             this.ArchiveBtn.TabIndex = 41;
             this.ArchiveBtn.Text = "Archive";
             this.ArchiveBtn.UseVisualStyleBackColor = true;
+            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
             // 
             // dataGridView1
             // 

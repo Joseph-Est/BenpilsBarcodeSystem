@@ -10,11 +10,8 @@ using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
 {
-    
     public partial class Reports : Form
     {
-        private bool isDragging = false;
-        private int mouseX,mouseY;
         private User user;
         public Reports(User user)
         {
@@ -49,47 +46,24 @@ namespace BenpilsBarcodeSystem
                 UserCredentialsBtn.Enabled = false;
                 SettingsBtn.Enabled = false;
             }
-
-        }
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Left += e.X - mouseX;
-                this.Top += e.Y - mouseY;
-            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-  
-
-        private void Logoutbtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ConfirmationLogout cl = new ConfirmationLogout();
-            if (cl.ShowDialog() == DialogResult.OK)
-            {
-                this.Close();
-            }
-            else
-            {
-                this.Show();
-            }
+            ConfirmationExit CE = new ConfirmationExit();
+            CE.ShowDialog();
+        }
+
+        private void MinimizedBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void DashBoardBtn_Click(object sender, EventArgs e)
@@ -128,13 +102,22 @@ namespace BenpilsBarcodeSystem
             this.Hide();
         }
 
+        private void ReportsBtn_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports(user);
+            reports.Show();
+            reports.StartPosition = FormStartPosition.Manual;
+            reports.Location = this.Location;
+            this.Hide();
+        }
+
         private void StatisticsBtn_Click(object sender, EventArgs e)
         {
             StatisticReport SR = new StatisticReport(user);
             SR.Show();
             SR.StartPosition = FormStartPosition.Manual;
             SR.Location = this.Location;
-            this.Hide();
+            SR.Close();
         }
 
         private void UserCredentialsBtn_Click(object sender, EventArgs e)
@@ -143,7 +126,7 @@ namespace BenpilsBarcodeSystem
             UC.Show();
             UC.StartPosition = FormStartPosition.Manual;
             UC.Location = this.Location;
-            this.Hide();
+            UC.Close();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
@@ -152,18 +135,22 @@ namespace BenpilsBarcodeSystem
             set.Show();
             set.StartPosition = FormStartPosition.Manual;
             set.Location = this.Location;
+            set.Close();
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
             this.Hide();
-        }
-
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-            ConfirmationExit CE = new ConfirmationExit();
-            CE.ShowDialog();
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
+            ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.CenterScreen;
+            if (cl.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }

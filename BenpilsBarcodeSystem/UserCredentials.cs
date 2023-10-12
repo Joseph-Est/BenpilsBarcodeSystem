@@ -14,8 +14,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class UserCredentials : Form
     {
-        private bool isDragging = false;
-        private int mouseX,mouseY;
         private User user;
 
         public UserCredentials(User user)
@@ -93,24 +91,7 @@ namespace BenpilsBarcodeSystem
 
        
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Left += e.X - mouseX;
-                this.Top += e.Y - mouseY;
-            }
-        }
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
@@ -366,13 +347,22 @@ namespace BenpilsBarcodeSystem
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationLogout CL = new ConfirmationLogout();
-            CL.ShowDialog();
+            this.Hide();
+            ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.CenterScreen;
+            if (cl.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void ArchiveBtn_Click(object sender, EventArgs e)
         {
-            isDragging = false;
+
         }
     }
 }

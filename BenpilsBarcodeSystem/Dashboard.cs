@@ -13,8 +13,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Dashboard : Form
     {
-        private bool IsDragging = false;
-        private int mouseX,mouseY;
         private User user;
         public Dashboard(User user)
         {
@@ -130,36 +128,11 @@ namespace BenpilsBarcodeSystem
             settings.Location = this.Location;
             this.Hide();
         }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-               IsDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (IsDragging)
-            {
-                this.Left += e.X - mouseX;
-                this.Top += e.Y - mouseY;
-            }
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            IsDragging = false;
-        }
-
-
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.Manual;
             if (cl.ShowDialog() == DialogResult.OK)
             {
                 this.Close();

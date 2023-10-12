@@ -12,8 +12,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Purchasing : Form
     {
-        private bool isDragging = false;
-        private int mouseX,mouseY;
         private User user;
         public Purchasing(User user)
         {
@@ -49,25 +47,6 @@ namespace BenpilsBarcodeSystem
                 SettingsBtn.Enabled = false;
             }
         }
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Left += e.X - mouseX;
-                this.Top += e.Y - mouseY;
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
@@ -171,9 +150,19 @@ namespace BenpilsBarcodeSystem
             CE.ShowDialog();
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void LogoutBtn_Click_1(object sender, EventArgs e)
         {
-            isDragging = false;
+            this.Hide();
+            ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.CenterScreen;
+            if (cl.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }

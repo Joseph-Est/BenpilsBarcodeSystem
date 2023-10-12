@@ -446,18 +446,16 @@
   </data>
   <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAl1JREFUSEu1ls2ODVEQx1tiNUiwZivEgpVh4TORECsWZscDjGRmtiLBI+ABfLwA
-        QWJnQWzwFD6GBRubGYng97u3S0rf7r7dM33/yS85fbrq1D3nVFXfYmC9h3fj4ex0EgxycPRUFLvhV4lj
-        5TtttB1MV+EPfIaH8LF8FsfOrZbPV2Aw7YMINA1tN6VT4E4PwEuoC1KHtvro6xq95X3VLfwczsBO2AYu
-        /hTqbN9Cb83BAvyAWOgGNOk65KDmQyTjhnQNXsHF0VO7nkEEvu9EX+Ua3QFbx8OpOg0R2GyPUqvVbVga
-        D0faC1Gje5wotQzaht7A6/Hwn/yREVhcw01MaAt8gd/wAKzH7xCOjp3znTba6qMM6hVk7YJq4Mbu9gSy
-        cRvatukshG3rUR+HNciLt6GtPnXyJF5A2E4kl/fkkfnrc9B1uAPzYH2K47vgu7DTR1/XyHd+E8JGbKH/
-        lZNJ4n1lo09wCJp0GLTJPq6xAuoS5HfBRAMxWeKlu2kLGjJ43nkcpaVmosW8LXM/1LZMMzUMPd6uugfh
-        98gJZAktQnS4xo+EtfkNYoEjkHUBPFaz8rwTSUch/Cy1XOeXwXl3OiGL2doKZ9kOWflb+8GJpLoGEXVq
-        b/dOT4yeKppl4KnyeHJ3qh61x2twg55zIikftdeVj7qTTIxYwDrtqpxcJmhvVcvJUpkmbX5C+PX+7DU1
-        kLbgTQ3EtTorWuZjyC3T3XiU3qMJJ8fKubxTffR1jVuwIQ35keitPp9FdzqI/JR9Be+r7x+BTav618fa
-        tDFIrtPqX5+ZyG7UuSO1qyj+AjBnNS6nj+5WAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAHDSURBVEhL7Za5SgRBEIY3FcTIWwMv1HdRc48nEI3UFzFT
+        AzH0FvF4AA0Ej0RBMdNMDMQDBS/0/8ppGBa6p/eM/OBju2ZrqmZ7u3s3908kjfIskXFVaJDn8ifxSrbI
+        ipLftCrNmdILSSP3mh7zWpFpP5HpBq5x+oGOZUl0JKY5kqfSfSrXGLjGe+Sk6ZT5dbw0ywd5Z5GfdGMf
+        95JaTRZlsCQpuGWRn5jG1CBn0aIArMyPxKwpimnMVFPrXTKTXqYlxVYsChPTGNYkeVMWediRJA1bFCa2
+        8Zgkb9siD7eSJKYoi9jGXZK8G4s8vEmSaiwKE9uYWuS9WuThWZJUa1GY2MZ1krwnizxcS5J6LQpzKA/+
+        hkH6JDU5z73sS5JGLCoPbnHtWuRhQpK0bFF5WJXUHLfIQ7v8lGx4VmOp9EhqUbONCyEWJE+4blFpbEpq
+        zVmUQat0q5uTrFhmJDUeZfC4TDMkv+WXLKY5TbmXGgNcKIRJyY089Ybsllnwnbrp5V4Wa1EMSjY+hVgk
+        rNBR2S85ZJAxW4YfA36J3PQW/EnzqZezkpVJ0ZDkzMuy/vFjO7AX9+SlfElkzOHAe5lb5p8qk8v9Asdi
+        kshqTKpLAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

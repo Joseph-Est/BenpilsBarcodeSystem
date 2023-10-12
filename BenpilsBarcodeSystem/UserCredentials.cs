@@ -56,11 +56,11 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Inventory Manager")
             {
-                button3.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
+                PointOfSalesBtn.Enabled = false;
+                ReportsBtn.Enabled = false;
+                StatisticsBtn.Enabled = false;
                 button8.Enabled = false;
-                button9.Enabled = false;
+                SettingsBtn.Enabled = false;
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -73,12 +73,12 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Cashier")
             {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
+                InventoryBtn.Enabled = false;
+                PurchasingBtn.Enabled = false;
+                ReportsBtn.Enabled = false;
+                StatisticsBtn.Enabled = false;
                 button8.Enabled = false;
-                button9.Enabled = false;
+                SettingsBtn.Enabled = false;
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -344,6 +344,96 @@ namespace BenpilsBarcodeSystem
         private void button8_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            ConfirmationExit CE = new ConfirmationExit();
+            CE.StartPosition = FormStartPosition.CenterScreen;
+            CE.ShowDialog();
+        }
+
+        private void MinimizedBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void DashboardBtn_Click(object sender, EventArgs e)
+        {
+            Dashboard dash = new Dashboard(user);
+            dash.Show();
+            dash.StartPosition = FormStartPosition.Manual;
+            dash.Location = this.Location;
+            this.Hide();
+        }
+
+        private void PointOfSalesBtn_Click(object sender, EventArgs e)
+        {
+            PointOfSales pos = new PointOfSales(user);
+            pos.Show();
+            pos.StartPosition = FormStartPosition.Manual;
+            pos.Location = this.Location;
+            this.Hide();
+        }
+
+        private void InventoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory inv = new Inventory(user);
+            inv.Show();
+            inv.StartPosition = FormStartPosition.Manual;
+            inv.Location = this.Location;
+            this.Hide();
+        }
+
+        private void PurchasingBtn_Click(object sender, EventArgs e)
+        {
+            Purchasing pur = new Purchasing(user);
+            pur.Show();
+            pur.StartPosition = FormStartPosition.Manual;
+            pur.Location = this.Location;
+            this.Hide();
+        }
+
+        private void ReportsBtn_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports(user);
+            reports.Show();
+            reports.StartPosition = FormStartPosition.Manual;
+            reports.Location = this.Location;
+            this.Hide();
+        }
+
+        private void StatisticsBtn_Click(object sender, EventArgs e)
+        {
+            StatisticReport SR = new StatisticReport(user);
+            SR.Show();
+            SR.StartPosition = FormStartPosition.Manual;
+            SR.Location = this.Location;
+            this.Hide();
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings(user);
+            settings.Show();
+            settings.StartPosition = FormStartPosition.Manual;
+            settings.Location = this.Location;
+            this.Hide();
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ConfirmationLogout cl = new ConfirmationLogout();
+            cl.StartPosition = FormStartPosition.CenterScreen;
+            if (cl.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }

@@ -301,9 +301,6 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-
-             
                 TxtItemName.Text = selectedRow.Cells["itemName"].Value.ToString();
                 CmbMotorBrand.Text = selectedRow.Cells["motorBrand"].Value.ToString();
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();

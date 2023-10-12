@@ -42,7 +42,7 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["Category"].ReadOnly = true;
+               
             }
             else if (user.Designation == "Admin")
             {
@@ -53,7 +53,7 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["Category"].ReadOnly = true;
+               
             }
             else if (user.Designation == "Inventory Manager")
             {
@@ -69,7 +69,7 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["Category"].ReadOnly = true;
+            
             }
             else if (user.Designation == "Cashier")
             {
@@ -86,7 +86,7 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Password"].ReadOnly = true;
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["Category"].ReadOnly = true;
+
             }
 
         }

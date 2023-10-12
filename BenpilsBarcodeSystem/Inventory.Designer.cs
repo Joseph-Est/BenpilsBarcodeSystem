@@ -503,7 +503,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1553, 35);
             this.panel1.TabIndex = 15;
-
             // 
             // label6
             // 
@@ -800,10 +799,10 @@
             this.sizeDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblinventoryBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(63, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(64, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1189, 431);
+            this.dataGridView1.Size = new System.Drawing.Size(1175, 431);
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);

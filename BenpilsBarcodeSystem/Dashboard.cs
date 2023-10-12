@@ -155,5 +155,10 @@ namespace BenpilsBarcodeSystem
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -106,6 +106,8 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -130,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
             this.tabBarcodegenerator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -168,7 +171,7 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(38, 683);
+            this.pictureBox7.Location = new System.Drawing.Point(38, 774);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.TabIndex = 23;
@@ -178,7 +181,7 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(38, 600);
+            this.pictureBox6.Location = new System.Drawing.Point(38, 690);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.TabIndex = 22;
@@ -222,7 +225,7 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(38, 518);
+            this.pictureBox9.Location = new System.Drawing.Point(38, 611);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
             this.pictureBox9.TabIndex = 25;
@@ -282,7 +285,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(26, 673);
+            this.button9.Location = new System.Drawing.Point(26, 764);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(153, 52);
             this.button9.TabIndex = 20;
@@ -295,7 +298,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(26, 590);
+            this.button8.Location = new System.Drawing.Point(26, 680);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(153, 52);
             this.button8.TabIndex = 19;
@@ -341,7 +344,7 @@
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(38, 437);
+            this.pictureBox8.Location = new System.Drawing.Point(38, 526);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
@@ -372,7 +375,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(26, 507);
+            this.button7.Location = new System.Drawing.Point(26, 600);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(153, 52);
             this.button7.TabIndex = 18;
@@ -420,7 +423,7 @@
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(26, 426);
+            this.button6.Location = new System.Drawing.Point(26, 515);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(153, 52);
             this.button6.TabIndex = 17;
@@ -434,7 +437,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 843);
+            this.panel5.Location = new System.Drawing.Point(182, 936);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1371, 35);
             this.panel5.TabIndex = 18;
@@ -442,6 +445,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.pictureBox14);
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -465,14 +470,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 843);
+            this.panel2.Size = new System.Drawing.Size(182, 936);
             this.panel2.TabIndex = 17;
             // 
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 769);
+            this.pictureBox12.Location = new System.Drawing.Point(38, 861);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(34, 31);
             this.pictureBox12.TabIndex = 31;
@@ -482,7 +487,7 @@
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.Location = new System.Drawing.Point(26, 757);
+            this.LogoutBtn.Location = new System.Drawing.Point(26, 849);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(153, 52);
             this.LogoutBtn.TabIndex = 30;
@@ -981,11 +986,33 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.White;
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(38, 444);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox14.TabIndex = 35;
+            this.pictureBox14.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 432);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 34;
+            this.button4.Text = "Services";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1553, 878);
+            this.ClientSize = new System.Drawing.Size(1553, 971);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -1025,6 +1052,7 @@
             this.tabBarcodegenerator.ResumeLayout(false);
             this.tabBarcodegenerator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1107,5 +1135,7 @@
         private System.Windows.Forms.TextBox txtBarcodefiller;
         private System.Windows.Forms.Label BarcodeLabel;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Button button4;
     }
 }

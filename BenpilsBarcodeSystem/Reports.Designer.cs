@@ -70,17 +70,19 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,18 +104,19 @@
             this.tabPage3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(38, 442);
+            this.pictureBox8.Location = new System.Drawing.Point(38, 525);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
@@ -124,7 +127,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 852);
+            this.panel5.Location = new System.Drawing.Point(182, 924);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1352, 35);
             this.panel5.TabIndex = 22;
@@ -146,7 +149,7 @@
             // 
             this.SettingsBtn.BackColor = System.Drawing.Color.White;
             this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsBtn.Location = new System.Drawing.Point(26, 677);
+            this.SettingsBtn.Location = new System.Drawing.Point(26, 760);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.Size = new System.Drawing.Size(153, 52);
             this.SettingsBtn.TabIndex = 20;
@@ -159,7 +162,7 @@
             // 
             this.UserCredentialsBtn.BackColor = System.Drawing.Color.White;
             this.UserCredentialsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserCredentialsBtn.Location = new System.Drawing.Point(26, 595);
+            this.UserCredentialsBtn.Location = new System.Drawing.Point(26, 678);
             this.UserCredentialsBtn.Name = "UserCredentialsBtn";
             this.UserCredentialsBtn.Size = new System.Drawing.Size(153, 52);
             this.UserCredentialsBtn.TabIndex = 19;
@@ -184,6 +187,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.pictureBox13);
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -207,14 +212,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 852);
+            this.panel2.Size = new System.Drawing.Size(182, 924);
             this.panel2.TabIndex = 21;
             // 
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 768);
+            this.pictureBox12.Location = new System.Drawing.Point(38, 851);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(34, 31);
             this.pictureBox12.TabIndex = 29;
@@ -224,7 +229,7 @@
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.Location = new System.Drawing.Point(26, 756);
+            this.LogoutBtn.Location = new System.Drawing.Point(26, 839);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(153, 52);
             this.LogoutBtn.TabIndex = 28;
@@ -257,7 +262,7 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(38, 689);
+            this.pictureBox7.Location = new System.Drawing.Point(38, 772);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.TabIndex = 23;
@@ -267,7 +272,7 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(38, 604);
+            this.pictureBox6.Location = new System.Drawing.Point(38, 687);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.TabIndex = 22;
@@ -300,7 +305,7 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(38, 523);
+            this.pictureBox9.Location = new System.Drawing.Point(38, 606);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
             this.pictureBox9.TabIndex = 25;
@@ -328,7 +333,7 @@
             // 
             this.StatisticsBtn.BackColor = System.Drawing.Color.White;
             this.StatisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatisticsBtn.Location = new System.Drawing.Point(26, 512);
+            this.StatisticsBtn.Location = new System.Drawing.Point(26, 595);
             this.StatisticsBtn.Name = "StatisticsBtn";
             this.StatisticsBtn.Size = new System.Drawing.Size(153, 52);
             this.StatisticsBtn.TabIndex = 18;
@@ -376,7 +381,7 @@
             // 
             this.ReportsBtn.BackColor = System.Drawing.Color.White;
             this.ReportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsBtn.Location = new System.Drawing.Point(26, 430);
+            this.ReportsBtn.Location = new System.Drawing.Point(26, 513);
             this.ReportsBtn.Name = "ReportsBtn";
             this.ReportsBtn.Size = new System.Drawing.Size(153, 52);
             this.ReportsBtn.TabIndex = 17;
@@ -572,30 +577,13 @@
             this.tabPage4.Text = "POS Audit Trail";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // dataGridView1
             // 
-            this.tabPage5.Controls.Add(this.dataGridView2);
-            this.tabPage5.Controls.Add(this.textBox1);
-            this.tabPage5.Controls.Add(this.label1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1314, 671);
-            this.tabPage5.TabIndex = 1;
-            this.tabPage5.Text = "Supplier Audit Trail";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.dataGridView3);
-            this.tabPage6.Controls.Add(this.textBox2);
-            this.tabPage6.Controls.Add(this.label2);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1314, 671);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "Inventory Audit Trail";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(11, 61);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1287, 593);
+            this.dataGridView1.TabIndex = 41;
             // 
             // TxtSearchBar
             // 
@@ -616,13 +604,18 @@
             this.label14.TabIndex = 40;
             this.label14.Text = "Search:";
             // 
-            // dataGridView1
+            // tabPage5
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1287, 593);
-            this.dataGridView1.TabIndex = 41;
+            this.tabPage5.Controls.Add(this.dataGridView2);
+            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.label1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1314, 671);
+            this.tabPage5.TabIndex = 1;
+            this.tabPage5.Text = "Supplier Audit Trail";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -651,6 +644,18 @@
             this.label1.TabIndex = 43;
             this.label1.Text = "Search:";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.dataGridView3);
+            this.tabPage6.Controls.Add(this.textBox2);
+            this.tabPage6.Controls.Add(this.label2);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1314, 671);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "Inventory Audit Trail";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -678,11 +683,33 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Search:";
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(38, 443);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox13.TabIndex = 33;
+            this.pictureBox13.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 431);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "Services";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1534, 887);
+            this.ClientSize = new System.Drawing.Size(1534, 959);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -717,13 +744,14 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -781,5 +809,7 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Button button4;
     }
 }

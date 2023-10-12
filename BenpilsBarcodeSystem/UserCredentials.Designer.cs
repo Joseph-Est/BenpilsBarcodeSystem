@@ -48,6 +48,14 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblusercredentialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabaseDataSet1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseDataSet1();
             this.tblloginBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -95,14 +103,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseDataSet1)).BeginInit();
@@ -128,6 +138,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -140,7 +151,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(289, 630);
+            this.label7.Location = new System.Drawing.Point(289, 714);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 15);
@@ -152,7 +163,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(288, 655);
+            this.label8.Location = new System.Drawing.Point(288, 739);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 15);
@@ -164,7 +175,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(288, 682);
+            this.label9.Location = new System.Drawing.Point(288, 766);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 15);
@@ -176,7 +187,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(289, 708);
+            this.label10.Location = new System.Drawing.Point(289, 792);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(64, 15);
@@ -188,7 +199,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(288, 736);
+            this.label11.Location = new System.Drawing.Point(288, 820);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 15);
@@ -200,7 +211,7 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(289, 761);
+            this.label12.Location = new System.Drawing.Point(289, 845);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 15);
@@ -212,7 +223,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(289, 790);
+            this.label13.Location = new System.Drawing.Point(289, 874);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(70, 15);
@@ -222,7 +233,7 @@
             // TxtFirstName
             // 
             this.TxtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtFirstName.Location = new System.Drawing.Point(362, 625);
+            this.TxtFirstName.Location = new System.Drawing.Point(362, 709);
             this.TxtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(157, 20);
@@ -231,7 +242,7 @@
             // TxtLastName
             // 
             this.TxtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtLastName.Location = new System.Drawing.Point(362, 650);
+            this.TxtLastName.Location = new System.Drawing.Point(362, 734);
             this.TxtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(157, 20);
@@ -240,7 +251,7 @@
             // TxtUsername
             // 
             this.TxtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtUsername.Location = new System.Drawing.Point(362, 677);
+            this.TxtUsername.Location = new System.Drawing.Point(362, 761);
             this.TxtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.TxtUsername.Name = "TxtUsername";
             this.TxtUsername.Size = new System.Drawing.Size(157, 20);
@@ -249,7 +260,7 @@
             // TxtPassword
             // 
             this.TxtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtPassword.Location = new System.Drawing.Point(362, 703);
+            this.TxtPassword.Location = new System.Drawing.Point(362, 787);
             this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(157, 20);
@@ -258,7 +269,7 @@
             // TxtAddress
             // 
             this.TxtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtAddress.Location = new System.Drawing.Point(362, 756);
+            this.TxtAddress.Location = new System.Drawing.Point(362, 840);
             this.TxtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.TxtAddress.Name = "TxtAddress";
             this.TxtAddress.Size = new System.Drawing.Size(157, 20);
@@ -267,7 +278,7 @@
             // TxtContactNo
             // 
             this.TxtContactNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtContactNo.Location = new System.Drawing.Point(362, 785);
+            this.TxtContactNo.Location = new System.Drawing.Point(362, 869);
             this.TxtContactNo.Margin = new System.Windows.Forms.Padding(2);
             this.TxtContactNo.Name = "TxtContactNo";
             this.TxtContactNo.Size = new System.Drawing.Size(157, 20);
@@ -296,7 +307,7 @@
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(1096, 722);
+            this.ArchiveBtn.Location = new System.Drawing.Point(1096, 806);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -317,14 +328,87 @@
             this.Password,
             this.Designation,
             this.Address,
-            this.ContactNo});
+            this.ContactNo,
+            this.iDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.userNameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.designationDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNoDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblusercredentialBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(291, 131);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1049, 458);
+            this.dataGridView1.Size = new System.Drawing.Size(1049, 512);
             this.dataGridView1.TabIndex = 42;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Width = 125;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.Width = 125;
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 125;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.Width = 125;
+            // 
+            // Designation
+            // 
+            this.Designation.DataPropertyName = "Designation";
+            this.Designation.HeaderText = "Designation";
+            this.Designation.MinimumWidth = 6;
+            this.Designation.Name = "Designation";
+            this.Designation.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Width = 125;
+            // 
+            // ContactNo
+            // 
+            this.ContactNo.DataPropertyName = "ContactNo";
+            this.ContactNo.HeaderText = "ContactNo";
+            this.ContactNo.MinimumWidth = 6;
+            this.ContactNo.Name = "ContactNo";
+            this.ContactNo.Width = 125;
             // 
             // tblusercredentialBindingSource1
             // 
@@ -385,7 +469,7 @@
             // UpdateBtn
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateBtn.Location = new System.Drawing.Point(1155, 643);
+            this.UpdateBtn.Location = new System.Drawing.Point(1155, 727);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 44;
@@ -396,7 +480,7 @@
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Location = new System.Drawing.Point(1031, 643);
+            this.AddBtn.Location = new System.Drawing.Point(1031, 727);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 45;
@@ -408,7 +492,7 @@
             // 
             this.ComboDesignation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ComboDesignation.FormattingEnabled = true;
-            this.ComboDesignation.Location = new System.Drawing.Point(362, 730);
+            this.ComboDesignation.Location = new System.Drawing.Point(362, 814);
             this.ComboDesignation.Name = "ComboDesignation";
             this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
             this.ComboDesignation.TabIndex = 47;
@@ -430,7 +514,7 @@
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(38, 768);
+            this.pictureBox12.Location = new System.Drawing.Point(38, 851);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(34, 31);
             this.pictureBox12.TabIndex = 29;
@@ -440,7 +524,7 @@
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.Location = new System.Drawing.Point(26, 756);
+            this.LogoutBtn.Location = new System.Drawing.Point(26, 839);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(153, 52);
             this.LogoutBtn.TabIndex = 28;
@@ -464,7 +548,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 841);
+            this.panel5.Location = new System.Drawing.Point(182, 925);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1261, 35);
             this.panel5.TabIndex = 51;
@@ -472,6 +556,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.pictureBox13);
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -495,7 +581,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 841);
+            this.panel2.Size = new System.Drawing.Size(182, 925);
             this.panel2.TabIndex = 50;
             // 
             // pictureBox10
@@ -512,7 +598,7 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(38, 689);
+            this.pictureBox7.Location = new System.Drawing.Point(38, 772);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.TabIndex = 23;
@@ -522,7 +608,7 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(38, 604);
+            this.pictureBox6.Location = new System.Drawing.Point(38, 687);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.TabIndex = 22;
@@ -555,7 +641,7 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(38, 523);
+            this.pictureBox9.Location = new System.Drawing.Point(38, 606);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
             this.pictureBox9.TabIndex = 25;
@@ -565,7 +651,7 @@
             // 
             this.SettingsBtn.BackColor = System.Drawing.Color.White;
             this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsBtn.Location = new System.Drawing.Point(26, 677);
+            this.SettingsBtn.Location = new System.Drawing.Point(26, 760);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.Size = new System.Drawing.Size(153, 52);
             this.SettingsBtn.TabIndex = 20;
@@ -578,7 +664,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(26, 595);
+            this.button8.Location = new System.Drawing.Point(26, 678);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(153, 52);
             this.button8.TabIndex = 19;
@@ -604,7 +690,7 @@
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(38, 442);
+            this.pictureBox8.Location = new System.Drawing.Point(38, 525);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
@@ -632,7 +718,7 @@
             // 
             this.StatisticsBtn.BackColor = System.Drawing.Color.White;
             this.StatisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatisticsBtn.Location = new System.Drawing.Point(26, 512);
+            this.StatisticsBtn.Location = new System.Drawing.Point(26, 595);
             this.StatisticsBtn.Name = "StatisticsBtn";
             this.StatisticsBtn.Size = new System.Drawing.Size(153, 52);
             this.StatisticsBtn.TabIndex = 18;
@@ -680,7 +766,7 @@
             // 
             this.ReportsBtn.BackColor = System.Drawing.Color.White;
             this.ReportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsBtn.Location = new System.Drawing.Point(26, 430);
+            this.ReportsBtn.Location = new System.Drawing.Point(26, 513);
             this.ReportsBtn.Name = "ReportsBtn";
             this.ReportsBtn.Size = new System.Drawing.Size(153, 52);
             this.ReportsBtn.TabIndex = 17;
@@ -798,76 +884,82 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
-            // ID
+            // iDDataGridViewTextBoxColumn
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FirstName
+            // firstNameDataGridViewTextBoxColumn
             // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Width = 125;
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             // 
-            // LastName
+            // lastNameDataGridViewTextBoxColumn
             // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.Width = 125;
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             // 
-            // UserName
+            // userNameDataGridViewTextBoxColumn
             // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "UserName";
-            this.UserName.MinimumWidth = 6;
-            this.UserName.Name = "UserName";
-            this.UserName.Width = 125;
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
             // 
-            // Password
+            // passwordDataGridViewTextBoxColumn
             // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.Width = 125;
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
-            // Designation
+            // designationDataGridViewTextBoxColumn
             // 
-            this.Designation.DataPropertyName = "Designation";
-            this.Designation.HeaderText = "Designation";
-            this.Designation.MinimumWidth = 6;
-            this.Designation.Name = "Designation";
-            this.Designation.Width = 125;
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "Designation";
+            this.designationDataGridViewTextBoxColumn.HeaderText = "Designation";
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
             // 
-            // Address
+            // addressDataGridViewTextBoxColumn
             // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.Width = 125;
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             // 
-            // ContactNo
+            // contactNoDataGridViewTextBoxColumn
             // 
-            this.ContactNo.DataPropertyName = "ContactNo";
-            this.ContactNo.HeaderText = "ContactNo";
-            this.ContactNo.MinimumWidth = 6;
-            this.ContactNo.Name = "ContactNo";
-            this.ContactNo.Width = 125;
+            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(38, 442);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox13.TabIndex = 33;
+            this.pictureBox13.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(26, 430);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(153, 52);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "Services";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 876);
+            this.ClientSize = new System.Drawing.Size(1443, 960);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
@@ -925,6 +1017,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1004,5 +1097,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Designation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Button button4;
     }
 }

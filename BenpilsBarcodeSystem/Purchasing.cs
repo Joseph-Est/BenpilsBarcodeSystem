@@ -429,6 +429,11 @@ namespace BenpilsBarcodeSystem
 
         }
 
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

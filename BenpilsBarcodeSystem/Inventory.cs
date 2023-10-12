@@ -350,9 +350,6 @@ namespace BenpilsBarcodeSystem
          
         }
  
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            IsDragging = false;
-        }
+
     }
 }

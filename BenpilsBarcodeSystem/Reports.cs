@@ -21,8 +21,8 @@ namespace BenpilsBarcodeSystem
             timer.Tick += timer1_Tick;
             timer.Start();
             this.user = user;
-            label1.Text = "Username: " + user.Username;
-            label2.Text = "Designation: " + user.Designation;
+            label9.Text = "Username: " + user.Username;
+            label8.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
             }
@@ -52,7 +52,7 @@ namespace BenpilsBarcodeSystem
         {
 
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
-            label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+            label7.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)

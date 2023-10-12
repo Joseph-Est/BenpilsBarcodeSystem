@@ -158,15 +158,17 @@ namespace BenpilsBarcodeSystem
             this.Hide();
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-            ConfirmationExit CE = new ConfirmationExit();
-            CE.ShowDialog();
-        }
+       
 
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ConfirmationExit CE = new ConfirmationExit();
+            CE.ShowDialog();
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

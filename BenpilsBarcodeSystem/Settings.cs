@@ -33,20 +33,20 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Inventory Manager")
             {
-                button3.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-                button8.Enabled = false;
-                button9.Enabled = false;
+                PointOfSalesBtn.Enabled = false;
+                ReportsBtn.Enabled = false;
+                StatisticsBtn.Enabled = false;
+                UserCredentials.Enabled = false;
+                SettingsBtn.Enabled = false;
             }
             else if (user.Designation == "Cashier")
             {
-                button2.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-                button8.Enabled = false;
-                button9.Enabled = false;
+                InventoryBtn.Enabled = false;
+                PurchasingBtn.Enabled = false;
+                ReportsBtn.Enabled = false;
+                StatisticsBtn.Enabled = false;
+                UserCredentials.Enabled = false;
+                SettingsBtn.Enabled = false;
             }
         }
         //Dashboard Button
@@ -117,18 +117,6 @@ namespace BenpilsBarcodeSystem
             purchasing.Location = this.Location;
             this.Hide();
         }
-        //Close Button
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            ConfirmationExit ce = new ConfirmationExit();
-            ce.StartPosition = FormStartPosition.CenterScreen;
-            ce.ShowDialog();
-        }
-        //Minimize Button
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -154,16 +142,15 @@ namespace BenpilsBarcodeSystem
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
-
-        private void label7_Click(object sender, EventArgs e)
+        private void MinimizedBtn_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
-        //logout button
-        private void pictureBox15_Click(object sender, EventArgs e)
+
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationLogout CL = new ConfirmationLogout();
-            CL.ShowDialog();
+            ConfirmationExit ce = new ConfirmationExit();
+            ce.ShowDialog();
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

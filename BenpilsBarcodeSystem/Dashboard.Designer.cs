@@ -62,6 +62,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -77,6 +78,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -90,7 +92,6 @@
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "BENPIL  MOTORCYCLE PARTS AND ACCESSORIES";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox5
             // 
@@ -101,7 +102,6 @@
             this.pictureBox5.Size = new System.Drawing.Size(34, 31);
             this.pictureBox5.TabIndex = 21;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox10
             // 
@@ -112,7 +112,6 @@
             this.pictureBox10.Size = new System.Drawing.Size(34, 31);
             this.pictureBox10.TabIndex = 26;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // pictureBox7
             // 
@@ -123,7 +122,6 @@
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.TabIndex = 23;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox6
             // 
@@ -134,7 +132,6 @@
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.TabIndex = 22;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox11
             // 
@@ -145,7 +142,6 @@
             this.pictureBox11.Size = new System.Drawing.Size(34, 31);
             this.pictureBox11.TabIndex = 27;
             this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // button5
             // 
@@ -169,7 +165,6 @@
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
             this.pictureBox9.TabIndex = 25;
             this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // label1
             // 
@@ -182,7 +177,6 @@
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel3
             // 
@@ -195,7 +189,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1260, 36);
             this.panel3.TabIndex = 16;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label3
             // 
@@ -209,7 +202,6 @@
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -223,7 +215,6 @@
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Designation:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button9
             // 
@@ -273,13 +264,12 @@
             this.pictureBox4.Size = new System.Drawing.Size(34, 31);
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1401, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(1355, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 32);
             this.pictureBox3.TabIndex = 8;
@@ -295,7 +285,6 @@
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label4
             // 
@@ -309,7 +298,6 @@
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel4
             // 
@@ -343,7 +331,6 @@
             this.button1.Text = "Dashboard";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -353,7 +340,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(153, 70);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button3
             // 
@@ -420,7 +406,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 845);
             this.panel2.TabIndex = 17;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox12
             // 
@@ -431,7 +416,6 @@
             this.pictureBox12.Size = new System.Drawing.Size(34, 31);
             this.pictureBox12.TabIndex = 29;
             this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // LogoutBtn
             // 
@@ -449,6 +433,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox3);
@@ -457,7 +442,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1442, 35);
             this.panel1.TabIndex = 15;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -479,6 +463,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1399, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 32);
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +487,6 @@
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -511,6 +505,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,5 +544,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

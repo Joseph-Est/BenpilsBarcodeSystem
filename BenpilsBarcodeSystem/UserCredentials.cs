@@ -14,8 +14,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class UserCredentials : Form
     {
-        private bool isDragging = false;
-        private int mouseX,mouseY;
         private User user;
 
         public UserCredentials(User user)
@@ -174,26 +172,6 @@ namespace BenpilsBarcodeSystem
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isDragging = true;
-                mouseX = e.X;
-                mouseY = e.Y;
-            }
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                this.Left += e.X - mouseX;
-                this.Top += e.Y - mouseY;
-            }
-        }
-
         private void UserCredentials_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet1.tbl_usercredential' table. You can move, or remove it, as needed.
@@ -361,11 +339,6 @@ namespace BenpilsBarcodeSystem
                 ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
                 AddBtn.Enabled = false;
             }
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
         }
     }
 }

@@ -126,6 +126,7 @@
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "BENPIL  MOTORCYCLE PARTS AND ACCESSORIES";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox5
             // 
@@ -147,6 +148,7 @@
             this.pictureBox10.Size = new System.Drawing.Size(34, 31);
             this.pictureBox10.TabIndex = 26;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // pictureBox7
             // 
@@ -157,6 +159,7 @@
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
             this.pictureBox7.TabIndex = 23;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox6
             // 
@@ -167,6 +170,7 @@
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
             this.pictureBox6.TabIndex = 22;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox2
             // 
@@ -188,6 +192,7 @@
             this.pictureBox11.Size = new System.Drawing.Size(34, 31);
             this.pictureBox11.TabIndex = 27;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
             // button5
             // 
@@ -211,6 +216,7 @@
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
             this.pictureBox9.TabIndex = 25;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
             // 
             // label1
             // 
@@ -223,6 +229,7 @@
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel3
             // 
@@ -249,6 +256,7 @@
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -261,6 +269,7 @@
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Designation:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button9
             // 
@@ -310,6 +319,7 @@
             this.pictureBox4.Size = new System.Drawing.Size(34, 31);
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -331,6 +341,7 @@
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label4
             // 
@@ -344,6 +355,7 @@
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel4
             // 
@@ -352,6 +364,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(823, 36);
             this.panel4.TabIndex = 8;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // button7
             // 
@@ -387,6 +400,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(153, 70);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button3
             // 
@@ -423,6 +437,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1347, 35);
             this.panel5.TabIndex = 18;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel2
             // 
@@ -463,6 +478,7 @@
             this.pictureBox12.Size = new System.Drawing.Size(34, 31);
             this.pictureBox12.TabIndex = 33;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
             // LogoutBtn
             // 
@@ -489,6 +505,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1529, 35);
             this.panel1.TabIndex = 15;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -504,6 +521,7 @@
             this.label6.Size = new System.Drawing.Size(82, 18);
             this.label6.TabIndex = 22;
             this.label6.Text = "Purchasing";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // timer1
             // 
@@ -519,6 +537,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1293, 637);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabSuppliermasterdata
             // 
@@ -555,6 +574,7 @@
             this.tabSuppliermasterdata.TabIndex = 0;
             this.tabSuppliermasterdata.Text = "Supplier Master Data";
             this.tabSuppliermasterdata.UseVisualStyleBackColor = true;
+            this.tabSuppliermasterdata.Click += new System.EventHandler(this.tabSuppliermasterdata_Click);
             // 
             // button10
             // 
@@ -567,6 +587,7 @@
             this.button10.TabIndex = 67;
             this.button10.Text = "Archive";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button4
             // 
@@ -579,6 +600,7 @@
             this.button4.TabIndex = 66;
             this.button4.Text = "Update";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // AddBtn
             // 
@@ -591,6 +613,7 @@
             this.AddBtn.TabIndex = 65;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // textBox10
             // 
@@ -599,6 +622,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(174, 20);
             this.textBox10.TabIndex = 60;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // textBox9
             // 
@@ -607,6 +631,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(174, 20);
             this.textBox9.TabIndex = 59;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // textBox8
             // 
@@ -615,6 +640,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(174, 20);
             this.textBox8.TabIndex = 58;
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // textBox7
             // 
@@ -623,6 +649,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(174, 20);
             this.textBox7.TabIndex = 57;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox6
             // 
@@ -631,6 +658,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(174, 20);
             this.textBox6.TabIndex = 56;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label17
             // 
@@ -641,6 +669,7 @@
             this.label17.Size = new System.Drawing.Size(49, 13);
             this.label17.TabIndex = 55;
             this.label17.Text = "Quantity:";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label16
             // 
@@ -651,6 +680,7 @@
             this.label16.Size = new System.Drawing.Size(61, 13);
             this.label16.TabIndex = 54;
             this.label16.Text = "Item Name:";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label15
             // 
@@ -661,6 +691,7 @@
             this.label15.Size = new System.Drawing.Size(38, 13);
             this.label15.TabIndex = 53;
             this.label15.Text = "Brand:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label13
             // 
@@ -671,6 +702,7 @@
             this.label13.Size = new System.Drawing.Size(68, 13);
             this.label13.TabIndex = 52;
             this.label13.Text = "Motor Brand:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // textBox5
             // 
@@ -679,6 +711,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(174, 20);
             this.textBox5.TabIndex = 51;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox4
             // 
@@ -687,6 +720,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(174, 20);
             this.textBox4.TabIndex = 50;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -695,6 +729,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(174, 20);
             this.textBox3.TabIndex = 49;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -703,6 +738,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 48;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -711,6 +747,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 47;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label12
             // 
@@ -721,6 +758,7 @@
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 46;
             this.label12.Text = "Email:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
             // 
@@ -731,6 +769,7 @@
             this.label11.Size = new System.Drawing.Size(85, 13);
             this.label11.TabIndex = 45;
             this.label11.Text = "Company Name:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
@@ -741,6 +780,7 @@
             this.label10.Size = new System.Drawing.Size(64, 13);
             this.label10.TabIndex = 44;
             this.label10.Text = "Contact No:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
@@ -751,6 +791,7 @@
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 43;
             this.label9.Text = "Address:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -761,6 +802,7 @@
             this.label8.Size = new System.Drawing.Size(78, 13);
             this.label8.TabIndex = 42;
             this.label8.Text = "Contact Name:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -771,6 +813,7 @@
             this.label7.Size = new System.Drawing.Size(85, 13);
             this.label7.TabIndex = 41;
             this.label7.Text = "Company Name:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // TxtSearchBar
             // 
@@ -779,6 +822,7 @@
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 39;
+            this.TxtSearchBar.TextChanged += new System.EventHandler(this.TxtSearchBar_TextChanged);
             // 
             // label14
             // 
@@ -790,6 +834,7 @@
             this.label14.Size = new System.Drawing.Size(49, 15);
             this.label14.TabIndex = 40;
             this.label14.Text = "Search:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // dataGridView1
             // 
@@ -798,6 +843,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1244, 273);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tabPurchaseorderlist
             // 
@@ -818,6 +864,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1299, 650);
             this.panel6.TabIndex = 19;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // Purchasing
             // 

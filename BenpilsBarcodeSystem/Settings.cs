@@ -42,9 +42,9 @@ namespace BenpilsBarcodeSystem
             {
                InventoryBtn.Enabled = false;
                PurchasingBtn.Enabled = false;
-                ReportsBtn.Enabled = false;
-                StatisticreportsBtn.Enabled = false;
-                UserCredentialsBtn.Enabled = false;
+               ReportsBtn.Enabled = false;
+               StatisticreportsBtn.Enabled = false;
+               UserCredentialsBtn.Enabled = false;
             }
         }
 

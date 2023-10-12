@@ -132,7 +132,7 @@ namespace BenpilsBarcodeSystem
         {
             this.Hide();
             ConfirmationLogout cl = new ConfirmationLogout();
-            cl.StartPosition = FormStartPosition.Manual;
+            cl.StartPosition = FormStartPosition.CenterScreen;
             if (cl.ShowDialog() == DialogResult.OK)
             {
                 this.Close();

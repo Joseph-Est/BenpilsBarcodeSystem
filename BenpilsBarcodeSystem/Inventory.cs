@@ -368,21 +368,9 @@ namespace BenpilsBarcodeSystem
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-             
-                SystemSounds.Beep.Play();
-
-
-                PointOfSales pos = new PointOfSales(user);
-                pos.Show();
-            }
+         
         }
-        private void HandleScannedData(string data)
-        {
-           
-            MessageBox.Show("Scanned Data: " + data);
-        }
+ 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             IsDragging = false;

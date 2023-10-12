@@ -152,6 +152,7 @@ namespace BenpilsBarcodeSystem
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
             ConfirmationExit cl = new ConfirmationExit();
+            cl.StartPosition = FormStartPosition.CenterScreen;
             cl.ShowDialog();
         }
     }

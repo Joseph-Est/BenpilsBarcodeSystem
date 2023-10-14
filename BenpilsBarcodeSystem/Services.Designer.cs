@@ -30,24 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Services));
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.MinimizeBtn = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.reportsBtn = new System.Windows.Forms.Button();
+            this.PointofsalesBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.DashBoardBtn = new System.Windows.Forms.Button();
+            this.statisticsBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.inventoryBtn = new System.Windows.Forms.Button();
+            this.usercredentialsbtn = new System.Windows.Forms.Button();
+            this.settingsbtn = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.purchasingBtn = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -65,8 +65,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -84,15 +84,16 @@
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox3
+            // MinimizeBtn
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1483, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 32);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
+            this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
+            this.MinimizeBtn.Location = new System.Drawing.Point(1483, 3);
+            this.MinimizeBtn.Name = "MinimizeBtn";
+            this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
+            this.MinimizeBtn.TabIndex = 8;
+            this.MinimizeBtn.TabStop = false;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // label5
             // 
@@ -118,52 +119,55 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Dashboard";
             // 
-            // pictureBox2
+            // CloseBtn
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1527, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 32);
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(1527, 3);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(31, 32);
+            this.CloseBtn.TabIndex = 22;
+            this.CloseBtn.TabStop = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.CloseBtn);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.MinimizeBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1570, 35);
             this.panel1.TabIndex = 19;
             // 
-            // button6
+            // reportsBtn
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(26, 445);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(153, 52);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "Reports";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
+            this.reportsBtn.BackColor = System.Drawing.Color.White;
+            this.reportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsBtn.Location = new System.Drawing.Point(26, 445);
+            this.reportsBtn.Name = "reportsBtn";
+            this.reportsBtn.Size = new System.Drawing.Size(153, 52);
+            this.reportsBtn.TabIndex = 17;
+            this.reportsBtn.Text = "Reports";
+            this.reportsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.reportsBtn.UseVisualStyleBackColor = false;
+            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
-            // button3
+            // PointofsalesBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(26, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 52);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Point Of Sales";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
+            this.PointofsalesBtn.BackColor = System.Drawing.Color.White;
+            this.PointofsalesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PointofsalesBtn.Location = new System.Drawing.Point(26, 168);
+            this.PointofsalesBtn.Name = "PointofsalesBtn";
+            this.PointofsalesBtn.Size = new System.Drawing.Size(153, 52);
+            this.PointofsalesBtn.TabIndex = 13;
+            this.PointofsalesBtn.Text = "Point Of Sales";
+            this.PointofsalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PointofsalesBtn.UseVisualStyleBackColor = false;
+            this.PointofsalesBtn.Click += new System.EventHandler(this.PointofsalesBtn_Click);
             // 
             // pictureBox1
             // 
@@ -174,29 +178,31 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // DashBoardBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 52);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Dashboard";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.DashBoardBtn.BackColor = System.Drawing.Color.White;
+            this.DashBoardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashBoardBtn.Location = new System.Drawing.Point(26, 100);
+            this.DashBoardBtn.Name = "DashBoardBtn";
+            this.DashBoardBtn.Size = new System.Drawing.Size(153, 52);
+            this.DashBoardBtn.TabIndex = 9;
+            this.DashBoardBtn.Text = "Dashboard";
+            this.DashBoardBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DashBoardBtn.UseVisualStyleBackColor = false;
+            this.DashBoardBtn.Click += new System.EventHandler(this.DashBoardBtn_Click);
             // 
-            // button7
+            // statisticsBtn
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(26, 514);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(153, 52);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "Statistic Report";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
+            this.statisticsBtn.BackColor = System.Drawing.Color.White;
+            this.statisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statisticsBtn.Location = new System.Drawing.Point(26, 514);
+            this.statisticsBtn.Name = "statisticsBtn";
+            this.statisticsBtn.Size = new System.Drawing.Size(153, 52);
+            this.statisticsBtn.TabIndex = 18;
+            this.statisticsBtn.Text = "Statistic Report";
+            this.statisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.statisticsBtn.UseVisualStyleBackColor = false;
+            this.statisticsBtn.Click += new System.EventHandler(this.statisticsBtn_Click);
             // 
             // panel4
             // 
@@ -226,41 +232,44 @@
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
             // 
-            // button2
+            // inventoryBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(26, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 52);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Inventory";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.inventoryBtn.BackColor = System.Drawing.Color.White;
+            this.inventoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryBtn.Location = new System.Drawing.Point(26, 237);
+            this.inventoryBtn.Name = "inventoryBtn";
+            this.inventoryBtn.Size = new System.Drawing.Size(153, 52);
+            this.inventoryBtn.TabIndex = 14;
+            this.inventoryBtn.Text = "Inventory";
+            this.inventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.inventoryBtn.UseVisualStyleBackColor = false;
+            this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click);
             // 
-            // button8
+            // usercredentialsbtn
             // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(26, 582);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(153, 52);
-            this.button8.TabIndex = 19;
-            this.button8.Text = "User Credentials";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.UseVisualStyleBackColor = false;
+            this.usercredentialsbtn.BackColor = System.Drawing.Color.White;
+            this.usercredentialsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usercredentialsbtn.Location = new System.Drawing.Point(26, 582);
+            this.usercredentialsbtn.Name = "usercredentialsbtn";
+            this.usercredentialsbtn.Size = new System.Drawing.Size(153, 52);
+            this.usercredentialsbtn.TabIndex = 19;
+            this.usercredentialsbtn.Text = "User Credentials";
+            this.usercredentialsbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.usercredentialsbtn.UseVisualStyleBackColor = false;
+            this.usercredentialsbtn.Click += new System.EventHandler(this.usercredentialsbtn_Click);
             // 
-            // button9
+            // settingsbtn
             // 
-            this.button9.BackColor = System.Drawing.Color.White;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(26, 651);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(153, 52);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "Settings";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.UseVisualStyleBackColor = false;
+            this.settingsbtn.BackColor = System.Drawing.Color.White;
+            this.settingsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsbtn.Location = new System.Drawing.Point(26, 651);
+            this.settingsbtn.Name = "settingsbtn";
+            this.settingsbtn.Size = new System.Drawing.Size(153, 52);
+            this.settingsbtn.TabIndex = 20;
+            this.settingsbtn.Text = "Settings";
+            this.settingsbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsbtn.UseVisualStyleBackColor = false;
+            this.settingsbtn.Click += new System.EventHandler(this.settingsbtn_Click);
             // 
             // pictureBox9
             // 
@@ -272,17 +281,18 @@
             this.pictureBox9.TabIndex = 25;
             this.pictureBox9.TabStop = false;
             // 
-            // button5
+            // purchasingBtn
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(26, 306);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 52);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Purchasing";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
+            this.purchasingBtn.BackColor = System.Drawing.Color.White;
+            this.purchasingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasingBtn.Location = new System.Drawing.Point(26, 306);
+            this.purchasingBtn.Name = "purchasingBtn";
+            this.purchasingBtn.Size = new System.Drawing.Size(153, 52);
+            this.purchasingBtn.TabIndex = 16;
+            this.purchasingBtn.Text = "Purchasing";
+            this.purchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.purchasingBtn.UseVisualStyleBackColor = false;
+            this.purchasingBtn.Click += new System.EventHandler(this.purchasingBtn_Click);
             // 
             // pictureBox11
             // 
@@ -345,6 +355,7 @@
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogoutBtn.UseVisualStyleBackColor = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // pictureBox12
             // 
@@ -368,19 +379,19 @@
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox11);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.purchasingBtn);
             this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.settingsbtn);
+            this.panel2.Controls.Add(this.usercredentialsbtn);
+            this.panel2.Controls.Add(this.inventoryBtn);
             this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.statisticsBtn);
+            this.panel2.Controls.Add(this.DashBoardBtn);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.PointofsalesBtn);
+            this.panel2.Controls.Add(this.reportsBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
@@ -412,6 +423,7 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel3
             // 
@@ -499,8 +511,8 @@
             this.Name = "Services";
             this.Text = "Services";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -525,24 +537,24 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox MinimizeBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox CloseBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button reportsBtn;
+        private System.Windows.Forms.Button PointofsalesBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button DashBoardBtn;
+        private System.Windows.Forms.Button statisticsBtn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button inventoryBtn;
+        private System.Windows.Forms.Button usercredentialsbtn;
+        private System.Windows.Forms.Button settingsbtn;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button purchasingBtn;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;

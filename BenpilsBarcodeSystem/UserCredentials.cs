@@ -92,75 +92,6 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        //DashBoard Button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Dashboard dash = new Dashboard(user);
-            dash.Show();
-            dash.StartPosition = FormStartPosition.Manual;
-            dash.Location = this.Location;
-            this.Hide();
-        }
-        //Point of sales button
-        private void button3_Click(object sender, EventArgs e)
-        {
-            PointOfSales pos = new PointOfSales(user);
-            pos.Show();
-            pos.StartPosition = FormStartPosition.Manual;
-            pos.Location = this.Location;
-            this.Hide();
-        }
-        //Inventory Button
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Inventory inv = new Inventory(user);
-            inv.Show(); 
-            inv.StartPosition = FormStartPosition.Manual;
-            inv.Location = this.Location;
-            this.Hide();
-        }
-        //Purchasing Button
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Purchasing purchasing = new Purchasing(user);
-            purchasing.Show();
-            purchasing.StartPosition = FormStartPosition.Manual;
-            purchasing.Location = this.Location;
-            this.Hide();
-        }
-        //Reports Button
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Reports reports = new Reports(user);
-            reports.Show();
-            reports.StartPosition = FormStartPosition.Manual;
-            reports.Location = this.Location;
-            this.Hide();
-        }
-        //Statistics Report Button
-        private void button7_Click(object sender, EventArgs e)
-        {
-            StatisticReport sreport = new StatisticReport(user);
-            sreport.Show();
-            sreport.StartPosition = FormStartPosition.Manual;
-            sreport.Location = this.Location;
-            this.Hide();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-          
-        }
-        //Settings Button
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings(user);
-            settings.Show();
-            settings.StartPosition = FormStartPosition.Manual;
-            settings.Location = this.Location;
-            this.Hide();
-        }
-        //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ConfirmationExit ce = new ConfirmationExit();
@@ -439,6 +370,11 @@ namespace BenpilsBarcodeSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            UpdateDataGridView
         }
     }
 }

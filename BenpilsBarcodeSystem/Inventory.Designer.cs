@@ -68,6 +68,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.TxtCategory = new System.Windows.Forms.TextBox();
             this.TxtSize = new System.Windows.Forms.TextBox();
             this.TxtUnitPrice = new System.Windows.Forms.TextBox();
@@ -102,14 +103,14 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.GenerateBtn = new System.Windows.Forms.Button();
             this.txtBarcodefiller = new System.Windows.Forms.TextBox();
             this.BarcodeLabel = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -130,13 +131,13 @@
             this.panel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabItemmasterdata.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
             this.tabBarcodegenerator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -609,6 +610,18 @@
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
             // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.White;
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(1293, 6);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox15.TabIndex = 76;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.UseWaitCursor = true;
+            // 
             // TxtCategory
             // 
             this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -959,6 +972,18 @@
             this.tabBarcodegenerator.UseVisualStyleBackColor = true;
             this.tabBarcodegenerator.UseWaitCursor = true;
             // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.White;
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.Location = new System.Drawing.Point(1296, 3);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox16.TabIndex = 36;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.UseWaitCursor = true;
+            // 
             // GenerateBtn
             // 
             this.GenerateBtn.Location = new System.Drawing.Point(810, 335);
@@ -1014,29 +1039,11 @@
             // 
             this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
             // 
-            // pictureBox15
+            // tableAdapterManager1
             // 
-            this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(1293, 6);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox15.TabIndex = 76;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.UseWaitCursor = true;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackColor = System.Drawing.Color.White;
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(1296, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox16.TabIndex = 36;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.UseWaitCursor = true;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
+            this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Inventory
             // 
@@ -1077,14 +1084,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabItemmasterdata.ResumeLayout(false);
             this.tabItemmasterdata.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
             this.tabBarcodegenerator.ResumeLayout(false);
             this.tabBarcodegenerator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1171,5 +1178,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager tableAdapterManager1;
     }
 }

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MinimizeBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACUAAAAhCAYAAABeD2IVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAg5JREFUWEftmElLQlEUxzUnUCkqM4V0oSYUNoiIE5pDLQoadm0i/ARB0DcIIito
@@ -133,7 +133,7 @@
         8ff0BEnaYcwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="CloseBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAdCAYAAAC9pNwMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAA11JREFUSEu1l7lrVVEQxm/2fU/MYlafUbPwsu/JywqiElSwUBAEO0E70UL/AWv/
@@ -461,7 +461,7 @@
   <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAATJJREFUSEvtlktqAkEURXsg0TWY6DpcUwbuy5kGojvwMxDcghsI8TPXe4INxaO6
+        DgAACw4BQL7hQQAAATJJREFUSEvtlktqAkEURXsg0TWY6DpcUwbuy5kGojvwMxDcghsI8TPXe4INxaO6
         DFWve5JcOINuaA/96snt6j8F6Yup2IqrOIuNmIjW8ioO4maYiZ5oJbxp51LCeK10LqyUa9ex74QVM/ow
         SJnA+ufKKRdhxW+iTi3l/jc3vPIlrHglRmIsFo97wKa7hMU6ilCawmXUSJciJmjiXRQlR7oXLyI7udKh
         yM5vpJw5C8e2c6aMt+hNefhDxGQ1bPNAuKUTKeMMW4axPfvLfAqey05Ty6TgzIukPNy5lMRaJoWLlMRa

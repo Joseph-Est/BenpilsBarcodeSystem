@@ -98,6 +98,12 @@
             this.tbl_postable2TableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePOStable22TableAdapters.tbl_postable2TableAdapter();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BuyBtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.VoidBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -570,7 +576,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(214, 321);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1171, 342);
+            this.dataGridView1.Size = new System.Drawing.Size(1171, 373);
             this.dataGridView1.TabIndex = 36;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -782,7 +788,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(211, 692);
+            this.label7.Location = new System.Drawing.Point(211, 731);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 38;
@@ -791,17 +797,71 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1073, 692);
+            this.label8.Location = new System.Drawing.Point(472, 731);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 39;
             this.label8.Text = "Payment:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(290, 728);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.TabIndex = 40;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(529, 728);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
+            this.textBox2.TabIndex = 41;
+            // 
+            // BuyBtn
+            // 
+            this.BuyBtn.Location = new System.Drawing.Point(1029, 712);
+            this.BuyBtn.Name = "BuyBtn";
+            this.BuyBtn.Size = new System.Drawing.Size(110, 51);
+            this.BuyBtn.TabIndex = 42;
+            this.BuyBtn.Text = "Buy";
+            this.BuyBtn.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(718, 731);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Change:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(771, 728);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(146, 20);
+            this.textBox3.TabIndex = 45;
+            // 
+            // VoidBtn
+            // 
+            this.VoidBtn.Location = new System.Drawing.Point(1202, 712);
+            this.VoidBtn.Name = "VoidBtn";
+            this.VoidBtn.Size = new System.Drawing.Size(110, 51);
+            this.VoidBtn.TabIndex = 46;
+            this.VoidBtn.Text = "Void";
+            this.VoidBtn.UseVisualStyleBackColor = true;
             // 
             // PointOfSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 837);
+            this.Controls.Add(this.VoidBtn);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.BuyBtn);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView2);
@@ -922,5 +982,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button BuyBtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button VoidBtn;
     }
 }

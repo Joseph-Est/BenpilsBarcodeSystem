@@ -58,16 +58,14 @@ namespace BenpilsBarcodeSystem
             }
 
         }
-        private void LoginBtn_Click(object sender, EventArgs e)
-        {
-         
-        }
+        
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             this.AcceptButton = LoginBtn;
         }
 
-        private void LoginBtn_Click_1(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
             {

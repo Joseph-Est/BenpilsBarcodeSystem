@@ -160,13 +160,13 @@
             // 
             // LoginBtn
             // 
-            this.LoginBtn.Location = new System.Drawing.Point(156, 301);
+            this.LoginBtn.Location = new System.Drawing.Point(141, 301);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(75, 23);
             this.LoginBtn.TabIndex = 22;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = true;
-            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click_1);
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // Form1
             // 

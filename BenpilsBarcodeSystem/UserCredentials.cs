@@ -113,9 +113,7 @@ namespace BenpilsBarcodeSystem
             this.tbl_loginTableAdapter1.Fill(this.userCredentialsDataSet1.tbl_login);
 
             this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
-            UpdateDataGridView();
-            dataGridView1.ClearSelection();
-            AddBtn.Enabled = true;
+       
 
         }
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -380,6 +378,7 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
             dataGridView1.ClearSelection();
             AddBtn.Enabled = true;
+            ClearAllTextBoxes();
         }
     }
 }

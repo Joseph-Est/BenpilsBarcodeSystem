@@ -68,6 +68,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleDatabasePOStable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleDatabasePOStable2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleDatabasePOStable22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleDatabaseVoidTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +259,50 @@
     </None>
     <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable.xsc">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabasePOStable.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable.xss">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable2.xsc">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabasePOStable2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable2.xss">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable22.xsc">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabasePOStable22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePOStable22.xss">
+      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseVoidTable.xsc">
+      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseVoidTable.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabaseVoidTable.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
+      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

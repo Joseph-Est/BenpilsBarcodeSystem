@@ -163,6 +163,14 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePOStable22.tbl_postable2' table. You can move, or remove it, as needed.
+            this.tbl_postable2TableAdapter.Fill(this.benpillMotorcycleDatabasePOStable22.tbl_postable2);
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePOStable2.tbl_postable' table. You can move, or remove it, as needed.
+            this.tbl_postableTableAdapter1.Fill(this.benpillMotorcycleDatabasePOStable2.tbl_postable);
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePOStable.tbl_postable' table. You can move, or remove it, as needed.
+            this.tbl_postableTableAdapter.Fill(this.benpillMotorcycleDatabasePOStable.tbl_postable);
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseVoidTable.tbl_voidtable' table. You can move, or remove it, as needed.
+            this.tbl_voidtableTableAdapter.Fill(this.benpillMotorcycleDatabaseVoidTable.tbl_voidtable);
 
         }
     }

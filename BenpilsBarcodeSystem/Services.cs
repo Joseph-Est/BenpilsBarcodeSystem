@@ -13,7 +13,7 @@ namespace BenpilsBarcodeSystem
     public partial class Services : Form
     {
         private User user;
-        public Services()
+        public Services(User user)
         {
             InitializeComponent();
             Timer timer = new Timer();

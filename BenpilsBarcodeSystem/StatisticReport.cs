@@ -146,7 +146,7 @@ namespace BenpilsBarcodeSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Services services = new Services();
+            Services services = new Services(user);
             services.Show();
             services.StartPosition = FormStartPosition.CenterScreen;
             services.Location = this.Location;

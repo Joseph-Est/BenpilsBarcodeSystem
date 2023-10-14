@@ -375,6 +375,7 @@ namespace BenpilsBarcodeSystem
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
             UpdateDataGridView();
+            dataGridView1.ClearSelection();
         }
     }
 }

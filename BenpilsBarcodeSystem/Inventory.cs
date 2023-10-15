@@ -15,6 +15,7 @@ namespace BenpilsBarcodeSystem
     public partial class Inventory : Form
     {
         private User user;
+        private BarcodeGenerator barcodeGenerator;
         public Inventory(User user)
         {
             InitializeComponent();
@@ -355,6 +356,15 @@ namespace BenpilsBarcodeSystem
             service.StartPosition = FormStartPosition.Manual;
             service.Location = this.Location;
             this.Hide();
+        }
+
+        private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
+        {
+            if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
+            {
+                barcodeGenerator = new BarcodeGenerator();
+                barcodeGenerator.Show();
+            }
         }
     }
 }

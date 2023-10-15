@@ -53,6 +53,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarcodeGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarcodeGenerator.Designer.cs">
+      <DependentUpon>BarcodeGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="BenpillBarcodeDatabaseInventory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,6 +185,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserCredentialsDataSet2.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BarcodeGenerator.resx">
+      <DependentUpon>BarcodeGenerator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfirmationExit.resx">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>
     </EmbeddedResource>

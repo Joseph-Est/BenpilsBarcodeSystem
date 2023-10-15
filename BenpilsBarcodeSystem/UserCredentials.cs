@@ -35,7 +35,6 @@ namespace BenpilsBarcodeSystem
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
-                
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -92,7 +91,6 @@ namespace BenpilsBarcodeSystem
                 dataGridView1.Columns["Designation"].ReadOnly = true;
                 dataGridView1.Columns["Address"].ReadOnly = true;
                 dataGridView1.Columns["ContactNo"].ReadOnly = true;
-
             }
 
         }

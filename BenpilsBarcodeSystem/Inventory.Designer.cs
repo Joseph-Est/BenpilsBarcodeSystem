@@ -111,6 +111,7 @@
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
+            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -579,6 +580,7 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.BarcodeGeneratorBtn);
             this.tabItemmasterdata.Controls.Add(this.pictureBox15);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtSize);
@@ -1046,6 +1048,16 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // BarcodeGeneratorBtn
+            // 
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(927, 607);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(210, 23);
+            this.BarcodeGeneratorBtn.TabIndex = 77;
+            this.BarcodeGeneratorBtn.Text = "BarcodeGenerator";
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1180,5 +1192,6 @@
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
         private BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.Button BarcodeGeneratorBtn;
     }
 }

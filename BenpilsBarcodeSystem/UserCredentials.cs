@@ -24,6 +24,7 @@ namespace BenpilsBarcodeSystem
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start(); 
+            this.user = user;
             ComboDesignation.Items.Clear();
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;

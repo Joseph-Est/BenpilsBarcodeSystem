@@ -21,7 +21,6 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             dataGridView1.CellClick += dataGridView1_CellClick;
-            ComboDesignation.SelectedIndexChanged += ComboDesignation_SelectedIndexChanged;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -185,13 +184,6 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-    
-        private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        
-        }
-   
-
         private void ClearAllTextBoxes()
         {
             TxtFirstName.Text = "";
@@ -202,9 +194,6 @@ namespace BenpilsBarcodeSystem
             TxtContactNo.Text = "";
             ComboDesignation.Text = "";
         }
-
-      
-
         private void UpdateBtn_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)

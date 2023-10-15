@@ -25,7 +25,10 @@ namespace BenpilsBarcodeSystem
             timer.Tick += timer1_Tick;
             timer.Start(); 
             this.user = user;
-            ComboDesignation.Items.Clear();
+            ComboDesignation.Items.Add("Admin");
+            ComboDesignation.Items.Add("SuperAdmin");
+            ComboDesignation.Items.Add("Inventory Manager");
+            ComboDesignation.Items.Add("Cashier");
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")

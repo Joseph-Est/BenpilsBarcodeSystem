@@ -51,6 +51,7 @@ namespace BenpilsBarcodeSystem
                 ComboDesignation.Items.Add("Admin");
                 ComboDesignation.Items.Add("Inventory Manager");
                 ComboDesignation.Items.Add("Cashier");
+                ComboDesignation.Items.Remove("Superadmin");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -192,6 +193,7 @@ namespace BenpilsBarcodeSystem
         {
         
         }
+   
 
         private void ClearAllTextBoxes()
         {

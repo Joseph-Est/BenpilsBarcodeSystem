@@ -28,7 +28,6 @@ namespace BenpilsBarcodeSystem
             timer.Start(); 
             this.user = user;
             ComboDesignation.Items.Clear();
-
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
@@ -51,7 +50,6 @@ namespace BenpilsBarcodeSystem
                 ComboDesignation.Items.Add("Admin");
                 ComboDesignation.Items.Add("Inventory Manager");
                 ComboDesignation.Items.Add("Cashier");
-                ComboDesignation.Items.Remove("Superadmin");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;

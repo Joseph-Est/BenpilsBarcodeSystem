@@ -45,7 +45,7 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Admin")
             {
-           
+                ComboDesignation.Items.Remove("Superadmin");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -182,27 +182,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ComboDesignation.SelectedItem != null)
-            {
-                string selectedDesignation = ComboDesignation.SelectedItem.ToString();
-                if (selectedDesignation == "Admin")
-                {
-                    ComboDesignation.Items.Cast<string>()
-                        .Where(item => item == "SuperAdmin")
-                        .ToList()
-                        .ForEach(item => ComboDesignation.Items.Remove(item));
-                }
-                else
-                {
-                    if (!ComboDesignation.Items.Contains("SuperAdmin"))
-                    {
-                        ComboDesignation.Items.Add("SuperAdmin");
-                    }
-                }
-            }
-        }
+   
 
         private void ClearAllTextBoxes()
         {

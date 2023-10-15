@@ -134,7 +134,11 @@ namespace BenpilsBarcodeSystem
                 MessageBox.Show("Please fill up all the textboxes below.");
                 return;
             }
-
+            if (IsUsernameAlreadyExists(TxtUsername.Text))
+            {
+                MessageBox.Show("Username already exists. Please choose a different username.");
+                return;
+            }
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
 
@@ -158,6 +162,23 @@ namespace BenpilsBarcodeSystem
 
             UpdateDataGridView();
             ClearAllTextBoxes();
+        }
+        private bool IsUsernameAlreadyExists(string username)
+        {
+            string query = "SELECT COUNT(*) FROM tbl_usercredential WHERE username = @Username";
+
+            using (SqlConnection con = new SqlConnection("YourConnectionStringHere"))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@Username", username);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
         }
 
         private void ClearAllTextBoxes()

@@ -27,6 +27,7 @@ namespace BenpilsBarcodeSystem
             timer.Tick += timer1_Tick;
             timer.Start(); 
             this.user = user;
+            ComboDesignation.Items.Clear();
             ComboDesignation.Items.Add("SuperAdmin");
             ComboDesignation.Items.Add("Admin");
             ComboDesignation.Items.Add("Inventory Manager");

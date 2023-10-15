@@ -417,6 +417,7 @@ namespace BenpilsBarcodeSystem
             if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
+                MessageBox.Show("Cannot input symbols");
             }
         }
 

@@ -15,7 +15,7 @@ namespace BenpilsBarcodeSystem
     public partial class Ser : Form
     {
         private User user;
-
+        private string searchValue = "";
         public Ser(User user)
         {
             InitializeComponent();
@@ -389,6 +389,43 @@ namespace BenpilsBarcodeSystem
             service.StartPosition = FormStartPosition.Manual;
             service.Location = this.Location;
             this.Hide();
+        }
+
+        private void TxtSearchBar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+   
+            // Call a method to filter the DataGridView based on the search input
+            FilterDataGridView(searchValue);
+        }
+        private void FilterDataGridView(string searchvalue)
+        {
+            if (string.IsNullOrWhiteSpace(searchValue))
+            {
+                ResetFilter();
+            }
+            else
+            {
+                ApplySearchFilter(searchValue);
+            }
+        }
+        private void ResetFilter()
+        {
+            ((DataTable)dataGridView1.DataSource).DefaultView.RowFilter = "";
+        }
+        private void ApplySearchFilter(string searchvalue)
+        {
+      
+            string filterExpression = $"FirstName LIKE '%{searchValue}%' OR LastName LIKE '%{searchValue}%' OR UserName LIKE '%{searchValue}%' OR Designation LIKE '%{searchValue}'";
+            DataView dv = ((DataTable)dataGridView1.DataSource).DefaultView;
+            dv.RowFilter = filterExpression;
         }
     }
 }

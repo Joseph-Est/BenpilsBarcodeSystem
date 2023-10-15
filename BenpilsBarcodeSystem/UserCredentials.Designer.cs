@@ -304,6 +304,8 @@
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 0;
+            this.TxtSearchBar.TextChanged += new System.EventHandler(this.TxtSearchBar_TextChanged);
+            this.TxtSearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSearchBar_KeyPress);
             // 
             // ArchiveBtn
             // 

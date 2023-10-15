@@ -167,7 +167,7 @@ namespace BenpilsBarcodeSystem
         {
             string query = "SELECT COUNT(*) FROM tbl_usercredential WHERE username = @Username";
 
-            using (SqlConnection con = new SqlConnection("YourConnectionStringHere"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {

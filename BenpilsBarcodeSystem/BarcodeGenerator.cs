@@ -57,6 +57,10 @@ namespace BenpilsBarcodeSystem
             this.AcceptButton = GenerateBtn;
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

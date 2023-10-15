@@ -33,10 +33,7 @@ namespace BenpilsBarcodeSystem
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
-                ComboDesignation.Items.Add("Admin");
-                ComboDesignation.Items.Add("SuperAdmin");
-                ComboDesignation.Items.Add("Inventory Manager");
-                ComboDesignation.Items.Add("Cashier");
+             
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -48,9 +45,7 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Admin")
             {
-                ComboDesignation.Items.Add("Admin");
-                ComboDesignation.Items.Add("Inventory Manager");
-                ComboDesignation.Items.Add("Cashier");
+           
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;

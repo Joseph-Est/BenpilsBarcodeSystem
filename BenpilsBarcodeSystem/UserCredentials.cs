@@ -27,15 +27,15 @@ namespace BenpilsBarcodeSystem
             timer.Tick += timer1_Tick;
             timer.Start(); 
             this.user = user;
-      
+            ComboDesignation.Items.Add("SuperAdmin");
+            ComboDesignation.Items.Add("Admin");
+            ComboDesignation.Items.Add("Inventory Manager");
+            ComboDesignation.Items.Add("Cashier");
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
-                ComboDesignation.Items.Add("SuperAdmin");
-                ComboDesignation.Items.Add("Admin");
-                ComboDesignation.Items.Add("Inventory Manager");
-                ComboDesignation.Items.Add("Cashier");
+                
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -47,9 +47,7 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Admin")
             {
-                ComboDesignation.Items.Add("Admin");
-                ComboDesignation.Items.Add("Inventory Manager");
-                ComboDesignation.Items.Add("Cashier");
+                ComboDesignation.Items.Remove("SuperAdmin");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;

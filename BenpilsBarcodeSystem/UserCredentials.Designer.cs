@@ -551,6 +551,7 @@
             this.ComboDesignation.Name = "ComboDesignation";
             this.ComboDesignation.Size = new System.Drawing.Size(157, 21);
             this.ComboDesignation.TabIndex = 47;
+            this.ComboDesignation.SelectedIndexChanged += new System.EventHandler(this.ComboDesignation_SelectedIndexChanged);
             // 
             // label4
             // 

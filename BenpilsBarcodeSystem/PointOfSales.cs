@@ -97,7 +97,7 @@ namespace BenpilsBarcodeSystem
         //UserCredentials Button
         private void button8_Click(object sender, EventArgs e)
         {
-            Ser credentials = new Ser(user);
+            Services credentials = new Services(user);
             credentials.Show();
             credentials.StartPosition = FormStartPosition.Manual;
             credentials.Location = this.Location;

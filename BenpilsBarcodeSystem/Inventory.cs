@@ -365,6 +365,10 @@ namespace BenpilsBarcodeSystem
                 barcodeGenerator = new BarcodeGenerator();
                 barcodeGenerator.Show();
             }
+            else
+            {
+                barcodeGenerator.BringToFront();
+            }
         }
     }
 }

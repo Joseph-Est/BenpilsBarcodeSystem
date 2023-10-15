@@ -16,24 +16,27 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private string searchValue = "";
+
         public Ser(User user)
         {
             InitializeComponent();
             dataGridView1.CellClick += dataGridView1_CellClick;
+            ComboDesignation.SelectedIndexChanged += ComboDesignation_SelectedIndexChanged;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start(); 
             this.user = user;
-            ComboDesignation.Items.Add("Admin");
-            ComboDesignation.Items.Add("SuperAdmin");
-            ComboDesignation.Items.Add("Inventory Manager");
-            ComboDesignation.Items.Add("Cashier");
+            ComboDesignation.Items.Clear();
+
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
-             
+                ComboDesignation.Items.Add("SuperAdmin");
+                ComboDesignation.Items.Add("Admin");
+                ComboDesignation.Items.Add("Inventory Manager");
+                ComboDesignation.Items.Add("Cashier");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -45,7 +48,9 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Admin")
             {
-           
+                ComboDesignation.Items.Add("Admin");
+                ComboDesignation.Items.Add("Inventory Manager");
+                ComboDesignation.Items.Add("Cashier");
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
                 dataGridView1.Columns["LastName"].ReadOnly = true;
@@ -182,26 +187,10 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+    
         private void ComboDesignation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ComboDesignation.SelectedItem != null)
-            {
-                string selectedDesignation = ComboDesignation.SelectedItem.ToString();
-                if (selectedDesignation == "Admin")
-                {
-                    ComboDesignation.Items.Cast<string>()
-                        .Where(item => item == "SuperAdmin")
-                        .ToList()
-                        .ForEach(item => ComboDesignation.Items.Remove(item));
-                }
-                else
-                {
-                    if (!ComboDesignation.Items.Contains("SuperAdmin"))
-                    {
-                        ComboDesignation.Items.Add("SuperAdmin");
-                    }
-                }
-            }
+        
         }
 
         private void ClearAllTextBoxes()

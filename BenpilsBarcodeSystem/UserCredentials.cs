@@ -401,31 +401,29 @@ namespace BenpilsBarcodeSystem
 
         private void TxtSearchBar_TextChanged(object sender, EventArgs e)
         {
-   
-            // Call a method to filter the DataGridView based on the search input
+
+            searchValue = TxtSearchBar.Text; 
             FilterDataGridView(searchValue);
         }
-        private void FilterDataGridView(string searchvalue)
+        private void FilterDataGridView(string searchValue)
         {
-            if (string.IsNullOrWhiteSpace(searchValue))
+            string filterQuery = "SELECT * FROM tbl_usercredential WHERE FirstName LIKE @Search OR LastName LIKE @Search OR UserName LIKE @Search OR Designation LIKE @Search";
+            DataTable filteredTable = new DataTable();
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
-                ResetFilter();
+                using (SqlCommand cmd = new SqlCommand(filterQuery, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@Search", "%" + searchValue + "%"); 
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(filteredTable); 
+                    }
+                }
             }
-            else
-            {
-                ApplySearchFilter(searchValue);
-            }
+            dataGridView1.DataSource = filteredTable;
         }
-        private void ResetFilter()
-        {
-            ((DataTable)dataGridView1.DataSource).DefaultView.RowFilter = "";
-        }
-        private void ApplySearchFilter(string searchvalue)
-        {
-      
-            string filterExpression = $"FirstName LIKE '%{searchValue}%' OR LastName LIKE '%{searchValue}%' OR UserName LIKE '%{searchValue}%' OR Designation LIKE '%{searchValue}'";
-            DataView dv = ((DataTable)dataGridView1.DataSource).DefaultView;
-            dv.RowFilter = filterExpression;
-        }
+
     }
 }

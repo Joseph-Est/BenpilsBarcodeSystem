@@ -543,6 +543,7 @@
             // ComboDesignation
             // 
             this.ComboDesignation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ComboDesignation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboDesignation.FormattingEnabled = true;
             this.ComboDesignation.Location = new System.Drawing.Point(364, 606);
             this.ComboDesignation.Name = "ComboDesignation";

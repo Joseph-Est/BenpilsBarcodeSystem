@@ -57,14 +57,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.LogoutBtn = new System.Windows.Forms.Button();
+            this.ServicesBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -78,10 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -388,7 +388,7 @@
             this.panel2.Controls.Add(this.pictureBox13);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.ServicesBtn);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.pictureBox10);
             this.panel2.Controls.Add(this.pictureBox7);
@@ -413,6 +413,16 @@
             this.panel2.Size = new System.Drawing.Size(182, 781);
             this.panel2.TabIndex = 17;
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(38, 383);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(34, 31);
+            this.pictureBox13.TabIndex = 31;
+            this.pictureBox13.TabStop = false;
+            // 
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
@@ -435,6 +445,19 @@
             this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogoutBtn.UseVisualStyleBackColor = false;
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            // 
+            // ServicesBtn
+            // 
+            this.ServicesBtn.BackColor = System.Drawing.Color.White;
+            this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(26, 371);
+            this.ServicesBtn.Name = "ServicesBtn";
+            this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
+            this.ServicesBtn.TabIndex = 30;
+            this.ServicesBtn.Text = "Services";
+            this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // panel1
             // 
@@ -477,28 +500,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.Color.White;
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(38, 383);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(34, 31);
-            this.pictureBox13.TabIndex = 31;
-            this.pictureBox13.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 371);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Services";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,11 +528,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,6 +573,6 @@
         private System.Windows.Forms.Button LogoutBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ServicesBtn;
     }
 }

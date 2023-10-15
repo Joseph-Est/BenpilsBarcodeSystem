@@ -122,7 +122,7 @@ namespace BenpilsBarcodeSystem
 
         private void usercredentialsbtn_Click(object sender, EventArgs e)
         {
-            UserCredentials UC = new UserCredentials(user);
+            Ser UC = new Ser(user);
             UC.Show();
             UC.StartPosition = FormStartPosition.Manual;
             UC.Location = this.Location;

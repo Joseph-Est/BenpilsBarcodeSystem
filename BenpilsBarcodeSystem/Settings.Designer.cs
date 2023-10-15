@@ -42,7 +42,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ServicesBtn = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -198,7 +198,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.button4);
+            this.panel6.Controls.Add(this.ServicesBtn);
             this.panel6.Controls.Add(this.pictureBox12);
             this.panel6.Controls.Add(this.LogoutBtn);
             this.panel6.Controls.Add(this.pictureBox5);
@@ -235,17 +235,18 @@
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
-            // button4
+            // ServicesBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 374);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Services";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.ServicesBtn.BackColor = System.Drawing.Color.White;
+            this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(26, 374);
+            this.ServicesBtn.Name = "ServicesBtn";
+            this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
+            this.ServicesBtn.TabIndex = 32;
+            this.ServicesBtn.Text = "Services";
+            this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // pictureBox5
             // 
@@ -570,6 +571,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ServicesBtn;
     }
 }

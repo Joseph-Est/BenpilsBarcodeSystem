@@ -12,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class UserCredentials : Form
+    public partial class Ser : Form
     {
         private User user;
 
-        public UserCredentials(User user)
+        public Ser(User user)
         {
             InitializeComponent();
             dataGridView1.CellClick += dataGridView1_CellClick;
@@ -60,6 +60,7 @@ namespace BenpilsBarcodeSystem
                 ReportsBtn.Enabled = false;
                 StatisticsBtn.Enabled = false;
                 button8.Enabled = false;
+                ServicesBtn.Enabled = false;
                 SettingsBtn.Enabled = false;
                 dataGridView1.Columns["ID"].ReadOnly = true;
                 dataGridView1.Columns["FirstName"].ReadOnly = true;
@@ -379,6 +380,15 @@ namespace BenpilsBarcodeSystem
             dataGridView1.ClearSelection();
             AddBtn.Enabled = true;
             ClearAllTextBoxes();
+        }
+
+        private void ServicesBtn_Click(object sender, EventArgs e)
+        {
+            Services service = new Services(user);
+            service.Show();
+            service.StartPosition = FormStartPosition.Manual;
+            service.Location = this.Location;
+            this.Hide();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BenpilsBarcodeSystem
 {
-    partial class UserCredentials
+    partial class Ser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserCredentials));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ser));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ServicesBtn = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -609,7 +609,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox13);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.ServicesBtn);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -646,17 +646,18 @@
             this.pictureBox13.TabIndex = 33;
             this.pictureBox13.TabStop = false;
             // 
-            // button4
+            // ServicesBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 366);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Services";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.ServicesBtn.BackColor = System.Drawing.Color.White;
+            this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(26, 366);
+            this.ServicesBtn.Name = "ServicesBtn";
+            this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
+            this.ServicesBtn.TabIndex = 32;
+            this.ServicesBtn.Text = "Services";
+            this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // pictureBox10
             // 
@@ -971,7 +972,7 @@
             this.pictureBox2.UseWaitCursor = true;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
-            // UserCredentials
+            // Ser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1002,7 +1003,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "UserCredentials";
+            this.Name = "Ser";
             this.Text = "UserCredentials";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserCredentials_Load);
@@ -1108,7 +1109,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox CloseBtn;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ServicesBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;

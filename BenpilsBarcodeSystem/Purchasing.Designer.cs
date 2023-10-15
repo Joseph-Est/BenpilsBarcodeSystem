@@ -36,7 +36,7 @@
             this.MinimizeBtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ServicesBtn = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -66,6 +66,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -114,8 +116,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -135,12 +135,12 @@
             this.panel5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -206,7 +206,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox13);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.ServicesBtn);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -243,17 +243,18 @@
             this.pictureBox13.TabIndex = 34;
             this.pictureBox13.TabStop = false;
             // 
-            // button1
+            // ServicesBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 372);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 52);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Services";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.ServicesBtn.BackColor = System.Drawing.Color.White;
+            this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(26, 372);
+            this.ServicesBtn.Name = "ServicesBtn";
+            this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
+            this.ServicesBtn.TabIndex = 33;
+            this.ServicesBtn.Text = "Services";
+            this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // pictureBox3
             // 
@@ -604,6 +605,18 @@
             this.tabPage1.Text = "Supplier Master Data";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.White;
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(1282, 3);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox15.TabIndex = 143;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.UseWaitCursor = true;
+            // 
             // label17
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -862,6 +875,18 @@
             this.tabPage2.Text = "Purchase Order List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(1282, 3);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox12.TabIndex = 117;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.UseWaitCursor = true;
+            // 
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1079,30 +1104,6 @@
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(1282, 3);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox15.TabIndex = 143;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.UseWaitCursor = true;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(1282, 3);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox12.TabIndex = 117;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.UseWaitCursor = true;
-            // 
             // Purchasing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1141,13 +1142,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1238,7 +1239,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ServicesBtn;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox12;
     }

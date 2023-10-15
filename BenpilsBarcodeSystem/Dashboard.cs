@@ -35,6 +35,7 @@ namespace BenpilsBarcodeSystem
                 button3.Enabled = false;
                 button6.Enabled = false;
                 button7.Enabled = false;
+                ServicesBtn.Enabled = false;
                 button8.Enabled = false;
                 button9.Enabled = false;
             }
@@ -113,7 +114,7 @@ namespace BenpilsBarcodeSystem
         //Usercredentials button
         private void button8_Click(object sender, EventArgs e)
         {
-            UserCredentials credentials = new UserCredentials(user);
+            Ser credentials = new Ser(user);
             credentials.Show();
             credentials.StartPosition = FormStartPosition.Manual;
             credentials.Location = this.Location;
@@ -159,6 +160,15 @@ namespace BenpilsBarcodeSystem
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ServicesBtn_Click(object sender, EventArgs e)
+        {
+            Services service = new Services(user);
+            service.Show();
+            service.StartPosition = FormStartPosition.Manual;
+            service.Location = this.Location;
+            this.Hide();
         }
     }
 }

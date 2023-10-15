@@ -38,7 +38,7 @@
             this.InventoryBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ServicesBtn = new System.Windows.Forms.Button();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -208,7 +208,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Controls.Add(this.pictureBox13);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.ServicesBtn);
             this.panel2.Controls.Add(this.pictureBox12);
             this.panel2.Controls.Add(this.LogoutBtn);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -246,17 +246,18 @@
             this.pictureBox13.TabIndex = 33;
             this.pictureBox13.TabStop = false;
             // 
-            // button4
+            // ServicesBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 373);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(153, 52);
-            this.button4.TabIndex = 32;
-            this.button4.Text = "Services";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.UseVisualStyleBackColor = false;
+            this.ServicesBtn.BackColor = System.Drawing.Color.White;
+            this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(26, 373);
+            this.ServicesBtn.Name = "ServicesBtn";
+            this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
+            this.ServicesBtn.TabIndex = 32;
+            this.ServicesBtn.Text = "Services";
+            this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // pictureBox12
             // 
@@ -973,7 +974,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ServicesBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox15;

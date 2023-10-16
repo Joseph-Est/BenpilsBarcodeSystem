@@ -151,19 +151,7 @@ namespace BenpilsBarcodeSystem
             TxtCategory.Text = "";
         }
 
-        private void UpdateDataGridView()
-        {
-            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridInventory.DataSource = dt;
-                }
-            }
-        }
+       
         private void Inventory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterData.tbl_itemmasterdata' table. You can move, or remove it, as needed.
@@ -228,7 +216,7 @@ namespace BenpilsBarcodeSystem
 
       
 
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ItemName, MotorBrand, Brand, PriceCode, UnitPrice, Category) " +
+            string insertQuery = "INSERT INTO tbl_inventory2 (Barcode, ItemName, MotorBrand, Brand, PriceCode, UnitPrice, Category) " +
                                  "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Category)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -263,7 +251,7 @@ namespace BenpilsBarcodeSystem
 
             int selectedRowIndex = Convert.ToInt32(dataGridInventory.SelectedRows[0].Cells["ID"].Value);
 
-            string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, " +
+            string updateQuery = "UPDATE tbl_inventory2 SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, " +
                                 "Brand = @Brand, PriceCode = @PriceCode, UnitPrice = @UnitPrice, Category = @Category WHERE ID = @ID";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -300,6 +288,19 @@ namespace BenpilsBarcodeSystem
                 TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+            }
+        }
+        private void UpdateDataGridView()
+        {
+            string selectQuery = "SELECT * FROM tbl_inventory2";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridInventory.DataSource = dt;
+                }
             }
         }
     }

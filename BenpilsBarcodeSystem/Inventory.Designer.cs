@@ -70,14 +70,12 @@
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.TxtCategory = new System.Windows.Forms.TextBox();
-            this.TxtSize = new System.Windows.Forms.TextBox();
             this.TxtUnitPrice = new System.Windows.Forms.TextBox();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.CmbMotorBrand = new System.Windows.Forms.ComboBox();
             this.button10 = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.TxtPriceCode = new System.Windows.Forms.TextBox();
             this.TxtBrand = new System.Windows.Forms.TextBox();
@@ -102,16 +100,13 @@
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.tabBarcodegenerator = new System.Windows.Forms.TabPage();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.GenerateBtn = new System.Windows.Forms.Button();
-            this.txtBarcodefiller = new System.Windows.Forms.TextBox();
-            this.BarcodeLabel = new System.Windows.Forms.Label();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
+            this.GenerateBtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.generatedpicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -136,9 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
-            this.tabBarcodegenerator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -569,7 +562,6 @@
             // 
             this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabControl1.Controls.Add(this.tabItemmasterdata);
-            this.tabControl1.Controls.Add(this.tabBarcodegenerator);
             this.tabControl1.Controls.Add(this.tabStockmanagement);
             this.tabControl1.Location = new System.Drawing.Point(3, 0);
             this.tabControl1.Name = "tabControl1";
@@ -580,17 +572,18 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.BarcodeGeneratorBtn);
+            this.tabItemmasterdata.Controls.Add(this.label13);
+            this.tabItemmasterdata.Controls.Add(this.generatedpicture);
+            this.tabItemmasterdata.Controls.Add(this.textBox1);
+            this.tabItemmasterdata.Controls.Add(this.GenerateBtn);
             this.tabItemmasterdata.Controls.Add(this.pictureBox15);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
-            this.tabItemmasterdata.Controls.Add(this.TxtSize);
             this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.CmbMotorBrand);
             this.tabItemmasterdata.Controls.Add(this.button10);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
             this.tabItemmasterdata.Controls.Add(this.label16);
-            this.tabItemmasterdata.Controls.Add(this.label15);
             this.tabItemmasterdata.Controls.Add(this.label12);
             this.tabItemmasterdata.Controls.Add(this.TxtPriceCode);
             this.tabItemmasterdata.Controls.Add(this.TxtBrand);
@@ -628,20 +621,11 @@
             // TxtCategory
             // 
             this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtCategory.Location = new System.Drawing.Point(481, 512);
+            this.TxtCategory.Location = new System.Drawing.Point(481, 478);
             this.TxtCategory.Name = "TxtCategory";
             this.TxtCategory.Size = new System.Drawing.Size(200, 20);
             this.TxtCategory.TabIndex = 75;
             this.TxtCategory.UseWaitCursor = true;
-            // 
-            // TxtSize
-            // 
-            this.TxtSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtSize.Location = new System.Drawing.Point(481, 468);
-            this.TxtSize.Name = "TxtSize";
-            this.TxtSize.Size = new System.Drawing.Size(200, 20);
-            this.TxtSize.TabIndex = 74;
-            this.TxtSize.UseWaitCursor = true;
             // 
             // TxtUnitPrice
             // 
@@ -656,7 +640,7 @@
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(1044, 458);
+            this.UpdateBtn.Location = new System.Drawing.Point(876, 434);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
@@ -680,7 +664,7 @@
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(987, 536);
+            this.button10.Location = new System.Drawing.Point(817, 508);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
@@ -694,7 +678,7 @@
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(927, 458);
+            this.AddBtn.Location = new System.Drawing.Point(757, 434);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
@@ -708,23 +692,12 @@
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(419, 515);
+            this.label16.Location = new System.Drawing.Point(419, 481);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
             this.label16.TabIndex = 57;
             this.label16.Text = "Category:";
             this.label16.UseWaitCursor = true;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(419, 472);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 13);
-            this.label15.TabIndex = 56;
-            this.label15.Text = "Size:";
-            this.label15.UseWaitCursor = true;
             // 
             // label12
             // 
@@ -773,7 +746,6 @@
             this.txtBarcode.TabIndex = 49;
             this.txtBarcode.UseWaitCursor = true;
             this.txtBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarcode_KeyPress);
-
             // 
             // label11
             // 
@@ -960,75 +932,6 @@
             this.label14.Text = "Search:";
             this.label14.UseWaitCursor = true;
             // 
-            // tabBarcodegenerator
-            // 
-            this.tabBarcodegenerator.Controls.Add(this.pictureBox16);
-            this.tabBarcodegenerator.Controls.Add(this.GenerateBtn);
-            this.tabBarcodegenerator.Controls.Add(this.txtBarcodefiller);
-            this.tabBarcodegenerator.Controls.Add(this.BarcodeLabel);
-            this.tabBarcodegenerator.Controls.Add(this.pictureBox13);
-            this.tabBarcodegenerator.Location = new System.Drawing.Point(4, 22);
-            this.tabBarcodegenerator.Name = "tabBarcodegenerator";
-            this.tabBarcodegenerator.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBarcodegenerator.Size = new System.Drawing.Size(1339, 660);
-            this.tabBarcodegenerator.TabIndex = 1;
-            this.tabBarcodegenerator.Text = "Barcode Generator";
-            this.tabBarcodegenerator.UseVisualStyleBackColor = true;
-            this.tabBarcodegenerator.UseWaitCursor = true;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackColor = System.Drawing.Color.White;
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(1296, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox16.TabIndex = 36;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.UseWaitCursor = true;
-            // 
-            // GenerateBtn
-            // 
-            this.GenerateBtn.Location = new System.Drawing.Point(810, 335);
-            this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
-            this.GenerateBtn.TabIndex = 3;
-            this.GenerateBtn.Text = "Generate";
-            this.GenerateBtn.UseVisualStyleBackColor = true;
-            this.GenerateBtn.UseWaitCursor = true;
-            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
-            // 
-            // txtBarcodefiller
-            // 
-            this.txtBarcodefiller.Location = new System.Drawing.Point(565, 338);
-            this.txtBarcodefiller.Name = "txtBarcodefiller";
-            this.txtBarcodefiller.Size = new System.Drawing.Size(223, 20);
-            this.txtBarcodefiller.TabIndex = 2;
-            this.txtBarcodefiller.UseWaitCursor = true;
-            // 
-            // BarcodeLabel
-            // 
-            this.BarcodeLabel.AutoSize = true;
-            this.BarcodeLabel.Location = new System.Drawing.Point(506, 341);
-            this.BarcodeLabel.Name = "BarcodeLabel";
-            this.BarcodeLabel.Size = new System.Drawing.Size(50, 13);
-            this.BarcodeLabel.TabIndex = 1;
-            this.BarcodeLabel.Text = "Barcode:";
-            this.BarcodeLabel.UseWaitCursor = true;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox13.Location = new System.Drawing.Point(565, 252);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(223, 65);
-            this.pictureBox13.TabIndex = 0;
-            this.pictureBox13.TabStop = false;
-            this.pictureBox13.UseWaitCursor = true;
-            // 
             // tabStockmanagement
             // 
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
@@ -1049,15 +952,40 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // BarcodeGeneratorBtn
+            // GenerateBtn
             // 
-            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(927, 607);
-            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(210, 23);
-            this.BarcodeGeneratorBtn.TabIndex = 77;
-            this.BarcodeGeneratorBtn.Text = "BarcodeGenerator";
-            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
+            this.GenerateBtn.Location = new System.Drawing.Point(1122, 556);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(84, 31);
+            this.GenerateBtn.TabIndex = 79;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1061, 530);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(199, 20);
+            this.textBox1.TabIndex = 80;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(1108, 434);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(111, 15);
+            this.label13.TabIndex = 78;
+            this.label13.Text = "Barcode Generator";
+            // 
+            // generatedpicture
+            // 
+            this.generatedpicture.Location = new System.Drawing.Point(1061, 452);
+            this.generatedpicture.Name = "generatedpicture";
+            this.generatedpicture.Size = new System.Drawing.Size(199, 72);
+            this.generatedpicture.TabIndex = 77;
+            this.generatedpicture.TabStop = false;
             // 
             // Inventory
             // 
@@ -1102,10 +1030,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
-            this.tabBarcodegenerator.ResumeLayout(false);
-            this.tabBarcodegenerator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1146,7 +1071,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabItemmasterdata;
-        private System.Windows.Forms.TabPage tabBarcodegenerator;
         private System.Windows.Forms.TabPage tabStockmanagement;
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.Label label10;
@@ -1157,7 +1081,6 @@
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TxtBrand;
         private System.Windows.Forms.TextBox TxtItemName;
         private System.Windows.Forms.Button button10;
@@ -1182,17 +1105,14 @@
         private System.Windows.Forms.TextBox TxtPriceCode;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TxtCategory;
-        private System.Windows.Forms.TextBox TxtSize;
         private System.Windows.Forms.TextBox TxtUnitPrice;
-        private System.Windows.Forms.Button GenerateBtn;
-        private System.Windows.Forms.TextBox txtBarcodefiller;
-        private System.Windows.Forms.Label BarcodeLabel;
-        private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Button ServicesBtn;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox16;
         private BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager tableAdapterManager1;
-        private System.Windows.Forms.Button BarcodeGeneratorBtn;
+        private System.Windows.Forms.Button GenerateBtn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox generatedpicture;
     }
 }

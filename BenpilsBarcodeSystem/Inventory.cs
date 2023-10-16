@@ -222,15 +222,13 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                TxtItemName.Text = selectedRow.Cells["itemName"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
-
-                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-
-
+                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                CmbMotorBrand.SelectedItem = selectedRow.Cells["MotorBrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
             }
         }
 

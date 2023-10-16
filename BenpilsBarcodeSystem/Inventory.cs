@@ -9,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace BenpilsBarcodeSystem
 {
@@ -162,56 +163,7 @@ namespace BenpilsBarcodeSystem
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddBtn_Click_1(object sender, EventArgs e)
-        {
-            string zenCode = "YOUR_ZEN_CODE";
-
-            if (txtBarcode.Text.Trim() == zenCode)
-            {
-
-                txtBarcode.ReadOnly = true;
-
-                string insertQuery = "INSERT INTO tbl_inventory (barcode, [itemname], motorbrand, [brand], pricecode, unitprice, size, [category]) " +
-                           "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Size, @Category)";
-
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
-                        cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
-                        cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                        cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
-                        cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                        cmd.Parameters.AddWithValue("@Unitprice", TxtUnitPrice.Text);
-                        cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
-                        cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
-
-                UpdateDataGridView();
-                ClearAllTextBoxes();
-            }
-            else
-            {
-
-                MessageBox.Show("Invalid barcode. Please enter the zen code.");
-                txtBarcode.Clear();
-            }
-        }
 
 
         public void ClearAllTextBoxes()
@@ -222,7 +174,7 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text = "";
             TxtPriceCode.Text = "";
             TxtUnitPrice.Text = "";
-            TxtSize.Text = "";
+   
             TxtCategory.Text = "";
         }
 
@@ -263,7 +215,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
                     cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-                    cmd.Parameters.AddWithValue("@Size", TxtSize.Text);
+          
                     cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
 
                     con.Open();
@@ -308,9 +260,9 @@ namespace BenpilsBarcodeSystem
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
-                TxtSize.Text = selectedRow.Cells["size"].Value.ToString();
+       
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-                AddBtn.Enabled = false;
+              
 
             }
         }
@@ -332,21 +284,12 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
-            string barCode = txtBarcodefiller.Text;
-            try
-            {
-                Zen.Barcode.Code128BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                pictureBox13.Image = brCode.Draw(barCode, 60);
-            }
-            catch (Exception)
-            {
-
-            }
+           
         }
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
-         
+
 
         }
 
@@ -369,11 +312,27 @@ namespace BenpilsBarcodeSystem
             else
             {
                 barcodeGenerator.BringToFront();
-            if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
-            {
-                barcodeGenerator = new BarcodeGenerator();
-                barcodeGenerator.Show();
+                if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
+                {
+                    barcodeGenerator = new BarcodeGenerator();
+                    barcodeGenerator.Show();
+                }
             }
+        }
+
+        private void GenerateBtn_Click_1(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            string randomBarcode = rand.Next(1000000, 9999999).ToString(); // Adjust the range as needed
+
+            // Create a BarcodeWriter instance
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+
+            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
+            barcodeWriter.Format = BarcodeFormat.CODE_128;
+
+            generatedpicture.Image = barcodeWriter.Write(randomBarcode);
+            textBox1.Text = randomBarcode;
         }
     }
 }

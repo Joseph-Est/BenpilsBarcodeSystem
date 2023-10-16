@@ -19,7 +19,7 @@ namespace BenpilsBarcodeSystem
         public BarcodeGenerator()
         {
             InitializeComponent();
-            BarcodeWriter barcodeWriter =
+          
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -43,24 +43,7 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
-            string barCode = txtBarcodefiller.Text;
-
-            try
-            {
-                BarcodeWriter barcodeWriter = new BarcodeWriter();
-                barcodeWriter.Format = BarcodeFormat.CODE_128; // You can change the barcode format if needed
-                barcodeWriter.Options = new ZXing.Common.EncodingOptions
-                {
-                    Width = 300, // Adjust the width and height as needed
-                    Height = 100
-                };
-
-                pictureBox13.Image = barcodeWriter.Write(barCode);
-            }
-            catch (Exception)
-            {
-                // Handle exceptions here
-            }
+          
         }
 
         private void BarcodeGenerator_Load(object sender, EventArgs e)

@@ -293,18 +293,13 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
-                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                CmbMotorBrand.SelectedItem = selectedRow.Cells["MotorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
-
-                // Enable or disable your update button or perform other actions here
-                // For example, if you have a button named "UpdateButton," you can enable it like this:
-                // UpdateButton.Enabled = true;
-
+                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
+                CmbMotorBrand.SelectedItem = selectedRow.Cells["motorbrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
                 MessageBox.Show("Row data loaded into the form controls. You can now edit the selected item.");
             }
             UpdateDataGridView();

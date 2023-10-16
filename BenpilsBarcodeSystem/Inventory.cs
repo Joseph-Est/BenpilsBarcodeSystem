@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
@@ -166,10 +167,6 @@ namespace BenpilsBarcodeSystem
 
 
 
-     
-
-   
-
         public void ClearAllTextBoxes()
         {
             txtBarcode.Text = "";
@@ -178,7 +175,6 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text = "";
             TxtPriceCode.Text = "";
             TxtUnitPrice.Text = "";
-   
 
             TxtCategory.Text = "";
         }
@@ -196,6 +192,43 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void UpdateBtn_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to update.");
+                return;
+            }
+
+            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+            string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand, " +
+                                 "pricecode = @PriceCode, unitprice = @UnitPrice, size = @Size, [category] = @Category WHERE ID = @ID";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
+                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
+                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
+
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
+
         private void Inventory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'benpillBarcodeDatabaseInventory.tbl_inventory' table. You can move, or remove it, as needed.
@@ -208,6 +241,11 @@ namespace BenpilsBarcodeSystem
         {
 
         }
+
+
+
+
+
         private void Archive_Click(object sender, EventArgs e)
         {
 
@@ -223,11 +261,9 @@ namespace BenpilsBarcodeSystem
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
-       
 
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-              
-   
+
 
             }
         }
@@ -249,8 +285,6 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
-           
-        }
 
         }
 
@@ -300,28 +334,6 @@ namespace BenpilsBarcodeSystem
 
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             textBox1.Text = randomBarcode;
-        }
-    }
-                if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
-                {
-                    barcodeGenerator = new BarcodeGenerator();
-                    barcodeGenerator.Show();
-                }
-            }
-        }
-
-        private void GenerateBtn_Click_1(object sender, EventArgs e)
-        {
-            string barCodeText = textBox1.Text; // Get the text from the TextBox
-
-            // Create a BarcodeWriter instance
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-
-            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
-            barcodeWriter.Format = BarcodeFormat.CODE_128;
-
-            // Generate the barcode image
-            pictureBox1.Image = barcodeWriter.Write(barCodeText);
         }
     }
 }

@@ -68,6 +68,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
+            this.Addbtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.generatedpicture = new System.Windows.Forms.PictureBox();
@@ -106,7 +107,6 @@
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -572,7 +572,7 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.button4);
+            this.tabItemmasterdata.Controls.Add(this.Addbtn);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.generatedpicture);
@@ -606,6 +606,20 @@
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
             // 
+            // Addbtn
+            // 
+            this.Addbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Addbtn.Location = new System.Drawing.Point(759, 435);
+            this.Addbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Addbtn.Name = "Addbtn";
+            this.Addbtn.Size = new System.Drawing.Size(93, 54);
+            this.Addbtn.TabIndex = 83;
+            this.Addbtn.Text = "Add";
+            this.Addbtn.UseVisualStyleBackColor = true;
+            this.Addbtn.UseWaitCursor = true;
+            this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
+            // 
             // UpdateBtn
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -618,6 +632,7 @@
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
             this.UpdateBtn.UseWaitCursor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // label13
             // 
@@ -976,19 +991,6 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(759, 440);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 54);
-            this.button4.TabIndex = 83;
-            this.button4.Text = "Archive";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.UseWaitCursor = true;
-            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1115,6 +1117,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox generatedpicture;
         private System.Windows.Forms.Button UpdateBtn;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Addbtn;
     }
 }

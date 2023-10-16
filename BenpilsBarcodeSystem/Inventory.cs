@@ -334,5 +334,15 @@ namespace BenpilsBarcodeSystem
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             textBox1.Text = randomBarcode;
         }
+
+        private void Addbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

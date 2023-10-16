@@ -74,7 +74,6 @@
             this.generatedpicture = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.GenerateBtn = new System.Windows.Forms.Button();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.TxtCategory = new System.Windows.Forms.TextBox();
             this.TxtUnitPrice = new System.Windows.Forms.TextBox();
             this.CmbMotorBrand = new System.Windows.Forms.ComboBox();
@@ -107,6 +106,7 @@
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -128,10 +128,10 @@
             this.tabControl1.SuspendLayout();
             this.tabItemmasterdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -572,13 +572,13 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.pictureBox13);
             this.tabItemmasterdata.Controls.Add(this.Addbtn);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.generatedpicture);
             this.tabItemmasterdata.Controls.Add(this.textBox1);
             this.tabItemmasterdata.Controls.Add(this.GenerateBtn);
-            this.tabItemmasterdata.Controls.Add(this.pictureBox15);
             this.tabItemmasterdata.Controls.Add(this.TxtCategory);
             this.tabItemmasterdata.Controls.Add(this.TxtUnitPrice);
             this.tabItemmasterdata.Controls.Add(this.CmbMotorBrand);
@@ -610,7 +610,7 @@
             // 
             this.Addbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbtn.Location = new System.Drawing.Point(759, 435);
+            this.Addbtn.Location = new System.Drawing.Point(757, 438);
             this.Addbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Addbtn.Name = "Addbtn";
             this.Addbtn.Size = new System.Drawing.Size(93, 54);
@@ -673,17 +673,6 @@
             this.GenerateBtn.UseVisualStyleBackColor = true;
             this.GenerateBtn.UseWaitCursor = true;
             this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click_1);
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Location = new System.Drawing.Point(1293, 6);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox15.TabIndex = 76;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.UseWaitCursor = true;
             // 
             // TxtCategory
             // 
@@ -866,6 +855,7 @@
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.UseWaitCursor = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -991,6 +981,18 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(1296, 3);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox13.TabIndex = 118;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.UseWaitCursor = true;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1031,10 +1033,10 @@
             this.tabItemmasterdata.ResumeLayout(false);
             this.tabItemmasterdata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1110,7 +1112,6 @@
         private System.Windows.Forms.TextBox TxtUnitPrice;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Button ServicesBtn;
-        private System.Windows.Forms.PictureBox pictureBox15;
         private BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.Button GenerateBtn;
         private System.Windows.Forms.TextBox textBox1;
@@ -1118,5 +1119,6 @@
         private System.Windows.Forms.PictureBox generatedpicture;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button Addbtn;
+        private System.Windows.Forms.PictureBox pictureBox13;
     }
 }

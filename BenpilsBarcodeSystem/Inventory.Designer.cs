@@ -751,6 +751,7 @@
             // TxtCategory
             // 
             this.TxtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TxtCategory.Location = new System.Drawing.Point(481, 512);
             this.TxtCategory.Location = new System.Drawing.Point(641, 588);
             this.TxtCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtCategory.Location = new System.Drawing.Point(481, 512);
@@ -807,6 +808,7 @@
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(987, 536);
             this.button10.Location = new System.Drawing.Point(1089, 625);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Location = new System.Drawing.Point(987, 536);
@@ -837,6 +839,7 @@
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(419, 515);
             this.label16.Location = new System.Drawing.Point(559, 592);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Location = new System.Drawing.Point(419, 515);
@@ -1191,6 +1194,15 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // BarcodeGeneratorBtn
+            // 
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(927, 607);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(210, 23);
+            this.BarcodeGeneratorBtn.TabIndex = 77;
+            this.BarcodeGeneratorBtn.Text = "BarcodeGenerator";
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
             // BarcodeGeneratorBtn
             // 
             this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(927, 607);

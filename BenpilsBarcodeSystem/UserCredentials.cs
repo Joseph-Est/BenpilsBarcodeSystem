@@ -35,26 +35,12 @@ namespace BenpilsBarcodeSystem
             label2.Text = "Designation: " + user.Designation;
             if (user.Designation == "Superadmin")
             {
-                dataGridView1.Columns["ID"].ReadOnly = true;
-                dataGridView1.Columns["FirstName"].ReadOnly = true;
-                dataGridView1.Columns["LastName"].ReadOnly = true;
-                dataGridView1.Columns["UserName"].ReadOnly = true;
-                dataGridView1.Columns["Password"].ReadOnly = true;
-                dataGridView1.Columns["Designation"].ReadOnly = true;
-                dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+
             }
             else if (user.Designation == "Admin")
             {
                 ComboDesignation.Items.Remove("SuperAdmin");
-                dataGridView1.Columns["ID"].ReadOnly = true;
-                dataGridView1.Columns["FirstName"].ReadOnly = true;
-                dataGridView1.Columns["LastName"].ReadOnly = true;
-                dataGridView1.Columns["UserName"].ReadOnly = true;
-                dataGridView1.Columns["Password"].ReadOnly = true;
-                dataGridView1.Columns["Designation"].ReadOnly = true;
-                dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+
 
             }
             else if (user.Designation == "Inventory Manager")
@@ -65,14 +51,7 @@ namespace BenpilsBarcodeSystem
                 button8.Enabled = false;
                 ServicesBtn.Enabled = false;
                 SettingsBtn.Enabled = false;
-                dataGridView1.Columns["ID"].ReadOnly = true;
-                dataGridView1.Columns["FirstName"].ReadOnly = true;
-                dataGridView1.Columns["LastName"].ReadOnly = true;
-                dataGridView1.Columns["UserName"].ReadOnly = true;
-                dataGridView1.Columns["Password"].ReadOnly = true;
-                dataGridView1.Columns["Designation"].ReadOnly = true;
-                dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+
 
             }
             else if (user.Designation == "Cashier")
@@ -83,14 +62,7 @@ namespace BenpilsBarcodeSystem
                 StatisticsBtn.Enabled = false;
                 button8.Enabled = false;
                 SettingsBtn.Enabled = false;
-                dataGridView1.Columns["ID"].ReadOnly = true;
-                dataGridView1.Columns["FirstName"].ReadOnly = true;
-                dataGridView1.Columns["LastName"].ReadOnly = true;
-                dataGridView1.Columns["UserName"].ReadOnly = true;
-                dataGridView1.Columns["Password"].ReadOnly = true;
-                dataGridView1.Columns["Designation"].ReadOnly = true;
-                dataGridView1.Columns["Address"].ReadOnly = true;
-                dataGridView1.Columns["ContactNo"].ReadOnly = true;
+    
             }
 
         }
@@ -116,7 +88,14 @@ namespace BenpilsBarcodeSystem
             this.tbl_loginTableAdapter1.Fill(this.userCredentialsDataSet1.tbl_login);
 
             this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
-       
+            dataGridView1.Columns["ID"].ReadOnly = true;
+            dataGridView1.Columns["FirstName"].ReadOnly = true;
+            dataGridView1.Columns["LastName"].ReadOnly = true;
+            dataGridView1.Columns["UserName"].ReadOnly = true;
+            dataGridView1.Columns["Password"].ReadOnly = true;
+            dataGridView1.Columns["Designation"].ReadOnly = true;
+            dataGridView1.Columns["Address"].ReadOnly = true;
+            dataGridView1.Columns["ContactNo"].ReadOnly = true;
 
         }
         private void panel6_Paint(object sender, PaintEventArgs e)

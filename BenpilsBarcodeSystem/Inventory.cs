@@ -174,7 +174,7 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text = "";
             TxtPriceCode.Text = "";
             TxtUnitPrice.Text = "";
-   
+
             TxtCategory.Text = "";
         }
 
@@ -215,7 +215,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
                     cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
                     cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-          
+
                     cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
 
                     con.Open();
@@ -260,9 +260,9 @@ namespace BenpilsBarcodeSystem
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
-       
+
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-              
+
 
             }
         }
@@ -284,7 +284,7 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)

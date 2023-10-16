@@ -175,10 +175,5 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

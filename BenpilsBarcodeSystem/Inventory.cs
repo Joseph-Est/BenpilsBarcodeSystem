@@ -21,7 +21,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             txtBarcode.KeyPress += txtBarcode_KeyPress;
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridInventory.CellClick += dataGridInventory_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -187,7 +187,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    dataGridInventory.DataSource = dt;
                 }
             }
         }
@@ -217,23 +217,7 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                CmbMotorBrand.SelectedItem = selectedRow.Cells["MotorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
-                Addbtn.Enabled = false;
-
-                MessageBox.Show("Data from the selected row has been loaded into the form controls. You can now edit the selected item.");
-            }
-        }
+  
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
@@ -346,13 +330,13 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
+            if (dataGridInventory.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please choose a row to update.");
                 return;
             }
 
-            int selectedRowIndex = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+            int selectedRowIndex = Convert.ToInt32(dataGridInventory.SelectedRows[0].Cells["ID"].Value);
 
             string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, " +
                                 "Brand = @Brand, PriceCode = @PriceCode, UnitPrice = @UnitPrice, Category = @Category WHERE ID = @ID";
@@ -383,6 +367,24 @@ namespace BenpilsBarcodeSystem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
+                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                CmbMotorBrand.SelectedItem = selectedRow.Cells["MotorBrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
+                Addbtn.Enabled = false;
+
+                MessageBox.Show("Data from the selected row has been loaded into the form controls. You can now edit the selected item.");
+            }
         }
     }
 }

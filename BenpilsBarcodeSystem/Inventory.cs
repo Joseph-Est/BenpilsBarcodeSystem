@@ -346,6 +346,7 @@ namespace BenpilsBarcodeSystem
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
+         
 
         }
 
@@ -360,6 +361,14 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
         {
+            if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
+            {
+                barcodeGenerator = new BarcodeGenerator();
+                barcodeGenerator.Show();
+            }
+            else
+            {
+                barcodeGenerator.BringToFront();
             if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
             {
                 barcodeGenerator = new BarcodeGenerator();

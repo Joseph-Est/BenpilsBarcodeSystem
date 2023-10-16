@@ -180,7 +180,7 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateDataGridView()
         {
-            string selectQuery = "SELECT * FROM tbl_inventory";
+            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
@@ -191,42 +191,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void UpdateBtn_Click_1(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to update.");
-                return;
-            }
-
-            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-
-            string updateQuery = "UPDATE tbl_inventory SET barcode = @Barcode, [itemname] = @ItemName, motorbrand = @MotorBrand, [brand] = @Brand, " +
-                                 "pricecode = @PriceCode, unitprice = @UnitPrice, size = @Size, [category] = @Category WHERE ID = @ID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
-                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-            UpdateDataGridView();
-            ClearAllTextBoxes();
-        }
+     
 
         private void Inventory_Load(object sender, EventArgs e)
         {
@@ -257,15 +222,13 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                TxtItemName.Text = selectedRow.Cells["itemName"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
-
-                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-
-
+                txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                CmbMotorBrand.SelectedItem = selectedRow.Cells["MotorBrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
+                TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
             }
         }
 
@@ -339,12 +302,79 @@ namespace BenpilsBarcodeSystem
 
         private void Addbtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtBarcode.Text) ||
+                string.IsNullOrWhiteSpace(TxtItemName.Text) ||
+                string.IsNullOrWhiteSpace(CmbMotorBrand.Text) ||
+                string.IsNullOrWhiteSpace(TxtBrand.Text) ||
+                string.IsNullOrWhiteSpace(TxtPriceCode.Text) ||
+                string.IsNullOrWhiteSpace(TxtUnitPrice.Text) ||
+                string.IsNullOrWhiteSpace(TxtCategory.Text))
+            {
+                MessageBox.Show("Please ensure all required fields are filled.");
+                return;
+            }
 
+      
+
+            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ItemName, MotorBrand, Brand, PriceCode, UnitPrice, Category) " +
+                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Category)";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
+                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please choose a row to update.");
+                return;
+            }
 
+            int selectedRowIndex = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
+
+            string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, " +
+                                "Brand = @Brand, PriceCode = @PriceCode, UnitPrice = @UnitPrice, Category = @Category WHERE ID = @ID";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", selectedRowIndex);
+                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
+                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
+                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
+                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
+                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -228,6 +228,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleItemMasterData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleItemMasterData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +451,17 @@
     </None>
     <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterData.xsc">
+      <DependentUpon>BenpillMotorcycleItemMasterData.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleItemMasterData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterData.xss">
+      <DependentUpon>BenpillMotorcycleItemMasterData.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

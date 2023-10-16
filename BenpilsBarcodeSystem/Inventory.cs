@@ -9,17 +9,19 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace BenpilsBarcodeSystem
 {
     public partial class Inventory : Form
     {
         private User user;
-        private BarcodeGenerator barcodeGenerator;
+
+        IBarcodeReader barcodeReader = new BarcodeReader();
         public Inventory(User user)
         {
             InitializeComponent();
-            txtBarcode.KeyPress += txtBarcode_KeyPress;
+            
             dataGridView1.CellClick += dataGridView1_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -95,7 +97,7 @@ namespace BenpilsBarcodeSystem
         //Reports Button
         private void button6_Click(object sender, EventArgs e)
         {
-            Reports rp = new Reports(user);
+           Reports rp = new Reports(user);
             rp.Show();
             rp.StartPosition = FormStartPosition.Manual;
             rp.Location = this.Location;
@@ -346,8 +348,9 @@ namespace BenpilsBarcodeSystem
 
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
-         
+          
         }
+    
 
         private void ServicesBtn_Click(object sender, EventArgs e)
         {
@@ -360,14 +363,34 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
         {
-            if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
+        
+        }
+
+        private void txtBarcode_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                barcodeGenerator = new BarcodeGenerator();
-                barcodeGenerator.Show();
-            }
-            else
-            {
-                barcodeGenerator.BringToFront();
+                // Capture the barcode text from the txtBarcode TextBox
+                string barcodeText = txtBarcode.Text;
+
+                // Use ZXing to decode the barcode text
+                var result = barcodeReader.Decode(new Bitmap(barcodeText));
+
+                if (result != null)
+                {
+                    // Display the decoded barcode text in the txtBarcode TextBox
+                    txtBarcode.Text = result.Text;
+                }
+                else
+                {
+                    txtBarcode.Text = "Unable to decode barcode.";
+                }
+                e.Handled = true;
             }
         }
     }

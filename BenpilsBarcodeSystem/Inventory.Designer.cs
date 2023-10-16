@@ -68,6 +68,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.generatedpicture = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -106,7 +107,6 @@
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -572,8 +572,8 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
+            this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.generatedpicture);
             this.tabItemmasterdata.Controls.Add(this.textBox1);
@@ -599,12 +599,25 @@
             this.tabItemmasterdata.Controls.Add(this.label14);
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
-            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3);
             this.tabItemmasterdata.Size = new System.Drawing.Size(1339, 660);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Location = new System.Drawing.Point(875, 438);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
+            this.UpdateBtn.TabIndex = 82;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.UseWaitCursor = true;
             // 
             // label13
             // 
@@ -691,7 +704,7 @@
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(819, 512);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 68;
@@ -926,7 +939,7 @@
             // TxtSearchBar
             // 
             this.TxtSearchBar.Location = new System.Drawing.Point(116, 19);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 41;
@@ -968,27 +981,14 @@
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(760, 438);
+            this.AddBtn.Location = new System.Drawing.Point(759, 438);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
-            this.AddBtn.TabIndex = 81;
+            this.AddBtn.TabIndex = 83;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.UseWaitCursor = true;
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(875, 438);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
-            this.UpdateBtn.TabIndex = 82;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.UseWaitCursor = true;
             // 
             // Inventory
             // 

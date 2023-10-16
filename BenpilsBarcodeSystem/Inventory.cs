@@ -20,7 +20,6 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-            txtBarcode.KeyPress += txtBarcode_KeyPress;
             dataGridInventory.CellClick += dataGridInventory_CellClick;
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -79,11 +78,6 @@ namespace BenpilsBarcodeSystem
             pos.Location = this.Location;
             this.Hide();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
         //Purchasing Button
         private void button5_Click(object sender, EventArgs e)
         {
@@ -141,31 +135,11 @@ namespace BenpilsBarcodeSystem
             ce.StartPosition = FormStartPosition.CenterScreen;
             ce.ShowDialog();
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
-
-
-
-
         public void ClearAllTextBoxes()
         {
             txtBarcode.Text = "";
@@ -174,7 +148,6 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text = "";
             TxtPriceCode.Text = "";
             TxtUnitPrice.Text = "";
-
             TxtCategory.Text = "";
         }
 
@@ -191,34 +164,17 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-     
-
         private void Inventory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterData.tbl_itemmasterdata' table. You can move, or remove it, as needed.
             this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleItemMasterData.tbl_itemmasterdata);
             // TODO: This line of code loads data into the 'benpillBarcodeDatabaseInventory.tbl_inventory' table. You can move, or remove it, as needed.
             this.tbl_inventoryTableAdapter.Fill(this.benpillBarcodeDatabaseInventory.tbl_inventory);
-
         }
-
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-
-
         private void Archive_Click(object sender, EventArgs e)
         {
 
         }
-
-  
-
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -233,18 +189,6 @@ namespace BenpilsBarcodeSystem
                 this.Show();
             }
         }
-
-        private void GenerateBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-
-        }
-
         private void ServicesBtn_Click(object sender, EventArgs e)
         {
             Services service = new Services(user);
@@ -253,25 +197,6 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
-
-        private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
-        {
-            if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
-            {
-                barcodeGenerator = new BarcodeGenerator();
-                barcodeGenerator.Show();
-            }
-            else
-            {
-                barcodeGenerator.BringToFront();
-                if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
-                {
-                    barcodeGenerator = new BarcodeGenerator();
-                    barcodeGenerator.Show();
-                }
-            }
-        }
-
         private void GenerateBtn_Click_1(object sender, EventArgs e)
         {
             Random rand = new Random();
@@ -363,12 +288,6 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
             ClearAllTextBoxes();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -381,10 +300,14 @@ namespace BenpilsBarcodeSystem
                 TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
                 TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
-                Addbtn.Enabled = false;
 
-                MessageBox.Show("Data from the selected row has been loaded into the form controls. You can now edit the selected item.");
+                // Enable or disable your update button or perform other actions here
+                // For example, if you have a button named "UpdateButton," you can enable it like this:
+                // UpdateButton.Enabled = true;
+
+                MessageBox.Show("Row data loaded into the form controls. You can now edit the selected item.");
             }
+            UpdateDataGridView();
         }
     }
 }

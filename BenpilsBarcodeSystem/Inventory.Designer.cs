@@ -106,7 +106,7 @@
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-            this.AddBtn = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -572,7 +572,7 @@
             // 
             // tabItemmasterdata
             // 
-            this.tabItemmasterdata.Controls.Add(this.AddBtn);
+            this.tabItemmasterdata.Controls.Add(this.button4);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.generatedpicture);
@@ -662,7 +662,6 @@
             // pictureBox15
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.White;
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
             this.pictureBox15.Location = new System.Drawing.Point(1293, 6);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(40, 39);
@@ -829,8 +828,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -977,18 +976,18 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // AddBtn
+            // button4
             // 
-            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(759, 438);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(93, 54);
-            this.AddBtn.TabIndex = 83;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.UseWaitCursor = true;
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(759, 440);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 54);
+            this.button4.TabIndex = 83;
+            this.button4.Text = "Archive";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseWaitCursor = true;
             // 
             // Inventory
             // 
@@ -1116,6 +1115,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox generatedpicture;
         private System.Windows.Forms.Button UpdateBtn;
-        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -229,6 +229,9 @@ namespace BenpilsBarcodeSystem
                 TxtPriceCode.Text = selectedRow.Cells["PriceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
                 TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
+                Addbtn.Enabled = false;
+
+                MessageBox.Show("Data from the selected row has been loaded into the form controls. You can now edit the selected item.");
             }
         }
 

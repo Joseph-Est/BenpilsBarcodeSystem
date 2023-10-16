@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,11 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
+        
         public BarcodeGenerator()
         {
             InitializeComponent();
+            BarcodeWriter barcodeWriter =
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -41,14 +44,22 @@ namespace BenpilsBarcodeSystem
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
             string barCode = txtBarcodefiller.Text;
+
             try
             {
-                Zen.Barcode.Code128BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                pictureBox13.Image = brCode.Draw(barCode, 60);
+                BarcodeWriter barcodeWriter = new BarcodeWriter();
+                barcodeWriter.Format = BarcodeFormat.CODE_128; // You can change the barcode format if needed
+                barcodeWriter.Options = new ZXing.Common.EncodingOptions
+                {
+                    Width = 300, // Adjust the width and height as needed
+                    Height = 100
+                };
+
+                pictureBox13.Image = barcodeWriter.Write(barCode);
             }
             catch (Exception)
             {
-
+                // Handle exceptions here
             }
         }
 

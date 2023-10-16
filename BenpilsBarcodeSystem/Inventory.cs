@@ -9,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace BenpilsBarcodeSystem
 {
@@ -162,6 +163,9 @@ namespace BenpilsBarcodeSystem
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
 
+
+
+
      
 
    
@@ -174,6 +178,7 @@ namespace BenpilsBarcodeSystem
             TxtBrand.Text = "";
             TxtPriceCode.Text = "";
             TxtUnitPrice.Text = "";
+   
 
             TxtCategory.Text = "";
         }
@@ -218,8 +223,10 @@ namespace BenpilsBarcodeSystem
                 TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
                 TxtPriceCode.Text = selectedRow.Cells["priceCode"].Value.ToString();
                 TxtUnitPrice.Text = selectedRow.Cells["unitPrice"].Value.ToString();
+       
 
                 TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+              
    
 
             }
@@ -242,6 +249,8 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
+           
+        }
 
         }
 
@@ -270,6 +279,29 @@ namespace BenpilsBarcodeSystem
             else
             {
                 barcodeGenerator.BringToFront();
+                if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
+                {
+                    barcodeGenerator = new BarcodeGenerator();
+                    barcodeGenerator.Show();
+                }
+            }
+        }
+
+        private void GenerateBtn_Click_1(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            string randomBarcode = rand.Next(1000000, 9999999).ToString(); // Adjust the range as needed
+
+            // Create a BarcodeWriter instance
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+
+            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
+            barcodeWriter.Format = BarcodeFormat.CODE_128;
+
+            generatedpicture.Image = barcodeWriter.Write(randomBarcode);
+            textBox1.Text = randomBarcode;
+        }
+    }
                 if (barcodeGenerator == null || barcodeGenerator.IsDisposed)
                 {
                     barcodeGenerator = new BarcodeGenerator();

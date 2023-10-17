@@ -278,16 +278,39 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
+
+            if (selectedRow != null)
             {
-                DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
-                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtPriceCode.Text = selectedRow.Cells["pricecode"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+                // Define a list of column names to access
+                List<string> columnNames = new List<string>
+        {
+            "barcode", "itemname", "motorbrand", "brand", "pricecode", "unitprice", "category"
+        };
+
+                foreach (string columnName in columnNames)
+                {
+                    DataGridViewCell cell = selectedRow.Cells[columnName];
+
+                    if (cell != null && cell.Value != null)
+                    {
+                        // Update the corresponding textbox with the cell value
+                        if (columnName == "barcode")
+                            txtBarcode.Text = cell.Value.ToString();
+                        else if (columnName == "itemname")
+                            TxtItemName.Text = cell.Value.ToString();
+                        else if (columnName == "motorbrand")
+                            CmbMotorBrand.Text = cell.Value.ToString();
+                        else if (columnName == "brand")
+                            TxtBrand.Text = cell.Value.ToString();
+                        else if (columnName == "pricecode")
+                            TxtPriceCode.Text = cell.Value.ToString();
+                        else if (columnName == "unitprice")
+                            TxtUnitPrice.Text = cell.Value.ToString();
+                        else if (columnName == "category")
+                            TxtCategory.Text = cell.Value.ToString();
+                    }
+                }
             }
         }
         private void UpdateDataGridView()

@@ -280,39 +280,7 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (string columnName in columnNames)
-            {
-                DataGridViewColumn column = dataGridInventory.Columns[columnName];
-
-                if (column != null)
-                {
-                    // Column exists, proceed with accessing its value
-                    DataGridViewCell cell = selectedRow.Cells[columnName];
-
-                    if (cell != null && cell.Value != null)
-                    {
-                        // Update the corresponding textbox with the cell value
-                        if (columnName == "barcode")
-                            txtBarcode.Text = cell.Value.ToString();
-                        else if (columnName == "itemname")
-                            TxtItemName.Text = cell.Value.ToString();
-                        else if (columnName == "motorbrand")
-                            CmbMotorBrand.Text = cell.Value.ToString();
-                        else if (columnName == "brand")
-                            TxtBrand.Text = cell.Value.ToString();
-                        else if (columnName == "pricecode")
-                            TxtPriceCode.Text = cell.Value.ToString();
-                        else if (columnName == "unitprice")
-                            TxtUnitPrice.Text = cell.Value.ToString();
-                        else if (columnName == "category")
-                            TxtCategory.Text = cell.Value.ToString();
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Column named {columnName} cannot be found.");
-                }
-            }
+          
         }
         private void UpdateDataGridView()
         {

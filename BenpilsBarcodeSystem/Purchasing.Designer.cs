@@ -70,12 +70,12 @@
             this.label17 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.addbuton = new System.Windows.Forms.Button();
+            this.Emailtxt = new System.Windows.Forms.TextBox();
+            this.ContactNoTxt = new System.Windows.Forms.TextBox();
+            this.AddressTxt = new System.Windows.Forms.TextBox();
+            this.ContactNametxt = new System.Windows.Forms.TextBox();
+            this.CompanyNameTxt = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -552,12 +552,12 @@
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.button11);
             this.tabPage1.Controls.Add(this.button12);
-            this.tabPage1.Controls.Add(this.button13);
-            this.tabPage1.Controls.Add(this.textBox16);
-            this.tabPage1.Controls.Add(this.textBox17);
-            this.tabPage1.Controls.Add(this.textBox18);
-            this.tabPage1.Controls.Add(this.textBox19);
-            this.tabPage1.Controls.Add(this.textBox20);
+            this.tabPage1.Controls.Add(this.addbuton);
+            this.tabPage1.Controls.Add(this.Emailtxt);
+            this.tabPage1.Controls.Add(this.ContactNoTxt);
+            this.tabPage1.Controls.Add(this.AddressTxt);
+            this.tabPage1.Controls.Add(this.ContactNametxt);
+            this.tabPage1.Controls.Add(this.CompanyNameTxt);
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label25);
@@ -619,57 +619,58 @@
             this.button12.Text = "Update";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // addbuton
             // 
-            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(1064, 455);
-            this.button13.Margin = new System.Windows.Forms.Padding(2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(93, 54);
-            this.button13.TabIndex = 139;
-            this.button13.Text = "Add";
-            this.button13.UseVisualStyleBackColor = true;
+            this.addbuton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addbuton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbuton.Location = new System.Drawing.Point(1064, 455);
+            this.addbuton.Margin = new System.Windows.Forms.Padding(2);
+            this.addbuton.Name = "addbuton";
+            this.addbuton.Size = new System.Drawing.Size(93, 54);
+            this.addbuton.TabIndex = 139;
+            this.addbuton.Text = "Add";
+            this.addbuton.UseVisualStyleBackColor = true;
+            this.addbuton.Click += new System.EventHandler(this.addbuton_Click);
             // 
-            // textBox16
+            // Emailtxt
             // 
-            this.textBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox16.Location = new System.Drawing.Point(101, 567);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(174, 20);
-            this.textBox16.TabIndex = 129;
+            this.Emailtxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Emailtxt.Location = new System.Drawing.Point(101, 567);
+            this.Emailtxt.Name = "Emailtxt";
+            this.Emailtxt.Size = new System.Drawing.Size(174, 20);
+            this.Emailtxt.TabIndex = 129;
             // 
-            // textBox17
+            // ContactNoTxt
             // 
-            this.textBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox17.Location = new System.Drawing.Point(101, 539);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(174, 20);
-            this.textBox17.TabIndex = 128;
+            this.ContactNoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ContactNoTxt.Location = new System.Drawing.Point(101, 539);
+            this.ContactNoTxt.Name = "ContactNoTxt";
+            this.ContactNoTxt.Size = new System.Drawing.Size(174, 20);
+            this.ContactNoTxt.TabIndex = 128;
             // 
-            // textBox18
+            // AddressTxt
             // 
-            this.textBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox18.Location = new System.Drawing.Point(101, 510);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(174, 20);
-            this.textBox18.TabIndex = 127;
+            this.AddressTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddressTxt.Location = new System.Drawing.Point(101, 510);
+            this.AddressTxt.Name = "AddressTxt";
+            this.AddressTxt.Size = new System.Drawing.Size(174, 20);
+            this.AddressTxt.TabIndex = 127;
             // 
-            // textBox19
+            // ContactNametxt
             // 
-            this.textBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox19.Location = new System.Drawing.Point(101, 481);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(174, 20);
-            this.textBox19.TabIndex = 126;
+            this.ContactNametxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ContactNametxt.Location = new System.Drawing.Point(101, 481);
+            this.ContactNametxt.Name = "ContactNametxt";
+            this.ContactNametxt.Size = new System.Drawing.Size(174, 20);
+            this.ContactNametxt.TabIndex = 126;
             // 
-            // textBox20
+            // CompanyNameTxt
             // 
-            this.textBox20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox20.Location = new System.Drawing.Point(101, 452);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(174, 20);
-            this.textBox20.TabIndex = 125;
+            this.CompanyNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CompanyNameTxt.Location = new System.Drawing.Point(101, 452);
+            this.CompanyNameTxt.Name = "CompanyNameTxt";
+            this.CompanyNameTxt.Size = new System.Drawing.Size(174, 20);
+            this.CompanyNameTxt.TabIndex = 125;
             // 
             // label23
             // 
@@ -933,12 +934,12 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Button addbuton;
+        private System.Windows.Forms.TextBox Emailtxt;
+        private System.Windows.Forms.TextBox ContactNoTxt;
+        private System.Windows.Forms.TextBox AddressTxt;
+        private System.Windows.Forms.TextBox ContactNametxt;
+        private System.Windows.Forms.TextBox CompanyNameTxt;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;

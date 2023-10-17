@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -174,6 +175,63 @@ namespace BenpilsBarcodeSystem
             service.StartPosition = FormStartPosition.Manual;
             service.Location = this.Location;
             this.Hide();
+        }
+
+        private void addbuton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(CompanyNameTxt.Text) ||
+                string.IsNullOrWhiteSpace(ContactNametxt.Text) ||
+                string.IsNullOrWhiteSpace(AddressTxt.Text) ||
+                string.IsNullOrWhiteSpace(ContactNoTxt.Text) ||
+                string.IsNullOrWhiteSpace(Emailtxt.Text))
+            {
+                MessageBox.Show("Please ensure all required fields are filled.");
+                return;
+            }
+
+            string insertQuery = "INSERT INTO tbl_itemmasterdata (CompanyName, ContactName, Address, ContactNo, Email) " +
+                               "VALUES (@CompanyName, @ContactName, @Address, @ContactNo, @Email)";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@CompanyName", CompanyNameTxt.Text);
+                    cmd.Parameters.AddWithValue("@ContactName", ContactNametxt.Text);
+                    cmd.Parameters.AddWithValue("@Address", AddressTxt.Text);
+                    cmd.Parameters.AddWithValue("@ContactNo", ContactNoTxt.Text);
+                    cmd.Parameters.AddWithValue("@Email", Emailtxt.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
+
+        private void UpdateDataGridView()
+        {
+            string selectQuery = "SELECT * FROM tbl_supplier";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+        }
+        private void ClearAllTextBoxes()
+        {
+            CompanyNameTxt.Text = "";
+            ContactNametxt.Text = "";
+            AddressTxt.Text = "";
+            ContactNoTxt.Text = "";
+            Emailtxt.Text = "";
         }
     }
 }

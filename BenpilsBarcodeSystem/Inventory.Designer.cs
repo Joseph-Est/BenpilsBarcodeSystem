@@ -95,12 +95,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.benpillMotorcycleItemMasterData = new BenpilsBarcodeSystem.BenpillMotorcycleItemMasterData();
+
             this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-            this.tbl_itemmasterdataTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleItemMasterDataTableAdapters.tbl_itemmasterdataTableAdapter();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -125,7 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleItemMasterData)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
             this.SuspendLayout();
@@ -879,12 +879,11 @@
             // tblitemmasterdataBindingSource
             // 
             this.tblitemmasterdataBindingSource.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource.DataSource = this.benpillMotorcycleItemMasterData;
+
             // 
             // benpillMotorcycleItemMasterData
             // 
-            this.benpillMotorcycleItemMasterData.DataSetName = "BenpillMotorcycleItemMasterData";
-            this.benpillMotorcycleItemMasterData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // tblinventoryBindingSource
             // 
@@ -908,7 +907,7 @@
             // 
             // tbl_itemmasterdataTableAdapter
             // 
-            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
+
             // 
             // Inventory
             // 
@@ -953,7 +952,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleItemMasterData)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
             this.ResumeLayout(false);
@@ -1029,9 +1028,9 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button Addbtn;
         private System.Windows.Forms.PictureBox pictureBox13;
-        private BenpillMotorcycleItemMasterData benpillMotorcycleItemMasterData;
+
         private System.Windows.Forms.BindingSource tblitemmasterdataBindingSource;
-        private BenpillMotorcycleItemMasterDataTableAdapters.tbl_itemmasterdataTableAdapter tbl_itemmasterdataTableAdapter;
+
         private System.Windows.Forms.DataGridView dataGridInventory;
     }
 }

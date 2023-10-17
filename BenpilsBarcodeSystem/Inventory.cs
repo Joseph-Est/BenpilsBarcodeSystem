@@ -154,6 +154,10 @@ namespace BenpilsBarcodeSystem
        
         private void Inventory_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseItemmasterdata2.tbl_itemmasterdata2' table. You can move, or remove it, as needed.
+            this.tbl_itemmasterdata2TableAdapter1.Fill(this.benpillMotorcycleDatabaseItemmasterdata2.tbl_itemmasterdata2);
+            // TODO: This line of code loads data into the 'benpillMotorcycleitemmasterdata2.tbl_itemmasterdata2' table. You can move, or remove it, as needed.
+            this.tbl_itemmasterdata2TableAdapter.Fill(this.benpillMotorcycleitemmasterdata2.tbl_itemmasterdata2);
             // TODO: This line of code loads data into the 'benpillMotorcycleitemmasterdata.tbl_itemmasterdata' table. You can move, or remove it, as needed.
             this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleitemmasterdata.tbl_itemmasterdata);
             // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterData.tbl_itemmasterdata' table. You can move, or remove it, as needed.
@@ -280,38 +284,18 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (string columnName in columnNames)
+            if (e.RowIndex >= 0)
             {
-                DataGridViewColumn column = dataGridInventory.Columns[columnName];
+                DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
 
-                if (column != null)
-                {
-                    // Column exists, proceed with accessing its value
-                    DataGridViewCell cell = selectedRow.Cells[columnName];
+              //  txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                CmbMotorBrand.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
 
-                    if (cell != null && cell.Value != null)
-                    {
-                        // Update the corresponding textbox with the cell value
-                        if (columnName == "barcode")
-                            txtBarcode.Text = cell.Value.ToString();
-                        else if (columnName == "itemname")
-                            TxtItemName.Text = cell.Value.ToString();
-                        else if (columnName == "motorbrand")
-                            CmbMotorBrand.Text = cell.Value.ToString();
-                        else if (columnName == "brand")
-                            TxtBrand.Text = cell.Value.ToString();
-                        else if (columnName == "pricecode")
-                            TxtPriceCode.Text = cell.Value.ToString();
-                        else if (columnName == "unitprice")
-                            TxtUnitPrice.Text = cell.Value.ToString();
-                        else if (columnName == "category")
-                            TxtCategory.Text = cell.Value.ToString();
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Column named {columnName} cannot be found.");
-                }
+                Addbtn.Enabled = false;
             }
         }
         private void UpdateDataGridView()

@@ -15,6 +15,7 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private int selectedSupplierID = -1;
+
         public Purchasing(User user)
         {
             InitializeComponent();
@@ -309,19 +310,28 @@ namespace BenpilsBarcodeSystem
         }
         private void SupplierSelectionAdd()
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("YourConnectionString"))
             {
-                connection.Open();
-
-                // Define and execute a query to retrieve supplier data for the ComboBox
-                string query = "SELECT SupplierID, CompanyName, ContactName FROM tbl_supplier";
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                try
                 {
-                    // Populate the ComboBox with supplier names and store the SupplierID as the value
-                    CmbSelectSupplier.Items.Add(new { SupplierID = (int)reader["SupplierID"], CompanyName = reader["CompanyName"].ToString() });
+                    connection.Open();
+
+                    // Define and execute a query to retrieve supplier data for the ComboBox
+                    string query = "SELECT SupplierID, CompanyName, ContactName FROM tbl_supplier";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        // Populate the ComboBox with supplier names and store the SupplierID as the value
+                        CmbSelectSupplier.Items.Add(new { SupplierID = (int)reader["SupplierID"], CompanyName = reader["CompanyName"].ToString(), ContactName = reader["ContactName"].ToString() });
+                    }
+                    CmbSelectSupplier.DisplayMember = "CompanyName";
+                    CmbSelectSupplier.ValueMember = "SupplierID";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }

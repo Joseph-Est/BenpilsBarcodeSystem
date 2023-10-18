@@ -333,6 +333,7 @@
     <Compile Include="StatisticReport.Designer.cs">
       <DependentUpon>StatisticReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supplier.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCredentials.cs">
       <SubType>Form</SubType>

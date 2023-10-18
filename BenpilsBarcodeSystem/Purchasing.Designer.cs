@@ -68,6 +68,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Inventoryform = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.SupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblsupplierBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleSuppier = new BenpilsBarcodeSystem.BenpillMotorcycleSuppier();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
@@ -86,7 +98,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.SupplierIDTxt = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -99,12 +112,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbl_supplierTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseSupplierTableAdapters.tbl_supplierTableAdapter();
             this.tbl_supplierTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleSuppierTableAdapters.tbl_supplierTableAdapter();
-            this.SupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmbSelectSupplier = new System.Windows.Forms.ComboBox();
+            this.SelectSupplierLbl = new System.Windows.Forms.Label();
+            this.companynamelbl = new System.Windows.Forms.Label();
+            this.ContactNamelbl = new System.Windows.Forms.Label();
+            this.companyname2txt = new System.Windows.Forms.TextBox();
+            this.Contactname2txt = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SupplierIDlbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -128,7 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleSuppier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.SupplierIDTxt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).BeginInit();
@@ -556,7 +571,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Inventoryform);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.SupplierIDTxt);
             this.tabControl1.Location = new System.Drawing.Point(188, 80);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -584,7 +599,7 @@
             this.Inventoryform.Controls.Add(this.label27);
             this.Inventoryform.Location = new System.Drawing.Point(4, 22);
             this.Inventoryform.Name = "Inventoryform";
-            this.Inventoryform.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Inventoryform.Padding = new System.Windows.Forms.Padding(3);
             this.Inventoryform.Size = new System.Drawing.Size(1325, 657);
             this.Inventoryform.TabIndex = 0;
             this.Inventoryform.Text = "Supplier Master Data";
@@ -600,16 +615,119 @@
             this.ContactName,
             this.Address,
             this.ContactNo,
-            this.Email});
+            this.Email,
+            this.supplierIDDataGridViewTextBoxColumn,
+            this.companyNameDataGridViewTextBoxColumn,
+            this.contactNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.contactNoDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.tblsupplierBindingSource1;
             this.dataGridView2.Location = new System.Drawing.Point(12, 54);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(1228, 384);
             this.dataGridView2.TabIndex = 144;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
+            // 
+            // SupplierID
+            // 
+            this.SupplierID.DataPropertyName = "SupplierID";
+            this.SupplierID.Frozen = true;
+            this.SupplierID.HeaderText = "SupplierID";
+            this.SupplierID.MinimumWidth = 6;
+            this.SupplierID.Name = "SupplierID";
+            this.SupplierID.ReadOnly = true;
+            this.SupplierID.Width = 125;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.Frozen = true;
+            this.CompanyName.HeaderText = "CompanyName";
+            this.CompanyName.MinimumWidth = 6;
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            this.CompanyName.Width = 125;
+            // 
+            // ContactName
+            // 
+            this.ContactName.DataPropertyName = "ContactName";
+            this.ContactName.Frozen = true;
+            this.ContactName.HeaderText = "ContactName";
+            this.ContactName.MinimumWidth = 6;
+            this.ContactName.Name = "ContactName";
+            this.ContactName.ReadOnly = true;
+            this.ContactName.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.Frozen = true;
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 125;
+            // 
+            // ContactNo
+            // 
+            this.ContactNo.DataPropertyName = "ContactNo";
+            this.ContactNo.Frozen = true;
+            this.ContactNo.HeaderText = "ContactNo";
+            this.ContactNo.MinimumWidth = 6;
+            this.ContactNo.Name = "ContactNo";
+            this.ContactNo.ReadOnly = true;
+            this.ContactNo.Width = 125;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.Frozen = true;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 125;
+            // 
+            // supplierIDDataGridViewTextBoxColumn
+            // 
+            this.supplierIDDataGridViewTextBoxColumn.DataPropertyName = "SupplierID";
+            this.supplierIDDataGridViewTextBoxColumn.HeaderText = "SupplierID";
+            this.supplierIDDataGridViewTextBoxColumn.Name = "supplierIDDataGridViewTextBoxColumn";
+            this.supplierIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // companyNameDataGridViewTextBoxColumn
+            // 
+            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.HeaderText = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
+            // 
+            // contactNameDataGridViewTextBoxColumn
+            // 
+            this.contactNameDataGridViewTextBoxColumn.DataPropertyName = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.HeaderText = "ContactName";
+            this.contactNameDataGridViewTextBoxColumn.Name = "contactNameDataGridViewTextBoxColumn";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            // 
+            // contactNoDataGridViewTextBoxColumn
+            // 
+            this.contactNoDataGridViewTextBoxColumn.DataPropertyName = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.HeaderText = "ContactNo";
+            this.contactNoDataGridViewTextBoxColumn.Name = "contactNoDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
             // tblsupplierBindingSource1
             // 
@@ -648,7 +766,7 @@
             this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Location = new System.Drawing.Point(1124, 529);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(93, 54);
             this.button11.TabIndex = 141;
@@ -660,7 +778,7 @@
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.Location = new System.Drawing.Point(1180, 455);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 140;
@@ -673,7 +791,7 @@
             this.addbuton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addbuton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbuton.Location = new System.Drawing.Point(1064, 455);
-            this.addbuton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addbuton.Margin = new System.Windows.Forms.Padding(2);
             this.addbuton.Name = "addbuton";
             this.addbuton.Size = new System.Drawing.Size(93, 54);
             this.addbuton.TabIndex = 139;
@@ -764,7 +882,7 @@
             // textBox21
             // 
             this.textBox21.Location = new System.Drawing.Point(60, 20);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox21.Margin = new System.Windows.Forms.Padding(2);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(130, 20);
             this.textBox21.TabIndex = 118;
@@ -780,22 +898,39 @@
             this.label27.TabIndex = 119;
             this.label27.Text = "Search:";
             // 
-            // tabPage2
+            // SupplierIDTxt
             // 
-            this.tabPage2.Controls.Add(this.pictureBox12);
-            this.tabPage2.Controls.Add(this.button10);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.AddBtn);
-            this.tabPage2.Controls.Add(this.TxtSearchBar);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1325, 657);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Purchase Order List";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.SupplierIDTxt.Controls.Add(this.SupplierIDlbl);
+            this.SupplierIDTxt.Controls.Add(this.textBox1);
+            this.SupplierIDTxt.Controls.Add(this.Contactname2txt);
+            this.SupplierIDTxt.Controls.Add(this.companyname2txt);
+            this.SupplierIDTxt.Controls.Add(this.ContactNamelbl);
+            this.SupplierIDTxt.Controls.Add(this.companynamelbl);
+            this.SupplierIDTxt.Controls.Add(this.SelectSupplierLbl);
+            this.SupplierIDTxt.Controls.Add(this.CmbSelectSupplier);
+            this.SupplierIDTxt.Controls.Add(this.comboBox1);
+            this.SupplierIDTxt.Controls.Add(this.pictureBox12);
+            this.SupplierIDTxt.Controls.Add(this.button10);
+            this.SupplierIDTxt.Controls.Add(this.button4);
+            this.SupplierIDTxt.Controls.Add(this.AddBtn);
+            this.SupplierIDTxt.Controls.Add(this.TxtSearchBar);
+            this.SupplierIDTxt.Controls.Add(this.label14);
+            this.SupplierIDTxt.Controls.Add(this.dataGridView1);
+            this.SupplierIDTxt.Location = new System.Drawing.Point(4, 22);
+            this.SupplierIDTxt.Name = "SupplierIDTxt";
+            this.SupplierIDTxt.Padding = new System.Windows.Forms.Padding(3);
+            this.SupplierIDTxt.Size = new System.Drawing.Size(1325, 657);
+            this.SupplierIDTxt.TabIndex = 1;
+            this.SupplierIDTxt.Text = "Purchase Order List";
+            this.SupplierIDTxt.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(303, 14);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 118;
             // 
             // pictureBox12
             // 
@@ -814,7 +949,7 @@
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Location = new System.Drawing.Point(1129, 540);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
             this.button10.TabIndex = 116;
@@ -826,7 +961,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(1185, 466);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 54);
             this.button4.TabIndex = 115;
@@ -838,7 +973,7 @@
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.Location = new System.Drawing.Point(1069, 466);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 114;
@@ -848,7 +983,7 @@
             // TxtSearchBar
             // 
             this.TxtSearchBar.Location = new System.Drawing.Point(60, 19);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 71;
@@ -901,65 +1036,74 @@
             // 
             this.tbl_supplierTableAdapter1.ClearBeforeFill = true;
             // 
-            // SupplierID
+            // CmbSelectSupplier
             // 
-            this.SupplierID.DataPropertyName = "SupplierID";
-            this.SupplierID.Frozen = true;
-            this.SupplierID.HeaderText = "SupplierID";
-            this.SupplierID.MinimumWidth = 6;
-            this.SupplierID.Name = "SupplierID";
-            this.SupplierID.ReadOnly = true;
-            this.SupplierID.Width = 125;
+            this.CmbSelectSupplier.FormattingEnabled = true;
+            this.CmbSelectSupplier.Location = new System.Drawing.Point(104, 448);
+            this.CmbSelectSupplier.Name = "CmbSelectSupplier";
+            this.CmbSelectSupplier.Size = new System.Drawing.Size(121, 21);
+            this.CmbSelectSupplier.TabIndex = 119;
+            this.CmbSelectSupplier.SelectedIndexChanged += new System.EventHandler(this.CmbSelectSupplier_SelectedIndexChanged);
             // 
-            // CompanyName
+            // SelectSupplierLbl
             // 
-            this.CompanyName.DataPropertyName = "CompanyName";
-            this.CompanyName.Frozen = true;
-            this.CompanyName.HeaderText = "CompanyName";
-            this.CompanyName.MinimumWidth = 6;
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.ReadOnly = true;
-            this.CompanyName.Width = 125;
+            this.SelectSupplierLbl.AutoSize = true;
+            this.SelectSupplierLbl.Location = new System.Drawing.Point(20, 451);
+            this.SelectSupplierLbl.Name = "SelectSupplierLbl";
+            this.SelectSupplierLbl.Size = new System.Drawing.Size(78, 13);
+            this.SelectSupplierLbl.TabIndex = 120;
+            this.SelectSupplierLbl.Text = "SelectSupplier:";
             // 
-            // ContactName
+            // companynamelbl
             // 
-            this.ContactName.DataPropertyName = "ContactName";
-            this.ContactName.Frozen = true;
-            this.ContactName.HeaderText = "ContactName";
-            this.ContactName.MinimumWidth = 6;
-            this.ContactName.Name = "ContactName";
-            this.ContactName.ReadOnly = true;
-            this.ContactName.Width = 125;
+            this.companynamelbl.AutoSize = true;
+            this.companynamelbl.Location = new System.Drawing.Point(7, 515);
+            this.companynamelbl.Name = "companynamelbl";
+            this.companynamelbl.Size = new System.Drawing.Size(85, 13);
+            this.companynamelbl.TabIndex = 121;
+            this.companynamelbl.Text = "Company Name:";
             // 
-            // Address
+            // ContactNamelbl
             // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.Frozen = true;
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 125;
+            this.ContactNamelbl.AutoSize = true;
+            this.ContactNamelbl.Location = new System.Drawing.Point(13, 547);
+            this.ContactNamelbl.Name = "ContactNamelbl";
+            this.ContactNamelbl.Size = new System.Drawing.Size(75, 13);
+            this.ContactNamelbl.TabIndex = 122;
+            this.ContactNamelbl.Text = "ContactName:";
             // 
-            // ContactNo
+            // companyname2txt
             // 
-            this.ContactNo.DataPropertyName = "ContactNo";
-            this.ContactNo.Frozen = true;
-            this.ContactNo.HeaderText = "ContactNo";
-            this.ContactNo.MinimumWidth = 6;
-            this.ContactNo.Name = "ContactNo";
-            this.ContactNo.ReadOnly = true;
-            this.ContactNo.Width = 125;
+            this.companyname2txt.Location = new System.Drawing.Point(104, 507);
+            this.companyname2txt.Name = "companyname2txt";
+            this.companyname2txt.ReadOnly = true;
+            this.companyname2txt.Size = new System.Drawing.Size(120, 20);
+            this.companyname2txt.TabIndex = 123;
             // 
-            // Email
+            // Contactname2txt
             // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.Frozen = true;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 125;
+            this.Contactname2txt.Location = new System.Drawing.Point(104, 544);
+            this.Contactname2txt.Name = "Contactname2txt";
+            this.Contactname2txt.ReadOnly = true;
+            this.Contactname2txt.Size = new System.Drawing.Size(120, 20);
+            this.Contactname2txt.TabIndex = 124;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(105, 473);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 125;
+            // 
+            // SupplierIDlbl
+            // 
+            this.SupplierIDlbl.AutoSize = true;
+            this.SupplierIDlbl.Location = new System.Drawing.Point(26, 476);
+            this.SupplierIDlbl.Name = "SupplierIDlbl";
+            this.SupplierIDlbl.Size = new System.Drawing.Size(62, 13);
+            this.SupplierIDlbl.TabIndex = 126;
+            this.SupplierIDlbl.Text = "Supplier ID:";
             // 
             // Purchasing
             // 
@@ -1004,8 +1148,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleSuppier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.SupplierIDTxt.ResumeLayout(false);
+            this.SupplierIDTxt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).EndInit();
@@ -1050,7 +1194,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Inventoryform;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage SupplierIDTxt;
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -1092,5 +1236,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbSelectSupplier;
+        private System.Windows.Forms.Label ContactNamelbl;
+        private System.Windows.Forms.Label companynamelbl;
+        private System.Windows.Forms.Label SelectSupplierLbl;
+        private System.Windows.Forms.TextBox Contactname2txt;
+        private System.Windows.Forms.TextBox companyname2txt;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label SupplierIDlbl;
     }
 }

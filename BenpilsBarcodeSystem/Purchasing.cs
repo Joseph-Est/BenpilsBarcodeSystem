@@ -307,5 +307,36 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
             ClearAllTextBoxes();
         }
+        private void SupplierSelectionAdd()
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                connection.Open();
+
+                // Define and execute a query to retrieve supplier data for the ComboBox
+                string query = "SELECT SupplierID, CompanyName, ContactName FROM tbl_supplier";
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    // Populate the ComboBox with supplier names and store the SupplierID as the value
+                    CmbSelectSupplier.Items.Add(new { SupplierID = (int)reader["SupplierID"], CompanyName = reader["CompanyName"].ToString() });
+                }
+            }
+        }
+        private void CmbSelectSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbSelectSupplier.SelectedIndex != -1)
+            {
+                // Get the selected item from the ComboBox
+                var selectedSupplier = (dynamic)CmbSelectSupplier.SelectedItem;
+
+                // Fill the TextBoxes with the selected supplier's data
+                SupplierIDTxt.Text = selectedSupplier.SupplierID.ToString();
+                companyname2txt.Text = selectedSupplier.CompanyName;
+                Contactname2txt.Text = selectedSupplier.ContactName;
+            }
+        }
     }
 }

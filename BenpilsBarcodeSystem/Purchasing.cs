@@ -310,7 +310,7 @@ namespace BenpilsBarcodeSystem
         }
         private void SupplierSelectionAdd()
         {
-            using (SqlConnection connection = new SqlConnection("YourConnectionString"))
+            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 try
                 {

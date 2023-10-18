@@ -118,8 +118,6 @@
             this.ContactNamelbl = new System.Windows.Forms.Label();
             this.companyname2txt = new System.Windows.Forms.TextBox();
             this.Contactname2txt = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SupplierIDlbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -900,8 +898,6 @@
             // 
             // SupplierIDTxt
             // 
-            this.SupplierIDTxt.Controls.Add(this.SupplierIDlbl);
-            this.SupplierIDTxt.Controls.Add(this.textBox1);
             this.SupplierIDTxt.Controls.Add(this.Contactname2txt);
             this.SupplierIDTxt.Controls.Add(this.companyname2txt);
             this.SupplierIDTxt.Controls.Add(this.ContactNamelbl);
@@ -1057,7 +1053,7 @@
             // companynamelbl
             // 
             this.companynamelbl.AutoSize = true;
-            this.companynamelbl.Location = new System.Drawing.Point(7, 515);
+            this.companynamelbl.Location = new System.Drawing.Point(7, 488);
             this.companynamelbl.Name = "companynamelbl";
             this.companynamelbl.Size = new System.Drawing.Size(85, 13);
             this.companynamelbl.TabIndex = 121;
@@ -1066,7 +1062,7 @@
             // ContactNamelbl
             // 
             this.ContactNamelbl.AutoSize = true;
-            this.ContactNamelbl.Location = new System.Drawing.Point(13, 547);
+            this.ContactNamelbl.Location = new System.Drawing.Point(7, 524);
             this.ContactNamelbl.Name = "ContactNamelbl";
             this.ContactNamelbl.Size = new System.Drawing.Size(75, 13);
             this.ContactNamelbl.TabIndex = 122;
@@ -1074,7 +1070,7 @@
             // 
             // companyname2txt
             // 
-            this.companyname2txt.Location = new System.Drawing.Point(104, 507);
+            this.companyname2txt.Location = new System.Drawing.Point(104, 485);
             this.companyname2txt.Name = "companyname2txt";
             this.companyname2txt.ReadOnly = true;
             this.companyname2txt.Size = new System.Drawing.Size(120, 20);
@@ -1082,28 +1078,11 @@
             // 
             // Contactname2txt
             // 
-            this.Contactname2txt.Location = new System.Drawing.Point(104, 544);
+            this.Contactname2txt.Location = new System.Drawing.Point(104, 521);
             this.Contactname2txt.Name = "Contactname2txt";
             this.Contactname2txt.ReadOnly = true;
             this.Contactname2txt.Size = new System.Drawing.Size(120, 20);
             this.Contactname2txt.TabIndex = 124;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(105, 473);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 125;
-            // 
-            // SupplierIDlbl
-            // 
-            this.SupplierIDlbl.AutoSize = true;
-            this.SupplierIDlbl.Location = new System.Drawing.Point(26, 476);
-            this.SupplierIDlbl.Name = "SupplierIDlbl";
-            this.SupplierIDlbl.Size = new System.Drawing.Size(62, 13);
-            this.SupplierIDlbl.TabIndex = 126;
-            this.SupplierIDlbl.Text = "Supplier ID:";
             // 
             // Purchasing
             // 
@@ -1249,7 +1228,5 @@
         private System.Windows.Forms.Label SelectSupplierLbl;
         private System.Windows.Forms.TextBox Contactname2txt;
         private System.Windows.Forms.TextBox companyname2txt;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label SupplierIDlbl;
     }
 }

@@ -63,6 +63,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Globalization.Calendars, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Globalization.Calendars.4.0.1\lib\net46\System.Globalization.Calendars.dll</HintPath>
       <Private>True</Private>
@@ -228,6 +229,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleDatabaseSupplier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabaseVoidTable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -242,6 +248,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleitemmasterdata2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </Compile>
     <Compile Include="ConfirmationExit.cs">
       <SubType>Form</SubType>
@@ -462,6 +473,17 @@
     <None Include="BenpillMotorcycleDatabasePOStable22.xss">
       <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcycleDatabaseSupplier.xsc">
+      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseSupplier.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabaseSupplier.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseSupplier.xss">
+      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleDatabaseVoidTable.xsc">
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
     </None>
@@ -494,6 +516,17 @@
     </None>
     <None Include="BenpillMotorcycleitemmasterdata2.xss">
       <DependentUpon>BenpillMotorcycleitemmasterdata2.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSuppier.xsc">
+      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSuppier.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleSuppier.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleSuppier.xss">
+      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

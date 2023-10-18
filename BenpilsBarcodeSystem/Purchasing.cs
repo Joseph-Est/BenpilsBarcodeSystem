@@ -189,7 +189,7 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (CompanyName, ContactName, Address, ContactNo, Email) " +
+            string insertQuery = "INSERT INTO tbl_supplier (CompanyName, ContactName, Address, ContactNo, Email) " +
                                "VALUES (@CompanyName, @ContactName, @Address, @ContactNo, @Email)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -221,7 +221,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    dataGridView2.DataSource = dt;
                 }
             }
         }
@@ -232,6 +232,15 @@ namespace BenpilsBarcodeSystem
             AddressTxt.Text = "";
             ContactNoTxt.Text = "";
             Emailtxt.Text = "";
+        }
+
+        private void Purchasing_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillMotorcycleSuppier.tbl_supplier' table. You can move, or remove it, as needed.
+            this.tbl_supplierTableAdapter1.Fill(this.benpillMotorcycleSuppier.tbl_supplier);
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseSupplier.tbl_supplier' table. You can move, or remove it, as needed.
+        
+
         }
     }
 }

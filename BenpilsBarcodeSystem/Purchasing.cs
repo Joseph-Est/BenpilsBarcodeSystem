@@ -14,6 +14,7 @@ namespace BenpilsBarcodeSystem
     public partial class Purchasing : Form
     {
         private User user;
+        private int selectedSupplierID = -1;
         public Purchasing(User user)
         {
             InitializeComponent();
@@ -241,6 +242,67 @@ namespace BenpilsBarcodeSystem
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseSupplier.tbl_supplier' table. You can move, or remove it, as needed.
         
 
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
+                ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
+                AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
+                ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
+                Emailtxt.Text = selectedRow.Cells["Email"].Value.ToString();
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedSupplierID != -1) // Ensure a valid selection
+            {
+                string companyName = CompanyNameTxt.Text;
+                string contactName = ContactNametxt.Text;
+                string address = AddressTxt.Text;
+                string contactNo = ContactNametxt.Text;
+                string email = Emailtxt.Text;
+
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    connection.Open();
+                    string query = "UPDATE Suppliers " +
+                                   "SET CompanyName = @CompanyName, " +
+                                   "ContactName = @ContactName, " +
+                                   "Address = @Address, " +
+                                   "ContactNo = @ContactNo, " +
+                                   "Email = @Email " +
+                                   "WHERE SupplierID = @SupplierID";
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue("@CompanyName", companyName);
+                    command.Parameters.AddWithValue("@ContactName", contactName);
+                    command.Parameters.AddWithValue("@Address", address);
+                    command.Parameters.AddWithValue("@ContactNo", contactNo);
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@SupplierID", selectedSupplierID); // Use the selectedSupplierID
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Supplier information updated successfully.");
+                        // Refresh the DataGridView to reflect the changes if needed.
+                        // You can rebind the data or just update the specific row in the DataGridView.
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update failed.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row before updating.");
+            }
         }
     }
 }

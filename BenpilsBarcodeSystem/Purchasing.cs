@@ -312,26 +312,18 @@ namespace BenpilsBarcodeSystem
         {
             using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
-                try
+                connection.Open();
+
+                string query = "SELECT SupplierID FROM tbl_supplier";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-
-                    // Define and execute a query to retrieve supplier data for the ComboBox
-                    string query = "SELECT SupplierID, CompanyName, ContactName FROM tbl_supplier";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        // Populate the ComboBox with supplier names and store the SupplierID as the value
-                        CmbSelectSupplier.Items.Add(new { SupplierID = (int)reader["SupplierID"], CompanyName = reader["CompanyName"].ToString(), ContactName = reader["ContactName"].ToString() });
+                        while (reader.Read())
+                        {
+                            CmbSelectSupplier.Items.Add(reader["SupplierID"].ToString());
+                        }
                     }
-                    CmbSelectSupplier.DisplayMember = "CompanyName";
-                    CmbSelectSupplier.ValueMember = "SupplierID";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -339,13 +331,26 @@ namespace BenpilsBarcodeSystem
         {
             if (CmbSelectSupplier.SelectedIndex != -1)
             {
-                // Get the selected item from the ComboBox
-                var selectedSupplier = (dynamic)CmbSelectSupplier.SelectedItem;
+                int selectedSupplierID = int.Parse(CmbSelectSupplier.SelectedItem.ToString());
 
-                // Fill the TextBoxes with the selected supplier's data
-                SupplierIDTxt.Text = selectedSupplier.SupplierID.ToString();
-                companyname2txt.Text = selectedSupplier.CompanyName;
-                Contactname2txt.Text = selectedSupplier.ContactName;
+                // Declare and initialize the SqlConnection object
+                using (SqlConnection connection = new SqlConnection("YourConnectionString"))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SELECT CompanyName, ContactNo FROM tbl_supplier WHERE SupplierID = @SupplierID", connection))
+                    {
+                        command.Parameters.AddWithValue("@SupplierID", selectedSupplierID);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                CompanyNameTxt.Text = reader["CompanyName"].ToString();
+                                ContactNoTxt.Text = reader["ContactNo"].ToString();
+                            }
+                        }
+                    }
+                }
             }
         }
     }

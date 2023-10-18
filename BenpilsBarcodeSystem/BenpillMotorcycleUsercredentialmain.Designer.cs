@@ -20,17 +20,17 @@ namespace BenpilsBarcodeSystem {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("UserCredentialsDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("BenpillMotorcycleUsercredentialmain")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class UserCredentialsDataSet : global::System.Data.DataSet {
+    public partial class BenpillMotorcycleUsercredentialmain : global::System.Data.DataSet {
         
-        private tbl_loginDataTable tabletbl_login;
+        private tbl_usercredentialDataTable tabletbl_usercredential;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public UserCredentialsDataSet() {
+        public BenpillMotorcycleUsercredentialmain() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace BenpilsBarcodeSystem {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected UserCredentialsDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected BenpillMotorcycleUsercredentialmain(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace BenpilsBarcodeSystem {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tbl_login"] != null)) {
-                    base.Tables.Add(new tbl_loginDataTable(ds.Tables["tbl_login"]));
+                if ((ds.Tables["tbl_usercredential"] != null)) {
+                    base.Tables.Add(new tbl_usercredentialDataTable(ds.Tables["tbl_usercredential"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace BenpilsBarcodeSystem {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tbl_loginDataTable tbl_login {
+        public tbl_usercredentialDataTable tbl_usercredential {
             get {
-                return this.tabletbl_login;
+                return this.tabletbl_usercredential;
             }
         }
         
@@ -127,7 +127,7 @@ namespace BenpilsBarcodeSystem {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            UserCredentialsDataSet cln = ((UserCredentialsDataSet)(base.Clone()));
+            BenpillMotorcycleUsercredentialmain cln = ((BenpillMotorcycleUsercredentialmain)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace BenpilsBarcodeSystem {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tbl_login"] != null)) {
-                    base.Tables.Add(new tbl_loginDataTable(ds.Tables["tbl_login"]));
+                if ((ds.Tables["tbl_usercredential"] != null)) {
+                    base.Tables.Add(new tbl_usercredentialDataTable(ds.Tables["tbl_usercredential"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace BenpilsBarcodeSystem {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletbl_login = ((tbl_loginDataTable)(base.Tables["tbl_login"]));
+            this.tabletbl_usercredential = ((tbl_usercredentialDataTable)(base.Tables["tbl_usercredential"]));
             if ((initTable == true)) {
-                if ((this.tabletbl_login != null)) {
-                    this.tabletbl_login.InitVars();
+                if ((this.tabletbl_usercredential != null)) {
+                    this.tabletbl_usercredential.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace BenpilsBarcodeSystem {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "UserCredentialsDataSet";
+            this.DataSetName = "BenpillMotorcycleUsercredentialmain";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/UserCredentialsDataSet2.xsd";
+            this.Namespace = "http://tempuri.org/BenpillMotorcycleUsercredentialmain.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletbl_login = new tbl_loginDataTable();
-            base.Tables.Add(this.tabletbl_login);
+            this.tabletbl_usercredential = new tbl_usercredentialDataTable();
+            base.Tables.Add(this.tabletbl_usercredential);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializetbl_login() {
+        private bool ShouldSerializetbl_usercredential() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace BenpilsBarcodeSystem {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            UserCredentialsDataSet ds = new UserCredentialsDataSet();
+            BenpillMotorcycleUsercredentialmain ds = new BenpillMotorcycleUsercredentialmain();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,22 +270,22 @@ namespace BenpilsBarcodeSystem {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void tbl_loginRowChangeEventHandler(object sender, tbl_loginRowChangeEvent e);
+        public delegate void tbl_usercredentialRowChangeEventHandler(object sender, tbl_usercredentialRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tbl_loginDataTable : global::System.Data.TypedTableBase<tbl_loginRow> {
+        public partial class tbl_usercredentialDataTable : global::System.Data.TypedTableBase<tbl_usercredentialRow> {
             
-            private global::System.Data.DataColumn columnid;
+            private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnFirstname;
+            private global::System.Data.DataColumn columnFirstName;
             
-            private global::System.Data.DataColumn columnLastname;
+            private global::System.Data.DataColumn columnLastName;
             
-            private global::System.Data.DataColumn columnUsername;
+            private global::System.Data.DataColumn columnUserName;
             
             private global::System.Data.DataColumn columnPassword;
             
@@ -297,8 +297,8 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginDataTable() {
-                this.TableName = "tbl_login";
+            public tbl_usercredentialDataTable() {
+                this.TableName = "tbl_usercredential";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +306,7 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal tbl_loginDataTable(global::System.Data.DataTable table) {
+            internal tbl_usercredentialDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,40 +323,40 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected tbl_loginDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tbl_usercredentialDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
+            public global::System.Data.DataColumn IDColumn {
                 get {
-                    return this.columnid;
+                    return this.columnID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn FirstnameColumn {
+            public global::System.Data.DataColumn FirstNameColumn {
                 get {
-                    return this.columnFirstname;
+                    return this.columnFirstName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn LastnameColumn {
+            public global::System.Data.DataColumn LastNameColumn {
                 get {
-                    return this.columnLastname;
+                    return this.columnLastName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn UsernameColumn {
+            public global::System.Data.DataColumn UserNameColumn {
                 get {
-                    return this.columnUsername;
+                    return this.columnUserName;
                 }
             }
             
@@ -403,59 +403,59 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRow this[int index] {
+            public tbl_usercredentialRow this[int index] {
                 get {
-                    return ((tbl_loginRow)(this.Rows[index]));
+                    return ((tbl_usercredentialRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tbl_loginRowChangeEventHandler tbl_loginRowChanging;
+            public event tbl_usercredentialRowChangeEventHandler tbl_usercredentialRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tbl_loginRowChangeEventHandler tbl_loginRowChanged;
+            public event tbl_usercredentialRowChangeEventHandler tbl_usercredentialRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tbl_loginRowChangeEventHandler tbl_loginRowDeleting;
+            public event tbl_usercredentialRowChangeEventHandler tbl_usercredentialRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tbl_loginRowChangeEventHandler tbl_loginRowDeleted;
+            public event tbl_usercredentialRowChangeEventHandler tbl_usercredentialRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addtbl_loginRow(tbl_loginRow row) {
+            public void Addtbl_usercredentialRow(tbl_usercredentialRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRow Addtbl_loginRow(string Firstname, string Lastname, string Username, string Password, string Designation, string Address, string ContactNo) {
-                tbl_loginRow rowtbl_loginRow = ((tbl_loginRow)(this.NewRow()));
+            public tbl_usercredentialRow Addtbl_usercredentialRow(string FirstName, string LastName, string UserName, string Password, string Designation, string Address, string ContactNo) {
+                tbl_usercredentialRow rowtbl_usercredentialRow = ((tbl_usercredentialRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Firstname,
-                        Lastname,
-                        Username,
+                        FirstName,
+                        LastName,
+                        UserName,
                         Password,
                         Designation,
                         Address,
                         ContactNo};
-                rowtbl_loginRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtbl_loginRow);
-                return rowtbl_loginRow;
+                rowtbl_usercredentialRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtbl_usercredentialRow);
+                return rowtbl_usercredentialRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRow FindByid(int id) {
-                return ((tbl_loginRow)(this.Rows.Find(new object[] {
-                            id})));
+            public tbl_usercredentialRow FindByID(int ID) {
+                return ((tbl_usercredentialRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tbl_loginDataTable cln = ((tbl_loginDataTable)(base.Clone()));
+                tbl_usercredentialDataTable cln = ((tbl_usercredentialDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,16 +463,16 @@ namespace BenpilsBarcodeSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tbl_loginDataTable();
+                return new tbl_usercredentialDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid = base.Columns["id"];
-                this.columnFirstname = base.Columns["Firstname"];
-                this.columnLastname = base.Columns["Lastname"];
-                this.columnUsername = base.Columns["Username"];
+                this.columnID = base.Columns["ID"];
+                this.columnFirstName = base.Columns["FirstName"];
+                this.columnLastName = base.Columns["LastName"];
+                this.columnUserName = base.Columns["UserName"];
                 this.columnPassword = base.Columns["Password"];
                 this.columnDesignation = base.Columns["Designation"];
                 this.columnAddress = base.Columns["Address"];
@@ -482,14 +482,14 @@ namespace BenpilsBarcodeSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
-                this.columnFirstname = new global::System.Data.DataColumn("Firstname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFirstname);
-                this.columnLastname = new global::System.Data.DataColumn("Lastname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastname);
-                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsername);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstName);
+                this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastName);
+                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserName);
                 this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassword);
                 this.columnDesignation = new global::System.Data.DataColumn("Designation", typeof(string), null, global::System.Data.MappingType.Element);
@@ -499,16 +499,16 @@ namespace BenpilsBarcodeSystem {
                 this.columnContactNo = new global::System.Data.DataColumn("ContactNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContactNo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.ReadOnly = true;
-                this.columnid.Unique = true;
-                this.columnFirstname.MaxLength = 50;
-                this.columnLastname.MaxLength = 50;
-                this.columnUsername.MaxLength = 50;
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnFirstName.MaxLength = 50;
+                this.columnLastName.MaxLength = 50;
+                this.columnUserName.MaxLength = 50;
                 this.columnPassword.MaxLength = 50;
                 this.columnDesignation.MaxLength = 50;
                 this.columnAddress.MaxLength = 50;
@@ -517,28 +517,28 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRow Newtbl_loginRow() {
-                return ((tbl_loginRow)(this.NewRow()));
+            public tbl_usercredentialRow Newtbl_usercredentialRow() {
+                return ((tbl_usercredentialRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tbl_loginRow(builder);
+                return new tbl_usercredentialRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tbl_loginRow);
+                return typeof(tbl_usercredentialRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tbl_loginRowChanged != null)) {
-                    this.tbl_loginRowChanged(this, new tbl_loginRowChangeEvent(((tbl_loginRow)(e.Row)), e.Action));
+                if ((this.tbl_usercredentialRowChanged != null)) {
+                    this.tbl_usercredentialRowChanged(this, new tbl_usercredentialRowChangeEvent(((tbl_usercredentialRow)(e.Row)), e.Action));
                 }
             }
             
@@ -546,8 +546,8 @@ namespace BenpilsBarcodeSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tbl_loginRowChanging != null)) {
-                    this.tbl_loginRowChanging(this, new tbl_loginRowChangeEvent(((tbl_loginRow)(e.Row)), e.Action));
+                if ((this.tbl_usercredentialRowChanging != null)) {
+                    this.tbl_usercredentialRowChanging(this, new tbl_usercredentialRowChangeEvent(((tbl_usercredentialRow)(e.Row)), e.Action));
                 }
             }
             
@@ -555,8 +555,8 @@ namespace BenpilsBarcodeSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tbl_loginRowDeleted != null)) {
-                    this.tbl_loginRowDeleted(this, new tbl_loginRowChangeEvent(((tbl_loginRow)(e.Row)), e.Action));
+                if ((this.tbl_usercredentialRowDeleted != null)) {
+                    this.tbl_usercredentialRowDeleted(this, new tbl_usercredentialRowChangeEvent(((tbl_usercredentialRow)(e.Row)), e.Action));
                 }
             }
             
@@ -564,14 +564,14 @@ namespace BenpilsBarcodeSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tbl_loginRowDeleting != null)) {
-                    this.tbl_loginRowDeleting(this, new tbl_loginRowChangeEvent(((tbl_loginRow)(e.Row)), e.Action));
+                if ((this.tbl_usercredentialRowDeleting != null)) {
+                    this.tbl_usercredentialRowDeleting(this, new tbl_usercredentialRowChangeEvent(((tbl_usercredentialRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removetbl_loginRow(tbl_loginRow row) {
+            public void Removetbl_usercredentialRow(tbl_usercredentialRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -580,7 +580,7 @@ namespace BenpilsBarcodeSystem {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                UserCredentialsDataSet ds = new UserCredentialsDataSet();
+                BenpillMotorcycleUsercredentialmain ds = new BenpillMotorcycleUsercredentialmain();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -598,7 +598,7 @@ namespace BenpilsBarcodeSystem {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tbl_loginDataTable";
+                attribute2.FixedValue = "tbl_usercredentialDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -642,73 +642,73 @@ namespace BenpilsBarcodeSystem {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tbl_loginRow : global::System.Data.DataRow {
+        public partial class tbl_usercredentialRow : global::System.Data.DataRow {
             
-            private tbl_loginDataTable tabletbl_login;
+            private tbl_usercredentialDataTable tabletbl_usercredential;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal tbl_loginRow(global::System.Data.DataRowBuilder rb) : 
+            internal tbl_usercredentialRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletbl_login = ((tbl_loginDataTable)(this.Table));
+                this.tabletbl_usercredential = ((tbl_usercredentialDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id {
+            public int ID {
                 get {
-                    return ((int)(this[this.tabletbl_login.idColumn]));
+                    return ((int)(this[this.tabletbl_usercredential.IDColumn]));
                 }
                 set {
-                    this[this.tabletbl_login.idColumn] = value;
+                    this[this.tabletbl_usercredential.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Firstname {
-                get {
-                    try {
-                        return ((string)(this[this.tabletbl_login.FirstnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Firstname\' in table \'tbl_login\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletbl_login.FirstnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Lastname {
+            public string FirstName {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.LastnameColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.FirstNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Lastname\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.LastnameColumn] = value;
+                    this[this.tabletbl_usercredential.FirstNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Username {
+            public string LastName {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.UsernameColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.LastNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Username\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.UsernameColumn] = value;
+                    this[this.tabletbl_usercredential.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string UserName {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_usercredential.UserNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserName\' in table \'tbl_usercredential\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_usercredential.UserNameColumn] = value;
                 }
             }
             
@@ -717,14 +717,14 @@ namespace BenpilsBarcodeSystem {
             public string Password {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.PasswordColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.PasswordColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Password\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Password\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.PasswordColumn] = value;
+                    this[this.tabletbl_usercredential.PasswordColumn] = value;
                 }
             }
             
@@ -733,14 +733,14 @@ namespace BenpilsBarcodeSystem {
             public string Designation {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.DesignationColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.DesignationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Designation\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Designation\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.DesignationColumn] = value;
+                    this[this.tabletbl_usercredential.DesignationColumn] = value;
                 }
             }
             
@@ -749,14 +749,14 @@ namespace BenpilsBarcodeSystem {
             public string Address {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.AddressColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.AddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Address\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.AddressColumn] = value;
+                    this[this.tabletbl_usercredential.AddressColumn] = value;
                 }
             }
             
@@ -765,99 +765,99 @@ namespace BenpilsBarcodeSystem {
             public string ContactNo {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_login.ContactNoColumn]));
+                        return ((string)(this[this.tabletbl_usercredential.ContactNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ContactNo\' in table \'tbl_login\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContactNo\' in table \'tbl_usercredential\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_login.ContactNoColumn] = value;
+                    this[this.tabletbl_usercredential.ContactNoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFirstnameNull() {
-                return this.IsNull(this.tabletbl_login.FirstnameColumn);
+            public bool IsFirstNameNull() {
+                return this.IsNull(this.tabletbl_usercredential.FirstNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFirstnameNull() {
-                this[this.tabletbl_login.FirstnameColumn] = global::System.Convert.DBNull;
+            public void SetFirstNameNull() {
+                this[this.tabletbl_usercredential.FirstNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsLastnameNull() {
-                return this.IsNull(this.tabletbl_login.LastnameColumn);
+            public bool IsLastNameNull() {
+                return this.IsNull(this.tabletbl_usercredential.LastNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetLastnameNull() {
-                this[this.tabletbl_login.LastnameColumn] = global::System.Convert.DBNull;
+            public void SetLastNameNull() {
+                this[this.tabletbl_usercredential.LastNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUsernameNull() {
-                return this.IsNull(this.tabletbl_login.UsernameColumn);
+            public bool IsUserNameNull() {
+                return this.IsNull(this.tabletbl_usercredential.UserNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUsernameNull() {
-                this[this.tabletbl_login.UsernameColumn] = global::System.Convert.DBNull;
+            public void SetUserNameNull() {
+                this[this.tabletbl_usercredential.UserNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPasswordNull() {
-                return this.IsNull(this.tabletbl_login.PasswordColumn);
+                return this.IsNull(this.tabletbl_usercredential.PasswordColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPasswordNull() {
-                this[this.tabletbl_login.PasswordColumn] = global::System.Convert.DBNull;
+                this[this.tabletbl_usercredential.PasswordColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDesignationNull() {
-                return this.IsNull(this.tabletbl_login.DesignationColumn);
+                return this.IsNull(this.tabletbl_usercredential.DesignationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDesignationNull() {
-                this[this.tabletbl_login.DesignationColumn] = global::System.Convert.DBNull;
+                this[this.tabletbl_usercredential.DesignationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAddressNull() {
-                return this.IsNull(this.tabletbl_login.AddressColumn);
+                return this.IsNull(this.tabletbl_usercredential.AddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAddressNull() {
-                this[this.tabletbl_login.AddressColumn] = global::System.Convert.DBNull;
+                this[this.tabletbl_usercredential.AddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsContactNoNull() {
-                return this.IsNull(this.tabletbl_login.ContactNoColumn);
+                return this.IsNull(this.tabletbl_usercredential.ContactNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetContactNoNull() {
-                this[this.tabletbl_login.ContactNoColumn] = global::System.Convert.DBNull;
+                this[this.tabletbl_usercredential.ContactNoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -865,22 +865,22 @@ namespace BenpilsBarcodeSystem {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class tbl_loginRowChangeEvent : global::System.EventArgs {
+        public class tbl_usercredentialRowChangeEvent : global::System.EventArgs {
             
-            private tbl_loginRow eventRow;
+            private tbl_usercredentialRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRowChangeEvent(tbl_loginRow row, global::System.Data.DataRowAction action) {
+            public tbl_usercredentialRowChangeEvent(tbl_usercredentialRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_loginRow Row {
+            public tbl_usercredentialRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -896,7 +896,7 @@ namespace BenpilsBarcodeSystem {
         }
     }
 }
-namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
+namespace BenpilsBarcodeSystem.BenpillMotorcycleUsercredentialmainTableAdapters {
     
     
     /// <summary>
@@ -908,7 +908,7 @@ namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tbl_loginTableAdapter : global::System.ComponentModel.Component {
+    public partial class tbl_usercredentialTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -922,7 +922,7 @@ namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public tbl_loginTableAdapter() {
+        public tbl_usercredentialTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1019,11 +1019,11 @@ namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tbl_login";
-            tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("Firstname", "Firstname");
-            tableMapping.ColumnMappings.Add("Lastname", "Lastname");
-            tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.DataSetTable = "tbl_usercredential";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
+            tableMapping.ColumnMappings.Add("LastName", "LastName");
+            tableMapping.ColumnMappings.Add("UserName", "UserName");
             tableMapping.ColumnMappings.Add("Password", "Password");
             tableMapping.ColumnMappings.Add("Designation", "Designation");
             tableMapping.ColumnMappings.Add("Address", "Address");
@@ -1031,15 +1031,15 @@ namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbl_login] WHERE (([id] = @Original_id) AND ((@IsNull_Firstname = 1 AND [Firstname] IS NULL) OR ([Firstname] = @Original_Firstname)) AND ((@IsNull_Lastname = 1 AND [Lastname] IS NULL) OR ([Lastname] = @Original_Lastname)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_Designation = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbl_usercredential] WHERE (([ID] = @Original_ID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_Designation = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Firstname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Firstname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Lastname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Lastname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Username", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Designation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1050,35 +1050,35 @@ namespace BenpilsBarcodeSystem.UserCredentialsDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbl_login] ([Firstname], [Lastname], [Username], [Password], [Designation], [Address], [ContactNo]) VALUES (@Firstname, @Lastname, @Username, @Password, @Designation, @Address, @ContactNo);
-SELECT id, Firstname, Lastname, Username, Password, Designation, Address, ContactNo FROM tbl_login WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbl_usercredential] ([FirstName], [LastName], [UserName], [Password], [Designation], [Address], [ContactNo]) VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo);
+SELECT ID, FirstName, LastName, UserName, Password, Designation, Address, ContactNo FROM tbl_usercredential WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Firstname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Lastname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbl_login] SET [Firstname] = @Firstname, [Lastname] = @Lastname, [Username] = @Username, [Password] = @Password, [Designation] = @Designation, [Address] = @Address, [ContactNo] = @ContactNo WHERE (([id] = @Original_id) AND ((@IsNull_Firstname = 1 AND [Firstname] IS NULL) OR ([Firstname] = @Original_Firstname)) AND ((@IsNull_Lastname = 1 AND [Lastname] IS NULL) OR ([Lastname] = @Original_Lastname)) AND ((@IsNull_Username = 1 AND [Username] IS NULL) OR ([Username] = @Original_Username)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_Designation = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)));
-SELECT id, Firstname, Lastname, Username, Password, Designation, Address, ContactNo FROM tbl_login WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbl_usercredential] SET [FirstName] = @FirstName, [LastName] = @LastName, [UserName] = @UserName, [Password] = @Password, [Designation] = @Designation, [Address] = @Address, [ContactNo] = @ContactNo WHERE (([ID] = @Original_ID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_Designation = 1 AND [Designation] IS NULL) OR ([Designation] = @Original_Designation)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_ContactNo = 1 AND [ContactNo] IS NULL) OR ([ContactNo] = @Original_ContactNo)));
+SELECT ID, FirstName, LastName, UserName, Password, Designation, Address, ContactNo FROM tbl_usercredential WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Firstname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Lastname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Designation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Firstname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Firstname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Firstname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Lastname", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Lastname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Lastname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Username", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FirstName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LastName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UserName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Password", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Designation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Designation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1087,14 +1087,14 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ContactNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BenpilsBarcodeSystem.Properties.Settings.Default.UserCredentialsConnectionString;
+            this._connection.ConnectionString = global::BenpilsBarcodeSystem.Properties.Settings.Default.BenpillMotorcycleDatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1103,8 +1103,8 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contact" +
-                "No FROM dbo.tbl_login";
+            this._commandCollection[0].CommandText = "SELECT ID, FirstName, LastName, UserName, Password, Designation, Address, Contact" +
+                "No FROM dbo.tbl_usercredential";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1112,7 +1112,7 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(UserCredentialsDataSet.tbl_loginDataTable dataTable) {
+        public virtual int Fill(BenpillMotorcycleUsercredentialmain.tbl_usercredentialDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1125,9 +1125,9 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual UserCredentialsDataSet.tbl_loginDataTable GetData() {
+        public virtual BenpillMotorcycleUsercredentialmain.tbl_usercredentialDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            UserCredentialsDataSet.tbl_loginDataTable dataTable = new UserCredentialsDataSet.tbl_loginDataTable();
+            BenpillMotorcycleUsercredentialmain.tbl_usercredentialDataTable dataTable = new BenpillMotorcycleUsercredentialmain.tbl_usercredentialDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1135,15 +1135,15 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(UserCredentialsDataSet.tbl_loginDataTable dataTable) {
+        public virtual int Update(BenpillMotorcycleUsercredentialmain.tbl_usercredentialDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(UserCredentialsDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "tbl_login");
+        public virtual int Update(BenpillMotorcycleUsercredentialmain dataSet) {
+            return this.Adapter.Update(dataSet, "tbl_usercredential");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1165,31 +1165,31 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_Firstname, string Original_Lastname, string Original_Username, string Original_Password, string Original_Designation, string Original_Address, string Original_ContactNo) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
-            if ((Original_Firstname == null)) {
+        public virtual int Delete(int Original_ID, string Original_FirstName, string Original_LastName, string Original_UserName, string Original_Password, string Original_Designation, string Original_Address, string Original_ContactNo) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_FirstName == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Firstname));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_FirstName));
             }
-            if ((Original_Lastname == null)) {
+            if ((Original_LastName == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Lastname));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_LastName));
             }
-            if ((Original_Username == null)) {
+            if ((Original_UserName == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Username));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_UserName));
             }
             if ((Original_Password == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -1243,24 +1243,24 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Firstname, string Lastname, string Username, string Password, string Designation, string Address, string ContactNo) {
-            if ((Firstname == null)) {
+        public virtual int Insert(string FirstName, string LastName, string UserName, string Password, string Designation, string Address, string ContactNo) {
+            if ((FirstName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Firstname));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FirstName));
             }
-            if ((Lastname == null)) {
+            if ((LastName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Lastname));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LastName));
             }
-            if ((Username == null)) {
+            if ((UserName == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Username));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(UserName));
             }
             if ((Password == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -1307,39 +1307,39 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string Firstname, 
-                    string Lastname, 
-                    string Username, 
+                    string FirstName, 
+                    string LastName, 
+                    string UserName, 
                     string Password, 
                     string Designation, 
                     string Address, 
                     string ContactNo, 
-                    int Original_id, 
-                    string Original_Firstname, 
-                    string Original_Lastname, 
-                    string Original_Username, 
+                    int Original_ID, 
+                    string Original_FirstName, 
+                    string Original_LastName, 
+                    string Original_UserName, 
                     string Original_Password, 
                     string Original_Designation, 
                     string Original_Address, 
                     string Original_ContactNo, 
-                    int id) {
-            if ((Firstname == null)) {
+                    int ID) {
+            if ((FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Firstname));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FirstName));
             }
-            if ((Lastname == null)) {
+            if ((LastName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Lastname));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LastName));
             }
-            if ((Username == null)) {
+            if ((UserName == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Username));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(UserName));
             }
             if ((Password == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -1365,30 +1365,30 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(ContactNo));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id));
-            if ((Original_Firstname == null)) {
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID));
+            if ((Original_FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Firstname));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_FirstName));
             }
-            if ((Original_Lastname == null)) {
+            if ((Original_LastName == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Lastname));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_LastName));
             }
-            if ((Original_Username == null)) {
+            if ((Original_UserName == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_UserName));
             }
             if ((Original_Password == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
@@ -1422,7 +1422,7 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_ContactNo));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1443,8 +1443,8 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Firstname, string Lastname, string Username, string Password, string Designation, string Address, string ContactNo, int Original_id, string Original_Firstname, string Original_Lastname, string Original_Username, string Original_Password, string Original_Designation, string Original_Address, string Original_ContactNo) {
-            return this.Update(Firstname, Lastname, Username, Password, Designation, Address, ContactNo, Original_id, Original_Firstname, Original_Lastname, Original_Username, Original_Password, Original_Designation, Original_Address, Original_ContactNo, Original_id);
+        public virtual int Update(string FirstName, string LastName, string UserName, string Password, string Designation, string Address, string ContactNo, int Original_ID, string Original_FirstName, string Original_LastName, string Original_UserName, string Original_Password, string Original_Designation, string Original_Address, string Original_ContactNo) {
+            return this.Update(FirstName, LastName, UserName, Password, Designation, Address, ContactNo, Original_ID, Original_FirstName, Original_LastName, Original_UserName, Original_Password, Original_Designation, Original_Address, Original_ContactNo, Original_ID);
         }
     }
     
@@ -1460,7 +1460,7 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         
         private UpdateOrderOption _updateOrder;
         
-        private tbl_loginTableAdapter _tbl_loginTableAdapter;
+        private tbl_usercredentialTableAdapter _tbl_usercredentialTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1482,12 +1482,12 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public tbl_loginTableAdapter tbl_loginTableAdapter {
+        public tbl_usercredentialTableAdapter tbl_usercredentialTableAdapter {
             get {
-                return this._tbl_loginTableAdapter;
+                return this._tbl_usercredentialTableAdapter;
             }
             set {
-                this._tbl_loginTableAdapter = value;
+                this._tbl_usercredentialTableAdapter = value;
             }
         }
         
@@ -1510,9 +1510,9 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tbl_loginTableAdapter != null) 
-                            && (this._tbl_loginTableAdapter.Connection != null))) {
-                    return this._tbl_loginTableAdapter.Connection;
+                if (((this._tbl_usercredentialTableAdapter != null) 
+                            && (this._tbl_usercredentialTableAdapter.Connection != null))) {
+                    return this._tbl_usercredentialTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1527,7 +1527,7 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tbl_loginTableAdapter != null)) {
+                if ((this._tbl_usercredentialTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1539,14 +1539,14 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(UserCredentialsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(BenpillMotorcycleUsercredentialmain dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_loginTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_login.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_usercredentialTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tbl_usercredential.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_loginTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_usercredentialTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1558,13 +1558,13 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(UserCredentialsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(BenpillMotorcycleUsercredentialmain dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_loginTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_login.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_usercredentialTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tbl_usercredential.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_loginTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_usercredentialTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1576,13 +1576,13 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(UserCredentialsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(BenpillMotorcycleUsercredentialmain dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tbl_loginTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_login.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_usercredentialTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tbl_usercredential.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_loginTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_usercredentialTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1618,15 +1618,15 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(UserCredentialsDataSet dataSet) {
+        public virtual int UpdateAll(BenpillMotorcycleUsercredentialmain dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tbl_loginTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_loginTableAdapter.Connection) == false))) {
+            if (((this._tbl_usercredentialTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tbl_usercredentialTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1662,13 +1662,13 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tbl_loginTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_loginTableAdapter, this._tbl_loginTableAdapter.Connection);
-                    this._tbl_loginTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tbl_loginTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tbl_loginTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_loginTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_loginTableAdapter.Adapter);
+                if ((this._tbl_usercredentialTableAdapter != null)) {
+                    revertConnections.Add(this._tbl_usercredentialTableAdapter, this._tbl_usercredentialTableAdapter.Connection);
+                    this._tbl_usercredentialTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tbl_usercredentialTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tbl_usercredentialTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tbl_usercredentialTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_usercredentialTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1729,9 +1729,9 @@ SELECT id, Firstname, Lastname, Username, Password, Designation, Address, Contac
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tbl_loginTableAdapter != null)) {
-                    this._tbl_loginTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_loginTableAdapter]));
-                    this._tbl_loginTableAdapter.Transaction = null;
+                if ((this._tbl_usercredentialTableAdapter != null)) {
+                    this._tbl_usercredentialTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_usercredentialTableAdapter]));
+                    this._tbl_usercredentialTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

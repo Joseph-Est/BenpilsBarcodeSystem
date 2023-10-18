@@ -265,13 +265,13 @@ namespace BenpilsBarcodeSystem
                 string companyName = CompanyNameTxt.Text;
                 string contactName = ContactNametxt.Text;
                 string address = AddressTxt.Text;
-                string contactNo = ContactNametxt.Text;
+                string contactNo = ContactNoTxt.Text;
                 string email = Emailtxt.Text;
 
                 using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
-                    string query = "UPDATE Suppliers " +
+                    string query = "UPDATE tbl_supplier " +
                                    "SET CompanyName = @CompanyName, " +
                                    "ContactName = @ContactName, " +
                                    "Address = @Address, " +
@@ -304,6 +304,8 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("Please select a row before updating.");
             }
+            UpdateDataGridView();
+            ClearAllTextBoxes();
         }
     }
 }

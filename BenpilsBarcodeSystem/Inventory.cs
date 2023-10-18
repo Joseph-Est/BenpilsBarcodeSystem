@@ -154,11 +154,8 @@ namespace BenpilsBarcodeSystem
        
         private void Inventory_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseItemmasterdata2.tbl_itemmasterdata2' table. You can move, or remove it, as needed.
-            this.tbl_itemmasterdata2TableAdapter1.Fill(this.benpillMotorcycleDatabaseItemmasterdata2.tbl_itemmasterdata2);
-            // TODO: This line of code loads data into the 'benpillMotorcycleitemmasterdata2.tbl_itemmasterdata2' table. You can move, or remove it, as needed.
-            this.tbl_itemmasterdata2TableAdapter.Fill(this.benpillMotorcycleitemmasterdata2.tbl_itemmasterdata2);
-            // TODO: This line of code loads data into the 'benpillMotorcycleitemmasterdata.tbl_itemmasterdata' table. You can move, or remove it, as needed.
+
+
             this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleitemmasterdata.tbl_itemmasterdata);
             // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterData.tbl_itemmasterdata' table. You can move, or remove it, as needed.
 
@@ -284,19 +281,7 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dataGridInventory.Rows[e.RowIndex];
-
-              //  txtBarcode.Text = selectedRow.Cells["Barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["Brand"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["Category"].Value.ToString();
-
-                Addbtn.Enabled = false;
-            }
+           
           
         }
         private void UpdateDataGridView()
@@ -310,6 +295,24 @@ namespace BenpilsBarcodeSystem
                     adapter.Fill(dt);
                     dataGridInventory.DataSource = dt;
                 }
+            }
+        }
+
+        private void dataGridInventory_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (dataGridInventory.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridInventory.SelectedRows[0];
+
+                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
+                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
+                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
+                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
+                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
+                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
+
+                Addbtn.Enabled = false;
             }
         }
     }

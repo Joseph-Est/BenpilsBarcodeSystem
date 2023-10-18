@@ -80,14 +80,16 @@ namespace BenpilsBarcodeSystem
         }
         private void UserCredentials_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleUsercredentialmain.tbl_usercredential' table. You can move, or remove it, as needed.
+            this.tbl_usercredentialTableAdapter2.Fill(this.benpillMotorcycleUsercredentialmain.tbl_usercredential);
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet1.tbl_usercredential' table. You can move, or remove it, as needed.
             this.tbl_usercredentialTableAdapter1.Fill(this.benpillMotorcycleDatabaseDataSet1.tbl_usercredential);
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet.tbl_usercredential' table. You can move, or remove it, as needed.
             this.tbl_usercredentialTableAdapter.Fill(this.benpillMotorcycleDatabaseDataSet.tbl_usercredential);
             // TODO: This line of code loads data into the 'userCredentialsDataSet1.tbl_login' table. You can move, or remove it, as needed.
-            this.tbl_loginTableAdapter1.Fill(this.userCredentialsDataSet1.tbl_login);
+    
 
-            this.tbl_loginTableAdapter.Fill(this.userCredentialsDataSet.tbl_login);
+        
             dataGridView1.Columns["ID"].ReadOnly = true;
             dataGridView1.Columns["FirstName"].ReadOnly = true;
             dataGridView1.Columns["LastName"].ReadOnly = true;

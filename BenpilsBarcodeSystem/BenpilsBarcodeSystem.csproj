@@ -254,6 +254,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleUsercredentialmain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmationExit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,16 +339,6 @@
     </Compile>
     <Compile Include="UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserCredentialsDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="UserCredentialsDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserCredentialsDataSet2.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BarcodeGenerator.resx">
       <DependentUpon>BarcodeGenerator.cs</DependentUpon>
@@ -528,6 +523,17 @@
     <None Include="BenpillMotorcycleSuppier.xss">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcycleUsercredentialmain.xsc">
+      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleUsercredentialmain.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleUsercredentialmain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleUsercredentialmain.xss">
+      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -538,28 +544,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="UserCredentialsDataSet11.xsc">
-      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="UserCredentialsDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UserCredentialsDataSet11.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UserCredentialsDataSet11.xss">
-      <DependentUpon>UserCredentialsDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="UserCredentialsDataSet2.xsc">
-      <DependentUpon>UserCredentialsDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="UserCredentialsDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UserCredentialsDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UserCredentialsDataSet2.xss">
-      <DependentUpon>UserCredentialsDataSet2.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

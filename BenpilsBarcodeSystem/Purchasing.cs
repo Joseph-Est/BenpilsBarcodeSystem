@@ -249,6 +249,7 @@ namespace BenpilsBarcodeSystem
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                selectedSupplierID = int.Parse(selectedRow.Cells["SupplierID"].Value.ToString());
                 CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();

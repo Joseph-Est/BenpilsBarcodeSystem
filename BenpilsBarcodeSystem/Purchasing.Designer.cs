@@ -1030,6 +1030,7 @@
             this.CallAddSupplieritemBtn.TabIndex = 120;
             this.CallAddSupplieritemBtn.Text = "Add";
             this.CallAddSupplieritemBtn.UseVisualStyleBackColor = true;
+            this.CallAddSupplieritemBtn.Click += new System.EventHandler(this.CallAddSupplieritemBtn_Click);
             // 
             // Purchasing
             // 

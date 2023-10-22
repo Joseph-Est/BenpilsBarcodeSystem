@@ -312,5 +312,12 @@ namespace BenpilsBarcodeSystem
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void CallAddSupplieritemBtn_Click(object sender, EventArgs e)
+        {
+            AddSupplierItem addsupplierwindow = new AddSupplierItem();
+            addsupplierwindow.ShowDialog();
+            addsupplierwindow.BringToFront();
+        }
     }
 }

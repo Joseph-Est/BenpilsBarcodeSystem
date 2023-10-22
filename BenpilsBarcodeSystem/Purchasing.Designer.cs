@@ -99,6 +99,7 @@
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.SupplierIDTxt = new System.Windows.Forms.TabPage();
+            this.dataGridPurchase = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
@@ -112,7 +113,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbl_supplierTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseSupplierTableAdapters.tbl_supplierTableAdapter();
             this.tbl_supplierTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleSuppierTableAdapters.tbl_supplierTableAdapter();
-            this.dataGridPurchase = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -137,12 +137,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleSuppier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SupplierIDTxt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeliveredItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -911,6 +911,15 @@
             this.SupplierIDTxt.Text = "Purchase Order List";
             this.SupplierIDTxt.UseVisualStyleBackColor = true;
             // 
+            // dataGridPurchase
+            // 
+            this.dataGridPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPurchase.Location = new System.Drawing.Point(798, 53);
+            this.dataGridPurchase.Name = "dataGridPurchase";
+            this.dataGridPurchase.RowHeadersWidth = 51;
+            this.dataGridPurchase.Size = new System.Drawing.Size(453, 557);
+            this.dataGridPurchase.TabIndex = 119;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -966,6 +975,7 @@
             this.AddBtn.TabIndex = 114;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // TxtSearchBar
             // 
@@ -1023,15 +1033,6 @@
             // 
             this.tbl_supplierTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridPurchase
-            // 
-            this.dataGridPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPurchase.Location = new System.Drawing.Point(798, 53);
-            this.dataGridPurchase.Name = "dataGridPurchase";
-            this.dataGridPurchase.RowHeadersWidth = 51;
-            this.dataGridPurchase.Size = new System.Drawing.Size(453, 557);
-            this.dataGridPurchase.TabIndex = 119;
-            // 
             // Purchasing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1077,12 +1078,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.SupplierIDTxt.ResumeLayout(false);
             this.SupplierIDTxt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDeliveredItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -308,7 +308,11 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
             ClearAllTextBoxes();
         }
-  
-      
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            AddSupplierItem addSupplierItem = new AddSupplierItem();
+            addSupplierItem.ShowDialog();
+        }
     }
 }

@@ -143,10 +143,7 @@ namespace BenpilsBarcodeSystem
 
        
 
-        private void MinimizeBtn_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+       
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -309,10 +306,11 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+     
+
+        private void pictureBox14_Click(object sender, EventArgs e)
         {
-            AddSupplierItem addSupplierItem = new AddSupplierItem();
-            addSupplierItem.ShowDialog();
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-            dataGridInventory.CellClick += dataGridInventory_CellClick;
+  
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -28,11 +28,7 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
-            CmbMotorBrand.Items.Add("Rusi");
-            CmbMotorBrand.Items.Add("Kawasaki");
-            CmbMotorBrand.Items.Add("Suzuki");
-            CmbMotorBrand.Items.Add("Honda");
-            CmbMotorBrand.Items.Add("Yamaha");
+          
             if (user.Designation == "Superadmin")
             {
             }
@@ -140,16 +136,7 @@ namespace BenpilsBarcodeSystem
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
-        public void ClearAllTextBoxes()
-        {
-            txtBarcode.Text = "";
-            TxtItemName.Text = "";
-            CmbMotorBrand.Text = "";
-            TxtBrand.Text = "";
-            TxtPriceCode.Text = "";
-            TxtUnitPrice.Text = "";
-            TxtCategory.Text = "";
-        }
+     
 
        
         private void Inventory_Load(object sender, EventArgs e)
@@ -203,87 +190,10 @@ namespace BenpilsBarcodeSystem
             textBox1.Text = randomBarcode;
         }
 
-        private void Addbtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtBarcode.Text) ||
-                string.IsNullOrWhiteSpace(TxtItemName.Text) ||
-                string.IsNullOrWhiteSpace(CmbMotorBrand.Text) ||
-                string.IsNullOrWhiteSpace(TxtBrand.Text) ||
-                string.IsNullOrWhiteSpace(TxtPriceCode.Text) ||
-                string.IsNullOrWhiteSpace(TxtUnitPrice.Text) ||
-                string.IsNullOrWhiteSpace(TxtCategory.Text))
-            {
-                MessageBox.Show("Please ensure all required fields are filled.");
-                return;
-            }
+       
 
       
-
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ItemName, MotorBrand, Brand, PriceCode, UnitPrice, Category) " +
-                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PriceCode, @UnitPrice, @Category)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-            UpdateDataGridView();
-            ClearAllTextBoxes();
-        }
-
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            if (dataGridInventory.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please choose a row to update.");
-                return;
-            }
-
-            int selectedRowIndex = Convert.ToInt32(dataGridInventory.SelectedRows[0].Cells["ID"].Value);
-
-            string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, " +
-                                "Brand = @Brand, PriceCode = @PriceCode, UnitPrice = @UnitPrice, Category = @Category WHERE ID = @ID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowIndex);
-                    cmd.Parameters.AddWithValue("@Barcode", txtBarcode.Text);
-                    cmd.Parameters.AddWithValue("@ItemName", TxtItemName.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", CmbMotorBrand.Text);
-                    cmd.Parameters.AddWithValue("@Brand", TxtBrand.Text);
-                    cmd.Parameters.AddWithValue("@PriceCode", TxtPriceCode.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", TxtUnitPrice.Text);
-                    cmd.Parameters.AddWithValue("@Category", TxtCategory.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-            UpdateDataGridView();
-            ClearAllTextBoxes();
-        }
-        private void dataGridInventory_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-          
-        }
+     
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_itemmasterdata";
@@ -298,22 +208,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void dataGridInventory_SelectionChanged(object sender, EventArgs e)
-        {
-
-            if (dataGridInventory.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridInventory.SelectedRows[0];
-
-                txtBarcode.Text = selectedRow.Cells["barcode"].Value.ToString();
-                TxtItemName.Text = selectedRow.Cells["itemname"].Value.ToString();
-                CmbMotorBrand.Text = selectedRow.Cells["motorbrand"].Value.ToString();
-                TxtBrand.Text = selectedRow.Cells["brand"].Value.ToString();
-                TxtUnitPrice.Text = selectedRow.Cells["unitprice"].Value.ToString();
-                TxtCategory.Text = selectedRow.Cells["category"].Value.ToString();
-
-                Addbtn.Enabled = false;
-            }
-        }
+     
     }
 }

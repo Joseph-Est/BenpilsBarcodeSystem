@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace BenpilsBarcodeSystem
 {
@@ -80,6 +81,21 @@ namespace BenpilsBarcodeSystem
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
+        }
+
+        private void GenerateBtn_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            string randomBarcode = rand.Next(1000000, 9999999).ToString(); // Adjust the range as needed
+
+            // Create a BarcodeWriter instance
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+
+            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
+            barcodeWriter.Format = BarcodeFormat.CODE_128;
+
+            generatedpicture.Image = barcodeWriter.Write(randomBarcode);
+            GeneratedBarcodeTxt.Text = randomBarcode;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

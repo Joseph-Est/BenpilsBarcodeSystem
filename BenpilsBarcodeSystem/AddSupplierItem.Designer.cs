@@ -50,10 +50,15 @@
             this.lblcategory = new System.Windows.Forms.Label();
             this.NumericQuantity = new System.Windows.Forms.NumericUpDown();
             this.CategoryTxt = new System.Windows.Forms.TextBox();
+            this.GenerateBtn = new System.Windows.Forms.Button();
+            this.GeneratedBarcodeTxt = new System.Windows.Forms.TextBox();
+            this.generatedpicture = new System.Windows.Forms.PictureBox();
+            this.LvlBarcodeGenerator = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +77,7 @@
             // MinimizeBtn
             // 
             this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
-            this.MinimizeBtn.Location = new System.Drawing.Point(322, 3);
+            this.MinimizeBtn.Location = new System.Drawing.Point(573, 3);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizeBtn.TabIndex = 8;
@@ -82,7 +87,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(366, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(617, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 28);
             this.pictureBox2.TabIndex = 7;
@@ -235,12 +240,55 @@
             this.CategoryTxt.Size = new System.Drawing.Size(141, 20);
             this.CategoryTxt.TabIndex = 33;
             // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.Location = new System.Drawing.Point(446, 324);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
+            this.GenerateBtn.TabIndex = 34;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
+            // 
+            // GeneratedBarcodeTxt
+            // 
+            this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(391, 298);
+            this.GeneratedBarcodeTxt.Name = "GeneratedBarcodeTxt";
+            this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
+            this.GeneratedBarcodeTxt.TabIndex = 81;
+            this.GeneratedBarcodeTxt.UseWaitCursor = true;
+            // 
+            // generatedpicture
+            // 
+            this.generatedpicture.Location = new System.Drawing.Point(391, 208);
+            this.generatedpicture.Name = "generatedpicture";
+            this.generatedpicture.Size = new System.Drawing.Size(199, 72);
+            this.generatedpicture.TabIndex = 82;
+            this.generatedpicture.TabStop = false;
+            this.generatedpicture.UseWaitCursor = true;
+            // 
+            // LvlBarcodeGenerator
+            // 
+            this.LvlBarcodeGenerator.AutoSize = true;
+            this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
+            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(430, 176);
+            this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
+            this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
+            this.LvlBarcodeGenerator.TabIndex = 83;
+            this.LvlBarcodeGenerator.Text = "Barcode Generator";
+            this.LvlBarcodeGenerator.UseWaitCursor = true;
+            // 
             // AddSupplierItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(410, 450);
+            this.ClientSize = new System.Drawing.Size(661, 450);
+            this.Controls.Add(this.LvlBarcodeGenerator);
+            this.Controls.Add(this.generatedpicture);
+            this.Controls.Add(this.GeneratedBarcodeTxt);
+            this.Controls.Add(this.GenerateBtn);
             this.Controls.Add(this.CategoryTxt);
             this.Controls.Add(this.NumericQuantity);
             this.Controls.Add(this.lblcategory);
@@ -267,6 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +344,9 @@
         private System.Windows.Forms.Label lblcategory;
         private System.Windows.Forms.NumericUpDown NumericQuantity;
         private System.Windows.Forms.TextBox CategoryTxt;
+        private System.Windows.Forms.Button GenerateBtn;
+        private System.Windows.Forms.TextBox GeneratedBarcodeTxt;
+        private System.Windows.Forms.PictureBox generatedpicture;
+        private System.Windows.Forms.Label LvlBarcodeGenerator;
     }
 }

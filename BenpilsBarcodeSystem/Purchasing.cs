@@ -308,50 +308,7 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
             ClearAllTextBoxes();
         }
-        private void SupplierSelectionAdd()
-        {
-            using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                connection.Open();
-
-                string query = "SELECT SupplierID FROM tbl_supplier";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            CmbSelectSupplier.Items.Add(reader["SupplierID"].ToString());
-                        }
-                    }
-                }
-            }
-        }
-        private void CmbSelectSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CmbSelectSupplier.SelectedIndex != -1)
-            {
-                int selectedSupplierID = int.Parse(CmbSelectSupplier.SelectedItem.ToString());
-
-                // Declare and initialize the SqlConnection object
-                using (SqlConnection connection = new SqlConnection("YourConnectionString"))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand("SELECT CompanyName, ContactNo FROM tbl_supplier WHERE SupplierID = @SupplierID", connection))
-                    {
-                        command.Parameters.AddWithValue("@SupplierID", selectedSupplierID);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                CompanyNameTxt.Text = reader["CompanyName"].ToString();
-                                ContactNoTxt.Text = reader["ContactNo"].ToString();
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  
+      
     }
 }

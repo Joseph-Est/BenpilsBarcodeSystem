@@ -16,7 +16,7 @@ namespace BenpilsBarcodeSystem
     public partial class Inventory : Form
     {
         private User user;
-        private BarcodeGenerator barcodeGenerator;
+       
         public Inventory(User user)
         {
             InitializeComponent();

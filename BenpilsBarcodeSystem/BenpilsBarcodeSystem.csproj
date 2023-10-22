@@ -188,6 +188,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSupplierItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplierItem.Designer.cs">
+      <DependentUpon>AddSupplierItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="BarcodeGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +347,9 @@
     <Compile Include="UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddSupplierItem.resx">
+      <DependentUpon>AddSupplierItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BarcodeGenerator.resx">
       <DependentUpon>BarcodeGenerator.cs</DependentUpon>
     </EmbeddedResource>

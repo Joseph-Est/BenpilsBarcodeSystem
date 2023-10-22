@@ -106,18 +106,13 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridDeliveredItems = new System.Windows.Forms.DataGridView();
             this.tblsupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabaseSupplier = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseSupplier();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbl_supplierTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseSupplierTableAdapters.tbl_supplierTableAdapter();
             this.tbl_supplierTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleSuppierTableAdapters.tbl_supplierTableAdapter();
-            this.CmbSelectSupplier = new System.Windows.Forms.ComboBox();
-            this.SelectSupplierLbl = new System.Windows.Forms.Label();
-            this.companynamelbl = new System.Windows.Forms.Label();
-            this.ContactNamelbl = new System.Windows.Forms.Label();
-            this.companyname2txt = new System.Windows.Forms.TextBox();
-            this.Contactname2txt = new System.Windows.Forms.TextBox();
+            this.dataGridPurchase = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -143,10 +138,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SupplierIDTxt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDeliveredItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -898,12 +894,7 @@
             // 
             // SupplierIDTxt
             // 
-            this.SupplierIDTxt.Controls.Add(this.Contactname2txt);
-            this.SupplierIDTxt.Controls.Add(this.companyname2txt);
-            this.SupplierIDTxt.Controls.Add(this.ContactNamelbl);
-            this.SupplierIDTxt.Controls.Add(this.companynamelbl);
-            this.SupplierIDTxt.Controls.Add(this.SelectSupplierLbl);
-            this.SupplierIDTxt.Controls.Add(this.CmbSelectSupplier);
+            this.SupplierIDTxt.Controls.Add(this.dataGridPurchase);
             this.SupplierIDTxt.Controls.Add(this.comboBox1);
             this.SupplierIDTxt.Controls.Add(this.pictureBox12);
             this.SupplierIDTxt.Controls.Add(this.button10);
@@ -911,7 +902,7 @@
             this.SupplierIDTxt.Controls.Add(this.AddBtn);
             this.SupplierIDTxt.Controls.Add(this.TxtSearchBar);
             this.SupplierIDTxt.Controls.Add(this.label14);
-            this.SupplierIDTxt.Controls.Add(this.dataGridView1);
+            this.SupplierIDTxt.Controls.Add(this.dataGridDeliveredItems);
             this.SupplierIDTxt.Location = new System.Drawing.Point(4, 22);
             this.SupplierIDTxt.Name = "SupplierIDTxt";
             this.SupplierIDTxt.Padding = new System.Windows.Forms.Padding(3);
@@ -944,7 +935,7 @@
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(1129, 540);
+            this.button10.Location = new System.Drawing.Point(248, 588);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(93, 54);
@@ -956,7 +947,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1185, 466);
+            this.button4.Location = new System.Drawing.Point(139, 588);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 54);
@@ -968,7 +959,7 @@
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(1069, 466);
+            this.AddBtn.Location = new System.Drawing.Point(27, 588);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
@@ -995,14 +986,14 @@
             this.label14.TabIndex = 72;
             this.label14.Text = "Search:";
             // 
-            // dataGridView1
+            // dataGridDeliveredItems
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1309, 374);
-            this.dataGridView1.TabIndex = 69;
+            this.dataGridDeliveredItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDeliveredItems.Location = new System.Drawing.Point(10, 53);
+            this.dataGridDeliveredItems.Name = "dataGridDeliveredItems";
+            this.dataGridDeliveredItems.RowHeadersWidth = 51;
+            this.dataGridDeliveredItems.Size = new System.Drawing.Size(741, 514);
+            this.dataGridDeliveredItems.TabIndex = 69;
             // 
             // tblsupplierBindingSource
             // 
@@ -1032,57 +1023,14 @@
             // 
             this.tbl_supplierTableAdapter1.ClearBeforeFill = true;
             // 
-            // CmbSelectSupplier
+            // dataGridPurchase
             // 
-            this.CmbSelectSupplier.FormattingEnabled = true;
-            this.CmbSelectSupplier.Location = new System.Drawing.Point(104, 448);
-            this.CmbSelectSupplier.Name = "CmbSelectSupplier";
-            this.CmbSelectSupplier.Size = new System.Drawing.Size(121, 21);
-            this.CmbSelectSupplier.TabIndex = 119;
-            this.CmbSelectSupplier.SelectedIndexChanged += new System.EventHandler(this.CmbSelectSupplier_SelectedIndexChanged);
-            // 
-            // SelectSupplierLbl
-            // 
-            this.SelectSupplierLbl.AutoSize = true;
-            this.SelectSupplierLbl.Location = new System.Drawing.Point(20, 451);
-            this.SelectSupplierLbl.Name = "SelectSupplierLbl";
-            this.SelectSupplierLbl.Size = new System.Drawing.Size(78, 13);
-            this.SelectSupplierLbl.TabIndex = 120;
-            this.SelectSupplierLbl.Text = "SelectSupplier:";
-            // 
-            // companynamelbl
-            // 
-            this.companynamelbl.AutoSize = true;
-            this.companynamelbl.Location = new System.Drawing.Point(7, 488);
-            this.companynamelbl.Name = "companynamelbl";
-            this.companynamelbl.Size = new System.Drawing.Size(85, 13);
-            this.companynamelbl.TabIndex = 121;
-            this.companynamelbl.Text = "Company Name:";
-            // 
-            // ContactNamelbl
-            // 
-            this.ContactNamelbl.AutoSize = true;
-            this.ContactNamelbl.Location = new System.Drawing.Point(7, 524);
-            this.ContactNamelbl.Name = "ContactNamelbl";
-            this.ContactNamelbl.Size = new System.Drawing.Size(75, 13);
-            this.ContactNamelbl.TabIndex = 122;
-            this.ContactNamelbl.Text = "ContactName:";
-            // 
-            // companyname2txt
-            // 
-            this.companyname2txt.Location = new System.Drawing.Point(104, 485);
-            this.companyname2txt.Name = "companyname2txt";
-            this.companyname2txt.ReadOnly = true;
-            this.companyname2txt.Size = new System.Drawing.Size(120, 20);
-            this.companyname2txt.TabIndex = 123;
-            // 
-            // Contactname2txt
-            // 
-            this.Contactname2txt.Location = new System.Drawing.Point(104, 521);
-            this.Contactname2txt.Name = "Contactname2txt";
-            this.Contactname2txt.ReadOnly = true;
-            this.Contactname2txt.Size = new System.Drawing.Size(120, 20);
-            this.Contactname2txt.TabIndex = 124;
+            this.dataGridPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPurchase.Location = new System.Drawing.Point(798, 53);
+            this.dataGridPurchase.Name = "dataGridPurchase";
+            this.dataGridPurchase.RowHeadersWidth = 51;
+            this.dataGridPurchase.Size = new System.Drawing.Size(453, 557);
+            this.dataGridPurchase.TabIndex = 119;
             // 
             // Purchasing
             // 
@@ -1130,10 +1078,11 @@
             this.SupplierIDTxt.ResumeLayout(false);
             this.SupplierIDTxt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDeliveredItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPurchase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1176,7 +1125,7 @@
         private System.Windows.Forms.TabPage SupplierIDTxt;
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridDeliveredItems;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button AddBtn;
@@ -1222,11 +1171,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox CmbSelectSupplier;
-        private System.Windows.Forms.Label ContactNamelbl;
-        private System.Windows.Forms.Label companynamelbl;
-        private System.Windows.Forms.Label SelectSupplierLbl;
-        private System.Windows.Forms.TextBox Contactname2txt;
-        private System.Windows.Forms.TextBox companyname2txt;
+        private System.Windows.Forms.DataGridView dataGridPurchase;
     }
 }

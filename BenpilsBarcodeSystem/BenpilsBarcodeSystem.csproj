@@ -188,6 +188,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddItemSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddItemSupplier.Designer.cs">
+      <DependentUpon>AddItemSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSupplierItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +347,9 @@
     <Compile Include="UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddItemSupplier.resx">
+      <DependentUpon>AddItemSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddSupplierItem.resx">
       <DependentUpon>AddSupplierItem.cs</DependentUpon>
     </EmbeddedResource>

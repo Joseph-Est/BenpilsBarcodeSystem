@@ -175,20 +175,7 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
-        private void GenerateBtn_Click_1(object sender, EventArgs e)
-        {
-            Random rand = new Random();
-            string randomBarcode = rand.Next(1000000, 9999999).ToString(); // Adjust the range as needed
-
-            // Create a BarcodeWriter instance
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-
-            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
-            barcodeWriter.Format = BarcodeFormat.CODE_128;
-
-            generatedpicture.Image = barcodeWriter.Write(randomBarcode);
-            textBox1.Text = randomBarcode;
-        }
+ 
 
        
 

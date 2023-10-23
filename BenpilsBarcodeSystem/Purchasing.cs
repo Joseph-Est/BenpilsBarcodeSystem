@@ -314,17 +314,10 @@ namespace BenpilsBarcodeSystem
         }
 
         private void CallAddSupplieritemBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                AddSupplierItem addsupplierwindow = new AddSupplierItem();
-                addsupplierwindow.Show();
-                addsupplierwindow.BringToFront();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+        {       
+                AddItemSupplier AIS = new AddItemSupplier();
+                AIS.ShowDialog();
+                AIS.BringToFront();       
         }
     }
 }

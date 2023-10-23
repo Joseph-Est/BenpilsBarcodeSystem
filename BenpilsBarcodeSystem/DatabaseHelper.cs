@@ -10,6 +10,7 @@ namespace BenpilsBarcodeSystem
 {
     public class DatabaseHelper
     {
+        private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
         private string connectionString = "YourConnectionStringHere";
 
         public DataTable GetSupplierData()
@@ -19,6 +20,7 @@ namespace BenpilsBarcodeSystem
                 connection.Open();
 
                 // Modify this query according to your database structure and relationships.
+                string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
                 string query = "SELECT SupplierID, ContactName FROM Suppliers";
 
                 using (SqlCommand command = new SqlCommand(query, connection))

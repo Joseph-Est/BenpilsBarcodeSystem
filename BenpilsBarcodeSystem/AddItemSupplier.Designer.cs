@@ -50,7 +50,7 @@
             this.lvlbarcode = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SupplierLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CmbSupplier = new System.Windows.Forms.ComboBox();
             this.MinimizeBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PriceCodeTxt = new System.Windows.Forms.TextBox();
@@ -110,6 +110,7 @@
             this.GenerateBtn.TabIndex = 103;
             this.GenerateBtn.Text = "Generate";
             this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
             // CategoryTxt
             // 
@@ -241,13 +242,14 @@
             this.SupplierLabel.TabIndex = 86;
             this.SupplierLabel.Text = "Choose Supplier:";
             // 
-            // comboBox1
+            // CmbSupplier
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(135, 88);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 21);
-            this.comboBox1.TabIndex = 85;
+            this.CmbSupplier.FormattingEnabled = true;
+            this.CmbSupplier.Location = new System.Drawing.Point(135, 88);
+            this.CmbSupplier.Name = "CmbSupplier";
+            this.CmbSupplier.Size = new System.Drawing.Size(142, 21);
+            this.CmbSupplier.TabIndex = 85;
+            this.CmbSupplier.SelectedIndexChanged += new System.EventHandler(this.CmbSupplier_SelectedIndexChanged);
             // 
             // MinimizeBtn
             // 
@@ -257,6 +259,7 @@
             this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizeBtn.TabIndex = 8;
             this.MinimizeBtn.TabStop = false;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // pictureBox2
             // 
@@ -266,6 +269,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(31, 28);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // PriceCodeTxt
             // 
@@ -284,6 +288,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(662, 38);
             this.panel1.TabIndex = 84;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // AddItemSupplier
             // 
@@ -309,7 +316,7 @@
             this.Controls.Add(this.lvlbarcode);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SupplierLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CmbSupplier);
             this.Controls.Add(this.PriceCodeTxt);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -349,7 +356,7 @@
         private System.Windows.Forms.Label lvlbarcode;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label SupplierLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbSupplier;
         private System.Windows.Forms.PictureBox MinimizeBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox PriceCodeTxt;

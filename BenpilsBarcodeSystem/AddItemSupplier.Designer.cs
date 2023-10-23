@@ -35,11 +35,8 @@
             this.GeneratedBarcodeTxt = new System.Windows.Forms.TextBox();
             this.GenerateBtn = new System.Windows.Forms.Button();
             this.CategoryTxt = new System.Windows.Forms.TextBox();
-            this.NumericQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblcategory = new System.Windows.Forms.Label();
-            this.LblQuantity = new System.Windows.Forms.Label();
             this.lblunitprice = new System.Windows.Forms.Label();
-            this.lblPricecode = new System.Windows.Forms.Label();
             this.lblBrand = new System.Windows.Forms.Label();
             this.lvlmotorbrand = new System.Windows.Forms.Label();
             this.UnitPriceTxt = new System.Windows.Forms.TextBox();
@@ -53,11 +50,9 @@
             this.CmbSupplier = new System.Windows.Forms.ComboBox();
             this.MinimizeBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.PriceCodeTxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -115,53 +110,28 @@
             // 
             // CategoryTxt
             // 
-            this.CategoryTxt.Location = new System.Drawing.Point(136, 404);
+            this.CategoryTxt.Location = new System.Drawing.Point(136, 324);
             this.CategoryTxt.Name = "CategoryTxt";
             this.CategoryTxt.Size = new System.Drawing.Size(141, 20);
             this.CategoryTxt.TabIndex = 102;
             // 
-            // NumericQuantity
-            // 
-            this.NumericQuantity.Location = new System.Drawing.Point(136, 363);
-            this.NumericQuantity.Name = "NumericQuantity";
-            this.NumericQuantity.Size = new System.Drawing.Size(141, 20);
-            this.NumericQuantity.TabIndex = 101;
-            // 
             // lblcategory
             // 
             this.lblcategory.AutoSize = true;
-            this.lblcategory.Location = new System.Drawing.Point(75, 404);
+            this.lblcategory.Location = new System.Drawing.Point(77, 329);
             this.lblcategory.Name = "lblcategory";
             this.lblcategory.Size = new System.Drawing.Size(52, 13);
             this.lblcategory.TabIndex = 100;
             this.lblcategory.Text = "Category:";
             // 
-            // LblQuantity
-            // 
-            this.LblQuantity.AutoSize = true;
-            this.LblQuantity.Location = new System.Drawing.Point(79, 363);
-            this.LblQuantity.Name = "LblQuantity";
-            this.LblQuantity.Size = new System.Drawing.Size(49, 13);
-            this.LblQuantity.TabIndex = 99;
-            this.LblQuantity.Text = "Quantity:";
-            // 
             // lblunitprice
             // 
             this.lblunitprice.AutoSize = true;
-            this.lblunitprice.Location = new System.Drawing.Point(75, 324);
+            this.lblunitprice.Location = new System.Drawing.Point(77, 286);
             this.lblunitprice.Name = "lblunitprice";
             this.lblunitprice.Size = new System.Drawing.Size(53, 13);
             this.lblunitprice.TabIndex = 98;
             this.lblunitprice.Text = "UnitPrice:";
-            // 
-            // lblPricecode
-            // 
-            this.lblPricecode.AutoSize = true;
-            this.lblPricecode.Location = new System.Drawing.Point(70, 283);
-            this.lblPricecode.Name = "lblPricecode";
-            this.lblPricecode.Size = new System.Drawing.Size(59, 13);
-            this.lblPricecode.TabIndex = 97;
-            this.lblPricecode.Text = "PriceCode:";
             // 
             // lblBrand
             // 
@@ -183,7 +153,7 @@
             // 
             // UnitPriceTxt
             // 
-            this.UnitPriceTxt.Location = new System.Drawing.Point(136, 321);
+            this.UnitPriceTxt.Location = new System.Drawing.Point(136, 283);
             this.UnitPriceTxt.Name = "UnitPriceTxt";
             this.UnitPriceTxt.Size = new System.Drawing.Size(141, 20);
             this.UnitPriceTxt.TabIndex = 94;
@@ -272,13 +242,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // PriceCodeTxt
-            // 
-            this.PriceCodeTxt.Location = new System.Drawing.Point(135, 280);
-            this.PriceCodeTxt.Name = "PriceCodeTxt";
-            this.PriceCodeTxt.Size = new System.Drawing.Size(141, 20);
-            this.PriceCodeTxt.TabIndex = 93;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
@@ -295,7 +258,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(313, 400);
+            this.AddBtn.Location = new System.Drawing.Point(167, 367);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(75, 23);
             this.AddBtn.TabIndex = 107;
@@ -313,11 +276,8 @@
             this.Controls.Add(this.GeneratedBarcodeTxt);
             this.Controls.Add(this.GenerateBtn);
             this.Controls.Add(this.CategoryTxt);
-            this.Controls.Add(this.NumericQuantity);
             this.Controls.Add(this.lblcategory);
-            this.Controls.Add(this.LblQuantity);
             this.Controls.Add(this.lblunitprice);
-            this.Controls.Add(this.lblPricecode);
             this.Controls.Add(this.lblBrand);
             this.Controls.Add(this.lvlmotorbrand);
             this.Controls.Add(this.UnitPriceTxt);
@@ -329,13 +289,11 @@
             this.Controls.Add(this.BarcodeTxt);
             this.Controls.Add(this.SupplierLabel);
             this.Controls.Add(this.CmbSupplier);
-            this.Controls.Add(this.PriceCodeTxt);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddItemSupplier";
             this.Text = "AddItemSupplier";
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -353,11 +311,8 @@
         private System.Windows.Forms.TextBox GeneratedBarcodeTxt;
         private System.Windows.Forms.Button GenerateBtn;
         private System.Windows.Forms.TextBox CategoryTxt;
-        private System.Windows.Forms.NumericUpDown NumericQuantity;
         private System.Windows.Forms.Label lblcategory;
-        private System.Windows.Forms.Label LblQuantity;
         private System.Windows.Forms.Label lblunitprice;
-        private System.Windows.Forms.Label lblPricecode;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Label lvlmotorbrand;
         private System.Windows.Forms.TextBox UnitPriceTxt;
@@ -371,7 +326,6 @@
         private System.Windows.Forms.ComboBox CmbSupplier;
         private System.Windows.Forms.PictureBox MinimizeBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox PriceCodeTxt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button AddBtn;
     }

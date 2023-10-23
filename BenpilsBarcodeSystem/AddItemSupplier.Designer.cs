@@ -48,13 +48,14 @@
             this.ItemNameTxt = new System.Windows.Forms.TextBox();
             this.lblitemname = new System.Windows.Forms.Label();
             this.lvlbarcode = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.SupplierLabel = new System.Windows.Forms.Label();
             this.CmbSupplier = new System.Windows.Forms.ComboBox();
             this.MinimizeBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PriceCodeTxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
@@ -226,12 +227,12 @@
             this.lvlbarcode.TabIndex = 88;
             this.lvlbarcode.Text = "Barcode:";
             // 
-            // textBox1
+            // BarcodeTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 129);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 87;
+            this.BarcodeTxt.Location = new System.Drawing.Point(135, 129);
+            this.BarcodeTxt.Name = "BarcodeTxt";
+            this.BarcodeTxt.Size = new System.Drawing.Size(142, 20);
+            this.BarcodeTxt.TabIndex = 87;
             // 
             // SupplierLabel
             // 
@@ -292,10 +293,21 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
+            // AddBtn
+            // 
+            this.AddBtn.Location = new System.Drawing.Point(313, 400);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddBtn.TabIndex = 107;
+            this.AddBtn.Text = "Add";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
             // AddItemSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.LvlBarcodeGenerator);
             this.Controls.Add(this.generatedpicture);
             this.Controls.Add(this.GeneratedBarcodeTxt);
@@ -314,7 +326,7 @@
             this.Controls.Add(this.ItemNameTxt);
             this.Controls.Add(this.lblitemname);
             this.Controls.Add(this.lvlbarcode);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BarcodeTxt);
             this.Controls.Add(this.SupplierLabel);
             this.Controls.Add(this.CmbSupplier);
             this.Controls.Add(this.PriceCodeTxt);
@@ -354,12 +366,13 @@
         private System.Windows.Forms.TextBox ItemNameTxt;
         private System.Windows.Forms.Label lblitemname;
         private System.Windows.Forms.Label lvlbarcode;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox BarcodeTxt;
         private System.Windows.Forms.Label SupplierLabel;
         private System.Windows.Forms.ComboBox CmbSupplier;
         private System.Windows.Forms.PictureBox MinimizeBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox PriceCodeTxt;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button AddBtn;
     }
 }

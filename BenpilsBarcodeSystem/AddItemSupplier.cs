@@ -27,6 +27,7 @@ namespace BenpilsBarcodeSystem
             CmbSupplier.DataSource = dataTable;
             CmbSupplier.DisplayMember = "ContactName"; // Display ContactName in the ComboBox
             CmbSupplier.ValueMember = "SupplierID";
+            CmbSupplier.DisplayMember = "CompanyName";
         }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)
@@ -77,6 +78,22 @@ namespace BenpilsBarcodeSystem
         private void CmbSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedSupplierID = CmbSupplier.SelectedValue.ToString();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            string supplierID = CmbSupplier.SelectedValue.ToString();
+            string contactName = CmbSupplier.Text;
+            string CompanyName = CmbSupplier.Text;
+            string barcode = BarcodeTxt.Text;
+            string itemName = ItemNameTxt.Text;
+            string motorBrand = MotorbrandTxt.Text;
+            string brand = Brandtxt.Text;
+            string unitPrice = UnitPriceTxt.Text;
+            string category = CategoryTxt.Text;
+
+    
+
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

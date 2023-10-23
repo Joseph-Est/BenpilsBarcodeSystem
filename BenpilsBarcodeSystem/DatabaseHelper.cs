@@ -19,7 +19,7 @@ namespace BenpilsBarcodeSystem
                 connection.Open();
 
                 // Modify this query according to your database structure and relationships.
-                string query = "SELECT SupplierID, ContactName FROM tbl_suppliers";
+                string query = "SELECT SupplierID, ContactName, CompanyName FROM tbl_supplier";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

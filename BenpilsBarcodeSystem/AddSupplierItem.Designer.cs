@@ -54,6 +54,7 @@
             this.GeneratedBarcodeTxt = new System.Windows.Forms.TextBox();
             this.generatedpicture = new System.Windows.Forms.PictureBox();
             this.LvlBarcodeGenerator = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,11 +65,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.MinimizeBtn);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 38);
+            this.panel1.Size = new System.Drawing.Size(662, 38);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -279,11 +281,22 @@
             this.LvlBarcodeGenerator.Text = "Barcode Generator";
             this.LvlBarcodeGenerator.UseWaitCursor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.TabIndex = 84;
+            this.label1.Text = "Add Supplier Item";
+            // 
             // AddSupplierItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(661, 450);
             this.Controls.Add(this.LvlBarcodeGenerator);
             this.Controls.Add(this.generatedpicture);
@@ -312,6 +325,7 @@
             this.Name = "AddSupplierItem";
             this.Text = "AddSupplierItem";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericQuantity)).EndInit();
@@ -348,5 +362,6 @@
         private System.Windows.Forms.TextBox GeneratedBarcodeTxt;
         private System.Windows.Forms.PictureBox generatedpicture;
         private System.Windows.Forms.Label LvlBarcodeGenerator;
+        private System.Windows.Forms.Label label1;
     }
 }

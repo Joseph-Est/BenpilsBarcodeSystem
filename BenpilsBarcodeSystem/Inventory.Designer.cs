@@ -69,21 +69,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
             this.dataGridInventory = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleitemmasterdata = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.LvlBarcodeGenerator = new System.Windows.Forms.Label();
-            this.generatedpicture = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.GenerateBtn = new System.Windows.Forms.Button();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
@@ -99,6 +87,13 @@
             this.benpillMotorcycleDatabaseItemmasterdata2 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2();
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_itemmasterdata2TableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -123,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
@@ -139,7 +133,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(513, 3);
+            this.label5.Location = new System.Drawing.Point(559, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
@@ -189,7 +183,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1418, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(1510, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 32);
             this.pictureBox2.TabIndex = 7;
@@ -250,7 +244,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(182, 35);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1273, 36);
+            this.panel3.Size = new System.Drawing.Size(1365, 36);
             this.panel3.TabIndex = 16;
             // 
             // label3
@@ -260,7 +254,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1129, 6);
+            this.label3.Location = new System.Drawing.Point(1221, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
@@ -273,7 +267,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(543, 6);
+            this.label2.Location = new System.Drawing.Point(589, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
@@ -331,7 +325,7 @@
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1375, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(1467, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 32);
             this.pictureBox3.TabIndex = 8;
@@ -354,7 +348,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1130, 13);
+            this.label4.Location = new System.Drawing.Point(1222, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
@@ -436,7 +430,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(182, 784);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1273, 35);
+            this.panel5.Size = new System.Drawing.Size(1365, 35);
             this.panel5.TabIndex = 18;
             // 
             // panel2
@@ -526,7 +520,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1455, 35);
+            this.panel1.Size = new System.Drawing.Size(1547, 35);
             this.panel1.TabIndex = 15;
             // 
             // label6
@@ -571,10 +565,6 @@
             // 
             this.tabItemmasterdata.Controls.Add(this.dataGridInventory);
             this.tabItemmasterdata.Controls.Add(this.pictureBox13);
-            this.tabItemmasterdata.Controls.Add(this.LvlBarcodeGenerator);
-            this.tabItemmasterdata.Controls.Add(this.generatedpicture);
-            this.tabItemmasterdata.Controls.Add(this.textBox1);
-            this.tabItemmasterdata.Controls.Add(this.GenerateBtn);
             this.tabItemmasterdata.Controls.Add(this.TxtSearchBar);
             this.tabItemmasterdata.Controls.Add(this.label14);
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
@@ -596,81 +586,15 @@
             this.itemNameDataGridViewTextBoxColumn,
             this.motorBrandDataGridViewTextBoxColumn,
             this.brandDataGridViewTextBoxColumn,
-            this.unitPriceDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn});
             this.dataGridInventory.DataSource = this.tblitemmasterdataBindingSource1;
-            this.dataGridInventory.Location = new System.Drawing.Point(66, 47);
+            this.dataGridInventory.Location = new System.Drawing.Point(25, 47);
             this.dataGridInventory.Name = "dataGridInventory";
             this.dataGridInventory.RowHeadersWidth = 51;
-            this.dataGridInventory.Size = new System.Drawing.Size(1194, 355);
+            this.dataGridInventory.Size = new System.Drawing.Size(925, 587);
             this.dataGridInventory.TabIndex = 119;
             this.dataGridInventory.UseWaitCursor = true;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // barcodeDataGridViewTextBoxColumn
-            // 
-            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
-            this.barcodeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // motorBrandDataGridViewTextBoxColumn
-            // 
-            this.motorBrandDataGridViewTextBoxColumn.DataPropertyName = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.HeaderText = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.motorBrandDataGridViewTextBoxColumn.Name = "motorBrandDataGridViewTextBoxColumn";
-            this.motorBrandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            this.unitPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.Width = 125;
             // 
             // tblitemmasterdataBindingSource1
             // 
@@ -694,49 +618,9 @@
             this.pictureBox13.TabStop = false;
             this.pictureBox13.UseWaitCursor = true;
             // 
-            // LvlBarcodeGenerator
-            // 
-            this.LvlBarcodeGenerator.AutoSize = true;
-            this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
-            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(1108, 434);
-            this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
-            this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
-            this.LvlBarcodeGenerator.TabIndex = 78;
-            this.LvlBarcodeGenerator.Text = "Barcode Generator";
-            this.LvlBarcodeGenerator.UseWaitCursor = true;
-            // 
-            // generatedpicture
-            // 
-            this.generatedpicture.Location = new System.Drawing.Point(1061, 452);
-            this.generatedpicture.Name = "generatedpicture";
-            this.generatedpicture.Size = new System.Drawing.Size(199, 72);
-            this.generatedpicture.TabIndex = 77;
-            this.generatedpicture.TabStop = false;
-            this.generatedpicture.UseWaitCursor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1061, 530);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 20);
-            this.textBox1.TabIndex = 80;
-            this.textBox1.UseWaitCursor = true;
-            // 
-            // GenerateBtn
-            // 
-            this.GenerateBtn.Location = new System.Drawing.Point(1122, 556);
-            this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(84, 31);
-            this.GenerateBtn.TabIndex = 79;
-            this.GenerateBtn.Text = "Generate";
-            this.GenerateBtn.UseVisualStyleBackColor = true;
-            this.GenerateBtn.UseWaitCursor = true;
-            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click_1);
-            // 
             // TxtSearchBar
             // 
-            this.TxtSearchBar.Location = new System.Drawing.Point(116, 19);
+            this.TxtSearchBar.Location = new System.Drawing.Point(75, 19);
             this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
@@ -747,7 +631,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(63, 20);
+            this.label14.Location = new System.Drawing.Point(22, 20);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 15);
@@ -821,11 +705,68 @@
             // 
             this.tbl_itemmasterdata2TableAdapter1.ClearBeforeFill = true;
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            this.barcodeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // motorBrandDataGridViewTextBoxColumn
+            // 
+            this.motorBrandDataGridViewTextBoxColumn.DataPropertyName = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn.HeaderText = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.motorBrandDataGridViewTextBoxColumn.Name = "motorBrandDataGridViewTextBoxColumn";
+            this.motorBrandDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.Width = 125;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 819);
+            this.ClientSize = new System.Drawing.Size(1547, 819);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -864,7 +805,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
@@ -933,20 +873,15 @@
         private BenpillMotorcycleDatabaseItemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter tbl_itemmasterdata2TableAdapter1;
         private System.Windows.Forms.TabPage tabItemmasterdata;
         private System.Windows.Forms.DataGridView dataGridInventory;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.TextBox TxtSearchBar;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn motorBrandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.Label LvlBarcodeGenerator;
-        private System.Windows.Forms.PictureBox generatedpicture;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button GenerateBtn;
-        private System.Windows.Forms.TextBox TxtSearchBar;
-        private System.Windows.Forms.Label label14;
     }
 }

@@ -67,25 +67,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblpostable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabasePOStable22 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePOStable22();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.brandMotorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblvoidtableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabaseVoidTable = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseVoidTable();
             this.tbl_voidtableTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseVoidTableTableAdapters.tbl_voidtableTableAdapter();
@@ -104,6 +88,20 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.VoidBtn = new System.Windows.Forms.Button();
+            this.brandMotorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -569,7 +567,6 @@
             this.itemNameDataGridViewTextBoxColumn1,
             this.motorBrandDataGridViewTextBoxColumn,
             this.Column1,
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
@@ -577,82 +574,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(214, 321);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1171, 373);
+            this.dataGridView1.Size = new System.Drawing.Size(1047, 373);
             this.dataGridView1.TabIndex = 36;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // barcodeDataGridViewTextBoxColumn
-            // 
-            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
-            this.barcodeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemNameDataGridViewTextBoxColumn1
-            // 
-            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
-            this.itemNameDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // motorBrandDataGridViewTextBoxColumn
-            // 
-            this.motorBrandDataGridViewTextBoxColumn.DataPropertyName = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.HeaderText = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.motorBrandDataGridViewTextBoxColumn.Name = "motorBrandDataGridViewTextBoxColumn";
-            this.motorBrandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Brand";
-            this.Column1.HeaderText = "Brand";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "UnitPrice";
-            this.dataGridViewTextBoxColumn1.HeaderText = "UnitPrice";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Size";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Size";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // tblpostable2BindingSource
             // 
@@ -672,7 +596,6 @@
             this.brandMotorDataGridViewTextBoxColumn,
             this.brandDataGridViewTextBoxColumn,
             this.itemNameDataGridViewTextBoxColumn,
-            this.UnitPrice,
             this.Quantity,
             this.Size,
             this.Category});
@@ -680,65 +603,9 @@
             this.dataGridView2.Location = new System.Drawing.Point(214, 116);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(925, 176);
+            this.dataGridView2.Size = new System.Drawing.Size(801, 176);
             this.dataGridView2.TabIndex = 37;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // brandMotorDataGridViewTextBoxColumn
-            // 
-            this.brandMotorDataGridViewTextBoxColumn.DataPropertyName = "BrandMotor";
-            this.brandMotorDataGridViewTextBoxColumn.HeaderText = "BrandMotor";
-            this.brandMotorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.brandMotorDataGridViewTextBoxColumn.Name = "brandMotorDataGridViewTextBoxColumn";
-            this.brandMotorDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "UnitPrice";
-            this.UnitPrice.MinimumWidth = 6;
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 125;
-            // 
-            // Size
-            // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.MinimumWidth = 6;
-            this.Size.Name = "Size";
-            this.Size.Width = 125;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.Width = 125;
             // 
             // tblvoidtableBindingSource
             // 
@@ -852,6 +719,119 @@
             this.VoidBtn.Text = "Void";
             this.VoidBtn.UseVisualStyleBackColor = true;
             // 
+            // brandMotorDataGridViewTextBoxColumn
+            // 
+            this.brandMotorDataGridViewTextBoxColumn.DataPropertyName = "BrandMotor";
+            this.brandMotorDataGridViewTextBoxColumn.HeaderText = "BrandMotor";
+            this.brandMotorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.brandMotorDataGridViewTextBoxColumn.Name = "brandMotorDataGridViewTextBoxColumn";
+            this.brandMotorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // Size
+            // 
+            this.Size.DataPropertyName = "Size";
+            this.Size.HeaderText = "Size";
+            this.Size.MinimumWidth = 6;
+            this.Size.Name = "Size";
+            this.Size.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // barcodeDataGridViewTextBoxColumn
+            // 
+            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
+            this.barcodeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // itemNameDataGridViewTextBoxColumn1
+            // 
+            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
+            this.itemNameDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // motorBrandDataGridViewTextBoxColumn
+            // 
+            this.motorBrandDataGridViewTextBoxColumn.DataPropertyName = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn.HeaderText = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.motorBrandDataGridViewTextBoxColumn.Name = "motorBrandDataGridViewTextBoxColumn";
+            this.motorBrandDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Brand";
+            this.Column1.HeaderText = "Brand";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Size";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Size";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
             // PointOfSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -956,13 +936,6 @@
         private BenpillMotorcycleDatabaseVoidTable benpillMotorcycleDatabaseVoidTable;
         private System.Windows.Forms.BindingSource tblvoidtableBindingSource;
         private BenpillMotorcycleDatabaseVoidTableTableAdapters.tbl_voidtableTableAdapter tbl_voidtableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandMotorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private BenpillMotorcycleDatabasePOStable benpillMotorcycleDatabasePOStable;
         private System.Windows.Forms.BindingSource tblpostableBindingSource;
         private BenpillMotorcycleDatabasePOStableTableAdapters.tbl_postableTableAdapter tbl_postableTableAdapter;
@@ -972,15 +945,6 @@
         private BenpillMotorcycleDatabasePOStable22 benpillMotorcycleDatabasePOStable22;
         private System.Windows.Forms.BindingSource tblpostable2BindingSource;
         private BenpillMotorcycleDatabasePOStable22TableAdapters.tbl_postable2TableAdapter tbl_postable2TableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motorBrandDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
@@ -989,5 +953,19 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button VoidBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motorBrandDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandMotorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
     }
 }

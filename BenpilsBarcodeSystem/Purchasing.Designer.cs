@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Purchasing));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -98,6 +99,7 @@
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.SupplierIDTxt = new System.Windows.Forms.TabPage();
+            this.CallAddSupplieritemBtn = new System.Windows.Forms.Button();
             this.dataGridPurchase = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -111,9 +113,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbl_supplierTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseSupplierTableAdapters.tbl_supplierTableAdapter();
             this.tbl_supplierTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleSuppierTableAdapters.tbl_supplierTableAdapter();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.CallAddSupplieritemBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Buybtn = new System.Windows.Forms.Button();
+            this.Pendingbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -142,7 +146,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -157,6 +160,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1455, 35);
             this.panel1.TabIndex = 16;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(1378, 3);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(38, 32);
+            this.pictureBox14.TabIndex = 23;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // CloseBtn
             // 
@@ -883,6 +896,9 @@
             // 
             // SupplierIDTxt
             // 
+            this.SupplierIDTxt.Controls.Add(this.Pendingbtn);
+            this.SupplierIDTxt.Controls.Add(this.Buybtn);
+            this.SupplierIDTxt.Controls.Add(this.label7);
             this.SupplierIDTxt.Controls.Add(this.CallAddSupplieritemBtn);
             this.SupplierIDTxt.Controls.Add(this.dataGridPurchase);
             this.SupplierIDTxt.Controls.Add(this.comboBox1);
@@ -900,19 +916,32 @@
             this.SupplierIDTxt.Text = "Purchase Order List";
             this.SupplierIDTxt.UseVisualStyleBackColor = true;
             // 
+            // CallAddSupplieritemBtn
+            // 
+            this.CallAddSupplieritemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CallAddSupplieritemBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CallAddSupplieritemBtn.Location = new System.Drawing.Point(27, 588);
+            this.CallAddSupplieritemBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.CallAddSupplieritemBtn.Name = "CallAddSupplieritemBtn";
+            this.CallAddSupplieritemBtn.Size = new System.Drawing.Size(93, 54);
+            this.CallAddSupplieritemBtn.TabIndex = 120;
+            this.CallAddSupplieritemBtn.Text = "Add";
+            this.CallAddSupplieritemBtn.UseVisualStyleBackColor = true;
+            this.CallAddSupplieritemBtn.Click += new System.EventHandler(this.CallAddSupplieritemBtn_Click);
+            // 
             // dataGridPurchase
             // 
             this.dataGridPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPurchase.Location = new System.Drawing.Point(798, 53);
             this.dataGridPurchase.Name = "dataGridPurchase";
             this.dataGridPurchase.RowHeadersWidth = 51;
-            this.dataGridPurchase.Size = new System.Drawing.Size(453, 557);
+            this.dataGridPurchase.Size = new System.Drawing.Size(453, 514);
             this.dataGridPurchase.TabIndex = 119;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(303, 14);
+            this.comboBox1.Location = new System.Drawing.Point(630, 19);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 118;
@@ -1009,28 +1038,38 @@
             // 
             this.tbl_supplierTableAdapter1.ClearBeforeFill = true;
             // 
-            // pictureBox14
+            // label7
             // 
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(1378, 3);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(38, 32);
-            this.pictureBox14.TabIndex = 23;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(566, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 121;
+            this.label7.Text = "Search by:";
             // 
-            // CallAddSupplieritemBtn
+            // Buybtn
             // 
-            this.CallAddSupplieritemBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CallAddSupplieritemBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CallAddSupplieritemBtn.Location = new System.Drawing.Point(27, 588);
-            this.CallAddSupplieritemBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.CallAddSupplieritemBtn.Name = "CallAddSupplieritemBtn";
-            this.CallAddSupplieritemBtn.Size = new System.Drawing.Size(93, 54);
-            this.CallAddSupplieritemBtn.TabIndex = 120;
-            this.CallAddSupplieritemBtn.Text = "Add";
-            this.CallAddSupplieritemBtn.UseVisualStyleBackColor = true;
-            this.CallAddSupplieritemBtn.Click += new System.EventHandler(this.CallAddSupplieritemBtn_Click);
+            this.Buybtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Buybtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buybtn.Location = new System.Drawing.Point(831, 588);
+            this.Buybtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Buybtn.Name = "Buybtn";
+            this.Buybtn.Size = new System.Drawing.Size(93, 54);
+            this.Buybtn.TabIndex = 122;
+            this.Buybtn.Text = "Buy";
+            this.Buybtn.UseVisualStyleBackColor = true;
+            // 
+            // Pendingbtn
+            // 
+            this.Pendingbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pendingbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pendingbtn.Location = new System.Drawing.Point(1131, 588);
+            this.Pendingbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Pendingbtn.Name = "Pendingbtn";
+            this.Pendingbtn.Size = new System.Drawing.Size(93, 54);
+            this.Pendingbtn.TabIndex = 123;
+            this.Pendingbtn.Text = "Pending";
+            this.Pendingbtn.UseVisualStyleBackColor = true;
             // 
             // Purchasing
             // 
@@ -1050,6 +1089,7 @@
             this.Load += new System.EventHandler(this.Purchasing_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -1082,7 +1122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblsupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1172,5 +1211,8 @@
         private System.Windows.Forms.DataGridView dataGridPurchase;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Button CallAddSupplieritemBtn;
+        private System.Windows.Forms.Button Pendingbtn;
+        private System.Windows.Forms.Button Buybtn;
+        private System.Windows.Forms.Label label7;
     }
 }

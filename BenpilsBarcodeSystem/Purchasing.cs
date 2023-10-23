@@ -315,9 +315,16 @@ namespace BenpilsBarcodeSystem
 
         private void CallAddSupplieritemBtn_Click(object sender, EventArgs e)
         {
-            AddSupplierItem addsupplierwindow = new AddSupplierItem();
-            addsupplierwindow.ShowDialog();
-            addsupplierwindow.BringToFront();
+            try
+            {
+                AddSupplierItem addsupplierwindow = new AddSupplierItem();
+                addsupplierwindow.Show();
+                addsupplierwindow.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
     }
 }

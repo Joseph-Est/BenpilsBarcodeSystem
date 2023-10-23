@@ -23,7 +23,7 @@ namespace BenpilsBarcodeSystem
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 
-           
+
             CmbSupplier.DataSource = dataTable;
             CmbSupplier.DisplayMember = "ContactName"; // Display ContactName in the ComboBox
             CmbSupplier.ValueMember = "SupplierID";

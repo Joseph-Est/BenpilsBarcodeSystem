@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BenpilsBarcodeSystem
 {
-    public  class DatabaseHelper
+    public class DatabaseHelper
     {
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
 

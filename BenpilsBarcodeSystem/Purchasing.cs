@@ -319,5 +319,7 @@ namespace BenpilsBarcodeSystem
                 AIS.ShowDialog();
                 AIS.BringToFront();       
         }
+
+      
     }
 }

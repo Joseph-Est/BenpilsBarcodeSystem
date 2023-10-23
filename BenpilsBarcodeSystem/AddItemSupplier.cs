@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace BenpilsBarcodeSystem
         public AddItemSupplier()
         {
             InitializeComponent();
+
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 
@@ -82,19 +84,62 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            string supplierID = CmbSupplier.SelectedValue.ToString();
-            string contactName = CmbSupplier.Text;
-            string CompanyName = CmbSupplier.Text;
-            string barcode = BarcodeTxt.Text;
-            string itemName = ItemNameTxt.Text;
-            string motorBrand = MotorbrandTxt.Text;
-            string brand = Brandtxt.Text;
-            string unitPrice = UnitPriceTxt.Text;
-            string category = CategoryTxt.Text;
+            if (string.IsNullOrWhiteSpace(CmbSupplier.Text) || // Make sure to adjust the ComboBox names
+                string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
+                string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
+                string.IsNullOrWhiteSpace(MotorbrandTxt.Text) ||
+                string.IsNullOrWhiteSpace(Brandtxt.Text) ||
+                string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
+                string.IsNullOrWhiteSpace(CategoryTxt.Text))
+            {
+                MessageBox.Show("Please fill up all the required fields.");
+                return;
+            }
 
-    
+            string supplierID = CmbSupplier.SelectedValue.ToString(); // Get Supplier ID from ComboBox
+            string companyName = CmbSupplier.Text; // Get Company Name from ComboBox
+            string contactName = CmbSupplier.GetItemText(CmbSupplier.SelectedItem); // Get Contact Name from ComboBox
 
+            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category) " +
+                               "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category)";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                    cmd.Parameters.AddWithValue("@CompanyName", companyName);
+                    cmd.Parameters.AddWithValue("@ContactName", contactName);
+                    cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
+                    cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);
+                    cmd.Parameters.AddWithValue("@Brand", Brandtxt.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", UnitPriceTxt.Text);
+                    cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+
+            CLearAllTextBoxes();
+            this.Close();
         }
+
+        private void CLearAllTextBoxes()
+        {
+            CmbSupplier.Text= "";
+            BarcodeTxt.Text = "";
+            ItemNameTxt.Text = "";
+            MotorbrandTxt.Text = "";
+            Brandtxt.Text = "";
+            UnitPriceTxt.Text = "";
+            CategoryTxt.Text = "";
+        }
+
+   
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

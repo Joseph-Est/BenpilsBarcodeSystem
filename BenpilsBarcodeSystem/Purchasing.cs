@@ -235,6 +235,8 @@ namespace BenpilsBarcodeSystem
 
         private void Purchasing_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePurchaseOrderList.tbl_purchaseorderlist' table. You can move, or remove it, as needed.
+            this.tbl_purchaseorderlistTableAdapter.Fill(this.benpillMotorcycleDatabasePurchaseOrderList.tbl_purchaseorderlist);
             // TODO: This line of code loads data into the 'benpillMotorcycleSuppier.tbl_supplier' table. You can move, or remove it, as needed.
             this.tbl_supplierTableAdapter1.Fill(this.benpillMotorcycleSuppier.tbl_supplier);
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseSupplier.tbl_supplier' table. You can move, or remove it, as needed.

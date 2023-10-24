@@ -40,8 +40,7 @@ namespace BenpilsBarcodeSystem
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            ConfirmationExit CE = new ConfirmationExit();
-            CE.ShowDialog();
+            this.Close();
         }
 
         private void GenerateBtn_Click(object sender, EventArgs e)
@@ -83,7 +82,6 @@ namespace BenpilsBarcodeSystem
             if (string.IsNullOrWhiteSpace(CmbSupplier.Text) ||
                 string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
                 string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(MotorbrandTxt.Text) ||
                 string.IsNullOrWhiteSpace(Brandtxt.Text) ||
                 string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
                 string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
@@ -94,7 +92,15 @@ namespace BenpilsBarcodeSystem
             }
 
             string supplierID = CmbSupplier.SelectedValue.ToString();
-            string insertQuery = "INSERT INTO tbl_purchaseorrderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+            decimal unitPrice;
+
+            if (!decimal.TryParse(UnitPriceTxt.Text, out unitPrice))
+            {
+                MessageBox.Show("Invalid Unit Price. Please enter a valid decimal value.");
+                return;
+            }
+
+            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
                                 "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -108,16 +114,16 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);
                     cmd.Parameters.AddWithValue("@Brand", Brandtxt.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", UnitPriceTxt.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", unitPrice); // Use the parsed decimal value
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
                     cmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text);
+
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
             }
-    
-            purchasing.UpdateDataGridView2();
+
             CLearAllTextBoxes();
             this.Close();
         }
@@ -133,7 +139,10 @@ namespace BenpilsBarcodeSystem
             CategoryTxt.Text = "";
         }
 
-   
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            CLearAllTextBoxes();
+        }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

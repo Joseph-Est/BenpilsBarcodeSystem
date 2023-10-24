@@ -54,6 +54,7 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.productIDtxt = new System.Windows.Forms.TextBox();
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -261,7 +262,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(170, 396);
+            this.AddBtn.Location = new System.Drawing.Point(94, 395);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(75, 23);
             this.AddBtn.TabIndex = 107;
@@ -285,10 +286,21 @@
             this.productIDtxt.Size = new System.Drawing.Size(141, 20);
             this.productIDtxt.TabIndex = 109;
             // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Location = new System.Drawing.Point(202, 395);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClearBtn.TabIndex = 110;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
             // AddItemSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.productIDtxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AddBtn);
@@ -351,5 +363,6 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox productIDtxt;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }

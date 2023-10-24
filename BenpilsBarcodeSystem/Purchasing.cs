@@ -317,11 +317,23 @@ namespace BenpilsBarcodeSystem
 
         private void CallAddSupplieritemBtn_Click(object sender, EventArgs e)
         {       
-                AddItemSupplier AIS = new AddItemSupplier();
+                AddItemSupplier AIS = new AddItemSupplier(user);
                 AIS.ShowDialog();
                 AIS.BringToFront();       
         }
 
-      
+        public void UpdateDataGridView2()
+        {
+            string selectQuery = "SELECT * FROM tbl_purchaseorderlist";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridDeliveredItems.DataSource = dt;
+                }
+            }
+        }
     }
 }

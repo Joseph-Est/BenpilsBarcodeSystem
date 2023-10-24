@@ -142,12 +142,6 @@ namespace BenpilsBarcodeSystem
         private void Inventory_Load(object sender, EventArgs e)
         {
 
-
-            this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleitemmasterdata.tbl_itemmasterdata);
-            // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterData.tbl_itemmasterdata' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'benpillBarcodeDatabaseInventory.tbl_inventory' table. You can move, or remove it, as needed.
-            this.tbl_inventoryTableAdapter.Fill(this.benpillBarcodeDatabaseInventory.tbl_inventory);
         }
         private void Archive_Click(object sender, EventArgs e)
         {
@@ -190,7 +184,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridInventory.DataSource = dt;
+                    
                 }
             }
         }

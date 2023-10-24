@@ -235,11 +235,10 @@ namespace BenpilsBarcodeSystem
 
         private void Purchasing_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePurchaseOrderList.tbl_purchaseorderlist' table. You can move, or remove it, as needed.
-            this.tbl_purchaseorderlistTableAdapter.Fill(this.benpillMotorcycleDatabasePurchaseOrderList.tbl_purchaseorderlist);
-            // TODO: This line of code loads data into the 'benpillMotorcycleSuppier.tbl_supplier' table. You can move, or remove it, as needed.
+    
+
             this.tbl_supplierTableAdapter1.Fill(this.benpillMotorcycleSuppier.tbl_supplier);
-            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseSupplier.tbl_supplier' table. You can move, or remove it, as needed.
+
         
 
         }
@@ -285,14 +284,12 @@ namespace BenpilsBarcodeSystem
                     command.Parameters.AddWithValue("@Address", address);
                     command.Parameters.AddWithValue("@ContactNo", contactNo);
                     command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@SupplierID", selectedSupplierID); // Use the selectedSupplierID
+                    command.Parameters.AddWithValue("@SupplierID", selectedSupplierID);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Supplier information updated successfully.");
-                        // Refresh the DataGridView to reflect the changes if needed.
-                        // You can rebind the data or just update the specific row in the DataGridView.
                     }
                     else
                     {

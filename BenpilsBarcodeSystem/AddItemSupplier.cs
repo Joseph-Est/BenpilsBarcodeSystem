@@ -18,7 +18,7 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        Purchasing purchasing;
+        private Purchasing purchasing;
         public AddItemSupplier(User user)
         {
             InitializeComponent();
@@ -47,14 +47,9 @@ namespace BenpilsBarcodeSystem
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
-            string randomBarcode = rand.Next(1000000, 9999999).ToString(); // Adjust the range as needed
-
-            // Create a BarcodeWriter instance
+            string randomBarcode = rand.Next(1000000, 9999999).ToString();
             BarcodeWriter barcodeWriter = new BarcodeWriter();
-
-            // Set the barcode format (you can change it to other formats like QR_CODE, etc.)
             barcodeWriter.Format = BarcodeFormat.CODE_128;
-
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             GeneratedBarcodeTxt.Text = randomBarcode;
         }
@@ -115,8 +110,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@Brand", Brandtxt.Text);
                     cmd.Parameters.AddWithValue("@UnitPrice", UnitPriceTxt.Text);
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                    cmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text); // Replace YourProductIDValueHere with the actual value
-
+                    cmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();

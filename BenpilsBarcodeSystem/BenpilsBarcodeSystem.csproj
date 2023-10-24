@@ -240,6 +240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabaseSupplier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -494,6 +499,17 @@
     </None>
     <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xss">
       <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsc">
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xss">
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleDatabaseSupplier.xsc">
       <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>

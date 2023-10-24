@@ -18,10 +18,11 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        public AddItemSupplier()
+        Purchasing purchasing;
+        public AddItemSupplier(User user)
         {
             InitializeComponent();
-
+            Purchasing purchasing = new Purchasing(user);
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 
@@ -84,7 +85,7 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CmbSupplier.Text) || // Make sure to adjust the ComboBox names
+            if (string.IsNullOrWhiteSpace(CmbSupplier.Text) ||
                 string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
                 string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
                 string.IsNullOrWhiteSpace(MotorbrandTxt.Text) ||
@@ -96,10 +97,7 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string supplierID = CmbSupplier.SelectedValue.ToString(); // Get Supplier ID from ComboBox
-            string companyName = CmbSupplier.Text; // Get Company Name from ComboBox
-            string contactName = CmbSupplier.GetItemText(CmbSupplier.SelectedItem); // Get Contact Name from ComboBox
-
+            string supplierID = CmbSupplier.SelectedValue.ToString();
             string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category) " +
                                "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category)";
 
@@ -108,8 +106,8 @@ namespace BenpilsBarcodeSystem
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                    cmd.Parameters.AddWithValue("@CompanyName", companyName);
-                    cmd.Parameters.AddWithValue("@ContactName", contactName);
+                    cmd.Parameters.AddWithValue("@CompanyName", CmbSupplier.Text); // Set Company Name from the ComboBox's Text property
+                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.GetItemText(CmbSupplier.SelectedItem)); // Set Contact Name from the ComboBox's selected item
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);
@@ -124,6 +122,8 @@ namespace BenpilsBarcodeSystem
             }
 
 
+
+            purchasing.UpdateDataGridView2();
             CLearAllTextBoxes();
             this.Close();
         }

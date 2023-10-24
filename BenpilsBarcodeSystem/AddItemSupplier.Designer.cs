@@ -52,6 +52,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.productIDtxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -215,6 +217,7 @@
             // 
             // CmbSupplier
             // 
+            this.CmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbSupplier.FormattingEnabled = true;
             this.CmbSupplier.Location = new System.Drawing.Point(135, 88);
             this.CmbSupplier.Name = "CmbSupplier";
@@ -258,7 +261,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(167, 367);
+            this.AddBtn.Location = new System.Drawing.Point(170, 396);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(75, 23);
             this.AddBtn.TabIndex = 107;
@@ -266,10 +269,28 @@
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 361);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 108;
+            this.label2.Text = "Product ID:";
+            // 
+            // productIDtxt
+            // 
+            this.productIDtxt.Location = new System.Drawing.Point(136, 361);
+            this.productIDtxt.Name = "productIDtxt";
+            this.productIDtxt.Size = new System.Drawing.Size(141, 20);
+            this.productIDtxt.TabIndex = 109;
+            // 
             // AddItemSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.productIDtxt);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.LvlBarcodeGenerator);
             this.Controls.Add(this.generatedpicture);
@@ -328,5 +349,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox productIDtxt;
     }
 }

@@ -91,37 +91,37 @@ namespace BenpilsBarcodeSystem
                 string.IsNullOrWhiteSpace(MotorbrandTxt.Text) ||
                 string.IsNullOrWhiteSpace(Brandtxt.Text) ||
                 string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
-                string.IsNullOrWhiteSpace(CategoryTxt.Text))
+                string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
+                string.IsNullOrWhiteSpace(productIDtxt.Text))
             {
                 MessageBox.Show("Please fill up all the required fields.");
                 return;
             }
 
             string supplierID = CmbSupplier.SelectedValue.ToString();
-            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category) " +
-                               "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category)";
+            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+                                "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                    cmd.Parameters.AddWithValue("@CompanyName", CmbSupplier.Text); // Set Company Name from the ComboBox's Text property
-                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.GetItemText(CmbSupplier.SelectedItem)); // Set Contact Name from the ComboBox's selected item
+                    cmd.Parameters.AddWithValue("@CompanyName", CmbSupplier.Text);
+                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.GetItemText(CmbSupplier.SelectedItem));
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);
                     cmd.Parameters.AddWithValue("@Brand", Brandtxt.Text);
                     cmd.Parameters.AddWithValue("@UnitPrice", UnitPriceTxt.Text);
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
+                    cmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text); // Replace YourProductIDValueHere with the actual value
 
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
             }
-
-
 
             purchasing.UpdateDataGridView2();
             CLearAllTextBoxes();

@@ -94,7 +94,7 @@ namespace BenpilsBarcodeSystem
             }
 
             string supplierID = CmbSupplier.SelectedValue.ToString();
-            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+            string insertQuery = "INSERT INTO tbl_purchaseorrderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
                                 "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -116,7 +116,7 @@ namespace BenpilsBarcodeSystem
                     con.Close();
                 }
             }
-
+    
             purchasing.UpdateDataGridView2();
             CLearAllTextBoxes();
             this.Close();

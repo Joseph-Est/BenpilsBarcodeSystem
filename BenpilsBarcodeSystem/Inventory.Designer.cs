@@ -113,6 +113,15 @@
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -137,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.tabStockmanagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
@@ -144,6 +154,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -755,6 +767,15 @@
             // 
             // tabStockmanagement
             // 
+            this.tabStockmanagement.Controls.Add(this.label19);
+            this.tabStockmanagement.Controls.Add(this.comboBox3);
+            this.tabStockmanagement.Controls.Add(this.textBox8);
+            this.tabStockmanagement.Controls.Add(this.label18);
+            this.tabStockmanagement.Controls.Add(this.comboBox2);
+            this.tabStockmanagement.Controls.Add(this.label17);
+            this.tabStockmanagement.Controls.Add(this.label16);
+            this.tabStockmanagement.Controls.Add(this.numericUpDown1);
+            this.tabStockmanagement.Controls.Add(this.dataGridView1);
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 22);
             this.tabStockmanagement.Name = "tabStockmanagement";
             this.tabStockmanagement.Size = new System.Drawing.Size(1339, 660);
@@ -968,6 +989,85 @@
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1310, 482);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(86, 577);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(138, 20);
+            this.numericUpDown1.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 579);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Reduce Item:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(270, 579);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(40, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Status:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(316, 576);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(138, 21);
+            this.comboBox2.TabIndex = 4;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(75, 23);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(130, 20);
+            this.textBox8.TabIndex = 73;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(22, 24);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(49, 15);
+            this.label18.TabIndex = 74;
+            this.label18.Text = "Search:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(610, 26);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(43, 13);
+            this.label19.TabIndex = 125;
+            this.label19.Text = "Sort by:";
+            this.label19.UseWaitCursor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(659, 23);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 124;
+            this.comboBox3.UseWaitCursor = true;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1011,6 +1111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.tabStockmanagement.ResumeLayout(false);
+            this.tabStockmanagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
@@ -1018,6 +1120,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1108,5 +1212,14 @@
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label18;
     }
 }

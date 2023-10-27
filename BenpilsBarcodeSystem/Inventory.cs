@@ -305,6 +305,21 @@ namespace BenpilsBarcodeSystem
             */
         }
 
-     
+        private void dataGridItemMasterdata_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridItemMasterdata.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridItemMasterdata.SelectedRows[0];
+
+                BarcodeTxt.Text = selectedRow.Cells["Barcode"].Value.ToString();
+                ProductIDTxt.Text = selectedRow.Cells["ProductID"].Value.ToString();
+                ItemNameTxt.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                MotorBrandTxt.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
+                BrandTxt.Text = selectedRow.Cells["Brand"].Value.ToString();
+                UnitPriceTxt.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                QuantityTxt.Text = selectedRow.Cells["Quantity"].Value.ToString();
+                CategoryTxt.Text = selectedRow.Cells["Category"].Value.ToString();
+            }
+        }
     }
 }

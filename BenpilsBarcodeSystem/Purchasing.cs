@@ -220,7 +220,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridView2.DataSource = dt;
+                    dataGridView1.DataSource = dt;
                 }
             }
         }
@@ -247,9 +247,9 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView2.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 selectedSupplierID = int.Parse(selectedRow.Cells["SupplierID"].Value.ToString());
                 CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();

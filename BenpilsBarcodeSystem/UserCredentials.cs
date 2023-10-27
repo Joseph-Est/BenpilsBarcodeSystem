@@ -257,13 +257,13 @@ namespace BenpilsBarcodeSystem
                     DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
 
 
-                    TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
-                    TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
-                    TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
-                    TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
-                    TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
-                    TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
-                    ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
+                    TxtFirstName.Text = selectedRow.Cells[1].Value.ToString();
+                    TxtLastName.Text = selectedRow.Cells[2].Value.ToString();
+                    TxtUsername.Text = selectedRow.Cells[3].Value.ToString();
+                    TxtPassword.Text = selectedRow.Cells[4].Value.ToString();
+                    TxtAddress.Text = selectedRow.Cells[6].Value.ToString();
+                    TxtContactNo.Text = selectedRow.Cells[7].Value.ToString();
+                    ComboDesignation.Text = selectedRow.Cells[5].Value.ToString();
                     AddBtn.Enabled = false;
                 }
             
@@ -418,6 +418,9 @@ namespace BenpilsBarcodeSystem
             dataGridView1.DataSource = filteredTable;
         }
 
-     
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

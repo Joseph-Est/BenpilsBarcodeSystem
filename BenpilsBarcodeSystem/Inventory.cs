@@ -287,38 +287,26 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           /*
-            if (e.RowIndex >= 0) 
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
-                ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
-                ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
-                MotorBrandTxt.Text = row.Cells["MotorBrand"].Value.ToString();
-                BrandTxt.Text = row.Cells["Brand"].Value.ToString();
-                UnitPriceTxt.Text = row.Cells["UnitPrice"].Value.ToString();
-                QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
-                CategoryTxt.Text = row.Cells["Category"].Value.ToString();
-            }
-            */
-        }
+     
 
         private void dataGridItemMasterdata_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridItemMasterdata.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dataGridItemMasterdata.SelectedRows[0];
+         
+        }
 
-                BarcodeTxt.Text = selectedRow.Cells["Barcode"].Value.ToString();
-                ProductIDTxt.Text = selectedRow.Cells["ProductID"].Value.ToString();
-                ItemNameTxt.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                MotorBrandTxt.Text = selectedRow.Cells["MotorBrand"].Value.ToString();
-                BrandTxt.Text = selectedRow.Cells["Brand"].Value.ToString();
-                UnitPriceTxt.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
-                QuantityTxt.Text = selectedRow.Cells["Quantity"].Value.ToString();
-                CategoryTxt.Text = selectedRow.Cells["Category"].Value.ToString();
+        private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
+                BarcodeTxt.Text = row.Cells[1].Value.ToString();
+                ProductIDTxt.Text = row.Cells[2].Value.ToString();
+                ItemNameTxt.Text = row.Cells[3].Value.ToString();
+                MotorBrandTxt.Text = row.Cells[4].Value.ToString();
+                BrandTxt.Text = row.Cells[5].Value.ToString();
+                UnitPriceTxt.Text = row.Cells[6].Value.ToString();
+                QuantityTxt.Text = row.Cells[7].Value.ToString();
+                CategoryTxt.Text = row.Cells[8].Value.ToString();
             }
         }
     }

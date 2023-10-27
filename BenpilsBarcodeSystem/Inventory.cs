@@ -122,7 +122,7 @@ namespace BenpilsBarcodeSystem
         //Minimize Button
         private void label6_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+           
         }
         //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -130,6 +130,10 @@ namespace BenpilsBarcodeSystem
             ConfirmationExit ce = new ConfirmationExit();
             ce.StartPosition = FormStartPosition.CenterScreen;
             ce.ShowDialog();
+        }
+        private void MinimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -280,5 +284,7 @@ namespace BenpilsBarcodeSystem
         {
             ClearAllTextBoxes();
         }
+
+     
     }
 }

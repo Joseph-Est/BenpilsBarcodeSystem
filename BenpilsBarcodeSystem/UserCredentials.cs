@@ -258,20 +258,7 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
-            {
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-           
-                TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
-                TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
-                TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
-                TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
-                TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
-                TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
-                ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
-                AddBtn.Enabled = false;
-            }
+          
         }
 
         private void button8_Click_1(object sender, EventArgs e)
@@ -369,10 +356,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+   
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
@@ -426,6 +410,22 @@ namespace BenpilsBarcodeSystem
             dataGridView1.DataSource = filteredTable;
         }
 
-        
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+
+                TxtFirstName.Text = selectedRow.Cells["firstname"].Value.ToString();
+                TxtLastName.Text = selectedRow.Cells["lastname"].Value.ToString();
+                TxtUsername.Text = selectedRow.Cells["username"].Value.ToString();
+                TxtPassword.Text = selectedRow.Cells["password"].Value.ToString();
+                TxtAddress.Text = selectedRow.Cells["address"].Value.ToString();
+                TxtContactNo.Text = selectedRow.Cells["contactno"].Value.ToString();
+                ComboDesignation.Text = selectedRow.Cells["designation"].Value.ToString();
+                AddBtn.Enabled = false;
+            }
+        }
     }
 }

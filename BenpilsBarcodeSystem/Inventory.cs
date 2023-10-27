@@ -307,6 +307,7 @@ namespace BenpilsBarcodeSystem
                 UnitPriceTxt.Text = row.Cells[6].Value.ToString();
                 QuantityTxt.Text = row.Cells[7].Value.ToString();
                 CategoryTxt.Text = row.Cells[8].Value.ToString();
+                AddBtn.Enabled = false;
             }
         }
     }

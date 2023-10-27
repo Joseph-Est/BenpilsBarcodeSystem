@@ -346,7 +346,13 @@ namespace BenpilsBarcodeSystem
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
                 ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
                 Emailtxt.Text = selectedRow.Cells["Email"].Value.ToString();
+                addbuton.Enabled = false;
             }
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearAllTextBoxes();
         }
     }
 }

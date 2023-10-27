@@ -164,10 +164,7 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeTxt_TextChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+       
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

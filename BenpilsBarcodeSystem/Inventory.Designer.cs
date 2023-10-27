@@ -82,7 +82,7 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.benpillMotorcycleitemmasterdata = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata();
+
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -122,13 +122,12 @@
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-            this.tbl_itemmasterdataTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdataTableAdapters.tbl_itemmasterdataTableAdapter();
-            this.benpillMotorcycleitemmasterdata2 = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata2();
+
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_itemmasterdata2TableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter();
-            this.benpillMotorcycleDatabaseItemmasterdata2 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2();
+
+
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_itemmasterdata2TableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter();
+
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,7 +159,7 @@
             this.tabItemmasterdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.tabStockmanagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -169,9 +168,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata2)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -796,12 +795,11 @@
             // tblitemmasterdataBindingSource2
             // 
             this.tblitemmasterdataBindingSource2.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource2.DataSource = this.benpillMotorcycleitemmasterdata;
+
             // 
             // benpillMotorcycleitemmasterdata
             // 
-            this.benpillMotorcycleitemmasterdata.DataSetName = "BenpillMotorcycleitemmasterdata";
-            this.benpillMotorcycleitemmasterdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // ArchiveBtn
             // 
@@ -1147,7 +1145,7 @@
             // tblitemmasterdataBindingSource1
             // 
             this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource1.DataSource = this.benpillMotorcycleitemmasterdata;
+
             // 
             // tblitemmasterdataBindingSource
             // 
@@ -1175,35 +1173,32 @@
             // 
             // tbl_itemmasterdataTableAdapter
             // 
-            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
+
             // 
             // benpillMotorcycleitemmasterdata2
             // 
-            this.benpillMotorcycleitemmasterdata2.DataSetName = "BenpillMotorcycleitemmasterdata2";
-            this.benpillMotorcycleitemmasterdata2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
+
             // tblitemmasterdata2BindingSource
             // 
             this.tblitemmasterdata2BindingSource.DataMember = "tbl_itemmasterdata2";
-            this.tblitemmasterdata2BindingSource.DataSource = this.benpillMotorcycleitemmasterdata2;
+
             // 
             // tbl_itemmasterdata2TableAdapter
             // 
-            this.tbl_itemmasterdata2TableAdapter.ClearBeforeFill = true;
+
             // 
             // benpillMotorcycleDatabaseItemmasterdata2
             // 
-            this.benpillMotorcycleDatabaseItemmasterdata2.DataSetName = "BenpillMotorcycleDatabaseItemmasterdata2";
-            this.benpillMotorcycleDatabaseItemmasterdata2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
             // 
             // tblitemmasterdata2BindingSource1
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
-            this.tblitemmasterdata2BindingSource1.DataSource = this.benpillMotorcycleDatabaseItemmasterdata2;
+
             // 
             // tbl_itemmasterdata2TableAdapter1
             // 
-            this.tbl_itemmasterdata2TableAdapter1.ClearBeforeFill = true;
+
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -1301,7 +1296,7 @@
             this.tabItemmasterdata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.tabStockmanagement.ResumeLayout(false);
             this.tabStockmanagement.PerformLayout();
@@ -1311,9 +1306,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata2)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1365,15 +1360,14 @@
         private BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager tableAdapterManager1;
 
         private System.Windows.Forms.BindingSource tblitemmasterdataBindingSource;
-        private BenpillMotorcycleitemmasterdata benpillMotorcycleitemmasterdata;
+
         private System.Windows.Forms.BindingSource tblitemmasterdataBindingSource1;
-        private BenpillMotorcycleitemmasterdataTableAdapters.tbl_itemmasterdataTableAdapter tbl_itemmasterdataTableAdapter;
-        private BenpillMotorcycleitemmasterdata2 benpillMotorcycleitemmasterdata2;
+
         private System.Windows.Forms.BindingSource tblitemmasterdata2BindingSource;
-        private BenpillMotorcycleitemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter tbl_itemmasterdata2TableAdapter;
-        private BenpillMotorcycleDatabaseItemmasterdata2 benpillMotorcycleDatabaseItemmasterdata2;
+
+
         private System.Windows.Forms.BindingSource tblitemmasterdata2BindingSource1;
-        private BenpillMotorcycleDatabaseItemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter tbl_itemmasterdata2TableAdapter1;
+
         private System.Windows.Forms.TabPage tabItemmasterdata;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.TextBox TxtSearchBar;

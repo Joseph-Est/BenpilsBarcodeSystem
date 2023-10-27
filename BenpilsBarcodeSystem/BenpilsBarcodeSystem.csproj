@@ -215,11 +215,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseItemmasterdata2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseItemmasterdata2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BenpillMotorcycleDatabasePOStable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,21 +249,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleitemmasterdata1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleitemmasterdata1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleitemmasterdata2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleitemmasterdata2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmasterdata3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmasterdata3.xsd</DependentUpon>
     </Compile>
     <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -450,17 +430,6 @@
     <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="BenpillMotorcycleDatabaseItemmasterdata2.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseItemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseItemmasterdata2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseItemmasterdata2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseItemmasterdata2.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseItemmasterdata2.xsd</DependentUpon>
-    </None>
     <None Include="BenpillMotorcycleDatabasePOStable.xsc">
       <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
     </None>
@@ -537,39 +506,6 @@
     </None>
     <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata1.xsc">
-      <DependentUpon>BenpillMotorcycleitemmasterdata1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleitemmasterdata1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata1.xss">
-      <DependentUpon>BenpillMotorcycleitemmasterdata1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata2.xsc">
-      <DependentUpon>BenpillMotorcycleitemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleitemmasterdata2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleitemmasterdata2.xss">
-      <DependentUpon>BenpillMotorcycleitemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata3.xsc">
-      <DependentUpon>BenpillMotorcycleItemmasterdata3.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmasterdata3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata3.xss">
-      <DependentUpon>BenpillMotorcycleItemmasterdata3.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleSuppier.xsc">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>

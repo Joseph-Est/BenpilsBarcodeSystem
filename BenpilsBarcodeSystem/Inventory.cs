@@ -238,7 +238,7 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO YourTableName (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
+            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
                                  "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))

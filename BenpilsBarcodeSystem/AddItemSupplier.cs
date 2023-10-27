@@ -146,6 +146,27 @@ namespace BenpilsBarcodeSystem
             CLearAllTextBoxes();
         }
 
+        private void productIDtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+        }
+
+        private void UnitPriceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void BarcodeTxt_TextChanged(object sender, EventArgs e)
+        {
+       
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

@@ -214,6 +214,13 @@ namespace BenpilsBarcodeSystem
                 e.Handled = true;
             }
         }
+        private void ProductIDTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void label12_Click(object sender, EventArgs e)
         {
@@ -326,5 +333,7 @@ namespace BenpilsBarcodeSystem
             AddBtn.Enabled = true;
             ClearAllTextBoxes();
         }
+
+       
     }
 }

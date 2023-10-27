@@ -303,21 +303,6 @@ namespace BenpilsBarcodeSystem
             */
         }
 
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
-        {
-
-            if (dataGridView2.SelectedRows.Count >= 0)
-            {
-                DataGridViewRow row = dataGridView2.SelectedRows[0];
-                BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
-                ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
-                ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
-                MotorBrandTxt.Text = row.Cells["MotorBrand"].Value.ToString();
-                BrandTxt.Text = row.Cells["Brand"].Value.ToString();
-                UnitPriceTxt.Text = row.Cells["UnitPrice"].Value.ToString();
-                QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
-                CategoryTxt.Text = row.Cells["Category"].Value.ToString();
-            }
-        }
+     
     }
 }

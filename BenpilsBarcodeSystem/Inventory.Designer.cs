@@ -68,16 +68,17 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CategoryTxt = new System.Windows.Forms.TextBox();
+            this.QuantityTxt = new System.Windows.Forms.TextBox();
+            this.BrandTxt = new System.Windows.Forms.TextBox();
+            this.MotorBrandTxt = new System.Windows.Forms.TextBox();
+            this.ItemNameTxt = new System.Windows.Forms.TextBox();
+            this.ProductIDTxt = new System.Windows.Forms.TextBox();
+            this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -87,12 +88,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.benpillMotorcycleitemmasterdata = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabStockmanagement = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -102,6 +102,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillMotorcycleitemmasterdata = new BenpilsBarcodeSystem.BenpillMotorcycleitemmasterdata();
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
@@ -114,8 +116,9 @@
             this.benpillMotorcycleDatabaseItemmasterdata2 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2();
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_itemmasterdata2TableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseItemmasterdata2TableAdapters.tbl_itemmasterdata2TableAdapter();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.UnitPriceTxt = new System.Windows.Forms.TextBox();
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -136,12 +139,13 @@
             this.panel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabItemmasterdata.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.tabStockmanagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
@@ -149,7 +153,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -588,17 +591,20 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.ClearBtn);
+            this.tabItemmasterdata.Controls.Add(this.UnitPriceTxt);
+            this.tabItemmasterdata.Controls.Add(this.label20);
             this.tabItemmasterdata.Controls.Add(this.dataGridView2);
             this.tabItemmasterdata.Controls.Add(this.ArchiveBtn);
             this.tabItemmasterdata.Controls.Add(this.UpdateBtn);
             this.tabItemmasterdata.Controls.Add(this.AddBtn);
-            this.tabItemmasterdata.Controls.Add(this.textBox7);
-            this.tabItemmasterdata.Controls.Add(this.textBox6);
-            this.tabItemmasterdata.Controls.Add(this.textBox5);
-            this.tabItemmasterdata.Controls.Add(this.textBox4);
-            this.tabItemmasterdata.Controls.Add(this.textBox3);
-            this.tabItemmasterdata.Controls.Add(this.textBox2);
-            this.tabItemmasterdata.Controls.Add(this.textBox1);
+            this.tabItemmasterdata.Controls.Add(this.CategoryTxt);
+            this.tabItemmasterdata.Controls.Add(this.QuantityTxt);
+            this.tabItemmasterdata.Controls.Add(this.BrandTxt);
+            this.tabItemmasterdata.Controls.Add(this.MotorBrandTxt);
+            this.tabItemmasterdata.Controls.Add(this.ItemNameTxt);
+            this.tabItemmasterdata.Controls.Add(this.ProductIDTxt);
+            this.tabItemmasterdata.Controls.Add(this.BarcodeTxt);
             this.tabItemmasterdata.Controls.Add(this.label15);
             this.tabItemmasterdata.Controls.Add(this.label13);
             this.tabItemmasterdata.Controls.Add(this.label12);
@@ -620,11 +626,20 @@
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(25, 47);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(925, 583);
+            this.dataGridView2.TabIndex = 145;
+            this.dataGridView2.UseWaitCursor = true;
+            // 
             // ArchiveBtn
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(1099, 457);
+            this.ArchiveBtn.Location = new System.Drawing.Point(1039, 452);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -658,62 +673,65 @@
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.UseWaitCursor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
-            // textBox7
+            // CategoryTxt
             // 
-            this.textBox7.Location = new System.Drawing.Point(1057, 307);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(197, 20);
-            this.textBox7.TabIndex = 137;
-            this.textBox7.UseWaitCursor = true;
+            this.CategoryTxt.Location = new System.Drawing.Point(1057, 307);
+            this.CategoryTxt.Name = "CategoryTxt";
+            this.CategoryTxt.Size = new System.Drawing.Size(197, 20);
+            this.CategoryTxt.TabIndex = 137;
+            this.CategoryTxt.UseWaitCursor = true;
             // 
-            // textBox6
+            // QuantityTxt
             // 
-            this.textBox6.Location = new System.Drawing.Point(1057, 263);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(197, 20);
-            this.textBox6.TabIndex = 136;
-            this.textBox6.UseWaitCursor = true;
+            this.QuantityTxt.Location = new System.Drawing.Point(1057, 263);
+            this.QuantityTxt.Name = "QuantityTxt";
+            this.QuantityTxt.Size = new System.Drawing.Size(197, 20);
+            this.QuantityTxt.TabIndex = 136;
+            this.QuantityTxt.UseWaitCursor = true;
+            this.QuantityTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityTxt_KeyPress);
             // 
-            // textBox5
+            // BrandTxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(1057, 224);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
-            this.textBox5.TabIndex = 135;
-            this.textBox5.UseWaitCursor = true;
+            this.BrandTxt.Location = new System.Drawing.Point(1057, 224);
+            this.BrandTxt.Name = "BrandTxt";
+            this.BrandTxt.Size = new System.Drawing.Size(197, 20);
+            this.BrandTxt.TabIndex = 135;
+            this.BrandTxt.UseWaitCursor = true;
             // 
-            // textBox4
+            // MotorBrandTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(1057, 183);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(197, 20);
-            this.textBox4.TabIndex = 134;
-            this.textBox4.UseWaitCursor = true;
+            this.MotorBrandTxt.Location = new System.Drawing.Point(1057, 183);
+            this.MotorBrandTxt.Name = "MotorBrandTxt";
+            this.MotorBrandTxt.Size = new System.Drawing.Size(197, 20);
+            this.MotorBrandTxt.TabIndex = 134;
+            this.MotorBrandTxt.UseWaitCursor = true;
             // 
-            // textBox3
+            // ItemNameTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(1057, 146);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(197, 20);
-            this.textBox3.TabIndex = 133;
-            this.textBox3.UseWaitCursor = true;
+            this.ItemNameTxt.Location = new System.Drawing.Point(1057, 146);
+            this.ItemNameTxt.Name = "ItemNameTxt";
+            this.ItemNameTxt.Size = new System.Drawing.Size(197, 20);
+            this.ItemNameTxt.TabIndex = 133;
+            this.ItemNameTxt.UseWaitCursor = true;
             // 
-            // textBox2
+            // ProductIDTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(1057, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 132;
-            this.textBox2.UseWaitCursor = true;
+            this.ProductIDTxt.Location = new System.Drawing.Point(1057, 110);
+            this.ProductIDTxt.Name = "ProductIDTxt";
+            this.ProductIDTxt.Size = new System.Drawing.Size(197, 20);
+            this.ProductIDTxt.TabIndex = 132;
+            this.ProductIDTxt.UseWaitCursor = true;
+            this.ProductIDTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InventoryTxt_KeyPress);
             // 
-            // textBox1
+            // BarcodeTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(1057, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 131;
-            this.textBox1.UseWaitCursor = true;
+            this.BarcodeTxt.Location = new System.Drawing.Point(1057, 73);
+            this.BarcodeTxt.Name = "BarcodeTxt";
+            this.BarcodeTxt.Size = new System.Drawing.Size(197, 20);
+            this.BarcodeTxt.TabIndex = 131;
+            this.BarcodeTxt.UseWaitCursor = true;
             // 
             // label15
             // 
@@ -805,16 +823,6 @@
             this.comboBox1.TabIndex = 122;
             this.comboBox1.UseWaitCursor = true;
             // 
-            // tblitemmasterdataBindingSource1
-            // 
-            this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource1.DataSource = this.benpillMotorcycleitemmasterdata;
-            // 
-            // benpillMotorcycleitemmasterdata
-            // 
-            this.benpillMotorcycleitemmasterdata.DataSetName = "BenpillMotorcycleitemmasterdata";
-            this.benpillMotorcycleitemmasterdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pictureBox13
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.White;
@@ -867,6 +875,19 @@
             this.tabStockmanagement.Text = "Stock Management";
             this.tabStockmanagement.UseVisualStyleBackColor = true;
             this.tabStockmanagement.UseWaitCursor = true;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(495, 566);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 54);
+            this.button4.TabIndex = 144;
+            this.button4.Text = "Update";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseWaitCursor = true;
             // 
             // label19
             // 
@@ -954,6 +975,16 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.UseWaitCursor = true;
             // 
+            // tblitemmasterdataBindingSource1
+            // 
+            this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
+            this.tblitemmasterdataBindingSource1.DataSource = this.benpillMotorcycleitemmasterdata;
+            // 
+            // benpillMotorcycleitemmasterdata
+            // 
+            this.benpillMotorcycleitemmasterdata.DataSetName = "BenpillMotorcycleitemmasterdata";
+            this.benpillMotorcycleitemmasterdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tblitemmasterdataBindingSource
             // 
             this.tblitemmasterdataBindingSource.DataMember = "tbl_itemmasterdata";
@@ -1010,26 +1041,36 @@
             // 
             this.tbl_itemmasterdata2TableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridView2
+            // label20
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(25, 47);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(925, 583);
-            this.dataGridView2.TabIndex = 145;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(988, 343);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 13);
+            this.label20.TabIndex = 146;
+            this.label20.Text = "Unit Price:";
             // 
-            // button4
+            // UnitPriceTxt
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(495, 566);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 54);
-            this.button4.TabIndex = 144;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.UseWaitCursor = true;
+            this.UnitPriceTxt.Location = new System.Drawing.Point(1057, 343);
+            this.UnitPriceTxt.Name = "UnitPriceTxt";
+            this.UnitPriceTxt.Size = new System.Drawing.Size(197, 20);
+            this.UnitPriceTxt.TabIndex = 147;
+            this.UnitPriceTxt.UseWaitCursor = true;
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.Location = new System.Drawing.Point(1155, 452);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(93, 54);
+            this.ClearBtn.TabIndex = 148;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.UseWaitCursor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // Inventory
             // 
@@ -1070,13 +1111,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabItemmasterdata.ResumeLayout(false);
             this.tabItemmasterdata.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.tabStockmanagement.ResumeLayout(false);
             this.tabStockmanagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleitemmasterdata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
@@ -1084,7 +1126,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseItemmasterdata2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1157,13 +1198,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CategoryTxt;
+        private System.Windows.Forms.TextBox QuantityTxt;
+        private System.Windows.Forms.TextBox BrandTxt;
+        private System.Windows.Forms.TextBox MotorBrandTxt;
+        private System.Windows.Forms.TextBox ItemNameTxt;
+        private System.Windows.Forms.TextBox ProductIDTxt;
+        private System.Windows.Forms.TextBox BarcodeTxt;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
@@ -1178,5 +1219,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox UnitPriceTxt;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }

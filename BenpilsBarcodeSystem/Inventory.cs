@@ -169,12 +169,6 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
- 
-
-       
-
-      
-     
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_itemmasterdata";
@@ -188,10 +182,103 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void ClearAllTextBoxes()
+        {
+            BarcodeTxt.Text = "";
+            ProductIDTxt.Text = "";
+            ItemNameTxt.Text = "";
+            MotorBrandTxt.Text = "";
+            BrandTxt.Text = "";
+            UnitPriceTxt.Text = "";
+            QuantityTxt.Text = "";
+            CategoryTxt.Text = "";
+        }
+        private void InventoryTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void label12_Click(object sender, EventArgs e)
         {
 
+        }
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(BarcodeTxt.Text)||
+                string.IsNullOrEmpty(ItemNameTxt.Text)||
+                string.IsNullOrEmpty(ProductIDTxt.Text)||
+                string.IsNullOrEmpty(UnitPriceTxt.Text)||
+                string.IsNullOrEmpty(QuantityTxt.Text)||
+                string.IsNullOrEmpty(CategoryTxt.Text)
+                )
+            { 
+            }
+            int productId;
+
+            if (!int.TryParse(ProductIDTxt.Text, out productId))
+            {
+                MessageBox.Show("Product ID must be a valid integer.");
+                return;
+            }
+
+            if (IsProductIDAlreadyExists(productId))
+            {
+                MessageBox.Show("Product ID already exists in the database. Please choose a different Product ID.");
+                return;
+            }
+
+            string insertQuery = "INSERT INTO YourTableName (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
+                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category)";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
+                    cmd.Parameters.AddWithValue("@ProductID", productId);
+                    cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
+                    cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
+                    cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
+                    cmd.Parameters.AddWithValue("@UnitPrice", decimal.Parse(UnitPriceTxt.Text));
+                    cmd.Parameters.AddWithValue("@Quantity", int.Parse(QuantityTxt.Text));
+                    cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
+        private bool IsProductIDAlreadyExists(int productId)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE ProductID = @ProductID", con))
+                {
+                    cmd.Parameters.AddWithValue("@ProductID", productId);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearAllTextBoxes();
         }
     }
 }

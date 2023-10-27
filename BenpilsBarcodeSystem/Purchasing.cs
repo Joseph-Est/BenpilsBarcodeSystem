@@ -334,5 +334,19 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                selectedSupplierID = int.Parse(selectedRow.Cells["SupplierID"].Value.ToString());
+                CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
+                ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
+                AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
+                ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
+                Emailtxt.Text = selectedRow.Cells["Email"].Value.ToString();
+            }
+        }
     }
 }

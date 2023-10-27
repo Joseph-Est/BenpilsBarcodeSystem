@@ -417,10 +417,5 @@ namespace BenpilsBarcodeSystem
             }
             dataGridView1.DataSource = filteredTable;
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

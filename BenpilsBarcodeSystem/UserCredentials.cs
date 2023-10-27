@@ -90,14 +90,7 @@ namespace BenpilsBarcodeSystem
     
 
         
-            dataGridView1.Columns["ID"].ReadOnly = true;
-            dataGridView1.Columns["FirstName"].ReadOnly = true;
-            dataGridView1.Columns["LastName"].ReadOnly = true;
-            dataGridView1.Columns["UserName"].ReadOnly = true;
-            dataGridView1.Columns["Password"].ReadOnly = true;
-            dataGridView1.Columns["Designation"].ReadOnly = true;
-            dataGridView1.Columns["Address"].ReadOnly = true;
-            dataGridView1.Columns["ContactNo"].ReadOnly = true;
+          
 
         }
         private void panel6_Paint(object sender, PaintEventArgs e)

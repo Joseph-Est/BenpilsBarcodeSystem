@@ -250,6 +250,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleMasterData2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -506,6 +511,17 @@
     </None>
     <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
       <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleMasterData2.xsc">
+      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleMasterData2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleMasterData2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleMasterData2.xss">
+      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleSuppier.xsc">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>

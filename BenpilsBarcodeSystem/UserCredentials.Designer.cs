@@ -904,6 +904,7 @@
             // 
             // ClearBtn
             // 
+            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearBtn.Location = new System.Drawing.Point(1276, 598);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(93, 54);

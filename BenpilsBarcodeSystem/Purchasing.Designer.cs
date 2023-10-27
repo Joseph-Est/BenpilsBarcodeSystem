@@ -791,6 +791,7 @@
             this.ContactNoTxt.Name = "ContactNoTxt";
             this.ContactNoTxt.Size = new System.Drawing.Size(174, 20);
             this.ContactNoTxt.TabIndex = 128;
+            this.ContactNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ContactNoTxt_KeyPress);
             // 
             // AddressTxt
             // 

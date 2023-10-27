@@ -364,5 +364,13 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
             addbuton.Enabled = true;
         }
+
+        private void ContactNoTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }         
+        }
     }
 }

@@ -862,7 +862,7 @@
             this.ProductIDTxt.Size = new System.Drawing.Size(197, 20);
             this.ProductIDTxt.TabIndex = 132;
             this.ProductIDTxt.UseWaitCursor = true;
-            this.ProductIDTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InventoryTxt_KeyPress);
+            this.ProductIDTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductIDTxt_KeyPress);
             // 
             // BarcodeTxt
             // 

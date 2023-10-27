@@ -160,6 +160,7 @@
             this.UnitPriceTxt.Name = "UnitPriceTxt";
             this.UnitPriceTxt.Size = new System.Drawing.Size(141, 20);
             this.UnitPriceTxt.TabIndex = 94;
+            this.UnitPriceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UnitPriceTxt_KeyPress);
             // 
             // Brandtxt
             // 
@@ -206,6 +207,7 @@
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(142, 20);
             this.BarcodeTxt.TabIndex = 87;
+            this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
             // 
             // SupplierLabel
             // 
@@ -285,6 +287,7 @@
             this.productIDtxt.Name = "productIDtxt";
             this.productIDtxt.Size = new System.Drawing.Size(141, 20);
             this.productIDtxt.TabIndex = 109;
+            this.productIDtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productIDtxt_KeyPress);
             // 
             // ClearBtn
             // 

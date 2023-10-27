@@ -120,13 +120,7 @@
             this.tbl_supplierTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleSuppierTableAdapters.tbl_supplierTableAdapter();
             this.tbl_purchaseorderlistTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePurchaseOrderListTableAdapters.tbl_purchaseorderlistTableAdapter();
             this.tbl_purchaseorderlistTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePurchaseOrderList2TableAdapters.tbl_purchaseorderlistTableAdapter();
-            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClearBtn = new System.Windows.Forms.Button();
+    
             this.SupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -634,7 +628,7 @@
             // 
             // Inventoryform
             // 
-            this.Inventoryform.Controls.Add(this.ClearBtn);
+         
             this.Inventoryform.Controls.Add(this.dataGridView1);
             this.Inventoryform.Controls.Add(this.pictureBox15);
             this.Inventoryform.Controls.Add(this.label17);
@@ -1222,16 +1216,7 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearBtn.Location = new System.Drawing.Point(1180, 533);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(93, 54);
-            this.ClearBtn.TabIndex = 146;
-            this.ClearBtn.Text = "Clear";
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+        
             // 
             // Purchasing
             // 

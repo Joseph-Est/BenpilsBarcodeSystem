@@ -179,14 +179,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1455, 35);
+            this.panel1.Size = new System.Drawing.Size(1529, 35);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox14
             // 
             this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(1379, 3);
+            this.pictureBox14.Location = new System.Drawing.Point(1453, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(38, 32);
             this.pictureBox14.TabIndex = 23;
@@ -197,7 +197,7 @@
             // 
             this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(1423, 3);
+            this.CloseBtn.Location = new System.Drawing.Point(1497, 3);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(31, 32);
             this.CloseBtn.TabIndex = 22;
@@ -222,7 +222,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(513, 3);
+            this.label5.Location = new System.Drawing.Point(550, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
@@ -515,7 +515,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(182, 35);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1273, 36);
+            this.panel3.Size = new System.Drawing.Size(1347, 36);
             this.panel3.TabIndex = 19;
             // 
             // label3
@@ -525,7 +525,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1127, 6);
+            this.label3.Location = new System.Drawing.Point(1201, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
@@ -538,7 +538,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(549, 6);
+            this.label2.Location = new System.Drawing.Point(586, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
@@ -563,7 +563,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(182, 789);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1273, 35);
+            this.panel5.Size = new System.Drawing.Size(1347, 35);
             this.panel5.TabIndex = 20;
             // 
             // label4
@@ -573,7 +573,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1127, 8);
+            this.label4.Location = new System.Drawing.Point(1201, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
@@ -726,6 +726,7 @@
             this.pictureBox15.TabIndex = 143;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.UseWaitCursor = true;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // label17
             // 
@@ -1226,7 +1227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 824);
+            this.ClientSize = new System.Drawing.Size(1529, 824);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);

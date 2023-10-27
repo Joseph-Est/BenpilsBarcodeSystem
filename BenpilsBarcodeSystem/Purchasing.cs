@@ -356,5 +356,13 @@ namespace BenpilsBarcodeSystem
         {
             ClearAllTextBoxes();
         }
+        //refreshbutton
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+            UpdateDataGridView2();
+            ClearAllTextBoxes();
+            addbuton.Enabled = true;
+        }
     }
 }

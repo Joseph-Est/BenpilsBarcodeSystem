@@ -137,6 +137,8 @@ namespace BenpilsBarcodeSystem
             Brandtxt.Text = "";
             UnitPriceTxt.Text = "";
             CategoryTxt.Text = "";
+            productIDtxt.Text = "";
+       
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)

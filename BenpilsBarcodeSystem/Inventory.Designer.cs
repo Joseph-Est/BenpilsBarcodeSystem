@@ -82,7 +82,6 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -122,21 +121,8 @@
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
-
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-
-
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -159,7 +145,6 @@
             this.tabItemmasterdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.tabStockmanagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -168,9 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -373,7 +356,7 @@
             this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
             this.MinimizeBtn.Location = new System.Drawing.Point(1374, 2);
-            this.MinimizeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimizeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.Size = new System.Drawing.Size(39, 33);
             this.MinimizeBtn.TabIndex = 8;
@@ -640,7 +623,7 @@
             this.tabItemmasterdata.Controls.Add(this.label14);
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 22);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
-            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(3);
             this.tabItemmasterdata.Size = new System.Drawing.Size(1339, 660);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
@@ -652,7 +635,7 @@
             this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearBtn.Location = new System.Drawing.Point(1155, 452);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(93, 54);
             this.ClearBtn.TabIndex = 148;
@@ -692,16 +675,7 @@
             this.PriceCode,
             this.UnitPrice,
             this.Quantity,
-            this.Category,
-            this.iDDataGridViewTextBoxColumn,
-            this.barcodeDataGridViewTextBoxColumn,
-            this.itemNameDataGridViewTextBoxColumn,
-            this.motorBrandDataGridViewTextBoxColumn,
-            this.brandDataGridViewTextBoxColumn,
-            this.priceCodeDataGridViewTextBoxColumn,
-            this.unitPriceDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn});
+            this.Category});
             this.dataGridView2.DataSource = this.tblitemmasterdataBindingSource2;
             this.dataGridView2.Location = new System.Drawing.Point(25, 47);
             this.dataGridView2.Name = "dataGridView2";
@@ -710,6 +684,7 @@
             this.dataGridView2.TabIndex = 145;
             this.dataGridView2.UseWaitCursor = true;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // ID
             // 
@@ -795,18 +770,13 @@
             // tblitemmasterdataBindingSource2
             // 
             this.tblitemmasterdataBindingSource2.DataMember = "tbl_itemmasterdata";
-
-            // 
-            // benpillMotorcycleitemmasterdata
-            // 
-
             // 
             // ArchiveBtn
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ArchiveBtn.Location = new System.Drawing.Point(1039, 452);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
             this.ArchiveBtn.TabIndex = 144;
@@ -819,7 +789,7 @@
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.Location = new System.Drawing.Point(1155, 383);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 143;
@@ -832,7 +802,7 @@
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.Location = new System.Drawing.Point(1039, 383);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 142;
@@ -1004,7 +974,7 @@
             // TxtSearchBar
             // 
             this.TxtSearchBar.Location = new System.Drawing.Point(75, 19);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 41;
@@ -1047,7 +1017,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(495, 566);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(93, 54);
             this.button4.TabIndex = 144;
@@ -1077,7 +1047,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(75, 23);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(130, 20);
             this.textBox8.TabIndex = 73;
@@ -1145,7 +1115,6 @@
             // tblitemmasterdataBindingSource1
             // 
             this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
-
             // 
             // tblitemmasterdataBindingSource
             // 
@@ -1171,89 +1140,13 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tbl_itemmasterdataTableAdapter
-            // 
-
-            // 
-            // benpillMotorcycleitemmasterdata2
-            // 
-
             // tblitemmasterdata2BindingSource
             // 
             this.tblitemmasterdata2BindingSource.DataMember = "tbl_itemmasterdata2";
-
-            // 
-            // tbl_itemmasterdata2TableAdapter
-            // 
-
-            // 
-            // benpillMotorcycleDatabaseItemmasterdata2
-            // 
-
             // 
             // tblitemmasterdata2BindingSource1
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
-
-            // 
-            // tbl_itemmasterdata2TableAdapter1
-            // 
-
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // barcodeDataGridViewTextBoxColumn
-            // 
-            this.barcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
-            this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            // 
-            // motorBrandDataGridViewTextBoxColumn
-            // 
-            this.motorBrandDataGridViewTextBoxColumn.DataPropertyName = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.HeaderText = "MotorBrand";
-            this.motorBrandDataGridViewTextBoxColumn.Name = "motorBrandDataGridViewTextBoxColumn";
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            // 
-            // priceCodeDataGridViewTextBoxColumn
-            // 
-            this.priceCodeDataGridViewTextBoxColumn.DataPropertyName = "PriceCode";
-            this.priceCodeDataGridViewTextBoxColumn.HeaderText = "PriceCode";
-            this.priceCodeDataGridViewTextBoxColumn.Name = "priceCodeDataGridViewTextBoxColumn";
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             // 
             // Inventory
             // 
@@ -1296,7 +1189,6 @@
             this.tabItemmasterdata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.tabStockmanagement.ResumeLayout(false);
             this.tabStockmanagement.PerformLayout();
@@ -1306,9 +1198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
             this.ResumeLayout(false);
 

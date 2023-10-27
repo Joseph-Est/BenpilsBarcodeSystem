@@ -285,6 +285,21 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-     
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
+                ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
+                ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
+                MotorBrandTxt.Text = row.Cells["MotorBrand"].Value.ToString();
+                BrandTxt.Text = row.Cells["Brand"].Value.ToString();
+                UnitPriceTxt.Text = row.Cells["UnitPrice"].Value.ToString();
+                QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
+                CategoryTxt.Text = row.Cells["Category"].Value.ToString();
+            }
+
+        }
     }
 }

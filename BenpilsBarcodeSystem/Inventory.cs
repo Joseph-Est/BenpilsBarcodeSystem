@@ -184,7 +184,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    
+                    dataGridItemMasterdata.DataSource = dt;
                 }
             }
         }
@@ -293,13 +293,11 @@ namespace BenpilsBarcodeSystem
         {
             if (int.TryParse(ProductIDTxt.Text, out int productId))
             {
-              
-                string queries = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
-                                "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category)";
+                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category WHERE ProductID = @ProductID";
 
                 using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
-                    using (SqlCommand cmd = new SqlCommand(queries, con))
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                     {
                         cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                         cmd.Parameters.AddWithValue("@ProductID", productId);
@@ -313,7 +311,7 @@ namespace BenpilsBarcodeSystem
                         }
                         else
                         {
-                            
+           
                         }
 
                         if (int.TryParse(QuantityTxt.Text, out int quantity))
@@ -322,7 +320,7 @@ namespace BenpilsBarcodeSystem
                         }
                         else
                         {
-                          
+                
                         }
 
                         cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
@@ -334,7 +332,7 @@ namespace BenpilsBarcodeSystem
                         }
                         catch (Exception ex)
                         {
-                         
+               
                             MessageBox.Show("Error: " + ex.Message);
                         }
                         finally
@@ -346,11 +344,10 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-            
+                
                 MessageBox.Show("Please enter a valid Product ID.");
             }
-            UpdateDataGridView();
-            ClearAllTextBoxes();
+            
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {

@@ -289,6 +289,69 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(ProductIDTxt.Text, out int productId))
+            {
+              
+                string queries = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
+                                "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category)";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(queries, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
+                        cmd.Parameters.AddWithValue("@ProductID", productId);
+                        cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
+                        cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
+                        cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
+
+                        if (decimal.TryParse(UnitPriceTxt.Text, out decimal unitPrice))
+                        {
+                            cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                        }
+                        else
+                        {
+                            
+                        }
+
+                        if (int.TryParse(QuantityTxt.Text, out int quantity))
+                        {
+                            cmd.Parameters.AddWithValue("@Quantity", quantity);
+                        }
+                        else
+                        {
+                          
+                        }
+
+                        cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
+
+                        try
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                         
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                    }
+                }
+            }
+            else
+            {
+            
+                MessageBox.Show("Please enter a valid Product ID.");
+            }
+            UpdateDataGridView();
+            ClearAllTextBoxes();
+        }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             ClearAllTextBoxes();
@@ -334,6 +397,6 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-       
+     
     }
 }

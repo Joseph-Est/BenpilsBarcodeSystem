@@ -347,7 +347,8 @@ namespace BenpilsBarcodeSystem
                 
                 MessageBox.Show("Please enter a valid Product ID.");
             }
-            
+            UpdateDataGridView();
+            ClearAllTextBoxes();
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
@@ -387,7 +388,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-
+                    dataGridItemMasterdata . DataSource = dt;
                 }
             }
             AddBtn.Enabled = true;

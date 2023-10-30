@@ -127,6 +127,7 @@
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
+            this.RandomGenerateProductidBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -601,6 +602,7 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.RandomGenerateProductidBtn);
             this.tabItemmasterdata.Controls.Add(this.BarcodeGeneratorBtn);
             this.tabItemmasterdata.Controls.Add(this.dataGridItemMasterdata);
             this.tabItemmasterdata.Controls.Add(this.ClearBtn);
@@ -765,6 +767,7 @@
             this.UnitPriceTxt.Size = new System.Drawing.Size(197, 20);
             this.UnitPriceTxt.TabIndex = 147;
             this.UnitPriceTxt.UseWaitCursor = true;
+            this.UnitPriceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UnitPriceTxt_KeyPress);
             // 
             // label20
             // 
@@ -862,6 +865,7 @@
             // 
             this.ProductIDTxt.Location = new System.Drawing.Point(1057, 110);
             this.ProductIDTxt.Name = "ProductIDTxt";
+            this.ProductIDTxt.ReadOnly = true;
             this.ProductIDTxt.Size = new System.Drawing.Size(197, 20);
             this.ProductIDTxt.TabIndex = 132;
             this.ProductIDTxt.UseWaitCursor = true;
@@ -1173,6 +1177,16 @@
             this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
             this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
             // 
+            // RandomGenerateProductidBtn
+            // 
+            this.RandomGenerateProductidBtn.Location = new System.Drawing.Point(1258, 110);
+            this.RandomGenerateProductidBtn.Name = "RandomGenerateProductidBtn";
+            this.RandomGenerateProductidBtn.Size = new System.Drawing.Size(75, 23);
+            this.RandomGenerateProductidBtn.TabIndex = 151;
+            this.RandomGenerateProductidBtn.Text = "Generate";
+            this.RandomGenerateProductidBtn.UseVisualStyleBackColor = true;
+            this.RandomGenerateProductidBtn.Click += new System.EventHandler(this.RandomGenerateProductidBtn_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1337,5 +1351,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button BarcodeGeneratorBtn;
+        private System.Windows.Forms.Button RandomGenerateProductidBtn;
     }
 }

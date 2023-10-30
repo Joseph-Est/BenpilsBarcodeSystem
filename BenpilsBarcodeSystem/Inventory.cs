@@ -221,7 +221,13 @@ namespace BenpilsBarcodeSystem
                 e.Handled = true;
             }
         }
-
+        private void UnitPriceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void label12_Click(object sender, EventArgs e)
         {
 
@@ -404,5 +410,31 @@ namespace BenpilsBarcodeSystem
             GB.Show();
             GB.BringToFront();
         }
+        private void GenerateProductID()
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                con.Open();
+
+                Random rand = new Random();
+                int randomProductID = rand.Next(1, 600);
+
+                if (randomProductID > 599)
+                {
+                    MessageBox.Show("ProductID limit exceeded.");
+                    return;
+                }
+
+                string productID = randomProductID.ToString("D4");
+                ProductIDTxt.Text = productID;
+            }
+        }
+
+        private void RandomGenerateProductidBtn_Click(object sender, EventArgs e)
+        {
+            GenerateProductID();
+        }
+
+    
     }
 }

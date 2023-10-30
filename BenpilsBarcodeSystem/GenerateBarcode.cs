@@ -83,6 +83,14 @@ namespace BenpilsBarcodeSystem
             
         }
 
+        private void ManualRegenratetxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -145,6 +145,7 @@
             this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
             this.ManualRegenratetxt.TabIndex = 116;
             this.ManualRegenratetxt.UseWaitCursor = true;
+            this.ManualRegenratetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ManualRegenratetxt_KeyPress);
             // 
             // ManualGenerateBtn
             // 

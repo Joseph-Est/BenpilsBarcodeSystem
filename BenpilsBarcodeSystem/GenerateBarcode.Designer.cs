@@ -36,6 +36,11 @@
             this.generatedpicture = new System.Windows.Forms.PictureBox();
             this.GeneratedBarcodeTxt = new System.Windows.Forms.TextBox();
             this.GenerateBtn = new System.Windows.Forms.Button();
+            this.RandomRegenLvl = new System.Windows.Forms.Label();
+            this.ManualRegenLbl = new System.Windows.Forms.Label();
+            this.ManualRegenratetxt = new System.Windows.Forms.TextBox();
+            this.ManualGenerateBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
@@ -49,7 +54,7 @@
             this.panel1.Controls.Add(this.CloseBtn);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 38);
+            this.panel1.Size = new System.Drawing.Size(440, 38);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -58,7 +63,7 @@
             // MinimizeBtn
             // 
             this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
-            this.MinimizeBtn.Location = new System.Drawing.Point(244, 3);
+            this.MinimizeBtn.Location = new System.Drawing.Point(355, 6);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizeBtn.TabIndex = 8;
@@ -68,7 +73,7 @@
             // CloseBtn
             // 
             this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(288, 4);
+            this.CloseBtn.Location = new System.Drawing.Point(399, 7);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(31, 28);
             this.CloseBtn.TabIndex = 7;
@@ -80,7 +85,7 @@
             this.LvlBarcodeGenerator.AutoSize = true;
             this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
-            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(100, 79);
+            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(172, 93);
             this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
             this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
             this.LvlBarcodeGenerator.TabIndex = 110;
@@ -89,7 +94,7 @@
             // 
             // generatedpicture
             // 
-            this.generatedpicture.Location = new System.Drawing.Point(61, 111);
+            this.generatedpicture.Location = new System.Drawing.Point(125, 128);
             this.generatedpicture.Name = "generatedpicture";
             this.generatedpicture.Size = new System.Drawing.Size(199, 72);
             this.generatedpicture.TabIndex = 109;
@@ -98,15 +103,16 @@
             // 
             // GeneratedBarcodeTxt
             // 
-            this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(61, 201);
+            this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(125, 248);
             this.GeneratedBarcodeTxt.Name = "GeneratedBarcodeTxt";
+            this.GeneratedBarcodeTxt.ReadOnly = true;
             this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
             this.GeneratedBarcodeTxt.TabIndex = 108;
             this.GeneratedBarcodeTxt.UseWaitCursor = true;
             // 
             // GenerateBtn
             // 
-            this.GenerateBtn.Location = new System.Drawing.Point(116, 227);
+            this.GenerateBtn.Location = new System.Drawing.Point(341, 248);
             this.GenerateBtn.Name = "GenerateBtn";
             this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
             this.GenerateBtn.TabIndex = 107;
@@ -114,12 +120,63 @@
             this.GenerateBtn.UseVisualStyleBackColor = true;
             this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
+            // RandomRegenLvl
+            // 
+            this.RandomRegenLvl.AutoSize = true;
+            this.RandomRegenLvl.Location = new System.Drawing.Point(12, 251);
+            this.RandomRegenLvl.Name = "RandomRegenLvl";
+            this.RandomRegenLvl.Size = new System.Drawing.Size(109, 13);
+            this.RandomRegenLvl.TabIndex = 114;
+            this.RandomRegenLvl.Text = "Random Regenerate:";
+            // 
+            // ManualRegenLbl
+            // 
+            this.ManualRegenLbl.AutoSize = true;
+            this.ManualRegenLbl.Location = new System.Drawing.Point(15, 222);
+            this.ManualRegenLbl.Name = "ManualRegenLbl";
+            this.ManualRegenLbl.Size = new System.Drawing.Size(104, 13);
+            this.ManualRegenLbl.TabIndex = 115;
+            this.ManualRegenLbl.Text = "Manual Regenerate:";
+            // 
+            // ManualRegenratetxt
+            // 
+            this.ManualRegenratetxt.Location = new System.Drawing.Point(125, 219);
+            this.ManualRegenratetxt.Name = "ManualRegenratetxt";
+            this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
+            this.ManualRegenratetxt.TabIndex = 116;
+            this.ManualRegenratetxt.UseWaitCursor = true;
+            // 
+            // ManualGenerateBtn
+            // 
+            this.ManualGenerateBtn.Location = new System.Drawing.Point(341, 219);
+            this.ManualGenerateBtn.Name = "ManualGenerateBtn";
+            this.ManualGenerateBtn.Size = new System.Drawing.Size(75, 23);
+            this.ManualGenerateBtn.TabIndex = 117;
+            this.ManualGenerateBtn.Text = "Generate";
+            this.ManualGenerateBtn.UseVisualStyleBackColor = true;
+            this.ManualGenerateBtn.Click += new System.EventHandler(this.ManualGenerateBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Location = new System.Drawing.Point(341, 278);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClearBtn.TabIndex = 118;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
             // GenerateBarcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(321, 328);
+            this.ClientSize = new System.Drawing.Size(439, 432);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.ManualGenerateBtn);
+            this.Controls.Add(this.ManualRegenratetxt);
+            this.Controls.Add(this.ManualRegenLbl);
+            this.Controls.Add(this.RandomRegenLvl);
             this.Controls.Add(this.LvlBarcodeGenerator);
             this.Controls.Add(this.generatedpicture);
             this.Controls.Add(this.GeneratedBarcodeTxt);
@@ -148,5 +205,10 @@
         private System.Windows.Forms.PictureBox generatedpicture;
         private System.Windows.Forms.TextBox GeneratedBarcodeTxt;
         private System.Windows.Forms.Button GenerateBtn;
+        private System.Windows.Forms.Label RandomRegenLvl;
+        private System.Windows.Forms.Label ManualRegenLbl;
+        private System.Windows.Forms.TextBox ManualRegenratetxt;
+        private System.Windows.Forms.Button ManualGenerateBtn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }

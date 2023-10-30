@@ -29,7 +29,31 @@ namespace BenpilsBarcodeSystem
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             GeneratedBarcodeTxt.Text = randomBarcode;
         }
+        private void ManualGenerateBtn_Click(object sender, EventArgs e)
+        {
+            string inputText = ManualRegenratetxt.Text;
 
+            if (!string.IsNullOrWhiteSpace(inputText))
+            {
+                BarcodeWriter barcodeWriter = new BarcodeWriter();
+                barcodeWriter.Format = BarcodeFormat.CODE_128;
+
+                // Generate the barcode image.
+                var barcodeBitmap = barcodeWriter.Write(inputText);
+
+                // Display the generated barcode in the PictureBox.
+                generatedpicture.Image = barcodeBitmap;
+            }
+            else
+            {
+                MessageBox.Show("Please enter data to generate a barcode.");
+            }
+        }
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            GeneratedBarcodeTxt.Text = "";
+            ManualRegenratetxt.Text  = "";
+        }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -48,6 +72,10 @@ namespace BenpilsBarcodeSystem
                 this.Top += e.Y - mouseY;
             }
         }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
@@ -60,9 +88,8 @@ namespace BenpilsBarcodeSystem
             this.Close();
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
+      
+
+     
     }
 }

@@ -116,16 +116,17 @@
             this.label16 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tblitemmasterdataBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblinventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillBarcodeDatabaseInventory = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
             this.tbl_inventoryTableAdapter = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.tbl_inventoryTableAdapter();
             this.tableAdapterManager1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager();
+            this.tbl_itemmasterdataTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleMasterDataTableAdapters.tbl_itemmasterdataTableAdapter();
+            this.tblitemmasterdataBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_itemmasterdataTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleMasterDataTableAdapters.tbl_itemmasterdataTableAdapter();
+            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -153,11 +154,11 @@
             this.tabStockmanagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -600,6 +601,7 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.BarcodeGeneratorBtn);
             this.tabItemmasterdata.Controls.Add(this.dataGridItemMasterdata);
             this.tabItemmasterdata.Controls.Add(this.ClearBtn);
             this.tabItemmasterdata.Controls.Add(this.UnitPriceTxt);
@@ -1117,18 +1119,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.UseWaitCursor = true;
             // 
-            // tblitemmasterdataBindingSource2
-            // 
-            this.tblitemmasterdataBindingSource2.DataMember = "tbl_itemmasterdata";
-            // 
-            // tblitemmasterdataBindingSource1
-            // 
-            this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
-            // 
-            // tblitemmasterdataBindingSource
-            // 
-            this.tblitemmasterdataBindingSource.DataMember = "tbl_itemmasterdata";
-            // 
             // tblinventoryBindingSource
             // 
             this.tblinventoryBindingSource.DataMember = "tbl_inventory";
@@ -1149,6 +1139,22 @@
             this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
             this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tbl_itemmasterdataTableAdapter
+            // 
+            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
+            // 
+            // tblitemmasterdataBindingSource2
+            // 
+            this.tblitemmasterdataBindingSource2.DataMember = "tbl_itemmasterdata";
+            // 
+            // tblitemmasterdataBindingSource1
+            // 
+            this.tblitemmasterdataBindingSource1.DataMember = "tbl_itemmasterdata";
+            // 
+            // tblitemmasterdataBindingSource
+            // 
+            this.tblitemmasterdataBindingSource.DataMember = "tbl_itemmasterdata";
+            // 
             // tblitemmasterdata2BindingSource
             // 
             this.tblitemmasterdata2BindingSource.DataMember = "tbl_itemmasterdata2";
@@ -1157,9 +1163,15 @@
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
             // 
-            // tbl_itemmasterdataTableAdapter
+            // BarcodeGeneratorBtn
             // 
-            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(1094, 536);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(116, 63);
+            this.BarcodeGeneratorBtn.TabIndex = 150;
+            this.BarcodeGeneratorBtn.Text = "Barcode Generator";
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
             // 
             // Inventory
             // 
@@ -1208,11 +1220,11 @@
             this.tabStockmanagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblinventoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillBarcodeDatabaseInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -1324,5 +1336,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Button BarcodeGeneratorBtn;
     }
 }

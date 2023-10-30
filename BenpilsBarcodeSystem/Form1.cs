@@ -46,6 +46,10 @@ namespace BenpilsBarcodeSystem
                 this.Top += e.Y - mouseY;
             }
         }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
         private void Showpassword_CheckedChanged(object sender, EventArgs e)
         {
             if (Showpassword.Checked == true)
@@ -173,9 +177,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
+      
     }
 }

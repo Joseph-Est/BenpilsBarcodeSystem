@@ -395,6 +395,10 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-     
+        private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
+        {
+            GenerateBarcode GB = new GenerateBarcode();
+            GB.Show();
+        }
     }
 }

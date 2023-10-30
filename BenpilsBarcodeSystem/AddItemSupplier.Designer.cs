@@ -83,6 +83,7 @@
             this.LvlBarcodeGenerator.TabIndex = 106;
             this.LvlBarcodeGenerator.Text = "Barcode Generator";
             this.LvlBarcodeGenerator.UseWaitCursor = true;
+            this.LvlBarcodeGenerator.Click += new System.EventHandler(this.LvlBarcodeGenerator_Click);
             // 
             // generatedpicture
             // 
@@ -92,6 +93,7 @@
             this.generatedpicture.TabIndex = 105;
             this.generatedpicture.TabStop = false;
             this.generatedpicture.UseWaitCursor = true;
+            this.generatedpicture.Click += new System.EventHandler(this.generatedpicture_Click);
             // 
             // GeneratedBarcodeTxt
             // 
@@ -100,6 +102,7 @@
             this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
             this.GeneratedBarcodeTxt.TabIndex = 104;
             this.GeneratedBarcodeTxt.UseWaitCursor = true;
+            this.GeneratedBarcodeTxt.TextChanged += new System.EventHandler(this.GeneratedBarcodeTxt_TextChanged);
             // 
             // GenerateBtn
             // 

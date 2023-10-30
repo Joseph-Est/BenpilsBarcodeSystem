@@ -167,6 +167,21 @@ namespace BenpilsBarcodeSystem
        
         }
 
+        private void generatedpicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GeneratedBarcodeTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LvlBarcodeGenerator_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;

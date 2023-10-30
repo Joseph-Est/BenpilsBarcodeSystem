@@ -37,7 +37,7 @@ namespace BenpilsBarcodeSystem
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        //close button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();

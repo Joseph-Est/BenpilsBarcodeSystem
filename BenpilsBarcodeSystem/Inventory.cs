@@ -16,7 +16,7 @@ namespace BenpilsBarcodeSystem
     public partial class Inventory : Form
     {
         private User user;
-       
+        private GenerateBarcode GB;
         public Inventory(User user)
         {
             InitializeComponent();
@@ -397,8 +397,12 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
         {
-            GenerateBarcode GB = new GenerateBarcode();
+            if (GB == null || GB.IsDisposed)
+            {     
+                GB = new GenerateBarcode();
+            }
             GB.Show();
+            GB.BringToFront();
         }
     }
 }

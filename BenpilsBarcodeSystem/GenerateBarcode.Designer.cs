@@ -63,6 +63,7 @@
             this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizeBtn.TabIndex = 8;
             this.MinimizeBtn.TabStop = false;
+            this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // CloseBtn
             // 
@@ -72,6 +73,7 @@
             this.CloseBtn.Size = new System.Drawing.Size(31, 28);
             this.CloseBtn.TabIndex = 7;
             this.CloseBtn.TabStop = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // LvlBarcodeGenerator
             // 

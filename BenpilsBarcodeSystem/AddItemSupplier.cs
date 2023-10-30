@@ -182,24 +182,18 @@ namespace BenpilsBarcodeSystem
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 con.Open();
-                string query = "SELECT MAX(CAST(RIGHT(ProductID, 4) AS INT)) FROM tbl_purchaseorderlist";
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    object result = cmd.ExecuteScalar();
 
-                    int nextProductID = 1;
-                    if (result != DBNull.Value)
-                    {
-                        nextProductID = (int)result + 1;
-                    }
-                    if (nextProductID > 9999)
-                    {
-                        MessageBox.Show("ProductID limit exceeded.");
-                        return;
-                    }
-                    string productID = "PROD" + nextProductID.ToString("D4");
-                    productIDtxt.Text = productID;
+                Random rand = new Random();
+                int randomProductID = rand.Next(1, 10000);
+
+                if (randomProductID > 9999)
+                {
+                    MessageBox.Show("ProductID limit exceeded.");
+                    return;
                 }
+
+                string productID = "PROD" + randomProductID.ToString("D4");
+                productIDtxt.Text = productID;
             }
         }
         private void GenerateproductidBtn_Click(object sender, EventArgs e)

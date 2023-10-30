@@ -184,9 +184,9 @@ namespace BenpilsBarcodeSystem
                 con.Open();
 
                 Random rand = new Random();
-                int randomProductID = rand.Next(1, 10000);
+                int randomProductID = rand.Next(1, 600);
 
-                if (randomProductID > 9999)
+                if (randomProductID > 599)
                 {
                     MessageBox.Show("ProductID limit exceeded.");
                     return;

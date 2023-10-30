@@ -55,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.productIDtxt = new System.Windows.Forms.TextBox();
             this.ClearBtn = new System.Windows.Forms.Button();
+            this.GenerateproductidBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -288,6 +289,7 @@
             // 
             this.productIDtxt.Location = new System.Drawing.Point(136, 361);
             this.productIDtxt.Name = "productIDtxt";
+            this.productIDtxt.ReadOnly = true;
             this.productIDtxt.Size = new System.Drawing.Size(141, 20);
             this.productIDtxt.TabIndex = 109;
             this.productIDtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productIDtxt_KeyPress);
@@ -302,10 +304,21 @@
             this.ClearBtn.UseVisualStyleBackColor = true;
             this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
+            // GenerateproductidBtn
+            // 
+            this.GenerateproductidBtn.Location = new System.Drawing.Point(292, 361);
+            this.GenerateproductidBtn.Name = "GenerateproductidBtn";
+            this.GenerateproductidBtn.Size = new System.Drawing.Size(123, 23);
+            this.GenerateproductidBtn.TabIndex = 111;
+            this.GenerateproductidBtn.Text = "Generate Product ID";
+            this.GenerateproductidBtn.UseVisualStyleBackColor = true;
+            this.GenerateproductidBtn.Click += new System.EventHandler(this.GenerateproductidBtn_Click);
+            // 
             // AddItemSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.GenerateproductidBtn);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.productIDtxt);
             this.Controls.Add(this.label2);
@@ -370,5 +383,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox productIDtxt;
         private System.Windows.Forms.Button ClearBtn;
+        private System.Windows.Forms.Button GenerateproductidBtn;
     }
 }

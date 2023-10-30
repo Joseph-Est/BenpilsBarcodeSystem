@@ -100,11 +100,28 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
-                                "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+            string checkProductIDQuery = "SELECT COUNT(*) FROM tbl_purchaseorderlist WHERE ProductID = @ProductID";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
+                con.Open();
+
+                using (SqlCommand checkCmd = new SqlCommand(checkProductIDQuery, con))
+                {
+                    checkCmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text);
+                    int existingRecordsCount = (int)checkCmd.ExecuteScalar();
+
+                    if (existingRecordsCount > 0)
+                    {
+                        MessageBox.Show("Product with the same ProductID already exists in the database. Please choose a different ProductID.");
+                        return; 
+                    }
+                }
+
+
+                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+                                    "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
@@ -114,13 +131,11 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);
                     cmd.Parameters.AddWithValue("@Brand", Brandtxt.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", unitPrice); // Use the parsed decimal value
+                    cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
                     cmd.Parameters.AddWithValue("@ProductID", productIDtxt.Text);
 
-                    con.Open();
                     cmd.ExecuteNonQuery();
-                    con.Close();
                 }
             }
 
@@ -130,7 +145,7 @@ namespace BenpilsBarcodeSystem
 
         private void CLearAllTextBoxes()
         {
-            CmbSupplier.Text= "";
+            CmbSupplier.Text = "";
             BarcodeTxt.Text = "";
             ItemNameTxt.Text = "";
             MotorbrandTxt.Text = "";
@@ -138,7 +153,7 @@ namespace BenpilsBarcodeSystem
             UnitPriceTxt.Text = "";
             CategoryTxt.Text = "";
             productIDtxt.Text = "";
-       
+
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
@@ -148,10 +163,10 @@ namespace BenpilsBarcodeSystem
 
         private void productIDtxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void UnitPriceTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -162,6 +177,17 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void GenerateProductID()
+        {
+            string productID = "PROD" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+          
+            productIDtxt.Text = productID;
+        }
+        private void GenerateproductidBtn_Click(object sender, EventArgs e)
+        {
+            GenerateProductID();
+        }
         private void BarcodeTxt_TextChanged(object sender, EventArgs e)
         {
        
@@ -181,6 +207,8 @@ namespace BenpilsBarcodeSystem
         {
 
         }
+
+    
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

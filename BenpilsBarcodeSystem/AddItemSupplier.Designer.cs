@@ -82,13 +82,12 @@
             this.LvlBarcodeGenerator.AutoSize = true;
             this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
-            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(473, 104);
+            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(478, 112);
             this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
             this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
             this.LvlBarcodeGenerator.TabIndex = 106;
             this.LvlBarcodeGenerator.Text = "Barcode Generator";
             this.LvlBarcodeGenerator.UseWaitCursor = true;
-            this.LvlBarcodeGenerator.Click += new System.EventHandler(this.LvlBarcodeGenerator_Click);
             // 
             // generatedpicture
             // 
@@ -98,7 +97,6 @@
             this.generatedpicture.TabIndex = 105;
             this.generatedpicture.TabStop = false;
             this.generatedpicture.UseWaitCursor = true;
-            this.generatedpicture.Click += new System.EventHandler(this.generatedpicture_Click);
             // 
             // GeneratedBarcodeTxt
             // 
@@ -108,7 +106,6 @@
             this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
             this.GeneratedBarcodeTxt.TabIndex = 104;
             this.GeneratedBarcodeTxt.UseWaitCursor = true;
-            this.GeneratedBarcodeTxt.TextChanged += new System.EventHandler(this.GeneratedBarcodeTxt_TextChanged);
             // 
             // GenerateBtn
             // 
@@ -216,7 +213,6 @@
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(142, 20);
             this.BarcodeTxt.TabIndex = 87;
-            this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
             // 
             // SupplierLabel
             // 
@@ -326,6 +322,7 @@
             this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
             this.ManualRegenratetxt.TabIndex = 112;
             this.ManualRegenratetxt.UseWaitCursor = true;
+            this.ManualRegenratetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ManualRegenratetxt_KeyPress);
             // 
             // RandomRegenLvl
             // 

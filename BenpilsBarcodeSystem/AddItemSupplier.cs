@@ -91,6 +91,10 @@ namespace BenpilsBarcodeSystem
                 this.Top += e.Y - mouseY;
             }
         }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
 
         private void CmbSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -197,6 +201,13 @@ namespace BenpilsBarcodeSystem
                 e.Handled = true;
             }
         }
+        private void ManualRegenratetxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
 
         private void GenerateProductID()
         {
@@ -220,32 +231,6 @@ namespace BenpilsBarcodeSystem
         private void GenerateproductidBtn_Click(object sender, EventArgs e)
         {
             GenerateProductID();
-        }
-        private void BarcodeTxt_TextChanged(object sender, EventArgs e)
-        {
-       
-        }
-
-        private void generatedpicture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GeneratedBarcodeTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LvlBarcodeGenerator_Click(object sender, EventArgs e)
-        {
-
-        }
-
-     
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
+        } 
     }
 }

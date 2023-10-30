@@ -56,6 +56,10 @@
             this.productIDtxt = new System.Windows.Forms.TextBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.GenerateproductidBtn = new System.Windows.Forms.Button();
+            this.ManualRegenratetxt = new System.Windows.Forms.TextBox();
+            this.RandomRegenLvl = new System.Windows.Forms.Label();
+            this.ManualRegenLbl = new System.Windows.Forms.Label();
+            this.ManualRegeeBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -78,7 +82,7 @@
             this.LvlBarcodeGenerator.AutoSize = true;
             this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
-            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(430, 176);
+            this.LvlBarcodeGenerator.Location = new System.Drawing.Point(473, 104);
             this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
             this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
             this.LvlBarcodeGenerator.TabIndex = 106;
@@ -88,7 +92,7 @@
             // 
             // generatedpicture
             // 
-            this.generatedpicture.Location = new System.Drawing.Point(391, 208);
+            this.generatedpicture.Location = new System.Drawing.Point(434, 149);
             this.generatedpicture.Name = "generatedpicture";
             this.generatedpicture.Size = new System.Drawing.Size(199, 72);
             this.generatedpicture.TabIndex = 105;
@@ -98,8 +102,9 @@
             // 
             // GeneratedBarcodeTxt
             // 
-            this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(391, 298);
+            this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(434, 262);
             this.GeneratedBarcodeTxt.Name = "GeneratedBarcodeTxt";
+            this.GeneratedBarcodeTxt.ReadOnly = true;
             this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
             this.GeneratedBarcodeTxt.TabIndex = 104;
             this.GeneratedBarcodeTxt.UseWaitCursor = true;
@@ -107,7 +112,7 @@
             // 
             // GenerateBtn
             // 
-            this.GenerateBtn.Location = new System.Drawing.Point(446, 324);
+            this.GenerateBtn.Location = new System.Drawing.Point(647, 259);
             this.GenerateBtn.Name = "GenerateBtn";
             this.GenerateBtn.Size = new System.Drawing.Size(75, 23);
             this.GenerateBtn.TabIndex = 103;
@@ -235,7 +240,7 @@
             // MinimizeBtn
             // 
             this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
-            this.MinimizeBtn.Location = new System.Drawing.Point(573, 3);
+            this.MinimizeBtn.Location = new System.Drawing.Point(684, 0);
             this.MinimizeBtn.Name = "MinimizeBtn";
             this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizeBtn.TabIndex = 8;
@@ -245,7 +250,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(617, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(728, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 28);
             this.pictureBox2.TabIndex = 7;
@@ -260,7 +265,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(662, 38);
+            this.panel1.Size = new System.Drawing.Size(771, 38);
             this.panel1.TabIndex = 84;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -314,10 +319,51 @@
             this.GenerateproductidBtn.UseVisualStyleBackColor = true;
             this.GenerateproductidBtn.Click += new System.EventHandler(this.GenerateproductidBtn_Click);
             // 
+            // ManualRegenratetxt
+            // 
+            this.ManualRegenratetxt.Location = new System.Drawing.Point(434, 236);
+            this.ManualRegenratetxt.Name = "ManualRegenratetxt";
+            this.ManualRegenratetxt.ReadOnly = true;
+            this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
+            this.ManualRegenratetxt.TabIndex = 112;
+            this.ManualRegenratetxt.UseWaitCursor = true;
+            // 
+            // RandomRegenLvl
+            // 
+            this.RandomRegenLvl.AutoSize = true;
+            this.RandomRegenLvl.Location = new System.Drawing.Point(319, 264);
+            this.RandomRegenLvl.Name = "RandomRegenLvl";
+            this.RandomRegenLvl.Size = new System.Drawing.Size(109, 13);
+            this.RandomRegenLvl.TabIndex = 113;
+            this.RandomRegenLvl.Text = "Random Regenerate:";
+            // 
+            // ManualRegenLbl
+            // 
+            this.ManualRegenLbl.AutoSize = true;
+            this.ManualRegenLbl.Location = new System.Drawing.Point(324, 239);
+            this.ManualRegenLbl.Name = "ManualRegenLbl";
+            this.ManualRegenLbl.Size = new System.Drawing.Size(104, 13);
+            this.ManualRegenLbl.TabIndex = 114;
+            this.ManualRegenLbl.Text = "Manual Regenerate:";
+            // 
+            // ManualRegeeBtn
+            // 
+            this.ManualRegeeBtn.Location = new System.Drawing.Point(647, 234);
+            this.ManualRegeeBtn.Name = "ManualRegeeBtn";
+            this.ManualRegeeBtn.Size = new System.Drawing.Size(75, 23);
+            this.ManualRegeeBtn.TabIndex = 115;
+            this.ManualRegeeBtn.Text = "Generate";
+            this.ManualRegeeBtn.UseVisualStyleBackColor = true;
+            this.ManualRegeeBtn.Click += new System.EventHandler(this.ManualRegeeBtn_Click);
+            // 
             // AddItemSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(654, 450);
+            this.ClientSize = new System.Drawing.Size(770, 491);
+            this.Controls.Add(this.ManualRegeeBtn);
+            this.Controls.Add(this.ManualRegenLbl);
+            this.Controls.Add(this.RandomRegenLvl);
+            this.Controls.Add(this.ManualRegenratetxt);
             this.Controls.Add(this.GenerateproductidBtn);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.productIDtxt);
@@ -384,5 +430,9 @@
         private System.Windows.Forms.TextBox productIDtxt;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button GenerateproductidBtn;
+        private System.Windows.Forms.TextBox ManualRegenratetxt;
+        private System.Windows.Forms.Label RandomRegenLvl;
+        private System.Windows.Forms.Label ManualRegenLbl;
+        private System.Windows.Forms.Button ManualRegeeBtn;
     }
 }

@@ -52,6 +52,26 @@ namespace BenpilsBarcodeSystem
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             GeneratedBarcodeTxt.Text = randomBarcode;
         }
+        private void ManualRegeeBtn_Click(object sender, EventArgs e)
+        {
+            string inputText = ManualRegenratetxt.Text;
+
+            if (!string.IsNullOrWhiteSpace(inputText))
+            {
+                BarcodeWriter barcodeWriter = new BarcodeWriter();
+                barcodeWriter.Format = BarcodeFormat.CODE_128;
+
+                // Generate the barcode image.
+                var barcodeBitmap = barcodeWriter.Write(inputText);
+
+                // Display the generated barcode in the PictureBox.
+                generatedpicture.Image = barcodeBitmap;
+            }
+            else
+            {
+                MessageBox.Show("Please enter data to generate a barcode.");
+            }
+        }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -145,15 +165,16 @@ namespace BenpilsBarcodeSystem
 
         private void CLearAllTextBoxes()
         {
-            CmbSupplier.Text = "";
-            BarcodeTxt.Text = "";
-            ItemNameTxt.Text = "";
-            MotorbrandTxt.Text = "";
-            Brandtxt.Text = "";
-            UnitPriceTxt.Text = "";
-            CategoryTxt.Text = "";
-            productIDtxt.Text = "";
-
+            CmbSupplier.Text         = "";
+            BarcodeTxt.Text          = "";
+            ItemNameTxt.Text         = "";
+            MotorbrandTxt.Text       = "";
+            Brandtxt.Text            = "";
+            UnitPriceTxt.Text        = "";
+            CategoryTxt.Text         = "";
+            productIDtxt.Text        = "";
+            GeneratedBarcodeTxt.Text = "";
+            ManualRegenratetxt.Text  = "";
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
@@ -220,7 +241,7 @@ namespace BenpilsBarcodeSystem
 
         }
 
-    
+     
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {

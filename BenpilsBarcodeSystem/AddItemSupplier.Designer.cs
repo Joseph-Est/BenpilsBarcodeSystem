@@ -323,7 +323,6 @@
             // 
             this.ManualRegenratetxt.Location = new System.Drawing.Point(434, 236);
             this.ManualRegenratetxt.Name = "ManualRegenratetxt";
-            this.ManualRegenratetxt.ReadOnly = true;
             this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
             this.ManualRegenratetxt.TabIndex = 112;
             this.ManualRegenratetxt.UseWaitCursor = true;

@@ -192,7 +192,7 @@ namespace BenpilsBarcodeSystem
                     return;
                 }
 
-                string productID = "PROD" + randomProductID.ToString("D4");
+                string productID =randomProductID.ToString("D4");
                 productIDtxt.Text = productID;
             }
         }

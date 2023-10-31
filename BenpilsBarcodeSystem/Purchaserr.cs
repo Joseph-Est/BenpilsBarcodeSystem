@@ -147,6 +147,15 @@ namespace BenpilsBarcodeSystem
             set.Location = this.Location;
             this.Hide();
         }
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            ConfirmationExit CE = new ConfirmationExit();
+            CE.ShowDialog();
+        }
+        private void MinimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_supplier";
@@ -156,7 +165,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    dataGridSupplier.DataSource = dt;
                 }
             }
         }
@@ -259,6 +268,18 @@ namespace BenpilsBarcodeSystem
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void dataGridSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridSupplier.Rows[e.RowIndex];
+                ContactNameTxt.Text = row.Cells[1].Value.ToString();
+                AddressTxt.Text = row.Cells[2].Value.ToString();
+                ContactNoTxt.Text = row.Cells[3].Value.ToString();
+                AddBtn.Enabled = false;
             }
         }
     }

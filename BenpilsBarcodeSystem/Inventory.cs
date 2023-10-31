@@ -442,8 +442,8 @@ namespace BenpilsBarcodeSystem
         private void GenerateProductID()
         {
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
                 con.Open();
+            {
 
                 Random rand = new Random();
                 int randomProductID = rand.Next(1, 600);

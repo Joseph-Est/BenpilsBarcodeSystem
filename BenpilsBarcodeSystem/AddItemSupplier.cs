@@ -22,7 +22,7 @@ namespace BenpilsBarcodeSystem
         public AddItemSupplier(User user)
         {
             InitializeComponent();
-            Purchaserr purchasing = new Purchaserr(user);
+            Purchaserr purchaserr = new Purchaserr(user);
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 

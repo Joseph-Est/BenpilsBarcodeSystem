@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.Size = new System.Drawing.Size(160, 24);
             this.label1.TabIndex = 84;
             this.label1.Text = "Add Item Supplier";
             // 
@@ -84,7 +84,7 @@
             this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
             this.LvlBarcodeGenerator.Location = new System.Drawing.Point(478, 112);
             this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
-            this.LvlBarcodeGenerator.Size = new System.Drawing.Size(111, 15);
+            this.LvlBarcodeGenerator.Size = new System.Drawing.Size(135, 18);
             this.LvlBarcodeGenerator.TabIndex = 106;
             this.LvlBarcodeGenerator.Text = "Barcode Generator";
             this.LvlBarcodeGenerator.UseWaitCursor = true;
@@ -103,7 +103,7 @@
             this.GeneratedBarcodeTxt.Location = new System.Drawing.Point(434, 262);
             this.GeneratedBarcodeTxt.Name = "GeneratedBarcodeTxt";
             this.GeneratedBarcodeTxt.ReadOnly = true;
-            this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 20);
+            this.GeneratedBarcodeTxt.Size = new System.Drawing.Size(199, 22);
             this.GeneratedBarcodeTxt.TabIndex = 104;
             this.GeneratedBarcodeTxt.UseWaitCursor = true;
             // 
@@ -121,7 +121,7 @@
             // 
             this.CategoryTxt.Location = new System.Drawing.Point(136, 324);
             this.CategoryTxt.Name = "CategoryTxt";
-            this.CategoryTxt.Size = new System.Drawing.Size(141, 20);
+            this.CategoryTxt.Size = new System.Drawing.Size(141, 22);
             this.CategoryTxt.TabIndex = 102;
             // 
             // lblcategory
@@ -129,7 +129,7 @@
             this.lblcategory.AutoSize = true;
             this.lblcategory.Location = new System.Drawing.Point(77, 329);
             this.lblcategory.Name = "lblcategory";
-            this.lblcategory.Size = new System.Drawing.Size(52, 13);
+            this.lblcategory.Size = new System.Drawing.Size(65, 16);
             this.lblcategory.TabIndex = 100;
             this.lblcategory.Text = "Category:";
             // 
@@ -138,7 +138,7 @@
             this.lblunitprice.AutoSize = true;
             this.lblunitprice.Location = new System.Drawing.Point(77, 286);
             this.lblunitprice.Name = "lblunitprice";
-            this.lblunitprice.Size = new System.Drawing.Size(53, 13);
+            this.lblunitprice.Size = new System.Drawing.Size(64, 16);
             this.lblunitprice.TabIndex = 98;
             this.lblunitprice.Text = "UnitPrice:";
             // 
@@ -147,7 +147,7 @@
             this.lblBrand.AutoSize = true;
             this.lblBrand.Location = new System.Drawing.Point(91, 247);
             this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(38, 13);
+            this.lblBrand.Size = new System.Drawing.Size(46, 16);
             this.lblBrand.TabIndex = 96;
             this.lblBrand.Text = "Brand:";
             // 
@@ -156,7 +156,7 @@
             this.lvlmotorbrand.AutoSize = true;
             this.lvlmotorbrand.Location = new System.Drawing.Point(61, 208);
             this.lvlmotorbrand.Name = "lvlmotorbrand";
-            this.lvlmotorbrand.Size = new System.Drawing.Size(68, 13);
+            this.lvlmotorbrand.Size = new System.Drawing.Size(83, 16);
             this.lvlmotorbrand.TabIndex = 95;
             this.lvlmotorbrand.Text = "Motor Brand:";
             // 
@@ -164,7 +164,7 @@
             // 
             this.UnitPriceTxt.Location = new System.Drawing.Point(136, 283);
             this.UnitPriceTxt.Name = "UnitPriceTxt";
-            this.UnitPriceTxt.Size = new System.Drawing.Size(141, 20);
+            this.UnitPriceTxt.Size = new System.Drawing.Size(141, 22);
             this.UnitPriceTxt.TabIndex = 94;
             this.UnitPriceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UnitPriceTxt_KeyPress);
             // 
@@ -172,21 +172,21 @@
             // 
             this.Brandtxt.Location = new System.Drawing.Point(136, 244);
             this.Brandtxt.Name = "Brandtxt";
-            this.Brandtxt.Size = new System.Drawing.Size(141, 20);
+            this.Brandtxt.Size = new System.Drawing.Size(141, 22);
             this.Brandtxt.TabIndex = 92;
             // 
             // MotorbrandTxt
             // 
             this.MotorbrandTxt.Location = new System.Drawing.Point(136, 208);
             this.MotorbrandTxt.Name = "MotorbrandTxt";
-            this.MotorbrandTxt.Size = new System.Drawing.Size(141, 20);
+            this.MotorbrandTxt.Size = new System.Drawing.Size(141, 22);
             this.MotorbrandTxt.TabIndex = 91;
             // 
             // ItemNameTxt
             // 
             this.ItemNameTxt.Location = new System.Drawing.Point(136, 171);
             this.ItemNameTxt.Name = "ItemNameTxt";
-            this.ItemNameTxt.Size = new System.Drawing.Size(141, 20);
+            this.ItemNameTxt.Size = new System.Drawing.Size(141, 22);
             this.ItemNameTxt.TabIndex = 90;
             // 
             // lblitemname
@@ -194,7 +194,7 @@
             this.lblitemname.AutoSize = true;
             this.lblitemname.Location = new System.Drawing.Point(68, 171);
             this.lblitemname.Name = "lblitemname";
-            this.lblitemname.Size = new System.Drawing.Size(61, 13);
+            this.lblitemname.Size = new System.Drawing.Size(75, 16);
             this.lblitemname.TabIndex = 89;
             this.lblitemname.Text = "Item Name:";
             // 
@@ -203,7 +203,7 @@
             this.lvlbarcode.AutoSize = true;
             this.lvlbarcode.Location = new System.Drawing.Point(79, 132);
             this.lvlbarcode.Name = "lvlbarcode";
-            this.lvlbarcode.Size = new System.Drawing.Size(50, 13);
+            this.lvlbarcode.Size = new System.Drawing.Size(62, 16);
             this.lvlbarcode.TabIndex = 88;
             this.lvlbarcode.Text = "Barcode:";
             // 
@@ -211,7 +211,7 @@
             // 
             this.BarcodeTxt.Location = new System.Drawing.Point(135, 129);
             this.BarcodeTxt.Name = "BarcodeTxt";
-            this.BarcodeTxt.Size = new System.Drawing.Size(142, 20);
+            this.BarcodeTxt.Size = new System.Drawing.Size(142, 22);
             this.BarcodeTxt.TabIndex = 87;
             // 
             // SupplierLabel
@@ -219,7 +219,7 @@
             this.SupplierLabel.AutoSize = true;
             this.SupplierLabel.Location = new System.Drawing.Point(42, 91);
             this.SupplierLabel.Name = "SupplierLabel";
-            this.SupplierLabel.Size = new System.Drawing.Size(87, 13);
+            this.SupplierLabel.Size = new System.Drawing.Size(110, 16);
             this.SupplierLabel.TabIndex = 86;
             this.SupplierLabel.Text = "Choose Supplier:";
             // 
@@ -229,7 +229,7 @@
             this.CmbSupplier.FormattingEnabled = true;
             this.CmbSupplier.Location = new System.Drawing.Point(135, 88);
             this.CmbSupplier.Name = "CmbSupplier";
-            this.CmbSupplier.Size = new System.Drawing.Size(142, 21);
+            this.CmbSupplier.Size = new System.Drawing.Size(142, 24);
             this.CmbSupplier.TabIndex = 85;
             this.CmbSupplier.SelectedIndexChanged += new System.EventHandler(this.CmbSupplier_SelectedIndexChanged);
             // 
@@ -282,7 +282,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(61, 361);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 108;
             this.label2.Text = "Product ID:";
             // 
@@ -290,8 +290,7 @@
             // 
             this.productIDtxt.Location = new System.Drawing.Point(136, 361);
             this.productIDtxt.Name = "productIDtxt";
-            this.productIDtxt.ReadOnly = true;
-            this.productIDtxt.Size = new System.Drawing.Size(141, 20);
+            this.productIDtxt.Size = new System.Drawing.Size(141, 22);
             this.productIDtxt.TabIndex = 109;
             this.productIDtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productIDtxt_KeyPress);
             // 
@@ -319,7 +318,7 @@
             // 
             this.ManualRegenratetxt.Location = new System.Drawing.Point(434, 236);
             this.ManualRegenratetxt.Name = "ManualRegenratetxt";
-            this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 20);
+            this.ManualRegenratetxt.Size = new System.Drawing.Size(199, 22);
             this.ManualRegenratetxt.TabIndex = 112;
             this.ManualRegenratetxt.UseWaitCursor = true;
             this.ManualRegenratetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ManualRegenratetxt_KeyPress);
@@ -329,7 +328,7 @@
             this.RandomRegenLvl.AutoSize = true;
             this.RandomRegenLvl.Location = new System.Drawing.Point(319, 264);
             this.RandomRegenLvl.Name = "RandomRegenLvl";
-            this.RandomRegenLvl.Size = new System.Drawing.Size(109, 13);
+            this.RandomRegenLvl.Size = new System.Drawing.Size(137, 16);
             this.RandomRegenLvl.TabIndex = 113;
             this.RandomRegenLvl.Text = "Random Regenerate:";
             // 
@@ -338,7 +337,7 @@
             this.ManualRegenLbl.AutoSize = true;
             this.ManualRegenLbl.Location = new System.Drawing.Point(324, 239);
             this.ManualRegenLbl.Name = "ManualRegenLbl";
-            this.ManualRegenLbl.Size = new System.Drawing.Size(104, 13);
+            this.ManualRegenLbl.Size = new System.Drawing.Size(129, 16);
             this.ManualRegenLbl.TabIndex = 114;
             this.ManualRegenLbl.Text = "Manual Regenerate:";
             // 

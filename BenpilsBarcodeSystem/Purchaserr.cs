@@ -150,6 +150,7 @@ namespace BenpilsBarcodeSystem
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             ConfirmationExit CE = new ConfirmationExit();
+            CE.StartPosition = FormStartPosition.CenterScreen;
             CE.ShowDialog();
         }
         private void MinimizeBtn_Click(object sender, EventArgs e)
@@ -295,6 +296,7 @@ namespace BenpilsBarcodeSystem
         {
             AddItemSupplier addItemSupplier = new AddItemSupplier(user);
             addItemSupplier.BringToFront();
+            addItemSupplier.StartPosition = FormStartPosition.CenterScreen;
             addItemSupplier.ShowDialog();
         }
     }

@@ -187,8 +187,8 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_supplier (ContactName, Address, ContactNo, Email) " +
-                             "VALUES (@ContactName, @Address, @ContactNo, @Email)";
+            string insertQuery = "INSERT INTO tbl_supplier (ContactName, Address, ContactNo) " +
+                             "VALUES (@ContactName, @Address, @ContactNo)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
@@ -269,7 +269,7 @@ namespace BenpilsBarcodeSystem
                 string contactName = ContactNametxt.Text;
                 string address = AddressTxt.Text;
                 string contactNo = ContactNoTxt.Text;
-                string email = Emailtxt.Text;
+
 
                 using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
@@ -278,14 +278,12 @@ namespace BenpilsBarcodeSystem
                                    "SET ContactName = @ContactName, " +
                                    "Address = @Address, " +
                                    "ContactNo = @ContactNo, " +
-                                   "Email = @Email " +
                                    "WHERE SupplierID = @SupplierID";
                     SqlCommand command = new SqlCommand(query, connection);
 
                     command.Parameters.AddWithValue("@ContactName", contactName);
                     command.Parameters.AddWithValue("@Address", address);
-                    command.Parameters.AddWithValue("@ContactNo", contactNo);
-                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@ContactNo", contactNo);        
                     command.Parameters.AddWithValue("@SupplierID", selectedSupplierID);
 
                     int rowsAffected = command.ExecuteNonQuery();

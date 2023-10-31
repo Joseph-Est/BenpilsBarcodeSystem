@@ -469,6 +469,24 @@
         wbYGqezYcYtjx47BHoMVcfNjR49xuZncvKfhaXganoan4RHBwOD/AQqYafgZbHFPAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAVlJREFUSEvdlUdOxEAQAC3ShfAQ4BXAmSTEIxB5HwAn0i/IDyKnRyC4wAGosrYl
+        ZOOwK3zZkkrrGY+7veOZnqTnGcJlvMB7fMc3vMMzXMJBzLLb/i1lEV/wu8JHnMPA4PYX0odHGAGucAMn
+        cLit15t4jY75wj2M4KUJIvgHrqAJi+jHdfzECFyawGmJ4FN21OQYKxP4QWPOffO67GA2uOZwtXjDOfev
+        16EouOa4RG84p43wgCYYT1sN4AYywUjaaoBIMJq2umMMjfGatjL8xxRNojEsKznO0Zvu0G5poTFO0laG
+        WKZu/7rL9Dc+c4PGsAjmcKM9owNW7egQ65XPWvz+qrApC+ggS8W0HTWZQeuRRW/WjjIOMZKsYdl0DaBv
+        HsVuHyuxekYS9ZtsoSvEPaJeb2PMuW9+gGWVN8c8PmEkKjJ74HSEH8sV4fHoMelm1Fs8xaIjs2dIkh9B
+        +HpX1a+KaAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="tblpurchaseorderlistBindingSource3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1015, 146</value>
+  </metadata>
+  <metadata name="benpillMotorcycleDatabasePurchaseOrderListMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>615, 146</value>
+  </metadata>
   <metadata name="SupplierID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -487,6 +505,30 @@
   <metadata name="tblsupplierBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>574, 189</value>
   </metadata>
+  <metadata name="SupplierID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ContactName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ContactNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tblsupplierBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>574, 189</value>
+  </metadata>
+  <metadata name="benpillMotorcycleSupplierList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>316, 189</value>
+  </metadata>
+  <metadata name="benpillMotorcycleSupplierList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>316, 189</value>
+  </metadata>
   <data name="pictureBox15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -499,6 +541,9 @@
         +HpX1a+KaAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="benpillMotorcycleDatabasePurchaseOrderListMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>615, 146</value>
+  </metadata>
   <metadata name="tblsupplierBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1001, 17</value>
   </metadata>
@@ -507,21 +552,6 @@
   </metadata>
   <metadata name="benpillMotorcycleSuppier.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>770, 17</value>
-  </metadata>
-  <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAVlJREFUSEvdlUdOxEAQAC3ShfAQ4BXAmSTEIxB5HwAn0i/IDyKnRyC4wAGosrYl
-        ZOOwK3zZkkrrGY+7veOZnqTnGcJlvMB7fMc3vMMzXMJBzLLb/i1lEV/wu8JHnMPA4PYX0odHGAGucAMn
-        cLit15t4jY75wj2M4KUJIvgHrqAJi+jHdfzECFyawGmJ4FN21OQYKxP4QWPOffO67GA2uOZwtXjDOfev
-        16EouOa4RG84p43wgCYYT1sN4AYywUjaaoBIMJq2umMMjfGatjL8xxRNojEsKznO0Zvu0G5poTFO0laG
-        WKZu/7rL9Dc+c4PGsAjmcKM9owNW7egQ65XPWvz+qrApC+ggS8W0HTWZQeuRRW/WjjIOMZKsYdl0DaBv
-        HsVuHyuxekYS9ZtsoSvEPaJeb2PMuW9+gGWVN8c8PmEkKjJ74HSEH8sV4fHoMelm1Fs8xaIjs2dIkh9B
-        +HpX1a+KaAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="tblpurchaseorderlistBindingSource3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1015, 146</value>
   </metadata>
   <metadata name="tblpurchaseorderlistBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>391, 103</value>
@@ -591,17 +621,8 @@
   <metadata name="tbl_purchaseorderlistTableAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>316, 146</value>
   </metadata>
-  <metadata name="benpillMotorcycleDatabasePurchaseOrderListMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>615, 146</value>
-  </metadata>
-  <metadata name="tblpurchaseorderlistBindingSource3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1015, 146</value>
-  </metadata>
   <metadata name="tbl_purchaseorderlistTableAdapter3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 189</value>
-  </metadata>
-  <metadata name="benpillMotorcycleSupplierList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>316, 189</value>
   </metadata>
   <metadata name="tbl_supplierTableAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>810, 189</value>

@@ -68,6 +68,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabItemmasterdata = new System.Windows.Forms.TabPage();
+            this.RandomGenerateProductidBtn = new System.Windows.Forms.Button();
+            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,8 +128,8 @@
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
-            this.RandomGenerateProductidBtn = new System.Windows.Forms.Button();
+            this.SizeLbl = new System.Windows.Forms.Label();
+            this.SizeTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -602,6 +604,8 @@
             // 
             // tabItemmasterdata
             // 
+            this.tabItemmasterdata.Controls.Add(this.SizeTxt);
+            this.tabItemmasterdata.Controls.Add(this.SizeLbl);
             this.tabItemmasterdata.Controls.Add(this.RandomGenerateProductidBtn);
             this.tabItemmasterdata.Controls.Add(this.BarcodeGeneratorBtn);
             this.tabItemmasterdata.Controls.Add(this.dataGridItemMasterdata);
@@ -638,6 +642,28 @@
             this.tabItemmasterdata.Text = "Item Master Data";
             this.tabItemmasterdata.UseVisualStyleBackColor = true;
             this.tabItemmasterdata.UseWaitCursor = true;
+            // 
+            // RandomGenerateProductidBtn
+            // 
+            this.RandomGenerateProductidBtn.Location = new System.Drawing.Point(1258, 110);
+            this.RandomGenerateProductidBtn.Name = "RandomGenerateProductidBtn";
+            this.RandomGenerateProductidBtn.Size = new System.Drawing.Size(75, 23);
+            this.RandomGenerateProductidBtn.TabIndex = 151;
+            this.RandomGenerateProductidBtn.Text = "Generate";
+            this.RandomGenerateProductidBtn.UseVisualStyleBackColor = true;
+            this.RandomGenerateProductidBtn.UseWaitCursor = true;
+            this.RandomGenerateProductidBtn.Click += new System.EventHandler(this.RandomGenerateProductidBtn_Click);
+            // 
+            // BarcodeGeneratorBtn
+            // 
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(1094, 584);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(116, 63);
+            this.BarcodeGeneratorBtn.TabIndex = 150;
+            this.BarcodeGeneratorBtn.Text = "Barcode Generator";
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.UseWaitCursor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
             // 
             // dataGridItemMasterdata
             // 
@@ -750,7 +776,7 @@
             // 
             this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearBtn.Location = new System.Drawing.Point(1155, 452);
+            this.ClearBtn.Location = new System.Drawing.Point(1155, 516);
             this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(93, 54);
@@ -772,7 +798,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(988, 343);
+            this.label20.Location = new System.Drawing.Point(979, 346);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(56, 13);
             this.label20.TabIndex = 146;
@@ -783,7 +809,7 @@
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Location = new System.Drawing.Point(1039, 452);
+            this.ArchiveBtn.Location = new System.Drawing.Point(1039, 516);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
@@ -796,7 +822,7 @@
             // 
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Location = new System.Drawing.Point(1155, 383);
+            this.UpdateBtn.Location = new System.Drawing.Point(1155, 440);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
@@ -810,7 +836,7 @@
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Location = new System.Drawing.Point(1039, 383);
+            this.AddBtn.Location = new System.Drawing.Point(1039, 440);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
@@ -882,7 +908,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(985, 314);
+            this.label15.Location = new System.Drawing.Point(985, 307);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 13);
             this.label15.TabIndex = 130;
@@ -892,7 +918,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(985, 270);
+            this.label13.Location = new System.Drawing.Point(985, 263);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(49, 13);
             this.label13.TabIndex = 129;
@@ -902,7 +928,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(985, 231);
+            this.label12.Location = new System.Drawing.Point(985, 224);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 128;
@@ -913,7 +939,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(985, 190);
+            this.label11.Location = new System.Drawing.Point(969, 186);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 127;
@@ -923,7 +949,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(985, 153);
+            this.label10.Location = new System.Drawing.Point(973, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 13);
             this.label10.TabIndex = 126;
@@ -933,7 +959,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(985, 117);
+            this.label9.Location = new System.Drawing.Point(973, 120);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 125;
@@ -1167,25 +1193,22 @@
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
             // 
-            // BarcodeGeneratorBtn
+            // SizeLbl
             // 
-            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(1094, 536);
-            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(116, 63);
-            this.BarcodeGeneratorBtn.TabIndex = 150;
-            this.BarcodeGeneratorBtn.Text = "Barcode Generator";
-            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
+            this.SizeLbl.AutoSize = true;
+            this.SizeLbl.Location = new System.Drawing.Point(1005, 388);
+            this.SizeLbl.Name = "SizeLbl";
+            this.SizeLbl.Size = new System.Drawing.Size(30, 13);
+            this.SizeLbl.TabIndex = 152;
+            this.SizeLbl.Text = "Size:";
             // 
-            // RandomGenerateProductidBtn
+            // SizeTxt
             // 
-            this.RandomGenerateProductidBtn.Location = new System.Drawing.Point(1258, 110);
-            this.RandomGenerateProductidBtn.Name = "RandomGenerateProductidBtn";
-            this.RandomGenerateProductidBtn.Size = new System.Drawing.Size(75, 23);
-            this.RandomGenerateProductidBtn.TabIndex = 151;
-            this.RandomGenerateProductidBtn.Text = "Generate";
-            this.RandomGenerateProductidBtn.UseVisualStyleBackColor = true;
-            this.RandomGenerateProductidBtn.Click += new System.EventHandler(this.RandomGenerateProductidBtn_Click);
+            this.SizeTxt.Location = new System.Drawing.Point(1057, 385);
+            this.SizeTxt.Name = "SizeTxt";
+            this.SizeTxt.Size = new System.Drawing.Size(197, 20);
+            this.SizeTxt.TabIndex = 153;
+            this.SizeTxt.UseWaitCursor = true;
             // 
             // Inventory
             // 
@@ -1352,5 +1375,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button BarcodeGeneratorBtn;
         private System.Windows.Forms.Button RandomGenerateProductidBtn;
+        private System.Windows.Forms.TextBox SizeTxt;
+        private System.Windows.Forms.Label SizeLbl;
     }
 }

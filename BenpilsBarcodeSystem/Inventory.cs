@@ -234,15 +234,19 @@ namespace BenpilsBarcodeSystem
         }
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(BarcodeTxt.Text)||
-                string.IsNullOrEmpty(ItemNameTxt.Text)||
-                string.IsNullOrEmpty(ProductIDTxt.Text)||
-                string.IsNullOrEmpty(UnitPriceTxt.Text)||
-                string.IsNullOrEmpty(QuantityTxt.Text)||
-                string.IsNullOrEmpty(CategoryTxt.Text)
-                )
-            { 
+            if (string.IsNullOrEmpty(BarcodeTxt.Text) ||
+                string.IsNullOrEmpty(ItemNameTxt.Text) ||
+                string.IsNullOrEmpty(ProductIDTxt.Text) ||
+                string.IsNullOrEmpty(UnitPriceTxt.Text) ||
+                string.IsNullOrEmpty(QuantityTxt.Text) ||
+                string.IsNullOrEmpty(CategoryTxt.Text) 
+           
+    )
+            {
+                MessageBox.Show("Please fill in all the required fields.");
+                return;
             }
+
             int productId;
 
             if (!int.TryParse(ProductIDTxt.Text, out productId))
@@ -257,8 +261,16 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category) " +
-                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category)";
+            string size = SizeTxt.Text;
+
+            if (IsSizeAlreadyExists(size))
+            {
+                MessageBox.Show("Size already exists in the database. Please choose a different Size.");
+                return;
+            }
+
+            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
+                                "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
@@ -272,6 +284,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@UnitPrice", decimal.Parse(UnitPriceTxt.Text));
                     cmd.Parameters.AddWithValue("@Quantity", int.Parse(QuantityTxt.Text));
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
+                    cmd.Parameters.AddWithValue("@Size", size); 
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -295,12 +308,25 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private bool IsSizeAlreadyExists(string size)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE Size = @Size", con))
+                {
+                    cmd.Parameters.AddWithValue("@Size", size);
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (int.TryParse(ProductIDTxt.Text, out int productId))
             {
-                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category WHERE ProductID = @ProductID";
-
+                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size WHERE ProductID = @ProductID";
                 using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con))
@@ -330,7 +356,7 @@ namespace BenpilsBarcodeSystem
                         }
 
                         cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-
+                        cmd.Parameters.AddWithValue("@Size", SizeTxt.Text);
                         try
                         {
                             con.Open();
@@ -381,6 +407,7 @@ namespace BenpilsBarcodeSystem
                 UnitPriceTxt.Text = row.Cells[6].Value.ToString();
                 QuantityTxt.Text = row.Cells[7].Value.ToString();
                 CategoryTxt.Text = row.Cells[8].Value.ToString();
+                SizeTxt.Text = row.Cells[9].Value.ToString();
                 AddBtn.Enabled = false;
             }
         }

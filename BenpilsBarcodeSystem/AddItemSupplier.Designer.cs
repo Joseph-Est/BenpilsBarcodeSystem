@@ -269,7 +269,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(94, 395);
+            this.AddBtn.Location = new System.Drawing.Point(94, 437);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(75, 23);
             this.AddBtn.TabIndex = 107;
@@ -297,7 +297,7 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(202, 395);
+            this.ClearBtn.Location = new System.Drawing.Point(202, 437);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(75, 23);
             this.ClearBtn.TabIndex = 110;

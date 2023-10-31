@@ -194,12 +194,6 @@
     <Compile Include="AddItemSupplier.Designer.cs">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddSupplierItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddSupplierItem.Designer.cs">
-      <DependentUpon>AddSupplierItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="BenpillBarcodeDatabaseInventory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -376,9 +370,6 @@
     </Compile>
     <EmbeddedResource Include="AddItemSupplier.resx">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddSupplierItem.resx">
-      <DependentUpon>AddSupplierItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmationExit.resx">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>

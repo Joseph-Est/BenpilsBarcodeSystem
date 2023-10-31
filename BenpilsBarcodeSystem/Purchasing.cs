@@ -237,16 +237,13 @@ namespace BenpilsBarcodeSystem
             // TODO: This line of code loads data into the 'benpillMotorcycleSupplierList.tbl_supplier' table. You can move, or remove it, as needed.
             this.tbl_supplierTableAdapter2.Fill(this.benpillMotorcycleSupplierList.tbl_supplier);
             this.tbl_purchaseorderlistTableAdapter3.Fill(this.benpillMotorcycleDatabasePurchaseOrderListMain.tbl_purchaseorderlist);
+        
             DataGridViewButtonColumn addButtonColumn = new DataGridViewButtonColumn();
-            addButtonColumn.HeaderText = "ADD";
-            addButtonColumn.Text = "ADD";
+            addButtonColumn.HeaderText = "Add";
+            addButtonColumn.Text = "Add";
             addButtonColumn.UseColumnTextForButtonValue = true;
             dataGridDeliveredItems.Columns.Add(addButtonColumn);
-            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
-            addButtonColumn.HeaderText = "EDIT";
-            addButtonColumn.Text = "EDIT";
-            addButtonColumn.UseColumnTextForButtonValue = true;
-            dataGridDeliveredItems.Columns.Add(editButtonColumn);
+         
         }
 
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)

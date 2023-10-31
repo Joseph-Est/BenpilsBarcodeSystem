@@ -77,10 +77,10 @@ namespace BenpilsBarcodeSystem
         //Purchasing Button
         private void button5_Click(object sender, EventArgs e)
         {
-            Purchasing purchase = new Purchasing(user);
-            purchase.Show();
-            purchase.StartPosition = FormStartPosition.Manual;
-            purchase.Location = this.Location;
+            Purchaserr purchasing = new Purchaserr(user);
+            purchasing.Show();
+            purchasing.StartPosition = FormStartPosition.Manual;
+            purchasing.Location = this.Location;
             this.Hide();
         }
         //Reports Button

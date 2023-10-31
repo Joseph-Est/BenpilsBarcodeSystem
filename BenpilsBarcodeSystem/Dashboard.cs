@@ -87,7 +87,7 @@ namespace BenpilsBarcodeSystem
         //purchasing button
         private void button5_Click(object sender, EventArgs e)
         {
-            Purchasing purchasing = new Purchasing(user);
+            Purchaserr purchasing = new Purchaserr(user);
             purchasing.Show();
             purchasing.StartPosition = FormStartPosition.Manual;
             purchasing.Location = this.Location;

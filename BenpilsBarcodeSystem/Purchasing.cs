@@ -229,7 +229,7 @@ namespace BenpilsBarcodeSystem
             ContactNametxt.Text = "";
             AddressTxt.Text = "";
             ContactNoTxt.Text = "";
-            Emailtxt.Text = "";
+       
         }
 
         private void Purchasing_Load(object sender, EventArgs e)
@@ -258,7 +258,7 @@ namespace BenpilsBarcodeSystem
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
                 ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
-                Emailtxt.Text = selectedRow.Cells["Email"].Value.ToString();
+           
             }
         }
 
@@ -342,7 +342,6 @@ namespace BenpilsBarcodeSystem
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
                 ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
-                Emailtxt.Text = selectedRow.Cells["Email"].Value.ToString();
                 addbuton.Enabled = false;
             }
         }

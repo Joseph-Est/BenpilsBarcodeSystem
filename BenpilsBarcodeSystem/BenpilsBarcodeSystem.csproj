@@ -269,6 +269,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleSupplier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleSupplierList.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -335,12 +340,6 @@
     </Compile>
     <Compile Include="Purchaserr.Designer.cs">
       <DependentUpon>Purchaserr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Purchasing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purchasing.Designer.cs">
-      <DependentUpon>Purchasing.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
@@ -412,9 +411,6 @@
     </Compile>
     <EmbeddedResource Include="Purchaserr.resx">
       <DependentUpon>Purchaserr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Purchasing.resx">
-      <DependentUpon>Purchasing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
@@ -595,6 +591,17 @@
     </None>
     <None Include="BenpillMotorcycleSuppier.xss">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSupplier.xsc">
+      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSupplier.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleSupplier.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleSupplier.xss">
+      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleSupplierList.xsc">
       <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>

@@ -247,7 +247,14 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-        private void ContactNameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void Purchaserr_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillMotorcycleSupplier.tbl_supplier' table. You can move, or remove it, as needed.
+            this.tbl_supplierTableAdapter.Fill(this.benpillMotorcycleSupplier.tbl_supplier);
+
+        }
+
+        private void ContactNoTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

@@ -18,11 +18,11 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        private Purchasing purchasing;
+        private Purchaserr purchaserr;
         public AddItemSupplier(User user)
         {
             InitializeComponent();
-            Purchasing purchasing = new Purchasing(user);
+            Purchaserr purchasing = new Purchaserr(user);
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 

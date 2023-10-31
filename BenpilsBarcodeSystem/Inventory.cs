@@ -401,8 +401,8 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
-                BarcodeTxt.Text = row.Cells[1].Value.ToString();
-                ProductIDTxt.Text = row.Cells[2].Value.ToString();
+                BarcodeTxt.Text = row.Cells[2].Value.ToString();
+                ProductIDTxt.Text = row.Cells[1].Value.ToString();
                 ItemNameTxt.Text = row.Cells[3].Value.ToString();
                 MotorBrandTxt.Text = row.Cells[4].Value.ToString();
                 BrandTxt.Text = row.Cells[5].Value.ToString();

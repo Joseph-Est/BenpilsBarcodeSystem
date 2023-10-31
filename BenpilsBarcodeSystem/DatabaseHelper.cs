@@ -20,8 +20,7 @@ namespace BenpilsBarcodeSystem
 
              
                 string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                     FROM tbl_supplier";
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))

@@ -240,6 +240,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabaseSupplier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -260,10 +265,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcyclePurchaseOrderListMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleSupplierList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
     </Compile>
     <Compile Include="BenpillMotorcycleUsercredentialmain.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -504,6 +519,17 @@
     <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xss">
       <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsc">
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xss">
+      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleDatabaseSupplier.xsc">
       <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
     </None>
@@ -548,6 +574,17 @@
     <None Include="BenpillMotorcycleMasterData2.xss">
       <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsc">
+      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcyclePurchaseOrderListMain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcyclePurchaseOrderListMain.xss">
+      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleSuppier.xsc">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
     </None>
@@ -558,6 +595,17 @@
     </None>
     <None Include="BenpillMotorcycleSuppier.xss">
       <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSupplierList.xsc">
+      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleSupplierList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleSupplierList.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleSupplierList.xss">
+      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleUsercredentialmain.xsc">
       <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>

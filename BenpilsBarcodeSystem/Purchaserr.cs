@@ -282,5 +282,18 @@ namespace BenpilsBarcodeSystem
                 AddBtn.Enabled = false;
             }
         }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+            AddBtn.Enabled = true;
+        }
+
+        private void AdddBtn_Click(object sender, EventArgs e)
+        {
+            AddItemSupplier addItemSupplier = new AddItemSupplier(user);
+            addItemSupplier.BringToFront();
+            addItemSupplier.ShowDialog();
+        }
     }
 }

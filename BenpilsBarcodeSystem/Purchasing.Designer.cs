@@ -103,6 +103,10 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridDeliveredItems = new System.Windows.Forms.DataGridView();
+            this.tblpurchaseorderlistBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillMotorcycleDatabasePurchaseOrderListMain = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePurchaseOrderListMain();
+            this.tblsupplierBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillMotorcycleSuppier = new BenpilsBarcodeSystem.BenpillMotorcycleSuppier();
             this.supplierIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,6 +135,21 @@
             this.tblpurchaseorderlistBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_purchaseorderlistTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcyclePurchaseOrderListMainTableAdapters.tbl_purchaseorderlistTableAdapter();
             this.tbl_purchaseorderlistTableAdapter3 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePurchaseOrderListMainTableAdapters.tbl_purchaseorderlistTableAdapter();
+            this.tbl_supplierTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcycleSupplierListTableAdapters.tbl_supplierTableAdapter();
+            this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbl_supplierTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcycleSupplierListTableAdapters.tbl_supplierTableAdapter();
             this.supplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -196,6 +215,8 @@
             // 
             this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(1839, 4);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Location = new System.Drawing.Point(1379, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(38, 32);
@@ -207,6 +228,8 @@
             // 
             this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(1897, 4);
+            this.CloseBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CloseBtn.Location = new System.Drawing.Point(1423, 3);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(31, 32);
@@ -264,6 +287,8 @@
             this.panel2.Controls.Add(this.PointOfSalesBtn);
             this.panel2.Controls.Add(this.ReportsBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 43);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(182, 789);
@@ -273,6 +298,8 @@
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.White;
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(51, 473);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Location = new System.Drawing.Point(38, 384);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(34, 31);
@@ -283,6 +310,8 @@
             // 
             this.ServicesBtn.BackColor = System.Drawing.Color.White;
             this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ServicesBtn.Location = new System.Drawing.Point(35, 458);
+            this.ServicesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ServicesBtn.Location = new System.Drawing.Point(26, 372);
             this.ServicesBtn.Name = "ServicesBtn";
             this.ServicesBtn.Size = new System.Drawing.Size(153, 52);
@@ -296,6 +325,8 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(51, 896);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Location = new System.Drawing.Point(38, 728);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 31);
@@ -306,6 +337,8 @@
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.Location = new System.Drawing.Point(35, 881);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LogoutBtn.Location = new System.Drawing.Point(26, 716);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(153, 52);
@@ -319,6 +352,8 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(51, 389);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Location = new System.Drawing.Point(38, 316);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(34, 31);
@@ -329,6 +364,8 @@
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(51, 305);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Location = new System.Drawing.Point(38, 248);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(34, 31);
@@ -339,6 +376,8 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(51, 815);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Location = new System.Drawing.Point(38, 662);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 31);
@@ -349,6 +388,8 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(51, 727);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Location = new System.Drawing.Point(38, 591);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 31);
@@ -359,6 +400,8 @@
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(51, 220);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Location = new System.Drawing.Point(38, 179);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(34, 31);
@@ -369,6 +412,8 @@
             // 
             this.PurchasingBtn.BackColor = System.Drawing.Color.White;
             this.PurchasingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PurchasingBtn.Location = new System.Drawing.Point(35, 374);
+            this.PurchasingBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PurchasingBtn.Location = new System.Drawing.Point(26, 304);
             this.PurchasingBtn.Name = "PurchasingBtn";
             this.PurchasingBtn.Size = new System.Drawing.Size(153, 52);
@@ -382,6 +427,8 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(51, 642);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Location = new System.Drawing.Point(38, 522);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 31);
@@ -392,6 +439,8 @@
             // 
             this.SettingsBtn.BackColor = System.Drawing.Color.White;
             this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.Location = new System.Drawing.Point(35, 800);
+            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SettingsBtn.Location = new System.Drawing.Point(26, 650);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.Size = new System.Drawing.Size(153, 52);
@@ -405,6 +454,8 @@
             // 
             this.UserCredentialsBtn.BackColor = System.Drawing.Color.White;
             this.UserCredentialsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserCredentialsBtn.Location = new System.Drawing.Point(35, 716);
+            this.UserCredentialsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.UserCredentialsBtn.Location = new System.Drawing.Point(26, 582);
             this.UserCredentialsBtn.Name = "UserCredentialsBtn";
             this.UserCredentialsBtn.Size = new System.Drawing.Size(153, 52);
@@ -418,6 +469,8 @@
             // 
             this.InventoryBtn.BackColor = System.Drawing.Color.White;
             this.InventoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryBtn.Location = new System.Drawing.Point(35, 290);
+            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(4);
             this.InventoryBtn.Location = new System.Drawing.Point(26, 236);
             this.InventoryBtn.Name = "InventoryBtn";
             this.InventoryBtn.Size = new System.Drawing.Size(153, 52);
@@ -431,6 +484,8 @@
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(51, 559);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Location = new System.Drawing.Point(38, 454);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 31);
@@ -441,6 +496,8 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(51, 137);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Location = new System.Drawing.Point(38, 111);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(34, 31);
@@ -450,6 +507,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel4.Location = new System.Drawing.Point(312, 756);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Location = new System.Drawing.Point(234, 614);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(823, 36);
@@ -459,6 +518,8 @@
             // 
             this.StatisticsReportBtn.BackColor = System.Drawing.Color.White;
             this.StatisticsReportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatisticsReportBtn.Location = new System.Drawing.Point(35, 629);
+            this.StatisticsReportBtn.Margin = new System.Windows.Forms.Padding(4);
             this.StatisticsReportBtn.Location = new System.Drawing.Point(26, 511);
             this.StatisticsReportBtn.Name = "StatisticsReportBtn";
             this.StatisticsReportBtn.Size = new System.Drawing.Size(153, 52);
@@ -472,6 +533,8 @@
             // 
             this.DashBoardBtn.BackColor = System.Drawing.Color.White;
             this.DashBoardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashBoardBtn.Location = new System.Drawing.Point(35, 123);
+            this.DashBoardBtn.Margin = new System.Windows.Forms.Padding(4);
             this.DashBoardBtn.Location = new System.Drawing.Point(26, 100);
             this.DashBoardBtn.Name = "DashBoardBtn";
             this.DashBoardBtn.Size = new System.Drawing.Size(153, 52);
@@ -484,6 +547,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Location = new System.Drawing.Point(12, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(153, 70);
@@ -494,6 +559,8 @@
             // 
             this.PointOfSalesBtn.BackColor = System.Drawing.Color.White;
             this.PointOfSalesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PointOfSalesBtn.Location = new System.Drawing.Point(35, 207);
+            this.PointOfSalesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PointOfSalesBtn.Location = new System.Drawing.Point(26, 168);
             this.PointOfSalesBtn.Name = "PointOfSalesBtn";
             this.PointOfSalesBtn.Size = new System.Drawing.Size(153, 52);
@@ -507,6 +574,8 @@
             // 
             this.ReportsBtn.BackColor = System.Drawing.Color.White;
             this.ReportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportsBtn.Location = new System.Drawing.Point(35, 544);
+            this.ReportsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ReportsBtn.Location = new System.Drawing.Point(26, 442);
             this.ReportsBtn.Name = "ReportsBtn";
             this.ReportsBtn.Size = new System.Drawing.Size(153, 52);
@@ -523,6 +592,8 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(243, 43);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Location = new System.Drawing.Point(182, 35);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1273, 36);
@@ -571,6 +642,8 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(243, 971);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Location = new System.Drawing.Point(182, 789);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1273, 35);
@@ -591,6 +664,8 @@
             // 
             // panel6
             // 
+            this.panel6.Location = new System.Drawing.Point(251, 95);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Location = new System.Drawing.Point(188, 77);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1333, 686);
@@ -600,6 +675,8 @@
             // 
             this.tabControl1.Controls.Add(this.Inventoryform);
             this.tabControl1.Controls.Add(this.SupplierIDTxt);
+            this.tabControl1.Location = new System.Drawing.Point(251, 98);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Location = new System.Drawing.Point(188, 80);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -624,8 +701,12 @@
             this.Inventoryform.Controls.Add(this.label25);
             this.Inventoryform.Controls.Add(this.textBox21);
             this.Inventoryform.Controls.Add(this.label27);
+            this.Inventoryform.Location = new System.Drawing.Point(4, 25);
+            this.Inventoryform.Margin = new System.Windows.Forms.Padding(4);
             this.Inventoryform.Location = new System.Drawing.Point(4, 22);
             this.Inventoryform.Name = "Inventoryform";
+            this.Inventoryform.Padding = new System.Windows.Forms.Padding(4);
+            this.Inventoryform.Size = new System.Drawing.Size(1769, 812);
             this.Inventoryform.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Inventoryform.Size = new System.Drawing.Size(1325, 657);
             this.Inventoryform.TabIndex = 0;
@@ -729,6 +810,8 @@
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.White;
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(1709, 4);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox15.Location = new System.Drawing.Point(1282, 3);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(40, 39);
@@ -789,6 +872,8 @@
             // Emailtxt
             // 
             this.Emailtxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Emailtxt.Location = new System.Drawing.Point(135, 698);
+            this.Emailtxt.Margin = new System.Windows.Forms.Padding(4);
             this.Emailtxt.Location = new System.Drawing.Point(101, 567);
             this.Emailtxt.Name = "Emailtxt";
             this.Emailtxt.Size = new System.Drawing.Size(174, 20);
@@ -797,6 +882,8 @@
             // ContactNoTxt
             // 
             this.ContactNoTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ContactNoTxt.Location = new System.Drawing.Point(135, 663);
+            this.ContactNoTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContactNoTxt.Location = new System.Drawing.Point(101, 539);
             this.ContactNoTxt.Name = "ContactNoTxt";
             this.ContactNoTxt.Size = new System.Drawing.Size(174, 20);
@@ -806,6 +893,8 @@
             // AddressTxt
             // 
             this.AddressTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddressTxt.Location = new System.Drawing.Point(135, 628);
+            this.AddressTxt.Margin = new System.Windows.Forms.Padding(4);
             this.AddressTxt.Location = new System.Drawing.Point(101, 510);
             this.AddressTxt.Name = "AddressTxt";
             this.AddressTxt.Size = new System.Drawing.Size(174, 20);
@@ -814,6 +903,8 @@
             // ContactNametxt
             // 
             this.ContactNametxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ContactNametxt.Location = new System.Drawing.Point(135, 592);
+            this.ContactNametxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContactNametxt.Location = new System.Drawing.Point(101, 481);
             this.ContactNametxt.Name = "ContactNametxt";
             this.ContactNametxt.Size = new System.Drawing.Size(174, 20);
@@ -882,8 +973,12 @@
             this.SupplierIDTxt.Controls.Add(this.TxtSearchBar);
             this.SupplierIDTxt.Controls.Add(this.label14);
             this.SupplierIDTxt.Controls.Add(this.dataGridDeliveredItems);
+            this.SupplierIDTxt.Location = new System.Drawing.Point(4, 25);
+            this.SupplierIDTxt.Margin = new System.Windows.Forms.Padding(4);
             this.SupplierIDTxt.Location = new System.Drawing.Point(4, 22);
             this.SupplierIDTxt.Name = "SupplierIDTxt";
+            this.SupplierIDTxt.Padding = new System.Windows.Forms.Padding(4);
+            this.SupplierIDTxt.Size = new System.Drawing.Size(1769, 812);
             this.SupplierIDTxt.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.SupplierIDTxt.Size = new System.Drawing.Size(1325, 657);
             this.SupplierIDTxt.TabIndex = 1;
@@ -939,6 +1034,8 @@
             // dataGridPurchase
             // 
             this.dataGridPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPurchase.Location = new System.Drawing.Point(1064, 65);
+            this.dataGridPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridPurchase.Location = new System.Drawing.Point(798, 53);
             this.dataGridPurchase.Name = "dataGridPurchase";
             this.dataGridPurchase.RowHeadersWidth = 51;
@@ -948,6 +1045,8 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(840, 23);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Location = new System.Drawing.Point(630, 19);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -957,6 +1056,8 @@
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(1709, 4);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Location = new System.Drawing.Point(1282, 3);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(40, 39);
@@ -1014,20 +1115,44 @@
             this.dataGridDeliveredItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDeliveredItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.supplierIDDataGridViewTextBoxColumn1,
+            this.productIDDataGridViewTextBoxColumn,
             this.contactNameDataGridViewTextBoxColumn1,
             this.barcodeDataGridViewTextBoxColumn,
-            this.productIDDataGridViewTextBoxColumn,
             this.itemNameDataGridViewTextBoxColumn,
             this.motorBrandDataGridViewTextBoxColumn,
             this.brandDataGridViewTextBoxColumn,
             this.unitPriceDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn});
             this.dataGridDeliveredItems.DataSource = this.tblpurchaseorderlistBindingSource3;
+            this.dataGridDeliveredItems.Location = new System.Drawing.Point(13, 65);
+            this.dataGridDeliveredItems.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridDeliveredItems.Location = new System.Drawing.Point(10, 53);
             this.dataGridDeliveredItems.Name = "dataGridDeliveredItems";
             this.dataGridDeliveredItems.RowHeadersWidth = 51;
+            this.dataGridDeliveredItems.Size = new System.Drawing.Size(999, 633);
             this.dataGridDeliveredItems.Size = new System.Drawing.Size(741, 514);
             this.dataGridDeliveredItems.TabIndex = 69;
+            this.dataGridDeliveredItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDeliveredItems_CellContentClick);
+            // 
+            // tblpurchaseorderlistBindingSource3
+            // 
+            this.tblpurchaseorderlistBindingSource3.DataMember = "tbl_purchaseorderlist";
+            this.tblpurchaseorderlistBindingSource3.DataSource = this.benpillMotorcycleDatabasePurchaseOrderListMain;
+            // 
+            // benpillMotorcycleDatabasePurchaseOrderListMain
+            // 
+            this.benpillMotorcycleDatabasePurchaseOrderListMain.DataSetName = "BenpillMotorcycleDatabasePurchaseOrderListMain";
+            this.benpillMotorcycleDatabasePurchaseOrderListMain.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblsupplierBindingSource1
+            // 
+            this.tblsupplierBindingSource1.DataMember = "tbl_supplier";
+            this.tblsupplierBindingSource1.DataSource = this.benpillMotorcycleSuppier;
+            // 
+            // benpillMotorcycleSuppier
+            // 
+            this.benpillMotorcycleSuppier.DataSetName = "BenpillMotorcycleSuppier";
+            this.benpillMotorcycleSuppier.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // supplierIDDataGridViewTextBoxColumn1
             // 
@@ -1036,6 +1161,14 @@
             this.supplierIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.supplierIDDataGridViewTextBoxColumn1.Name = "supplierIDDataGridViewTextBoxColumn1";
             this.supplierIDDataGridViewTextBoxColumn1.Width = 75;
+            // 
+            // productIDDataGridViewTextBoxColumn
+            // 
+            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
+            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
+            this.productIDDataGridViewTextBoxColumn.Width = 75;
             // 
             // contactNameDataGridViewTextBoxColumn1
             // 
@@ -1051,14 +1184,7 @@
             this.barcodeDataGridViewTextBoxColumn.HeaderText = "Barcode";
             this.barcodeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.barcodeDataGridViewTextBoxColumn.Name = "barcodeDataGridViewTextBoxColumn";
-            // 
-            // productIDDataGridViewTextBoxColumn
-            // 
-            this.productIDDataGridViewTextBoxColumn.DataPropertyName = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.HeaderText = "ProductID";
-            this.productIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productIDDataGridViewTextBoxColumn.Name = "productIDDataGridViewTextBoxColumn";
-            this.productIDDataGridViewTextBoxColumn.Width = 75;
+            this.barcodeDataGridViewTextBoxColumn.Width = 125;
             // 
             // itemNameDataGridViewTextBoxColumn
             // 
@@ -1082,7 +1208,7 @@
             this.brandDataGridViewTextBoxColumn.HeaderText = "Brand";
             this.brandDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.Width = 125;
+            this.brandDataGridViewTextBoxColumn.Width = 90;
             // 
             // unitPriceDataGridViewTextBoxColumn
             // 
@@ -1381,10 +1507,23 @@
         private BenpillMotorcycleDatabasePurchaseOrderListMain benpillMotorcycleDatabasePurchaseOrderListMain;
         private System.Windows.Forms.BindingSource tblpurchaseorderlistBindingSource3;
         private BenpillMotorcycleDatabasePurchaseOrderListMainTableAdapters.tbl_purchaseorderlistTableAdapter tbl_purchaseorderlistTableAdapter3;
+        private BenpillMotorcycleSupplierList benpillMotorcycleSupplierList;
+        private System.Windows.Forms.BindingSource tblsupplierBindingSource2;
+        private BenpillMotorcycleSupplierListTableAdapters.tbl_supplierTableAdapter tbl_supplierTableAdapter2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn motorBrandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;

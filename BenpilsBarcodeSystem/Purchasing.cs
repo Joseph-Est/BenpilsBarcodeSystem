@@ -369,5 +369,10 @@ namespace BenpilsBarcodeSystem
                     e.Handled = true;
                 }         
         }
+
+        private void dataGridDeliveredItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

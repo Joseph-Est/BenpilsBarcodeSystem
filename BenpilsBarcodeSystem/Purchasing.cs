@@ -178,8 +178,7 @@ namespace BenpilsBarcodeSystem
 
         private void addbuton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CompanyNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(ContactNametxt.Text) ||
+            if (string.IsNullOrWhiteSpace(ContactNametxt.Text) ||
                 string.IsNullOrWhiteSpace(AddressTxt.Text) ||
                 string.IsNullOrWhiteSpace(ContactNoTxt.Text) ||
                 string.IsNullOrWhiteSpace(Emailtxt.Text))
@@ -188,14 +187,14 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_supplier (CompanyName, ContactName, Address, ContactNo, Email) " +
-                               "VALUES (@CompanyName, @ContactName, @Address, @ContactNo, @Email)";
+            string insertQuery = "INSERT INTO tbl_supplier (ContactName, Address, ContactNo, Email) " +
+                             "VALUES (@ContactName, @Address, @ContactNo, @Email)";
 
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@CompanyName", CompanyNameTxt.Text);
+                    
                     cmd.Parameters.AddWithValue("@ContactName", ContactNametxt.Text);
                     cmd.Parameters.AddWithValue("@Address", AddressTxt.Text);
                     cmd.Parameters.AddWithValue("@ContactNo", ContactNoTxt.Text);
@@ -226,7 +225,7 @@ namespace BenpilsBarcodeSystem
         }
         private void ClearAllTextBoxes()
         {
-            CompanyNameTxt.Text = "";
+            
             ContactNametxt.Text = "";
             AddressTxt.Text = "";
             ContactNoTxt.Text = "";
@@ -235,7 +234,7 @@ namespace BenpilsBarcodeSystem
 
         private void Purchasing_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleDatabasePurchaseOrderList2.tbl_purchaseorderlist' table. You can move, or remove it, as needed.
+ 
             this.tbl_purchaseorderlistTableAdapter1.Fill(this.benpillMotorcycleDatabasePurchaseOrderList2.tbl_purchaseorderlist);
 
 
@@ -251,7 +250,6 @@ namespace BenpilsBarcodeSystem
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 selectedSupplierID = int.Parse(selectedRow.Cells["SupplierID"].Value.ToString());
-                CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
                 ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
@@ -261,9 +259,8 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (selectedSupplierID != -1) // Ensure a valid selection
+            if (selectedSupplierID != -1)
             {
-                string companyName = CompanyNameTxt.Text;
                 string contactName = ContactNametxt.Text;
                 string address = AddressTxt.Text;
                 string contactNo = ContactNoTxt.Text;
@@ -273,15 +270,13 @@ namespace BenpilsBarcodeSystem
                 {
                     connection.Open();
                     string query = "UPDATE tbl_supplier " +
-                                   "SET CompanyName = @CompanyName, " +
-                                   "ContactName = @ContactName, " +
+                                   "SET ContactName = @ContactName, " +
                                    "Address = @Address, " +
                                    "ContactNo = @ContactNo, " +
                                    "Email = @Email " +
                                    "WHERE SupplierID = @SupplierID";
                     SqlCommand command = new SqlCommand(query, connection);
 
-                    command.Parameters.AddWithValue("@CompanyName", companyName);
                     command.Parameters.AddWithValue("@ContactName", contactName);
                     command.Parameters.AddWithValue("@Address", address);
                     command.Parameters.AddWithValue("@ContactNo", contactNo);
@@ -341,7 +336,6 @@ namespace BenpilsBarcodeSystem
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
                 selectedSupplierID = int.Parse(selectedRow.Cells["SupplierID"].Value.ToString());
-                CompanyNameTxt.Text = selectedRow.Cells["CompanyName"].Value.ToString();
                 ContactNametxt.Text = selectedRow.Cells["ContactName"].Value.ToString();
                 AddressTxt.Text = selectedRow.Cells["Address"].Value.ToString();
                 ContactNoTxt.Text = selectedRow.Cells["ContactNo"].Value.ToString();
@@ -356,7 +350,7 @@ namespace BenpilsBarcodeSystem
         {
             ClearAllTextBoxes();
         }
-        //refreshbutton
+
         private void pictureBox15_Click(object sender, EventArgs e)
         {
             UpdateDataGridView();

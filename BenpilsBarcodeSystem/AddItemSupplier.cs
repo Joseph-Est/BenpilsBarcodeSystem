@@ -143,14 +143,13 @@ namespace BenpilsBarcodeSystem
                 }
 
 
-                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, companyName, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
-                                    "VALUES (@SupplierID, @CompanyName, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+                       "VALUES (@SupplierID, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
                     cmd.Parameters.AddWithValue("@CompanyName", CmbSupplier.Text);
-                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.GetItemText(CmbSupplier.SelectedItem));
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);

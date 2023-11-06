@@ -103,20 +103,30 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CmbSupplier.Text) ||
-                string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
-                string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(Brandtxt.Text) ||
-                string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
-                string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
-                string.IsNullOrWhiteSpace(productIDtxt.Text))
+            if (string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
+         string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
+         string.IsNullOrWhiteSpace(Brandtxt.Text) ||
+         string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
+         string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
+         string.IsNullOrWhiteSpace(productIDtxt.Text))
             {
                 MessageBox.Show("Please fill up all the required fields.");
                 return;
             }
 
-            string supplierID = CmbSupplier.SelectedValue.ToString();
-            string ContactName = CmbSupplier.SelectedText.ToString();
+            // Assuming your ComboBox displays both SupplierID and ContactName,
+            // and the selected value is in the format "SupplierID - ContactName",
+            // you can split it to get both values.
+            string selectedValue = CmbSupplier.SelectedItem.ToString();
+            string[] values = selectedValue.Split('-');
+            if (values.Length != 2)
+            {
+                MessageBox.Show("Invalid ComboBox selection.");
+                return;
+            }
+
+            string supplierID = values[0].Trim(); // SupplierID
+            string ContactName = values[1].Trim(); // ContactName
             decimal unitPrice;
 
             if (!decimal.TryParse(UnitPriceTxt.Text, out unitPrice))
@@ -139,13 +149,12 @@ namespace BenpilsBarcodeSystem
                     if (existingRecordsCount > 0)
                     {
                         MessageBox.Show("Product with the same ProductID already exists in the database. Please choose a different ProductID.");
-                        return; 
+                        return;
                     }
                 }
 
-
                 string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, contactname, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
-                       "VALUES (@SupplierID,@ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+                       "VALUES (@SupplierID, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {

@@ -149,7 +149,7 @@ namespace BenpilsBarcodeSystem
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                    cmd.Parameters.AddWithValue("@CompanyName", CmbSupplier.Text);
+                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.Text);
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);

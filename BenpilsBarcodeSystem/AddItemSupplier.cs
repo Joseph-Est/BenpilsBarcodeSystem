@@ -115,8 +115,14 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            string selectedValue = CmbSupplier.SelectedValue.ToString().Trim();
-            string[] values = selectedValue.Split('-');
+            if (CmbSupplier.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a valid item from the ComboBox.");
+                return;
+            }
+
+            string selectedText = CmbSupplier.SelectedItem.ToString();
+            string[] values = selectedText.Split('-');
 
             if (values.Length != 2)
             {

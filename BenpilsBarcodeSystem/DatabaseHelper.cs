@@ -14,22 +14,30 @@ namespace BenpilsBarcodeSystem
 
         public DataTable GetSupplierData()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-
-             
-                string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    connection.Open();
+
+                    string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        return dataTable;
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            return dataTable;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception here
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null; 
             }
         }
     }

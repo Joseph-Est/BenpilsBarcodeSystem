@@ -164,7 +164,7 @@ namespace BenpilsBarcodeSystem
             TxtPassword.Text = "";
             TxtAddress.Text = "";
             TxtContactNo.Text = "";
-            ComboDesignation.Text = "";
+            ComboDesignation.Text = string.Empty;
         }
         private void UpdateBtn_Click_1(object sender, EventArgs e)
         {

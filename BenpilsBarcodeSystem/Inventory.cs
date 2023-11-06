@@ -200,6 +200,7 @@ namespace BenpilsBarcodeSystem
             UnitPriceTxt.Text = "";
             QuantityTxt.Text = "";
             CategoryTxt.Text = "";
+            SizeTxt.Text = "";
         }
         private void InventoryTxt_KeyPress(object sender, KeyPressEventArgs e)
         {

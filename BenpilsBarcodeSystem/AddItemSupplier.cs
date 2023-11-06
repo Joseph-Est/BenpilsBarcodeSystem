@@ -144,8 +144,8 @@ namespace BenpilsBarcodeSystem
                 }
 
 
-                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
-                       "VALUES (@SupplierID, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, contactname, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+                       "VALUES (@SupplierID,@ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {

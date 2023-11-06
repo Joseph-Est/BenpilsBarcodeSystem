@@ -66,12 +66,14 @@ namespace BenpilsBarcodeSystem
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = LoginBtn;
+            this.AcceptButton = BtnLogin;
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+    
+
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+              if (textBox1.Text == "")
             {
                 MessageBox.Show("Enter the username.");
             }
@@ -122,60 +124,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-
-        private void LoginBtn_Click_1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                MessageBox.Show("Enter the username.");
-            }
-            else if (textBox2.Text == "")
-            {
-                MessageBox.Show("Enter the password.");
-            }
-            else
-            {
-                try
-                {
-                    SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
-                    SqlCommand cmd = new SqlCommand("select * from tbl_usercredential where username = @username and password = @password", con);
-                    cmd.Parameters.AddWithValue("@username", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@password", textBox2.Text);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
-                    {
-                        string username = dt.Rows[0]["username"].ToString();
-                        string designation = dt.Rows[0]["designation"].ToString();
-
-                        MessageBox.Show("Login successful");
-
-
-                        User user = new User
-                        {
-                            Username = username,
-                            Designation = designation
-                        };
-
-
-                        Dashboard dash = new Dashboard(user);
-                        dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username and password!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
-                }
-            }
-        }
+  
 
       
     }

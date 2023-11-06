@@ -104,34 +104,18 @@ namespace BenpilsBarcodeSystem
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(CmbSupplier.Text) ||
-                string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
-                string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(Brandtxt.Text) ||
-                string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
-                string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
-                string.IsNullOrWhiteSpace(productIDtxt.Text))
+                 string.IsNullOrWhiteSpace(BarcodeTxt.Text) ||
+                 string.IsNullOrWhiteSpace(ItemNameTxt.Text) ||
+                 string.IsNullOrWhiteSpace(Brandtxt.Text) ||
+                 string.IsNullOrWhiteSpace(UnitPriceTxt.Text) ||
+                 string.IsNullOrWhiteSpace(CategoryTxt.Text) ||
+                 string.IsNullOrWhiteSpace(productIDtxt.Text))
             {
                 MessageBox.Show("Please fill up all the required fields.");
                 return;
             }
 
-            if (CmbSupplier.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a valid item from the ComboBox.");
-                return;
-            }
-
-            string selectedText = CmbSupplier.SelectedItem.ToString();
-            string[] values = selectedText.Split('-');
-
-            if (values.Length != 2)
-            {
-                MessageBox.Show("Invalid ComboBox selection.");
-                return;
-            }
-
-            string supplierID = values[0].Trim();
-            string ContactName = values[1].Trim();
+            string supplierID = CmbSupplier.SelectedValue.ToString();
             decimal unitPrice;
 
             if (!decimal.TryParse(UnitPriceTxt.Text, out unitPrice))
@@ -154,18 +138,18 @@ namespace BenpilsBarcodeSystem
                     if (existingRecordsCount > 0)
                     {
                         MessageBox.Show("Product with the same ProductID already exists in the database. Please choose a different ProductID.");
-                        return; 
+                        return;
                     }
                 }
 
 
-                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, contactname, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
-             "VALUES (@SupplierID, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
+                string insertQuery = "INSERT INTO tbl_purchaseorderlist (supplierID, contactName, barcode, itemName, motorBrand, brand, unitPrice, category, ProductID) " +
+                                    "VALUES (@SupplierID, @ContactName, @Barcode, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Category, @ProductID)";
 
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                    cmd.Parameters.AddWithValue("@ContactName", ContactName);
+                    cmd.Parameters.AddWithValue("@SupplierID", supplierID);        
+                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.GetItemText(CmbSupplier.SelectedItem));
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);

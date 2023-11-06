@@ -116,6 +116,7 @@ namespace BenpilsBarcodeSystem
             }
 
             string supplierID = CmbSupplier.SelectedValue.ToString();
+            string ContactName = CmbSupplier.SelectedText.ToString();
             decimal unitPrice;
 
             if (!decimal.TryParse(UnitPriceTxt.Text, out unitPrice))
@@ -149,7 +150,7 @@ namespace BenpilsBarcodeSystem
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
                     cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                    cmd.Parameters.AddWithValue("@ContactName", CmbSupplier.Text);
+                    cmd.Parameters.AddWithValue("@ContactName", ContactName);
                     cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
                     cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
                     cmd.Parameters.AddWithValue("@MotorBrand", MotorbrandTxt.Text);

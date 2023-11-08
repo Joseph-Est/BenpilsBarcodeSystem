@@ -204,7 +204,7 @@ namespace BenpilsBarcodeSystem
             string insertQuery = "INSERT INTO tbl_services (ServiceName, Price) " +
                     "VALUES (@ServiceName, @Price)";
 
-            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -249,7 +249,7 @@ namespace BenpilsBarcodeSystem
 
             string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Price = @Price WHERE ID = @ID";
 
-            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {

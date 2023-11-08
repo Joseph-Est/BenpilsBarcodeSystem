@@ -165,11 +165,6 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ServicesBtn_Click(object sender, EventArgs e)
         {
             Services service = new Services(user);

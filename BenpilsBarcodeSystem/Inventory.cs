@@ -23,6 +23,9 @@ namespace BenpilsBarcodeSystem
             numericUpDown1.Minimum = -500;
             numericUpDown1.Maximum = 0;
             numericUpDown1.Value = -1;
+            comboBox2.Items.Add("Broken Item");
+            comboBox2.Items.Add("Lost Item");
+            comboBox2.Items.Add("Wrong Item");
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;

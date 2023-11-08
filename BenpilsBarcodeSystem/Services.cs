@@ -160,6 +160,8 @@ namespace BenpilsBarcodeSystem
 
         private void Services_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleServicesDataBase.tbl_services' table. You can move, or remove it, as needed.
+            this.tbl_servicesTableAdapter.Fill(this.benpillMotorcycleServicesDataBase.tbl_services);
 
         }
     }

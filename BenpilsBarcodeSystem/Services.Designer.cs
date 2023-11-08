@@ -569,14 +569,7 @@
             this.serviceNameDataGridViewTextBoxColumn,
             this.serviceIDDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tblservicesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(267, 146);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1193, 791);
-            this.dataGridView1.TabIndex = 25;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
             this.dataGridService.DataSource = this.tblservicesBindingSource;
             this.dataGridService.Location = new System.Drawing.Point(200, 119);
             this.dataGridService.Name = "dataGridService";
@@ -682,12 +675,7 @@
             this.label9.Text = "Price:";
             // 
             // ServiceNameTxt
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1595, 198);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 22);
-            this.textBox1.TabIndex = 29;
+
             this.ServiceNameTxt.Location = new System.Drawing.Point(1196, 161);
             this.ServiceNameTxt.Name = "ServiceNameTxt";
             this.ServiceNameTxt.Size = new System.Drawing.Size(171, 20);
@@ -695,11 +683,7 @@
             // 
             // PriceTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(1595, 241);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 22);
-            this.textBox3.TabIndex = 31;
+
             this.PriceTxt.Location = new System.Drawing.Point(1198, 196);
             this.PriceTxt.Name = "PriceTxt";
             this.PriceTxt.Size = new System.Drawing.Size(171, 20);

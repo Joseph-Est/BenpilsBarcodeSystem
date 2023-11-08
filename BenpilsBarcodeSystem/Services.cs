@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -163,6 +164,125 @@ namespace BenpilsBarcodeSystem
             // TODO: This line of code loads data into the 'benpillMotorcycleServicesDataBase.tbl_services' table. You can move, or remove it, as needed.
             this.tbl_servicesTableAdapter.Fill(this.benpillMotorcycleServicesDataBase.tbl_services);
 
+        }
+        private void ClearAllTheTextBoxes()
+        {
+            ServiceNameTxt.Text = "";
+            PriceTxt.Text = "";
+        }
+        private void UpdateDataGridView()
+        {
+            string selectQuery = "SELECT * FROM tbl_services";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridService.DataSource = dt;
+                }
+            }
+        }
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+           ClearAllTheTextBoxes();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ServiceNameTxt.Text) ||
+                string.IsNullOrWhiteSpace(PriceTxt.Text))
+            {
+                MessageBox.Show("Please fill up all the textboxes below.");
+                return;
+            }
+            if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
+            {
+                MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
+                return;
+            }
+            string insertQuery = "INSERT INTO tbl_services (ServiceName, Price) " +
+                    "VALUES (@ServiceName, @Price)";
+
+            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
+            {
+                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
+                    cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            UpdateDataGridView();
+            ClearAllTheTextBoxes ();
+        }
+        private bool IsServiceNameAlreadyExists(string ServiceName)
+        {
+            string query = "SELECT COUNT(*) FROM tbl_services WHERE servicename = @ServiceName";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@ServiceName", ServiceName);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridService.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to update.");
+                return;
+            }
+
+            int selectedRowID = Convert.ToInt32(dataGridService.SelectedRows[0].Cells["ID"].Value);
+
+            string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Price = @Price WHERE ID = @ID";
+
+            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
+            {
+                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
+                    cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
+                    cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            UpdateDataGridView();
+            ClearAllTheTextBoxes();
+        }
+
+        private void dataGridService_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridService.Rows[e.RowIndex];
+                ServiceNameTxt.Text = selectedRow.Cells[1].Value.ToString();
+                PriceTxt.Text = selectedRow.Cells[3].Value.ToString();            
+                AddBtn.Enabled = false;
+            }
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            AddBtn.Enabled = true;
+            ClearAllTheTextBoxes() ;
+            UpdateDataGridView();
         }
     }
 }

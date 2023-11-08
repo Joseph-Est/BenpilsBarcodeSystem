@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
-using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms.VisualStyles;
 
 namespace BenpilsBarcodeSystem
@@ -445,6 +444,7 @@ namespace BenpilsBarcodeSystem
                 GB = new GenerateBarcode();
             }
             GB.Show();
+            GB.StartPosition = FormStartPosition.CenterScreen;
             GB.BringToFront();
         }
         private void GenerateProductID()

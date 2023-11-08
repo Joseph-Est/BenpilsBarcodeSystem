@@ -65,16 +65,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridService = new System.Windows.Forms.DataGridView();
             this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblservicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleServicesDataBase = new BenpilsBarcodeSystem.BenpillMotorcycleServicesDataBase();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ServiceNameTxt = new System.Windows.Forms.TextBox();
+            this.PriceTxt = new System.Windows.Forms.TextBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
@@ -82,9 +85,7 @@
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tbl_servicesTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleServicesDataBaseTableAdapters.tbl_servicesTableAdapter();
-            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefreshBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel1.SuspendLayout();
@@ -102,9 +103,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicesDataBase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // MinimizeBtn
@@ -521,25 +523,26 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
             // 
-            // dataGridView1
+            // dataGridService
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridService.AutoGenerateColumns = false;
+            this.dataGridService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ServiceName,
             this.ServiceID,
             this.Price,
             this.serviceNameDataGridViewTextBoxColumn,
             this.serviceIDDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tblservicesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(200, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(895, 643);
-            this.dataGridView1.TabIndex = 25;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridService.DataSource = this.tblservicesBindingSource;
+            this.dataGridService.Location = new System.Drawing.Point(200, 119);
+            this.dataGridService.Name = "dataGridService";
+            this.dataGridService.RowHeadersWidth = 51;
+            this.dataGridService.Size = new System.Drawing.Size(895, 643);
+            this.dataGridService.TabIndex = 25;
+            this.dataGridService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridService_CellClick);
+            this.dataGridService.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ServiceName
             // 
@@ -564,6 +567,25 @@
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
+            // 
+            // serviceNameDataGridViewTextBoxColumn
+            // 
+            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
+            // 
+            // serviceIDDataGridViewTextBoxColumn
+            // 
+            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
+            this.serviceIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
             // tblservicesBindingSource
             // 
@@ -593,39 +615,40 @@
             this.label9.TabIndex = 28;
             this.label9.Text = "Price:";
             // 
-            // textBox1
+            // ServiceNameTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(1196, 161);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 20);
-            this.textBox1.TabIndex = 29;
+            this.ServiceNameTxt.Location = new System.Drawing.Point(1196, 161);
+            this.ServiceNameTxt.Name = "ServiceNameTxt";
+            this.ServiceNameTxt.Size = new System.Drawing.Size(171, 20);
+            this.ServiceNameTxt.TabIndex = 29;
             // 
-            // textBox3
+            // PriceTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(1198, 196);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 20);
-            this.textBox3.TabIndex = 31;
+            this.PriceTxt.Location = new System.Drawing.Point(1198, 196);
+            this.PriceTxt.Name = "PriceTxt";
+            this.PriceTxt.Size = new System.Drawing.Size(171, 20);
+            this.PriceTxt.TabIndex = 31;
             // 
             // ClearBtn
             // 
             this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearBtn.Location = new System.Drawing.Point(1273, 346);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(93, 54);
             this.ClearBtn.TabIndex = 152;
             this.ClearBtn.Text = "Clear";
             this.ClearBtn.UseVisualStyleBackColor = true;
             this.ClearBtn.UseWaitCursor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // ArchiveBtn
             // 
             this.ArchiveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ArchiveBtn.Location = new System.Drawing.Point(1157, 346);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(93, 54);
             this.ArchiveBtn.TabIndex = 151;
@@ -638,31 +661,33 @@
             this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateBtn.Location = new System.Drawing.Point(1273, 270);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(93, 54);
             this.UpdateBtn.TabIndex = 150;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
             this.UpdateBtn.UseWaitCursor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.Location = new System.Drawing.Point(1157, 270);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(93, 54);
             this.AddBtn.TabIndex = 149;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.UseWaitCursor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // TxtSearchBar
             // 
             this.TxtSearchBar.Location = new System.Drawing.Point(250, 88);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearchBar.Name = "TxtSearchBar";
             this.TxtSearchBar.Size = new System.Drawing.Size(130, 20);
             this.TxtSearchBar.TabIndex = 153;
@@ -684,41 +709,36 @@
             // 
             this.tbl_servicesTableAdapter.ClearBeforeFill = true;
             // 
-            // serviceNameDataGridViewTextBoxColumn
+            // RefreshBtn
             // 
-            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
-            // 
-            // serviceIDDataGridViewTextBoxColumn
-            // 
-            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
-            this.serviceIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.RefreshBtn.BackColor = System.Drawing.Color.White;
+            this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
+            this.RefreshBtn.Location = new System.Drawing.Point(1382, 81);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(40, 39);
+            this.RefreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.RefreshBtn.TabIndex = 155;
+            this.RefreshBtn.TabStop = false;
+            this.RefreshBtn.UseWaitCursor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Services
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 825);
+            this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.TxtSearchBar);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.ArchiveBtn);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PriceTxt);
+            this.Controls.Add(this.ServiceNameTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridService);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -748,9 +768,10 @@
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicesDataBase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -793,11 +814,11 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridService;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ServiceNameTxt;
+        private System.Windows.Forms.TextBox PriceTxt;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Button UpdateBtn;
@@ -813,5 +834,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox RefreshBtn;
     }
 }

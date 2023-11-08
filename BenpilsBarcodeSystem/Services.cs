@@ -152,5 +152,15 @@ namespace BenpilsBarcodeSystem
                 this.Show();
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Services_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

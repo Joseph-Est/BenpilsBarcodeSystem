@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
+using Microsoft.EntityFrameworkCore;
+using System.Windows.Forms.VisualStyles;
 
 namespace BenpilsBarcodeSystem
 {
@@ -23,9 +25,7 @@ namespace BenpilsBarcodeSystem
             numericUpDown1.Minimum = -500;
             numericUpDown1.Maximum = 0;
             numericUpDown1.Value = -1;
-            comboBox2.Items.Add("Broken Item");
-            comboBox2.Items.Add("Lost Item");
-            comboBox2.Items.Add("Wrong Item");
+            PopulateComboBoxStatus();
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -471,7 +471,11 @@ namespace BenpilsBarcodeSystem
         {
             GenerateProductID();
         }
+        private void PopulateComboBoxStatus()
+        {
+            // Populate the ComboBox with status options (e.g., Lost Item, Broken Item, Wrong Item).
+            comboBox2.Items.AddRange(new string[] { "Lost Item", "Broken Item", "Wrong Item" });
+        }
 
-    
     }
 }

@@ -20,7 +20,9 @@ namespace BenpilsBarcodeSystem
         public Inventory(User user)
         {
             InitializeComponent();
-  
+            numericUpDown1.Minimum = -500;
+            numericUpDown1.Maximum = 0;
+            numericUpDown1.Value = -1;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;

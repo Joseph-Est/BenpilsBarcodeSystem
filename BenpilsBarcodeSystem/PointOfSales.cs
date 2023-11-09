@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace BenpilsBarcodeSystem
     public partial class PointOfSales : Form
     {
         private User user;
+        private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         public PointOfSales(User user)
         {
             InitializeComponent();
+            FillComboBox();
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -164,7 +167,11 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
-   
+            // TODO: This line of code loads data into the 'benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions' table. You can move, or remove it, as needed.
+            this.tbl_servicestransactionsTableAdapter.Fill(this.benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions);
+            // TODO: This line of code loads data into the 'benpillMotorcycleServicestransactionDatabase.tbl_servicestransaction' table. You can move, or remove it, as needed.
+
+
             this.tbl_voidtableTableAdapter.Fill(this.benpillMotorcycleDatabaseVoidTable.tbl_voidtable);
 
         }
@@ -182,5 +189,194 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
+        private void clearAlltextbox()
+        {
+         
+            paymentitemTxt.Text ="";
+            changepaymentitemTxt.Text = "";
+        }
+        private void clearAllTextbox2()
+        {
+            cmbservices.Items .Clear();
+            paymentservicestxt.Text = "";
+            changepaymentitemTxt.Text = "";
+        }
+
+
+        private void cmbservices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       
+        }
+        private void FillComboBox()
+        {
+            try
+            {
+                connection.Open();
+
+                // Your SQL query to retrieve data from tbl_services
+                string query = "SELECT ServiceID, ServiceName, Price FROM tbl_services";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        // Add a computed column combining ServiceName and Price
+                        dataTable.Columns.Add("DisplayMember", typeof(string), "ServiceName + ' - $' + CONVERT(Price, System.String)");
+
+                        // Set the DisplayMember and ValueMember properties
+                        cmbservices.DisplayMember = "DisplayMember";
+                        cmbservices.ValueMember = "ServiceID";
+                        cmbservices.DataSource = dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            clearAlltextbox();
+        }
+
+        private void Clear2Btn_Click(object sender, EventArgs e)
+        {
+            clearAllTextbox2();
+        }
+
+        private void Addbtnservices_Click(object sender, EventArgs e)
+        {
+            // Get the selected ServiceID from the ComboBox
+            int selectedServiceID = (int)cmbservices.SelectedValue;
+
+            // Your SQL queries to insert into the three tables
+            string queryInsertID = "INSERT INTO ServicesID (ServiceID) VALUES (@ServiceID)";
+            string queryInsertName = "INSERT INTO ServiceName (ServiceID, ServiceName) VALUES (@ServiceID, @ServiceName)";
+            string queryInsertPrice = "INSERT INTO Price (ServiceID, Price) VALUES (@ServiceID, @Price)";
+
+            try
+            {
+                connection.Open();
+
+                using (SqlCommand commandID = new SqlCommand(queryInsertID, connection))
+                using (SqlCommand commandName = new SqlCommand(queryInsertName, connection))
+                using (SqlCommand commandPrice = new SqlCommand(queryInsertPrice, connection))
+                {
+                    // Add parameters to the commands
+                    commandID.Parameters.AddWithValue("@ServiceID", selectedServiceID);
+                    commandName.Parameters.AddWithValue("@ServiceID", selectedServiceID);
+                    commandName.Parameters.AddWithValue("@ServiceName", cmbservices.Text); // Assuming ServiceName is the text part of the combo box
+                    commandPrice.Parameters.AddWithValue("@ServiceID", selectedServiceID);
+
+                    // Get the Price from the selected service in the ComboBox
+                    decimal selectedServicePrice = GetSelectedServicePrice(selectedServiceID);
+                    commandPrice.Parameters.AddWithValue("@Price", selectedServicePrice);
+
+                    // Execute the commands
+                    commandID.ExecuteNonQuery();
+                    commandName.ExecuteNonQuery();
+                    commandPrice.ExecuteNonQuery();
+
+                    // Display the added data in the DataGridView
+                    UpdateDisplayServicesTransactions();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+            private decimal GetSelectedServicePrice(int serviceID)
+        {
+            decimal price = 0;
+
+            try
+            {
+                connection.Open();
+
+                // Your SQL query to retrieve the price based on the selected ServiceID
+                string query = "SELECT Price FROM tbl_services WHERE ServiceID = @ServiceID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ServiceID", serviceID);
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        // If the result is not null, convert it to decimal
+                        price = Convert.ToDecimal(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return price;
+        }
+        private void UpdateDisplayServicesTransactions()
+        {
+            try
+            {
+                connection.Open();
+
+                // Your SQL query to retrieve data from the three tables
+                string query = "SELECT ServicesID.ServiceID, ServiceName.ServiceName, Price.Price " +
+                               "FROM ServicesID " +
+                               "INNER JOIN ServiceName ON ServicesID.ServiceID = ServiceName.ServiceID " +
+                               "INNER JOIN Price ON ServicesID.ServiceID = Price.ServiceID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        // Display the data in the DataGridView
+                        dataGridView1.DataSource = dataTable;
+
+                        // Assuming the columns in the DataGridView are named "ServiceID", "ServiceName", and "Price"
+                        // You may need to adjust these column names based on your actual DataGridView setup
+                        dataGridView1.Columns["ServiceID"].Visible = false; // Hide ServiceID column if you don't want to display it
+
+                        // Adjust the column names based on your actual DataGridView setup
+                        dataGridView1.Columns["ServiceName"].HeaderText = "Service Name";
+                        dataGridView1.Columns["Price"].HeaderText = "Price";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
-}
+    }
+    
+    
+
+

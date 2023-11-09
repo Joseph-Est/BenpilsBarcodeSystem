@@ -17,6 +17,8 @@ namespace BenpilsBarcodeSystem
         public Services(User user)
         {
             InitializeComponent();
+         
+            
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -272,8 +274,8 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridService.Rows[e.RowIndex];
-                ServiceNameTxt.Text = selectedRow.Cells[1].Value.ToString();
-                PriceTxt.Text = selectedRow.Cells[3].Value.ToString();            
+                ServiceNameTxt.Text = selectedRow.Cells[3].Value.ToString();
+                PriceTxt.Text = selectedRow.Cells[1].Value.ToString();            
                 AddBtn.Enabled = false;
             }
         }

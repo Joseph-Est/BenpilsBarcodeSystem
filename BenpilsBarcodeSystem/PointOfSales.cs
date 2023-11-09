@@ -200,7 +200,7 @@ namespace BenpilsBarcodeSystem
         }
         private void clearAllTextbox2()
         {
-            cmbservices.Items .Clear();
+          
             paymentservicestxt.Text = "";
             changepaymentitemTxt.Text = "";
         }

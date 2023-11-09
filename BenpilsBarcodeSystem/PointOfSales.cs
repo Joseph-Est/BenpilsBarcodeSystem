@@ -254,14 +254,11 @@ namespace BenpilsBarcodeSystem
         }
 
         private void Addbtnservices_Click(object sender, EventArgs e)
-        {
-            // Get the selected ServiceID from the ComboBox
+        {// Get the selected ServiceID from the ComboBox
             int selectedServiceID = (int)cmbservices.SelectedValue;
 
-            // Your SQL queries to insert into the three tables
-            string queryInsertID = "INSERT INTO ServicesID (ServiceID) VALUES (@ServiceID)";
-            string queryInsertName = "INSERT INTO ServiceName (ServiceID, ServiceName) VALUES (@ServiceID, @ServiceName)";
-            string queryInsertPrice = "INSERT INTO Price (ServiceID, Price) VALUES (@ServiceID, @Price)";
+            // Your SQL queries to insert into tbl_servicestransactions
+            string queryInsertTransaction = "INSERT INTO tbl_servicestransactions (ServiceID, ServiceName, Price) VALUES (@ServiceID, @ServiceName, @Price)";
 
             try
             {
@@ -270,22 +267,15 @@ namespace BenpilsBarcodeSystem
                 // Get the Price from the selected service in the ComboBox
                 decimal selectedServicePrice = GetSelectedServicePrice(selectedServiceID);
 
-                using (SqlCommand commandID = new SqlCommand(queryInsertID, connection))
-                using (SqlCommand commandName = new SqlCommand(queryInsertName, connection))
-                using (SqlCommand commandPrice = new SqlCommand(queryInsertPrice, connection))
+                using (SqlCommand commandTransaction = new SqlCommand(queryInsertTransaction, connection))
                 {
-                    // Add parameters to the commands
-                    commandID.Parameters.AddWithValue("@ServiceID", selectedServiceID);
-                    commandName.Parameters.AddWithValue("@ServiceID", selectedServiceID);
-                    commandName.Parameters.AddWithValue("@ServiceName", cmbservices.Text); // Assuming ServiceName is the text part of the combo box
-                    commandPrice.Parameters.AddWithValue("@ServiceID", selectedServiceID);
-                    // Set the Price value based on the selected service
-                    commandPrice.Parameters.AddWithValue("@Price", selectedServicePrice);
+                    // Add parameters to the command
+                    commandTransaction.Parameters.AddWithValue("@ServiceID", selectedServiceID);
+                    commandTransaction.Parameters.AddWithValue("@ServiceName", cmbservices.Text); // Assuming ServiceName is the text part of the combo box
+                    commandTransaction.Parameters.AddWithValue("@Price", selectedServicePrice);
 
-                    // Execute the commands
-                    commandID.ExecuteNonQuery();
-                    commandName.ExecuteNonQuery();
-                    commandPrice.ExecuteNonQuery();
+                    // Execute the command to insert into tbl_servicestransactions
+                    commandTransaction.ExecuteNonQuery();
 
                     // Display the added data in the DataGridView
                     UpdateDisplayServicesTransactions();
@@ -300,13 +290,13 @@ namespace BenpilsBarcodeSystem
                 connection.Close();
             }
         }
-            private decimal GetSelectedServicePrice(int serviceID)
+        private decimal GetSelectedServicePrice(int serviceID)
         {
             decimal price = 0;
 
             try
             {
-                connection.Open();
+                // Assuming your connection is already open or open it here if needed
 
                 // Your SQL query to retrieve the price based on the selected ServiceID
                 string query = "SELECT Price FROM tbl_services WHERE ServiceID = @ServiceID";
@@ -329,7 +319,7 @@ namespace BenpilsBarcodeSystem
             }
             finally
             {
-                connection.Close();
+                // Assuming your connection is already open or close it here if needed
             }
 
             return price;
@@ -340,11 +330,8 @@ namespace BenpilsBarcodeSystem
             {
                 connection.Open();
 
-                // Your SQL query to retrieve data from the three tables
-                string query = "SELECT ServicesID.ServiceID, ServiceName.ServiceName, Price.Price " +
-                               "FROM ServicesID " +
-                               "INNER JOIN ServiceName ON ServicesID.ServiceID = ServiceName.ServiceID " +
-                               "INNER JOIN Price ON ServicesID.ServiceID = Price.ServiceID";
+                // Your SQL query to retrieve data from tbl_servicestransactions
+                string query = "SELECT ServiceID, ServiceName, Price FROM tbl_servicestransactions";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -358,9 +345,7 @@ namespace BenpilsBarcodeSystem
 
                         // Assuming the columns in the DataGridView are named "ServiceID", "ServiceName", and "Price"
                         // You may need to adjust these column names based on your actual DataGridView setup
-                        dataGridView3.Columns["ServiceID"].Visible = false; // Hide ServiceID column if you don't want to display it
-
-                        // Adjust the column names based on your actual DataGridView setup
+                        dataGridView3.Columns["ServiceID"].Visible = true; // Show ServiceID column
                         dataGridView3.Columns["ServiceName"].HeaderText = "Service Name";
                         dataGridView3.Columns["Price"].HeaderText = "Price";
                     }

@@ -66,22 +66,22 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.datagridviewInventoryreport = new System.Windows.Forms.TabControl();
+            this.InventoryReportTab = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.SalesReportTab = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.datagridviewSalesreport = new System.Windows.Forms.DataGridView();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.AuditTrail = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -104,6 +104,13 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ServiceReportBtn = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewServiceReport = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,14 +129,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.MinimizedBtn)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.datagridviewInventoryreport.SuspendLayout();
+            this.InventoryReportTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.SalesReportTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewSalesreport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.AuditTrail.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
@@ -140,6 +147,9 @@
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.ServiceReportBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServiceReport)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox8
@@ -561,38 +571,39 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.tabControl1);
+            this.panel3.Controls.Add(this.datagridviewInventoryreport);
             this.panel3.Location = new System.Drawing.Point(189, 78);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1338, 691);
             this.panel3.TabIndex = 24;
             // 
-            // tabControl1
+            // datagridviewInventoryreport
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1330, 665);
-            this.tabControl1.TabIndex = 0;
+            this.datagridviewInventoryreport.Controls.Add(this.InventoryReportTab);
+            this.datagridviewInventoryreport.Controls.Add(this.SalesReportTab);
+            this.datagridviewInventoryreport.Controls.Add(this.ServiceReportBtn);
+            this.datagridviewInventoryreport.Controls.Add(this.AuditTrail);
+            this.datagridviewInventoryreport.Location = new System.Drawing.Point(3, 3);
+            this.datagridviewInventoryreport.Name = "datagridviewInventoryreport";
+            this.datagridviewInventoryreport.SelectedIndex = 0;
+            this.datagridviewInventoryreport.Size = new System.Drawing.Size(1330, 665);
+            this.datagridviewInventoryreport.TabIndex = 0;
             // 
-            // tabPage1
+            // InventoryReportTab
             // 
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.comboBox5);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.dataGridView4);
-            this.tabPage1.Controls.Add(this.pictureBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1322, 639);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Inventory Report";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.InventoryReportTab.Controls.Add(this.label16);
+            this.InventoryReportTab.Controls.Add(this.comboBox5);
+            this.InventoryReportTab.Controls.Add(this.textBox3);
+            this.InventoryReportTab.Controls.Add(this.label3);
+            this.InventoryReportTab.Controls.Add(this.dataGridView4);
+            this.InventoryReportTab.Controls.Add(this.pictureBox2);
+            this.InventoryReportTab.Location = new System.Drawing.Point(4, 22);
+            this.InventoryReportTab.Name = "InventoryReportTab";
+            this.InventoryReportTab.Padding = new System.Windows.Forms.Padding(3);
+            this.InventoryReportTab.Size = new System.Drawing.Size(1322, 639);
+            this.InventoryReportTab.TabIndex = 0;
+            this.InventoryReportTab.Text = "Inventory Report";
+            this.InventoryReportTab.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -652,21 +663,21 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.UseWaitCursor = true;
             // 
-            // tabPage2
+            // SalesReportTab
             // 
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.comboBox4);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.dataGridView5);
-            this.tabPage2.Controls.Add(this.pictureBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1322, 639);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Sales Report";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.SalesReportTab.Controls.Add(this.label15);
+            this.SalesReportTab.Controls.Add(this.comboBox4);
+            this.SalesReportTab.Controls.Add(this.textBox4);
+            this.SalesReportTab.Controls.Add(this.label10);
+            this.SalesReportTab.Controls.Add(this.datagridviewSalesreport);
+            this.SalesReportTab.Controls.Add(this.pictureBox3);
+            this.SalesReportTab.Location = new System.Drawing.Point(4, 22);
+            this.SalesReportTab.Name = "SalesReportTab";
+            this.SalesReportTab.Padding = new System.Windows.Forms.Padding(3);
+            this.SalesReportTab.Size = new System.Drawing.Size(1322, 639);
+            this.SalesReportTab.TabIndex = 1;
+            this.SalesReportTab.Text = "Sales Report";
+            this.SalesReportTab.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -706,13 +717,13 @@
             this.label10.Text = "Search:";
             this.label10.UseWaitCursor = true;
             // 
-            // dataGridView5
+            // datagridviewSalesreport
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(7, 45);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(1309, 574);
-            this.dataGridView5.TabIndex = 45;
+            this.datagridviewSalesreport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridviewSalesreport.Location = new System.Drawing.Point(7, 45);
+            this.datagridviewSalesreport.Name = "datagridviewSalesreport";
+            this.datagridviewSalesreport.Size = new System.Drawing.Size(1309, 574);
+            this.datagridviewSalesreport.TabIndex = 45;
             // 
             // pictureBox3
             // 
@@ -726,15 +737,15 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.UseWaitCursor = true;
             // 
-            // tabPage3
+            // AuditTrail
             // 
-            this.tabPage3.Controls.Add(this.tabControl2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1322, 639);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Audit Trail";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.AuditTrail.Controls.Add(this.tabControl2);
+            this.AuditTrail.Location = new System.Drawing.Point(4, 22);
+            this.AuditTrail.Name = "AuditTrail";
+            this.AuditTrail.Size = new System.Drawing.Size(1322, 639);
+            this.AuditTrail.TabIndex = 2;
+            this.AuditTrail.Text = "Audit Trail";
+            this.AuditTrail.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -962,6 +973,79 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Search:";
             // 
+            // ServiceReportBtn
+            // 
+            this.ServiceReportBtn.Controls.Add(this.dataGridViewServiceReport);
+            this.ServiceReportBtn.Controls.Add(this.pictureBox17);
+            this.ServiceReportBtn.Controls.Add(this.comboBox6);
+            this.ServiceReportBtn.Controls.Add(this.label18);
+            this.ServiceReportBtn.Controls.Add(this.textBox5);
+            this.ServiceReportBtn.Controls.Add(this.label17);
+            this.ServiceReportBtn.Location = new System.Drawing.Point(4, 22);
+            this.ServiceReportBtn.Name = "ServiceReportBtn";
+            this.ServiceReportBtn.Size = new System.Drawing.Size(1322, 639);
+            this.ServiceReportBtn.TabIndex = 3;
+            this.ServiceReportBtn.Text = "ServiceReport";
+            this.ServiceReportBtn.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(2, 13);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(49, 15);
+            this.label17.TabIndex = 48;
+            this.label17.Text = "Search:";
+            this.label17.UseWaitCursor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(55, 13);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(130, 20);
+            this.textBox5.TabIndex = 49;
+            this.textBox5.UseWaitCursor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(308, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(43, 13);
+            this.label18.TabIndex = 126;
+            this.label18.Text = "Sort by:";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(357, 12);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 21);
+            this.comboBox6.TabIndex = 127;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.White;
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(1267, 3);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox17.TabIndex = 128;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.UseWaitCursor = true;
+            // 
+            // dataGridViewServiceReport
+            // 
+            this.dataGridViewServiceReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewServiceReport.Location = new System.Drawing.Point(3, 38);
+            this.dataGridViewServiceReport.Name = "dataGridViewServiceReport";
+            this.dataGridViewServiceReport.Size = new System.Drawing.Size(1309, 574);
+            this.dataGridViewServiceReport.TabIndex = 129;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,16 +1081,16 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.datagridviewInventoryreport.ResumeLayout(false);
+            this.InventoryReportTab.ResumeLayout(false);
+            this.InventoryReportTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.SalesReportTab.ResumeLayout(false);
+            this.SalesReportTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridviewSalesreport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.AuditTrail.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -1020,6 +1104,10 @@
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.ServiceReportBtn.ResumeLayout(false);
+            this.ServiceReportBtn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewServiceReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1060,10 +1148,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl datagridviewInventoryreport;
+        private System.Windows.Forms.TabPage InventoryReportTab;
+        private System.Windows.Forms.TabPage SalesReportTab;
+        private System.Windows.Forms.TabPage AuditTrail;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
@@ -1089,7 +1177,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView datagridviewSalesreport;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label12;
@@ -1100,5 +1188,12 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TabPage ServiceReportBtn;
+        private System.Windows.Forms.DataGridView dataGridViewServiceReport;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label17;
     }
 }

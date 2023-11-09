@@ -354,15 +354,15 @@ namespace BenpilsBarcodeSystem
                         adapter.Fill(dataTable);
 
                         // Display the data in the DataGridView
-                        dataGridView1.DataSource = dataTable;
+                        dataGridView3.DataSource = dataTable;
 
                         // Assuming the columns in the DataGridView are named "ServiceID", "ServiceName", and "Price"
                         // You may need to adjust these column names based on your actual DataGridView setup
-                        dataGridView1.Columns["ServiceID"].Visible = false; // Hide ServiceID column if you don't want to display it
+                        dataGridView3.Columns["ServiceID"].Visible = false; // Hide ServiceID column if you don't want to display it
 
                         // Adjust the column names based on your actual DataGridView setup
-                        dataGridView1.Columns["ServiceName"].HeaderText = "Service Name";
-                        dataGridView1.Columns["Price"].HeaderText = "Price";
+                        dataGridView3.Columns["ServiceName"].HeaderText = "Service Name";
+                        dataGridView3.Columns["Price"].HeaderText = "Price";
                     }
                 }
             }

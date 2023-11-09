@@ -229,22 +229,7 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateDataGridview()
         {
-            string selectQuery = "SELECT * FROM tbl_usercredential";
-
-            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Update the DataGridView in PurchaserrForm
-                    if (purchaserreference != null)
-                    {
-                        purchaserreference.UpdateDataGridView1(dt);
-                    }
-                }
-            }
+            
         }
     }
 }

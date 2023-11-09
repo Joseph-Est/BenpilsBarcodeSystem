@@ -222,11 +222,6 @@ namespace BenpilsBarcodeSystem
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
-
-                        // Add a computed column combining ServiceName and Price
-                        dataTable.Columns.Add("DisplayMember", typeof(string), "ServiceName + ' - $' + CONVERT(Price, System.String)");
-
-                        // Set the DisplayMember and ValueMember properties
                         cmbservices.DisplayMember = "DisplayMember";
                         cmbservices.ValueMember = "ServiceID";
                         cmbservices.DataSource = dataTable;
@@ -296,11 +291,7 @@ namespace BenpilsBarcodeSystem
 
             try
             {
-                // Assuming your connection is already open or open it here if needed
-
-                // Your SQL query to retrieve the price based on the selected ServiceID
                 string query = "SELECT Price FROM tbl_services WHERE ServiceID = @ServiceID";
-
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ServiceID", serviceID);
@@ -308,7 +299,6 @@ namespace BenpilsBarcodeSystem
 
                     if (result != null)
                     {
-                        // If the result is not null, convert it to decimal
                         price = Convert.ToDecimal(result);
                     }
                 }
@@ -319,7 +309,6 @@ namespace BenpilsBarcodeSystem
             }
             finally
             {
-                // Assuming your connection is already open or close it here if needed
             }
 
             return price;
@@ -329,8 +318,6 @@ namespace BenpilsBarcodeSystem
             try
             {
                 connection.Open();
-
-                // Your SQL query to retrieve data from tbl_servicestransactions
                 string query = "SELECT ServiceID, ServiceName, Price FROM tbl_servicestransactions";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -339,12 +326,7 @@ namespace BenpilsBarcodeSystem
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
-
-                        // Display the data in the DataGridView
                         dataGridView3.DataSource = dataTable;
-
-                        // Assuming the columns in the DataGridView are named "ServiceID", "ServiceName", and "Price"
-                        // You may need to adjust these column names based on your actual DataGridView setup
                         dataGridView3.Columns["ServiceID"].Visible = true; // Show ServiceID column
                         dataGridView3.Columns["ServiceName"].HeaderText = "Service Name";
                         dataGridView3.Columns["Price"].HeaderText = "Price";

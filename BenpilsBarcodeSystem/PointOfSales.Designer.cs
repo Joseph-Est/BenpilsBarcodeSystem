@@ -131,7 +131,7 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PayServiceBtn = new System.Windows.Forms.Button();
             this.CalculateBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ClearTableBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -1110,21 +1110,21 @@
             this.CalculateBtn.UseVisualStyleBackColor = true;
             this.CalculateBtn.Click += new System.EventHandler(this.CalculateBtn_Click);
             // 
-            // button4
+            // ClearTableBtn
             // 
-            this.button4.Location = new System.Drawing.Point(1258, 727);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 51);
-            this.button4.TabIndex = 61;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ClearTableBtn.Location = new System.Drawing.Point(1258, 693);
+            this.ClearTableBtn.Name = "ClearTableBtn";
+            this.ClearTableBtn.Size = new System.Drawing.Size(110, 51);
+            this.ClearTableBtn.TabIndex = 61;
+            this.ClearTableBtn.Text = "ClearTable";
+            this.ClearTableBtn.UseVisualStyleBackColor = true;
             // 
             // PointOfSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 837);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.ClearTableBtn);
             this.Controls.Add(this.CalculateBtn);
             this.Controls.Add(this.PayServiceBtn);
             this.Controls.Add(this.Clear2Btn);
@@ -1303,6 +1303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button PayServiceBtn;
         private System.Windows.Forms.Button CalculateBtn;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ClearTableBtn;
     }
 }

@@ -348,7 +348,8 @@ namespace BenpilsBarcodeSystem
                     // Step 5: Clear Table and Reset Seed
                     ClearTableAndResetSeedServicesTransactions();
 
-                 
+                    RecordTransactionInReportsService();
+                    MessageBox.Show("Services Payment Succesful");
                 }
                 else
                 {
@@ -405,19 +406,30 @@ namespace BenpilsBarcodeSystem
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                // Step 5: Clear Table
                 string clearTableQuery = "DELETE FROM tbl_servicestransactions";
                 SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
                 clearTableCommand.ExecuteNonQuery();
-
-                // Step 5: Reset Seed
                 string resetSeedQuery = "DBCC CHECKIDENT('tbl_servicestransactions', RESEED, 1)";
                 SqlCommand resetSeedCommand = new SqlCommand(resetSeedQuery, connection);
                 resetSeedCommand.ExecuteNonQuery();
             }
         }
 
+        private void RecordTransactionInReportsService()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string recordTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount) " +
+                    "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount)";
+                SqlCommand recordTransactionCommand = new SqlCommand(recordTransactionQuery, connection);
+                recordTransactionCommand.Parameters.AddWithValue("@ServiceName", "SomeServiceName");
+                recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(TotalAmountServiceTxt.Text));
+                recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", decimal.Parse(paymentservicestxt.Text));
+                recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(changepaymentservicestxt.Text));
+                recordTransactionCommand.ExecuteNonQuery();
+            }
+        }
     }
     }
     

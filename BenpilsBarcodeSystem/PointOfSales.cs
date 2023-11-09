@@ -267,6 +267,9 @@ namespace BenpilsBarcodeSystem
             {
                 connection.Open();
 
+                // Get the Price from the selected service in the ComboBox
+                decimal selectedServicePrice = GetSelectedServicePrice(selectedServiceID);
+
                 using (SqlCommand commandID = new SqlCommand(queryInsertID, connection))
                 using (SqlCommand commandName = new SqlCommand(queryInsertName, connection))
                 using (SqlCommand commandPrice = new SqlCommand(queryInsertPrice, connection))
@@ -276,9 +279,7 @@ namespace BenpilsBarcodeSystem
                     commandName.Parameters.AddWithValue("@ServiceID", selectedServiceID);
                     commandName.Parameters.AddWithValue("@ServiceName", cmbservices.Text); // Assuming ServiceName is the text part of the combo box
                     commandPrice.Parameters.AddWithValue("@ServiceID", selectedServiceID);
-
-                    // Get the Price from the selected service in the ComboBox
-                    decimal selectedServicePrice = GetSelectedServicePrice(selectedServiceID);
+                    // Set the Price value based on the selected service
                     commandPrice.Parameters.AddWithValue("@Price", selectedServicePrice);
 
                     // Execute the commands

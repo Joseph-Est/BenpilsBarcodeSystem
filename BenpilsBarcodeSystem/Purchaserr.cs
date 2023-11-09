@@ -15,6 +15,7 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private int selectedSupplierID = -1;
+        public DataGridView DataGridView1 => dataGridView1;
         public Purchaserr(User user)
         {
             InitializeComponent();
@@ -169,6 +170,10 @@ namespace BenpilsBarcodeSystem
                     dataGridSupplier.DataSource = dt;
                 }
             }
+        }
+        public void UpdateDataGridView1(DataTable dataTable)
+        {
+            dataGridView1.DataSource = dataTable;
         }
         private void ClearAllTextBoxes()
         {

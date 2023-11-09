@@ -18,11 +18,11 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        private Purchaserr purchaserr;
-        public AddItemSupplier(User user)
+        private Purchaserr purchaserreference;
+        public AddItemSupplier(User user,Purchaserr purchaserr)
         {
             InitializeComponent();
-            Purchaserr purchaserr = new Purchaserr(user);
+            purchaserreference = purchaserr;
             DatabaseHelper dbHelper = new DatabaseHelper();
             DataTable dataTable = dbHelper.GetSupplierData();
 
@@ -226,6 +226,25 @@ namespace BenpilsBarcodeSystem
         private void GenerateproductidBtn_Click(object sender, EventArgs e)
         {
             GenerateProductID();
-        } 
+        }
+        private void UpdateDataGridview()
+        {
+            string selectQuery = "SELECT * FROM tbl_usercredential";
+
+            using (SqlConnection con = new SqlConnection("Your_Connection_String"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Update the DataGridView in PurchaserrForm
+                    if (purchaserreference != null)
+                    {
+                        purchaserreference.UpdateDataGridView1(dt);
+                    }
+                }
+            }
+        }
     }
 }

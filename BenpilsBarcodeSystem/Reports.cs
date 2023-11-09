@@ -13,6 +13,7 @@ namespace BenpilsBarcodeSystem
     public partial class Reports : Form
     {
         private User user;
+        public DataGridView DataGridViewServiceReport => dataGridViewServiceReport;
         public Reports(User user)
         {
             InitializeComponent();

@@ -16,9 +16,11 @@ namespace BenpilsBarcodeSystem
         private User user;
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
-        public PointOfSales(User user)
+        private Reports reportsreference;
+        public PointOfSales(User user,Reports reports)
         {
             InitializeComponent();
+            reportsreference = reports;
             FillComboBox();
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -421,15 +423,15 @@ namespace BenpilsBarcodeSystem
             {
                 connection.Open();
 
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                foreach (DataGridViewRow row in reportsreference.DataGridViewServiceReport.Rows)
                 {
                     string recordTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount, TransactionDateTime) " +
                         "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount, @TransactionDateTime)";
                     SqlCommand recordTransactionCommand = new SqlCommand(recordTransactionQuery, connection);
-                    recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells["ServiceName"].Value.ToString());
-                    recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells["Price"].Value));
-                    recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells["PaymentAmount"].Value));
-                    recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells["ChangeAmount"].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells[0].Value.ToString());
+                    recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells[1].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells[2].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells[3].Value));
                     recordTransactionCommand.Parameters.AddWithValue("@TransactionDateTime", DateTime.Now);
                     recordTransactionCommand.ExecuteNonQuery();
                 }

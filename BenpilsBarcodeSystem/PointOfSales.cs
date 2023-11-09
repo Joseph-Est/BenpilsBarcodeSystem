@@ -222,6 +222,7 @@ namespace BenpilsBarcodeSystem
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
+                        dataTable.Columns.Add("ServiceName");
                         cmbservices.DisplayMember = "DisplayMember";
                         cmbservices.ValueMember = "ServiceID";
                         cmbservices.DataSource = dataTable;

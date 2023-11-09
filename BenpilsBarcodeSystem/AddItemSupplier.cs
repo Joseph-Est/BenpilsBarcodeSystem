@@ -60,11 +60,7 @@ namespace BenpilsBarcodeSystem
             {
                 BarcodeWriter barcodeWriter = new BarcodeWriter();
                 barcodeWriter.Format = BarcodeFormat.CODE_128;
-
-                // Generate the barcode image.
-                var barcodeBitmap = barcodeWriter.Write(inputText);
-
-                // Display the generated barcode in the PictureBox.
+                var barcodeBitmap = barcodeWriter.Write(inputText);             
                 generatedpicture.Image = barcodeBitmap;
             }
             else

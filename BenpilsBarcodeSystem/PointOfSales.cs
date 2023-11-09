@@ -417,7 +417,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void RecordTransactionInReportsService()
+       /* private void RecordTransactionInReportsService()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -437,6 +437,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+       */
     }
     }
     

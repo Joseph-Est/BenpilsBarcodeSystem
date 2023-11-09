@@ -17,10 +17,10 @@ namespace BenpilsBarcodeSystem
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
         private Reports reportsreference;
-        public PointOfSales(User user,Reports reports)
+        public PointOfSales(User user)
         {
             InitializeComponent();
-            reportsreference = reports;
+            //reportsreference = reports;
             FillComboBox();
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -350,7 +350,7 @@ namespace BenpilsBarcodeSystem
                     // Step 5: Clear Table and Reset Seed
                     ClearTableAndResetSeedServicesTransactions();
 
-                    RecordTransactionInReportsService();
+                   
                     MessageBox.Show("Services Payment Succesful");
                 }
                 else

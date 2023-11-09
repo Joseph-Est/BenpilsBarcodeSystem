@@ -222,8 +222,9 @@ namespace BenpilsBarcodeSystem
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
-                        dataTable.Columns.Add("ServiceName");
-                        cmbservices.DisplayMember = "DisplayMember";
+
+                        // Set the DisplayMember and ValueMember properties
+                        cmbservices.DisplayMember = "ServiceName";
                         cmbservices.ValueMember = "ServiceID";
                         cmbservices.DataSource = dataTable;
                     }
@@ -316,31 +317,15 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateDisplayServicesTransactions()
         {
-            try
+            string selectQuery = "SELECT * FROM tbl_servicestransactions";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
-                connection.Open();
-                string query = "SELECT ServiceID, ServiceName, Price FROM tbl_servicestransactions";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dataGridView3.DataSource = dataTable;
-                        dataGridView3.Columns["ServiceID"].Visible = true; // Show ServiceID column
-                        dataGridView3.Columns["ServiceName"].HeaderText = "Service Name";
-                        dataGridView3.Columns["Price"].HeaderText = "Price";
-                    }
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView3.DataSource = dt;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close();
             }
         }
     }

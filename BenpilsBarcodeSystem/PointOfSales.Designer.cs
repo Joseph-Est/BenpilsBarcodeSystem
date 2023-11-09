@@ -804,7 +804,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1004, 303);
+            this.label7.Location = new System.Drawing.Point(993, 382);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 38;
@@ -813,7 +813,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1004, 352);
+            this.label8.Location = new System.Drawing.Point(1004, 412);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 39;
@@ -821,7 +821,7 @@
             // 
             // TotalAmountItemTxt
             // 
-            this.TotalAmountItemTxt.Location = new System.Drawing.Point(1083, 300);
+            this.TotalAmountItemTxt.Location = new System.Drawing.Point(1083, 380);
             this.TotalAmountItemTxt.Name = "TotalAmountItemTxt";
             this.TotalAmountItemTxt.ReadOnly = true;
             this.TotalAmountItemTxt.Size = new System.Drawing.Size(146, 20);
@@ -829,14 +829,14 @@
             // 
             // paymentitemTxt
             // 
-            this.paymentitemTxt.Location = new System.Drawing.Point(1083, 349);
+            this.paymentitemTxt.Location = new System.Drawing.Point(1083, 406);
             this.paymentitemTxt.Name = "paymentitemTxt";
             this.paymentitemTxt.Size = new System.Drawing.Size(146, 20);
             this.paymentitemTxt.TabIndex = 41;
             // 
             // BuyBtn
             // 
-            this.BuyBtn.Location = new System.Drawing.Point(1006, 445);
+            this.BuyBtn.Location = new System.Drawing.Point(1007, 473);
             this.BuyBtn.Name = "BuyBtn";
             this.BuyBtn.Size = new System.Drawing.Size(110, 51);
             this.BuyBtn.TabIndex = 42;
@@ -846,7 +846,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1004, 405);
+            this.label9.Location = new System.Drawing.Point(1004, 432);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 13);
             this.label9.TabIndex = 44;
@@ -854,7 +854,7 @@
             // 
             // changepaymentitemTxt
             // 
-            this.changepaymentitemTxt.Location = new System.Drawing.Point(1083, 400);
+            this.changepaymentitemTxt.Location = new System.Drawing.Point(1083, 432);
             this.changepaymentitemTxt.Name = "changepaymentitemTxt";
             this.changepaymentitemTxt.ReadOnly = true;
             this.changepaymentitemTxt.Size = new System.Drawing.Size(146, 20);
@@ -862,7 +862,7 @@
             // 
             // VoidBtn
             // 
-            this.VoidBtn.Location = new System.Drawing.Point(1142, 445);
+            this.VoidBtn.Location = new System.Drawing.Point(1142, 473);
             this.VoidBtn.Name = "VoidBtn";
             this.VoidBtn.Size = new System.Drawing.Size(110, 51);
             this.VoidBtn.TabIndex = 46;
@@ -1068,7 +1068,7 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(1272, 445);
+            this.ClearBtn.Location = new System.Drawing.Point(1272, 473);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(110, 51);
             this.ClearBtn.TabIndex = 57;

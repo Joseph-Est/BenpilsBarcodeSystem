@@ -19,7 +19,7 @@ namespace BenpilsBarcodeSystem
         private bool isDragging = false;
         private int mouseX, mouseY;
      
-        public AddItemSupplier(User user,Purchaserr purchaserr)
+        public AddItemSupplier(User user)
         {
             InitializeComponent();
       

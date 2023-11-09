@@ -289,6 +289,7 @@ namespace BenpilsBarcodeSystem
             {
                 connection.Close();
             }
+           
         }
         private decimal GetSelectedServicePrice(int serviceID)
         {
@@ -349,8 +350,9 @@ namespace BenpilsBarcodeSystem
 
                     // Step 5: Clear Table and Reset Seed
                     ClearTableAndResetSeedServicesTransactions();
+                    UpdateDisplayServicesTransactions();
 
-                   
+
                     MessageBox.Show("Services Payment Succesful");
                 }
                 else
@@ -417,27 +419,33 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-       /* private void RecordTransactionInReportsService()
+        private void ClearTableBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                foreach (DataGridViewRow row in reportsreference.DataGridViewServiceReport.Rows)
-                {
-                    string recordTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount, TransactionDateTime) " +
-                        "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount, @TransactionDateTime)";
-                    SqlCommand recordTransactionCommand = new SqlCommand(recordTransactionQuery, connection);
-                    recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells[0].Value.ToString());
-                    recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells[1].Value));
-                    recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells[2].Value));
-                    recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells[3].Value));
-                    recordTransactionCommand.Parameters.AddWithValue("@TransactionDateTime", DateTime.Now);
-                    recordTransactionCommand.ExecuteNonQuery();
-                }
-            }
+            ClearTableAndResetSeedServicesTransactions();
+            UpdateDisplayServicesTransactions();
         }
-       */
+
+        /* private void RecordTransactionInReportsService()
+         {
+             using (SqlConnection connection = new SqlConnection(connectionString))
+             {
+                 connection.Open();
+
+                 foreach (DataGridViewRow row in reportsreference.DataGridViewServiceReport.Rows)
+                 {
+                     string recordTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount, TransactionDateTime) " +
+                         "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount, @TransactionDateTime)";
+                     SqlCommand recordTransactionCommand = new SqlCommand(recordTransactionQuery, connection);
+                     recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells[0].Value.ToString());
+                     recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells[1].Value));
+                     recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells[2].Value));
+                     recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells[3].Value));
+                     recordTransactionCommand.Parameters.AddWithValue("@TransactionDateTime", DateTime.Now);
+                     recordTransactionCommand.ExecuteNonQuery();
+                 }
+             }
+         }
+        */
     }
     }
     

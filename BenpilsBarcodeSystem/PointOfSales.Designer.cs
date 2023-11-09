@@ -108,6 +108,10 @@
             this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.transactionNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblservicestransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleServicesTransactionsDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleServicesTransactionsDatabase();
             this.label10 = new System.Windows.Forms.Label();
@@ -125,10 +129,6 @@
             this.ClearBtn = new System.Windows.Forms.Button();
             this.Clear2Btn = new System.Windows.Forms.Button();
             this.tbl_servicestransactionsTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleServicesTransactionsDatabaseTableAdapters.tbl_servicestransactionsTableAdapter();
-            this.transactionNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PayServiceBtn = new System.Windows.Forms.Button();
             this.CalculateBtn = new System.Windows.Forms.Button();
             this.ClearTableBtn = new System.Windows.Forms.Button();
@@ -885,7 +885,7 @@
             this.priceDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.tblservicestransactionsBindingSource;
             this.dataGridView3.Location = new System.Drawing.Point(203, 542);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
@@ -936,6 +936,31 @@
             this.Remove.Text = "Remove";
             this.Remove.Width = 70;
             // 
+            // transactionNumberDataGridViewTextBoxColumn
+            // 
+            this.transactionNumberDataGridViewTextBoxColumn.DataPropertyName = "TransactionNumber";
+            this.transactionNumberDataGridViewTextBoxColumn.HeaderText = "TransactionNumber";
+            this.transactionNumberDataGridViewTextBoxColumn.Name = "transactionNumberDataGridViewTextBoxColumn";
+            this.transactionNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // serviceNameDataGridViewTextBoxColumn
+            // 
+            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
+            // 
+            // serviceIDDataGridViewTextBoxColumn
+            // 
+            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
             // tblservicestransactionsBindingSource
             // 
             this.tblservicestransactionsBindingSource.DataMember = "tbl_servicestransactions";
@@ -961,7 +986,7 @@
             this.cmbservices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbservices.FormattingEnabled = true;
             this.cmbservices.Location = new System.Drawing.Point(1105, 542);
-            this.cmbservices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbservices.Margin = new System.Windows.Forms.Padding(2);
             this.cmbservices.Name = "cmbservices";
             this.cmbservices.Size = new System.Drawing.Size(170, 21);
             this.cmbservices.TabIndex = 49;
@@ -1065,31 +1090,6 @@
             // 
             this.tbl_servicestransactionsTableAdapter.ClearBeforeFill = true;
             // 
-            // transactionNumberDataGridViewTextBoxColumn
-            // 
-            this.transactionNumberDataGridViewTextBoxColumn.DataPropertyName = "TransactionNumber";
-            this.transactionNumberDataGridViewTextBoxColumn.HeaderText = "TransactionNumber";
-            this.transactionNumberDataGridViewTextBoxColumn.Name = "transactionNumberDataGridViewTextBoxColumn";
-            this.transactionNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // serviceNameDataGridViewTextBoxColumn
-            // 
-            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
-            // 
-            // serviceIDDataGridViewTextBoxColumn
-            // 
-            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
             // PayServiceBtn
             // 
             this.PayServiceBtn.Location = new System.Drawing.Point(1026, 727);
@@ -1118,6 +1118,7 @@
             this.ClearTableBtn.TabIndex = 61;
             this.ClearTableBtn.Text = "ClearTable";
             this.ClearTableBtn.UseVisualStyleBackColor = true;
+            this.ClearTableBtn.Click += new System.EventHandler(this.ClearTableBtn_Click);
             // 
             // PointOfSales
             // 

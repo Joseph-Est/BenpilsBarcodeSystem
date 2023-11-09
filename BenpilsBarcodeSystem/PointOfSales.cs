@@ -15,6 +15,7 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
+        private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
         public PointOfSales(User user)
         {
             InitializeComponent();
@@ -328,6 +329,95 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+        private void PayServiceBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Step 3: Input Payment Amount
+                decimal paymentAmount = decimal.Parse(paymentservicestxt.Text);
+
+                // Step 4: Calculate Change
+                if (paymentAmount >= Convert.ToDecimal(TotalAmountServiceTxt.Text))
+                {
+                    decimal change = paymentAmount - Convert.ToDecimal(TotalAmountServiceTxt.Text);
+
+                    // Display Change
+                    changepaymentservicestxt.Text = change.ToString();
+
+                    // Step 5: Clear Table and Reset Seed
+                    ClearTableAndResetSeedServicesTransactions();
+
+                 
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient funds. Please provide a sufficient payment amount.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void CalculateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Step 1: Calculate Total Amount
+                decimal totalAmount = CalculateTotalAmount();
+
+                // Step 2: Display Total Amount
+                TotalAmountServiceTxt.Text = totalAmount.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+         private decimal CalculateTotalAmount()
+            {
+        decimal totalAmount = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            string query = "SELECT SUM(Price) AS TotalAmount FROM tbl_servicestransactions";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                if (reader["TotalAmount"] != DBNull.Value)
+                {
+                    totalAmount = Convert.ToDecimal(reader["TotalAmount"]);
+                }
+            }
+
+            reader.Close();
+        }
+
+        return totalAmount;
+         }
+        private void ClearTableAndResetSeedServicesTransactions()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Step 5: Clear Table
+                string clearTableQuery = "DELETE FROM tbl_servicestransactions";
+                SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
+                clearTableCommand.ExecuteNonQuery();
+
+                // Step 5: Reset Seed
+                string resetSeedQuery = "DBCC CHECKIDENT('tbl_servicestransactions', RESEED, 1)";
+                SqlCommand resetSeedCommand = new SqlCommand(resetSeedQuery, connection);
+                resetSeedCommand.ExecuteNonQuery();
+            }
+        }
+
     }
     }
     

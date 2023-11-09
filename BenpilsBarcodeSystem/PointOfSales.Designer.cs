@@ -1118,7 +1118,7 @@
             this.ClearTableBtn.TabIndex = 61;
             this.ClearTableBtn.Text = "ClearTable";
             this.ClearTableBtn.UseVisualStyleBackColor = true;
-          
+            this.ClearTableBtn.Click += new System.EventHandler(this.ClearTableBtn_Click_1);
             // 
             // PointOfSales
             // 

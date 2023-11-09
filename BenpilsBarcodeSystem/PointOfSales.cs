@@ -419,7 +419,9 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void ClearTableBtn_Click(object sender, EventArgs e)
+   
+
+        private void ClearTableBtn_Click_1(object sender, EventArgs e)
         {
             ClearTableAndResetSeedServicesTransactions();
             UpdateDisplayServicesTransactions();

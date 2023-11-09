@@ -17,6 +17,8 @@ namespace BenpilsBarcodeSystem
         public Services(User user)
         {
             InitializeComponent();
+         
+            
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;

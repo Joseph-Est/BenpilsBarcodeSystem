@@ -209,6 +209,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleDatabaseDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabasePOStable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -253,6 +258,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleItemMasterDataOnPOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
     </Compile>
     <Compile Include="BenpillMotorcycleMasterData2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -362,6 +372,12 @@
     <Compile Include="Purchaserr.Designer.cs">
       <DependentUpon>Purchaserr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Quantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quantity.Designer.cs">
+      <DependentUpon>Quantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,6 +452,9 @@
     <EmbeddedResource Include="Purchaserr.resx">
       <DependentUpon>Purchaserr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Quantity.resx">
+      <DependentUpon>Quantity.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -487,6 +506,17 @@
     </None>
     <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
       <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet21.xsc">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleDatabaseDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleDatabaseDataSet21.xss">
+      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleDatabasePOStable.xsc">
       <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
@@ -586,6 +616,17 @@
     </None>
     <None Include="BenpillMotorcycleItemmasterDataMain.xss">
       <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsc">
+      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleItemMasterDataOnPOS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xss">
+      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleMasterData2.xsc">
       <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>

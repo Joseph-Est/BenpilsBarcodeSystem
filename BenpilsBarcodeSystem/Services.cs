@@ -247,26 +247,51 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            int selectedRowID = Convert.ToInt32(dataGridService.SelectedRows[0].Cells["ID"].Value);
-
-            string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Price = @Price WHERE ID = @ID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            // Check if the "ID" column exists in the DataGridView
+            if (dataGridService.Columns.Contains("ServiceID"))
             {
-                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                // Check if the selected row has a cell with the "ID" column
+                if (dataGridService.SelectedRows[0].Cells["ServiceID"].Value != null)
                 {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
-                    cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
-                    cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
+                    int selectedRowID;
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    // Attempt to convert the value to an integer
+                    if (int.TryParse(dataGridService.SelectedRows[0].Cells["ServiceID"].Value.ToString(), out selectedRowID))
+                    {
+                        string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Price = @Price WHERE ServiceID = @ServiceID";
+
+                        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                            {
+                                cmd.Parameters.AddWithValue("@ServiceID", selectedRowID);
+                                cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
+                                cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
+
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                            }
+                        }
+
+                        UpdateDataGridView();
+                        ClearAllTheTextBoxes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid value in the 'ServiceID' column.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selected row does not contain a value in the 'ServiceID' column.");
                 }
             }
-
-            UpdateDataGridView();
-            ClearAllTheTextBoxes();
+            else
+            {
+                MessageBox.Show("The 'ID' column does not exist in the DataGridView.");
+            }
+       
         }
 
         private void dataGridService_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -274,8 +299,8 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridService.Rows[e.RowIndex];
-                ServiceNameTxt.Text = selectedRow.Cells[3].Value.ToString();
-                PriceTxt.Text = selectedRow.Cells[1].Value.ToString();            
+                ServiceNameTxt.Text = selectedRow.Cells[1].Value.ToString();
+                PriceTxt.Text = selectedRow.Cells[2].Value.ToString();            
                 AddBtn.Enabled = false;
             }
         }

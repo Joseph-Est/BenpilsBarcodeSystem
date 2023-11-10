@@ -23,7 +23,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             //reportsreference = reports;
-          
+            
           
             FillComboBox();
             Timer timer = new Timer();
@@ -174,12 +174,16 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet2.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter.Fill(this.benpillMotorcycleDatabaseDataSet2.tbl_Cart);
+            // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata' table. You can move, or remove it, as needed.
+            this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata);
             // TODO: This line of code loads data into the 'benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions' table. You can move, or remove it, as needed.
             this.tbl_servicestransactionsTableAdapter.Fill(this.benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions);
             // TODO: This line of code loads data into the 'benpillMotorcycleServicestransactionDatabase.tbl_servicestransaction' table. You can move, or remove it, as needed.
 
 
-            this.tbl_voidtableTableAdapter.Fill(this.benpillMotorcycleDatabaseVoidTable.tbl_voidtable);
+         
 
         }
 
@@ -355,6 +359,7 @@ namespace BenpilsBarcodeSystem
                     // Step 5: Clear Table and Reset Seed
                     ClearTableAndResetSeedServicesTransactions();
                     UpdateDisplayServicesTransactions();
+                    
 
 
                     MessageBox.Show("Services Payment Succesful");
@@ -433,25 +438,25 @@ namespace BenpilsBarcodeSystem
 
         /* private void RecordTransactionInReportsService()
          {
-             using (SqlConnection connection = new SqlConnection(connectionString))
-             {
-                 connection.Open();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string recordsServicesTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount, TransactionDateTime) " +
+                                                        "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount, @TransactionDateTime)";
+                connection.Open();
 
-                 foreach (DataGridViewRow row in reportsreference.DataGridViewServiceReport.Rows)
-                 {
-                     string recordTransactionQuery = "INSERT INTO tbl_servicetransactions_reports (ServiceName, Price, PaymentAmount, ChangeAmount, TransactionDateTime) " +
-                         "VALUES (@ServiceName, @Price, @PaymentAmount, @ChangeAmount, @TransactionDateTime)";
-                     SqlCommand recordTransactionCommand = new SqlCommand(recordTransactionQuery, connection);
-                     recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells[0].Value.ToString());
-                     recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells[1].Value));
-                     recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells[2].Value));
-                     recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells[3].Value));
-                     recordTransactionCommand.Parameters.AddWithValue("@TransactionDateTime", DateTime.Now);
-                     recordTransactionCommand.ExecuteNonQuery();
-                 }
-             }
-         }
-        */
+                using (SqlCommand recordTransactionCommand = new SqlCommand(recordsServicesTransactionQuery, connection))
+                {
+                    recordTransactionCommand.Parameters.AddWithValue("@ServiceName", row.Cells[0].Value.ToString());
+                    recordTransactionCommand.Parameters.AddWithValue("@Price", Convert.ToDecimal(row.Cells[1].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@PaymentAmount", Convert.ToDecimal(row.Cells[2].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@ChangeAmount", Convert.ToDecimal(row.Cells[3].Value));
+                    recordTransactionCommand.Parameters.AddWithValue("@TransactionDateTime", DateTime.Now);
+
+                    recordTransactionCommand.ExecuteNonQuery();
+                }
+            }
+        }*/
+        
         private void BarcodeScanner_OnScan(string scannedData)
         {
             // Handle the scanned data here
@@ -461,6 +466,48 @@ namespace BenpilsBarcodeSystem
         private void button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the button column is clicked
+            if (e.ColumnIndex == dataGridView3.Columns["Remove"].Index && e.RowIndex >= 0)
+            {
+                // Get the values from the selected row
+                string transactionNumber = dataGridView3.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                int serviceID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells["ServiceID"].Value);
+                string serviceName = dataGridView3.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
+                decimal price = Convert.ToDecimal(dataGridView3.Rows[e.RowIndex].Cells["Price"].Value);
+
+                // Remove the row from the DataGridView
+                dataGridView3.Rows.RemoveAt(e.RowIndex);
+
+                // Delete the corresponding row from the database
+                DeleteRowFromDatabase(transactionNumber, serviceID, serviceName, price);
+            }
+        }
+        private void DeleteRowFromDatabase(string transactionNumber, int serviceID, string serviceName, decimal price)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string deleteQuery = "DELETE FROM tbl_servicestransactions " +
+                                     "WHERE TransactionNumber = @TransactionNumber " +
+                                     "AND ServiceID = @ServiceID " +
+                                     "AND ServiceName = @ServiceName " +
+                                     "AND Price = @Price";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                    command.Parameters.AddWithValue("@ServiceID", serviceID);
+                    command.Parameters.AddWithValue("@ServiceName", serviceName);
+                    command.Parameters.AddWithValue("@Price", price);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
     }

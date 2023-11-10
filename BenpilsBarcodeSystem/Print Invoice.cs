@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class Sales_Invoice : Form
+    public partial class Print_Invoice : Form
     {
-        public Sales_Invoice()
+        public Print_Invoice()
         {
             InitializeComponent();
-        }
-
-        private void MinimizeBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

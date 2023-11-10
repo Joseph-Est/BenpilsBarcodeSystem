@@ -364,6 +364,12 @@
     <Compile Include="PointOfSales.Designer.cs">
       <DependentUpon>PointOfSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Print Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print Invoice.Designer.cs">
+      <DependentUpon>Print Invoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchaserr.cs">
@@ -383,12 +389,6 @@
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales Invoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales Invoice.Designer.cs">
-      <DependentUpon>Sales Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Services.cs">
       <SubType>Form</SubType>
@@ -440,6 +440,9 @@
     <EmbeddedResource Include="PointOfSales.resx">
       <DependentUpon>PointOfSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Print Invoice.resx">
+      <DependentUpon>Print Invoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -458,9 +461,6 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales Invoice.resx">
-      <DependentUpon>Sales Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services.resx">
       <DependentUpon>Services.cs</DependentUpon>

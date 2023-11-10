@@ -509,6 +509,17 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            Print_Invoice printinv = new Print_Invoice();
+            printinv.Show();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            
+        }
     }
     }
     

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using USB_Barcode_Scanner;
 
 namespace BenpilsBarcodeSystem
 {
@@ -16,11 +17,14 @@ namespace BenpilsBarcodeSystem
         private User user;
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
-        private Reports reportsreference;
+        private BarcodeScanner scanner;
+
         public PointOfSales(User user)
         {
             InitializeComponent();
             //reportsreference = reports;
+          
+          
             FillComboBox();
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -448,6 +452,16 @@ namespace BenpilsBarcodeSystem
              }
          }
         */
+        private void BarcodeScanner_OnScan(string scannedData)
+        {
+            // Handle the scanned data here
+            MessageBox.Show($"Scanned: {scannedData}");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
     

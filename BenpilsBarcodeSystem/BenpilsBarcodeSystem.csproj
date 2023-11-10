@@ -175,10 +175,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="USB-Barcode-Scanner">
-      <HintPath>..\..\..\..\Downloads\USB-Barcode-Scanner.dll</HintPath>
-    </Reference>
-    <Reference Include="Zen.Barcode.Core">
-      <HintPath>D:\downloads\Barcode\Zen.Barcode.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\USB-Barcode-Scanner.dll</HintPath>
     </Reference>
     <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
@@ -350,12 +347,7 @@
     <Compile Include="Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Item.cs" />
     <Compile Include="PointOfSales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,6 +367,12 @@
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales Invoice.Designer.cs">
+      <DependentUpon>Sales Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Services.cs">
       <SubType>Form</SubType>
@@ -423,9 +421,6 @@
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PointOfSales.resx">
       <DependentUpon>PointOfSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -444,6 +439,9 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales Invoice.resx">
+      <DependentUpon>Sales Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services.resx">
       <DependentUpon>Services.cs</DependentUpon>

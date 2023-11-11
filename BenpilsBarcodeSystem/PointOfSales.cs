@@ -338,47 +338,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void CalculateChangePOS()
-        {
-            // Check if payment is entered
-            if (!string.IsNullOrEmpty(paymentitemTxt.Text))
-            {
-                decimal payment;
-                if (decimal.TryParse(paymentitemTxt.Text, out payment))
-                {
-                    // Retrieve total amount
-                    decimal totalAmount;
-                    if (decimal.TryParse(TotalAmountItemTxt.Text, out totalAmount))
-                    {
-                        // Check for insufficient funds
-                        if (payment < totalAmount)
-                        {
-                            MessageBox.Show("Insufficient funds. Please enter a sufficient payment amount.");
-                        }
-                        else
-                        {
-                            // Calculate and display change
-                            decimal change = payment - totalAmount;
-                            changepaymentitemTxt.Text = change.ToString(); // Display change as currency
-                            GenerateTransactionNumberPOS();
-                            DisplayDatePOS();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid total amount.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid payment amount.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a payment amount.");
-            }
-        }
+       
         private void GenerateTransactionNumberPOS()
         {
             // Generate a random 5-digit transaction number
@@ -395,7 +355,7 @@ namespace BenpilsBarcodeSystem
         private void CalculatePOSBtn_Click(object sender, EventArgs e)
         {
             CalculateTotalAmountPOS();
-            CalculateChangePOS();
+          
         }
         private void BuyBtn_Click(object sender, EventArgs e)
         {
@@ -415,7 +375,8 @@ namespace BenpilsBarcodeSystem
                     // Step 5: Clear Table and Reset Seed
                     cleartableandreseedCart();
                     UpdateDataCartview();
-
+                    DisplayDatePOS();
+                    GenerateTransactionNumberPOS();
 
 
                     MessageBox.Show("Services Payment Succesful");

@@ -17,7 +17,7 @@ namespace BenpilsBarcodeSystem
         private User user;
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
-        private BarcodeScanner scanner;
+    
 
         public PointOfSales(User user)
         {
@@ -187,13 +187,17 @@ namespace BenpilsBarcodeSystem
                         decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
                         string category = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+                        // Calculate the total price
+                        decimal totalPrice = unitPrice * quantity;
+
                         // Add the data to the database
-                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category);
+                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, totalPrice);
                     }
                 }
             }
         }
-        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category)
+
+        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal totalPrice)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -216,7 +220,7 @@ namespace BenpilsBarcodeSystem
                             {
                                 updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
                                 updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
-                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", totalPrice);
                                 updateQuantityCommand.ExecuteNonQuery();
                             }
                         }
@@ -236,7 +240,7 @@ namespace BenpilsBarcodeSystem
                                 command.Parameters.AddWithValue("@UnitPrice", unitPrice);
                                 command.Parameters.AddWithValue("@Quantity", quantity);
                                 command.Parameters.AddWithValue("@Category", category);
-                                command.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+                                command.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
                                 command.ExecuteNonQuery();
                             }
@@ -252,14 +256,11 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalReally.tbl_Cart' table. You can move, or remove it, as needed.
-            this.tbl_CartTableAdapter3.Fill(this.benpillMotorcycleCartDatabaseFinalReally.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
-            this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinal.tbl_Cart);
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabase.tbl_Cart' table. You can move, or remove it, as needed.
-            this.tbl_CartTableAdapter1.Fill(this.benpillMotorcycleCartDatabase.tbl_Cart);
-            // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet2.tbl_Cart' table. You can move, or remove it, as needed.
-            this.tbl_CartTableAdapter.Fill(this.benpillMotorcycleDatabaseDataSet2.tbl_Cart);
+            this.tbl_CartTableAdapter1.Fill(this.benpillMotorcycleCartDatabaseFinal.tbl_Cart);
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
+
+
             // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata' table. You can move, or remove it, as needed.
             this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata);
             // TODO: This line of code loads data into the 'benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions' table. You can move, or remove it, as needed.

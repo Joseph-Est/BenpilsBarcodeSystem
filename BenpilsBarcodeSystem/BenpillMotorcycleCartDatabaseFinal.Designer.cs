@@ -279,7 +279,7 @@ namespace BenpilsBarcodeSystem {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class tbl_CartDataTable : global::System.Data.TypedTableBase<tbl_CartRow> {
             
-            private global::System.Data.DataColumn columnItemName;
+            private global::System.Data.DataColumn columnBarcode;
             
             private global::System.Data.DataColumn columnMotorBrand;
             
@@ -293,9 +293,9 @@ namespace BenpilsBarcodeSystem {
             
             private global::System.Data.DataColumn columnCategory;
             
-            private global::System.Data.DataColumn columnBarcode;
-            
             private global::System.Data.DataColumn columnTotalPrice;
+            
+            private global::System.Data.DataColumn columnItemName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -332,9 +332,9 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ItemNameColumn {
+            public global::System.Data.DataColumn BarcodeColumn {
                 get {
-                    return this.columnItemName;
+                    return this.columnBarcode;
                 }
             }
             
@@ -388,17 +388,17 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn BarcodeColumn {
+            public global::System.Data.DataColumn TotalPriceColumn {
                 get {
-                    return this.columnBarcode;
+                    return this.columnTotalPrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalPriceColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnTotalPrice;
+                    return this.columnItemName;
                 }
             }
             
@@ -439,18 +439,18 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_CartRow Addtbl_CartRow(string ItemName, string MotorBrand, string Brand, string Size, int UnitPrice, int Quantity, string Category, string Barcode, int TotalPrice) {
+            public tbl_CartRow Addtbl_CartRow(string Barcode, string MotorBrand, string Brand, string Size, int UnitPrice, int Quantity, string Category, decimal TotalPrice, string ItemName) {
                 tbl_CartRow rowtbl_CartRow = ((tbl_CartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ItemName,
+                        Barcode,
                         MotorBrand,
                         Brand,
                         Size,
                         UnitPrice,
                         Quantity,
                         Category,
-                        Barcode,
-                        TotalPrice};
+                        TotalPrice,
+                        ItemName};
                 rowtbl_CartRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_CartRow);
                 return rowtbl_CartRow;
@@ -473,22 +473,22 @@ namespace BenpilsBarcodeSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnItemName = base.Columns["ItemName"];
+                this.columnBarcode = base.Columns["Barcode"];
                 this.columnMotorBrand = base.Columns["MotorBrand"];
                 this.columnBrand = base.Columns["Brand"];
                 this.columnSize = base.Columns["Size"];
                 this.columnUnitPrice = base.Columns["UnitPrice"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnCategory = base.Columns["Category"];
-                this.columnBarcode = base.Columns["Barcode"];
                 this.columnTotalPrice = base.Columns["TotalPrice"];
+                this.columnItemName = base.Columns["ItemName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemName);
+                this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBarcode);
                 this.columnMotorBrand = new global::System.Data.DataColumn("MotorBrand", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMotorBrand);
                 this.columnBrand = new global::System.Data.DataColumn("Brand", typeof(string), null, global::System.Data.MappingType.Element);
@@ -501,16 +501,16 @@ namespace BenpilsBarcodeSystem {
                 base.Columns.Add(this.columnQuantity);
                 this.columnCategory = new global::System.Data.DataColumn("Category", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
-                this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBarcode);
-                this.columnTotalPrice = new global::System.Data.DataColumn("TotalPrice", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnTotalPrice = new global::System.Data.DataColumn("TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalPrice);
-                this.columnItemName.MaxLength = 100;
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
+                this.columnBarcode.MaxLength = 100;
                 this.columnMotorBrand.MaxLength = 100;
                 this.columnBrand.MaxLength = 100;
                 this.columnSize.MaxLength = 100;
                 this.columnCategory.MaxLength = 100;
-                this.columnBarcode.MaxLength = 50;
+                this.columnItemName.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -653,17 +653,17 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ItemName {
+            public string Barcode {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_Cart.ItemNameColumn]));
+                        return ((string)(this[this.tabletbl_Cart.BarcodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'tbl_Cart\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Barcode\' in table \'tbl_Cart\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_Cart.ItemNameColumn] = value;
+                    this[this.tabletbl_Cart.BarcodeColumn] = value;
                 }
             }
             
@@ -765,26 +765,10 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Barcode {
+            public decimal TotalPrice {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_Cart.BarcodeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Barcode\' in table \'tbl_Cart\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletbl_Cart.BarcodeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int TotalPrice {
-                get {
-                    try {
-                        return ((int)(this[this.tabletbl_Cart.TotalPriceColumn]));
+                        return ((decimal)(this[this.tabletbl_Cart.TotalPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'TotalPrice\' in table \'tbl_Cart\' is DBNull.", e);
@@ -797,14 +781,30 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsItemNameNull() {
-                return this.IsNull(this.tabletbl_Cart.ItemNameColumn);
+            public string ItemName {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbl_Cart.ItemNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'tbl_Cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_Cart.ItemNameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetItemNameNull() {
-                this[this.tabletbl_Cart.ItemNameColumn] = global::System.Convert.DBNull;
+            public bool IsBarcodeNull() {
+                return this.IsNull(this.tabletbl_Cart.BarcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBarcodeNull() {
+                this[this.tabletbl_Cart.BarcodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -881,18 +881,6 @@ namespace BenpilsBarcodeSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBarcodeNull() {
-                return this.IsNull(this.tabletbl_Cart.BarcodeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBarcodeNull() {
-                this[this.tabletbl_Cart.BarcodeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTotalPriceNull() {
                 return this.IsNull(this.tabletbl_Cart.TotalPriceColumn);
             }
@@ -901,6 +889,18 @@ namespace BenpilsBarcodeSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalPriceNull() {
                 this[this.tabletbl_Cart.TotalPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tabletbl_Cart.ItemNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetItemNameNull() {
+                this[this.tabletbl_Cart.ItemNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1063,31 +1063,31 @@ namespace BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "tbl_Cart";
-            tableMapping.ColumnMappings.Add("ItemName", "ItemName");
+            tableMapping.ColumnMappings.Add("Barcode", "Barcode");
             tableMapping.ColumnMappings.Add("MotorBrand", "MotorBrand");
             tableMapping.ColumnMappings.Add("Brand", "Brand");
             tableMapping.ColumnMappings.Add("Size", "Size");
             tableMapping.ColumnMappings.Add("UnitPrice", "UnitPrice");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
             tableMapping.ColumnMappings.Add("Category", "Category");
-            tableMapping.ColumnMappings.Add("Barcode", "Barcode");
             tableMapping.ColumnMappings.Add("TotalPrice", "TotalPrice");
+            tableMapping.ColumnMappings.Add("ItemName", "ItemName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_Cart] ([ItemName], [MotorBrand], [Brand], [Size], [UnitPri" +
-                "ce], [Quantity], [Category], [Barcode], [TotalPrice]) VALUES (@ItemName, @MotorB" +
-                "rand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @Barcode, @TotalPrice)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_Cart] ([Barcode], [MotorBrand], [Brand], [Size], [UnitPric" +
+                "e], [Quantity], [Category], [TotalPrice], [ItemName]) VALUES (@Barcode, @MotorBr" +
+                "and, @Brand, @Size, @UnitPrice, @Quantity, @Category, @TotalPrice, @ItemName)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Barcode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Barcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotorBrand", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotorBrand", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Brand", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Brand", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Size", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnitPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnitPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Barcode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Barcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "TotalPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1103,8 +1103,8 @@ namespace BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, Barcode," +
-                " TotalPrice FROM dbo.tbl_Cart";
+            this._commandCollection[0].CommandText = "SELECT Barcode, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, TotalPric" +
+                "e, ItemName FROM dbo.tbl_Cart";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1165,12 +1165,12 @@ namespace BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemName, string MotorBrand, string Brand, string Size, global::System.Nullable<int> UnitPrice, global::System.Nullable<int> Quantity, string Category, string Barcode, global::System.Nullable<int> TotalPrice) {
-            if ((ItemName == null)) {
+        public virtual int Insert(string Barcode, string MotorBrand, string Brand, string Size, global::System.Nullable<int> UnitPrice, global::System.Nullable<int> Quantity, string Category, global::System.Nullable<decimal> TotalPrice, string ItemName) {
+            if ((Barcode == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ItemName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Barcode));
             }
             if ((MotorBrand == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1208,17 +1208,17 @@ namespace BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Category));
             }
-            if ((Barcode == null)) {
+            if ((TotalPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(TotalPrice.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Barcode));
-            }
-            if ((TotalPrice.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(TotalPrice.Value));
-            }
-            else {
+            if ((ItemName == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(ItemName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

@@ -312,7 +312,7 @@ namespace BenpilsBarcodeSystem
                 SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
                 clearCartTableCommand.ExecuteNonQuery();
 
-                // Reseed the cart table
+                // Reseed the identity column of the cart table
                 string resetCartSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
                 SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, connection);
                 resetCartSeedCommand.ExecuteNonQuery();

@@ -303,85 +303,25 @@ namespace BenpilsBarcodeSystem
         }
         private void cleartableandreseedCart()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection cartConnection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                string clearTableQuery = "DELETE FROM tbl_Cart";
-                SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
-                clearTableCommand.ExecuteNonQuery();
-                string resetSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
-                SqlCommand resetSeedCommand = new SqlCommand(resetSeedQuery, connection);
-                resetSeedCommand.ExecuteNonQuery();
+                cartConnection.Open();
+
+                // Clear the contents of tbl_Cart
+                string clearCartTableQuery = "DELETE FROM tbl_Cart";
+                SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, cartConnection);
+                clearCartTableCommand.ExecuteNonQuery();
+
+                // Reset the identity seed of tbl_Cart
+                string resetCartSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
+                SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, cartConnection);
+                resetCartSeedCommand.ExecuteNonQuery();
             }
         }
-        private void CalculateTotalAmountItem()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    // Calculate the total amount from tbl_Cart
-                    string calculateTotalAmountQuery = "SELECT SUM(SubTotal) FROM tbl_Cart";
-                    using (SqlCommand calculateTotalAmountCommand = new SqlCommand(calculateTotalAmountQuery, connection))
-                    {
-                        object result = calculateTotalAmountCommand.ExecuteScalar();
-                        if (result != DBNull.Value)
-                        {
-                            decimal totalAmount = Convert.ToDecimal(result);
-                            TotalAmountItemTxt.Text = totalAmount.ToString("C2");
-                        }
-                        else
-                        {
-                            TotalAmountItemTxt.Text = "0.00";
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error calculating total amount: " + ex.Message);
-                }
-            }
-        }
-        private void UpdateChange()
-        {
-            // Ensure paymentTxt contains a valid decimal value
-            if (decimal.TryParse(paymentitemTxt.Text, out decimal paymentAmount))
-            {
-                // Ensure totalAmountTxt contains a valid decimal value
-                if (decimal.TryParse(TotalAmountItemTxt.Text, out decimal totalAmount))
-                {
-                    // Calculate change
-                    decimal change = paymentAmount - totalAmount;
-
-                    // Display change in changeTxt
-                    changepaymentitemTxt.Text = change.ToString("C2");
-
-                    // Check for insufficient payment
-                    if (change < 0)
-                    {
-                        MessageBox.Show("Insufficient payment. Please enter a valid amount.");
-                        changepaymentitemTxt.Text = "0.00";
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("Invalid total amount. Please check your input.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Invalid payment amount. Please enter a valid amount.");
-            }
-            CalculateTotalAmountItem();
-        }
-
-        // Call CalculateTotalAmount to update the total amount when needed
+    
         private void paymentitemTxt_TextChanged(object sender, EventArgs e)
         {
-            UpdateChange();
+            
         }
 
         private void PointOfSales_Load(object sender, EventArgs e)

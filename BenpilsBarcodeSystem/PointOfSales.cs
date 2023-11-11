@@ -520,6 +520,13 @@ namespace BenpilsBarcodeSystem
         {
             
         }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.WindowState = FormWindowState.Maximized;
+            printPreviewDialog1.ShowDialog();
+        }
     }
     }
     

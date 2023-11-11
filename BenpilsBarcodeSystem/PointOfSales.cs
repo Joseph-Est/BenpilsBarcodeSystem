@@ -187,17 +187,17 @@ namespace BenpilsBarcodeSystem
                         decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
                         string category = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-                        // Calculate the total price
-                        decimal totalPrice = unitPrice * quantity;
+                        // Calculate the subtotal
+                        decimal subTotal = unitPrice * quantity;
 
                         // Add the data to the database
-                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, totalPrice);
+                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal);
                     }
                 }
             }
         }
 
-        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal totalPrice)
+        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal subTotal)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -217,21 +217,21 @@ namespace BenpilsBarcodeSystem
 
                         if (existingItemCount > 0)
                         {
-                            // If the item exists in the cart, update the quantity and total price
-                            string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity, TotalPrice = TotalPrice + @TotalPrice WHERE Barcode = @Barcode";
+                            // If the item exists in the cart, update the quantity and subtotal
+                            string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity, SubTotal = SubTotal + @SubTotal WHERE Barcode = @Barcode";
                             using (SqlCommand updateQuantityCommand = new SqlCommand(updateQuantityQuery, connection, transaction))
                             {
                                 updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
                                 updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
-                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                                updateQuantityCommand.Parameters.AddWithValue("@SubTotal", subTotal);
                                 updateQuantityCommand.ExecuteNonQuery();
                             }
                         }
                         else
                         {
                             // If the item does not exist in the cart, insert a new row
-                            string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, TotalPrice) " +
-                                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @TotalPrice)";
+                            string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, SubTotal) " +
+                                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @SubTotal)";
                             using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
                             {
                                 command.Parameters.AddWithValue("@Barcode", barcode);
@@ -242,7 +242,7 @@ namespace BenpilsBarcodeSystem
                                 command.Parameters.AddWithValue("@UnitPrice", unitPrice);
                                 command.Parameters.AddWithValue("@Quantity", quantity);
                                 command.Parameters.AddWithValue("@Category", category);
-                                command.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                                command.Parameters.AddWithValue("@SubTotal", subTotal);
                                 command.ExecuteNonQuery();
                             }
                         }
@@ -326,8 +326,12 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalChange.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter3.Fill(this.benpillMotorcycleCartDatabaseFinalChange.tbl_Cart);
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalFinal.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinalFinal.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
-            this.tbl_CartTableAdapter1.Fill(this.benpillMotorcycleCartDatabaseFinal.tbl_Cart);
+ 
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
 
 

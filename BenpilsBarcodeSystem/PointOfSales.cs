@@ -17,14 +17,14 @@ namespace BenpilsBarcodeSystem
         private User user;
         private SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
         private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
-    
+
 
         public PointOfSales(User user)
         {
             InitializeComponent();
             //reportsreference = reports;
-            
-          
+
+
             FillComboBox();
             Timer timer = new Timer();
             timer.Interval = 1000;
@@ -208,15 +208,6 @@ namespace BenpilsBarcodeSystem
                     connection.Open();
                     transaction = connection.BeginTransaction();
 
-                    // Update quantity in tbl_itemmasterdata
-                    string updateQuantityItemMasterDataQuery = "UPDATE tbl_itemmasterdata SET Quantity = Quantity - @Quantity WHERE Barcode = @Barcode";
-                    using (SqlCommand updateQuantityItemMasterDataCommand = new SqlCommand(updateQuantityItemMasterDataQuery, connection, transaction))
-                    {
-                        updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Barcode", barcode);
-                        updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Quantity", quantity);
-                        updateQuantityItemMasterDataCommand.ExecuteNonQuery();
-                    }
-
                     // Check if the item with the given barcode already exists in the cart database
                     string checkIfExistsQuery = "SELECT COUNT(*) FROM tbl_Cart WHERE Barcode = @Barcode";
                     using (SqlCommand checkIfExistsCommand = new SqlCommand(checkIfExistsQuery, connection, transaction))
@@ -256,8 +247,19 @@ namespace BenpilsBarcodeSystem
                             }
                         }
 
+                        // Update quantity in tbl_itemmasterdata
+                        string updateQuantityItemMasterDataQuery = "UPDATE tbl_itemmasterdata SET Quantity = Quantity - @Quantity WHERE Barcode = @Barcode";
+                        using (SqlCommand updateQuantityItemMasterDataCommand = new SqlCommand(updateQuantityItemMasterDataQuery, connection, transaction))
+                        {
+                            updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Barcode", barcode);
+                            updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Quantity", quantity);
+                            updateQuantityItemMasterDataCommand.ExecuteNonQuery();
+                        }
+
                         // Commit the transaction
                         transaction.Commit();
+                        UpdateDataCartview();
+                        UpdateDataItemmasterdataview();
                     }
                 }
                 catch (Exception ex)
@@ -266,6 +268,49 @@ namespace BenpilsBarcodeSystem
                     transaction?.Rollback();
                     MessageBox.Show("Error: " + ex.Message);
                 }
+            }
+        }
+        private void CleartableCartBtn_Click(object sender, EventArgs e)
+        {
+            cleartableandreseedCart();
+        }
+        private void UpdateDataCartview()
+        {
+            string selectQuery = "SELECT * FROM tbl_Cart";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView2.DataSource = dt;
+                }
+            }
+        }
+        private void UpdateDataItemmasterdataview()
+        {
+            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+        }
+        private void cleartableandreseedCart()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string clearTableQuery = "DELETE FROM tbl_Cart";
+                SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
+                clearTableCommand.ExecuteNonQuery();
+                string resetSeedQuery = "DBCC CHECKIDENT('tbl_servicesCart', RESEED, 0)";
+                SqlCommand resetSeedCommand = new SqlCommand(resetSeedQuery, connection);
+                resetSeedCommand.ExecuteNonQuery();
             }
         }
 
@@ -627,6 +672,8 @@ namespace BenpilsBarcodeSystem
             printPreviewDialog1.WindowState = FormWindowState.Maximized;
             printPreviewDialog1.ShowDialog();
         }
+
+       
     }
     }
     

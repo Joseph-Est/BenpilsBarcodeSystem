@@ -201,22 +201,34 @@ namespace BenpilsBarcodeSystem
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                SqlTransaction transaction = null;
+
                 try
                 {
                     connection.Open();
+                    transaction = connection.BeginTransaction();
 
-                    // Check if the item with the given barcode already exists in the database
+                    // Update quantity in tbl_itemmasterdata
+                    string updateQuantityItemMasterDataQuery = "UPDATE tbl_itemmasterdata SET Quantity = Quantity - @Quantity WHERE Barcode = @Barcode";
+                    using (SqlCommand updateQuantityItemMasterDataCommand = new SqlCommand(updateQuantityItemMasterDataQuery, connection, transaction))
+                    {
+                        updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Barcode", barcode);
+                        updateQuantityItemMasterDataCommand.Parameters.AddWithValue("@Quantity", quantity);
+                        updateQuantityItemMasterDataCommand.ExecuteNonQuery();
+                    }
+
+                    // Check if the item with the given barcode already exists in the cart database
                     string checkIfExistsQuery = "SELECT COUNT(*) FROM tbl_Cart WHERE Barcode = @Barcode";
-                    using (SqlCommand checkIfExistsCommand = new SqlCommand(checkIfExistsQuery, connection))
+                    using (SqlCommand checkIfExistsCommand = new SqlCommand(checkIfExistsQuery, connection, transaction))
                     {
                         checkIfExistsCommand.Parameters.AddWithValue("@Barcode", barcode);
                         int existingItemCount = (int)checkIfExistsCommand.ExecuteScalar();
 
                         if (existingItemCount > 0)
                         {
-                            // If the item exists, update the quantity and total price in the database
+                            // If the item exists in the cart, update the quantity and total price
                             string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity, TotalPrice = TotalPrice + @TotalPrice WHERE Barcode = @Barcode";
-                            using (SqlCommand updateQuantityCommand = new SqlCommand(updateQuantityQuery, connection))
+                            using (SqlCommand updateQuantityCommand = new SqlCommand(updateQuantityQuery, connection, transaction))
                             {
                                 updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
                                 updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
@@ -226,11 +238,10 @@ namespace BenpilsBarcodeSystem
                         }
                         else
                         {
-                            // If the item does not exist, insert a new row into the database
+                            // If the item does not exist in the cart, insert a new row
                             string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, TotalPrice) " +
                                                  "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @TotalPrice)";
-
-                            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                            using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
                             {
                                 command.Parameters.AddWithValue("@Barcode", barcode);
                                 command.Parameters.AddWithValue("@ItemName", itemName);
@@ -241,14 +252,18 @@ namespace BenpilsBarcodeSystem
                                 command.Parameters.AddWithValue("@Quantity", quantity);
                                 command.Parameters.AddWithValue("@Category", category);
                                 command.Parameters.AddWithValue("@TotalPrice", totalPrice);
-
                                 command.ExecuteNonQuery();
                             }
                         }
+
+                        // Commit the transaction
+                        transaction.Commit();
                     }
                 }
                 catch (Exception ex)
                 {
+                    // Roll back the transaction in case of an error
+                    transaction?.Rollback();
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }

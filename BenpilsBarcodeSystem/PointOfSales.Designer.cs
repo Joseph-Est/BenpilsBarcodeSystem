@@ -148,6 +148,17 @@
             this.tblCartBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_CartTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters.tbl_CartTableAdapter();
             this.CleartableCartBtn = new System.Windows.Forms.Button();
+            this.TransactionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.benpillMotorcycleCartDatabaseFinalFinal = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalFinal();
+            this.tblCartBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_CartTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalFinalTableAdapters.tbl_CartTableAdapter();
+            this.benpillMotorcycleCartDatabaseFinalChange = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalChange();
+            this.tblCartBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_CartTableAdapter3 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalChangeTableAdapters.tbl_CartTableAdapter();
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -156,13 +167,8 @@
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Void = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TransactionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -206,6 +212,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinalFinal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinalChange)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource7)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -810,9 +820,9 @@
             this.UnitPrice,
             this.Quantity,
             this.Category,
-            this.TotalPrice,
+            this.SubTotal,
             this.Void});
-            this.dataGridView2.DataSource = this.tblCartBindingSource5;
+            this.dataGridView2.DataSource = this.tblCartBindingSource7;
             this.dataGridView2.Location = new System.Drawing.Point(271, 95);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
@@ -1322,6 +1332,79 @@
             this.CleartableCartBtn.UseVisualStyleBackColor = true;
             this.CleartableCartBtn.Click += new System.EventHandler(this.CleartableCartBtn_Click);
             // 
+            // TransactionNumber
+            // 
+            this.TransactionNumber.DataPropertyName = "TransactionNumber";
+            this.TransactionNumber.FillWeight = 106.9519F;
+            this.TransactionNumber.HeaderText = "TransactionNumber";
+            this.TransactionNumber.MinimumWidth = 6;
+            this.TransactionNumber.Name = "TransactionNumber";
+            this.TransactionNumber.ReadOnly = true;
+            // 
+            // ServiceName
+            // 
+            this.ServiceName.DataPropertyName = "ServiceName";
+            this.ServiceName.FillWeight = 117.3685F;
+            this.ServiceName.HeaderText = "ServiceName";
+            this.ServiceName.MinimumWidth = 6;
+            this.ServiceName.Name = "ServiceName";
+            this.ServiceName.ReadOnly = true;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.DataPropertyName = "ServiceID";
+            this.ServiceID.FillWeight = 117.3685F;
+            this.ServiceID.HeaderText = "ServiceID";
+            this.ServiceID.MinimumWidth = 6;
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.FillWeight = 117.3685F;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            this.Remove.FillWeight = 40.94251F;
+            this.Remove.HeaderText = "Remove";
+            this.Remove.MinimumWidth = 6;
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
+            // benpillMotorcycleCartDatabaseFinalFinal
+            // 
+            this.benpillMotorcycleCartDatabaseFinalFinal.DataSetName = "BenpillMotorcycleCartDatabaseFinalFinal";
+            this.benpillMotorcycleCartDatabaseFinalFinal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblCartBindingSource6
+            // 
+            this.tblCartBindingSource6.DataMember = "tbl_Cart";
+            this.tblCartBindingSource6.DataSource = this.benpillMotorcycleCartDatabaseFinalFinal;
+            // 
+            // tbl_CartTableAdapter2
+            // 
+            this.tbl_CartTableAdapter2.ClearBeforeFill = true;
+            // 
+            // benpillMotorcycleCartDatabaseFinalChange
+            // 
+            this.benpillMotorcycleCartDatabaseFinalChange.DataSetName = "BenpillMotorcycleCartDatabaseFinalChange";
+            this.benpillMotorcycleCartDatabaseFinalChange.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblCartBindingSource7
+            // 
+            this.tblCartBindingSource7.DataMember = "tbl_Cart";
+            this.tblCartBindingSource7.DataSource = this.benpillMotorcycleCartDatabaseFinalChange;
+            // 
+            // tbl_CartTableAdapter3
+            // 
+            this.tbl_CartTableAdapter3.ClearBeforeFill = true;
+            // 
             // Barcode
             // 
             this.Barcode.DataPropertyName = "Barcode";
@@ -1394,14 +1477,14 @@
             this.Category.Name = "Category";
             this.Category.ReadOnly = true;
             // 
-            // TotalPrice
+            // SubTotal
             // 
-            this.TotalPrice.DataPropertyName = "TotalPrice";
-            this.TotalPrice.FillWeight = 105.1693F;
-            this.TotalPrice.HeaderText = "TotalPrice";
-            this.TotalPrice.MinimumWidth = 6;
-            this.TotalPrice.Name = "TotalPrice";
-            this.TotalPrice.ReadOnly = true;
+            this.SubTotal.DataPropertyName = "SubTotal";
+            this.SubTotal.FillWeight = 105.1693F;
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
             // 
             // Void
             // 
@@ -1409,51 +1492,8 @@
             this.Void.HeaderText = "Void";
             this.Void.MinimumWidth = 6;
             this.Void.Name = "Void";
-            // 
-            // TransactionNumber
-            // 
-            this.TransactionNumber.DataPropertyName = "TransactionNumber";
-            this.TransactionNumber.FillWeight = 106.9519F;
-            this.TransactionNumber.HeaderText = "TransactionNumber";
-            this.TransactionNumber.MinimumWidth = 6;
-            this.TransactionNumber.Name = "TransactionNumber";
-            this.TransactionNumber.ReadOnly = true;
-            // 
-            // ServiceName
-            // 
-            this.ServiceName.DataPropertyName = "ServiceName";
-            this.ServiceName.FillWeight = 117.3685F;
-            this.ServiceName.HeaderText = "ServiceName";
-            this.ServiceName.MinimumWidth = 6;
-            this.ServiceName.Name = "ServiceName";
-            this.ServiceName.ReadOnly = true;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.DataPropertyName = "ServiceID";
-            this.ServiceID.FillWeight = 117.3685F;
-            this.ServiceID.HeaderText = "ServiceID";
-            this.ServiceID.MinimumWidth = 6;
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.FillWeight = 117.3685F;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Remove
-            // 
-            this.Remove.FillWeight = 40.94251F;
-            this.Remove.HeaderText = "Remove";
-            this.Remove.MinimumWidth = 6;
-            this.Remove.Name = "Remove";
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
+            this.Void.Text = "Void";
+            this.Void.UseColumnTextForButtonValue = true;
             // 
             // PointOfSales
             // 
@@ -1555,6 +1595,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinalFinal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinalChange)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1685,6 +1729,17 @@
         private System.Windows.Forms.BindingSource tblCartBindingSource5;
         private BenpillMotorcycleCartDatabaseFinalTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter1;
         private System.Windows.Forms.Button CleartableCartBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private BenpillMotorcycleCartDatabaseFinalFinal benpillMotorcycleCartDatabaseFinalFinal;
+        private System.Windows.Forms.BindingSource tblCartBindingSource6;
+        private BenpillMotorcycleCartDatabaseFinalFinalTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter2;
+        private BenpillMotorcycleCartDatabaseFinalChange benpillMotorcycleCartDatabaseFinalChange;
+        private System.Windows.Forms.BindingSource tblCartBindingSource7;
+        private BenpillMotorcycleCartDatabaseFinalChangeTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotorBrand;
@@ -1693,12 +1748,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewButtonColumn Void;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

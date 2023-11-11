@@ -82,6 +82,8 @@
             this.tblpostable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabasePOStable22 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabasePOStable22();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tblCartBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillMotorcycleCartDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabase();
             this.tblCartBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleDatabaseDataSet2 = new BenpilsBarcodeSystem.BenpillMotorcycleDatabaseDataSet2();
             this.tblvoidtableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -107,6 +109,10 @@
             this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.transactionNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblservicestransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleServicesTransactionsDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleServicesTransactionsDatabase();
             this.label10 = new System.Windows.Forms.Label();
@@ -145,13 +151,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.transactionNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serviceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.benpillMotorcycleCartDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabase();
-            this.tblCartBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_CartTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseTableAdapters.tbl_CartTableAdapter();
+            this.benpillMotorcycleCartDatabaseFinal = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinal();
+            this.tblCartBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_CartTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseFinalTableAdapters.tbl_CartTableAdapter();
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,6 +163,7 @@
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Void = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -185,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblpostable2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabasePOStable22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblvoidtableBindingSource)).BeginInit();
@@ -198,8 +204,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicesTransactionsDatabase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicestransactionDatabase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -220,7 +226,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(51, 390);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(45, 38);
             this.pictureBox5.TabIndex = 21;
@@ -231,7 +237,7 @@
             this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(51, 308);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(45, 38);
             this.pictureBox10.TabIndex = 26;
@@ -242,7 +248,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(51, 821);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(45, 38);
             this.pictureBox7.TabIndex = 23;
@@ -253,7 +259,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(51, 735);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(45, 38);
             this.pictureBox6.TabIndex = 22;
@@ -264,7 +270,7 @@
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(49, 220);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(45, 38);
             this.pictureBox11.TabIndex = 27;
@@ -275,7 +281,7 @@
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(35, 379);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(204, 64);
             this.button5.TabIndex = 16;
@@ -289,7 +295,7 @@
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(51, 650);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(45, 38);
             this.pictureBox9.TabIndex = 25;
@@ -316,7 +322,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.ForeColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(243, 43);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1699, 44);
             this.panel3.TabIndex = 16;
@@ -352,7 +358,7 @@
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(35, 809);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(204, 64);
             this.button9.TabIndex = 20;
@@ -366,7 +372,7 @@
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(35, 722);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(204, 64);
             this.button8.TabIndex = 19;
@@ -380,7 +386,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(35, 294);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(204, 64);
             this.button2.TabIndex = 14;
@@ -394,7 +400,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(49, 139);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(45, 38);
             this.pictureBox4.TabIndex = 10;
@@ -405,7 +411,7 @@
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(1843, 4);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 39);
             this.pictureBox3.TabIndex = 8;
@@ -417,7 +423,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(51, 564);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(45, 38);
             this.pictureBox8.TabIndex = 24;
@@ -441,7 +447,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel4.Location = new System.Drawing.Point(312, 756);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1097, 44);
             this.panel4.TabIndex = 8;
@@ -451,7 +457,7 @@
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(35, 636);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(204, 64);
             this.button7.TabIndex = 18;
@@ -465,7 +471,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(35, 126);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 64);
             this.button1.TabIndex = 9;
@@ -478,7 +484,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(16, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 86);
             this.pictureBox1.TabIndex = 8;
@@ -489,7 +495,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(35, 208);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(204, 64);
             this.button3.TabIndex = 13;
@@ -503,7 +509,7 @@
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(35, 550);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(204, 64);
             this.button6.TabIndex = 17;
@@ -518,7 +524,7 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(243, 995);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1699, 43);
             this.panel5.TabIndex = 18;
@@ -550,7 +556,7 @@
             this.panel2.Controls.Add(this.button6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 43);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 995);
             this.panel2.TabIndex = 17;
@@ -560,7 +566,7 @@
             this.pictureBox13.BackColor = System.Drawing.Color.White;
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.Location = new System.Drawing.Point(51, 479);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(45, 38);
             this.pictureBox13.TabIndex = 33;
@@ -571,7 +577,7 @@
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(51, 911);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(45, 38);
             this.pictureBox12.TabIndex = 31;
@@ -582,7 +588,7 @@
             this.ServicesBtn.BackColor = System.Drawing.Color.White;
             this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServicesBtn.Location = new System.Drawing.Point(35, 464);
-            this.ServicesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ServicesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ServicesBtn.Name = "ServicesBtn";
             this.ServicesBtn.Size = new System.Drawing.Size(204, 64);
             this.ServicesBtn.TabIndex = 32;
@@ -596,7 +602,7 @@
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutBtn.Location = new System.Drawing.Point(35, 896);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(204, 64);
             this.LogoutBtn.TabIndex = 30;
@@ -614,7 +620,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1942, 43);
             this.panel1.TabIndex = 15;
@@ -624,7 +630,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1898, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 39);
             this.pictureBox2.TabIndex = 23;
@@ -654,7 +660,7 @@
             this.pictureBox14.BackColor = System.Drawing.Color.White;
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
             this.pictureBox14.Location = new System.Drawing.Point(1989, 95);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(53, 48);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -680,7 +686,7 @@
             this.Add});
             this.dataGridView1.DataSource = this.tblitemmasterdataBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(271, 384);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1045, 286);
@@ -804,15 +810,26 @@
             this.UnitPrice,
             this.Quantity,
             this.Category,
+            this.TotalPrice,
             this.Void});
-            this.dataGridView2.DataSource = this.tblCartBindingSource1;
+            this.dataGridView2.DataSource = this.tblCartBindingSource2;
             this.dataGridView2.Location = new System.Drawing.Point(271, 95);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(1045, 233);
             this.dataGridView2.TabIndex = 37;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // tblCartBindingSource1
+            // 
+            this.tblCartBindingSource1.DataMember = "tbl_Cart";
+            this.tblCartBindingSource1.DataSource = this.benpillMotorcycleCartDatabase;
+            // 
+            // benpillMotorcycleCartDatabase
+            // 
+            this.benpillMotorcycleCartDatabase.DataSetName = "BenpillMotorcycleCartDatabase";
+            this.benpillMotorcycleCartDatabase.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tblCartBindingSource
             // 
@@ -893,7 +910,7 @@
             // TotalAmountItemTxt
             // 
             this.TotalAmountItemTxt.Location = new System.Drawing.Point(1485, 347);
-            this.TotalAmountItemTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TotalAmountItemTxt.Margin = new System.Windows.Forms.Padding(4);
             this.TotalAmountItemTxt.Name = "TotalAmountItemTxt";
             this.TotalAmountItemTxt.ReadOnly = true;
             this.TotalAmountItemTxt.Size = new System.Drawing.Size(224, 22);
@@ -902,7 +919,7 @@
             // paymentitemTxt
             // 
             this.paymentitemTxt.Location = new System.Drawing.Point(1485, 388);
-            this.paymentitemTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.paymentitemTxt.Margin = new System.Windows.Forms.Padding(4);
             this.paymentitemTxt.Name = "paymentitemTxt";
             this.paymentitemTxt.Size = new System.Drawing.Size(224, 22);
             this.paymentitemTxt.TabIndex = 41;
@@ -910,7 +927,7 @@
             // BuyBtn
             // 
             this.BuyBtn.Location = new System.Drawing.Point(1371, 481);
-            this.BuyBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BuyBtn.Margin = new System.Windows.Forms.Padding(4);
             this.BuyBtn.Name = "BuyBtn";
             this.BuyBtn.Size = new System.Drawing.Size(147, 63);
             this.BuyBtn.TabIndex = 42;
@@ -930,7 +947,7 @@
             // changepaymentitemTxt
             // 
             this.changepaymentitemTxt.Location = new System.Drawing.Point(1485, 432);
-            this.changepaymentitemTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changepaymentitemTxt.Margin = new System.Windows.Forms.Padding(4);
             this.changepaymentitemTxt.Name = "changepaymentitemTxt";
             this.changepaymentitemTxt.ReadOnly = true;
             this.changepaymentitemTxt.Size = new System.Drawing.Size(224, 22);
@@ -1006,6 +1023,35 @@
             this.Remove.Text = "Remove";
             this.Remove.UseColumnTextForButtonValue = true;
             // 
+            // transactionNumberDataGridViewTextBoxColumn
+            // 
+            this.transactionNumberDataGridViewTextBoxColumn.DataPropertyName = "TransactionNumber";
+            this.transactionNumberDataGridViewTextBoxColumn.HeaderText = "TransactionNumber";
+            this.transactionNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.transactionNumberDataGridViewTextBoxColumn.Name = "transactionNumberDataGridViewTextBoxColumn";
+            this.transactionNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // serviceNameDataGridViewTextBoxColumn
+            // 
+            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
+            this.serviceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
+            // 
+            // serviceIDDataGridViewTextBoxColumn
+            // 
+            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
+            this.serviceIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
             // tblservicestransactionsBindingSource
             // 
             this.tblservicestransactionsBindingSource.DataMember = "tbl_servicestransactions";
@@ -1063,7 +1109,7 @@
             // TotalAmountServiceTxt
             // 
             this.TotalAmountServiceTxt.Location = new System.Drawing.Point(1476, 736);
-            this.TotalAmountServiceTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TotalAmountServiceTxt.Margin = new System.Windows.Forms.Padding(4);
             this.TotalAmountServiceTxt.Name = "TotalAmountServiceTxt";
             this.TotalAmountServiceTxt.ReadOnly = true;
             this.TotalAmountServiceTxt.Size = new System.Drawing.Size(224, 22);
@@ -1082,7 +1128,7 @@
             // paymentservicestxt
             // 
             this.paymentservicestxt.Location = new System.Drawing.Point(1476, 768);
-            this.paymentservicestxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.paymentservicestxt.Margin = new System.Windows.Forms.Padding(4);
             this.paymentservicestxt.Name = "paymentservicestxt";
             this.paymentservicestxt.Size = new System.Drawing.Size(224, 22);
             this.paymentservicestxt.TabIndex = 53;
@@ -1100,7 +1146,7 @@
             // changepaymentservicestxt
             // 
             this.changepaymentservicestxt.Location = new System.Drawing.Point(1476, 807);
-            this.changepaymentservicestxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changepaymentservicestxt.Margin = new System.Windows.Forms.Padding(4);
             this.changepaymentservicestxt.Name = "changepaymentservicestxt";
             this.changepaymentservicestxt.ReadOnly = true;
             this.changepaymentservicestxt.Size = new System.Drawing.Size(224, 22);
@@ -1109,7 +1155,7 @@
             // Addbtnservices
             // 
             this.Addbtnservices.Location = new System.Drawing.Point(1364, 849);
-            this.Addbtnservices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Addbtnservices.Margin = new System.Windows.Forms.Padding(4);
             this.Addbtnservices.Name = "Addbtnservices";
             this.Addbtnservices.Size = new System.Drawing.Size(147, 63);
             this.Addbtnservices.TabIndex = 56;
@@ -1120,7 +1166,7 @@
             // ClearBtn
             // 
             this.ClearBtn.Location = new System.Drawing.Point(1525, 481);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(147, 63);
             this.ClearBtn.TabIndex = 57;
@@ -1131,7 +1177,7 @@
             // Clear2Btn
             // 
             this.Clear2Btn.Location = new System.Drawing.Point(1519, 919);
-            this.Clear2Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Clear2Btn.Margin = new System.Windows.Forms.Padding(4);
             this.Clear2Btn.Name = "Clear2Btn";
             this.Clear2Btn.Size = new System.Drawing.Size(147, 63);
             this.Clear2Btn.TabIndex = 58;
@@ -1146,7 +1192,7 @@
             // PayServiceBtn
             // 
             this.PayServiceBtn.Location = new System.Drawing.Point(1364, 919);
-            this.PayServiceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PayServiceBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PayServiceBtn.Name = "PayServiceBtn";
             this.PayServiceBtn.Size = new System.Drawing.Size(147, 63);
             this.PayServiceBtn.TabIndex = 59;
@@ -1157,7 +1203,7 @@
             // CalculateBtn
             // 
             this.CalculateBtn.Location = new System.Drawing.Point(1519, 849);
-            this.CalculateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CalculateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.CalculateBtn.Name = "CalculateBtn";
             this.CalculateBtn.Size = new System.Drawing.Size(147, 63);
             this.CalculateBtn.TabIndex = 60;
@@ -1168,7 +1214,7 @@
             // ClearTableBtn
             // 
             this.ClearTableBtn.Location = new System.Drawing.Point(1673, 849);
-            this.ClearTableBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClearTableBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ClearTableBtn.Name = "ClearTableBtn";
             this.ClearTableBtn.Size = new System.Drawing.Size(147, 63);
             this.ClearTableBtn.TabIndex = 61;
@@ -1190,7 +1236,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(1472, 142);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(193, 22);
             this.textBox1.TabIndex = 63;
@@ -1228,7 +1274,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(1472, 185);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(193, 22);
             this.textBox2.TabIndex = 69;
@@ -1264,7 +1310,7 @@
             // PrintBtn
             // 
             this.PrintBtn.Location = new System.Drawing.Point(1680, 481);
-            this.PrintBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrintBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PrintBtn.Name = "PrintBtn";
             this.PrintBtn.Size = new System.Drawing.Size(147, 63);
             this.PrintBtn.TabIndex = 72;
@@ -1331,53 +1377,28 @@
             this.label20.TabIndex = 76;
             this.label20.Text = "Date:";
             // 
-            // transactionNumberDataGridViewTextBoxColumn
-            // 
-            this.transactionNumberDataGridViewTextBoxColumn.DataPropertyName = "TransactionNumber";
-            this.transactionNumberDataGridViewTextBoxColumn.HeaderText = "TransactionNumber";
-            this.transactionNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.transactionNumberDataGridViewTextBoxColumn.Name = "transactionNumberDataGridViewTextBoxColumn";
-            this.transactionNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // serviceNameDataGridViewTextBoxColumn
-            // 
-            this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.HeaderText = "ServiceName";
-            this.serviceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
-            // 
-            // serviceIDDataGridViewTextBoxColumn
-            // 
-            this.serviceIDDataGridViewTextBoxColumn.DataPropertyName = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.HeaderText = "ServiceID";
-            this.serviceIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.serviceIDDataGridViewTextBoxColumn.Name = "serviceIDDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // benpillMotorcycleCartDatabase
-            // 
-            this.benpillMotorcycleCartDatabase.DataSetName = "BenpillMotorcycleCartDatabase";
-            this.benpillMotorcycleCartDatabase.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblCartBindingSource1
-            // 
-            this.tblCartBindingSource1.DataMember = "tbl_Cart";
-            this.tblCartBindingSource1.DataSource = this.benpillMotorcycleCartDatabase;
-            // 
             // tbl_CartTableAdapter1
             // 
             this.tbl_CartTableAdapter1.ClearBeforeFill = true;
             // 
+            // benpillMotorcycleCartDatabaseFinal
+            // 
+            this.benpillMotorcycleCartDatabaseFinal.DataSetName = "BenpillMotorcycleCartDatabaseFinal";
+            this.benpillMotorcycleCartDatabaseFinal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblCartBindingSource2
+            // 
+            this.tblCartBindingSource2.DataMember = "tbl_Cart";
+            this.tblCartBindingSource2.DataSource = this.benpillMotorcycleCartDatabaseFinal;
+            // 
+            // tbl_CartTableAdapter2
+            // 
+            this.tbl_CartTableAdapter2.ClearBeforeFill = true;
+            // 
             // Barcode
             // 
             this.Barcode.DataPropertyName = "Barcode";
-            this.Barcode.FillWeight = 120.3208F;
+            this.Barcode.FillWeight = 120.23F;
             this.Barcode.HeaderText = "Barcode";
             this.Barcode.MinimumWidth = 6;
             this.Barcode.Name = "Barcode";
@@ -1386,7 +1407,7 @@
             // ItemName
             // 
             this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.FillWeight = 105.2144F;
+            this.ItemName.FillWeight = 103.2868F;
             this.ItemName.HeaderText = "ItemName";
             this.ItemName.MinimumWidth = 6;
             this.ItemName.Name = "ItemName";
@@ -1395,7 +1416,7 @@
             // MotorBrand
             // 
             this.MotorBrand.DataPropertyName = "MotorBrand";
-            this.MotorBrand.FillWeight = 105.2144F;
+            this.MotorBrand.FillWeight = 103.2868F;
             this.MotorBrand.HeaderText = "MotorBrand";
             this.MotorBrand.MinimumWidth = 6;
             this.MotorBrand.Name = "MotorBrand";
@@ -1404,7 +1425,7 @@
             // Brand
             // 
             this.Brand.DataPropertyName = "Brand";
-            this.Brand.FillWeight = 105.2144F;
+            this.Brand.FillWeight = 103.2868F;
             this.Brand.HeaderText = "Brand";
             this.Brand.MinimumWidth = 6;
             this.Brand.Name = "Brand";
@@ -1413,7 +1434,7 @@
             // Size
             // 
             this.Size.DataPropertyName = "Size";
-            this.Size.FillWeight = 105.2144F;
+            this.Size.FillWeight = 103.2868F;
             this.Size.HeaderText = "Size";
             this.Size.MinimumWidth = 6;
             this.Size.Name = "Size";
@@ -1422,7 +1443,7 @@
             // UnitPrice
             // 
             this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.FillWeight = 105.2144F;
+            this.UnitPrice.FillWeight = 103.2868F;
             this.UnitPrice.HeaderText = "UnitPrice";
             this.UnitPrice.MinimumWidth = 6;
             this.UnitPrice.Name = "UnitPrice";
@@ -1431,7 +1452,7 @@
             // Quantity
             // 
             this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 105.2144F;
+            this.Quantity.FillWeight = 103.2868F;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
@@ -1440,21 +1461,28 @@
             // Category
             // 
             this.Category.DataPropertyName = "Category";
-            this.Category.FillWeight = 105.2144F;
+            this.Category.FillWeight = 103.2868F;
             this.Category.HeaderText = "Category";
             this.Category.MinimumWidth = 6;
             this.Category.Name = "Category";
             this.Category.ReadOnly = true;
             // 
+            // TotalPrice
+            // 
+            this.TotalPrice.DataPropertyName = "TotalPrice";
+            this.TotalPrice.FillWeight = 103.2868F;
+            this.TotalPrice.HeaderText = "TotalPrice";
+            this.TotalPrice.MinimumWidth = 6;
+            this.TotalPrice.Name = "TotalPrice";
+            this.TotalPrice.ReadOnly = true;
+            // 
             // Void
             // 
-            this.Void.FillWeight = 43.17832F;
+            this.Void.FillWeight = 53.47593F;
             this.Void.HeaderText = "Void";
             this.Void.MinimumWidth = 6;
             this.Void.Name = "Void";
-            this.Void.Text = "Void";
-            this.Void.ToolTipText = "Void";
-            this.Void.UseColumnTextForButtonValue = true;
+            this.Void.ReadOnly = true;
             // 
             // PointOfSales
             // 
@@ -1504,7 +1532,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PointOfSales";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1536,6 +1564,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblpostable2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabasePOStable22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleDatabaseDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblvoidtableBindingSource)).EndInit();
@@ -1549,8 +1579,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicesTransactionsDatabase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServicestransactionDatabase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleCartDatabaseFinal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCartBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1680,6 +1710,9 @@
         private BenpillMotorcycleCartDatabase benpillMotorcycleCartDatabase;
         private System.Windows.Forms.BindingSource tblCartBindingSource1;
         private BenpillMotorcycleCartDatabaseTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter1;
+        private BenpillMotorcycleCartDatabaseFinal benpillMotorcycleCartDatabaseFinal;
+        private System.Windows.Forms.BindingSource tblCartBindingSource2;
+        private BenpillMotorcycleCartDatabaseFinalTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotorBrand;
@@ -1688,6 +1721,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.DataGridViewButtonColumn Void;
     }
 }

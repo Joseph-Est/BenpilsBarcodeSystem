@@ -252,6 +252,8 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinal.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabase.tbl_Cart' table. You can move, or remove it, as needed.
             this.tbl_CartTableAdapter1.Fill(this.benpillMotorcycleCartDatabase.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleDatabaseDataSet2.tbl_Cart' table. You can move, or remove it, as needed.

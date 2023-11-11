@@ -216,7 +216,7 @@ namespace BenpilsBarcodeSystem
                             {
                                 updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
                                 updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
-                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", TotalPrice);
                                 updateQuantityCommand.ExecuteNonQuery();
                             }
                         }
@@ -236,7 +236,7 @@ namespace BenpilsBarcodeSystem
                                 command.Parameters.AddWithValue("@UnitPrice", unitPrice);
                                 command.Parameters.AddWithValue("@Quantity", quantity);
                                 command.Parameters.AddWithValue("@Category", category);
-                                command.Parameters.AddWithValue("@TotalPrice", totalPrice);
+                                command.Parameters.AddWithValue("@TotalPrice", TotalPrice);
 
                                 command.ExecuteNonQuery();
                             }
@@ -252,6 +252,8 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalReally.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter3.Fill(this.benpillMotorcycleCartDatabaseFinalReally.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
             this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinal.tbl_Cart);
             // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabase.tbl_Cart' table. You can move, or remove it, as needed.

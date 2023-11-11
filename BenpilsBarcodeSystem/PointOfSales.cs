@@ -307,18 +307,129 @@ namespace BenpilsBarcodeSystem
             {
                 cartConnection.Open();
 
-                // Clear the contents of tbl_Cart
+             
                 string clearCartTableQuery = "DELETE FROM tbl_Cart";
                 SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, cartConnection);
                 clearCartTableCommand.ExecuteNonQuery();
 
-                // Reset the identity seed of tbl_Cart
+            
                 string resetCartSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
                 SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, cartConnection);
                 resetCartSeedCommand.ExecuteNonQuery();
             }
         }
-    
+        private void CalculateTotalAmountPOS()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Retrieve all Subtotal values from tbl_Cart
+                string getTotalAmountQuery = "SELECT SUM(Subtotal) FROM tbl_Cart";
+                using (SqlCommand getTotalAmountCommand = new SqlCommand(getTotalAmountQuery, connection))
+                {
+                    object totalAmountObj = getTotalAmountCommand.ExecuteScalar();
+
+                    if (totalAmountObj != DBNull.Value)
+                    {
+                        decimal totalAmount = Convert.ToDecimal(totalAmountObj);
+                        TotalAmountItemTxt.Text = totalAmount.ToString("C"); // Display total amount as currency
+                    }
+                }
+            }
+        }
+        private void CalculateChangePOS()
+        {
+            // Check if payment is entered
+            if (!string.IsNullOrEmpty(paymentitemTxt.Text))
+            {
+                decimal payment;
+                if (decimal.TryParse(paymentitemTxt.Text, out payment))
+                {
+                    // Retrieve total amount
+                    decimal totalAmount;
+                    if (decimal.TryParse(TotalAmountItemTxt.Text, out totalAmount))
+                    {
+                        // Check for insufficient funds
+                        if (payment < totalAmount)
+                        {
+                            MessageBox.Show("Insufficient funds. Please enter a sufficient payment amount.");
+                        }
+                        else
+                        {
+                            // Calculate and display change
+                            decimal change = payment - totalAmount;
+                            changepaymentitemTxt.Text = change.ToString("C"); // Display change as currency
+                            GenerateTransactionNumberPOS();
+                            DisplayDatePOS();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid total amount.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid payment amount.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a payment amount.");
+            }
+        }
+        private void GenerateTransactionNumberPOS()
+        {
+            // Generate a random 5-digit transaction number
+            Random random = new Random();
+            int transactionNumber = random.Next(10000, 99999);
+
+            // Display the generated transaction number
+            Lbltransaction.Text = "BP" + transactionNumber.ToString();
+        }
+        private void DisplayDatePOS()
+        {
+            LblDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
+        }
+        private void CalculatePOSBtn_Click(object sender, EventArgs e)
+        {
+            CalculateTotalAmountPOS();
+            CalculateChangePOS();
+        }
+        private void BuyBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Step 3: Input Payment Amount
+                decimal paymentAmount = decimal.Parse(paymentitemTxt.Text);
+
+                // Step 4: Calculate Change
+                if (paymentAmount >= Convert.ToDecimal(TotalAmountItemTxt.Text))
+                {
+                    decimal change = paymentAmount - Convert.ToDecimal(TotalAmountItemTxt.Text);
+
+                    // Display Change
+                    changepaymentitemTxt.Text = change.ToString();
+
+                    // Step 5: Clear Table and Reset Seed
+                    cleartableandreseedCart();
+                    UpdateDataCartview();
+
+
+
+                    MessageBox.Show("Services Payment Succesful");
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient funds. Please provide a sufficient payment amount.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
         private void paymentitemTxt_TextChanged(object sender, EventArgs e)
         {
             
@@ -326,20 +437,15 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalChange.tbl_Cart' table. You can move, or remove it, as needed.
+   
             this.tbl_CartTableAdapter3.Fill(this.benpillMotorcycleCartDatabaseFinalChange.tbl_Cart);
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinalFinal.tbl_Cart' table. You can move, or remove it, as needed.
+     
             this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinalFinal.tbl_Cart);
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
  
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabaseFinal.tbl_Cart' table. You can move, or remove it, as needed.
-
-
-            // TODO: This line of code loads data into the 'benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata' table. You can move, or remove it, as needed.
             this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleItemMasterDataOnPOS.tbl_itemmasterdata);
-            // TODO: This line of code loads data into the 'benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions' table. You can move, or remove it, as needed.
+   
             this.tbl_servicestransactionsTableAdapter.Fill(this.benpillMotorcycleServicesTransactionsDatabase.tbl_servicestransactions);
-            // TODO: This line of code loads data into the 'benpillMotorcycleServicestransactionDatabase.tbl_servicestransaction' table. You can move, or remove it, as needed.
+       
 
 
          

@@ -383,11 +383,11 @@
     <Compile Include="Purchaserr.Designer.cs">
       <DependentUpon>Purchaserr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quantity.cs">
+    <Compile Include="Quantityform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quantity.Designer.cs">
-      <DependentUpon>Quantity.cs</DependentUpon>
+    <Compile Include="Quantityform.Designer.cs">
+      <DependentUpon>Quantityform.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
@@ -460,8 +460,8 @@
     <EmbeddedResource Include="Purchaserr.resx">
       <DependentUpon>Purchaserr.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Quantity.resx">
-      <DependentUpon>Quantity.cs</DependentUpon>
+    <EmbeddedResource Include="Quantityform.resx">
+      <DependentUpon>Quantityform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>

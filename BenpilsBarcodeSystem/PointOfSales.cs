@@ -169,7 +169,83 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dataGridView1.Columns["Add"].Index && e.RowIndex != -1)
+            {
+                // Show the QuantityInputForm
+                using (Quantityform quantityForm = new Quantityform())
+                {
+                    if (quantityForm.ShowDialog() == DialogResult.OK)
+                    {
+                        int quantity = quantityForm.Quantity;
 
+                        // Retrieve data from the clicked row
+                        string barcode = dataGridView1.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
+                        string itemName = dataGridView1.Rows[e.RowIndex].Cells["ItemName"].Value.ToString();
+                        string motorBrand = dataGridView1.Rows[e.RowIndex].Cells["MotorBrand"].Value.ToString();
+                        string brand = dataGridView1.Rows[e.RowIndex].Cells["Brand"].Value.ToString();
+                        string size = dataGridView1.Rows[e.RowIndex].Cells["Size"].Value.ToString();
+                        decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["UnitPrice"].Value);
+                        string category = dataGridView1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+
+                        // Add the data to the database
+                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category);
+                    }
+                }
+            }
+        }
+        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Check if the item with the given barcode already exists in the database
+                    string checkIfExistsQuery = "SELECT COUNT(*) FROM tbl_Cart WHERE Barcode = @Barcode";
+                    using (SqlCommand checkIfExistsCommand = new SqlCommand(checkIfExistsQuery, connection))
+                    {
+                        checkIfExistsCommand.Parameters.AddWithValue("@Barcode", barcode);
+                        int existingItemCount = (int)checkIfExistsCommand.ExecuteScalar();
+
+                        if (existingItemCount > 0)
+                        {
+                            // If the item exists, update the quantity in the database
+                            string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity WHERE Barcode = @Barcode";
+                            using (SqlCommand updateQuantityCommand = new SqlCommand(updateQuantityQuery, connection))
+                            {
+                                updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
+                                updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
+                                updateQuantityCommand.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // If the item does not exist, insert a new row into the database
+                            string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category) " +
+                                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category)";
+
+                            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                            {
+                                command.Parameters.AddWithValue("@Barcode", barcode);
+                                command.Parameters.AddWithValue("@ItemName", itemName);
+                                command.Parameters.AddWithValue("@MotorBrand", motorBrand);
+                                command.Parameters.AddWithValue("@Brand", brand);
+                                command.Parameters.AddWithValue("@Size", size);
+                                command.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                                command.Parameters.AddWithValue("@Quantity", quantity);
+                                command.Parameters.AddWithValue("@Category", category);
+
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
         private void PointOfSales_Load(object sender, EventArgs e)

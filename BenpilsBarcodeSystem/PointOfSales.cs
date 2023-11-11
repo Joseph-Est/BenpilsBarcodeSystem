@@ -333,7 +333,7 @@ namespace BenpilsBarcodeSystem
                     if (totalAmountObj != DBNull.Value)
                     {
                         decimal totalAmount = Convert.ToDecimal(totalAmountObj);
-                        TotalAmountItemTxt.Text = totalAmount.ToString("C"); // Display total amount as currency
+                        TotalAmountItemTxt.Text = totalAmount.ToString(); // Display total amount as currency
                     }
                 }
             }
@@ -359,7 +359,7 @@ namespace BenpilsBarcodeSystem
                         {
                             // Calculate and display change
                             decimal change = payment - totalAmount;
-                            changepaymentitemTxt.Text = change.ToString("C"); // Display change as currency
+                            changepaymentitemTxt.Text = change.ToString(); // Display change as currency
                             GenerateTransactionNumberPOS();
                             DisplayDatePOS();
                         }

@@ -179,13 +179,13 @@ namespace BenpilsBarcodeSystem
                         int quantity = quantityForm.Quantity;
 
                         // Retrieve data from the clicked row
-                        string barcode = dataGridView1.Rows[e.RowIndex].Cells["Barcode"].Value.ToString();
-                        string itemName = dataGridView1.Rows[e.RowIndex].Cells["ItemName"].Value.ToString();
-                        string motorBrand = dataGridView1.Rows[e.RowIndex].Cells["MotorBrand"].Value.ToString();
-                        string brand = dataGridView1.Rows[e.RowIndex].Cells["Brand"].Value.ToString();
-                        string size = dataGridView1.Rows[e.RowIndex].Cells["Size"].Value.ToString();
-                        decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["UnitPrice"].Value);
-                        string category = dataGridView1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+                        string barcode = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string itemName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        string motorBrand = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        string brand = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        string size = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
+                        string category = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
 
                         // Add the data to the database
                         InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category);
@@ -210,20 +210,21 @@ namespace BenpilsBarcodeSystem
 
                         if (existingItemCount > 0)
                         {
-                            // If the item exists, update the quantity in the database
-                            string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity WHERE Barcode = @Barcode";
+                            // If the item exists, update the quantity and total price in the database
+                            string updateQuantityQuery = "UPDATE tbl_Cart SET Quantity = Quantity + @Quantity, TotalPrice = TotalPrice + @TotalPrice WHERE Barcode = @Barcode";
                             using (SqlCommand updateQuantityCommand = new SqlCommand(updateQuantityQuery, connection))
                             {
                                 updateQuantityCommand.Parameters.AddWithValue("@Barcode", barcode);
                                 updateQuantityCommand.Parameters.AddWithValue("@Quantity", quantity);
+                                updateQuantityCommand.Parameters.AddWithValue("@TotalPrice", totalPrice);
                                 updateQuantityCommand.ExecuteNonQuery();
                             }
                         }
                         else
                         {
                             // If the item does not exist, insert a new row into the database
-                            string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category) " +
-                                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category)";
+                            string insertQuery = "INSERT INTO tbl_Cart (Barcode, ItemName, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, TotalPrice) " +
+                                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @TotalPrice)";
 
                             using (SqlCommand command = new SqlCommand(insertQuery, connection))
                             {
@@ -235,6 +236,7 @@ namespace BenpilsBarcodeSystem
                                 command.Parameters.AddWithValue("@UnitPrice", unitPrice);
                                 command.Parameters.AddWithValue("@Quantity", quantity);
                                 command.Parameters.AddWithValue("@Category", category);
+                                command.Parameters.AddWithValue("@TotalPrice", totalPrice);
 
                                 command.ExecuteNonQuery();
                             }

@@ -303,18 +303,18 @@ namespace BenpilsBarcodeSystem
         }
         private void cleartableandreseedCart()
         {
-            using (SqlConnection cartConnection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                cartConnection.Open();
+                connection.Open();
 
-             
+                // Clear the cart table
                 string clearCartTableQuery = "DELETE FROM tbl_Cart";
-                SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, cartConnection);
+                SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
                 clearCartTableCommand.ExecuteNonQuery();
 
-            
+                // Reseed the cart table
                 string resetCartSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
-                SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, cartConnection);
+                SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, connection);
                 resetCartSeedCommand.ExecuteNonQuery();
             }
         }

@@ -766,9 +766,8 @@ namespace BenpilsBarcodeSystem
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.WindowState = FormWindowState.Maximized;
-            printPreviewDialog1.ShowDialog();
+            Service_Invoice servin = new Service_Invoice();
+            servin.Show();
         }
 
         private void TotalAmountServiceTxt_TextChanged(object sender, EventArgs e)

@@ -16,5 +16,15 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
         }
+        //Closebutton
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //MinimizedButton
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

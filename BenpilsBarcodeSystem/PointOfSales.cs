@@ -357,39 +357,56 @@ namespace BenpilsBarcodeSystem
             CalculateTotalAmountPOS();
           
         }
-        private void BuyBtn_Click(object sender, EventArgs e)
+        private void CalculateChangePOS()
         {
-            try
+  
+            if (!string.IsNullOrEmpty(paymentitemTxt.Text))
             {
-                // Step 3: Input Payment Amount
-                decimal paymentAmount = decimal.Parse(paymentitemTxt.Text);
-
-                // Step 4: Calculate Change
-                if (paymentAmount >= Convert.ToDecimal(TotalAmountItemTxt.Text))
+                decimal payment;
+                if (decimal.TryParse(paymentitemTxt.Text, out payment))
                 {
-                    decimal change = paymentAmount - Convert.ToDecimal(TotalAmountItemTxt.Text);
+             
+                    decimal totalAmount;
+                    if (decimal.TryParse(TotalAmountItemTxt.Text, out totalAmount))
+                    {
+     
+                        if (payment < totalAmount)
+                        {
+                            MessageBox.Show("Insufficient funds. Please enter a sufficient payment amount.");
+                        }
+                        else
+                        {
 
-                    // Display Change
-                    changepaymentitemTxt.Text = change.ToString();
-
-                    // Step 5: Clear Table and Reset Seed
-                    cleartableandreseedCart();
-                    UpdateDataCartview();
-                    DisplayDatePOS();
-                    GenerateTransactionNumberPOS();
-
-
-                    MessageBox.Show("Services Payment Succesful");
+                            decimal change = payment - totalAmount;
+                            changepaymentitemTxt.Text = change.ToString();
+                            GenerateTransactionNumberPOS();
+                            DisplayDatePOS();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid total amount.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Insufficient funds. Please provide a sufficient payment amount.");
+                    MessageBox.Show("Please enter a valid payment amount.");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("Please enter a payment amount.");
             }
+        }
+        private void BuyBtn_Click(object sender, EventArgs e)
+        {
+            cleartableandreseedCart();
+
+            // Calculate and display the total amount
+            CalculateTotalAmountPOS();
+
+            // Handle payment and change calculation
+            CalculateChangePOS();
         }
         private void paymentitemTxt_TextChanged(object sender, EventArgs e)
         {

@@ -273,6 +273,7 @@ namespace BenpilsBarcodeSystem
         private void CleartableCartBtn_Click(object sender, EventArgs e)
         {
             cleartableandreseedCart();
+            UpdateDataCartview();
         }
         private void UpdateDataCartview()
         {
@@ -308,7 +309,7 @@ namespace BenpilsBarcodeSystem
                 string clearTableQuery = "DELETE FROM tbl_Cart";
                 SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
                 clearTableCommand.ExecuteNonQuery();
-                string resetSeedQuery = "DBCC CHECKIDENT('tbl_servicesCart', RESEED, 0)";
+                string resetSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
                 SqlCommand resetSeedCommand = new SqlCommand(resetSeedQuery, connection);
                 resetSeedCommand.ExecuteNonQuery();
             }

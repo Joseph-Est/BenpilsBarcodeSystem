@@ -706,6 +706,10 @@ namespace BenpilsBarcodeSystem
             CalculateTotalAmountPOS();
         }
 
-
+        private void ClearTableBtn_Click(object sender, EventArgs e)
+        {
+            ClearTableAndResetSeedServicesTransactions();
+            UpdateDisplayServicesTransactions();
+        }
     }
 }

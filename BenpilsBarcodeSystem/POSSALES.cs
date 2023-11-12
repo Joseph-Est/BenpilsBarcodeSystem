@@ -346,6 +346,7 @@ namespace BenpilsBarcodeSystem
                 // Delete the corresponding row from the database
                 DeleteRowFromDatabase(serviceID, serviceName, price);
             }
+         
         }
         private void DeleteRowFromDatabase(int serviceID, string serviceName, decimal price)
         {
@@ -375,7 +376,7 @@ namespace BenpilsBarcodeSystem
         }
         private void clearAllTextbox2()
         {
-            TotalAmmontItemTxt.Clear();
+            TotalAmuntServiceTxt.Clear();
             paymentservicesTxt.Text = "";
             changeservicesTxt.Clear();
         }
@@ -407,7 +408,7 @@ namespace BenpilsBarcodeSystem
                     // Step 5: Clear Table and Reset Seed
                     ClearTableAndResetSeedServicesTransactions();
                     UpdateDisplayServicesTransactions();
-
+                    clearAllTextbox2();
 
 
                     MessageBox.Show("Services Payment Succesful");
@@ -428,8 +429,7 @@ namespace BenpilsBarcodeSystem
 
     private void ClearPOSBtn_Click(object sender, EventArgs e)
         {
-            cleartableCart();
-            UpdateDataCartview();
+            clearAlltextbox();
         }
 
         private void BuyBtn_Click(object sender, EventArgs e)
@@ -441,6 +441,7 @@ namespace BenpilsBarcodeSystem
 
             // Handle payment and change calculation
             CalculateChangePOS();
+            UpdateDataCartview();
         }
 
         private void PrintBtn_Click(object sender, EventArgs e)
@@ -463,7 +464,7 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["Add"].Index && e.RowIndex != -1)
+            if (e.ColumnIndex == dataGridView2.Columns["Add"].Index && e.RowIndex != -1)
             {
                 // Show the QuantityInputForm
                 using (Quantityform quantityForm = new Quantityform())
@@ -478,7 +479,7 @@ namespace BenpilsBarcodeSystem
                         string itemName = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
                         string motorBrand = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
                         string brand = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-                        string size = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        string size = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
                         decimal unitPrice = Convert.ToDecimal(dataGridView2.Rows[e.RowIndex].Cells[6].Value);
                         string category = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString();
 
@@ -490,12 +491,15 @@ namespace BenpilsBarcodeSystem
 
                             // Add the data to the database
                             InsertDataIntoDatabase(productid, barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal);
+                           
+                            CalculateTotalAmountPOS();
                         }
                         else
                         {
                             // Handle the case where conversion to int fails
                             // For example, show an error message or set a default value
                         }
+                        UpdateDataCartview();
                     }
                     else
                     {
@@ -589,6 +593,7 @@ namespace BenpilsBarcodeSystem
                 SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
                 clearCartTableCommand.ExecuteNonQuery();
             }
+            UpdateDataCartview();
         }
         private void UpdateDataItemmasterdataview()
         {
@@ -612,7 +617,7 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dataGridView2.DataSource = dt;
+                    dataGridView1.DataSource = dt;
                 }
             }
         }
@@ -707,6 +712,11 @@ namespace BenpilsBarcodeSystem
         {
             ClearTableAndResetSeedServicesTransactions();
             UpdateDisplayServicesTransactions();
+        }
+
+        private void ChangeitemTxt_TextChanged(object sender, EventArgs e)
+        {
+            CalculateChangePOS();
         }
     }
 }

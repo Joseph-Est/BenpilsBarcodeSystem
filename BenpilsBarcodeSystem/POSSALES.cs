@@ -224,34 +224,7 @@ namespace BenpilsBarcodeSystem
 
             return price;
         }
-       /* private decimal GetSelectedServicePrice(int serviceID)
-        {
-            decimal price = 0;
-
-            try
-            {
-                string query = "SELECT Price FROM tbl_services WHERE ServiceID = @ServiceID";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@ServiceID", serviceID);
-                    object result = command.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        price = Convert.ToDecimal(result);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-            }
-
-            return price;
-        }*/
+    
         private void UpdateTotalAmountServices()
         {
             try

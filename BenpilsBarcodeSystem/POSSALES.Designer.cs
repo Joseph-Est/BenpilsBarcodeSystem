@@ -105,7 +105,7 @@
             this.cmbservice = new System.Windows.Forms.ComboBox();
             this.TotalAmuntServiceTxt = new System.Windows.Forms.TextBox();
             this.paymentservicesTxt = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.changeservicesTxt = new System.Windows.Forms.TextBox();
             this.lbltransaction = new System.Windows.Forms.Label();
             this.lbldate = new System.Windows.Forms.Label();
             this.lbltransactionservice = new System.Windows.Forms.Label();
@@ -669,6 +669,7 @@
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.Size = new System.Drawing.Size(904, 243);
             this.dataGridView3.TabIndex = 25;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // tblservicestransactionsBindingSource
             // 
@@ -887,6 +888,7 @@
             this.ClearServicesBtn.TabIndex = 177;
             this.ClearServicesBtn.Text = "Clear";
             this.ClearServicesBtn.UseVisualStyleBackColor = true;
+            this.ClearServicesBtn.Click += new System.EventHandler(this.ClearServicesBtn_Click);
             // 
             // PrintServicesBtn
             // 
@@ -956,13 +958,13 @@
             this.paymentservicesTxt.TabIndex = 185;
             this.paymentservicesTxt.TextChanged += new System.EventHandler(this.paymentservicesTxt_TextChanged);
             // 
-            // textBox8
+            // changeservicesTxt
             // 
-            this.textBox8.Location = new System.Drawing.Point(1213, 703);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(178, 20);
-            this.textBox8.TabIndex = 186;
+            this.changeservicesTxt.Location = new System.Drawing.Point(1213, 703);
+            this.changeservicesTxt.Name = "changeservicesTxt";
+            this.changeservicesTxt.ReadOnly = true;
+            this.changeservicesTxt.Size = new System.Drawing.Size(178, 20);
+            this.changeservicesTxt.TabIndex = 186;
             // 
             // lbltransaction
             // 
@@ -1262,7 +1264,7 @@
             this.Controls.Add(this.lbltransactionservice);
             this.Controls.Add(this.lbldate);
             this.Controls.Add(this.lbltransaction);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.changeservicesTxt);
             this.Controls.Add(this.paymentservicesTxt);
             this.Controls.Add(this.TotalAmuntServiceTxt);
             this.Controls.Add(this.cmbservice);
@@ -1412,7 +1414,7 @@
         private System.Windows.Forms.ComboBox cmbservice;
         private System.Windows.Forms.TextBox TotalAmuntServiceTxt;
         private System.Windows.Forms.TextBox paymentservicesTxt;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox changeservicesTxt;
         private System.Windows.Forms.Label lbltransaction;
         private System.Windows.Forms.Label lbldate;
         private System.Windows.Forms.Label lbltransactionservice;

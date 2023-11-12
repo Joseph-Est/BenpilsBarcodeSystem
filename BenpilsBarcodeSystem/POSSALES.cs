@@ -143,5 +143,16 @@ namespace BenpilsBarcodeSystem
                 this.Show();
             }
         }
+
+        private void POSSALES_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillMotorcycleServiceTransactions.tbl_servicestransactions' table. You can move, or remove it, as needed.
+            this.tbl_servicestransactionsTableAdapter.Fill(this.benpillMotorcycleServiceTransactions.tbl_servicestransactions);
+            // TODO: This line of code loads data into the 'benpillMotorcycleItemmmasterdataforPOS.tbl_itemmasterdata' table. You can move, or remove it, as needed.
+            this.tbl_itemmasterdataTableAdapter.Fill(this.benpillMotorcycleItemmmasterdataforPOS.tbl_itemmasterdata);
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabasefinal.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter.Fill(this.benpillMotorcycleCartDatabasefinal.tbl_Cart);
+
+        }
     }
 }

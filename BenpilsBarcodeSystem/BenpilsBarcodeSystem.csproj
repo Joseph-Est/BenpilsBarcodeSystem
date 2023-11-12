@@ -204,6 +204,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleCartDatabasefinal1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleCartDatabaseFinalChange.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,6 +289,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleItemmmasterdataforPOS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleMasterData2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -318,6 +328,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleServiceTransactions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
     </Compile>
     <Compile Include="BenpillMotorcycleStockManagementDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -530,6 +545,17 @@
     <None Include="BenpillMotorcycleCartDatabaseFinal.xss">
       <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcycleCartDatabasefinal1.xsc">
+      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleCartDatabasefinal1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleCartDatabasefinal1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleCartDatabasefinal1.xss">
+      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleCartDatabaseFinalChange.xsc">
       <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
     </None>
@@ -706,6 +732,17 @@
     <None Include="BenpillMotorcycleItemMasterDataOnPOS.xss">
       <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
     </None>
+    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsc">
+      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleItemmmasterdataforPOS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xss">
+      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
+    </None>
     <None Include="BenpillMotorcycleMasterData2.xsc">
       <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
     </None>
@@ -782,6 +819,17 @@
     </None>
     <None Include="BenpillMotorcycleServicesTransactionsDatabase.xss">
       <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceTransactions.xsc">
+      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceTransactions.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleServiceTransactions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleServiceTransactions.xss">
+      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleStockManagementDatabase.xsc">
       <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>

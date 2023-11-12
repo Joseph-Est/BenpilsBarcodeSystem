@@ -23,6 +23,8 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             //reportsreference = reports;
+            cmbservices.SelectedIndexChanged += cmbservices_SelectedIndexChanged;
+            paymentservicestxt.TextChanged += paymentservicestxt_TextChanged;
 
 
             FillComboBox();
@@ -473,10 +475,7 @@ namespace BenpilsBarcodeSystem
         }
 
 
-        private void cmbservices_SelectedIndexChanged(object sender, EventArgs e)
-        {
        
-        }
         private void FillComboBox()
         {
             try
@@ -519,9 +518,17 @@ namespace BenpilsBarcodeSystem
         {
             clearAllTextbox2();
         }
-
+        private void cmbservices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateTotalAmount();
+        }
+        private void paymentservicestxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateTotalAmount();
+        }
         private void Addbtnservices_Click(object sender, EventArgs e)
-        {// Get the selected ServiceID from the ComboBox
+        {
+            // Get the selected ServiceID from the ComboBox
             int selectedServiceID = (int)cmbservices.SelectedValue;
 
             // Your SQL queries to insert into tbl_servicestransactions
@@ -547,6 +554,9 @@ namespace BenpilsBarcodeSystem
                     // Display the added data in the DataGridView
                     UpdateDisplayServicesTransactions();
                 }
+
+                // Update total amount when a service is added
+                UpdateTotalAmount();
             }
             catch (Exception ex)
             {
@@ -556,7 +566,6 @@ namespace BenpilsBarcodeSystem
             {
                 connection.Close();
             }
-           
         }
         private decimal GetSelectedServicePrice(int serviceID)
         {
@@ -633,8 +642,7 @@ namespace BenpilsBarcodeSystem
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-
-        private void CalculateBtn_Click(object sender, EventArgs e)
+        private void UpdateTotalAmount()
         {
             try
             {
@@ -651,7 +659,7 @@ namespace BenpilsBarcodeSystem
         }
          private decimal CalculateTotalAmount()
             {
-        decimal totalAmount = 0;
+            decimal totalAmount = 0;
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -716,11 +724,7 @@ namespace BenpilsBarcodeSystem
             }
         }*/
         
-        private void BarcodeScanner_OnScan(string scannedData)
-        {
-            // Handle the scanned data here
-            MessageBox.Show($"Scanned: {scannedData}");
-        }
+   
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -733,7 +737,7 @@ namespace BenpilsBarcodeSystem
             if (e.ColumnIndex == dataGridView3.Columns["Remove"].Index && e.RowIndex >= 0)
             {
                 // Get the values from the selected row
-                string transactionNumber = dataGridView3.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+             
                 int serviceID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells["ServiceID"].Value);
                 string serviceName = dataGridView3.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
                 decimal price = Convert.ToDecimal(dataGridView3.Rows[e.RowIndex].Cells["Price"].Value);
@@ -742,28 +746,25 @@ namespace BenpilsBarcodeSystem
                 dataGridView3.Rows.RemoveAt(e.RowIndex);
 
                 // Delete the corresponding row from the database
-                DeleteRowFromDatabase(transactionNumber, serviceID, serviceName, price);
+                DeleteRowFromDatabase(serviceID, serviceName, price);
             }
         }
-        private void DeleteRowFromDatabase(string transactionNumber, int serviceID, string serviceName, decimal price)
+        private void DeleteRowFromDatabase(int serviceID, string serviceName, decimal price)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 string deleteQuery = "DELETE FROM tbl_servicestransactions " +
-                                     "WHERE TransactionNumber = @TransactionNumber " +
-                                     "AND ServiceID = @ServiceID " +
+                                     "WHERE ServiceID = @ServiceID " +
                                      "AND ServiceName = @ServiceName " +
                                      "AND Price = @Price";
 
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
                     command.Parameters.AddWithValue("@ServiceID", serviceID);
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@Price", price);
-
                     command.ExecuteNonQuery();
                 }
             }
@@ -791,7 +792,7 @@ namespace BenpilsBarcodeSystem
 
         }
 
-       
+      
     }
     }
     

@@ -224,7 +224,7 @@ namespace BenpilsBarcodeSystem
 
             return price;
         }
-    
+
         private void UpdateTotalAmountServices()
         {
             try
@@ -338,7 +338,7 @@ namespace BenpilsBarcodeSystem
             if (e.ColumnIndex == dataGridView3.Columns["Remove"].Index && e.RowIndex >= 0)
             {
                 // Get the values from the selected row
-            
+
                 int serviceID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells["ServiceID"].Value);
                 string serviceName = dataGridView3.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
                 decimal price = Convert.ToDecimal(dataGridView3.Rows[e.RowIndex].Cells["Price"].Value);
@@ -347,10 +347,10 @@ namespace BenpilsBarcodeSystem
                 dataGridView3.Rows.RemoveAt(e.RowIndex);
 
                 // Delete the corresponding row from the database
-                DeleteRowFromDatabase( serviceID, serviceName, price);
+                DeleteRowFromDatabase(serviceID, serviceName, price);
             }
         }
-        private void DeleteRowFromDatabase( int serviceID, string serviceName, decimal price)
+        private void DeleteRowFromDatabase(int serviceID, string serviceName, decimal price)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -363,7 +363,7 @@ namespace BenpilsBarcodeSystem
 
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
-              
+
                     command.Parameters.AddWithValue("@ServiceID", serviceID);
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@Price", price);
@@ -392,11 +392,44 @@ namespace BenpilsBarcodeSystem
             UpdateTotalAmountServices();
         }
 
+        private void PayservicesBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Step 3: Input Payment Amount
+                decimal paymentAmount = decimal.Parse(paymentservicesTxt.Text);
 
-        //POS
+                // Step 4: Calculate Change
+                if (paymentAmount >= Convert.ToDecimal(TotalAmuntServiceTxt.Text))
+                {
+                    decimal change = paymentAmount - Convert.ToDecimal(TotalAmuntServiceTxt.Text);
 
-        
-        private void ClearPOSBtn_Click(object sender, EventArgs e)
+                    // Display Change
+                    changeservicesTxt.Text = change.ToString();
+
+                    // Step 5: Clear Table and Reset Seed
+                    ClearTableAndResetSeedServicesTransactions();
+                    UpdateDisplayServicesTransactions();
+
+
+
+                    MessageBox.Show("Services Payment Succesful");
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient funds. Please provide a sufficient payment amount.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+    
+    //POS
+
+
+    private void ClearPOSBtn_Click(object sender, EventArgs e)
         {
             cleartableCart();
             UpdateDataCartview();
@@ -673,6 +706,6 @@ namespace BenpilsBarcodeSystem
             CalculateTotalAmountPOS();
         }
 
-      
+
     }
 }

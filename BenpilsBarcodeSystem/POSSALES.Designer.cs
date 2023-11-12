@@ -71,39 +71,39 @@
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BarcodeTxt = new System.Windows.Forms.TextBox();
+            this.QuantityTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BuyBtn = new System.Windows.Forms.Button();
             this.benpillBarcodeDatabaseInventory1 = new BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventory();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.ClearPOSBtn = new System.Windows.Forms.Button();
+            this.PrintBtn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.addservicesBtn = new System.Windows.Forms.Button();
+            this.PayservicesBtn = new System.Windows.Forms.Button();
+            this.ClearServicesBtn = new System.Windows.Forms.Button();
+            this.PrintServicesBtn = new System.Windows.Forms.Button();
+            this.ClearTableBtn = new System.Windows.Forms.Button();
+            this.TotalAmmontItemTxt = new System.Windows.Forms.TextBox();
+            this.PaymentitemTxt = new System.Windows.Forms.TextBox();
+            this.ChangeitemTxt = new System.Windows.Forms.TextBox();
+            this.cmbservice = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lbltransaction = new System.Windows.Forms.Label();
+            this.lbldate = new System.Windows.Forms.Label();
+            this.lbltransactionservice = new System.Windows.Forms.Label();
+            this.llbldateservices = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -598,19 +598,19 @@
             this.label8.TabIndex = 158;
             this.label8.Text = "Quantity:";
             // 
-            // textBox1
+            // BarcodeTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(1181, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 159;
+            this.BarcodeTxt.Location = new System.Drawing.Point(1181, 82);
+            this.BarcodeTxt.Name = "BarcodeTxt";
+            this.BarcodeTxt.Size = new System.Drawing.Size(143, 20);
+            this.BarcodeTxt.TabIndex = 159;
             // 
-            // textBox2
+            // QuantityTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(1181, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 160;
+            this.QuantityTxt.Location = new System.Drawing.Point(1181, 113);
+            this.QuantityTxt.Name = "QuantityTxt";
+            this.QuantityTxt.Size = new System.Drawing.Size(143, 20);
+            this.QuantityTxt.TabIndex = 160;
             // 
             // label9
             // 
@@ -657,37 +657,37 @@
             this.label13.TabIndex = 165;
             this.label13.Text = "Change:";
             // 
-            // button4
+            // BuyBtn
             // 
-            this.button4.Location = new System.Drawing.Point(1121, 454);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(86, 39);
-            this.button4.TabIndex = 166;
-            this.button4.Text = "Buy";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BuyBtn.Location = new System.Drawing.Point(1121, 454);
+            this.BuyBtn.Name = "BuyBtn";
+            this.BuyBtn.Size = new System.Drawing.Size(86, 39);
+            this.BuyBtn.TabIndex = 166;
+            this.BuyBtn.Text = "Buy";
+            this.BuyBtn.UseVisualStyleBackColor = true;
             // 
             // benpillBarcodeDatabaseInventory1
             // 
             this.benpillBarcodeDatabaseInventory1.DataSetName = "BenpillBarcodeDatabaseInventory";
             this.benpillBarcodeDatabaseInventory1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button11
+            // ClearPOSBtn
             // 
-            this.button11.Location = new System.Drawing.Point(1305, 454);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(86, 39);
-            this.button11.TabIndex = 168;
-            this.button11.Text = "Clear";
-            this.button11.UseVisualStyleBackColor = true;
+            this.ClearPOSBtn.Location = new System.Drawing.Point(1305, 454);
+            this.ClearPOSBtn.Name = "ClearPOSBtn";
+            this.ClearPOSBtn.Size = new System.Drawing.Size(86, 39);
+            this.ClearPOSBtn.TabIndex = 168;
+            this.ClearPOSBtn.Text = "Clear";
+            this.ClearPOSBtn.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // PrintBtn
             // 
-            this.button10.Location = new System.Drawing.Point(1213, 454);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(86, 39);
-            this.button10.TabIndex = 167;
-            this.button10.Text = "Print";
-            this.button10.UseVisualStyleBackColor = true;
+            this.PrintBtn.Location = new System.Drawing.Point(1213, 454);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(86, 39);
+            this.PrintBtn.TabIndex = 167;
+            this.PrintBtn.Text = "Print";
+            this.PrintBtn.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -743,84 +743,87 @@
             this.label19.TabIndex = 174;
             this.label19.Text = "Change:";
             // 
-            // button12
+            // addservicesBtn
             // 
-            this.button12.Location = new System.Drawing.Point(1121, 744);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(86, 39);
-            this.button12.TabIndex = 175;
-            this.button12.Text = "Add";
-            this.button12.UseVisualStyleBackColor = true;
+            this.addservicesBtn.Location = new System.Drawing.Point(1121, 744);
+            this.addservicesBtn.Name = "addservicesBtn";
+            this.addservicesBtn.Size = new System.Drawing.Size(86, 39);
+            this.addservicesBtn.TabIndex = 175;
+            this.addservicesBtn.Text = "Add";
+            this.addservicesBtn.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // PayservicesBtn
             // 
-            this.button13.Location = new System.Drawing.Point(1213, 744);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(86, 39);
-            this.button13.TabIndex = 176;
-            this.button13.Text = "Pay Service";
-            this.button13.UseVisualStyleBackColor = true;
+            this.PayservicesBtn.Location = new System.Drawing.Point(1213, 744);
+            this.PayservicesBtn.Name = "PayservicesBtn";
+            this.PayservicesBtn.Size = new System.Drawing.Size(86, 39);
+            this.PayservicesBtn.TabIndex = 176;
+            this.PayservicesBtn.Text = "Pay Service";
+            this.PayservicesBtn.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // ClearServicesBtn
             // 
-            this.button14.Location = new System.Drawing.Point(1305, 744);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(86, 39);
-            this.button14.TabIndex = 177;
-            this.button14.Text = "Clear";
-            this.button14.UseVisualStyleBackColor = true;
+            this.ClearServicesBtn.Location = new System.Drawing.Point(1305, 744);
+            this.ClearServicesBtn.Name = "ClearServicesBtn";
+            this.ClearServicesBtn.Size = new System.Drawing.Size(86, 39);
+            this.ClearServicesBtn.TabIndex = 177;
+            this.ClearServicesBtn.Text = "Clear";
+            this.ClearServicesBtn.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // PrintServicesBtn
             // 
-            this.button15.Location = new System.Drawing.Point(1397, 744);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(86, 39);
-            this.button15.TabIndex = 178;
-            this.button15.Text = "Print";
-            this.button15.UseVisualStyleBackColor = true;
+            this.PrintServicesBtn.Location = new System.Drawing.Point(1397, 744);
+            this.PrintServicesBtn.Name = "PrintServicesBtn";
+            this.PrintServicesBtn.Size = new System.Drawing.Size(86, 39);
+            this.PrintServicesBtn.TabIndex = 178;
+            this.PrintServicesBtn.Text = "Print";
+            this.PrintServicesBtn.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // ClearTableBtn
             // 
-            this.button16.Location = new System.Drawing.Point(1489, 744);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(86, 39);
-            this.button16.TabIndex = 179;
-            this.button16.Text = "Clear Table";
-            this.button16.UseVisualStyleBackColor = true;
+            this.ClearTableBtn.Location = new System.Drawing.Point(1489, 744);
+            this.ClearTableBtn.Name = "ClearTableBtn";
+            this.ClearTableBtn.Size = new System.Drawing.Size(86, 39);
+            this.ClearTableBtn.TabIndex = 179;
+            this.ClearTableBtn.Text = "Clear Table";
+            this.ClearTableBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // TotalAmmontItemTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(1213, 350);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(178, 20);
-            this.textBox3.TabIndex = 180;
+            this.TotalAmmontItemTxt.Location = new System.Drawing.Point(1213, 350);
+            this.TotalAmmontItemTxt.Name = "TotalAmmontItemTxt";
+            this.TotalAmmontItemTxt.ReadOnly = true;
+            this.TotalAmmontItemTxt.Size = new System.Drawing.Size(178, 20);
+            this.TotalAmmontItemTxt.TabIndex = 180;
             // 
-            // textBox4
+            // PaymentitemTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(1213, 382);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 20);
-            this.textBox4.TabIndex = 181;
+            this.PaymentitemTxt.Location = new System.Drawing.Point(1213, 382);
+            this.PaymentitemTxt.Name = "PaymentitemTxt";
+            this.PaymentitemTxt.Size = new System.Drawing.Size(178, 20);
+            this.PaymentitemTxt.TabIndex = 181;
             // 
-            // textBox5
+            // ChangeitemTxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(1213, 411);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(178, 20);
-            this.textBox5.TabIndex = 182;
+            this.ChangeitemTxt.Location = new System.Drawing.Point(1213, 411);
+            this.ChangeitemTxt.Name = "ChangeitemTxt";
+            this.ChangeitemTxt.ReadOnly = true;
+            this.ChangeitemTxt.Size = new System.Drawing.Size(178, 20);
+            this.ChangeitemTxt.TabIndex = 182;
             // 
-            // comboBox1
+            // cmbservice
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1213, 609);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(284, 21);
-            this.comboBox1.TabIndex = 183;
+            this.cmbservice.FormattingEnabled = true;
+            this.cmbservice.Location = new System.Drawing.Point(1213, 609);
+            this.cmbservice.Name = "cmbservice";
+            this.cmbservice.Size = new System.Drawing.Size(284, 21);
+            this.cmbservice.TabIndex = 183;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(1213, 646);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(178, 20);
             this.textBox6.TabIndex = 184;
             // 
@@ -835,82 +838,83 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(1213, 703);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(178, 20);
             this.textBox8.TabIndex = 186;
             // 
-            // label20
+            // lbltransaction
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(1224, 281);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(92, 13);
-            this.label20.TabIndex = 187;
-            this.label20.Text = "Label Transaction";
+            this.lbltransaction.AutoSize = true;
+            this.lbltransaction.Location = new System.Drawing.Point(1224, 281);
+            this.lbltransaction.Name = "lbltransaction";
+            this.lbltransaction.Size = new System.Drawing.Size(92, 13);
+            this.lbltransaction.TabIndex = 187;
+            this.lbltransaction.Text = "Label Transaction";
             // 
-            // label21
+            // lbldate
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1224, 318);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 13);
-            this.label21.TabIndex = 188;
-            this.label21.Text = "Label Date";
+            this.lbldate.AutoSize = true;
+            this.lbldate.Location = new System.Drawing.Point(1224, 318);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Size = new System.Drawing.Size(59, 13);
+            this.lbldate.TabIndex = 188;
+            this.lbldate.Text = "Label Date";
             // 
-            // label22
+            // lbltransactionservice
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(1224, 542);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(92, 13);
-            this.label22.TabIndex = 189;
-            this.label22.Text = "Label Transaction";
+            this.lbltransactionservice.AutoSize = true;
+            this.lbltransactionservice.Location = new System.Drawing.Point(1224, 542);
+            this.lbltransactionservice.Name = "lbltransactionservice";
+            this.lbltransactionservice.Size = new System.Drawing.Size(92, 13);
+            this.lbltransactionservice.TabIndex = 189;
+            this.lbltransactionservice.Text = "Label Transaction";
             // 
-            // label23
+            // llbldateservices
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(1224, 578);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(59, 13);
-            this.label23.TabIndex = 190;
-            this.label23.Text = "Label Date";
+            this.llbldateservices.AutoSize = true;
+            this.llbldateservices.Location = new System.Drawing.Point(1224, 578);
+            this.llbldateservices.Name = "llbldateservices";
+            this.llbldateservices.Size = new System.Drawing.Size(59, 13);
+            this.llbldateservices.TabIndex = 190;
+            this.llbldateservices.Text = "Label Date";
             // 
             // POSSALES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1732, 831);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.llbldateservices);
+            this.Controls.Add(this.lbltransactionservice);
+            this.Controls.Add(this.lbldate);
+            this.Controls.Add(this.lbltransaction);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.cmbservice);
+            this.Controls.Add(this.ChangeitemTxt);
+            this.Controls.Add(this.PaymentitemTxt);
+            this.Controls.Add(this.TotalAmmontItemTxt);
+            this.Controls.Add(this.ClearTableBtn);
+            this.Controls.Add(this.PrintServicesBtn);
+            this.Controls.Add(this.ClearServicesBtn);
+            this.Controls.Add(this.PayservicesBtn);
+            this.Controls.Add(this.addservicesBtn);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.ClearPOSBtn);
+            this.Controls.Add(this.PrintBtn);
+            this.Controls.Add(this.BuyBtn);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.QuantityTxt);
+            this.Controls.Add(this.BarcodeTxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.RefreshBtn);
@@ -998,38 +1002,38 @@
         private System.Windows.Forms.PictureBox RefreshBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox BarcodeTxt;
+        private System.Windows.Forms.TextBox QuantityTxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BuyBtn;
         private BenpillBarcodeDatabaseInventory benpillBarcodeDatabaseInventory1;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button ClearPOSBtn;
+        private System.Windows.Forms.Button PrintBtn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button addservicesBtn;
+        private System.Windows.Forms.Button PayservicesBtn;
+        private System.Windows.Forms.Button ClearServicesBtn;
+        private System.Windows.Forms.Button PrintServicesBtn;
+        private System.Windows.Forms.Button ClearTableBtn;
+        private System.Windows.Forms.TextBox TotalAmmontItemTxt;
+        private System.Windows.Forms.TextBox PaymentitemTxt;
+        private System.Windows.Forms.TextBox ChangeitemTxt;
+        private System.Windows.Forms.ComboBox cmbservice;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lbltransaction;
+        private System.Windows.Forms.Label lbldate;
+        private System.Windows.Forms.Label lbltransactionservice;
+        private System.Windows.Forms.Label llbldateservices;
     }
 }

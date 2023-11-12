@@ -177,27 +177,41 @@ namespace BenpilsBarcodeSystem
                     if (quantityForm.ShowDialog() == DialogResult.OK)
                     {
                         int quantity = quantityForm.Quantity;
+                        int productid;
 
                         // Retrieve data from the clicked row
-                        string barcode = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        string itemName = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                        string motorBrand = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                        string brand = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                        string size = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                        decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[5].Value);
-                        string category = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        string barcode = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        string itemName = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        string motorBrand = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        string brand = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        string size = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                        string category = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
-                        // Calculate the subtotal
-                        decimal subTotal = unitPrice * quantity;
+                        // Convert the value to an integer
+                        if (int.TryParse(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), out productid))
+                        {
+                            // Calculate the subtotal
+                            decimal subTotal = unitPrice * quantity;
 
-                        // Add the data to the database
-                        InsertDataIntoDatabase(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal);
+                            // Add the data to the database
+                            InsertDataIntoDatabase(productid, barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal);
+                        }
+                        else
+                        {
+                            // Handle the case where conversion to int fails
+                            // For example, show an error message or set a default value
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Must input an item first");
                     }
                 }
             }
         }
 
-        private void InsertDataIntoDatabase(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal subTotal)
+        private void InsertDataIntoDatabase(int productid,string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal subTotal)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -270,11 +284,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void CleartableCartBtn_Click(object sender, EventArgs e)
-        {
-            cleartableandreseedCart();
-            UpdateDataCartview();
-        }
+  
         private void UpdateDataCartview()
         {
             string selectQuery = "SELECT * FROM tbl_Cart";
@@ -312,10 +322,7 @@ namespace BenpilsBarcodeSystem
                 SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
                 clearCartTableCommand.ExecuteNonQuery();
 
-                // Reseed the identity column of the cart table
-                string resetCartSeedQuery = "DBCC CHECKIDENT('tbl_Cart', RESEED, 0)";
-                SqlCommand resetCartSeedCommand = new SqlCommand(resetCartSeedQuery, connection);
-                resetCartSeedCommand.ExecuteNonQuery();
+           
             }
         }
         private void CalculateTotalAmountPOS()
@@ -381,6 +388,7 @@ namespace BenpilsBarcodeSystem
                             changepaymentitemTxt.Text = change.ToString();
                             GenerateTransactionNumberPOS();
                             DisplayDatePOS();
+                            clearAlltextbox();
                         }
                     }
                     else
@@ -407,6 +415,12 @@ namespace BenpilsBarcodeSystem
 
             // Handle payment and change calculation
             CalculateChangePOS();
+           
+        }
+        private void ClearCartBtn_Click(object sender, EventArgs e)
+        {
+            cleartableandreseedCart();
+            UpdateDataCartview();
         }
         private void paymentitemTxt_TextChanged(object sender, EventArgs e)
         {
@@ -415,7 +429,9 @@ namespace BenpilsBarcodeSystem
 
         private void PointOfSales_Load(object sender, EventArgs e)
         {
-   
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartFinalReally.tbl_Cart' table. You can move, or remove it, as needed.
+            this.tbl_CartTableAdapter4.Fill(this.benpillMotorcycleCartFinalReally.tbl_Cart);
+
             this.tbl_CartTableAdapter3.Fill(this.benpillMotorcycleCartDatabaseFinalChange.tbl_Cart);
      
             this.tbl_CartTableAdapter2.Fill(this.benpillMotorcycleCartDatabaseFinalFinal.tbl_Cart);
@@ -445,15 +461,15 @@ namespace BenpilsBarcodeSystem
         }
         private void clearAlltextbox()
         {
-         
-            paymentitemTxt.Text ="";
-            changepaymentitemTxt.Text = "";
+            TotalAmountItemTxt.Clear();
+            paymentitemTxt.Text = "";
+            changepaymentitemTxt.Clear();
         }
         private void clearAllTextbox2()
         {
-          
+            TotalAmountServiceTxt.Clear();
             paymentservicestxt.Text = "";
-            changepaymentitemTxt.Text = "";
+            changepaymentservicestxt.Clear();
         }
 
 
@@ -775,7 +791,7 @@ namespace BenpilsBarcodeSystem
 
         }
 
-      
+       
     }
     }
     

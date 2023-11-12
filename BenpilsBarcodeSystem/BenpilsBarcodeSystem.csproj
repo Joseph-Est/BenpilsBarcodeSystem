@@ -214,6 +214,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleCartFinalReally.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -541,6 +546,17 @@
     </None>
     <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xss">
       <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleCartFinalReally.xsc">
+      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleCartFinalReally.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleCartFinalReally.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleCartFinalReally.xss">
+      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleDatabaseDataSet.xsc">
       <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>

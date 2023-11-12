@@ -389,6 +389,12 @@
     <Compile Include="PointOfSales.Designer.cs">
       <DependentUpon>PointOfSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="POSSALES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSSALES.Designer.cs">
+      <DependentUpon>POSSALES.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PointOfSales.resx">
       <DependentUpon>PointOfSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSSALES.resx">
+      <DependentUpon>POSSALES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print Invoice.resx">
       <DependentUpon>Print Invoice.cs</DependentUpon>

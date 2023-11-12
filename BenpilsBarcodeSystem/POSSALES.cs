@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class Dashboard : Form
+    public partial class POSSALES : Form
     {
         private User user;
-        public Dashboard(User user)
+        public POSSALES(User user)
         {
             InitializeComponent();
             Timer timer = new Timer();
-            timer.Interval = 1000; 
+            timer.Interval = 1000;
             timer.Tick += timer1_Tick;
             timer.Start();
             this.user = user;
@@ -32,51 +31,42 @@ namespace BenpilsBarcodeSystem
             }
             else if (user.Designation == "Inventory Manager")
             {
-                PointOfSalesBtn.Enabled = false;
-                ReportsBtn.Enabled = false;
-                StatisticsBtn.Enabled = false;
-                ServicesBtn.Enabled = false;
-                UsercredentialsBtn.Enabled = false;
-                SettingsBtn.Enabled = false;
+               
             }
             else if (user.Designation == "Cashier")
             {
-                InventoryBtn.Enabled = false;
-                PurchasingBtn.Enabled = false;
-                ReportsBtn.Enabled = false;
-                StatisticsBtn.Enabled = false;
-                UsercredentialsBtn.Enabled = false;
-                SettingsBtn.Enabled = false;
+             
             }
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
+            label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
-        //To point of sales
-        private void button3_Click(object sender, EventArgs e)
-        {
-            POSSALES pos =  new POSSALES(user);
-            pos.Show();
-            pos.StartPosition = FormStartPosition.Manual;
-            pos.Location = this.Location;
-            this.Hide();
-        }
-        //close button
+        //Close Button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            ConfirmationExit ce = new ConfirmationExit();
-            ce.StartPosition = FormStartPosition.CenterScreen;
-            ce.ShowDialog();
+            ConfirmationExit confirmationExit = new ConfirmationExit();
+            confirmationExit.StartPosition = FormStartPosition.CenterParent;
+            confirmationExit.ShowDialog();
         }
-        //minimize button
-        private void pictureBox3_Click(object sender, EventArgs e)
+
+        private void MinimizedBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        //inventory button
-        private void button2_Click(object sender, EventArgs e)
+
+        private void DashboardBtn_Click(object sender, EventArgs e)
+        {
+            Dashboard dash = new Dashboard(user);
+            dash.Show();
+            dash.StartPosition = FormStartPosition.Manual;
+            dash.Location = this.Location;
+            this.Hide();
+        }
+
+        private void InventoryBtn_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory(user);
             inv.Show();
@@ -84,8 +74,8 @@ namespace BenpilsBarcodeSystem
             inv.Location = this.Location;
             this.Hide();
         }
-        //purchasing button
-        private void button5_Click(object sender, EventArgs e)
+
+        private void PurchasingBTn_Click(object sender, EventArgs e)
         {
             Purchaserr purchasing = new Purchaserr(user);
             purchasing.Show();
@@ -93,8 +83,17 @@ namespace BenpilsBarcodeSystem
             purchasing.Location = this.Location;
             this.Hide();
         }
-        //reports button
-        private void button6_Click(object sender, EventArgs e)
+
+        private void ServicesBtn_Click(object sender, EventArgs e)
+        {
+            Services service = new Services(user);
+            service.Show();
+            service.StartPosition = FormStartPosition.Manual;
+            service.Location = this.Location;
+            this.Hide();
+        }
+
+        private void ReportsBtn_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports(user);
             reports.Show();
@@ -102,8 +101,8 @@ namespace BenpilsBarcodeSystem
             reports.Location = this.Location;
             this.Hide();
         }
-        //Statistic reports button
-        private void button7_Click(object sender, EventArgs e)
+
+        private void StatisticsBtn_Click(object sender, EventArgs e)
         {
             StatisticReport statisticReport = new StatisticReport(user);
             statisticReport.Show();
@@ -111,8 +110,8 @@ namespace BenpilsBarcodeSystem
             statisticReport.Location = this.Location;
             this.Hide();
         }
-        //Usercredentials button
-        private void button8_Click(object sender, EventArgs e)
+
+        private void UsercredentialsBtn_Click(object sender, EventArgs e)
         {
             Ser credentials = new Ser(user);
             credentials.Show();
@@ -120,8 +119,8 @@ namespace BenpilsBarcodeSystem
             credentials.Location = this.Location;
             this.Hide();
         }
-        //Settings Button
-        private void button9_Click(object sender, EventArgs e)
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings(user);
             settings.Show();
@@ -129,6 +128,7 @@ namespace BenpilsBarcodeSystem
             settings.Location = this.Location;
             this.Hide();
         }
+
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -142,33 +142,6 @@ namespace BenpilsBarcodeSystem
             {
                 this.Show();
             }
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            ConfirmationExit cl = new ConfirmationExit();
-            cl.StartPosition = FormStartPosition.CenterScreen;
-            cl.ShowDialog();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
-            label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ServicesBtn_Click(object sender, EventArgs e)
-        {
-            Services service = new Services(user);
-            service.Show();
-            service.StartPosition = FormStartPosition.Manual;
-            service.Location = this.Location;
-            this.Hide();
         }
     }
 }

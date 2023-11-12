@@ -198,9 +198,9 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(182, 796);
+            this.panel5.Location = new System.Drawing.Point(182, 790);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1273, 35);
+            this.panel5.Size = new System.Drawing.Size(1335, 35);
             this.panel5.TabIndex = 21;
             // 
             // label4
@@ -210,7 +210,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1127, 8);
+            this.label4.Location = new System.Drawing.Point(1189, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 3;
@@ -388,7 +388,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1413, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(1475, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 32);
             this.pictureBox2.TabIndex = 22;
@@ -433,7 +433,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 796);
+            this.panel2.Size = new System.Drawing.Size(182, 790);
             this.panel2.TabIndex = 20;
             // 
             // panel4
@@ -514,7 +514,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1455, 35);
+            this.panel1.Size = new System.Drawing.Size(1517, 35);
             this.panel1.TabIndex = 19;
             // 
             // label6
@@ -535,7 +535,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(513, 3);
+            this.label5.Location = new System.Drawing.Point(544, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(441, 20);
             this.label5.TabIndex = 10;
@@ -545,7 +545,7 @@
             // 
             this.MinimizedBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MinimizedBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizedBtn.Image")));
-            this.MinimizedBtn.Location = new System.Drawing.Point(1369, 3);
+            this.MinimizedBtn.Location = new System.Drawing.Point(1431, 3);
             this.MinimizedBtn.Name = "MinimizedBtn";
             this.MinimizedBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizedBtn.TabIndex = 8;
@@ -566,7 +566,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(182, 35);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1273, 36);
+            this.panel3.Size = new System.Drawing.Size(1335, 36);
             this.panel3.TabIndex = 22;
             // 
             // label3
@@ -576,7 +576,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1127, 6);
+            this.label3.Location = new System.Drawing.Point(1189, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
@@ -589,7 +589,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(550, 6);
+            this.label2.Location = new System.Drawing.Point(581, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 1;
@@ -963,7 +963,7 @@
             this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RefreshBtn.BackColor = System.Drawing.Color.White;
             this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
-            this.RefreshBtn.Location = new System.Drawing.Point(1689, 76);
+            this.RefreshBtn.Location = new System.Drawing.Point(1751, 76);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(38, 39);
@@ -1179,12 +1179,13 @@
             // 
             // ClearTableBtn
             // 
-            this.ClearTableBtn.Location = new System.Drawing.Point(1489, 744);
+            this.ClearTableBtn.Location = new System.Drawing.Point(1397, 699);
             this.ClearTableBtn.Name = "ClearTableBtn";
             this.ClearTableBtn.Size = new System.Drawing.Size(86, 39);
             this.ClearTableBtn.TabIndex = 179;
             this.ClearTableBtn.Text = "Clear Table";
             this.ClearTableBtn.UseVisualStyleBackColor = true;
+            this.ClearTableBtn.Click += new System.EventHandler(this.ClearTableBtn_Click);
             // 
             // TotalAmmontItemTxt
             // 
@@ -1445,7 +1446,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 831);
+            this.ClientSize = new System.Drawing.Size(1517, 825);
             this.Controls.Add(this.ClearCartBtn);
             this.Controls.Add(this.llbldateservices);
             this.Controls.Add(this.lbltransactionservice);

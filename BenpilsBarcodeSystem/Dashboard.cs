@@ -54,15 +54,7 @@ namespace BenpilsBarcodeSystem
         {
 
         }
-        //To point of sales
-        private void button3_Click(object sender, EventArgs e)
-        {
-            POSSALES pos =  new POSSALES(user);
-            pos.Show();
-            pos.StartPosition = FormStartPosition.Manual;
-            pos.Location = this.Location;
-            this.Hide();
-        }
+
         //close button
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -168,6 +160,20 @@ namespace BenpilsBarcodeSystem
             service.Show();
             service.StartPosition = FormStartPosition.Manual;
             service.Location = this.Location;
+            this.Hide();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PointOfSalesBtn_Click(object sender, EventArgs e)
+        {
+            POSSALES pos = new POSSALES(user);
+            pos.Show();
+            pos.StartPosition = FormStartPosition.CenterScreen;
+            pos.Location = this.Location;
             this.Hide();
         }
     }

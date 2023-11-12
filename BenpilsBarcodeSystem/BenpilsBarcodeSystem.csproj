@@ -383,12 +383,6 @@
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
-    <Compile Include="PointOfSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PointOfSales.Designer.cs">
-      <DependentUpon>PointOfSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="POSSALES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,9 +467,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PointOfSales.resx">
-      <DependentUpon>PointOfSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POSSALES.resx">
       <DependentUpon>POSSALES.cs</DependentUpon>

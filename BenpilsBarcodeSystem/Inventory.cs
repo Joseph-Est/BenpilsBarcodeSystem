@@ -477,5 +477,9 @@ namespace BenpilsBarcodeSystem
             comboBox2.Items.AddRange(new string[] { "Lost Item", "Broken Item", "Wrong Item" });
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

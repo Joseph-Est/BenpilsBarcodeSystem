@@ -73,6 +73,16 @@
             this.RandomGenerateProductidBtn = new System.Windows.Forms.Button();
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleItemmasterDataMain = new BenpilsBarcodeSystem.BenpillMotorcycleItemmasterDataMain();
             this.ClearBtn = new System.Windows.Forms.Button();
@@ -120,6 +130,16 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleStockManagementDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleStockManagementDatabase();
             this.tblitemmasterdataBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -131,31 +151,21 @@
             this.tbl_itemmasterdataTableAdapter = new BenpilsBarcodeSystem.BenpillMotorcycleMasterDataTableAdapters.tbl_itemmasterdataTableAdapter();
             this.tbl_itemmasterdataTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleItemmasterDataMainTableAdapters.tbl_itemmasterdataTableAdapter();
             this.tbl_itemmasterdataTableAdapter2 = new BenpilsBarcodeSystem.BenpillMotorcycleStockManagementDatabaseTableAdapters.tbl_itemmasterdataTableAdapter();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motorBrandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motorBrandDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -214,7 +224,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(51, 389);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(45, 38);
             this.pictureBox5.TabIndex = 21;
@@ -225,7 +235,7 @@
             this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(51, 305);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(45, 38);
             this.pictureBox10.TabIndex = 26;
@@ -236,7 +246,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(51, 816);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(45, 38);
             this.pictureBox7.TabIndex = 23;
@@ -247,7 +257,7 @@
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(51, 729);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(45, 38);
             this.pictureBox6.TabIndex = 22;
@@ -258,7 +268,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1892, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 39);
             this.pictureBox2.TabIndex = 7;
@@ -270,7 +280,7 @@
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(51, 218);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(45, 38);
             this.pictureBox11.TabIndex = 27;
@@ -281,7 +291,7 @@
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(35, 378);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(204, 64);
             this.button5.TabIndex = 16;
@@ -295,7 +305,7 @@
             this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(51, 649);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(45, 38);
             this.pictureBox9.TabIndex = 25;
@@ -322,7 +332,7 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(243, 43);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1697, 44);
             this.panel3.TabIndex = 16;
@@ -360,7 +370,7 @@
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Location = new System.Drawing.Point(35, 804);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button9.Margin = new System.Windows.Forms.Padding(4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(204, 64);
             this.button9.TabIndex = 20;
@@ -374,7 +384,7 @@
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(35, 716);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(204, 64);
             this.button8.TabIndex = 19;
@@ -388,20 +398,21 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(35, 292);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(204, 64);
             this.button2.TabIndex = 14;
             this.button2.Text = "Inventory";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(51, 137);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(45, 38);
             this.pictureBox4.TabIndex = 10;
@@ -424,7 +435,7 @@
             this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(51, 566);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(45, 38);
             this.pictureBox8.TabIndex = 24;
@@ -448,7 +459,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel4.Location = new System.Drawing.Point(312, 756);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1097, 44);
             this.panel4.TabIndex = 8;
@@ -458,7 +469,7 @@
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(35, 635);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(204, 64);
             this.button7.TabIndex = 18;
@@ -472,7 +483,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(35, 124);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(204, 64);
             this.button1.TabIndex = 9;
@@ -485,7 +496,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(16, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 86);
             this.pictureBox1.TabIndex = 8;
@@ -496,7 +507,7 @@
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(35, 207);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(204, 64);
             this.button3.TabIndex = 13;
@@ -510,7 +521,7 @@
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(35, 553);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(204, 64);
             this.button6.TabIndex = 17;
@@ -525,7 +536,7 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(243, 965);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1697, 43);
             this.panel5.TabIndex = 18;
@@ -557,7 +568,7 @@
             this.panel2.Controls.Add(this.button6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 43);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 965);
             this.panel2.TabIndex = 17;
@@ -567,7 +578,7 @@
             this.pictureBox14.BackColor = System.Drawing.Color.White;
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
             this.pictureBox14.Location = new System.Drawing.Point(51, 480);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(45, 38);
             this.pictureBox14.TabIndex = 35;
@@ -578,7 +589,7 @@
             this.ServicesBtn.BackColor = System.Drawing.Color.White;
             this.ServicesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServicesBtn.Location = new System.Drawing.Point(35, 465);
-            this.ServicesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ServicesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ServicesBtn.Name = "ServicesBtn";
             this.ServicesBtn.Size = new System.Drawing.Size(204, 64);
             this.ServicesBtn.TabIndex = 34;
@@ -592,7 +603,7 @@
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(51, 892);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(45, 38);
             this.pictureBox12.TabIndex = 31;
@@ -603,7 +614,7 @@
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutBtn.Location = new System.Drawing.Point(35, 878);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(204, 64);
             this.LogoutBtn.TabIndex = 30;
@@ -621,7 +632,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1940, 43);
             this.panel1.TabIndex = 15;
@@ -649,7 +660,7 @@
             // 
             this.panel6.Controls.Add(this.tabControl1);
             this.panel6.Location = new System.Drawing.Point(251, 95);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1804, 844);
             this.panel6.TabIndex = 19;
@@ -660,7 +671,7 @@
             this.tabControl1.Controls.Add(this.tabItemmasterdata);
             this.tabControl1.Controls.Add(this.tabStockmanagement);
             this.tabControl1.Location = new System.Drawing.Point(4, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1796, 844);
@@ -700,9 +711,9 @@
             this.tabItemmasterdata.Controls.Add(this.TxtSearchBar);
             this.tabItemmasterdata.Controls.Add(this.label14);
             this.tabItemmasterdata.Location = new System.Drawing.Point(4, 25);
-            this.tabItemmasterdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabItemmasterdata.Margin = new System.Windows.Forms.Padding(4);
             this.tabItemmasterdata.Name = "tabItemmasterdata";
-            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabItemmasterdata.Padding = new System.Windows.Forms.Padding(4);
             this.tabItemmasterdata.Size = new System.Drawing.Size(1788, 815);
             this.tabItemmasterdata.TabIndex = 0;
             this.tabItemmasterdata.Text = "Item Master Data";
@@ -712,7 +723,7 @@
             // SizeTxt
             // 
             this.SizeTxt.Location = new System.Drawing.Point(1409, 474);
-            this.SizeTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SizeTxt.Margin = new System.Windows.Forms.Padding(4);
             this.SizeTxt.Name = "SizeTxt";
             this.SizeTxt.Size = new System.Drawing.Size(261, 22);
             this.SizeTxt.TabIndex = 153;
@@ -732,7 +743,7 @@
             // RandomGenerateProductidBtn
             // 
             this.RandomGenerateProductidBtn.Location = new System.Drawing.Point(1677, 135);
-            this.RandomGenerateProductidBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RandomGenerateProductidBtn.Margin = new System.Windows.Forms.Padding(4);
             this.RandomGenerateProductidBtn.Name = "RandomGenerateProductidBtn";
             this.RandomGenerateProductidBtn.Size = new System.Drawing.Size(100, 28);
             this.RandomGenerateProductidBtn.TabIndex = 151;
@@ -744,7 +755,7 @@
             // BarcodeGeneratorBtn
             // 
             this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(1459, 719);
-            this.BarcodeGeneratorBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BarcodeGeneratorBtn.Margin = new System.Windows.Forms.Padding(4);
             this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
             this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(155, 78);
             this.BarcodeGeneratorBtn.TabIndex = 150;
@@ -768,10 +779,20 @@
             this.UnitPrice,
             this.Quantity,
             this.Category,
-            this.Size});
+            this.Size,
+            this.iDDataGridViewTextBoxColumn1,
+            this.barcodeDataGridViewTextBoxColumn1,
+            this.productIDDataGridViewTextBoxColumn1,
+            this.itemNameDataGridViewTextBoxColumn1,
+            this.motorBrandDataGridViewTextBoxColumn1,
+            this.brandDataGridViewTextBoxColumn1,
+            this.unitPriceDataGridViewTextBoxColumn1,
+            this.quantityDataGridViewTextBoxColumn1,
+            this.categoryDataGridViewTextBoxColumn1,
+            this.sizeDataGridViewTextBoxColumn1});
             this.dataGridItemMasterdata.DataSource = this.tblitemmasterdataBindingSource4;
             this.dataGridItemMasterdata.Location = new System.Drawing.Point(33, 80);
-            this.dataGridItemMasterdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridItemMasterdata.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
             this.dataGridItemMasterdata.Size = new System.Drawing.Size(1219, 695);
@@ -779,6 +800,86 @@
             this.dataGridItemMasterdata.UseWaitCursor = true;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
             this.dataGridItemMasterdata.SelectionChanged += new System.EventHandler(this.dataGridItemMasterdata_SelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            // 
+            // Barcode
+            // 
+            this.Barcode.DataPropertyName = "Barcode";
+            this.Barcode.HeaderText = "Barcode";
+            this.Barcode.MinimumWidth = 6;
+            this.Barcode.Name = "Barcode";
+            this.Barcode.ReadOnly = true;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.MinimumWidth = 6;
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // MotorBrand
+            // 
+            this.MotorBrand.DataPropertyName = "MotorBrand";
+            this.MotorBrand.HeaderText = "MotorBrand";
+            this.MotorBrand.MinimumWidth = 6;
+            this.MotorBrand.Name = "MotorBrand";
+            this.MotorBrand.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            this.Brand.HeaderText = "Brand";
+            this.Brand.MinimumWidth = 6;
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "UnitPrice";
+            this.UnitPrice.MinimumWidth = 6;
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Size
+            // 
+            this.Size.DataPropertyName = "Size";
+            this.Size.HeaderText = "Size";
+            this.Size.MinimumWidth = 6;
+            this.Size.Name = "Size";
+            this.Size.ReadOnly = true;
             // 
             // tblitemmasterdataBindingSource4
             // 
@@ -807,7 +908,7 @@
             // UnitPriceTxt
             // 
             this.UnitPriceTxt.Location = new System.Drawing.Point(1409, 422);
-            this.UnitPriceTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UnitPriceTxt.Margin = new System.Windows.Forms.Padding(4);
             this.UnitPriceTxt.Name = "UnitPriceTxt";
             this.UnitPriceTxt.Size = new System.Drawing.Size(261, 22);
             this.UnitPriceTxt.TabIndex = 147;
@@ -869,7 +970,7 @@
             // CategoryTxt
             // 
             this.CategoryTxt.Location = new System.Drawing.Point(1409, 378);
-            this.CategoryTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CategoryTxt.Margin = new System.Windows.Forms.Padding(4);
             this.CategoryTxt.Name = "CategoryTxt";
             this.CategoryTxt.Size = new System.Drawing.Size(261, 22);
             this.CategoryTxt.TabIndex = 137;
@@ -878,7 +979,7 @@
             // QuantityTxt
             // 
             this.QuantityTxt.Location = new System.Drawing.Point(1409, 324);
-            this.QuantityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QuantityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.QuantityTxt.Name = "QuantityTxt";
             this.QuantityTxt.Size = new System.Drawing.Size(261, 22);
             this.QuantityTxt.TabIndex = 136;
@@ -888,7 +989,7 @@
             // BrandTxt
             // 
             this.BrandTxt.Location = new System.Drawing.Point(1409, 276);
-            this.BrandTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BrandTxt.Margin = new System.Windows.Forms.Padding(4);
             this.BrandTxt.Name = "BrandTxt";
             this.BrandTxt.Size = new System.Drawing.Size(261, 22);
             this.BrandTxt.TabIndex = 135;
@@ -897,7 +998,7 @@
             // MotorBrandTxt
             // 
             this.MotorBrandTxt.Location = new System.Drawing.Point(1409, 225);
-            this.MotorBrandTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MotorBrandTxt.Margin = new System.Windows.Forms.Padding(4);
             this.MotorBrandTxt.Name = "MotorBrandTxt";
             this.MotorBrandTxt.Size = new System.Drawing.Size(261, 22);
             this.MotorBrandTxt.TabIndex = 134;
@@ -906,7 +1007,7 @@
             // ItemNameTxt
             // 
             this.ItemNameTxt.Location = new System.Drawing.Point(1409, 180);
-            this.ItemNameTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ItemNameTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ItemNameTxt.Name = "ItemNameTxt";
             this.ItemNameTxt.Size = new System.Drawing.Size(261, 22);
             this.ItemNameTxt.TabIndex = 133;
@@ -915,7 +1016,7 @@
             // ProductIDTxt
             // 
             this.ProductIDTxt.Location = new System.Drawing.Point(1409, 135);
-            this.ProductIDTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ProductIDTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ProductIDTxt.Name = "ProductIDTxt";
             this.ProductIDTxt.ReadOnly = true;
             this.ProductIDTxt.Size = new System.Drawing.Size(261, 22);
@@ -926,7 +1027,7 @@
             // BarcodeTxt
             // 
             this.BarcodeTxt.Location = new System.Drawing.Point(1409, 90);
-            this.BarcodeTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BarcodeTxt.Margin = new System.Windows.Forms.Padding(4);
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(261, 22);
             this.BarcodeTxt.TabIndex = 131;
@@ -1025,7 +1126,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1105, 22);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 122;
@@ -1036,7 +1137,7 @@
             this.pictureBox13.BackColor = System.Drawing.Color.White;
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.Location = new System.Drawing.Point(1728, 4);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(53, 48);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1078,7 +1179,7 @@
             this.tabStockmanagement.Controls.Add(this.numericUpDown1);
             this.tabStockmanagement.Controls.Add(this.dataGridView1);
             this.tabStockmanagement.Location = new System.Drawing.Point(4, 25);
-            this.tabStockmanagement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStockmanagement.Margin = new System.Windows.Forms.Padding(4);
             this.tabStockmanagement.Name = "tabStockmanagement";
             this.tabStockmanagement.Size = new System.Drawing.Size(1788, 815);
             this.tabStockmanagement.TabIndex = 2;
@@ -1114,7 +1215,7 @@
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(879, 28);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(160, 24);
             this.comboBox3.TabIndex = 124;
@@ -1144,7 +1245,7 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(421, 709);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(183, 24);
             this.comboBox2.TabIndex = 4;
@@ -1175,7 +1276,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(115, 710);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.ReadOnly = true;
             this.numericUpDown1.Size = new System.Drawing.Size(184, 22);
@@ -1208,7 +1309,7 @@
             this.sizeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblitemmasterdataBindingSource5;
             this.dataGridView1.Location = new System.Drawing.Point(16, 76);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1024, 593);
@@ -1296,58 +1397,6 @@
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 125;
             // 
-            // tblitemmasterdataBindingSource5
-            // 
-            this.tblitemmasterdataBindingSource5.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource5.DataSource = this.benpillMotorcycleStockManagementDatabase;
-            // 
-            // benpillMotorcycleStockManagementDatabase
-            // 
-            this.benpillMotorcycleStockManagementDatabase.DataSetName = "BenpillMotorcycleStockManagementDatabase";
-            this.benpillMotorcycleStockManagementDatabase.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblitemmasterdataBindingSource3
-            // 
-            this.tblitemmasterdataBindingSource3.DataMember = "tbl_itemmasterdata";
-            this.tblitemmasterdataBindingSource3.DataSource = this.benpillMotorcycleMasterData;
-            // 
-            // benpillMotorcycleMasterData
-            // 
-            this.benpillMotorcycleMasterData.DataSetName = "BenpillMotorcycleMasterData";
-            this.benpillMotorcycleMasterData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblinventoryBindingSource
-            // 
-            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
-            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
-            // 
-            // benpillBarcodeDatabaseInventory
-            // 
-            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
-            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbl_inventoryTableAdapter
-            // 
-            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager1
-            // 
-            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
-            this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // tbl_itemmasterdataTableAdapter
-            // 
-            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbl_itemmasterdataTableAdapter1
-            // 
-            this.tbl_itemmasterdataTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tbl_itemmasterdataTableAdapter2
-            // 
-            this.tbl_itemmasterdataTableAdapter2.ClearBeforeFill = true;
-            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -1429,6 +1478,58 @@
             this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
             this.sizeDataGridViewTextBoxColumn.Width = 125;
             // 
+            // tblitemmasterdataBindingSource5
+            // 
+            this.tblitemmasterdataBindingSource5.DataMember = "tbl_itemmasterdata";
+            this.tblitemmasterdataBindingSource5.DataSource = this.benpillMotorcycleStockManagementDatabase;
+            // 
+            // benpillMotorcycleStockManagementDatabase
+            // 
+            this.benpillMotorcycleStockManagementDatabase.DataSetName = "BenpillMotorcycleStockManagementDatabase";
+            this.benpillMotorcycleStockManagementDatabase.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblitemmasterdataBindingSource3
+            // 
+            this.tblitemmasterdataBindingSource3.DataMember = "tbl_itemmasterdata";
+            this.tblitemmasterdataBindingSource3.DataSource = this.benpillMotorcycleMasterData;
+            // 
+            // benpillMotorcycleMasterData
+            // 
+            this.benpillMotorcycleMasterData.DataSetName = "BenpillMotorcycleMasterData";
+            this.benpillMotorcycleMasterData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblinventoryBindingSource
+            // 
+            this.tblinventoryBindingSource.DataMember = "tbl_inventory";
+            this.tblinventoryBindingSource.DataSource = this.benpillBarcodeDatabaseInventory;
+            // 
+            // benpillBarcodeDatabaseInventory
+            // 
+            this.benpillBarcodeDatabaseInventory.DataSetName = "BenpillBarcodeDatabaseInventory";
+            this.benpillBarcodeDatabaseInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbl_inventoryTableAdapter
+            // 
+            this.tbl_inventoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.tbl_inventoryTableAdapter = this.tbl_inventoryTableAdapter;
+            this.tableAdapterManager1.UpdateOrder = BenpilsBarcodeSystem.BenpillBarcodeDatabaseInventoryTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tbl_itemmasterdataTableAdapter
+            // 
+            this.tbl_itemmasterdataTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_itemmasterdataTableAdapter1
+            // 
+            this.tbl_itemmasterdataTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tbl_itemmasterdataTableAdapter2
+            // 
+            this.tbl_itemmasterdataTableAdapter2.ClearBeforeFill = true;
+            // 
             // tblitemmasterdataBindingSource2
             // 
             this.tblitemmasterdataBindingSource2.DataMember = "tbl_itemmasterdata";
@@ -1449,85 +1550,76 @@
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
             // 
-            // ID
+            // iDDataGridViewTextBoxColumn1
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // ProductID
+            // barcodeDataGridViewTextBoxColumn1
             // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "ProductID";
-            this.ProductID.MinimumWidth = 6;
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
+            this.barcodeDataGridViewTextBoxColumn1.DataPropertyName = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn1.HeaderText = "Barcode";
+            this.barcodeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.barcodeDataGridViewTextBoxColumn1.Name = "barcodeDataGridViewTextBoxColumn1";
             // 
-            // Barcode
+            // productIDDataGridViewTextBoxColumn1
             // 
-            this.Barcode.DataPropertyName = "Barcode";
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.MinimumWidth = 6;
-            this.Barcode.Name = "Barcode";
-            this.Barcode.ReadOnly = true;
+            this.productIDDataGridViewTextBoxColumn1.DataPropertyName = "ProductID";
+            this.productIDDataGridViewTextBoxColumn1.HeaderText = "ProductID";
+            this.productIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.productIDDataGridViewTextBoxColumn1.Name = "productIDDataGridViewTextBoxColumn1";
             // 
-            // ItemName
+            // itemNameDataGridViewTextBoxColumn1
             // 
-            this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.MinimumWidth = 6;
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
+            this.itemNameDataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.itemNameDataGridViewTextBoxColumn1.Name = "itemNameDataGridViewTextBoxColumn1";
             // 
-            // MotorBrand
+            // motorBrandDataGridViewTextBoxColumn1
             // 
-            this.MotorBrand.DataPropertyName = "MotorBrand";
-            this.MotorBrand.HeaderText = "MotorBrand";
-            this.MotorBrand.MinimumWidth = 6;
-            this.MotorBrand.Name = "MotorBrand";
-            this.MotorBrand.ReadOnly = true;
+            this.motorBrandDataGridViewTextBoxColumn1.DataPropertyName = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn1.HeaderText = "MotorBrand";
+            this.motorBrandDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.motorBrandDataGridViewTextBoxColumn1.Name = "motorBrandDataGridViewTextBoxColumn1";
             // 
-            // Brand
+            // brandDataGridViewTextBoxColumn1
             // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Brand";
-            this.Brand.MinimumWidth = 6;
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
+            this.brandDataGridViewTextBoxColumn1.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn1.HeaderText = "Brand";
+            this.brandDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.brandDataGridViewTextBoxColumn1.Name = "brandDataGridViewTextBoxColumn1";
             // 
-            // UnitPrice
+            // unitPriceDataGridViewTextBoxColumn1
             // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "UnitPrice";
-            this.UnitPrice.MinimumWidth = 6;
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
+            this.unitPriceDataGridViewTextBoxColumn1.DataPropertyName = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn1.HeaderText = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.unitPriceDataGridViewTextBoxColumn1.Name = "unitPriceDataGridViewTextBoxColumn1";
             // 
-            // Quantity
+            // quantityDataGridViewTextBoxColumn1
             // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
             // 
-            // Category
+            // categoryDataGridViewTextBoxColumn1
             // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
             // 
-            // Size
+            // sizeDataGridViewTextBoxColumn1
             // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.MinimumWidth = 6;
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
+            this.sizeDataGridViewTextBoxColumn1.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn1.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.sizeDataGridViewTextBoxColumn1.Name = "sizeDataGridViewTextBoxColumn1";
             // 
             // Inventory
             // 
@@ -1540,7 +1632,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inventory";
             this.Text = "Inventory";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1727,5 +1819,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motorBrandDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn1;
     }
 }

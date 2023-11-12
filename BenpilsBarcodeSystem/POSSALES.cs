@@ -338,7 +338,7 @@ namespace BenpilsBarcodeSystem
             if (e.ColumnIndex == dataGridView3.Columns["Remove"].Index && e.RowIndex >= 0)
             {
                 // Get the values from the selected row
-                string transactionNumber = dataGridView3.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+            
                 int serviceID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells["ServiceID"].Value);
                 string serviceName = dataGridView3.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
                 decimal price = Convert.ToDecimal(dataGridView3.Rows[e.RowIndex].Cells["Price"].Value);
@@ -347,24 +347,23 @@ namespace BenpilsBarcodeSystem
                 dataGridView3.Rows.RemoveAt(e.RowIndex);
 
                 // Delete the corresponding row from the database
-                DeleteRowFromDatabase(transactionNumber, serviceID, serviceName, price);
+                DeleteRowFromDatabase( serviceID, serviceName, price);
             }
         }
-        private void DeleteRowFromDatabase(string transactionNumber, int serviceID, string serviceName, decimal price)
+        private void DeleteRowFromDatabase( int serviceID, string serviceName, decimal price)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 string deleteQuery = "DELETE FROM tbl_servicestransactions " +
-                                     "WHERE TransactionNumber = @TransactionNumber " +
-                                     "AND ServiceID = @ServiceID " +
+                                     "WHERE ServiceID = @ServiceID " +
                                      "AND ServiceName = @ServiceName " +
                                      "AND Price = @Price";
 
                 using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+              
                     command.Parameters.AddWithValue("@ServiceID", serviceID);
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@Price", price);

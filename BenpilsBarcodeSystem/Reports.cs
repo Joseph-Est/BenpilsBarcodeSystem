@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace BenpilsBarcodeSystem
     public partial class Reports : Form
     {
         private User user;
+        private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
         public DataGridView DataGridViewServiceReport => dataGridViewServiceReport;
         public Reports(User user)
         {
@@ -174,5 +176,18 @@ namespace BenpilsBarcodeSystem
             service.Location = this.Location;
             this.Hide();
         }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillMotorcycleServiceReportDatabases.tbl_servicesreport' table. You can move, or remove it, as needed.
+            this.tbl_servicesreportTableAdapter.Fill(this.benpillMotorcycleServiceReportDatabases.tbl_servicesreport);
+            // TODO: This line of code loads data into the 'benpillMotorcycleServiceReportDatabaseFinal.tbl_servicereport' table. You can move, or remove it, as needed.
+
+            // TODO: This line of code loads data into the 'benpillMotorcycleServiceReportDatabase.tbl_servicereport' table. You can move, or remove it, as needed.
+
+
+        }
+
+
     }
 }

@@ -25,7 +25,8 @@ namespace BenpilsBarcodeSystem
             InitializeComponent();
             FillComboBox();
             //cmbservice.SelectedIndexChanged += Cmbservice_SelectedIndexChanged;
-            //paymentservicesTxt.TextChanged += Paymentservicestxt_TextChanged
+            PaymentitemTxt.TextChanged += paymentservicesTxt_TextChanged;
+
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -169,8 +170,6 @@ namespace BenpilsBarcodeSystem
             try
             {
                 connection.Open();
-
-                // Your SQL query to retrieve data from tbl_services
                 string query = "SELECT ServiceID, ServiceName, Price FROM tbl_services";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -179,8 +178,6 @@ namespace BenpilsBarcodeSystem
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
-
-                        // Set the DisplayMember and ValueMember properties
                         cmbservice.DisplayMember = "ServiceName";
                         cmbservice.ValueMember = "ServiceID";
                         cmbservice.DataSource = dataTable;
@@ -229,11 +226,8 @@ namespace BenpilsBarcodeSystem
         {
             try
             {
-                // Step 1: Calculate Total Amount
                 decimal totalAmount = CalculateTotalAmountService();
-
-                // Step 2: Display Total Amount
-                TotalAmuntServiceTxt.Text = totalAmount.ToString();
+                LblTotalAmount.Text = totalAmount.ToString();
             }
             catch (Exception ex)
             {
@@ -271,7 +265,7 @@ namespace BenpilsBarcodeSystem
                 connection.Open();
                 string clearTableQuery = "DELETE FROM tbl_servicestransactions";
                 SqlCommand clearTableCommand = new SqlCommand(clearTableQuery, connection);
-                clearTableCommand.ExecuteNonQuery();   
+                clearTableCommand.ExecuteNonQuery();
             }
         }
         private void UpdateDisplayServicesTransactions()
@@ -290,34 +284,22 @@ namespace BenpilsBarcodeSystem
 
         private void addservicesBtn_Click(object sender, EventArgs e)
         {
-            // Get the selected ServiceID from the ComboBox
             int selectedServiceID = (int)cmbservice.SelectedValue;
-
-            // Your SQL queries to insert into tbl_servicestransactions
             string queryInsertTransaction = "INSERT INTO tbl_servicestransactions (ServiceID, ServiceName, Price) VALUES (@ServiceID, @ServiceName, @Price)";
 
             try
             {
                 connection.Open();
-
-                // Get the Price from the selected service in the ComboBox
                 decimal selectedServicePrice = GetSelectedServicePrice(selectedServiceID);
 
                 using (SqlCommand commandTransaction = new SqlCommand(queryInsertTransaction, connection))
                 {
-                    // Add parameters to the command
                     commandTransaction.Parameters.AddWithValue("@ServiceID", selectedServiceID);
-                    commandTransaction.Parameters.AddWithValue("@ServiceName", cmbservice.Text); // Assuming ServiceName is the text part of the combo box
+                    commandTransaction.Parameters.AddWithValue("@ServiceName", cmbservice.Text);
                     commandTransaction.Parameters.AddWithValue("@Price", selectedServicePrice);
-
-                    // Execute the command to insert into tbl_servicestransactions
                     commandTransaction.ExecuteNonQuery();
-
-                    // Display the added data in the DataGridView
                     UpdateDisplayServicesTransactions();
                 }
-
-                // Update total amount when a service is added
                 UpdateTotalAmountServices();
             }
             catch (Exception ex)
@@ -331,22 +313,15 @@ namespace BenpilsBarcodeSystem
         }
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if the button column is clicked
             if (e.ColumnIndex == dataGridView3.Columns["Remove"].Index && e.RowIndex >= 0)
             {
-                // Get the values from the selected row
-
                 int serviceID = Convert.ToInt32(dataGridView3.Rows[e.RowIndex].Cells["ServiceID"].Value);
                 string serviceName = dataGridView3.Rows[e.RowIndex].Cells["ServiceName"].Value.ToString();
                 decimal price = Convert.ToDecimal(dataGridView3.Rows[e.RowIndex].Cells["Price"].Value);
-
-                // Remove the row from the DataGridView
                 dataGridView3.Rows.RemoveAt(e.RowIndex);
-
-                // Delete the corresponding row from the database
                 DeleteRowFromDatabase(serviceID, serviceName, price);
             }
-         
+
         }
         private void DeleteRowFromDatabase(int serviceID, string serviceName, decimal price)
         {
@@ -370,52 +345,24 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
-        private void ClearServicesBtn_Click(object sender, EventArgs e)
-        {
-            clearAllTextbox2();
-        }
-        private void clearAllTextbox2()
-        {
-            TotalAmuntServiceTxt.Clear();
-            paymentservicesTxt.Text = "";
-            changeservicesTxt.Clear();
-        }
+
         private void cmbservice_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateTotalAmountServices();
         }
-
         private void paymentservicesTxt_TextChanged(object sender, EventArgs e)
-        {
-            UpdateTotalAmountServices();
-        }
-
-        private void PayservicesBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                // Step 3: Input Payment Amount
-                decimal paymentAmount = decimal.Parse(paymentservicesTxt.Text);
-
-                // Step 4: Calculate Change
-                if (paymentAmount >= Convert.ToDecimal(TotalAmuntServiceTxt.Text))
+                decimal totalAmount = decimal.Parse(LblTotalAmount.Text);
+                if (decimal.TryParse(paymentservicesTxt.Text, out decimal paymentAmount))
                 {
-                    decimal change = paymentAmount - Convert.ToDecimal(TotalAmuntServiceTxt.Text);
-
-                    // Display Change
-                    changeservicesTxt.Text = change.ToString();
-
-                    // Step 5: Clear Table and Reset Seed
-                    ClearTableAndResetSeedServicesTransactions();
-                    UpdateDisplayServicesTransactions();
-                    clearAllTextbox2();
-
-
-                    MessageBox.Show("Services Payment Succesful");
+                    decimal change = paymentAmount - totalAmount;
+                    lblChange.Text = (change < 0) ? "Insufficient balance" : change.ToString();
                 }
                 else
                 {
-                    MessageBox.Show("Insufficient funds. Please provide a sufficient payment amount.");
+                    lblChange.Text = "Invalid Amount";
                 }
             }
             catch (Exception ex)
@@ -423,44 +370,193 @@ namespace BenpilsBarcodeSystem
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-    
-    //POS
 
 
-    private void ClearPOSBtn_Click(object sender, EventArgs e)
+        private void PayservicesBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Note: You don't need to open the connection here since it's opened in the InsertIntoServicesReports method
+                foreach (DataGridViewRow row in dataGridView3.Rows)
+                {
+                    // Check if the row is not null and contains cells
+                    if (row != null && row.Cells.Count >= 3)
+                    {
+                        int serviceID = Convert.ToInt32(row.Cells[0].Value);
+                        string serviceName = row.Cells[1].Value?.ToString(); // Use ?. to handle null value
+                        decimal price = Convert.ToDecimal(row.Cells[2].Value);
+                        InsertIntoServicesReports(serviceID, serviceName, price);
+                    }
+                }
+
+                ClearTableAndResetSeedServicesTransactions();
+                UpdateDisplayServicesTransactions();
+                clearAllTextbox2();
+                UpdateTotalAmountServices();
+                MessageBox.Show("Payment successful!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void InsertIntoServicesReports(int serviceID, string serviceName, decimal price)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string queryInsertReport = "INSERT INTO tbl_servicesreport (DateAndTime, TransactionNumber, ServiceID, ServiceName, Price) VALUES (@DateAndTime, @TransactionNumber, @ServiceID, @ServiceName, @Price)";
+                    DateTime dateAndTime = DateTime.Now;
+                    string transactionNumber = GenerateTransactionNumber();
+
+                    using (SqlCommand commandReport = new SqlCommand(queryInsertReport, connection))
+                    {
+                        commandReport.Parameters.AddWithValue("@DateAndTime", dateAndTime);
+                        commandReport.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                        commandReport.Parameters.AddWithValue("@ServiceID", serviceID);
+
+                        // Check if serviceName is null and handle accordingly
+                        if (serviceName != null)
+                        {
+                            commandReport.Parameters.AddWithValue("@ServiceName", serviceName);
+                        }
+                        else
+                        {
+                            // If serviceName is null, provide a default value or handle as needed
+                            commandReport.Parameters.AddWithValue("@ServiceName", DBNull.Value);
+                        }
+
+                        commandReport.Parameters.AddWithValue("@Price", price);
+                        commandReport.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            // The 
+        }
+        private string GenerateTransactionNumber()
+        {
+            return "TAN" + new Random().Next(100000, 999999);
+        }
+        private void clearAllTextbox2()
+        {
+            paymentservicesTxt.Text = "";
+        }
+
+
+        private void ShowResultBtn_Click(object sender, EventArgs e)
+        {
+
+            string dateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string transactionNumber = GenerateTransactionNumber();
+
+         
+            llbldateservices.Text = dateAndTime;
+            lbltransactionservice.Text = transactionNumber;
+
+        }
+
+
+
+        //POS
+
+
+        private void ClearPOSBtn_Click(object sender, EventArgs e)
         {
             clearAlltextbox();
         }
 
         private void BuyBtn_Click(object sender, EventArgs e)
         {
-            cleartableCart();
+            // Show a confirmation dialog
+            DialogResult result = MessageBox.Show("Are you sure you want to proceed with the purchase?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Calculate and display the total amount
-            CalculateTotalAmountPOS();
+            if (result == DialogResult.Yes)
+            {
+                // Insert each row from tbl_Cart into tbl_pointofsalesreport
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                  
+                    string barcode = row.Cells["Barcode"].Value.ToString();
+                    string itemName = row.Cells["ItemName"].Value.ToString();
+                    string motorBrand = row.Cells["MotorBrand"].Value.ToString();
+                    string brand = row.Cells["Brand"].Value.ToString();
+                    string size = row.Cells["Size"].Value.ToString();
+                    decimal unitPrice = Convert.ToDecimal(row.Cells["UnitPrice"].Value);
+                    int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                    string category = row.Cells["Category"].Value.ToString();
+                    decimal subTotal = Convert.ToDecimal(row.Cells["SubTotal"].Value);
+                    string transactionNumber = lbltransaction.Text;
 
-            // Handle payment and change calculation
-            CalculateChangePOS();
-            UpdateDataCartview();
+                    // Insert data into tbl_pointofsalesreport
+                    InsertDataIntoPointOfSalesReport(barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal, transactionNumber);
+                }
+
+                // Clear the cart and update the view
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string clearCartTableQuery = "DELETE FROM tbl_Cart";
+                    SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
+                    clearCartTableCommand.ExecuteNonQuery();
+                }
+                UpdateDataCartview();
+            }
         }
+        private void ShowResultPosBTN_Click(object sender, EventArgs e)
+        {
+            // Generate and display a random transaction number
+            GenerateTransactionNumberPOS();
 
+            // Display the current date and time
+            DisplayDatePOS();
+        }
         private void PrintBtn_Click(object sender, EventArgs e)
         {
 
         }
-        private void cleartableCart()
+        private void InsertDataIntoPointOfSalesReport(string barcode, string itemName, string motorBrand, string brand, string size, decimal unitPrice, int quantity, string category, decimal subTotal, string transactionNumber)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
+                try
+                {
+                    connection.Open();
 
-                // Clear the cart table
-                string clearCartTableQuery = "DELETE FROM tbl_Cart";
-                SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
-                clearCartTableCommand.ExecuteNonQuery();
-
-
+                    string insertQuery = "INSERT INTO tbl_pointofsalesreport (DateAndTime, Barcode, MotorBrand, Brand, Size, UnitPrice, Quantity, Category, SubTotal, TransactionNumber) " +
+                                         "VALUES (@DateAndTime, @Barcode, @MotorBrand, @Brand, @Size, @UnitPrice, @Quantity, @Category, @SubTotal, @TransactionNumber)";
+                    DateTime dateAndTime = DateTime.Now;
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@DateAndTime", dateAndTime);
+                        command.Parameters.AddWithValue("@Barcode", barcode);
+                        command.Parameters.AddWithValue("@MotorBrand", motorBrand);
+                        command.Parameters.AddWithValue("@Brand", brand);
+                        command.Parameters.AddWithValue("@Size", size);
+                        command.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                        command.Parameters.AddWithValue("@Quantity", quantity);
+                        command.Parameters.AddWithValue("@Category", category);
+                        command.Parameters.AddWithValue("@SubTotal", subTotal);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
+        }
+        private void cleartableCart()
+        {
+          
         }
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -492,7 +588,7 @@ namespace BenpilsBarcodeSystem
                             // Add the data to the database
                             InsertDataIntoDatabase(productid, barcode, itemName, motorBrand, brand, size, unitPrice, quantity, category, subTotal);
                            
-                            CalculateTotalAmountPOS();
+                           
                         }
                         else
                         {
@@ -558,7 +654,6 @@ namespace BenpilsBarcodeSystem
                             }
                         }
 
-                        // Update quantity in tbl_itemmasterdata
                         string updateQuantityItemMasterDataQuery = "UPDATE tbl_itemmasterdata SET Quantity = Quantity - @Quantity WHERE Barcode = @Barcode";
                         using (SqlCommand updateQuantityItemMasterDataCommand = new SqlCommand(updateQuantityItemMasterDataQuery, connection, transaction))
                         {
@@ -567,7 +662,6 @@ namespace BenpilsBarcodeSystem
                             updateQuantityItemMasterDataCommand.ExecuteNonQuery();
                         }
 
-                        // Commit the transaction
                         transaction.Commit();
                         UpdateDataCartview();
                         UpdateDataItemmasterdataview();
@@ -575,7 +669,6 @@ namespace BenpilsBarcodeSystem
                 }
                 catch (Exception ex)
                 {
-                    // Roll back the transaction in case of an error
                     transaction?.Rollback();
                     MessageBox.Show("Error: " + ex.Message);
                 }
@@ -587,8 +680,6 @@ namespace BenpilsBarcodeSystem
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                // Clear the cart table
                 string clearCartTableQuery = "DELETE FROM tbl_Cart";
                 SqlCommand clearCartTableCommand = new SqlCommand(clearCartTableQuery, connection);
                 clearCartTableCommand.ExecuteNonQuery();
@@ -617,30 +708,23 @@ namespace BenpilsBarcodeSystem
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
+
+                    // Calculate the total amount from SubTotal column
+                    decimal totalAmount = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        totalAmount += Convert.ToDecimal(row["SubTotal"]);
+                    }
+
+                    // Update the label with the calculated total amount
+                    TotalAmountLbl.Text = totalAmount.ToString("0.00");
+
+                    // Bind the DataTable to the DataGridView
                     dataGridView1.DataSource = dt;
                 }
             }
         }
-        private void CalculateTotalAmountPOS()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
 
-                // Retrieve all Subtotal values from tbl_Cart
-                string getTotalAmountQuery = "SELECT SUM(Subtotal) FROM tbl_Cart";
-                using (SqlCommand getTotalAmountCommand = new SqlCommand(getTotalAmountQuery, connection))
-                {
-                    object totalAmountObj = getTotalAmountCommand.ExecuteScalar();
-
-                    if (totalAmountObj != DBNull.Value)
-                    {
-                        decimal totalAmount = Convert.ToDecimal(totalAmountObj);
-                        TotalAmmontItemTxt.Text = totalAmount.ToString(); // Display total amount as currency
-                    }
-                }
-            }
-        }
         private void GenerateTransactionNumberPOS()
         {
             // Generate a random 5-digit transaction number
@@ -654,58 +738,31 @@ namespace BenpilsBarcodeSystem
         {
             lbldate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
         }
-        private void CalculateChangePOS()
-        {
-
-            if (!string.IsNullOrEmpty(PaymentitemTxt.Text))
-            {
-                decimal payment;
-                if (decimal.TryParse(PaymentitemTxt.Text, out payment))
-                {
-
-                    decimal totalAmount;
-                    if (decimal.TryParse(TotalAmmontItemTxt.Text, out totalAmount))
-                    {
-
-                        if (payment < totalAmount)
-                        {
-                            MessageBox.Show("Insufficient funds. Please enter a sufficient payment amount.");
-                        }
-                        else
-                        {
-
-                            decimal change = payment - totalAmount;
-                            ChangeitemTxt.Text = change.ToString();
-                            GenerateTransactionNumberPOS();
-                            DisplayDatePOS();
-                            clearAlltextbox();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid total amount.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid payment amount.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a payment amount.");
-            }
-        }
+    
         private void clearAlltextbox()
         {
-            TotalAmmontItemTxt.Clear();
-            PaymentitemTxt.Text = "";
-            ChangeitemTxt.Clear();
+       
         }
 
         private void TotalAmmontItemTxt_TextChanged(object sender, EventArgs e)
         {
-            CalculateTotalAmountPOS();
+            try
+            {
+                decimal totalAmountItem = decimal.Parse(TotalAmountLbl.Text);
+                if (decimal.TryParse(PaymentitemTxt.Text, out decimal paymentAmount))
+                {
+                    decimal change = paymentAmount - totalAmountItem;
+                    lblChange.Text = (change < 0) ? "Insufficient balance" : change.ToString();
+                }
+                else
+                {
+                    lblChange.Text = "Invalid Amount";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
 
         private void ClearTableBtn_Click(object sender, EventArgs e)
@@ -716,7 +773,14 @@ namespace BenpilsBarcodeSystem
 
         private void ChangeitemTxt_TextChanged(object sender, EventArgs e)
         {
-            CalculateChangePOS();
+           
         }
+
+        private void PaymentitemTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+     
     }
 }

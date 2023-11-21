@@ -723,6 +723,7 @@
             // 
             // PaymentrichTxt
             // 
+            this.PaymentrichTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentrichTxt.Location = new System.Drawing.Point(1069, 349);
             this.PaymentrichTxt.Name = "PaymentrichTxt";
             this.PaymentrichTxt.Size = new System.Drawing.Size(202, 42);
@@ -731,6 +732,7 @@
             // 
             // BarcoderichTxt
             // 
+            this.BarcoderichTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarcoderichTxt.Location = new System.Drawing.Point(305, 98);
             this.BarcoderichTxt.Name = "BarcoderichTxt";
             this.BarcoderichTxt.Size = new System.Drawing.Size(202, 42);
@@ -739,6 +741,7 @@
             // 
             // QuantityRichTxt
             // 
+            this.QuantityRichTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuantityRichTxt.Location = new System.Drawing.Point(691, 98);
             this.QuantityRichTxt.Name = "QuantityRichTxt";
             this.QuantityRichTxt.Size = new System.Drawing.Size(202, 42);

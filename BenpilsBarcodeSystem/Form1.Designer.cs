@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(383, 47);
             this.panel1.TabIndex = 12;
@@ -79,7 +79,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(279, 4);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 39);
             this.pictureBox3.TabIndex = 8;
@@ -90,7 +90,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(337, 5);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 34);
             this.pictureBox2.TabIndex = 7;
@@ -101,7 +101,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(96, 54);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 84);
             this.pictureBox1.TabIndex = 18;
@@ -110,7 +110,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(121, 233);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(161, 22);
             this.textBox2.TabIndex = 16;
@@ -119,7 +119,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(121, 178);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 22);
             this.textBox1.TabIndex = 15;
@@ -129,7 +129,7 @@
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(75, 176);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(39, 38);
             this.pictureBox4.TabIndex = 19;
@@ -140,7 +140,7 @@
             this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(79, 222);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(35, 36);
             this.pictureBox5.TabIndex = 20;
@@ -150,7 +150,7 @@
             // 
             this.Showpassword.AutoSize = true;
             this.Showpassword.Location = new System.Drawing.Point(121, 266);
-            this.Showpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Showpassword.Margin = new System.Windows.Forms.Padding(4);
             this.Showpassword.Name = "Showpassword";
             this.Showpassword.Size = new System.Drawing.Size(122, 20);
             this.Showpassword.TabIndex = 21;
@@ -160,13 +160,13 @@
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(138, 294);
+            this.BtnLogin.Location = new System.Drawing.Point(159, 293);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(75, 23);
             this.BtnLogin.TabIndex = 22;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click_1);
             // 
             // Form1
             // 
@@ -183,7 +183,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);

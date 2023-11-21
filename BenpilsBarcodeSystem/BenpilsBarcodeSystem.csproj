@@ -309,6 +309,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleServiceReportDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BenpillMotorcycleServiceReportDatabases.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleServicesDataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -793,6 +808,39 @@
     </None>
     <None Include="BenpillMotorcyclePurchaseOrderListMain.xss">
       <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabase.xsc">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabase.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleServiceReportDatabase.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabase.xss">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsc">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xss">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabases.xsc">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabases.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleServiceReportDatabases.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleServiceReportDatabases.xss">
+      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleServicesDataBase.xsc">
       <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>

@@ -27,6 +27,8 @@ namespace BenpilsBarcodeSystem
 
         private void POSS_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabase.tbl_cart' table. You can move, or remove it, as needed.
+            this.tbl_cartTableAdapter1.Fill(this.benpillMotorcycleCartDatabase.tbl_cart);
 
         }
 

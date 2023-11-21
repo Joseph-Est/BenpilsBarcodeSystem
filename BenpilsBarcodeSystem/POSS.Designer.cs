@@ -44,8 +44,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -75,7 +73,6 @@
             this.PurchasingBTn = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.SettingsBtn = new System.Windows.Forms.Button();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.UsercredentialsBtn = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.CloseBtn = new System.Windows.Forms.PictureBox();
@@ -92,6 +89,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.MinimizedBtn = new System.Windows.Forms.PictureBox();
+            this.PaymentrichTxt = new System.Windows.Forms.RichTextBox();
+            this.BarcoderichTxt = new System.Windows.Forms.RichTextBox();
+            this.QuantityRichTxt = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServiceTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
@@ -231,24 +231,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
             this.dateTimePicker1.TabIndex = 192;
-            // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(1069, 343);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(202, 40);
-            this.listView2.TabIndex = 191;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(305, 92);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(202, 38);
-            this.listView1.TabIndex = 190;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label12
             // 
@@ -534,15 +516,6 @@
             this.SettingsBtn.UseVisualStyleBackColor = false;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(691, 96);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(202, 38);
-            this.listView3.TabIndex = 197;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
             // UsercredentialsBtn
             // 
             this.UsercredentialsBtn.BackColor = System.Drawing.Color.White;
@@ -748,19 +721,44 @@
             this.MinimizedBtn.TabStop = false;
             this.MinimizedBtn.Click += new System.EventHandler(this.MinimizedBtn_Click);
             // 
+            // PaymentrichTxt
+            // 
+            this.PaymentrichTxt.Location = new System.Drawing.Point(1069, 349);
+            this.PaymentrichTxt.Name = "PaymentrichTxt";
+            this.PaymentrichTxt.Size = new System.Drawing.Size(202, 42);
+            this.PaymentrichTxt.TabIndex = 199;
+            this.PaymentrichTxt.Text = "";
+            // 
+            // BarcoderichTxt
+            // 
+            this.BarcoderichTxt.Location = new System.Drawing.Point(305, 98);
+            this.BarcoderichTxt.Name = "BarcoderichTxt";
+            this.BarcoderichTxt.Size = new System.Drawing.Size(202, 42);
+            this.BarcoderichTxt.TabIndex = 200;
+            this.BarcoderichTxt.Text = "";
+            // 
+            // QuantityRichTxt
+            // 
+            this.QuantityRichTxt.Location = new System.Drawing.Point(691, 98);
+            this.QuantityRichTxt.Name = "QuantityRichTxt";
+            this.QuantityRichTxt.Size = new System.Drawing.Size(202, 42);
+            this.QuantityRichTxt.TabIndex = 201;
+            this.QuantityRichTxt.Text = "";
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1509, 838);
+            this.Controls.Add(this.QuantityRichTxt);
+            this.Controls.Add(this.BarcoderichTxt);
+            this.Controls.Add(this.PaymentrichTxt);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -771,7 +769,6 @@
             this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.listView3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -829,8 +826,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -860,7 +855,6 @@
         private System.Windows.Forms.Button PurchasingBTn;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Button SettingsBtn;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Button UsercredentialsBtn;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox CloseBtn;
@@ -877,5 +871,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox MinimizedBtn;
+        private System.Windows.Forms.RichTextBox PaymentrichTxt;
+        private System.Windows.Forms.RichTextBox BarcoderichTxt;
+        private System.Windows.Forms.RichTextBox QuantityRichTxt;
     }
 }

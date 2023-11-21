@@ -329,6 +329,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleServices.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleServicesDataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -839,6 +844,17 @@
     </None>
     <None Include="BenpillMotorcycleServiceReportDatabases.xss">
       <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServices.xsc">
+      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleServices.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleServices.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleServices.xss">
+      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleServicesDataBase.xsc">
       <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>

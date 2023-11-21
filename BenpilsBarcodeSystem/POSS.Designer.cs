@@ -1,6 +1,6 @@
 ﻿namespace BenpilsBarcodeSystem
 {
-    partial class POSS
+    partial class POS
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POSS));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.tblservicestransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleServiceTransactions = new BenpilsBarcodeSystem.BenpillMotorcycleServiceTransactions();
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -78,7 +78,7 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.UsercredentialsBtn = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.InventoryBtn = new System.Windows.Forms.Button();
@@ -112,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -377,6 +377,7 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel5
             // 
@@ -432,6 +433,7 @@
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogoutBtn.UseVisualStyleBackColor = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // ServicesBtn
             // 
@@ -444,6 +446,7 @@
             this.ServicesBtn.Text = "Services";
             this.ServicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ServicesBtn.UseVisualStyleBackColor = false;
+            this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
             // pictureBox5
             // 
@@ -506,6 +509,7 @@
             this.PurchasingBTn.Text = "Purchasing";
             this.PurchasingBTn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PurchasingBTn.UseVisualStyleBackColor = false;
+            this.PurchasingBTn.Click += new System.EventHandler(this.PurchasingBTn_Click);
             // 
             // pictureBox9
             // 
@@ -528,6 +532,7 @@
             this.SettingsBtn.Text = "Settings";
             this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SettingsBtn.UseVisualStyleBackColor = false;
+            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
             // listView3
             // 
@@ -549,6 +554,7 @@
             this.UsercredentialsBtn.Text = "User Credentials";
             this.UsercredentialsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.UsercredentialsBtn.UseVisualStyleBackColor = false;
+            this.UsercredentialsBtn.Click += new System.EventHandler(this.UsercredentialsBtn_Click);
             // 
             // pictureBox8
             // 
@@ -560,15 +566,16 @@
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
             // 
-            // pictureBox2
+            // CloseBtn
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1467, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 32);
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
+            this.CloseBtn.Location = new System.Drawing.Point(1467, 3);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(31, 32);
+            this.CloseBtn.TabIndex = 22;
+            this.CloseBtn.TabStop = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // pictureBox4
             // 
@@ -622,6 +629,7 @@
             this.InventoryBtn.Text = "Inventory";
             this.InventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.InventoryBtn.UseVisualStyleBackColor = false;
+            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
             // 
             // panel4
             // 
@@ -642,6 +650,7 @@
             this.StatisticsBtn.Text = "Statistic Report";
             this.StatisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.StatisticsBtn.UseVisualStyleBackColor = false;
+            this.StatisticsBtn.Click += new System.EventHandler(this.StatisticsBtn_Click);
             // 
             // DashboardBtn
             // 
@@ -654,6 +663,7 @@
             this.DashboardBtn.Text = "Dashboard";
             this.DashboardBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.DashboardBtn.UseVisualStyleBackColor = false;
+            this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
             // 
             // pictureBox1
             // 
@@ -675,6 +685,7 @@
             this.PointOfSalesBtn.Text = "Point Of Sales";
             this.PointOfSalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.PointOfSalesBtn.UseVisualStyleBackColor = false;
+            this.PointOfSalesBtn.Click += new System.EventHandler(this.PointOfSalesBtn_Click);
             // 
             // ReportsBtn
             // 
@@ -687,11 +698,12 @@
             this.ReportsBtn.Text = "Reports";
             this.ReportsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ReportsBtn.UseVisualStyleBackColor = false;
+            this.ReportsBtn.Click += new System.EventHandler(this.ReportsBtn_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.CloseBtn);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.MinimizedBtn);
@@ -734,8 +746,9 @@
             this.MinimizedBtn.Size = new System.Drawing.Size(38, 32);
             this.MinimizedBtn.TabIndex = 8;
             this.MinimizedBtn.TabStop = false;
+            this.MinimizedBtn.Click += new System.EventHandler(this.MinimizedBtn_Click);
             // 
-            // POSS
+            // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -762,7 +775,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "POSS";
+            this.Name = "POS";
             this.Text = "POSS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POSS_Load);
@@ -788,7 +801,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -850,7 +863,7 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Button UsercredentialsBtn;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox CloseBtn;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button InventoryBtn;

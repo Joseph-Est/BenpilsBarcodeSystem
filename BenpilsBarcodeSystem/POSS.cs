@@ -139,5 +139,7 @@ namespace BenpilsBarcodeSystem
                 this.Show();
             }
         }
+
+        
     }
 }

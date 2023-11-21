@@ -40,15 +40,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.Changelbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.TransactionNumberlbl = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.TotalLbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
@@ -178,7 +178,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(966, 478);
+            this.button1.Location = new System.Drawing.Point(966, 501);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(305, 83);
             this.button1.TabIndex = 198;
@@ -195,35 +195,35 @@
             this.label16.TabIndex = 196;
             this.label16.Text = "Quantity:";
             // 
-            // label15
+            // Changelbl
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1060, 408);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 37);
-            this.label15.TabIndex = 195;
-            this.label15.Text = ".....";
+            this.Changelbl.AutoSize = true;
+            this.Changelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Changelbl.Location = new System.Drawing.Point(1069, 433);
+            this.Changelbl.Name = "Changelbl";
+            this.Changelbl.Size = new System.Drawing.Size(62, 37);
+            this.Changelbl.TabIndex = 195;
+            this.Changelbl.Text = ".....";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(961, 420);
+            this.label14.Location = new System.Drawing.Point(970, 433);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 25);
             this.label14.TabIndex = 194;
             this.label14.Text = "Change:";
             // 
-            // label13
+            // TransactionNumberlbl
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1131, 230);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 37);
-            this.label13.TabIndex = 193;
-            this.label13.Text = ".....";
+            this.TransactionNumberlbl.AutoSize = true;
+            this.TransactionNumberlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionNumberlbl.Location = new System.Drawing.Point(1131, 230);
+            this.TransactionNumberlbl.Name = "TransactionNumberlbl";
+            this.TransactionNumberlbl.Size = new System.Drawing.Size(62, 37);
+            this.TransactionNumberlbl.TabIndex = 193;
+            this.TransactionNumberlbl.Text = ".....";
             // 
             // dateTimePicker1
             // 
@@ -272,15 +272,15 @@
             this.label9.TabIndex = 186;
             this.label9.Text = "Transaction No:";
             // 
-            // label8
+            // TotalLbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1076, 146);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 39);
-            this.label8.TabIndex = 185;
-            this.label8.Text = ".....";
+            this.TotalLbl.AutoSize = true;
+            this.TotalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalLbl.Location = new System.Drawing.Point(1076, 146);
+            this.TotalLbl.Name = "TotalLbl";
+            this.TotalLbl.Size = new System.Drawing.Size(67, 39);
+            this.TotalLbl.TabIndex = 185;
+            this.TotalLbl.Text = ".....";
             // 
             // label7
             // 
@@ -758,15 +758,15 @@
             this.Controls.Add(this.PaymentrichTxt);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.Changelbl);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.TransactionNumberlbl);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TotalLbl);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.RefreshBtn);
@@ -825,15 +825,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label Changelbl;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label TransactionNumberlbl;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label TotalLbl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox RefreshBtn;

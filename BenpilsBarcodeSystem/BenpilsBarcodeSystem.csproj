@@ -398,6 +398,18 @@
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
+    <Compile Include="POS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="POSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POSS.Designer.cs">
+      <DependentUpon>POSS.cs</DependentUpon>
+    </Compile>
     <Compile Include="POSSALES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,6 +494,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POSS.resx">
+      <DependentUpon>POSS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POSSALES.resx">
       <DependentUpon>POSSALES.cs</DependentUpon>

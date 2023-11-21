@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class PoS : Form
+    public partial class POSS : Form
     {
-        public PoS()
+        public POSS()
         {
             InitializeComponent();
+        }
+
+        private void POSS_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

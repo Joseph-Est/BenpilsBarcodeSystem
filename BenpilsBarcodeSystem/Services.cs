@@ -74,7 +74,7 @@ namespace BenpilsBarcodeSystem
 
         private void PointofsalesBtn_Click(object sender, EventArgs e)
         {
-            POSSALES pos = new POSSALES(user);
+            POS pos = new POS(user);
             pos.Show();
             pos.StartPosition = FormStartPosition.Manual;
             pos.Location = this.Location;

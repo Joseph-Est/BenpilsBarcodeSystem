@@ -14,7 +14,7 @@ namespace BenpilsBarcodeSystem
     public partial class Services : Form
     {
         private User user;
-     
+        private GenerateBarcode GB;
         public Services(User user)
         {
             InitializeComponent();
@@ -271,6 +271,12 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
+            // Check if ServiceName already exists
+            if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
+            {
+                MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
+                return;
+            }
             // Check if the "ID" column exists in the DataGridView
             if (dataGridService.Columns.Contains("ServiceID"))
             {
@@ -334,6 +340,17 @@ namespace BenpilsBarcodeSystem
             AddBtn.Enabled = true;
             ClearAllTheTextBoxes() ;
             UpdateDataGridView();
+        }
+
+        private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
+        {
+            if (GB == null || GB.IsDisposed)
+            {
+                GB = new GenerateBarcode();
+            }
+            GB.Show();
+            GB.StartPosition = FormStartPosition.CenterScreen;
+            GB.BringToFront();
         }
     }
 }

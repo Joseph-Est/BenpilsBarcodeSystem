@@ -211,6 +211,11 @@ namespace BenpilsBarcodeSystem
                     MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
                     return;
                 }
+                if (IsBarcodeAlreadyExist(BarcodeTxt.Text))
+                {
+                    MessageBox.Show("Barcode already exist. Please Choose a different barrcode.");
+                    return;
+                }
 
                 // Open the connection using the using statement (automatically ensures the connection is closed)
                 using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
@@ -263,6 +268,24 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private bool IsBarcodeAlreadyExist(string Barcode)
+        {
+            string query = "SELECT COUNT(*) FROM tbl_services WHERE barcode = @Barcode";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@Barcode", Barcode);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             if (dataGridService.SelectedRows.Count == 0)
@@ -275,6 +298,11 @@ namespace BenpilsBarcodeSystem
             if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
             {
                 MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
+                return;
+            }
+            if (IsBarcodeAlreadyExist(BarcodeTxt.Text))
+            {
+                MessageBox.Show("Barcode already exist. Please Choose a different barrcode.");
                 return;
             }
             // Check if the "ID" column exists in the DataGridView

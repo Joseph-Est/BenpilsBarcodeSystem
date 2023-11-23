@@ -293,18 +293,6 @@ namespace BenpilsBarcodeSystem
                 MessageBox.Show("Please select a row to update.");
                 return;
             }
-
-            // Check if ServiceName already exists
-            if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
-            {
-                MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
-                return;
-            }
-            if (IsBarcodeAlreadyExist(BarcodeTxt.Text))
-            {
-                MessageBox.Show("Barcode already exist. Please Choose a different barrcode.");
-                return;
-            }
             // Check if the "ID" column exists in the DataGridView
             if (dataGridService.Columns.Contains("ServiceID"))
             {

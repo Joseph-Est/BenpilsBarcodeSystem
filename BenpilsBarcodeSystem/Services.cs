@@ -316,7 +316,7 @@ namespace BenpilsBarcodeSystem
                     // Attempt to convert the value to an integer
                     if (int.TryParse(dataGridService.SelectedRows[0].Cells["ServiceID"].Value.ToString(), out selectedRowID))
                     {
-                        string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Price = @Price WHERE ServiceID = @ServiceID";
+                        string updateQuery = "UPDATE tbl_services SET ServiceName = @ServiceName, Barcode = @Barcode, Price = @Price WHERE ServiceID = @ServiceID";
 
                         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                         {
@@ -324,11 +324,11 @@ namespace BenpilsBarcodeSystem
                             {
                                 cmd.Parameters.AddWithValue("@ServiceID", selectedRowID);
                                 cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
+                                cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text); // Add this line for the Barcode parameter
                                 cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
 
                                 con.Open();
                                 cmd.ExecuteNonQuery();
-                                con.Close();
                             }
                         }
 
@@ -349,7 +349,7 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("The 'ID' column does not exist in the DataGridView.");
             }
-       
+
         }
 
         private void dataGridService_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -357,8 +357,9 @@ namespace BenpilsBarcodeSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridService.Rows[e.RowIndex];
-                ServiceNameTxt.Text = selectedRow.Cells[1].Value.ToString();
-                PriceTxt.Text = selectedRow.Cells[2].Value.ToString();            
+                ServiceNameTxt.Text = selectedRow.Cells[2].Value.ToString();
+                PriceTxt.Text = selectedRow.Cells[3].Value.ToString();     
+                BarcodeTxt.Text = selectedRow.Cells[1].Value.ToString();
                 AddBtn.Enabled = false;
             }
         }

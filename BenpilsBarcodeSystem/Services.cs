@@ -14,11 +14,12 @@ namespace BenpilsBarcodeSystem
     public partial class Services : Form
     {
         private User user;
+     
         public Services(User user)
         {
             InitializeComponent();
          
-            
+
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -173,6 +174,7 @@ namespace BenpilsBarcodeSystem
         {
             ServiceNameTxt.Text = "";
             PriceTxt.Text = "";
+            BarcodeTxt.Text  = "";
         }
         private void UpdateDataGridView()
         {
@@ -194,34 +196,54 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(ServiceNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(PriceTxt.Text))
+            try
             {
-                MessageBox.Show("Please fill up all the textboxes below.");
-                return;
-            }
-            if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
-            {
-                MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
-                return;
-            }
-            string insertQuery = "INSERT INTO tbl_services (ServiceName, Price) " +
-                    "VALUES (@ServiceName, @Price)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                // Check if required textboxes are empty
+                if (string.IsNullOrWhiteSpace(ServiceNameTxt.Text) || string.IsNullOrWhiteSpace(PriceTxt.Text) || string.IsNullOrWhiteSpace(BarcodeTxt.Text))
                 {
-                    cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
-                    cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(PriceTxt.Text));
+                    MessageBox.Show("Please fill up all the textboxes below.");
+                    return;
+                }
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                // Check if ServiceName already exists
+                if (IsServiceNameAlreadyExists(ServiceNameTxt.Text))
+                {
+                    MessageBox.Show("ServiceName already exists. Please choose a different servicename.");
+                    return;
+                }
+
+                // Open the connection using the using statement (automatically ensures the connection is closed)
+                using (SqlConnection connection = new SqlConnection("YourConnectionStringHere"))
+                {
+                    connection.Open();
+
+                    // SQL query to insert data into tbl_services
+                    string query = "INSERT INTO tbl_services (ServiceName, Barcode, Price, Quantity) VALUES (@ServiceName, @Barcode, @Price, 1)";
+
+                    // Create a SqlCommand with parameters
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@ServiceName", ServiceNameTxt.Text);
+                        cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
+                        cmd.Parameters.AddWithValue("@Price", decimal.Parse(PriceTxt.Text)); // Assuming Price is decimal, adjust if necessary
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Display a success message or perform any additional actions
+                    MessageBox.Show("Service added successfully!");
+
+                    // Clear the textboxes or update the display as needed
+                    ClearAllTheTextBoxes();
+                    UpdateDataGridView();
                 }
             }
-            UpdateDataGridView();
-            ClearAllTheTextBoxes ();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
         private bool IsServiceNameAlreadyExists(string ServiceName)
         {

@@ -213,7 +213,7 @@ namespace BenpilsBarcodeSystem
                 }
 
                 // Open the connection using the using statement (automatically ensures the connection is closed)
-                using (SqlConnection connection = new SqlConnection("YourConnectionStringHere"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
 

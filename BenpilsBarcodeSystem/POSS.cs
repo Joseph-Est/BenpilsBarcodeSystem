@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
-            connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=Truewwwwwwww");
+            connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
             connection.Open();
         }
 

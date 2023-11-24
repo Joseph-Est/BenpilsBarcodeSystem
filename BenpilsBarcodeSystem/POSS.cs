@@ -170,41 +170,35 @@ namespace BenpilsBarcodeSystem
             string barcode = BarcoderichTxt.Text;
 
             // Query to retrieve data from tbl_services
-            string queryServices = $"SELECT ServicesName, Price FROM tbl_services WHERE Barcode = '{barcode}'";
-
-            // Query to retrieve data from tbl_itemmasterdata
-            string queryItemMasterData = $"SELECT ItemName, UnitPrice, Quantity FROM tbl_itemmasterdata WHERE Barcode = '{barcode}'";
+            string queryServices = $"SELECT tbl_services.ServicesName, tbl_services.Price, tbl_itemmasterdata.ItemName, tbl_itemmasterdata.UnitPrice, tbl_itemmasterdata.Quantity " +
+                                   $"FROM tbl_services " +
+                                   $"LEFT JOIN tbl_itemmasterdata ON tbl_services.Barcode = tbl_itemmasterdata.Barcode " +
+                                   $"WHERE tbl_services.Barcode = '{barcode}'";
 
             currentDescription = ""; // Reset description
             decimal price = 0;
             int availableQuantity = 0;
 
-            // Check if the barcode corresponds to a service
             using (SqlCommand command = new SqlCommand(queryServices, connection))
             {
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
                     currentDescription = reader["ServicesName"].ToString();
-                    price = Convert.ToDecimal(reader["Price"]);
-                }
-                reader.Close();
-            }
-
-            // If not a service, check if it corresponds to an item
-            if (string.IsNullOrEmpty(currentDescription))
-            {
-                using (SqlCommand command = new SqlCommand(queryItemMasterData, connection))
-                {
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.Read())
+                    if (!string.IsNullOrEmpty(currentDescription))
                     {
+                        // Data corresponds to a service
+                        price = Convert.ToDecimal(reader["Price"]);
+                    }
+                    else
+                    {
+                        // Data corresponds to an item
                         currentDescription = reader["ItemName"].ToString();
                         price = Convert.ToDecimal(reader["UnitPrice"]);
                         availableQuantity = Convert.ToInt32(reader["Quantity"]);
                     }
-                    reader.Close();
                 }
+                reader.Close();
             }
 
             // Update UI elements based on the retrieved data

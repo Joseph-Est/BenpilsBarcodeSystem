@@ -15,10 +15,19 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private int selectedSupplierID = -1;
+        private DataTable dtCart;
+        private Random random = new Random();
         public DataGridView DataGridView1 => dataGridView1;
         public Purchaserr(User user)
         {
             InitializeComponent();
+            dtCart = new DataTable();
+            dtCart.Columns.Add("ProductID", typeof(int));
+            dtCart.Columns.Add("ItemName", typeof(string));
+            dtCart.Columns.Add("Quantity", typeof(int));
+            dtCart.Columns.Add("Subtotal", typeof(decimal));
+
+            dataGridView2.DataSource = dtCart;
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick_1;
@@ -303,6 +312,42 @@ namespace BenpilsBarcodeSystem
             addItemSupplier.BringToFront();
             addItemSupplier.StartPosition = FormStartPosition.CenterScreen;
             addItemSupplier.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Handle the "Add Data" button click for DataGridView1
+            // Here, you might want to open a QuantityForm to get the quantity input
+            // For simplicity, we'll assume the quantity is entered directly here.
+
+            int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+            // Extract data from the selected row in DataGridView1
+            int productID = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ProductID"].Value);
+            string itemName = dataGridView1.Rows[selectedRowIndex].Cells["ItemName"].Value.ToString();
+            decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[selectedRowIndex].Cells["UnitPrice"].Value);
+
+            // Assume QuantityForm is a form where the user enters the quantity
+            Quantityform quantityForm = new Quantityform();
+            if (quantityForm.ShowDialog() == DialogResult.OK)
+            {
+                int quantity = quantityForm.Quantity;
+                decimal subtotal = unitPrice * quantity;
+
+                // Add data to the DataTable for DataGridView2
+                dtCart.Rows.Add(productID, itemName, quantity, subtotal);
+
+                // Update the total label
+                UpdateTotalLabel();
+            }
+        }
+        private void UpdateTotalLabel()
+        {
+            // Calculate the total from the DataTable
+            decimal total = dtCart.AsEnumerable().Sum(row => row.Field<decimal>("Subtotal"));
+
+            // Update the Total label
+            totallbl.Text = total.ToString();
         }
     }
 }

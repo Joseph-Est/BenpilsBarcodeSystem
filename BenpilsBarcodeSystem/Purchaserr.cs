@@ -17,7 +17,7 @@ namespace BenpilsBarcodeSystem
         private int selectedSupplierID = -1;
         private DataTable dtCart;
         private Random random = new Random();
-        public DataGridView DataGridView1 => dataGridView1;
+        public DataGridView DataGridView1 => Datelbl;
         public Purchaserr(User user)
         {
             InitializeComponent();
@@ -182,7 +182,7 @@ namespace BenpilsBarcodeSystem
         }
         public void UpdateDataGridView1(DataTable dataTable)
         {
-            dataGridView1.DataSource = dataTable;
+            Datelbl.DataSource = dataTable;
         }
         private void ClearAllTextBoxes()
         {
@@ -320,12 +320,12 @@ namespace BenpilsBarcodeSystem
             // Here, you might want to open a QuantityForm to get the quantity input
             // For simplicity, we'll assume the quantity is entered directly here.
 
-            int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            int selectedRowIndex = DataGridView1.SelectedCells[0].RowIndex;
 
             // Extract data from the selected row in DataGridView1
-            int productID = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells["ProductID"].Value);
-            string itemName = dataGridView1.Rows[selectedRowIndex].Cells["ItemName"].Value.ToString();
-            decimal unitPrice = Convert.ToDecimal(dataGridView1.Rows[selectedRowIndex].Cells["UnitPrice"].Value);
+            int productID = Convert.ToInt32(DataGridView1.Rows[selectedRowIndex].Cells["ProductID"].Value);
+            string itemName = DataGridView1.Rows[selectedRowIndex].Cells["ItemName"].Value.ToString();
+            decimal unitPrice = Convert.ToDecimal(DataGridView1.Rows[selectedRowIndex].Cells["UnitPrice"].Value);
 
             // Assume QuantityForm is a form where the user enters the quantity
             Quantityform quantityForm = new Quantityform();
@@ -339,6 +339,24 @@ namespace BenpilsBarcodeSystem
 
                 // Update the total label
                 UpdateTotalLabel();
+
+                // Regenerate transaction number
+                RegenerateTransactionNumber();
+            }
+        }
+        private void UpdateChangeLabel()
+        {
+            // Calculate change whenever the payment amount changes
+            decimal payment;
+            if (decimal.TryParse(paymentTxt.Text, out payment))
+            {
+                decimal total = Convert.ToDecimal(totallbl.Text);
+
+                // Calculate change
+                decimal change = payment - total;
+
+                // Update the Change label
+                ChangeLbl.Text = change.ToString();
             }
         }
         private void UpdateTotalLabel()
@@ -348,6 +366,77 @@ namespace BenpilsBarcodeSystem
 
             // Update the Total label
             totallbl.Text = total.ToString();
+        }
+        private void RegenerateTransactionNumber()
+        {
+            // Generate a random transaction number
+            string transactionNumber = "PUR" + random.Next(1000000, 9999999).ToString();
+
+            // Update the Transaction Number label
+            TransactionNumberLbl.Text = transactionNumber;
+
+            // Update the Date label with the current date and time
+            Datelbl.Text = DateTime.Now.ToString();
+        }
+        private void BuyBtn_Click(object sender, EventArgs e)
+        {
+            // Handle the "Buy" button click
+            decimal payment = Convert.ToDecimal(paymentTxt.Text);
+            decimal total = Convert.ToDecimal(totallbl.Text);
+
+            // Check if the table is empty
+            if (dtCart.Rows.Count == 0)
+            {
+                MessageBox.Show("Please add items to the cart before purchasing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Calculate change
+            decimal change = payment - total;
+
+            // Update the Change label
+            ChangeLbl.Text = change.ToString();
+
+            // Check if the payment is sufficient
+            if (change >= 0)
+            {
+                // Purchase successful
+                MessageBox.Show("Purchase successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearCart();
+                UpdateDataGridView2();
+            }
+            else
+            {
+                // Insufficient balance
+                MessageBox.Show("Purchase failed, insufficient balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void paymentTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateChangeLabel();
+        }
+        private void ClearCart()
+        {
+            // Clear the DataTable
+            dtCart.Clear();
+
+            // Update the total label after clearing
+            UpdateTotalLabel();
+           UpdateDataGridView2();
+        }
+        private void UpdateDataGridView2()
+        {
+            string selectQuery = "SELECT * FROM tbl_cartpurchasing";
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView2.DataSource = dt;
+                }
+            }
         }
     }
 }

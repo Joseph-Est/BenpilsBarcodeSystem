@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem
             this.user = user;
             label1.Text = "Username: " + user.Username;
             label2.Text = "Designation: " + user.Designation;
-            connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
+            connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=Truewwwwwwww");
             connection.Open();
         }
 
@@ -231,6 +231,11 @@ namespace BenpilsBarcodeSystem
                 // Calculate and update total and change labels
                 CalculateTotals();
             }
+        }
+
+        private void Addttocartbtn_Click(object sender, EventArgs e)
+        {
+            BarcoderichTxt_TextChanged(sender, e);
         }
     }
 }

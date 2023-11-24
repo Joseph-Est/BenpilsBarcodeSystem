@@ -99,6 +99,7 @@
             this.BarcoderichTxt = new System.Windows.Forms.RichTextBox();
             this.QuantityRichTxt = new System.Windows.Forms.RichTextBox();
             this.tbl_cartTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseTableAdapters.tbl_cartTableAdapter();
+            this.Addttocartbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServiceTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
@@ -198,7 +199,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(587, 105);
+            this.label16.Location = new System.Drawing.Point(513, 104);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(98, 25);
             this.label16.TabIndex = 196;
@@ -318,7 +319,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(188, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(717, 641);
+            this.dataGridView1.Size = new System.Drawing.Size(717, 600);
             this.dataGridView1.TabIndex = 183;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -368,7 +369,7 @@
             this.RefreshBtn.BackColor = System.Drawing.Color.White;
             this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
             this.RefreshBtn.Location = new System.Drawing.Point(1522, 76);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(38, 39);
             this.RefreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -805,7 +806,7 @@
             // QuantityRichTxt
             // 
             this.QuantityRichTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuantityRichTxt.Location = new System.Drawing.Point(691, 98);
+            this.QuantityRichTxt.Location = new System.Drawing.Point(617, 97);
             this.QuantityRichTxt.Name = "QuantityRichTxt";
             this.QuantityRichTxt.Size = new System.Drawing.Size(202, 42);
             this.QuantityRichTxt.TabIndex = 201;
@@ -815,11 +816,22 @@
             // 
             this.tbl_cartTableAdapter1.ClearBeforeFill = true;
             // 
+            // Addttocartbtn
+            // 
+            this.Addttocartbtn.Location = new System.Drawing.Point(825, 95);
+            this.Addttocartbtn.Name = "Addttocartbtn";
+            this.Addttocartbtn.Size = new System.Drawing.Size(111, 41);
+            this.Addttocartbtn.TabIndex = 202;
+            this.Addttocartbtn.Text = "Add to Cart";
+            this.Addttocartbtn.UseVisualStyleBackColor = true;
+            this.Addttocartbtn.Click += new System.EventHandler(this.Addttocartbtn_Click);
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 838);
+            this.Controls.Add(this.Addttocartbtn);
             this.Controls.Add(this.QuantityRichTxt);
             this.Controls.Add(this.BarcoderichTxt);
             this.Controls.Add(this.PaymentrichTxt);
@@ -953,5 +965,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Void;
+        private System.Windows.Forms.Button Addttocartbtn;
     }
 }

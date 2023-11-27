@@ -248,9 +248,7 @@ namespace BenpilsBarcodeSystem
                 string.IsNullOrEmpty(ProductIDTxt.Text) ||
                 string.IsNullOrEmpty(UnitPriceTxt.Text) ||
                 string.IsNullOrEmpty(QuantityTxt.Text) ||
-                string.IsNullOrEmpty(CategoryTxt.Text) 
-           
-    )
+                string.IsNullOrEmpty(CategoryTxt.Text))
             {
                 MessageBox.Show("Please fill in all the required fields.");
                 return;
@@ -293,7 +291,7 @@ namespace BenpilsBarcodeSystem
                     cmd.Parameters.AddWithValue("@UnitPrice", decimal.Parse(UnitPriceTxt.Text));
                     cmd.Parameters.AddWithValue("@Quantity", int.Parse(QuantityTxt.Text));
                     cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                    cmd.Parameters.AddWithValue("@Size", size); 
+                    cmd.Parameters.AddWithValue("@Size", size);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -301,6 +299,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
 
+            UpdateStockStatus(productId);  // Call the method to update stock status
             UpdateDataGridView();
             ClearAllTextBoxes();
         }
@@ -480,6 +479,28 @@ namespace BenpilsBarcodeSystem
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+        private void UpdateStockStatus(int productId)
+        {
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                con.Open();
+
+                // Assuming you have a table named 'StockStatus' with columns 'ProductID' and 'Status'
+                string updateStockStatusQuery = "UPDATE StockStatus SET Status = " +
+                                                "CASE " +
+                                                    "WHEN Quantity = 0 THEN 'Out of stock' " +
+                                                    "WHEN Quantity <= 20 THEN 'Low stock' " +
+                                                    "ELSE 'High stock' " +
+                                                "END " +
+                                                "WHERE ProductID = @ProductID";
+
+                using (SqlCommand cmd = new SqlCommand(updateStockStatusQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ProductID", productId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

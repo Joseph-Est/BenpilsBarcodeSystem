@@ -334,7 +334,7 @@ namespace BenpilsBarcodeSystem
         {
             if (int.TryParse(ProductIDTxt.Text, out int productId))
             {
-                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size WHERE ProductID = @ProductID";
+                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size, ProductID = @ProductID WHERE ProductID = @ProductID";
                 using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con))

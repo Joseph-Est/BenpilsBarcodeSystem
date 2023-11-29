@@ -486,7 +486,7 @@ namespace BenpilsBarcodeSystem
             {
                 con.Open();
 
-                // Assuming you have a table named 'StockStatus' with columns 'ProductID' and 'Status'
+                // Assuming the table name is StockStatus and it has a column named Quantity
                 string updateStockStatusQuery = "UPDATE StockStatus SET Status = " +
                                                 "CASE " +
                                                     "WHEN Quantity = 0 THEN 'Out of stock' " +

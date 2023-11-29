@@ -369,45 +369,29 @@ namespace BenpilsBarcodeSystem
         }
         private void RegenerateTransactionNumber()
         {
-            // Generate a random transaction number
             string transactionNumber = "PUR" + random.Next(1000000, 9999999).ToString();
-
-            // Update the Transaction Number label
             TransactionNumberLbl.Text = transactionNumber;
-
-            // Update the Date label with the current date and time
             Datelbl.Text = DateTime.Now.ToString();
         }
         private void BuyBtn_Click(object sender, EventArgs e)
         {
-            // Handle the "Buy" button click
             decimal payment = Convert.ToDecimal(paymentTxt.Text);
             decimal total = Convert.ToDecimal(totallbl.Text);
-
-            // Check if the table is empty
             if (dtCart.Rows.Count == 0)
             {
                 MessageBox.Show("Please add items to the cart before purchasing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            // Calculate change
             decimal change = payment - total;
-
-            // Update the Change label
             ChangeLbl.Text = change.ToString();
-
-            // Check if the payment is sufficient
             if (change >= 0)
             {
-                // Purchase successful
                 MessageBox.Show("Purchase successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearCart();
                 UpdateDataGridView2();
             }
             else
             {
-                // Insufficient balance
                 MessageBox.Show("Purchase failed, insufficient balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

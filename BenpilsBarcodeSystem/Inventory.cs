@@ -504,5 +504,96 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+        private void ArchiveBtn_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dataGridItemMasterdata.SelectedRows.Count > 0)
+            {
+                // Get the selected ProductID from the DataGridView
+                int productId = Convert.ToInt32(dataGridItemMasterdata.SelectedRows[0].Cells["ProductID"].Value);
+
+                // Call the archive function
+                ArchiveProduct(productId);
+
+                // Refresh the DataGridView
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to archive.");
+            }    // Check if a row is selected
+            if (dataGridItemMasterdata.SelectedRows.Count > 0)
+            {
+                // Get the selected ProductID from the DataGridView
+                int productId = Convert.ToInt32(dataGridItemMasterdata.SelectedRows[0].Cells["ProductID"].Value);
+
+                // Call the archive function
+                ArchiveProduct(productId);
+
+                // Refresh the DataGridView
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to archive.");
+            }
+        }
+        private void ArchiveProduct(int productId)
+        {
+            // Fetch the product details based on ProductID
+            DataRow selectedRow = GetProductDetails(productId);
+
+            if (selectedRow != null)
+            {
+                // Archive the product by inserting it into the ArchivedItems table
+                string archiveQuery = "INSERT INTO ArchivedItems (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
+                                      "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
+
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(archiveQuery, con))
+                    {
+                        // Set parameters from the selected row
+                        cmd.Parameters.AddWithValue("@Barcode", selectedRow["Barcode"]);
+                        cmd.Parameters.AddWithValue("@ProductID", selectedRow["ProductID"]);
+                        cmd.Parameters.AddWithValue("@ItemName", selectedRow["ItemName"]);
+                        cmd.Parameters.AddWithValue("@MotorBrand", selectedRow["MotorBrand"]);
+                        cmd.Parameters.AddWithValue("@Brand", selectedRow["Brand"]);
+                        cmd.Parameters.AddWithValue("@UnitPrice", selectedRow["UnitPrice"]);
+                        cmd.Parameters.AddWithValue("@Quantity", selectedRow["Quantity"]);
+                        cmd.Parameters.AddWithValue("@Category", selectedRow["Category"]);
+                        cmd.Parameters.AddWithValue("@Size", selectedRow["Size"]);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Remove the archived product from the main table
+                DeleteProduct(productId);
+            }
+        }
+        private void DeleteProduct(int productId)
+        {
+            string deleteQuery = "DELETE FROM tbl_itemmasterdata WHERE ProductID = @ProductID";
+
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            {
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@ProductID", productId);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private DataRow GetProductDetails(int productId)
+        {
+            DataTable dt = (DataTable)dataGridItemMasterdata.DataSource;
+            DataRow[] rows = dt.Select($"ProductID = {productId}");
+            return rows.Length > 0 ? rows[0] : null;
+        }
     }
 }

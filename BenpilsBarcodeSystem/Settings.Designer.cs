@@ -68,21 +68,22 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabArchive = new System.Windows.Forms.TabPage();
-            this.tabAutomatic = new System.Windows.Forms.TabPage();
-            this.tabManual = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabInventory = new System.Windows.Forms.TabPage();
-            this.tabSupplier = new System.Windows.Forms.TabPage();
-            this.tabUsercredential = new System.Windows.Forms.TabPage();
+            this.dataGridArchived = new System.Windows.Forms.DataGridView();
             this.TxtSearchBar = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabSupplier = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabUsercredential = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabAutomatic = new System.Windows.Forms.TabPage();
+            this.tabManual = new System.Windows.Forms.TabPage();
+            this.RetrievedItemBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClosedBtn)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizedBtn)).BeginInit();
@@ -104,10 +105,10 @@
             this.tabArchive.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridArchived)).BeginInit();
             this.tabSupplier.SuspendLayout();
-            this.tabUsercredential.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabUsercredential.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -554,25 +555,6 @@
             this.tabArchive.Text = "Archive Data";
             this.tabArchive.UseVisualStyleBackColor = true;
             // 
-            // tabAutomatic
-            // 
-            this.tabAutomatic.Location = new System.Drawing.Point(4, 22);
-            this.tabAutomatic.Name = "tabAutomatic";
-            this.tabAutomatic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAutomatic.Size = new System.Drawing.Size(1342, 673);
-            this.tabAutomatic.TabIndex = 1;
-            this.tabAutomatic.Text = "Automatic Backup";
-            this.tabAutomatic.UseVisualStyleBackColor = true;
-            // 
-            // tabManual
-            // 
-            this.tabManual.Location = new System.Drawing.Point(4, 22);
-            this.tabManual.Name = "tabManual";
-            this.tabManual.Size = new System.Drawing.Size(1342, 673);
-            this.tabManual.TabIndex = 2;
-            this.tabManual.Text = "Manual Backup";
-            this.tabManual.UseVisualStyleBackColor = true;
-            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabInventory);
@@ -586,7 +568,8 @@
             // 
             // tabInventory
             // 
-            this.tabInventory.Controls.Add(this.dataGridView1);
+            this.tabInventory.Controls.Add(this.RetrievedItemBtn);
+            this.tabInventory.Controls.Add(this.dataGridArchived);
             this.tabInventory.Controls.Add(this.TxtSearchBar);
             this.tabInventory.Controls.Add(this.label14);
             this.tabInventory.Location = new System.Drawing.Point(4, 22);
@@ -597,30 +580,13 @@
             this.tabInventory.Text = "Inventory";
             this.tabInventory.UseVisualStyleBackColor = true;
             // 
-            // tabSupplier
+            // dataGridArchived
             // 
-            this.tabSupplier.Controls.Add(this.dataGridView2);
-            this.tabSupplier.Controls.Add(this.textBox1);
-            this.tabSupplier.Controls.Add(this.label4);
-            this.tabSupplier.Location = new System.Drawing.Point(4, 22);
-            this.tabSupplier.Name = "tabSupplier";
-            this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplier.Size = new System.Drawing.Size(1322, 623);
-            this.tabSupplier.TabIndex = 1;
-            this.tabSupplier.Text = "Supplier";
-            this.tabSupplier.UseVisualStyleBackColor = true;
-            // 
-            // tabUsercredential
-            // 
-            this.tabUsercredential.Controls.Add(this.dataGridView3);
-            this.tabUsercredential.Controls.Add(this.textBox2);
-            this.tabUsercredential.Controls.Add(this.label7);
-            this.tabUsercredential.Location = new System.Drawing.Point(4, 22);
-            this.tabUsercredential.Name = "tabUsercredential";
-            this.tabUsercredential.Size = new System.Drawing.Size(1322, 623);
-            this.tabUsercredential.TabIndex = 2;
-            this.tabUsercredential.Text = "UserCredential";
-            this.tabUsercredential.UseVisualStyleBackColor = true;
+            this.dataGridArchived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridArchived.Location = new System.Drawing.Point(7, 48);
+            this.dataGridArchived.Name = "dataGridArchived";
+            this.dataGridArchived.Size = new System.Drawing.Size(1309, 497);
+            this.dataGridArchived.TabIndex = 45;
             // 
             // TxtSearchBar
             // 
@@ -643,13 +609,18 @@
             this.label14.Text = "Search:";
             this.label14.UseWaitCursor = true;
             // 
-            // dataGridView1
+            // tabSupplier
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1309, 569);
-            this.dataGridView1.TabIndex = 45;
+            this.tabSupplier.Controls.Add(this.dataGridView2);
+            this.tabSupplier.Controls.Add(this.textBox1);
+            this.tabSupplier.Controls.Add(this.label4);
+            this.tabSupplier.Location = new System.Drawing.Point(4, 22);
+            this.tabSupplier.Name = "tabSupplier";
+            this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSupplier.Size = new System.Drawing.Size(1322, 623);
+            this.tabSupplier.TabIndex = 1;
+            this.tabSupplier.Text = "Supplier";
+            this.tabSupplier.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -680,6 +651,18 @@
             this.label4.Text = "Search:";
             this.label4.UseWaitCursor = true;
             // 
+            // tabUsercredential
+            // 
+            this.tabUsercredential.Controls.Add(this.dataGridView3);
+            this.tabUsercredential.Controls.Add(this.textBox2);
+            this.tabUsercredential.Controls.Add(this.label7);
+            this.tabUsercredential.Location = new System.Drawing.Point(4, 22);
+            this.tabUsercredential.Name = "tabUsercredential";
+            this.tabUsercredential.Size = new System.Drawing.Size(1322, 623);
+            this.tabUsercredential.TabIndex = 2;
+            this.tabUsercredential.Text = "UserCredential";
+            this.tabUsercredential.UseVisualStyleBackColor = true;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -708,6 +691,35 @@
             this.label7.TabIndex = 47;
             this.label7.Text = "Search:";
             this.label7.UseWaitCursor = true;
+            // 
+            // tabAutomatic
+            // 
+            this.tabAutomatic.Location = new System.Drawing.Point(4, 22);
+            this.tabAutomatic.Name = "tabAutomatic";
+            this.tabAutomatic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAutomatic.Size = new System.Drawing.Size(1342, 673);
+            this.tabAutomatic.TabIndex = 1;
+            this.tabAutomatic.Text = "Automatic Backup";
+            this.tabAutomatic.UseVisualStyleBackColor = true;
+            // 
+            // tabManual
+            // 
+            this.tabManual.Location = new System.Drawing.Point(4, 22);
+            this.tabManual.Name = "tabManual";
+            this.tabManual.Size = new System.Drawing.Size(1342, 673);
+            this.tabManual.TabIndex = 2;
+            this.tabManual.Text = "Manual Backup";
+            this.tabManual.UseVisualStyleBackColor = true;
+            // 
+            // RetrievedItemBtn
+            // 
+            this.RetrievedItemBtn.Location = new System.Drawing.Point(1076, 570);
+            this.RetrievedItemBtn.Name = "RetrievedItemBtn";
+            this.RetrievedItemBtn.Size = new System.Drawing.Size(169, 47);
+            this.RetrievedItemBtn.TabIndex = 46;
+            this.RetrievedItemBtn.Text = "Retrieved Items";
+            this.RetrievedItemBtn.UseVisualStyleBackColor = true;
+            this.RetrievedItemBtn.Click += new System.EventHandler(this.RetrievedItemBtn_Click);
             // 
             // Settings
             // 
@@ -749,12 +761,12 @@
             this.tabControl2.ResumeLayout(false);
             this.tabInventory.ResumeLayout(false);
             this.tabInventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridArchived)).EndInit();
             this.tabSupplier.ResumeLayout(false);
             this.tabSupplier.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabUsercredential.ResumeLayout(false);
             this.tabUsercredential.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
@@ -806,7 +818,7 @@
         private System.Windows.Forms.TabPage tabInventory;
         private System.Windows.Forms.TabPage tabSupplier;
         private System.Windows.Forms.TabPage tabUsercredential;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridArchived;
         private System.Windows.Forms.TextBox TxtSearchBar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -815,5 +827,6 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button RetrievedItemBtn;
     }
 }

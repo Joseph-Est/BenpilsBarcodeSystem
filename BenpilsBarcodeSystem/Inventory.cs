@@ -523,21 +523,7 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("Please select a row to archive.");
             }    // Check if a row is selected
-            if (dataGridItemMasterdata.SelectedRows.Count > 0)
-            {
-                // Get the selected ProductID from the DataGridView
-                int productId = Convert.ToInt32(dataGridItemMasterdata.SelectedRows[0].Cells["ProductID"].Value);
-
-                // Call the archive function
-                ArchiveProduct(productId);
-
-                // Refresh the DataGridView
-                UpdateDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to archive.");
-            }
+          
         }
         private void ArchiveProduct(int productId)
         {

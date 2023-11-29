@@ -73,16 +73,6 @@
             this.RandomGenerateProductidBtn = new System.Windows.Forms.Button();
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblitemmasterdataBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleItemmasterDataMain = new BenpilsBarcodeSystem.BenpillMotorcycleItemmasterDataMain();
             this.ClearBtn = new System.Windows.Forms.Button();
@@ -156,6 +146,9 @@
             this.tblitemmasterdataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblitemmasterdata2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.benpillMotorcycleItemmasterdata = new BenpilsBarcodeSystem.BenpillMotorcycleItemmasterdata();
+            this.tblitemmasterdataBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_itemmasterdataTableAdapter3 = new BenpilsBarcodeSystem.BenpillMotorcycleItemmasterdataTableAdapters.tbl_itemmasterdataTableAdapter();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,6 +159,7 @@
             this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -204,6 +198,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleItemmasterdata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource6)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -770,16 +766,6 @@
             this.dataGridItemMasterdata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.ProductID,
-            this.Barcode,
-            this.ItemName,
-            this.MotorBrand,
-            this.Brand,
-            this.UnitPrice,
-            this.Quantity,
-            this.Category,
-            this.Size,
             this.iDDataGridViewTextBoxColumn1,
             this.barcodeDataGridViewTextBoxColumn1,
             this.productIDDataGridViewTextBoxColumn1,
@@ -789,8 +775,9 @@
             this.unitPriceDataGridViewTextBoxColumn1,
             this.quantityDataGridViewTextBoxColumn1,
             this.categoryDataGridViewTextBoxColumn1,
-            this.sizeDataGridViewTextBoxColumn1});
-            this.dataGridItemMasterdata.DataSource = this.tblitemmasterdataBindingSource4;
+            this.sizeDataGridViewTextBoxColumn1,
+            this.stockStatusDataGridViewTextBoxColumn});
+            this.dataGridItemMasterdata.DataSource = this.tblitemmasterdataBindingSource6;
             this.dataGridItemMasterdata.Location = new System.Drawing.Point(33, 80);
             this.dataGridItemMasterdata.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
@@ -800,86 +787,6 @@
             this.dataGridItemMasterdata.UseWaitCursor = true;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
             this.dataGridItemMasterdata.SelectionChanged += new System.EventHandler(this.dataGridItemMasterdata_SelectionChanged);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "ProductID";
-            this.ProductID.MinimumWidth = 6;
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            // 
-            // Barcode
-            // 
-            this.Barcode.DataPropertyName = "Barcode";
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.MinimumWidth = 6;
-            this.Barcode.Name = "Barcode";
-            this.Barcode.ReadOnly = true;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.MinimumWidth = 6;
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // MotorBrand
-            // 
-            this.MotorBrand.DataPropertyName = "MotorBrand";
-            this.MotorBrand.HeaderText = "MotorBrand";
-            this.MotorBrand.MinimumWidth = 6;
-            this.MotorBrand.Name = "MotorBrand";
-            this.MotorBrand.ReadOnly = true;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Brand";
-            this.Brand.MinimumWidth = 6;
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "UnitPrice";
-            this.UnitPrice.MinimumWidth = 6;
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            // 
-            // Size
-            // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.MinimumWidth = 6;
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
             // 
             // tblitemmasterdataBindingSource4
             // 
@@ -1550,6 +1457,20 @@
             // 
             this.tblitemmasterdata2BindingSource1.DataMember = "tbl_itemmasterdata2";
             // 
+            // benpillMotorcycleItemmasterdata
+            // 
+            this.benpillMotorcycleItemmasterdata.DataSetName = "BenpillMotorcycleItemmasterdata";
+            this.benpillMotorcycleItemmasterdata.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblitemmasterdataBindingSource6
+            // 
+            this.tblitemmasterdataBindingSource6.DataMember = "tbl_itemmasterdata";
+            this.tblitemmasterdataBindingSource6.DataSource = this.benpillMotorcycleItemmasterdata;
+            // 
+            // tbl_itemmasterdataTableAdapter3
+            // 
+            this.tbl_itemmasterdataTableAdapter3.ClearBeforeFill = true;
+            // 
             // iDDataGridViewTextBoxColumn1
             // 
             this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -1621,6 +1542,13 @@
             this.sizeDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.sizeDataGridViewTextBoxColumn1.Name = "sizeDataGridViewTextBoxColumn1";
             // 
+            // stockStatusDataGridViewTextBoxColumn
+            // 
+            this.stockStatusDataGridViewTextBoxColumn.DataPropertyName = "StockStatus";
+            this.stockStatusDataGridViewTextBoxColumn.HeaderText = "StockStatus";
+            this.stockStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stockStatusDataGridViewTextBoxColumn.Name = "stockStatusDataGridViewTextBoxColumn";
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1680,6 +1608,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdata2BindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleItemmasterdata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1809,16 +1739,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MotorBrand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
+        private BenpillMotorcycleItemmasterdata benpillMotorcycleItemmasterdata;
+        private System.Windows.Forms.BindingSource tblitemmasterdataBindingSource6;
+        private BenpillMotorcycleItemmasterdataTableAdapters.tbl_itemmasterdataTableAdapter tbl_itemmasterdataTableAdapter3;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDDataGridViewTextBoxColumn1;
@@ -1829,5 +1752,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockStatusDataGridViewTextBoxColumn;
     }
 }

@@ -187,9 +187,9 @@ namespace BenpilsBarcodeSystem
                         Subtotal = item.UnitPrice * quantity
                     });
 
+                    total = CalculateTotal(); // Recalculate total
                     GenerateTransactionNumber();
                     UpdateUI();
-
 
                     dataGridView1.Refresh();
                 }
@@ -286,8 +286,9 @@ namespace BenpilsBarcodeSystem
             TransactionNumberlbl.Text = transactionNumber;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cart;
-            PaymentrichTxt.Text = "";
-            Changelbl.Text = "";
+
+            // Update Change label based on payment and total
+            UpdateChangeLabel();
         }
 
         private void GenerateTransactionNumber()

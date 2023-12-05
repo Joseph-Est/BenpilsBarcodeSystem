@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BenpilsBarcodeSystem
 {
@@ -15,11 +17,16 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private SqlConnection connection;
+        private ArrayList cart = new ArrayList();
+        private string transactionNumber;
+        private decimal total;
 
-        private string currentDescription; // Added variable to store description
+   
         public POS(User user)
         {
             InitializeComponent();
+            GenerateTransactionNumber();
+            UpdateUI();
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -148,75 +155,161 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void CalculateTotals()
-        {
-            decimal total = 0;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                total += Convert.ToDecimal(row.Cells["Subtotal"].Value);
-            }
-
-            TotalLbl.Text = total.ToString();
-
-            decimal payment = Convert.ToDecimal(PaymentrichTxt.Text);
-            decimal change = payment - total;
-
-            Changelbl.Text = change.ToString();
-        }
+      
 
         private void BarcoderichTxt_TextChanged(object sender, EventArgs e)
         {
-          
+            
         }
 
         private void Addttocartbtn_Click(object sender, EventArgs e)
         {
-            string barcode = BarcoderichTxt.Text;
-            string queryServices = $"SELECT tbl_services.ServicesName, tbl_services.Price, tbl_itemmasterdata.ItemName, tbl_itemmasterdata.UnitPrice, tbl_itemmasterdata.Quantity " +
-                                   $"FROM tbl_services " +
-                                   $"LEFT JOIN tbl_itemmasterdata ON tbl_services.Barcode = tbl_itemmasterdata.Barcode " +
-                                   $"WHERE tbl_services.Barcode = '{barcode}'";
+            string barcode = BarcoderichTxt.Text.Trim();
+            int quantity = GetQuantityFromUser();
 
-            currentDescription = "";
-            decimal price = 0;
-            int availableQuantity = 0;
-
-            using (SqlCommand command = new SqlCommand(queryServices, connection))
+            if (quantity > 0)
             {
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+
+                Item item = GetItemDetails(barcode);
+
+                if (item != null && item.Quantity >= quantity)
                 {
-                    currentDescription = reader["ServicesName"].ToString();
-                    if (!string.IsNullOrEmpty(currentDescription))
+   
+                    UpdateItemQuantity(barcode, item.Quantity - quantity);
+
+                    cart.Add(new CartItem
                     {
-                        price = Convert.ToDecimal(reader["Price"]);
-                    }
-                    else
+                        ItemName = item.ItemName,
+                        MotorBrand = item.MotorBrand,
+                        Brand = item.Brand,
+                        Subtotal = item.UnitPrice * quantity
+                    });
+
+               
+                    UpdateUI();
+                }
+                else
+                {
+                    MessageBox.Show("Insufficient stock for the selected quantity.");
+                }
+            }
+        }
+        private void UpdateItemQuantity(string barcode, int newQuantity)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    string query = "UPDATE tbl_itemmasterdata SET Quantity = @NewQuantity WHERE Barcode = @Barcode";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        currentDescription = reader["ItemName"].ToString();
-                        price = Convert.ToDecimal(reader["UnitPrice"]);
-                        availableQuantity = Convert.ToInt32(reader["Quantity"]);
+                        command.Parameters.AddWithValue("@NewQuantity", newQuantity);
+                        command.Parameters.AddWithValue("@Barcode", barcode);
+
+                        command.ExecuteNonQuery();
                     }
                 }
-                reader.Close();
             }
-            Quantityform quantityForm = new Quantityform();
-            DialogResult result = quantityForm.ShowDialog();
-
-            if (result == DialogResult.OK)
+            catch (Exception ex)
             {
-                int quantity = quantityForm.Quantity;
-
-                if (quantity > availableQuantity)
-                {
-                    MessageBox.Show("Insufficient quantity available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    quantity = availableQuantity;
-                }
-                decimal subtotal = quantity * price;
-                dataGridView1.Rows.Add(currentDescription, quantity, subtotal);
-                CalculateTotals();
+                MessageBox.Show($"Error updating item quantity: {ex.Message}");
             }
+        }
+        private Item GetItemDetails(string barcode)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    string query = "SELECT ItemName, MotorBrand, Brand, UnitPrice, Quantity FROM tbl_itemmasterdata WHERE Barcode = @Barcode";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Barcode", barcode);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return new Item
+                                {
+                                    ItemName = reader["ItemName"].ToString(),
+                                    MotorBrand = reader["MotorBrand"].ToString(),
+                                    Brand = reader["Brand"].ToString(),
+                                    UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
+                                    Quantity = Convert.ToInt32(reader["Quantity"])
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching item details: {ex.Message}");
+            }
+
+            return null;
+        }
+        private void UpdateUI()
+        {
+    
+            total = CalculateTotal();
+            TotalLbl.Text = total.ToString("C");
+            TransactionNumberlbl.Text = transactionNumber;
+
+
+        }
+
+        private void GenerateTransactionNumber()
+        {
+ 
+            transactionNumber = "ben" + DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+        private int GetQuantityFromUser()
+        {
+            using (var quantityForm = new Quantityform())
+            {
+                if (quantityForm.ShowDialog() == DialogResult.OK)
+                {
+                    return quantityForm.Quantity;
+                }
+            }
+            return 0; 
+        }
+        private decimal CalculateTotal()
+        {
+            decimal total = 0;
+
+            foreach (CartItem item in cart)
+            {
+                total += item.Subtotal;
+            }
+
+            return total;
+        }
+
+        private class Item
+        {
+            public string ItemName { get; set; }
+            public string MotorBrand { get; set; }
+            public string Brand { get; set; }
+            public decimal UnitPrice { get; set; }
+            public int Quantity { get; set; }
+        }
+
+        private class CartItem
+        {
+            public string ItemName { get; set; }
+            public string MotorBrand { get; set; }
+            public string Brand { get; set; }
+            public decimal Subtotal { get; set; }
         }
     }
 }

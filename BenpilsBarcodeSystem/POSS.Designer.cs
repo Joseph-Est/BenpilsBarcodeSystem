@@ -43,7 +43,6 @@
             this.Changelbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.TransactionNumberlbl = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -100,6 +99,7 @@
             this.QuantityRichTxt = new System.Windows.Forms.RichTextBox();
             this.tbl_cartTableAdapter1 = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabaseTableAdapters.tbl_cartTableAdapter();
             this.Addttocartbtn = new System.Windows.Forms.Button();
+            this.lbldate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblservicestransactionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.benpillMotorcycleServiceTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblitemmasterdataBindingSource)).BeginInit();
@@ -236,13 +236,6 @@
             this.TransactionNumberlbl.Size = new System.Drawing.Size(62, 37);
             this.TransactionNumberlbl.TabIndex = 193;
             this.TransactionNumberlbl.Text = ".....";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1030, 290);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
-            this.dateTimePicker1.TabIndex = 192;
             // 
             // label12
             // 
@@ -826,11 +819,23 @@
             this.Addttocartbtn.UseVisualStyleBackColor = true;
             this.Addttocartbtn.Click += new System.EventHandler(this.Addttocartbtn_Click);
             // 
+            // lbldate
+            // 
+            this.lbldate.AutoSize = true;
+            this.lbldate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldate.Location = new System.Drawing.Point(1067, 278);
+            this.lbldate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Size = new System.Drawing.Size(62, 37);
+            this.lbldate.TabIndex = 203;
+            this.lbldate.Text = ".....";
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 838);
+            this.Controls.Add(this.lbldate);
             this.Controls.Add(this.Addttocartbtn);
             this.Controls.Add(this.QuantityRichTxt);
             this.Controls.Add(this.BarcoderichTxt);
@@ -840,7 +845,6 @@
             this.Controls.Add(this.Changelbl);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TransactionNumberlbl);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -909,7 +913,6 @@
         private System.Windows.Forms.Label Changelbl;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label TransactionNumberlbl;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -966,5 +969,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Void;
         private System.Windows.Forms.Button Addttocartbtn;
+        private System.Windows.Forms.Label lbldate;
     }
 }

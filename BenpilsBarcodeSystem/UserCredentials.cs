@@ -422,5 +422,10 @@ namespace BenpilsBarcodeSystem
         {
             ClearAllTextBoxes();
         }
+
+        private void ArchiveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

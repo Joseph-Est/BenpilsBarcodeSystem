@@ -244,5 +244,12 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'benpillMotorcycleArchivedItemMaster.ArchivedItems' table. You can move, or remove it, as needed.
+            this.archivedItemsTableAdapter.Fill(this.benpillMotorcycleArchivedItemMaster.ArchivedItems);
+
+        }
     }
 }

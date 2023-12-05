@@ -199,6 +199,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BenpillMotorcycleArchivedItemMaster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BenpillMotorcycleCartDatabase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -563,6 +568,17 @@
     </None>
     <None Include="BenpillBarcodeDatabaseInventory.xss">
       <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleArchivedItemMaster.xsc">
+      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
+    </None>
+    <None Include="BenpillMotorcycleArchivedItemMaster.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BenpillMotorcycleArchivedItemMaster.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BenpillMotorcycleArchivedItemMaster.xss">
+      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
     </None>
     <None Include="BenpillMotorcycleCartDatabase.xsc">
       <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>

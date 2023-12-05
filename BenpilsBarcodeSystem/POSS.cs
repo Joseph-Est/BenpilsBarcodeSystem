@@ -197,14 +197,11 @@ namespace BenpilsBarcodeSystem
         }
         private void InitializeDataGridView()
         {
-            dataGridView1 = new DataGridView();
+            dataGridView1 = new DataGridView();  
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Dock = DockStyle.Fill;
 
-            // Add the DataGridView to the form's controls
             Controls.Add(dataGridView1);
-
-            // Bind the cart to the DataGridView
             dataGridView1.DataSource = cart;
         }
         private void UpdateItemQuantity(string barcode, int newQuantity)
@@ -271,13 +268,11 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateUI()
         {
-    
             total = CalculateTotal();
             TotalLbl.Text = total.ToString("C");
             TransactionNumberlbl.Text = transactionNumber;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cart;
-
         }
 
         private void GenerateTransactionNumber()

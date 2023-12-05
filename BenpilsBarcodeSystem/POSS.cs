@@ -160,9 +160,12 @@ namespace BenpilsBarcodeSystem
 
         private void BarcoderichTxt_TextChanged(object sender, EventArgs e)
         {
-            
+            UpdateDateLabel();
         }
-
+        private void UpdateDateLabel()
+        {
+            lbldate.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+        }
         private void Addttocartbtn_Click(object sender, EventArgs e)
         {
             string barcode = BarcoderichTxt.Text.Trim();
@@ -269,7 +272,7 @@ namespace BenpilsBarcodeSystem
         private void UpdateUI()
         {
             total = CalculateTotal();
-            TotalLbl.Text = total.ToString("C");
+            TotalLbl.Text = total.ToString();
             TransactionNumberlbl.Text = transactionNumber;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cart;
@@ -277,8 +280,9 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateTransactionNumber()
         {
- 
-            transactionNumber = "ben" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            Random random = new Random();
+            int randomDigits = random.Next(100000000, 999999999);
+            transactionNumber = "BEN - " + randomDigits.ToString();
         }
 
         private int GetQuantityFromUser()

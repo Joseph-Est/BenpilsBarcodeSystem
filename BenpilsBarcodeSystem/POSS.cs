@@ -20,13 +20,15 @@ namespace BenpilsBarcodeSystem
         private ArrayList cart = new ArrayList();
         private string transactionNumber;
         private decimal total;
+        private DataGridView dataGridViewCart;
 
-   
+
         public POS(User user)
         {
             InitializeComponent();
             GenerateTransactionNumber();
             UpdateUI();
+            InitializeDataGridView();
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -40,8 +42,7 @@ namespace BenpilsBarcodeSystem
 
         private void POSS_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleCartDatabase.tbl_cart' table. You can move, or remove it, as needed.
-            this.tbl_cartTableAdapter1.Fill(this.benpillMotorcycleCartDatabase.tbl_cart);
+         
 
         }
 
@@ -194,6 +195,18 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void InitializeDataGridView()
+        {
+            dataGridView1 = new DataGridView();
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Dock = DockStyle.Fill;
+
+            // Add the DataGridView to the form's controls
+            Controls.Add(dataGridView1);
+
+            // Bind the cart to the DataGridView
+            dataGridView1.DataSource = cart;
+        }
         private void UpdateItemQuantity(string barcode, int newQuantity)
         {
             try
@@ -262,7 +275,8 @@ namespace BenpilsBarcodeSystem
             total = CalculateTotal();
             TotalLbl.Text = total.ToString("C");
             TransactionNumberlbl.Text = transactionNumber;
-
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = cart;
 
         }
 

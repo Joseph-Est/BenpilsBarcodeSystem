@@ -50,10 +50,6 @@
             this.TotalLbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Void = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tblcartBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.benpillMotorcycleCartDatabase = new BenpilsBarcodeSystem.BenpillMotorcycleCartDatabase();
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
@@ -300,51 +296,13 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.descriptionDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.subtotalDataGridViewTextBoxColumn,
-            this.Void});
-            this.dataGridView1.DataSource = this.tblcartBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(188, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(717, 600);
             this.dataGridView1.TabIndex = 183;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.FillWeight = 164.6787F;
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.FillWeight = 106.9655F;
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            // 
-            // subtotalDataGridViewTextBoxColumn
-            // 
-            this.subtotalDataGridViewTextBoxColumn.DataPropertyName = "Subtotal";
-            this.subtotalDataGridViewTextBoxColumn.FillWeight = 106.9655F;
-            this.subtotalDataGridViewTextBoxColumn.HeaderText = "Subtotal";
-            this.subtotalDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
-            // 
-            // Void
-            // 
-            this.Void.FillWeight = 21.39038F;
-            this.Void.HeaderText = "Void";
-            this.Void.MinimumWidth = 6;
-            this.Void.Name = "Void";
             // 
             // tblcartBindingSource1
             // 
@@ -964,10 +922,6 @@
         private BenpillMotorcycleCartDatabase benpillMotorcycleCartDatabase;
         private System.Windows.Forms.BindingSource tblcartBindingSource1;
         private BenpillMotorcycleCartDatabaseTableAdapters.tbl_cartTableAdapter tbl_cartTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Void;
         private System.Windows.Forms.Button Addttocartbtn;
         private System.Windows.Forms.Label lbldate;
     }

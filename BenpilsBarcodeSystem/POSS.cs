@@ -189,6 +189,9 @@ namespace BenpilsBarcodeSystem
 
                     GenerateTransactionNumber();
                     UpdateUI();
+
+
+                    dataGridView1.Refresh();
                 }
                 else
                 {
@@ -206,7 +209,7 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                Changelbl.Text = change.ToString("C");
+                Changelbl.Text = change.ToString();
             }
         }
         private void InitializeDataGridView()
@@ -279,7 +282,7 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateUI()
         {
-            TotalLbl.Text = total.ToString("C");
+            TotalLbl.Text = total.ToString();
             TransactionNumberlbl.Text = transactionNumber;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cart;

@@ -20,7 +20,7 @@ namespace BenpilsBarcodeSystem
         private ArrayList cart = new ArrayList();
         private string transactionNumber;
         private decimal total;
-        private DataGridView dataGridViewCart;
+        private DataGridView dataGridView1;
 
 
         public POS(User user)

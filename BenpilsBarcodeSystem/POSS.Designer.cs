@@ -877,7 +877,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label TotalLbl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+
         private System.Windows.Forms.PictureBox RefreshBtn;
         private BenpillBarcodeDatabaseInventory benpillBarcodeDatabaseInventory1;
         private BenpillMotorcycleCartDatabasefinalTableAdapters.tbl_CartTableAdapter tbl_CartTableAdapter;

@@ -743,6 +743,7 @@
             this.PaymentrichTxt.Size = new System.Drawing.Size(202, 42);
             this.PaymentrichTxt.TabIndex = 199;
             this.PaymentrichTxt.Text = "";
+            this.PaymentrichTxt.TextChanged += new System.EventHandler(this.PaymentrichTxt_TextChanged);
             // 
             // BarcoderichTxt
             // 

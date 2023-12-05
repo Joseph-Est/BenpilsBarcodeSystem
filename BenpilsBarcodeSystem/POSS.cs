@@ -21,7 +21,7 @@ namespace BenpilsBarcodeSystem
         private string transactionNumber;
         private decimal total;
         private DataGridView dataGridView1;
-
+        private decimal payment;
 
         public POS(User user)
         {
@@ -173,12 +173,10 @@ namespace BenpilsBarcodeSystem
 
             if (quantity > 0)
             {
-
                 Item item = GetItemDetails(barcode);
 
                 if (item != null && item.Quantity >= quantity)
                 {
-   
                     UpdateItemQuantity(barcode, item.Quantity - quantity);
 
                     cart.Add(new CartItem
@@ -189,7 +187,7 @@ namespace BenpilsBarcodeSystem
                         Subtotal = item.UnitPrice * quantity
                     });
 
-               
+                    GenerateTransactionNumber();
                     UpdateUI();
                 }
                 else
@@ -198,12 +196,24 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void UpdateChangeLabel()
+        {
+            decimal change = payment - total;
+
+            if (change < 0)
+            {
+                Changelbl.Text = "Insufficient balance";
+            }
+            else
+            {
+                Changelbl.Text = change.ToString("C");
+            }
+        }
         private void InitializeDataGridView()
         {
-            dataGridView1 = new DataGridView();  
+            dataGridView1 = new DataGridView();
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Dock = DockStyle.Fill;
-
             Controls.Add(dataGridView1);
             dataGridView1.DataSource = cart;
         }
@@ -214,14 +224,12 @@ namespace BenpilsBarcodeSystem
                 using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
-
                     string query = "UPDATE tbl_itemmasterdata SET Quantity = @NewQuantity WHERE Barcode = @Barcode";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@NewQuantity", newQuantity);
                         command.Parameters.AddWithValue("@Barcode", barcode);
-
                         command.ExecuteNonQuery();
                     }
                 }
@@ -271,11 +279,12 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateUI()
         {
-            total = CalculateTotal();
-            TotalLbl.Text = total.ToString();
+            TotalLbl.Text = total.ToString("C");
             TransactionNumberlbl.Text = transactionNumber;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = cart;
+            PaymentrichTxt.Text = "";
+            Changelbl.Text = "";
         }
 
         private void GenerateTransactionNumber()
@@ -323,6 +332,18 @@ namespace BenpilsBarcodeSystem
             public string MotorBrand { get; set; }
             public string Brand { get; set; }
             public decimal Subtotal { get; set; }
+        }
+
+        private void PaymentrichTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(PaymentrichTxt.Text, out payment))
+            {
+                UpdateChangeLabel();
+            }
+            else
+            {
+                Changelbl.Text = "Invalid payment amount";
+            }
         }
     }
 }

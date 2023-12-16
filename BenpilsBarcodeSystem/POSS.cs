@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BenpilsBarcodeSystem
 {
@@ -17,8 +9,8 @@ namespace BenpilsBarcodeSystem
     {
         private User user;
         private SqlConnection connection;
-        private ArrayList cart = new ArrayList();
-        private string transactionNumber;
+
+     
         private decimal total;
         private DataGridView dataGridView1;
         private decimal payment;
@@ -28,7 +20,7 @@ namespace BenpilsBarcodeSystem
             InitializeComponent();
             GenerateTransactionNumber();
             UpdateUI();
-            InitializeDataGridView();
+
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += timer1_Tick;
@@ -42,7 +34,8 @@ namespace BenpilsBarcodeSystem
 
         private void POSS_Load(object sender, EventArgs e)
         {
-         
+            // TODO: This line of code loads data into the 'benpillMotorcycleTableCartDatabase.tbl_cart' table. You can move, or remove it, as needed.
+            this.tbl_cartTableAdapter2.Fill(this.benpillMotorcycleTableCartDatabase.tbl_cart);
 
         }
 
@@ -156,16 +149,16 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-      
-
         private void BarcoderichTxt_TextChanged(object sender, EventArgs e)
         {
             UpdateDateLabel();
         }
+
         private void UpdateDateLabel()
         {
             lbldate.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
         }
+
         private void Addttocartbtn_Click(object sender, EventArgs e)
         {
             string barcode = BarcoderichTxt.Text.Trim();
@@ -179,19 +172,12 @@ namespace BenpilsBarcodeSystem
                 {
                     UpdateItemQuantity(barcode, item.Quantity - quantity);
 
-                    cart.Add(new CartItem
-                    {
-                        ItemName = item.ItemName,
-                        MotorBrand = item.MotorBrand,
-                        Brand = item.Brand,
-                        Subtotal = item.UnitPrice * quantity
-                    });
+                    // Insert the cart item into the tbl_cart table
+                    InsertCartItem(item.ItemName, item.MotorBrand, item.Brand, item.UnitPrice * quantity, quantity);
 
                     total = CalculateTotal(); // Recalculate total
                     GenerateTransactionNumber();
                     UpdateUI();
-
-                    dataGridView1.Refresh();
                 }
                 else
                 {
@@ -199,6 +185,33 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+        private void InsertCartItem( string itemName, string motorBrand, string brand, decimal subtotal,int  quantity)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO tbl_cart (ItemName, MotorBrand, Brand, Subtotal, Quantity) VALUES (@ItemName, @MotorBrand, @Brand, @Subtotal, @Quantity)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ItemName", itemName);
+                        command.Parameters.AddWithValue("@MotorBrand", motorBrand);
+                        command.Parameters.AddWithValue("@Brand", brand);
+                        command.Parameters.AddWithValue("@Subtotal", subtotal);
+                        command.Parameters.AddWithValue("@Quantity", quantity);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inserting cart item: {ex.Message}");
+            }
+        }
+
         private void UpdateChangeLabel()
         {
             decimal change = payment - total;
@@ -212,14 +225,7 @@ namespace BenpilsBarcodeSystem
                 Changelbl.Text = change.ToString();
             }
         }
-        private void InitializeDataGridView()
-        {
-            dataGridView1 = new DataGridView();
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Dock = DockStyle.Fill;
-            Controls.Add(dataGridView1);
-            dataGridView1.DataSource = cart;
-        }
+
         private void UpdateItemQuantity(string barcode, int newQuantity)
         {
             try
@@ -242,6 +248,7 @@ namespace BenpilsBarcodeSystem
                 MessageBox.Show($"Error updating item quantity: {ex.Message}");
             }
         }
+
         private Item GetItemDetails(string barcode)
         {
             try
@@ -280,22 +287,53 @@ namespace BenpilsBarcodeSystem
 
             return null;
         }
+
         private void UpdateUI()
         {
             TotalLbl.Text = total.ToString();
             TransactionNumberlbl.Text = transactionNumber;
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = cart;
 
-            // Update Change label based on payment and total
+            // Retrieve cart items from the tbl_cart table
+            dataGridView1.DataSource = GetCartItems();
+
             UpdateChangeLabel();
+        }
+
+        private DataTable GetCartItems()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                {
+                    connection.Open();
+                    string query = "SELECT ItemName, MotorBrand, Brand, Subtotal FROM tbl_cart WHERE TransactionNumber = @TransactionNumber";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving cart items: {ex.Message}");
+            }
+
+            return dt;
         }
 
         private void GenerateTransactionNumber()
         {
             Random random = new Random();
             int randomDigits = random.Next(100000000, 999999999);
-            transactionNumber = "BEN - " + randomDigits.ToString();
+            transactionNumber. = "BEN - " + randomDigits.ToString();
         }
 
         private int GetQuantityFromUser()
@@ -307,15 +345,19 @@ namespace BenpilsBarcodeSystem
                     return quantityForm.Quantity;
                 }
             }
-            return 0; 
+            return 0;
         }
+
         private decimal CalculateTotal()
         {
             decimal total = 0;
 
-            foreach (CartItem item in cart)
+            // Retrieve cart items from the tbl_cart table
+            DataTable cartItems = GetCartItems();
+
+            foreach (DataRow row in cartItems.Rows)
             {
-                total += item.Subtotal;
+                total += Convert.ToDecimal(row["Subtotal"]);
             }
 
             return total;
@@ -328,26 +370,6 @@ namespace BenpilsBarcodeSystem
             public string Brand { get; set; }
             public decimal UnitPrice { get; set; }
             public int Quantity { get; set; }
-        }
-
-        private class CartItem
-        {
-            public string ItemName { get; set; }
-            public string MotorBrand { get; set; }
-            public string Brand { get; set; }
-            public decimal Subtotal { get; set; }
-        }
-
-        private void PaymentrichTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (decimal.TryParse(PaymentrichTxt.Text, out payment))
-            {
-                UpdateChangeLabel();
-            }
-            else
-            {
-                Changelbl.Text = "Invalid payment amount";
-            }
         }
     }
 }

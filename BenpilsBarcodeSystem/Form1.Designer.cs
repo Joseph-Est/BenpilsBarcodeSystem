@@ -39,7 +39,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.Showpassword = new System.Windows.Forms.CheckBox();
-            this.BtnLogin = new System.Windows.Forms.Button();
+            this.btnlogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -158,15 +158,15 @@
             this.Showpassword.UseVisualStyleBackColor = true;
             this.Showpassword.CheckedChanged += new System.EventHandler(this.Showpassword_CheckedChanged);
             // 
-            // BtnLogin
+            // btnlogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(159, 293);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(75, 23);
-            this.BtnLogin.TabIndex = 22;
-            this.BtnLogin.Text = "Login";
-            this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click_1);
+            this.btnlogin.Location = new System.Drawing.Point(151, 301);
+            this.btnlogin.Name = "btnlogin";
+            this.btnlogin.Size = new System.Drawing.Size(75, 23);
+            this.btnlogin.TabIndex = 22;
+            this.btnlogin.Text = "Login";
+            this.btnlogin.UseVisualStyleBackColor = true;
+            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click_2);
             // 
             // Form1
             // 
@@ -174,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(384, 336);
-            this.Controls.Add(this.BtnLogin);
+            this.Controls.Add(this.btnlogin);
             this.Controls.Add(this.Showpassword);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -211,7 +211,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.CheckBox Showpassword;
-        private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.Button btnlogin;
     }
 }
 

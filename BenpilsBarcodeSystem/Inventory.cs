@@ -301,7 +301,7 @@ namespace BenpilsBarcodeSystem
                 }
             }
 
-            UpdateStockStatus(productId);  // Call the method to update stock status
+           
             UpdateDataGridView();
             ClearAllTextBoxes();
         }

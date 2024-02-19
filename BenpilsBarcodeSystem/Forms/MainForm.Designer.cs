@@ -96,10 +96,12 @@
             // MinimizeBtn
             // 
             this.MinimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MinimizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("MinimizeBtn.Image")));
-            this.MinimizeBtn.Location = new System.Drawing.Point(1381, 2);
+            this.MinimizeBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
+            this.MinimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MinimizeBtn.Location = new System.Drawing.Point(1396, 7);
             this.MinimizeBtn.Name = "MinimizeBtn";
-            this.MinimizeBtn.Size = new System.Drawing.Size(38, 32);
+            this.MinimizeBtn.Size = new System.Drawing.Size(20, 20);
             this.MinimizeBtn.TabIndex = 8;
             this.MinimizeBtn.TabStop = false;
             this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
@@ -120,10 +122,12 @@
             // CloseBtn
             // 
             this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
-            this.CloseBtn.Location = new System.Drawing.Point(1420, 3);
+            this.CloseBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBtn.Location = new System.Drawing.Point(1426, 7);
             this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(32, 32);
+            this.CloseBtn.Size = new System.Drawing.Size(20, 20);
             this.CloseBtn.TabIndex = 22;
             this.CloseBtn.TabStop = false;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);

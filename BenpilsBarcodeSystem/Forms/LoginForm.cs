@@ -13,8 +13,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class LoginForm : Form
     {
-        private bool isDragging = false;
-        private int mouseX, mouseY;
         private string usernamePlaceholder = "Username";
         private string passwordPlaceholder = "Password";
 
@@ -27,19 +25,72 @@ namespace BenpilsBarcodeSystem
             PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            ConfirmationExit ce = new ConfirmationExit();
-            ce.StartPosition = FormStartPosition.CenterScreen;
-            ce.ShowDialog();
+            UsernameTxt.Select();
+            this.AcceptButton = btnLogin;
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private async void btnlogin_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (UsernameTxt.Text == "")
+            {
+                MessageBox.Show("Enter your username!");
+            }
+            else if (PasswordTxt.Text == "")
+            {
+                MessageBox.Show("Enter your password!");
+            }
+            else
+            {
+                btnLogin.Text = "Logging in....";
+                btnLogin.Enabled = false;
+
+                try
+                {
+                    DatabaseHelper dbHelper = new DatabaseHelper();
+
+                    DataTable dt = await dbHelper.GetUserCredentials(UsernameTxt.Text, PasswordTxt.Text);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        string username = dt.Rows[0]["username"].ToString();
+                        string designation = dt.Rows[0]["designation"].ToString();
+
+                        MessageBox.Show("Login successful");
+
+                        User user = new User
+                        {
+                            Username = username,
+                            Designation = designation
+                        };
+
+                        MainForm dash = new MainForm(user);
+                        dash.Show();
+                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    btnLogin.Text = "Login";
+                    btnLogin.Enabled = true;
+                }
+            }
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private bool isDragging = false;
+        private int mouseX, mouseY;
+
+        private void panelHeader_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -49,7 +100,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void panelHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
             {
@@ -58,30 +109,11 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void panelHeader_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
-
-        private void Showpassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Showpassword.Checked == true)
-            {
-                PasswordTxt.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                PasswordTxt.UseSystemPasswordChar= true;
-            }
-
-        }
         
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.AcceptButton = btnlogin;
-        }
-
         private void UsernameTxt_Enter(object sender, EventArgs e)
         {
             if (UsernameTxt.Text == usernamePlaceholder)
@@ -100,79 +132,73 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private bool passwordModified = false;
+
+        private void Showpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (passwordModified == true)
+            {
+                if (ShowPassword.Checked == true)
+                {
+                    PasswordTxt.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    PasswordTxt.UseSystemPasswordChar = true;
+                }
+            }
+        }
+
         private void PasswordTxt_Enter(object sender, EventArgs e)
         {
-            if (PasswordTxt.Text == passwordPlaceholder)
+            if (!passwordModified)
             {
+                if (!ShowPassword.Checked)
+                {
+                    PasswordTxt.UseSystemPasswordChar = true;
+                }
+
                 PasswordTxt.Text = "";
-                PasswordTxt.ForeColor = System.Drawing.SystemColors.ControlText;
-                PasswordTxt.PasswordChar = '•'; 
             }
         }
 
         private void PasswordTxt_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(PasswordTxt.Text))
+            if (!passwordModified)
             {
-                PasswordTxt.Text = passwordPlaceholder;
                 PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
-                PasswordTxt.PasswordChar = '\0'; 
+                PasswordTxt.Text = passwordPlaceholder;
+                PasswordTxt.UseSystemPasswordChar = false;
             }
         }
 
-        private void btnlogin_Click_2(object sender, EventArgs e)
+        private void PasswordTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (UsernameTxt.Text == "")
+            if (!string.IsNullOrWhiteSpace(PasswordTxt.Text))
             {
-                MessageBox.Show("Enter the username.");
+                PasswordTxt.ForeColor = System.Drawing.SystemColors.ControlText;
+                passwordModified = true;
             }
-            else if (PasswordTxt.Text == "")
+        }
+
+        private void PasswordTxt_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(PasswordTxt.Text))
             {
-                MessageBox.Show("Enter the password.");
+                passwordModified = false;
             }
-            else
-            {
-                try
-                {
-                    //SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
-                    SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True");
-                    SqlCommand cmd = new SqlCommand("select * from tbl_usercredential where username = @username and password = @password", con);
-                    cmd.Parameters.AddWithValue("@username", UsernameTxt.Text);
-                    cmd.Parameters.AddWithValue("@password", PasswordTxt.Text);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
+        }
 
-                    da.Fill(dt);
-                    if (dt.Rows.Count > 0)
-                    {
-                        string username = dt.Rows[0]["username"].ToString();
-                        string designation = dt.Rows[0]["designation"].ToString();
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            ConfirmationExit ce = new ConfirmationExit();
+            ce.StartPosition = FormStartPosition.CenterScreen;
+            ce.ShowDialog();
+        }
 
-                        MessageBox.Show("Login successful");
-
-
-                        User user = new User
-                        {
-                            Username = username,
-                            Designation = designation
-                        };
-
-
-                        MainForm dash = new MainForm(user);
-                        dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid username and password!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
-                }
-            }
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

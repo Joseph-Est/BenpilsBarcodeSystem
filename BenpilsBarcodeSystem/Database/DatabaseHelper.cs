@@ -10,27 +10,45 @@ namespace BenpilsBarcodeSystem
 {
     public class DatabaseHelper
     {
-        //private string connectionString = "Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
-        private string connectionString = "Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True";
+        private readonly Database.DatabaseConnection databaseConnection;
 
-        public DataTable GetSupplierData()
+        public DatabaseHelper()
+        {
+            databaseConnection = new Database.DatabaseConnection();
+        }
+
+        //-------------------------------------------------LOGIN--------------------------------------------------
+
+        public async Task<DataTable> GetUserCredentials(string username, string password)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                // Open the database connection asynchronously
+                using (SqlConnection connection = await Task.Run(() => databaseConnection.OpenConnection()))
                 {
-                    connection.Open();
-
-                    string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Check if the connection is successfully established
+                    if (connection != null)
                     {
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        string query = "SELECT * FROM tbl_usercredential WHERE username = @username AND password = @password";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-                            return dataTable;
+                            command.Parameters.AddWithValue("@username", username);
+                            command.Parameters.AddWithValue("@password", password);
+
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                            {
+                                DataTable dataTable = new DataTable();
+                                await Task.Run(() => adapter.Fill(dataTable));
+                                return dataTable;
+                            }
                         }
+                    }
+                    else
+                    {
+                        // Connection failed
+                        Console.WriteLine("Database connection failed.");
+                        return null;
                     }
                 }
             }
@@ -38,7 +56,42 @@ namespace BenpilsBarcodeSystem
             {
                 // Handle or log the exception here
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return null; 
+                return null;
+            }
+        }
+
+
+        public DataTable GetSupplierData()
+        {
+            try
+            {
+                using (SqlConnection connection = databaseConnection.OpenConnection())
+                {
+                    if (connection != null)
+                    {
+                        string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                            {
+                                DataTable dataTable = new DataTable();
+                                adapter.Fill(dataTable);
+                                return dataTable;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Database connection failed.");
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
             }
         }
     }

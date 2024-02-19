@@ -214,7 +214,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +226,7 @@
     <Compile Include="Dialogs\GenerateBarcode.Designer.cs">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\InputValidator.cs" />
     <Compile Include="Panels\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +292,14 @@
     <Compile Include="Panels\UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\InventoryRepository.cs" />
+    <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\POSRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderRepository.cs" />
+    <Compile Include="Repositories\ReportsRepository.cs" />
+    <Compile Include="Repositories\SettingsRepository.cs" />
+    <Compile Include="Repositories\UserCredentialsRepository.cs" />
+    <Compile Include="Helpers\Util.cs" />
     <EmbeddedResource Include="Dialogs\AddItemSupplier.resx">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,9 +373,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icons8-user-90.png" />
   </ItemGroup>

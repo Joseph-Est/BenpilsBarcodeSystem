@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,9 +49,9 @@ namespace BenpilsBarcodeSystem
 
                 try
                 {
-                    DatabaseHelper dbHelper = new DatabaseHelper();
+                     LoginRepository loginRepository = new LoginRepository();
 
-                    DataTable dt = await dbHelper.GetUserCredentials(UsernameTxt.Text, PasswordTxt.Text);
+                    DataTable dt = await loginRepository.GetUserCredentials(UsernameTxt.Text, PasswordTxt.Text);
 
                     if (dt != null && dt.Rows.Count > 0)
                     {

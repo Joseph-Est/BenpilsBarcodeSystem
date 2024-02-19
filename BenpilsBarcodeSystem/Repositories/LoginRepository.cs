@@ -1,29 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 
-namespace BenpilsBarcodeSystem
+namespace BenpilsBarcodeSystem.Repository
 {
-    public class DatabaseHelper
+    internal class LoginRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
 
-        public DatabaseHelper()
+        public LoginRepository()
         {
             databaseConnection = new Database.DatabaseConnection();
         }
-
-        //-------------------------------------------------LOGIN--------------------------------------------------
 
         public async Task<DataTable> GetUserCredentials(string username, string password)
         {
             try
             {
-                // Open the database connection asynchronously
                 using (SqlConnection connection = await Task.Run(() => databaseConnection.OpenConnection()))
                 {
                     // Check if the connection is successfully established
@@ -40,43 +37,6 @@ namespace BenpilsBarcodeSystem
                             {
                                 DataTable dataTable = new DataTable();
                                 await Task.Run(() => adapter.Fill(dataTable));
-                                return dataTable;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // Connection failed
-                        Console.WriteLine("Database connection failed.");
-                        return null;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle or log the exception here
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return null;
-            }
-        }
-
-
-        public DataTable GetSupplierData()
-        {
-            try
-            {
-                using (SqlConnection connection = databaseConnection.OpenConnection())
-                {
-                    if (connection != null)
-                    {
-                        string query = "SELECT SupplierID, ContactName FROM tbl_supplier";
-
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                            {
-                                DataTable dataTable = new DataTable();
-                                adapter.Fill(dataTable);
                                 return dataTable;
                             }
                         }

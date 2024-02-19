@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,8 +24,8 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
       
-            DatabaseHelper dbHelper = new DatabaseHelper();
-            DataTable dataTable = dbHelper.GetSupplierData();
+            PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
+            DataTable dataTable = purchaseOrderRepository.GetSupplierData();
 
 
             CmbSupplier.DataSource = dataTable;

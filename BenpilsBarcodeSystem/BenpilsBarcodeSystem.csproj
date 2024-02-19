@@ -188,346 +188,136 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItemSupplier.cs">
+    <Compile Include="Dialogs\AddItemSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItemSupplier.Designer.cs">
+    <Compile Include="Dialogs\AddItemSupplier.Designer.cs">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="BenpillBarcodeDatabaseInventory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleArchivedItemMaster.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabasefinal1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinalChange.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinalFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartFinalReally.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet21.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable22.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseSupplier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseVoidTable.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmasterdata2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmasterDataMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemMasterDataOnPOS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmmasterdataforPOS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleMasterData2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcyclePurchaseOrderList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcyclePurchaseOrderListMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabases.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServices.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesDataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicestransactionDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesTransactionsDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceTransactions.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleStockManagementDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSupplier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSupplierList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleTableCartDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleUsercredentialmain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ConfirmationExit.cs">
+    <Compile Include="Dialogs\ConfirmationExit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmationExit.Designer.cs">
+    <Compile Include="Dialogs\ConfirmationExit.Designer.cs">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmationLogout.cs">
+    <Compile Include="Dialogs\ConfirmationLogout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmationLogout.Designer.cs">
+    <Compile Include="Dialogs\ConfirmationLogout.Designer.cs">
       <DependentUpon>ConfirmationLogout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Database\DatabaseInitializer.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Datatableservices.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenerateBarcode.cs">
+    <Compile Include="Dialogs\GenerateBarcode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GenerateBarcode.Designer.cs">
+    <Compile Include="Dialogs\GenerateBarcode.Designer.cs">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs">
+    <Compile Include="Panels\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory.Designer.cs">
+    <Compile Include="Panels\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
-    <Compile Include="POSS.cs">
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Panels\POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POSS.Designer.cs">
-      <DependentUpon>POSS.cs</DependentUpon>
+    <Compile Include="Panels\POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Print Invoice.cs">
+    <Compile Include="Dialogs\PrintInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Print Invoice.Designer.cs">
-      <DependentUpon>Print Invoice.cs</DependentUpon>
+    <Compile Include="Dialogs\PrintInvoice.Designer.cs">
+      <DependentUpon>PrintInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Purchaserr.cs">
+    <Compile Include="Panels\PurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchaserr.Designer.cs">
-      <DependentUpon>Purchaserr.cs</DependentUpon>
+    <Compile Include="Panels\PurchaseOrder.Designer.cs">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quantityform.cs">
+    <Compile Include="Dialogs\QuantityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quantityform.Designer.cs">
-      <DependentUpon>Quantityform.cs</DependentUpon>
+    <Compile Include="Dialogs\QuantityForm.Designer.cs">
+      <DependentUpon>QuantityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports.cs">
+    <Compile Include="Panels\Reports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.cs">
+    <Compile Include="Panels\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service Invoice.cs">
+    <Compile Include="Dialogs\ServiceInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Service Invoice.Designer.cs">
-      <DependentUpon>Service Invoice.cs</DependentUpon>
+    <Compile Include="Dialogs\ServiceInvoice.Designer.cs">
+      <DependentUpon>ServiceInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services.cs">
+    <Compile Include="Panels\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Services.Designer.cs">
-      <DependentUpon>Services.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Panels\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatisticReport.cs">
+    <Compile Include="Panels\StatisticReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatisticReport.Designer.cs">
+    <Compile Include="Panels\StatisticReport.Designer.cs">
       <DependentUpon>StatisticReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCredentials.cs">
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Panels\UserCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserCredentials.Designer.cs">
+    <Compile Include="Panels\UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItemSupplier.resx">
+    <EmbeddedResource Include="Dialogs\AddItemSupplier.resx">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmationExit.resx">
+    <EmbeddedResource Include="Dialogs\ConfirmationExit.resx">
       <DependentUpon>ConfirmationExit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmationLogout.resx">
+    <EmbeddedResource Include="Dialogs\ConfirmationLogout.resx">
       <DependentUpon>ConfirmationLogout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GenerateBarcode.resx">
+    <EmbeddedResource Include="Dialogs\GenerateBarcode.resx">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory.resx">
+    <EmbeddedResource Include="Panels\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POSS.resx">
-      <DependentUpon>POSS.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Print Invoice.resx">
-      <DependentUpon>Print Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\PrintInvoice.resx">
+      <DependentUpon>PrintInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -537,483 +327,30 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Purchaserr.resx">
-      <DependentUpon>Purchaserr.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\PurchaseOrder.resx">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Quantityform.resx">
-      <DependentUpon>Quantityform.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\QuantityForm.resx">
+      <DependentUpon>QuantityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
+    <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Service Invoice.resx">
-      <DependentUpon>Service Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ServiceInvoice.resx">
+      <DependentUpon>ServiceInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Services.resx">
-      <DependentUpon>Services.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Panels\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatisticReport.resx">
+    <EmbeddedResource Include="Panels\StatisticReport.resx">
       <DependentUpon>StatisticReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCredentials.resx">
+    <EmbeddedResource Include="Panels\UserCredentials.resx">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BenpillBarcodeDatabaseInventory.xsc">
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillBarcodeDatabaseInventory.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillBarcodeDatabaseInventory.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillBarcodeDatabaseInventory.xss">
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xsc">
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleArchivedItemMaster.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xss">
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabasefinal1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinalChange.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinalFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xsc">
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartFinalReally.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xss">
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet21.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable22.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseSupplier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseVoidTable.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xsc">
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmasterdata2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xss">
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xsc">
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmasterDataMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xss">
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsc">
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemMasterDataOnPOS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xss">
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsc">
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmmasterdataforPOS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xss">
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xsc">
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleMasterData2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xss">
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xsc">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcyclePurchaseOrderList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xss">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsc">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcyclePurchaseOrderListMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xss">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabases.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServices.xsc">
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServices.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServices.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServices.xss">
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xsc">
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesDataBase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xss">
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicestransactionDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesTransactionsDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xsc">
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceTransactions.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xss">
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleStockManagementDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xss">
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xsc">
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSuppier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xss">
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xsc">
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSupplier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xss">
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xsc">
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSupplierList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xss">
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleTableCartDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xss">
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xsc">
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleUsercredentialmain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xss">
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1027,6 +364,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-303.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ben_small-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -333,7 +333,7 @@ namespace BenpilsBarcodeSystem
         {
             Random random = new Random();
             int randomDigits = random.Next(100000000, 999999999);
-            transactionNumber. = "BEN - " + randomDigits.ToString();
+            transactionNumber = "BEN - " + randomDigits.ToString();
         }
 
         private int GetQuantityFromUser()

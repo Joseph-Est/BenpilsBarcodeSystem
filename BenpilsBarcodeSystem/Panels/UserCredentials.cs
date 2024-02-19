@@ -56,7 +56,7 @@ namespace BenpilsBarcodeSystem
             string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
                                  "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -81,7 +81,7 @@ namespace BenpilsBarcodeSystem
         {
             string query = "SELECT COUNT(*) FROM tbl_usercredential WHERE username = @Username";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -118,7 +118,7 @@ namespace BenpilsBarcodeSystem
             string updateQuery = "UPDATE tbl_usercredential SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
                                  "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @ID";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {
@@ -153,7 +153,7 @@ namespace BenpilsBarcodeSystem
 
             string deleteQuery = "DELETE FROM tbl_usercredential WHERE ID = @ID";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
                 {
@@ -171,7 +171,7 @@ namespace BenpilsBarcodeSystem
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_usercredential";
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {
@@ -229,7 +229,7 @@ namespace BenpilsBarcodeSystem
         {
             string filterQuery = "SELECT * FROM tbl_usercredential WHERE FirstName LIKE @Search OR LastName LIKE @Search OR UserName LIKE @Search OR Designation LIKE @Search";
             DataTable filteredTable = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(filterQuery, con))
                 {

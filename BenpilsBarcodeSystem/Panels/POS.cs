@@ -59,7 +59,7 @@ namespace BenpilsBarcodeSystem
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "INSERT INTO tbl_cart (ItemName, MotorBrand, Brand, Subtotal, Quantity) VALUES (@ItemName, @MotorBrand, @Brand, @Subtotal, @Quantity)";
@@ -100,7 +100,7 @@ namespace BenpilsBarcodeSystem
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "UPDATE tbl_itemmasterdata SET Quantity = @NewQuantity WHERE Barcode = @Barcode";
@@ -123,7 +123,7 @@ namespace BenpilsBarcodeSystem
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
 
@@ -175,7 +175,7 @@ namespace BenpilsBarcodeSystem
 
             try
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "SELECT ItemName, MotorBrand, Brand, Subtotal FROM tbl_cart WHERE TransactionNumber = @TransactionNumber";

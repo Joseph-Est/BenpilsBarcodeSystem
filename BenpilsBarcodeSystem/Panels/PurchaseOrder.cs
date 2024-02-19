@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_supplier";
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {
@@ -71,7 +71,7 @@ namespace BenpilsBarcodeSystem
             string insertQuery = "INSERT INTO tbl_supplier (ContactName, Address, ContactNo) " +
                              "VALUES (@ContactName, @Address, @ContactNo)";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -97,7 +97,7 @@ namespace BenpilsBarcodeSystem
                 string contactNo = ContactNoTxt.Text;
 
 
-                using (SqlConnection connection = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     connection.Open();
                     string query = "UPDATE tbl_supplier " +
@@ -268,7 +268,7 @@ namespace BenpilsBarcodeSystem
         private void UpdateDataGridView2()
         {
             string selectQuery = "SELECT * FROM tbl_cartpurchasing";
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {

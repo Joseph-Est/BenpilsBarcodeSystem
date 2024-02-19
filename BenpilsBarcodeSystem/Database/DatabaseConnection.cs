@@ -9,7 +9,7 @@ namespace BenpilsBarcodeSystem.Database
 {
     internal class DatabaseConnection
     {
-        private const string DataSource = "SKLERBIDI";
+        private const string DataSource = "DESKTOP-GM16NRU";
         private const string InitialCatalog = "BenpilsMotorcycleDatabase";
         private readonly string connectionString;
 

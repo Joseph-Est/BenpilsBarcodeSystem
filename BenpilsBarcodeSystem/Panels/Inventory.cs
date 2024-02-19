@@ -112,7 +112,7 @@ namespace BenpilsBarcodeSystem
             string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                 {
@@ -138,7 +138,7 @@ namespace BenpilsBarcodeSystem
         }
         private bool IsProductIDAlreadyExists(int productId)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE ProductID = @ProductID", con))
@@ -151,7 +151,7 @@ namespace BenpilsBarcodeSystem
         }
         private bool IsSizeAlreadyExists(string size)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE Size = @Size", con))
@@ -249,7 +249,7 @@ namespace BenpilsBarcodeSystem
         private void pictureBox13_Click(object sender, EventArgs e)
         {
             string selectQuery = "SELECT * FROM tbl_itemmasterdata";
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {
@@ -275,7 +275,7 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateProductID()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 con.Open();
             {
 
@@ -306,7 +306,7 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateStockStatus(int productId)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 con.Open();
 
@@ -359,7 +359,7 @@ namespace BenpilsBarcodeSystem
                 string archiveQuery = "INSERT INTO ArchivedItems (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
                                       "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
 
-                using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
                 {
                     using (SqlCommand cmd = new SqlCommand(archiveQuery, con))
                     {
@@ -388,7 +388,7 @@ namespace BenpilsBarcodeSystem
         {
             string deleteQuery = "DELETE FROM tbl_itemmasterdata WHERE ProductID = @ProductID";
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
                 {

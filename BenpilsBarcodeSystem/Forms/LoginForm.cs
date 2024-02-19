@@ -49,7 +49,7 @@ namespace BenpilsBarcodeSystem
 
                 try
                 {
-                     LoginRepository loginRepository = new LoginRepository();
+                    LoginRepository loginRepository = new LoginRepository();
 
                     DataTable dt = await loginRepository.GetUserCredentials(UsernameTxt.Text, PasswordTxt.Text);
 

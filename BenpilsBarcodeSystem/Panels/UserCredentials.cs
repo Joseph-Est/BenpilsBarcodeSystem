@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,8 +32,7 @@ namespace BenpilsBarcodeSystem
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
-          
-
+            UpdateDataGridView();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -168,17 +168,20 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
-        private void UpdateDataGridView()
+        private async void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_usercredential";
             using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            try
             {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
+                UserCredentialsRepository userCredentialsRepository = new UserCredentialsRepository();
+                DataTable userCredentials = await userCredentialsRepository.GetUserCredentialsAsync();
+
+                dataGridView1.DataSource = userCredentials;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 

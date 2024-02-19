@@ -20,14 +20,12 @@ namespace BenpilsBarcodeSystem
         public Inventory()
         {
             InitializeComponent();
-
-
         }
 
         private void UpdateDataGridView()
         {
             string selectQuery = "SELECT * FROM tbl_itemmasterdata";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                 {

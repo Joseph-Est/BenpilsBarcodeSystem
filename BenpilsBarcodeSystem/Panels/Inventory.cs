@@ -13,6 +13,7 @@ using ZXing;
 using System.Windows.Forms.VisualStyles;
 using BenpilsBarcodeSystem.Utils;
 using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Helpers;
 
 namespace BenpilsBarcodeSystem
 {
@@ -44,58 +45,46 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private async void AddBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(BarcodeTxt.Text) ||
-                string.IsNullOrEmpty(ItemNameTxt.Text) ||
-                string.IsNullOrEmpty(ProductIDTxt.Text) ||
-                string.IsNullOrEmpty(UnitPriceTxt.Text) ||
-                string.IsNullOrEmpty(QuantityTxt.Text) ||
-                string.IsNullOrEmpty(CategoryTxt.Text))
+            if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
             {
                 MessageBox.Show("Please fill in all the required fields.");
                 return;
             }
 
+            InventoryRepository repository = new InventoryRepository();
 
-            if (!int.TryParse(ProductIDTxt.Text, out int productId))
+            if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
             {
-                MessageBox.Show("Product ID must be a valid integer.");
+                MessageBox.Show("Invalid price");
                 return;
             }
 
-            string size = SizeTxt.Text;
+            if (!InputValidator.IsValidInt(ProductIDTxt.Text))
+            {
+                MessageBox.Show("Product ID must be valid number");
+                return;
+            }
 
-            if (IsSizeAlreadyExists(size))
+            if (await repository.AreDataExistsAsync("Size", SizeTxt.Text, "ItemName", ItemNameTxt.Text))
             {
                 MessageBox.Show("Size already exists in the database. Please choose a different Size.");
                 return;
             }
 
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
-                                "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
+            await repository.AddProductAsync(
+                BarcodeTxt.Text,
+                InputValidator.ParseToInt(ProductIDTxt.Text),
+                ItemNameTxt.Text,
+                MotorBrandTxt.Text,
+                BrandTxt.Text,
+                InputValidator.ParseToDecimal(UnitPriceTxt.Text),
+                InputValidator.ParseToInt(QuantityTxt.Text),
+                CategoryTxt.Text,
+                SizeTxt.Text
+            );
 
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-                    cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
-                    cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", decimal.Parse(UnitPriceTxt.Text));
-                    cmd.Parameters.AddWithValue("@Quantity", int.Parse(QuantityTxt.Text));
-                    cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                    cmd.Parameters.AddWithValue("@Size", size);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-           
             UpdateDataGridView();
             Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
         }

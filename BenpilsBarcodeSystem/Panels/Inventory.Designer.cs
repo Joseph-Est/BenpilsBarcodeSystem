@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
@@ -167,7 +167,7 @@
             this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
             this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
             this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(287, 35);
-            this.BarcodeGeneratorBtn.TabIndex = 180;
+            this.BarcodeGeneratorBtn.TabIndex = 15;
             this.BarcodeGeneratorBtn.Text = "Barcode Generator";
             this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
             this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
@@ -179,14 +179,14 @@
             this.dataGridItemMasterdata.AllowUserToResizeColumns = false;
             this.dataGridItemMasterdata.AllowUserToResizeRows = false;
             this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -226,7 +226,7 @@
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(287, 35);
-            this.ArchiveBtn.TabIndex = 175;
+            this.ArchiveBtn.TabIndex = 14;
             this.ArchiveBtn.Text = "Archive";
             this.ArchiveBtn.UseVisualStyleBackColor = true;
             this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
@@ -240,7 +240,7 @@
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(99, 35);
-            this.UpdateBtn.TabIndex = 174;
+            this.UpdateBtn.TabIndex = 11;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
             this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
@@ -255,7 +255,7 @@
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.AddBtn.Size = new System.Drawing.Size(99, 35);
-            this.AddBtn.TabIndex = 173;
+            this.AddBtn.TabIndex = 10;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
@@ -393,7 +393,7 @@
             this.SizeTxt.Multiline = true;
             this.SizeTxt.Name = "SizeTxt";
             this.SizeTxt.Size = new System.Drawing.Size(287, 35);
-            this.SizeTxt.TabIndex = 183;
+            this.SizeTxt.TabIndex = 9;
             // 
             // panel31
             // 
@@ -445,7 +445,7 @@
             this.UnitPriceTxt.Multiline = true;
             this.UnitPriceTxt.Name = "UnitPriceTxt";
             this.UnitPriceTxt.Size = new System.Drawing.Size(287, 35);
-            this.UnitPriceTxt.TabIndex = 177;
+            this.UnitPriceTxt.TabIndex = 8;
             // 
             // panel29
             // 
@@ -497,7 +497,7 @@
             this.CategoryTxt.Multiline = true;
             this.CategoryTxt.Name = "CategoryTxt";
             this.CategoryTxt.Size = new System.Drawing.Size(287, 35);
-            this.CategoryTxt.TabIndex = 172;
+            this.CategoryTxt.TabIndex = 7;
             // 
             // panel27
             // 
@@ -549,7 +549,7 @@
             this.QuantityTxt.Multiline = true;
             this.QuantityTxt.Name = "QuantityTxt";
             this.QuantityTxt.Size = new System.Drawing.Size(287, 34);
-            this.QuantityTxt.TabIndex = 171;
+            this.QuantityTxt.TabIndex = 6;
             // 
             // panel25
             // 
@@ -601,7 +601,7 @@
             this.BrandTxt.Multiline = true;
             this.BrandTxt.Name = "BrandTxt";
             this.BrandTxt.Size = new System.Drawing.Size(287, 35);
-            this.BrandTxt.TabIndex = 170;
+            this.BrandTxt.TabIndex = 5;
             // 
             // panel23
             // 
@@ -653,7 +653,7 @@
             this.MotorBrandTxt.Multiline = true;
             this.MotorBrandTxt.Name = "MotorBrandTxt";
             this.MotorBrandTxt.Size = new System.Drawing.Size(287, 35);
-            this.MotorBrandTxt.TabIndex = 169;
+            this.MotorBrandTxt.TabIndex = 4;
             // 
             // panel21
             // 
@@ -706,7 +706,7 @@
             this.ItemNameTxt.Multiline = true;
             this.ItemNameTxt.Name = "ItemNameTxt";
             this.ItemNameTxt.Size = new System.Drawing.Size(287, 35);
-            this.ItemNameTxt.TabIndex = 168;
+            this.ItemNameTxt.TabIndex = 3;
             // 
             // panel19
             // 
@@ -760,7 +760,7 @@
             this.ProductIDTxt.Name = "ProductIDTxt";
             this.ProductIDTxt.ReadOnly = true;
             this.ProductIDTxt.Size = new System.Drawing.Size(206, 35);
-            this.ProductIDTxt.TabIndex = 168;
+            this.ProductIDTxt.TabIndex = 2;
             // 
             // panel33
             // 
@@ -781,6 +781,7 @@
             this.GenerateBtn.Name = "GenerateBtn";
             this.GenerateBtn.Size = new System.Drawing.Size(76, 35);
             this.GenerateBtn.TabIndex = 0;
+            this.GenerateBtn.TabStop = false;
             this.GenerateBtn.Text = "Generate";
             this.GenerateBtn.UseVisualStyleBackColor = true;
             this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
@@ -835,7 +836,7 @@
             this.BarcodeTxt.Multiline = true;
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(287, 35);
-            this.BarcodeTxt.TabIndex = 166;
+            this.BarcodeTxt.TabIndex = 1;
             // 
             // panel15
             // 
@@ -926,7 +927,7 @@
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(287, 35);
-            this.button2.TabIndex = 182;
+            this.button2.TabIndex = 13;
             this.button2.Text = "Reduce Stock";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -961,7 +962,7 @@
             this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(81, 35);
-            this.ClearBtn.TabIndex = 179;
+            this.ClearBtn.TabIndex = 12;
             this.ClearBtn.Text = "Clear";
             this.ClearBtn.UseVisualStyleBackColor = true;
             this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);

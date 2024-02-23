@@ -16,5 +16,17 @@ namespace BenpilsBarcodeSystem.Utils
                 textBox.Clear();
             }
         }
+
+        public static bool AreTextBoxesNullOrEmpty(params TextBox[] textBoxes)
+        {
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (string.IsNullOrEmpty(textBox.Text))
+                {
+                    return true; 
+                }
+            }
+            return false;
+        }
     }
 }

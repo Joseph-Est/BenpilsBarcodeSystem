@@ -169,5 +169,27 @@ namespace BenpilsBarcodeSystem.Repository
                 return false;
             }
         }
+
+        public async Task ArchiveProductAsync(int id)
+        {
+            string updateQuery = "UPDATE tbl_itemmasterdata SET Status = 'Archived' WHERE ID = @ID";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace BenpilsBarcodeSystem
         private GenerateBarcode GB;
         private bool isAdding = false;
         private bool isUpdating = false;
-        private int updateId;
+        private int selectedID;
 
         public Inventory()
         {
@@ -59,6 +59,8 @@ namespace BenpilsBarcodeSystem
                 AddBtn.Text = "Save";
                 GenerateBtn.Enabled = true;
                 UpdateBtn.Enabled = true;
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
                 UpdateBtn.Text = "Cancel";
             }
             else
@@ -128,6 +130,8 @@ namespace BenpilsBarcodeSystem
                 SetFieldsReadOnly(false);
                 AddBtn.Text = "Save";
                 UpdateBtn.Text = "Cancel";
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
             }
             else
             {
@@ -147,9 +151,14 @@ namespace BenpilsBarcodeSystem
             ClearFields();
         }
 
-        private void ArchiveBtn_Click(object sender, EventArgs e)
+        private async void ArchiveBtn_Click(object sender, EventArgs e)
         {
+            InventoryRepository inventoryRepository = new InventoryRepository();
 
+            if(selectedID > 0)
+            {
+                await inventoryRepository.ArchiveProductAsync(selectedID);
+            }
         }
 
         private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -159,7 +168,7 @@ namespace BenpilsBarcodeSystem
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
-                    updateId =  InputValidator.ParseToInt(row.Cells["ID"].Value.ToString());
+                    selectedID =  InputValidator.ParseToInt(row.Cells["ID"].Value.ToString());
                     BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
                     ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
                     ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
@@ -170,6 +179,8 @@ namespace BenpilsBarcodeSystem
                     CategoryTxt.Text = row.Cells["Category"].Value.ToString();
                     SizeTxt.Text = row.Cells["Size"].Value.ToString();
                     UpdateBtn.Enabled = true;
+                    ArchiveBtn.Enabled = true;
+                    ReduceStockBtn.Enabled = true;
                 }
             }
         }
@@ -228,6 +239,8 @@ namespace BenpilsBarcodeSystem
             if(!isAdding && !isUpdating)
             {
                 UpdateBtn.Enabled = false;
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
             }
         }
 

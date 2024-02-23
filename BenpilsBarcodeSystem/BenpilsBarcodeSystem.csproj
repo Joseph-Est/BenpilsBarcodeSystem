@@ -194,17 +194,11 @@
     <Compile Include="Dialogs\AddItemSupplier.Designer.cs">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ConfirmationExit.cs">
+    <Compile Include="Dialogs\Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ConfirmationExit.Designer.cs">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ConfirmationLogout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ConfirmationLogout.Designer.cs">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <Compile Include="Dialogs\Confirmation.Designer.cs">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Database\DatabaseInitializer.cs" />
@@ -303,11 +297,8 @@
     <EmbeddedResource Include="Dialogs\AddItemSupplier.resx">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ConfirmationExit.resx">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ConfirmationLogout.resx">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\Confirmation.resx">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

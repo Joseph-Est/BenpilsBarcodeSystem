@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -138,9 +139,15 @@ namespace BenpilsBarcodeSystem
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationExit cl = new ConfirmationExit();
-            cl.StartPosition = FormStartPosition.CenterScreen;
-            cl.ShowDialog();
+            Confirmation confirmation = new Confirmation("Are you sure you want to exit?", "Confirm", "Cancel");
+            this.Opacity = 0.90;
+            DialogResult result = confirmation.ShowDialog();
+            this.Opacity = 1;
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BenpilsBarcodeSystem.Utils;
 
 namespace BenpilsBarcodeSystem
 {
@@ -192,9 +193,16 @@ namespace BenpilsBarcodeSystem
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            ConfirmationExit ce = new ConfirmationExit();
-            ce.StartPosition = FormStartPosition.CenterScreen;
-            ce.ShowDialog();
+            Confirmation confirmation = new Confirmation("Are you sure you want to close?", "Confirm", "Cancel");
+            this.Opacity = 0.90;
+            DialogResult result = confirmation.ShowDialog();
+            this.Opacity = 1;
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)

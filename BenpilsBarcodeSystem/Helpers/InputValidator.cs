@@ -55,5 +55,31 @@ namespace BenpilsBarcodeSystem.Helpers
                 return 0;
             }
         }
+
+        public static string DecimalToFormattedStringPrice(decimal price)
+        {
+            return price.ToString("#,##0.00");
+        }
+
+        public static string StringToFormattedPrice(string price)
+        {
+            if (!decimal.TryParse(price, out decimal parsedPrice))
+            {
+                return "0.00";
+            }
+
+            return parsedPrice.ToString("#,##0.00", CultureInfo.GetCultureInfo("en-US"));
+        }
+
+
+        public static string FormatPriceWithoutCommas(string price)
+        {
+            return price.Replace(",", "");
+        }
+
+        public static bool IsStringNotEmpty(string str)
+        {
+            return !string.IsNullOrEmpty(str);
+        }
     }
 }

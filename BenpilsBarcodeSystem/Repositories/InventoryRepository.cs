@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenpilsBarcodeSystem.Helpers;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -19,7 +20,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<DataTable> GetProductsAsync()
         {
-            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
+            string selectQuery = "SELECT * FROM tbl_itemmasterdata WHERE Status = 'Active'";
 
             try
             {
@@ -30,20 +31,23 @@ namespace BenpilsBarcodeSystem.Repository
                         DataTable dt = new DataTable();
                         await Task.Run(() => adapter.Fill(dt));
 
-                        dt.Columns.Add("Status", typeof(string));
+                        dt.Columns.Add("StockStatus", typeof(string));
+                        dt.Columns.Add("FormattedPrice", typeof(string));
 
                         foreach (DataRow row in dt.Rows)
                         {
                             int quantity = Convert.ToInt32(row["Quantity"]);
 
                             if (quantity > 1000)
-                                row["Status"] = "High-Stock";
+                                row["StockStatus"] = "High-Stock";
                             else if (quantity > 100)
-                                row["Status"] = "In-Stock";
+                                row["StockStatus"] = "In-Stock";
                             else if (quantity == 0)
-                                row["Status"] = "No Stock";
+                                row["StockStatus"] = "No Stock";
                             else
-                                row["Status"] = "Low-Stock";
+                                row["StockStatus"] = "Low-Stock";
+
+                            row["FormattedPrice"] = InputValidator.StringToFormattedPrice(row["UnitPrice"].ToString());
                         }
 
                         return dt;
@@ -59,8 +63,8 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task AddProductAsync(string barcode, int productId, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
         {
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
-                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
+            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size, Status) " +
+                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size, @Status)";
 
             try
             {
@@ -77,6 +81,7 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
+                        cmd.Parameters.AddWithValue("@Status", "Active");
 
                         await cmd.ExecuteNonQueryAsync();
                     }

@@ -20,6 +20,10 @@ namespace BenpilsBarcodeSystem
     public partial class Inventory : Form
     {
         private GenerateBarcode GB;
+        private bool isAdding = false;
+        private bool isUpdating = false;
+        private int updateId;
+
         public Inventory()
         {
             InitializeComponent();
@@ -47,112 +51,100 @@ namespace BenpilsBarcodeSystem
 
         private async void AddBtn_Click(object sender, EventArgs e)
         {
-            if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
+            if (!isUpdating && !isAdding)
             {
-                MessageBox.Show("Please fill in all the required fields.");
-                return;
+                isAdding = true;
+                ClearFields();
+                SetFieldsReadOnly(false);
+                AddBtn.Text = "Save";
+                GenerateBtn.Enabled = true;
+                UpdateBtn.Enabled = true;
+                UpdateBtn.Text = "Cancel";
             }
-
-            InventoryRepository repository = new InventoryRepository();
-
-            if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
+            else
             {
-                MessageBox.Show("Invalid price");
-                return;
+                if (isAdding)
+                {
+                    if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
+                    {
+                        MessageBox.Show("Please fill in all the required fields.");
+                        return;
+                    }
+
+                    InventoryRepository repository = new InventoryRepository();
+
+                    if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
+                    {
+                        MessageBox.Show("Invalid price");
+                        return;
+                    }
+
+                    if (!InputValidator.IsValidInt(ProductIDTxt.Text))
+                    {
+                        MessageBox.Show("Product ID must be valid number");
+                        return;
+                    }
+
+                    if (await repository.AreDataExistsAsync("Size", SizeTxt.Text, "ItemName", ItemNameTxt.Text))
+                    {
+                        MessageBox.Show("Size already exists in the database. Please choose a different Size.");
+                        return;
+                    }
+
+                    await repository.AddProductAsync(
+                        BarcodeTxt.Text,
+                        InputValidator.ParseToInt(ProductIDTxt.Text),
+                        ItemNameTxt.Text,
+                        MotorBrandTxt.Text,
+                        BrandTxt.Text,
+                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
+                        InputValidator.ParseToInt(QuantityTxt.Text),
+                        CategoryTxt.Text,
+                        SizeTxt.Text
+                    );
+
+                    isAdding = false;
+                    GenerateBtn.Enabled = false;
+                }
+                else
+                {
+                    isUpdating = false;
+                }
+                
+                UpdateDataGridView();
+                ClearFields();
+                SetFieldsReadOnly(true);
+                AddBtn.Text = "Add";
+                UpdateBtn.Text = "Update";
             }
-
-            if (!InputValidator.IsValidInt(ProductIDTxt.Text))
-            {
-                MessageBox.Show("Product ID must be valid number");
-                return;
-            }
-
-            if (await repository.AreDataExistsAsync("Size", SizeTxt.Text, "ItemName", ItemNameTxt.Text))
-            {
-                MessageBox.Show("Size already exists in the database. Please choose a different Size.");
-                return;
-            }
-
-            await repository.AddProductAsync(
-                BarcodeTxt.Text,
-                InputValidator.ParseToInt(ProductIDTxt.Text),
-                ItemNameTxt.Text,
-                MotorBrandTxt.Text,
-                BrandTxt.Text,
-                InputValidator.ParseToDecimal(UnitPriceTxt.Text),
-                InputValidator.ParseToInt(QuantityTxt.Text),
-                CategoryTxt.Text,
-                SizeTxt.Text
-            );
-
-            UpdateDataGridView();
-            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+            
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(ProductIDTxt.Text, out int productId))
+            if(!isUpdating && !isAdding)
             {
-                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size, ProductID = @ProductID WHERE ProductID = @ProductID";
-                using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
-                        cmd.Parameters.AddWithValue("@ProductID", productId);
-                        cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
-                        cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
-                        cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
-
-                        if (decimal.TryParse(UnitPriceTxt.Text, out decimal unitPrice))
-                        {
-                            cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
-                        }
-                        else
-                        {
-
-                        }
-
-                        if (int.TryParse(QuantityTxt.Text, out int quantity))
-                        {
-                            cmd.Parameters.AddWithValue("@Quantity", quantity);
-                        }
-                        else
-                        {
-
-                        }
-
-                        cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                        cmd.Parameters.AddWithValue("@Size", SizeTxt.Text);
-                        try
-                        {
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show("Error: " + ex.Message);
-                        }
-                        finally
-                        {
-                            con.Close();
-                        }
-                    }
-                }
+                isUpdating = true;
+                SetFieldsReadOnly(false);
+                AddBtn.Text = "Save";
+                UpdateBtn.Text = "Cancel";
             }
             else
             {
-
-                MessageBox.Show("Please enter a valid Product ID.");
+                isAdding = false;
+                isUpdating = false;
+                ClearFields();
+                SetFieldsReadOnly(true);
+                AddBtn.Text = "Add";
+                GenerateBtn.Enabled = false;
+                UpdateBtn.Text = "Update";
             }
-            UpdateDataGridView();
-            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+            
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+            ClearFields();
         }
 
         private void ArchiveBtn_Click(object sender, EventArgs e)
@@ -160,36 +152,25 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private bool IsSizeAlreadyExists(string size)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE Size = @Size", con))
-                {
-                    cmd.Parameters.AddWithValue("@Size", size);
-                    int count = (int)cmd.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-
         private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if(!isAdding && !isUpdating)
             {
-                DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
-                BarcodeTxt.Text = row.Cells[1].Value.ToString();
-                ProductIDTxt.Text = row.Cells[2].Value.ToString();
-                ItemNameTxt.Text = row.Cells[3].Value.ToString();
-                MotorBrandTxt.Text = row.Cells[4].Value.ToString();
-                BrandTxt.Text = row.Cells[5].Value.ToString();
-                UnitPriceTxt.Text = row.Cells[6].Value.ToString();
-                QuantityTxt.Text = row.Cells[7].Value.ToString();
-                CategoryTxt.Text = row.Cells[8].Value.ToString();
-                SizeTxt.Text = row.Cells[9].Value.ToString();
-                AddBtn.Enabled = false;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
+                    updateId =  InputValidator.ParseToInt(row.Cells["ID"].Value.ToString());
+                    BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
+                    ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
+                    ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
+                    MotorBrandTxt.Text = row.Cells["MotorBrand"].Value.ToString();
+                    BrandTxt.Text = row.Cells["Brand"].Value.ToString();
+                    UnitPriceTxt.Text = row.Cells["UnitPrice"].Value.ToString();
+                    QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
+                    CategoryTxt.Text = row.Cells["Category"].Value.ToString();
+                    SizeTxt.Text = row.Cells["Size"].Value.ToString();
+                    UpdateBtn.Enabled = true;
+                }
             }
         }
 
@@ -206,12 +187,14 @@ namespace BenpilsBarcodeSystem
 
         private void RefreshPb_Click(object sender, EventArgs e)
         {
-
+            UpdateDataGridView();
         }
 
         private void GenerateBtn_Click(object sender, EventArgs e)
         {
-
+            Random random = new Random();
+            int randomNumber = random.Next(10000000, 99999999);
+            ProductIDTxt.Text = randomNumber.ToString();
         }
 
         private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -238,31 +221,19 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void GenerateProductID()
+        private void ClearFields()
         {
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
-                con.Open();
+            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+
+            if(!isAdding && !isUpdating)
             {
-
-                Random rand = new Random();
-                int randomProductID = rand.Next(1, 600);
-
-                if (randomProductID > 599)
-                {
-                    MessageBox.Show("ProductID limit exceeded.");
-                    return;
-                }
-
-                string productID = randomProductID.ToString("D4");
-                ProductIDTxt.Text = productID;
+                UpdateBtn.Enabled = false;
             }
         }
 
-        private DataRow GetProductDetails(int productId)
+        private void SetFieldsReadOnly(bool mode)
         {
-            DataTable dt = (DataTable)dataGridItemMasterdata.DataSource;
-            DataRow[] rows = dt.Select($"ProductID = {productId}");
-            return rows.Length > 0 ? rows[0] : null;
+            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
         }
     }
 }

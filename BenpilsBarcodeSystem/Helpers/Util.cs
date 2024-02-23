@@ -28,5 +28,13 @@ namespace BenpilsBarcodeSystem.Utils
             }
             return false;
         }
+
+        public static void SetTextBoxesReadOnly(bool mode, params TextBox[] textBoxes)
+        {
+            foreach (TextBox textBox in textBoxes)
+            {
+                textBox.ReadOnly = mode;
+            }
+        }
     }
 }

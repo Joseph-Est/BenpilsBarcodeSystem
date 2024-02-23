@@ -28,10 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
@@ -104,18 +129,6 @@
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.panel1.SuspendLayout();
@@ -166,7 +179,7 @@
             this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
             this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(287, 35);
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(248, 35);
             this.BarcodeGeneratorBtn.TabIndex = 15;
             this.BarcodeGeneratorBtn.Text = "Barcode Generator";
             this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
@@ -179,14 +192,14 @@
             this.dataGridItemMasterdata.AllowUserToResizeColumns = false;
             this.dataGridItemMasterdata.AllowUserToResizeRows = false;
             this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -197,6 +210,7 @@
             this.MotorBrand,
             this.Brand,
             this.UnitPrice,
+            this.FormattedPrice,
             this.Quantity,
             this.Category,
             this.Size,
@@ -209,12 +223,149 @@
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
             this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridItemMasterdata.RowHeadersVisible = false;
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
             this.dataGridItemMasterdata.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItemMasterdata.Size = new System.Drawing.Size(903, 559);
+            this.dataGridItemMasterdata.Size = new System.Drawing.Size(933, 559);
             this.dataGridItemMasterdata.TabIndex = 179;
+            this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Barcode
+            // 
+            this.Barcode.DataPropertyName = "Barcode";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Barcode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Barcode.HeaderText = "Barcode";
+            this.Barcode.Name = "Barcode";
+            this.Barcode.ReadOnly = true;
+            this.Barcode.Width = 90;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ProductID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Width = 80;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ItemName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            this.ItemName.Width = 130;
+            // 
+            // MotorBrand
+            // 
+            this.MotorBrand.DataPropertyName = "MotorBrand";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.MotorBrand.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MotorBrand.HeaderText = "Motor Brand";
+            this.MotorBrand.Name = "MotorBrand";
+            this.MotorBrand.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Brand.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Brand.HeaderText = "Brand";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Original Price";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Visible = false;
+            this.UnitPrice.Width = 90;
+            // 
+            // FormattedPrice
+            // 
+            this.FormattedPrice.DataPropertyName = "FormattedPrice";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.FormattedPrice.DefaultCellStyle = dataGridViewCellStyle7;
+            this.FormattedPrice.HeaderText = "Unit Price";
+            this.FormattedPrice.Name = "FormattedPrice";
+            this.FormattedPrice.ReadOnly = true;
+            this.FormattedPrice.Width = 80;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 80;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Category.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Size
+            // 
+            this.Size.DataPropertyName = "Size";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Size.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Size.HeaderText = "Size";
+            this.Size.Name = "Size";
+            this.Size.ReadOnly = true;
+            this.Size.Width = 80;
+            // 
+            // StockStatus
+            // 
+            this.StockStatus.DataPropertyName = "StockStatus";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.StockStatus.DefaultCellStyle = dataGridViewCellStyle11;
+            this.StockStatus.HeaderText = "Stock Status";
+            this.StockStatus.Name = "StockStatus";
+            this.StockStatus.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Visible = false;
+            this.Status.Width = 90;
             // 
             // ArchiveBtn
             // 
@@ -225,7 +376,7 @@
             this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
-            this.ArchiveBtn.Size = new System.Drawing.Size(287, 35);
+            this.ArchiveBtn.Size = new System.Drawing.Size(248, 35);
             this.ArchiveBtn.TabIndex = 14;
             this.ArchiveBtn.Text = "Archive";
             this.ArchiveBtn.UseVisualStyleBackColor = true;
@@ -235,11 +386,12 @@
             // 
             this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateBtn.Enabled = false;
             this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
             this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
             this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(99, 35);
+            this.UpdateBtn.Size = new System.Drawing.Size(84, 35);
             this.UpdateBtn.TabIndex = 11;
             this.UpdateBtn.Text = "Update";
             this.UpdateBtn.UseVisualStyleBackColor = true;
@@ -254,7 +406,7 @@
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.AddBtn.Size = new System.Drawing.Size(99, 35);
+            this.AddBtn.Size = new System.Drawing.Size(93, 35);
             this.AddBtn.TabIndex = 10;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -285,7 +437,7 @@
             this.RefreshPb.BackColor = System.Drawing.SystemColors.Control;
             this.RefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("RefreshPb.Image")));
-            this.RefreshPb.Location = new System.Drawing.Point(905, 51);
+            this.RefreshPb.Location = new System.Drawing.Point(935, 51);
             this.RefreshPb.Name = "RefreshPb";
             this.RefreshPb.Size = new System.Drawing.Size(28, 26);
             this.RefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -334,7 +486,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 81);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(30, 10, 10, 30);
-            this.panel2.Size = new System.Drawing.Size(943, 599);
+            this.panel2.Size = new System.Drawing.Size(973, 599);
             this.panel2.TabIndex = 185;
             // 
             // panel3
@@ -351,18 +503,18 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.RandomGenerateProductidBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(943, 81);
+            this.panel3.Location = new System.Drawing.Point(973, 81);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(417, 393);
+            this.panel3.Size = new System.Drawing.Size(387, 346);
             this.panel3.TabIndex = 186;
             // 
             // panel14
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(0, 369);
+            this.panel14.Location = new System.Drawing.Point(0, 325);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(417, 24);
+            this.panel14.Size = new System.Drawing.Size(387, 21);
             this.panel14.TabIndex = 193;
             // 
             // panel13
@@ -370,19 +522,19 @@
             this.panel13.Controls.Add(this.panel32);
             this.panel13.Controls.Add(this.panel31);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 329);
+            this.panel13.Location = new System.Drawing.Point(0, 290);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(417, 40);
+            this.panel13.Size = new System.Drawing.Size(387, 35);
             this.panel13.TabIndex = 192;
             // 
             // panel32
             // 
             this.panel32.Controls.Add(this.SizeTxt);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel32.Location = new System.Drawing.Point(100, 0);
+            this.panel32.Location = new System.Drawing.Point(109, 0);
             this.panel32.Name = "panel32";
-            this.panel32.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel32.Size = new System.Drawing.Size(317, 40);
+            this.panel32.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel32.Size = new System.Drawing.Size(278, 35);
             this.panel32.TabIndex = 185;
             // 
             // SizeTxt
@@ -392,7 +544,8 @@
             this.SizeTxt.Location = new System.Drawing.Point(0, 0);
             this.SizeTxt.Multiline = true;
             this.SizeTxt.Name = "SizeTxt";
-            this.SizeTxt.Size = new System.Drawing.Size(287, 35);
+            this.SizeTxt.ReadOnly = true;
+            this.SizeTxt.Size = new System.Drawing.Size(248, 24);
             this.SizeTxt.TabIndex = 9;
             // 
             // panel31
@@ -401,7 +554,7 @@
             this.panel31.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel31.Location = new System.Drawing.Point(0, 0);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(100, 40);
+            this.panel31.Size = new System.Drawing.Size(109, 35);
             this.panel31.TabIndex = 184;
             // 
             // SizeLbl
@@ -411,30 +564,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SizeLbl.AutoSize = true;
             this.SizeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.SizeLbl.Location = new System.Drawing.Point(5, 11);
+            this.SizeLbl.Location = new System.Drawing.Point(5, 3);
             this.SizeLbl.Name = "SizeLbl";
-            this.SizeLbl.Size = new System.Drawing.Size(36, 16);
+            this.SizeLbl.Size = new System.Drawing.Size(39, 16);
             this.SizeLbl.TabIndex = 182;
-            this.SizeLbl.Text = "Size:";
+            this.SizeLbl.Text = "Size :";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.panel30);
             this.panel12.Controls.Add(this.panel29);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 289);
+            this.panel12.Location = new System.Drawing.Point(0, 255);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(417, 40);
+            this.panel12.Size = new System.Drawing.Size(387, 35);
             this.panel12.TabIndex = 191;
             // 
             // panel30
             // 
             this.panel30.Controls.Add(this.UnitPriceTxt);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(100, 0);
+            this.panel30.Location = new System.Drawing.Point(109, 0);
             this.panel30.Name = "panel30";
-            this.panel30.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel30.Size = new System.Drawing.Size(317, 40);
+            this.panel30.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel30.Size = new System.Drawing.Size(278, 35);
             this.panel30.TabIndex = 179;
             // 
             // UnitPriceTxt
@@ -444,7 +597,8 @@
             this.UnitPriceTxt.Location = new System.Drawing.Point(0, 0);
             this.UnitPriceTxt.Multiline = true;
             this.UnitPriceTxt.Name = "UnitPriceTxt";
-            this.UnitPriceTxt.Size = new System.Drawing.Size(287, 35);
+            this.UnitPriceTxt.ReadOnly = true;
+            this.UnitPriceTxt.Size = new System.Drawing.Size(248, 24);
             this.UnitPriceTxt.TabIndex = 8;
             // 
             // panel29
@@ -453,7 +607,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel29.Location = new System.Drawing.Point(0, 0);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(100, 40);
+            this.panel29.Size = new System.Drawing.Size(109, 35);
             this.panel29.TabIndex = 178;
             // 
             // label20
@@ -463,30 +617,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label20.Location = new System.Drawing.Point(5, 12);
+            this.label20.Location = new System.Drawing.Point(5, 3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(67, 16);
+            this.label20.Size = new System.Drawing.Size(70, 16);
             this.label20.TabIndex = 176;
-            this.label20.Text = "Unit Price:";
+            this.label20.Text = "Unit Price :";
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.panel28);
             this.panel11.Controls.Add(this.panel27);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 249);
+            this.panel11.Location = new System.Drawing.Point(0, 220);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(417, 40);
+            this.panel11.Size = new System.Drawing.Size(387, 35);
             this.panel11.TabIndex = 190;
             // 
             // panel28
             // 
             this.panel28.Controls.Add(this.CategoryTxt);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(100, 0);
+            this.panel28.Location = new System.Drawing.Point(109, 0);
             this.panel28.Name = "panel28";
-            this.panel28.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel28.Size = new System.Drawing.Size(317, 40);
+            this.panel28.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel28.Size = new System.Drawing.Size(278, 35);
             this.panel28.TabIndex = 174;
             // 
             // CategoryTxt
@@ -496,7 +650,8 @@
             this.CategoryTxt.Location = new System.Drawing.Point(0, 0);
             this.CategoryTxt.Multiline = true;
             this.CategoryTxt.Name = "CategoryTxt";
-            this.CategoryTxt.Size = new System.Drawing.Size(287, 35);
+            this.CategoryTxt.ReadOnly = true;
+            this.CategoryTxt.Size = new System.Drawing.Size(248, 24);
             this.CategoryTxt.TabIndex = 7;
             // 
             // panel27
@@ -505,7 +660,7 @@
             this.panel27.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel27.Location = new System.Drawing.Point(0, 0);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(100, 40);
+            this.panel27.Size = new System.Drawing.Size(109, 35);
             this.panel27.TabIndex = 173;
             // 
             // label15
@@ -515,30 +670,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label15.Location = new System.Drawing.Point(5, 11);
+            this.label15.Location = new System.Drawing.Point(5, 3);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 16);
+            this.label15.Size = new System.Drawing.Size(68, 16);
             this.label15.TabIndex = 165;
-            this.label15.Text = "Category:";
+            this.label15.Text = "Category :";
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.panel26);
             this.panel10.Controls.Add(this.panel25);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 210);
+            this.panel10.Location = new System.Drawing.Point(0, 185);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(417, 39);
+            this.panel10.Size = new System.Drawing.Size(387, 35);
             this.panel10.TabIndex = 189;
             // 
             // panel26
             // 
             this.panel26.Controls.Add(this.QuantityTxt);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(100, 0);
+            this.panel26.Location = new System.Drawing.Point(109, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel26.Size = new System.Drawing.Size(317, 39);
+            this.panel26.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel26.Size = new System.Drawing.Size(278, 35);
             this.panel26.TabIndex = 173;
             // 
             // QuantityTxt
@@ -548,7 +703,8 @@
             this.QuantityTxt.Location = new System.Drawing.Point(0, 0);
             this.QuantityTxt.Multiline = true;
             this.QuantityTxt.Name = "QuantityTxt";
-            this.QuantityTxt.Size = new System.Drawing.Size(287, 34);
+            this.QuantityTxt.ReadOnly = true;
+            this.QuantityTxt.Size = new System.Drawing.Size(248, 24);
             this.QuantityTxt.TabIndex = 6;
             // 
             // panel25
@@ -557,7 +713,7 @@
             this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel25.Location = new System.Drawing.Point(0, 0);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(100, 39);
+            this.panel25.Size = new System.Drawing.Size(109, 35);
             this.panel25.TabIndex = 172;
             // 
             // label13
@@ -567,30 +723,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label13.Location = new System.Drawing.Point(5, 11);
+            this.label13.Location = new System.Drawing.Point(5, 3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 16);
+            this.label13.Size = new System.Drawing.Size(61, 16);
             this.label13.TabIndex = 164;
-            this.label13.Text = "Quantity:";
+            this.label13.Text = "Quantity :";
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.panel24);
             this.panel9.Controls.Add(this.panel23);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 170);
+            this.panel9.Location = new System.Drawing.Point(0, 150);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(417, 40);
+            this.panel9.Size = new System.Drawing.Size(387, 35);
             this.panel9.TabIndex = 188;
             // 
             // panel24
             // 
             this.panel24.Controls.Add(this.BrandTxt);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(100, 0);
+            this.panel24.Location = new System.Drawing.Point(109, 0);
             this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel24.Size = new System.Drawing.Size(317, 40);
+            this.panel24.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel24.Size = new System.Drawing.Size(278, 35);
             this.panel24.TabIndex = 172;
             // 
             // BrandTxt
@@ -600,7 +756,8 @@
             this.BrandTxt.Location = new System.Drawing.Point(0, 0);
             this.BrandTxt.Multiline = true;
             this.BrandTxt.Name = "BrandTxt";
-            this.BrandTxt.Size = new System.Drawing.Size(287, 35);
+            this.BrandTxt.ReadOnly = true;
+            this.BrandTxt.Size = new System.Drawing.Size(248, 24);
             this.BrandTxt.TabIndex = 5;
             // 
             // panel23
@@ -609,7 +766,7 @@
             this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel23.Location = new System.Drawing.Point(0, 0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(100, 40);
+            this.panel23.Size = new System.Drawing.Size(109, 35);
             this.panel23.TabIndex = 171;
             // 
             // label12
@@ -619,30 +776,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label12.Location = new System.Drawing.Point(5, 11);
+            this.label12.Location = new System.Drawing.Point(5, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 16);
+            this.label12.Size = new System.Drawing.Size(49, 16);
             this.label12.TabIndex = 163;
-            this.label12.Text = "Brand:";
+            this.label12.Text = "Brand :";
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.panel22);
             this.panel8.Controls.Add(this.panel21);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 130);
+            this.panel8.Location = new System.Drawing.Point(0, 115);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(417, 40);
+            this.panel8.Size = new System.Drawing.Size(387, 35);
             this.panel8.TabIndex = 187;
             // 
             // panel22
             // 
             this.panel22.Controls.Add(this.MotorBrandTxt);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(100, 0);
+            this.panel22.Location = new System.Drawing.Point(109, 0);
             this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel22.Size = new System.Drawing.Size(317, 40);
+            this.panel22.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel22.Size = new System.Drawing.Size(278, 35);
             this.panel22.TabIndex = 171;
             // 
             // MotorBrandTxt
@@ -652,7 +809,8 @@
             this.MotorBrandTxt.Location = new System.Drawing.Point(0, 0);
             this.MotorBrandTxt.Multiline = true;
             this.MotorBrandTxt.Name = "MotorBrandTxt";
-            this.MotorBrandTxt.Size = new System.Drawing.Size(287, 35);
+            this.MotorBrandTxt.ReadOnly = true;
+            this.MotorBrandTxt.Size = new System.Drawing.Size(248, 24);
             this.MotorBrandTxt.TabIndex = 4;
             // 
             // panel21
@@ -661,7 +819,7 @@
             this.panel21.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(100, 40);
+            this.panel21.Size = new System.Drawing.Size(109, 35);
             this.panel21.TabIndex = 170;
             // 
             // label11
@@ -671,11 +829,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label11.Location = new System.Drawing.Point(5, 11);
+            this.label11.Location = new System.Drawing.Point(5, 3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 16);
+            this.label11.Size = new System.Drawing.Size(86, 16);
             this.label11.TabIndex = 162;
-            this.label11.Text = "Motor Brand:";
+            this.label11.Text = "Motor Brand :";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel7
@@ -683,19 +841,19 @@
             this.panel7.Controls.Add(this.panel20);
             this.panel7.Controls.Add(this.panel19);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 90);
+            this.panel7.Location = new System.Drawing.Point(0, 80);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(417, 40);
+            this.panel7.Size = new System.Drawing.Size(387, 35);
             this.panel7.TabIndex = 186;
             // 
             // panel20
             // 
             this.panel20.Controls.Add(this.ItemNameTxt);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(100, 0);
+            this.panel20.Location = new System.Drawing.Point(109, 0);
             this.panel20.Name = "panel20";
-            this.panel20.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel20.Size = new System.Drawing.Size(317, 40);
+            this.panel20.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel20.Size = new System.Drawing.Size(278, 35);
             this.panel20.TabIndex = 170;
             // 
             // ItemNameTxt
@@ -705,7 +863,8 @@
             this.ItemNameTxt.Location = new System.Drawing.Point(0, 0);
             this.ItemNameTxt.Multiline = true;
             this.ItemNameTxt.Name = "ItemNameTxt";
-            this.ItemNameTxt.Size = new System.Drawing.Size(287, 35);
+            this.ItemNameTxt.ReadOnly = true;
+            this.ItemNameTxt.Size = new System.Drawing.Size(248, 24);
             this.ItemNameTxt.TabIndex = 3;
             // 
             // panel19
@@ -714,7 +873,7 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(100, 40);
+            this.panel19.Size = new System.Drawing.Size(109, 35);
             this.panel19.TabIndex = 169;
             // 
             // label10
@@ -724,11 +883,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label10.Location = new System.Drawing.Point(5, 6);
+            this.label10.Location = new System.Drawing.Point(5, 3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 16);
+            this.label10.Size = new System.Drawing.Size(78, 16);
             this.label10.TabIndex = 161;
-            this.label10.Text = "Item Name:";
+            this.label10.Text = "Item Name :";
             // 
             // panel6
             // 
@@ -736,19 +895,19 @@
             this.panel6.Controls.Add(this.panel33);
             this.panel6.Controls.Add(this.panel17);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 50);
+            this.panel6.Location = new System.Drawing.Point(0, 45);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(417, 40);
+            this.panel6.Size = new System.Drawing.Size(387, 35);
             this.panel6.TabIndex = 185;
             // 
             // panel18
             // 
             this.panel18.Controls.Add(this.ProductIDTxt);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(100, 0);
+            this.panel18.Location = new System.Drawing.Point(109, 0);
             this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panel18.Size = new System.Drawing.Size(206, 40);
+            this.panel18.Padding = new System.Windows.Forms.Padding(0, 0, 0, 11);
+            this.panel18.Size = new System.Drawing.Size(167, 35);
             this.panel18.TabIndex = 171;
             // 
             // ProductIDTxt
@@ -759,27 +918,28 @@
             this.ProductIDTxt.Multiline = true;
             this.ProductIDTxt.Name = "ProductIDTxt";
             this.ProductIDTxt.ReadOnly = true;
-            this.ProductIDTxt.Size = new System.Drawing.Size(206, 35);
+            this.ProductIDTxt.Size = new System.Drawing.Size(167, 24);
             this.ProductIDTxt.TabIndex = 2;
             // 
             // panel33
             // 
             this.panel33.Controls.Add(this.GenerateBtn);
             this.panel33.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel33.Location = new System.Drawing.Point(306, 0);
+            this.panel33.Location = new System.Drawing.Point(276, 0);
             this.panel33.Name = "panel33";
-            this.panel33.Padding = new System.Windows.Forms.Padding(5, 0, 30, 5);
-            this.panel33.Size = new System.Drawing.Size(111, 40);
+            this.panel33.Padding = new System.Windows.Forms.Padding(5, 0, 30, 11);
+            this.panel33.Size = new System.Drawing.Size(111, 35);
             this.panel33.TabIndex = 170;
             // 
             // GenerateBtn
             // 
             this.GenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GenerateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GenerateBtn.Enabled = false;
             this.GenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.GenerateBtn.Location = new System.Drawing.Point(5, 0);
             this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(76, 35);
+            this.GenerateBtn.Size = new System.Drawing.Size(76, 24);
             this.GenerateBtn.TabIndex = 0;
             this.GenerateBtn.TabStop = false;
             this.GenerateBtn.Text = "Generate";
@@ -792,7 +952,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(100, 40);
+            this.panel17.Size = new System.Drawing.Size(109, 35);
             this.panel17.TabIndex = 168;
             // 
             // label9
@@ -802,11 +962,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label9.Location = new System.Drawing.Point(5, 11);
+            this.label9.Location = new System.Drawing.Point(5, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 16);
+            this.label9.Size = new System.Drawing.Size(75, 16);
             this.label9.TabIndex = 160;
-            this.label9.Text = "Product ID:";
+            this.label9.Text = "Product ID :";
             // 
             // panel5
             // 
@@ -815,17 +975,17 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 10);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(417, 40);
+            this.panel5.Size = new System.Drawing.Size(387, 35);
             this.panel5.TabIndex = 184;
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.BarcodeTxt);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(100, 0);
+            this.panel16.Location = new System.Drawing.Point(109, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel16.Size = new System.Drawing.Size(317, 40);
+            this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 30, 11);
+            this.panel16.Size = new System.Drawing.Size(278, 35);
             this.panel16.TabIndex = 168;
             // 
             // BarcodeTxt
@@ -835,7 +995,8 @@
             this.BarcodeTxt.Location = new System.Drawing.Point(0, 0);
             this.BarcodeTxt.Multiline = true;
             this.BarcodeTxt.Name = "BarcodeTxt";
-            this.BarcodeTxt.Size = new System.Drawing.Size(287, 35);
+            this.BarcodeTxt.ReadOnly = true;
+            this.BarcodeTxt.Size = new System.Drawing.Size(248, 24);
             this.BarcodeTxt.TabIndex = 1;
             // 
             // panel15
@@ -844,7 +1005,7 @@
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(0, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(100, 40);
+            this.panel15.Size = new System.Drawing.Size(109, 35);
             this.panel15.TabIndex = 167;
             // 
             // label8
@@ -852,11 +1013,11 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label8.Location = new System.Drawing.Point(5, 9);
+            this.label8.Location = new System.Drawing.Point(9, 6);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 16);
+            this.label8.Size = new System.Drawing.Size(65, 16);
             this.label8.TabIndex = 159;
-            this.label8.Text = "Barcode:";
+            this.label8.Text = "Barcode :";
             // 
             // RandomGenerateProductidBtn
             // 
@@ -876,47 +1037,47 @@
             this.panel4.Controls.Add(this.panel35);
             this.panel4.Controls.Add(this.panel34);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(943, 474);
+            this.panel4.Location = new System.Drawing.Point(973, 427);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(417, 206);
+            this.panel4.Size = new System.Drawing.Size(387, 253);
             this.panel4.TabIndex = 187;
             // 
             // panel36
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(100, 160);
+            this.panel36.Location = new System.Drawing.Point(109, 160);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(317, 46);
+            this.panel36.Size = new System.Drawing.Size(278, 93);
             this.panel36.TabIndex = 189;
             // 
             // panel40
             // 
             this.panel40.Controls.Add(this.BarcodeGeneratorBtn);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel40.Location = new System.Drawing.Point(100, 120);
+            this.panel40.Location = new System.Drawing.Point(109, 120);
             this.panel40.Name = "panel40";
             this.panel40.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel40.Size = new System.Drawing.Size(317, 40);
+            this.panel40.Size = new System.Drawing.Size(278, 40);
             this.panel40.TabIndex = 188;
             // 
             // panel39
             // 
             this.panel39.Controls.Add(this.ArchiveBtn);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel39.Location = new System.Drawing.Point(100, 80);
+            this.panel39.Location = new System.Drawing.Point(109, 80);
             this.panel39.Name = "panel39";
             this.panel39.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel39.Size = new System.Drawing.Size(317, 40);
+            this.panel39.Size = new System.Drawing.Size(278, 40);
             this.panel39.TabIndex = 187;
             // 
             // panel38
             // 
             this.panel38.Controls.Add(this.button2);
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel38.Location = new System.Drawing.Point(100, 40);
+            this.panel38.Location = new System.Drawing.Point(109, 40);
             this.panel38.Name = "panel38";
             this.panel38.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel38.Size = new System.Drawing.Size(317, 40);
+            this.panel38.Size = new System.Drawing.Size(278, 40);
             this.panel38.TabIndex = 186;
             // 
             // button2
@@ -926,7 +1087,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(287, 35);
+            this.button2.Size = new System.Drawing.Size(248, 35);
             this.button2.TabIndex = 13;
             this.button2.Text = "Reduce Stock";
             this.button2.UseVisualStyleBackColor = true;
@@ -937,20 +1098,20 @@
             this.panel35.Controls.Add(this.panel41);
             this.panel35.Controls.Add(this.panel37);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel35.Location = new System.Drawing.Point(100, 0);
+            this.panel35.Location = new System.Drawing.Point(109, 0);
             this.panel35.Name = "panel35";
             this.panel35.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel35.Size = new System.Drawing.Size(317, 40);
+            this.panel35.Size = new System.Drawing.Size(278, 40);
             this.panel35.TabIndex = 183;
             // 
             // panel42
             // 
             this.panel42.Controls.Add(this.ClearBtn);
             this.panel42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel42.Location = new System.Drawing.Point(204, 0);
+            this.panel42.Location = new System.Drawing.Point(183, 0);
             this.panel42.Name = "panel42";
             this.panel42.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.panel42.Size = new System.Drawing.Size(83, 35);
+            this.panel42.Size = new System.Drawing.Size(65, 35);
             this.panel42.TabIndex = 182;
             // 
             // ClearBtn
@@ -961,7 +1122,7 @@
             this.ClearBtn.Location = new System.Drawing.Point(2, 0);
             this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(81, 35);
+            this.ClearBtn.Size = new System.Drawing.Size(63, 35);
             this.ClearBtn.TabIndex = 12;
             this.ClearBtn.Text = "Clear";
             this.ClearBtn.UseVisualStyleBackColor = true;
@@ -971,10 +1132,10 @@
             // 
             this.panel41.Controls.Add(this.UpdateBtn);
             this.panel41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel41.Location = new System.Drawing.Point(101, 0);
+            this.panel41.Location = new System.Drawing.Point(95, 0);
             this.panel41.Name = "panel41";
             this.panel41.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.panel41.Size = new System.Drawing.Size(103, 35);
+            this.panel41.Size = new System.Drawing.Size(88, 35);
             this.panel41.TabIndex = 181;
             // 
             // panel37
@@ -984,7 +1145,7 @@
             this.panel37.Location = new System.Drawing.Point(0, 0);
             this.panel37.Name = "panel37";
             this.panel37.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.panel37.Size = new System.Drawing.Size(101, 35);
+            this.panel37.Size = new System.Drawing.Size(95, 35);
             this.panel37.TabIndex = 180;
             // 
             // panel34
@@ -992,104 +1153,8 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel34.Location = new System.Drawing.Point(0, 0);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(100, 206);
+            this.panel34.Size = new System.Drawing.Size(109, 253);
             this.panel34.TabIndex = 181;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // Barcode
-            // 
-            this.Barcode.DataPropertyName = "Barcode";
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.Name = "Barcode";
-            this.Barcode.ReadOnly = true;
-            this.Barcode.Width = 90;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Width = 90;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.HeaderText = "Item Name";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            this.ItemName.Width = 90;
-            // 
-            // MotorBrand
-            // 
-            this.MotorBrand.DataPropertyName = "MotorBrand";
-            this.MotorBrand.HeaderText = "Motor Brand";
-            this.MotorBrand.Name = "MotorBrand";
-            this.MotorBrand.ReadOnly = true;
-            this.MotorBrand.Width = 90;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            this.Brand.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "Unit Price";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 90;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 90;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            this.Category.Width = 90;
-            // 
-            // Size
-            // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
-            this.Size.Width = 90;
-            // 
-            // StockStatus
-            // 
-            this.StockStatus.DataPropertyName = "StockStatus";
-            this.StockStatus.HeaderText = "Stock Status";
-            this.StockStatus.Name = "StockStatus";
-            this.StockStatus.ReadOnly = true;
-            this.StockStatus.Visible = false;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 90;
             // 
             // Inventory
             // 
@@ -1252,6 +1317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MotorBrand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Size;

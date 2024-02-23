@@ -28,32 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MessageLbl = new System.Windows.Forms.Label();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.AcceptBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MessageLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.MessageLbl2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MessageLbl
-            // 
-            this.MessageLbl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.MessageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MessageLbl.ForeColor = System.Drawing.Color.White;
-            this.MessageLbl.Location = new System.Drawing.Point(0, 30);
-            this.MessageLbl.Name = "MessageLbl";
-            this.MessageLbl.Size = new System.Drawing.Size(285, 49);
-            this.MessageLbl.TabIndex = 13;
-            this.MessageLbl.Text = "Message";
-            this.MessageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CancelBtn
             // 
@@ -101,26 +94,40 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.Size = new System.Drawing.Size(277, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Confirmation";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel2.Controls.Add(this.MessageLbl);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(1, 34);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(285, 79);
+            this.panel2.Size = new System.Drawing.Size(285, 76);
             this.panel2.TabIndex = 14;
+            // 
+            // MessageLbl
+            // 
+            this.MessageLbl.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.MessageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MessageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MessageLbl.ForeColor = System.Drawing.Color.White;
+            this.MessageLbl.Location = new System.Drawing.Point(0, 0);
+            this.MessageLbl.Name = "MessageLbl";
+            this.MessageLbl.Size = new System.Drawing.Size(285, 20);
+            this.MessageLbl.TabIndex = 15;
+            this.MessageLbl.Text = "Message";
+            this.MessageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -141,10 +148,50 @@
             this.panel4.Controls.Add(this.CancelBtn);
             this.panel4.Controls.Add(this.AcceptBtn);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(1, 113);
+            this.panel4.Location = new System.Drawing.Point(1, 110);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(285, 56);
+            this.panel4.Size = new System.Drawing.Size(285, 59);
             this.panel4.TabIndex = 15;
+            // 
+            // MessageLbl2
+            // 
+            this.MessageLbl2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.MessageLbl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MessageLbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MessageLbl2.ForeColor = System.Drawing.Color.White;
+            this.MessageLbl2.Location = new System.Drawing.Point(0, 0);
+            this.MessageLbl2.Name = "MessageLbl2";
+            this.MessageLbl2.Size = new System.Drawing.Size(285, 19);
+            this.MessageLbl2.TabIndex = 16;
+            this.MessageLbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.MessageLbl);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 30);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(285, 20);
+            this.panel5.TabIndex = 17;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.MessageLbl2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 50);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(285, 26);
+            this.panel6.TabIndex = 18;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 19);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(285, 7);
+            this.panel7.TabIndex = 17;
             // 
             // Confirmation
             // 
@@ -163,17 +210,17 @@
             this.Text = "ConfirmationExit";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label MessageLbl;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Button AcceptBtn;
         private System.Windows.Forms.Panel panel1;
@@ -181,5 +228,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label MessageLbl;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label MessageLbl2;
+        private System.Windows.Forms.Panel panel5;
     }
 }

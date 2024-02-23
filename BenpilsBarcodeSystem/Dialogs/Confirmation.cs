@@ -22,10 +22,11 @@ namespace BenpilsBarcodeSystem
         [DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
 
-        public Confirmation(string message, string acceptButton, string cancelButton)
+        public Confirmation(string message, string message2, string acceptButton, string cancelButton)
         {
             InitializeComponent();
             MessageLbl.Text = message;
+            MessageLbl2.Text = message2;
             AcceptBtn.Text = acceptButton;
             CancelBtn.Text = cancelButton;
         }
@@ -59,12 +60,18 @@ namespace BenpilsBarcodeSystem
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+          
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+
         }
     }
 }

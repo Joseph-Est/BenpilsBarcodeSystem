@@ -153,11 +153,19 @@ namespace BenpilsBarcodeSystem
 
         private async void ArchiveBtn_Click(object sender, EventArgs e)
         {
-            InventoryRepository inventoryRepository = new InventoryRepository();
+            Confirmation confirmation = new Confirmation("Are you sure you want to archive", ItemNameTxt.Text + "?", "Yes", "Cancel");
+            DialogResult result = confirmation.ShowDialog();
 
-            if(selectedID > 0)
+            if (result == DialogResult.Yes)
             {
-                await inventoryRepository.ArchiveProductAsync(selectedID);
+                InventoryRepository inventoryRepository = new InventoryRepository();
+
+                if (selectedID > 0)
+                {
+                    await inventoryRepository.ArchiveProductAsync(selectedID);
+                    UpdateDataGridView();
+                    ClearFields();
+                }
             }
         }
 

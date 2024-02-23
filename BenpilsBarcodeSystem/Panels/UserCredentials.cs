@@ -170,8 +170,6 @@ namespace BenpilsBarcodeSystem
 
         private async void UpdateDataGridView()
         {
-            string selectQuery = "SELECT * FROM tbl_usercredential";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
             try
             {
                 UserCredentialsRepository userCredentialsRepository = new UserCredentialsRepository();

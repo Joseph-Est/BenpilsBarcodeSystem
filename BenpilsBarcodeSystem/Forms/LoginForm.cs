@@ -68,7 +68,7 @@ namespace BenpilsBarcodeSystem
 
                         MainForm dash = new MainForm(user);
                         dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultBounds;
+                        dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
                         this.Hide();
                     }
                     else

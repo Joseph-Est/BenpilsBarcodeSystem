@@ -27,19 +27,27 @@ namespace BenpilsBarcodeSystem
         public Inventory()
         {
             InitializeComponent();
+            InputValidator.AllowOnlyDigits(QuantityTxt);
+            InputValidator.AllowOnlyDigitsAndDecimal(UnitPriceTxt);
         }
 
         private void Inventory_Load(object sender, EventArgs e)
         {
+            PopulateComboBoxes();
             UpdateDataGridView();
         }
 
-        private async void UpdateDataGridView()
+        private async void UpdateDataGridView(string searchText = null, string category = "All", string brand = "All")
         {
+            if (string.IsNullOrEmpty(searchText))
+            {
+                SearchTxt.Text = "";
+            }
+
             try
             {
                 InventoryRepository inventoryRepository = new InventoryRepository();
-                DataTable userCredentials = await inventoryRepository.GetProductsAsync();
+                DataTable userCredentials = await inventoryRepository.GetProductsAsync(searchText, category, brand);
 
                 dataGridItemMasterdata.DataSource = userCredentials;
             }
@@ -87,7 +95,7 @@ namespace BenpilsBarcodeSystem
                         return;
                     }
 
-                    if (await repository.AreDataExistsAsync("Size", SizeTxt.Text, "ItemName", ItemNameTxt.Text))
+                    if (await repository.AreDataExistsAsync("size", SizeTxt.Text, "item_name", ItemNameTxt.Text))
                     {
                         MessageBox.Show("Size already exists in the database. Please choose a different Size.");
                         return;
@@ -176,16 +184,16 @@ namespace BenpilsBarcodeSystem
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
-                    selectedID =  InputValidator.ParseToInt(row.Cells["ID"].Value.ToString());
-                    BarcodeTxt.Text = row.Cells["Barcode"].Value.ToString();
-                    ProductIDTxt.Text = row.Cells["ProductID"].Value.ToString();
-                    ItemNameTxt.Text = row.Cells["ItemName"].Value.ToString();
-                    MotorBrandTxt.Text = row.Cells["MotorBrand"].Value.ToString();
-                    BrandTxt.Text = row.Cells["Brand"].Value.ToString();
-                    UnitPriceTxt.Text = row.Cells["UnitPrice"].Value.ToString();
-                    QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
-                    CategoryTxt.Text = row.Cells["Category"].Value.ToString();
-                    SizeTxt.Text = row.Cells["Size"].Value.ToString();
+                    selectedID =  InputValidator.ParseToInt(row.Cells["id"].Value.ToString());
+                    BarcodeTxt.Text = row.Cells["barcode"].Value.ToString();
+                    ProductIDTxt.Text = row.Cells["product_id"].Value.ToString();
+                    ItemNameTxt.Text = row.Cells["item_name"].Value.ToString();
+                    MotorBrandTxt.Text = row.Cells["motor_brand"].Value.ToString();
+                    BrandTxt.Text = row.Cells["brand"].Value.ToString();
+                    UnitPriceTxt.Text = row.Cells["unit_price"].Value.ToString();
+                    QuantityTxt.Text = row.Cells["quantity"].Value.ToString();
+                    CategoryTxt.Text = row.Cells["category"].Value.ToString();
+                    SizeTxt.Text = row.Cells["size"].Value.ToString();
                     UpdateBtn.Enabled = true;
                     ArchiveBtn.Enabled = true;
                     ReduceStockBtn.Enabled = true;
@@ -206,6 +214,7 @@ namespace BenpilsBarcodeSystem
 
         private void RefreshPb_Click(object sender, EventArgs e)
         {
+            PopulateComboBoxes();
             UpdateDataGridView();
         }
 
@@ -216,28 +225,19 @@ namespace BenpilsBarcodeSystem
             ProductIDTxt.Text = randomNumber.ToString();
         }
 
-        private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void SearchTxt_TextChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
         }
 
-        private void ProductIDTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void CategoryCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
         }
 
-        private void UnitPriceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void BrandCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
         }
 
         private void ClearFields()
@@ -255,6 +255,32 @@ namespace BenpilsBarcodeSystem
         private void SetFieldsReadOnly(bool mode)
         {
             Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+        }
+
+        private async void PopulateComboBoxes()
+        {
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            (List<string> valuesColumn1, List<string> valuesColumn2) = await inventoryRepository.GetCategoryBrandValuesAsync();
+
+            CategoryCb.Items.Clear();
+            CategoryCb.Items.AddRange(valuesColumn1.ToArray());
+
+            BrandCb.Items.Clear();
+            BrandCb.Items.AddRange(valuesColumn2.ToArray());
+
+            BrandCb.SelectedIndexChanged -= BrandCb_SelectedIndexChanged;
+            CategoryCb.SelectedIndexChanged -= CategoryCb_SelectedIndexChanged;
+
+            CategoryCb.SelectedIndex = 0;
+            BrandCb.SelectedIndex = 0;
+
+            BrandCb.SelectedIndexChanged += BrandCb_SelectedIndexChanged;
+            CategoryCb.SelectedIndexChanged += CategoryCb_SelectedIndexChanged;
+        }
+
+        private void ReduceStockBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming Soon");
         }
     }
 }

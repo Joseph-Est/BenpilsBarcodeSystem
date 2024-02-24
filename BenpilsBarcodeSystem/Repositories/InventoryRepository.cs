@@ -12,15 +12,63 @@ namespace BenpilsBarcodeSystem.Repository
     internal class InventoryRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
+        private string tbl_name = "tbl_item_master_data";
+        private string col_id = "id", col_barcode = "barcode", col_product_id = "product_id", col_item_name = "item_name", col_motor_brand = "motor_brand", 
+                       col_brand = "brand", col_unit_price = "unit_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
 
         public InventoryRepository()
         {
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<DataTable> GetProductsAsync()
+        public async Task<DataTable> GetProductsAsync(string searchText = "", string category = "All", string brand = "All")
         {
-            string selectQuery = "SELECT * FROM tbl_itemmasterdata WHERE Status = 'Active'";
+            string selectQuery;
+
+            // Build the SELECT query based on search text, category, and brand
+            if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
+            {
+                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
+            }
+            else
+            {
+                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
+
+                if (!string.IsNullOrWhiteSpace(searchText))
+                {
+                    selectQuery += $" AND ({col_item_name} LIKE @searchText OR " +
+                                   $"{col_motor_brand} LIKE @searchText OR " +
+                                   $"{col_brand} LIKE @searchText OR " +
+                                   $"{col_category} LIKE @searchText OR " +
+                                   $"{col_barcode} LIKE @searchText OR " +
+                                   $"{col_product_id} LIKE @searchText)";
+                }
+
+                if (!string.IsNullOrWhiteSpace(category))
+                {
+                    if (category == "All")
+                    {
+
+                    }
+                    else
+                    {
+                        selectQuery += $" AND {col_category} = @category";
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(brand))
+                {
+                    if (brand == "All")
+                    {
+
+                    }
+                    else
+                    {
+                        selectQuery += $" AND {col_brand} = @brand";
+                    }
+                   
+                }
+            }
 
             try
             {
@@ -28,26 +76,31 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                     {
+                        // Add parameters for search text, category, and brand
+                        adapter.SelectCommand.Parameters.AddWithValue("@searchText", $"%{searchText}%");
+                        adapter.SelectCommand.Parameters.AddWithValue("@category", category);
+                        adapter.SelectCommand.Parameters.AddWithValue("@brand", brand);
+
                         DataTable dt = new DataTable();
                         await Task.Run(() => adapter.Fill(dt));
 
-                        dt.Columns.Add("StockStatus", typeof(string));
-                        dt.Columns.Add("FormattedPrice", typeof(string));
+                        dt.Columns.Add("status", typeof(string));
+                        dt.Columns.Add("formatted_price", typeof(string));
 
                         foreach (DataRow row in dt.Rows)
                         {
-                            int quantity = Convert.ToInt32(row["Quantity"]);
+                            int quantity = Convert.ToInt32(row[col_quantity]);
 
                             if (quantity > 1000)
-                                row["StockStatus"] = "High-Stock";
+                                row["status"] = "High-Stock";
                             else if (quantity > 100)
-                                row["StockStatus"] = "In-Stock";
+                                row["status"] = "In-Stock";
                             else if (quantity == 0)
-                                row["StockStatus"] = "No Stock";
+                                row["status"] = "No Stock";
                             else
-                                row["StockStatus"] = "Low-Stock";
+                                row["status"] = "Low-Stock";
 
-                            row["FormattedPrice"] = InputValidator.StringToFormattedPrice(row["UnitPrice"].ToString());
+                            row["formatted_price"] = InputValidator.StringToFormattedPrice(row[col_unit_price].ToString());
                         }
 
                         return dt;
@@ -63,8 +116,8 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task AddProductAsync(string barcode, int productId, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
         {
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size, Status) " +
-                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size, @Status)";
+            string insertQuery = $"INSERT INTO {tbl_name} ({col_barcode}, {col_product_id}, {col_item_name}, {col_motor_brand}, {col_brand}, {col_unit_price}, {col_quantity}, {col_category}, {col_size}, {col_is_active}) " +
+                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size, @IsActive)";
 
             try
             {
@@ -81,7 +134,7 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
-                        cmd.Parameters.AddWithValue("@Status", "Active");
+                        cmd.Parameters.AddWithValue("@IsActive", 1);
 
                         await cmd.ExecuteNonQueryAsync();
                     }
@@ -95,7 +148,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task UpdateProductAsync(int productId, string barcode, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
         {
-            string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size WHERE ProductID = @ProductId";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_unit_price} = @UnitPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_product_id} = @ProductId";
 
             try
             {
@@ -125,7 +178,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<bool> IsDataExistsAsync(string columnName, string data)
         {
-            string selectQuery = $"SELECT COUNT(*) FROM tbl_itemmasterdata WHERE {columnName} = @Data";
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {columnName} = @Data";
 
             try
             {
@@ -148,7 +201,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<bool> AreDataExistsAsync(string column1, string data1, string column2, string data2)
         {
-            string selectQuery = $"SELECT COUNT(*) FROM tbl_itemmasterdata WHERE {column1} = @Data1 AND {column2} = @Data2";
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {column1} = @Data1 AND {column2} = @Data2";
 
             try
             {
@@ -172,7 +225,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task ArchiveProductAsync(int id)
         {
-            string updateQuery = "UPDATE tbl_itemmasterdata SET Status = 'Archived' WHERE ID = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = 0 WHERE {col_id} = @ID";
 
             try
             {
@@ -190,6 +243,44 @@ namespace BenpilsBarcodeSystem.Repository
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
+        }
+
+        public async Task<(List<string>, List<string>)> GetCategoryBrandValuesAsync()
+        {
+            List<string> uniqueValuesColumn1 = new List<string>();
+            List<string> uniqueValuesColumn2 = new List<string>();
+
+            string selectQuery = $"SELECT DISTINCT {col_category}, {col_brand} FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                string value1 = reader[col_category].ToString();
+                                string value2 = reader[col_brand].ToString();
+
+                                uniqueValuesColumn1.Add(value1);
+                                uniqueValuesColumn2.Add(value2);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            uniqueValuesColumn1.Insert(0, "All");
+            uniqueValuesColumn2.Insert(0, "All");
+
+            return (uniqueValuesColumn1, uniqueValuesColumn2);
         }
     }
 }

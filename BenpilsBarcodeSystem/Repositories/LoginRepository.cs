@@ -11,6 +11,9 @@ namespace BenpilsBarcodeSystem.Repository
     internal class LoginRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
+        private string tbl_name = "tbl_user_credentials";
+        private string col_id = "id", col_first_name = "first_name", col_last_name = "last_name", col_username = "username", col_password = "password", col_designation = "designation", 
+                       col_address = "address", col_contact_no = "contact_no", col_is_active = "is_active";
 
         public LoginRepository()
         {
@@ -23,15 +26,14 @@ namespace BenpilsBarcodeSystem.Repository
             {
                 using (SqlConnection connection = await Task.Run(() => databaseConnection.OpenConnection()))
                 {
-                    // Check if the connection is successfully established
                     if (connection != null)
                     {
-                        string query = "SELECT * FROM tbl_usercredential WHERE username = @username AND password = @password";
+                        string query = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password";
 
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@username", username);
-                            command.Parameters.AddWithValue("@password", password);
+                            command.Parameters.AddWithValue("@Username", username);
+                            command.Parameters.AddWithValue("@Password", password);
 
                             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                             {

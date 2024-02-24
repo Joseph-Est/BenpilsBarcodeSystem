@@ -11,6 +11,9 @@ namespace BenpilsBarcodeSystem.Repository
     internal class UserCredentialsRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
+        private string tbl_name = "tbl_user_credentials";
+        private string col_id = "id", col_first_name = "first_name", col_last_name = "last_name", col_username = "username", col_password = "password", col_designation = "designation",
+                       col_address = "address", col_contact_no = "contact_no", col_is_active = "is_active";
 
         public UserCredentialsRepository()
         {
@@ -19,7 +22,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<DataTable> GetUserCredentialsAsync()
         {
-            string selectQuery = "SELECT * FROM tbl_usercredential";
+            string selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
 
             try
             {

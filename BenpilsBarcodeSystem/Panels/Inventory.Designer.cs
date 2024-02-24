@@ -28,42 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotorBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CategoryCb = new System.Windows.Forms.ComboBox();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
-            this.TxtSearchBar = new System.Windows.Forms.TextBox();
+            this.SearchTxt = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -129,6 +116,21 @@
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BrandCb = new System.Windows.Forms.ComboBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.motor_brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatted_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.panel1.SuspendLayout();
@@ -191,181 +193,61 @@
             this.dataGridItemMasterdata.AllowUserToDeleteRows = false;
             this.dataGridItemMasterdata.AllowUserToResizeColumns = false;
             this.dataGridItemMasterdata.AllowUserToResizeRows = false;
+            this.dataGridItemMasterdata.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridItemMasterdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Barcode,
-            this.ProductID,
-            this.ItemName,
-            this.MotorBrand,
-            this.Brand,
-            this.UnitPrice,
-            this.FormattedPrice,
-            this.Quantity,
-            this.Category,
-            this.Size,
-            this.StockStatus,
-            this.Status});
+            this.id,
+            this.barcode,
+            this.product_id,
+            this.item_name,
+            this.brand,
+            this.motor_brand,
+            this.unit_price,
+            this.formatted_price,
+            this.quantity,
+            this.category,
+            this.size,
+            this.Status,
+            this.Active});
             this.dataGridItemMasterdata.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridItemMasterdata.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridItemMasterdata.EnableHeadersVisualStyles = false;
+            this.dataGridItemMasterdata.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridItemMasterdata.Location = new System.Drawing.Point(30, 10);
             this.dataGridItemMasterdata.MultiSelect = false;
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
             this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridItemMasterdata.RowHeadersVisible = false;
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
             this.dataGridItemMasterdata.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridItemMasterdata.RowTemplate.Height = 30;
+            this.dataGridItemMasterdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridItemMasterdata.Size = new System.Drawing.Size(933, 559);
             this.dataGridItemMasterdata.TabIndex = 179;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // Barcode
-            // 
-            this.Barcode.DataPropertyName = "Barcode";
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Barcode.DefaultCellStyle = dataGridViewCellStyle28;
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.Name = "Barcode";
-            this.Barcode.ReadOnly = true;
-            this.Barcode.Width = 90;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ProductID.DefaultCellStyle = dataGridViewCellStyle29;
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Width = 80;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ItemName.DefaultCellStyle = dataGridViewCellStyle30;
-            this.ItemName.HeaderText = "Item Name";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            this.ItemName.Width = 130;
-            // 
-            // MotorBrand
-            // 
-            this.MotorBrand.DataPropertyName = "MotorBrand";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.MotorBrand.DefaultCellStyle = dataGridViewCellStyle31;
-            this.MotorBrand.HeaderText = "Motor Brand";
-            this.MotorBrand.Name = "MotorBrand";
-            this.MotorBrand.ReadOnly = true;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Brand.DefaultCellStyle = dataGridViewCellStyle32;
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.DataPropertyName = "UnitPrice";
-            this.UnitPrice.HeaderText = "Original Price";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Visible = false;
-            this.UnitPrice.Width = 90;
-            // 
-            // FormattedPrice
-            // 
-            this.FormattedPrice.DataPropertyName = "FormattedPrice";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle33.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.FormattedPrice.DefaultCellStyle = dataGridViewCellStyle33;
-            this.FormattedPrice.HeaderText = "Unit Price";
-            this.FormattedPrice.Name = "FormattedPrice";
-            this.FormattedPrice.ReadOnly = true;
-            this.FormattedPrice.Width = 80;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle34;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 80;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Category.DefaultCellStyle = dataGridViewCellStyle35;
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            // 
-            // Size
-            // 
-            this.Size.DataPropertyName = "Size";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Size.DefaultCellStyle = dataGridViewCellStyle36;
-            this.Size.HeaderText = "Size";
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
-            this.Size.Width = 80;
-            // 
-            // StockStatus
-            // 
-            this.StockStatus.DataPropertyName = "StockStatus";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.StockStatus.DefaultCellStyle = dataGridViewCellStyle37;
-            this.StockStatus.HeaderText = "Stock Status";
-            this.StockStatus.Name = "StockStatus";
-            this.StockStatus.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Visible = false;
-            this.Status.Width = 90;
             // 
             // ArchiveBtn
             // 
@@ -417,21 +299,22 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label7.Location = new System.Drawing.Point(304, 54);
+            this.label7.Location = new System.Drawing.Point(261, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 16);
+            this.label7.Size = new System.Drawing.Size(68, 16);
             this.label7.TabIndex = 158;
-            this.label7.Text = "Sort by:";
+            this.label7.Text = "Category :";
             // 
-            // comboBox1
+            // CategoryCb
             // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(362, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 24);
-            this.comboBox1.TabIndex = 157;
+            this.CategoryCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CategoryCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.CategoryCb.FormattingEnabled = true;
+            this.CategoryCb.Location = new System.Drawing.Point(335, 51);
+            this.CategoryCb.Name = "CategoryCb";
+            this.CategoryCb.Size = new System.Drawing.Size(162, 24);
+            this.CategoryCb.TabIndex = 157;
+            this.CategoryCb.SelectedIndexChanged += new System.EventHandler(this.CategoryCb_SelectedIndexChanged);
             // 
             // RefreshPb
             // 
@@ -446,15 +329,16 @@
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
-            // TxtSearchBar
+            // SearchTxt
             // 
-            this.TxtSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.TxtSearchBar.Location = new System.Drawing.Point(84, 51);
-            this.TxtSearchBar.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtSearchBar.Multiline = true;
-            this.TxtSearchBar.Name = "TxtSearchBar";
-            this.TxtSearchBar.Size = new System.Drawing.Size(197, 24);
-            this.TxtSearchBar.TabIndex = 154;
+            this.SearchTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.SearchTxt.Location = new System.Drawing.Point(84, 51);
+            this.SearchTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchTxt.Multiline = true;
+            this.SearchTxt.Name = "SearchTxt";
+            this.SearchTxt.Size = new System.Drawing.Size(162, 24);
+            this.SearchTxt.TabIndex = 154;
+            this.SearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
             // 
             // label14
             // 
@@ -463,16 +347,18 @@
             this.label14.Location = new System.Drawing.Point(27, 55);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 16);
+            this.label14.Size = new System.Drawing.Size(56, 16);
             this.label14.TabIndex = 155;
-            this.label14.Text = "Search:";
+            this.label14.Text = "Search :";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.BrandCb);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.CategoryCb);
             this.panel1.Controls.Add(this.RefreshPb);
-            this.panel1.Controls.Add(this.TxtSearchBar);
+            this.panel1.Controls.Add(this.SearchTxt);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -1093,6 +979,7 @@
             this.ReduceStockBtn.TabIndex = 13;
             this.ReduceStockBtn.Text = "Reduce Stock";
             this.ReduceStockBtn.UseVisualStyleBackColor = true;
+            this.ReduceStockBtn.Click += new System.EventHandler(this.ReduceStockBtn_Click);
             // 
             // panel35
             // 
@@ -1157,6 +1044,156 @@
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(109, 253);
             this.panel34.TabIndex = 181;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label1.Location = new System.Drawing.Point(508, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 160;
+            this.label1.Text = "Brand :";
+            // 
+            // BrandCb
+            // 
+            this.BrandCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BrandCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.BrandCb.FormattingEnabled = true;
+            this.BrandCb.Location = new System.Drawing.Point(563, 51);
+            this.BrandCb.Name = "BrandCb";
+            this.BrandCb.Size = new System.Drawing.Size(162, 24);
+            this.BrandCb.TabIndex = 159;
+            this.BrandCb.SelectedIndexChanged += new System.EventHandler(this.BrandCb_SelectedIndexChanged);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // barcode
+            // 
+            this.barcode.DataPropertyName = "barcode";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.barcode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.barcode.HeaderText = "Barcode";
+            this.barcode.Name = "barcode";
+            this.barcode.ReadOnly = true;
+            // 
+            // product_id
+            // 
+            this.product_id.DataPropertyName = "product_id";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.product_id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.product_id.HeaderText = "Product ID";
+            this.product_id.Name = "product_id";
+            this.product_id.ReadOnly = true;
+            // 
+            // item_name
+            // 
+            this.item_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.item_name.DataPropertyName = "item_name";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.item_name.DefaultCellStyle = dataGridViewCellStyle4;
+            this.item_name.HeaderText = "Item Name";
+            this.item_name.MinimumWidth = 200;
+            this.item_name.Name = "item_name";
+            this.item_name.ReadOnly = true;
+            // 
+            // brand
+            // 
+            this.brand.DataPropertyName = "brand";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.brand.DefaultCellStyle = dataGridViewCellStyle5;
+            this.brand.HeaderText = "Brand";
+            this.brand.Name = "brand";
+            this.brand.ReadOnly = true;
+            this.brand.Width = 150;
+            // 
+            // motor_brand
+            // 
+            this.motor_brand.DataPropertyName = "motor_brand";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.motor_brand.DefaultCellStyle = dataGridViewCellStyle6;
+            this.motor_brand.HeaderText = "Motor Brand";
+            this.motor_brand.Name = "motor_brand";
+            this.motor_brand.ReadOnly = true;
+            this.motor_brand.Width = 150;
+            // 
+            // unit_price
+            // 
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.HeaderText = "Original Price";
+            this.unit_price.Name = "unit_price";
+            this.unit_price.ReadOnly = true;
+            this.unit_price.Visible = false;
+            this.unit_price.Width = 90;
+            // 
+            // formatted_price
+            // 
+            this.formatted_price.DataPropertyName = "formatted_price";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.formatted_price.DefaultCellStyle = dataGridViewCellStyle7;
+            this.formatted_price.HeaderText = "Unit Price";
+            this.formatted_price.Name = "formatted_price";
+            this.formatted_price.ReadOnly = true;
+            this.formatted_price.Width = 80;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle8;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.category.DefaultCellStyle = dataGridViewCellStyle9;
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Visible = false;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.size.DefaultCellStyle = dataGridViewCellStyle10;
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            this.size.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Status.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "is_active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            this.Active.Visible = false;
+            this.Active.Width = 90;
             // 
             // Inventory
             // 
@@ -1244,9 +1281,9 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CategoryCb;
         private System.Windows.Forms.PictureBox RefreshPb;
-        private System.Windows.Forms.TextBox TxtSearchBar;
+        private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -1312,18 +1349,20 @@
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MotorBrand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockStatus;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox BrandCb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn motor_brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unit_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formatted_price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
     }
 }

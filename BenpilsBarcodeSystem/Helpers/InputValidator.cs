@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem.Helpers
 {
@@ -80,6 +81,56 @@ namespace BenpilsBarcodeSystem.Helpers
         public static bool IsStringNotEmpty(string str)
         {
             return !string.IsNullOrEmpty(str);
+        }
+
+        public static void AllowOnlyDigits(TextBox textBox)
+        {
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                else if (textBox.Text.Length >= 9 && !char.IsControl(e.KeyChar)) 
+                {
+                    e.Handled = true;
+                }
+            };
+        }
+
+        public static void AllowOnlyDigitsAndDecimal(TextBox textBox)
+        {
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                {
+                    e.Handled = true;
+                }
+                else if (e.KeyChar == '.' && (textBox.Text.Contains(".") || textBox.Text.Length == 0))
+                {
+                    e.Handled = true;
+                }
+                else if (e.KeyChar == '.' && textBox.SelectionStart == 0)
+                {
+                    e.Handled = true;
+                }
+                else if (e.KeyChar == ' ' || (textBox.Text.Contains(".") && e.KeyChar == '0' && textBox.Text.Length == 1))
+                {
+                    e.Handled = true;
+                }
+                else if (char.IsDigit(e.KeyChar) && textBox.Text.Contains("."))
+                {
+                    int decimalIndex = textBox.Text.IndexOf('.');
+                    if (textBox.Text.Substring(decimalIndex).Length > 2) 
+                    {
+                        e.Handled = true;
+                    }
+                }
+                else if (!char.IsControl(e.KeyChar) && textBox.Text.Length >= 10) 
+                {
+                    e.Handled = true;
+                }
+            };
         }
     }
 }

@@ -208,13 +208,6 @@ namespace BenpilsBarcodeSystem
 
         private int GetQuantityFromUser()
         {
-            using (var quantityForm = new QuantityForm())
-            {
-                if (quantityForm.ShowDialog() == DialogResult.OK)
-                {
-                    return quantityForm.Quantity;
-                }
-            }
             return 0;
         }
 

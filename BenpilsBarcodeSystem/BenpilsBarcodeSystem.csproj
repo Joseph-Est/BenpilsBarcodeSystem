@@ -194,17 +194,11 @@
     <Compile Include="Dialogs\AddItemSupplier.Designer.cs">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ConfirmationExit.cs">
+    <Compile Include="Dialogs\Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ConfirmationExit.Designer.cs">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ConfirmationLogout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ConfirmationLogout.Designer.cs">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <Compile Include="Dialogs\Confirmation.Designer.cs">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Database\DatabaseInitializer.cs" />
@@ -254,11 +248,11 @@
     <Compile Include="Panels\PurchaseOrder.Designer.cs">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\QuantityForm.cs">
+    <Compile Include="Dialogs\ReduceStockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\QuantityForm.Designer.cs">
-      <DependentUpon>QuantityForm.cs</DependentUpon>
+    <Compile Include="Dialogs\ReduceStockForm.Designer.cs">
+      <DependentUpon>ReduceStockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\Reports.cs">
       <SubType>Form</SubType>
@@ -303,11 +297,8 @@
     <EmbeddedResource Include="Dialogs\AddItemSupplier.resx">
       <DependentUpon>AddItemSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ConfirmationExit.resx">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ConfirmationLogout.resx">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\Confirmation.resx">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -340,8 +331,8 @@
     <EmbeddedResource Include="Panels\PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\QuantityForm.resx">
-      <DependentUpon>QuantityForm.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ReduceStockForm.resx">
+      <DependentUpon>ReduceStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>

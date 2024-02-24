@@ -172,33 +172,7 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Handle the "Add Data" button click for DataGridView1
-            // Here, you might want to open a QuantityForm to get the quantity input
-            // For simplicity, we'll assume the quantity is entered directly here.
-
-            int selectedRowIndex = DataGridView1.SelectedCells[0].RowIndex;
-
-            // Extract data from the selected row in DataGridView1
-            int productID = Convert.ToInt32(DataGridView1.Rows[selectedRowIndex].Cells["ProductID"].Value);
-            string itemName = DataGridView1.Rows[selectedRowIndex].Cells["ItemName"].Value.ToString();
-            decimal unitPrice = Convert.ToDecimal(DataGridView1.Rows[selectedRowIndex].Cells["UnitPrice"].Value);
-
-            // Assume QuantityForm is a form where the user enters the quantity
-            QuantityForm quantityForm = new QuantityForm();
-            if (quantityForm.ShowDialog() == DialogResult.OK)
-            {
-                int quantity = quantityForm.Quantity;
-                decimal subtotal = unitPrice * quantity;
-
-                // Add data to the DataTable for DataGridView2
-                dtCart.Rows.Add(productID, itemName, quantity, subtotal);
-
-                // Update the total label
-                UpdateTotalLabel();
-
-                // Regenerate transaction number
-                RegenerateTransactionNumber();
-            }
+            
         }
         private void UpdateChangeLabel()
         {

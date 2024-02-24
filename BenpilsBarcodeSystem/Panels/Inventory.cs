@@ -11,253 +11,246 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 using System.Windows.Forms.VisualStyles;
+using BenpilsBarcodeSystem.Utils;
+using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Helpers;
 
 namespace BenpilsBarcodeSystem
 {
     public partial class Inventory : Form
     {
         private GenerateBarcode GB;
+        private bool isAdding = false;
+        private bool isUpdating = false;
+        private int selectedID;
+        private string prevItemName, prevBarcode, prevSize;
+
         public Inventory()
         {
             InitializeComponent();
+            InputValidator.AllowOnlyDigits(QuantityTxt);
+            InputValidator.AllowOnlyDigitsAndDecimal(UnitPriceTxt);
         }
 
-        private void UpdateDataGridView()
+        private void Inventory_Load(object sender, EventArgs e)
         {
-            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpilsMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridItemMasterdata.DataSource = dt;
-                }
-            }
-        }
-
-        private void ClearAllTextBoxes()
-        {
-            BarcodeTxt.Text = "";
-            ProductIDTxt.Text = "";
-            ItemNameTxt.Text = "";
-            MotorBrandTxt.Text = "";
-            BrandTxt.Text = "";
-            UnitPriceTxt.Text = "";
-            QuantityTxt.Text = "";
-            CategoryTxt.Text = "";
-            SizeTxt.Text = "";
-        }
-
-        private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ProductIDTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void UnitPriceTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(BarcodeTxt.Text) ||
-                string.IsNullOrEmpty(ItemNameTxt.Text) ||
-                string.IsNullOrEmpty(ProductIDTxt.Text) ||
-                string.IsNullOrEmpty(UnitPriceTxt.Text) ||
-                string.IsNullOrEmpty(QuantityTxt.Text) ||
-                string.IsNullOrEmpty(CategoryTxt.Text))
-            {
-                MessageBox.Show("Please fill in all the required fields.");
-                return;
-            }
-
-
-            if (!int.TryParse(ProductIDTxt.Text, out int productId))
-            {
-                MessageBox.Show("Product ID must be a valid integer.");
-                return;
-            }
-
-            if (IsProductIDAlreadyExists(productId))
-            {
-                MessageBox.Show("Product ID already exists in the database. Please choose a different Product ID.");
-                return;
-            }
-
-            string size = SizeTxt.Text;
-
-            if (IsSizeAlreadyExists(size))
-            {
-                MessageBox.Show("Size already exists in the database. Please choose a different Size.");
-                return;
-            }
-
-            string insertQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
-                                "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-                    cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
-                    cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
-                    cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
-                    cmd.Parameters.AddWithValue("@UnitPrice", decimal.Parse(UnitPriceTxt.Text));
-                    cmd.Parameters.AddWithValue("@Quantity", int.Parse(QuantityTxt.Text));
-                    cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                    cmd.Parameters.AddWithValue("@Size", size);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-           
+            PopulateComboBoxes();
             UpdateDataGridView();
-            ClearAllTextBoxes();
         }
-        private bool IsProductIDAlreadyExists(int productId)
+
+        private async void UpdateDataGridView(string searchText = null, string category = "All", string brand = "All")
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            if (string.IsNullOrEmpty(searchText))
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE ProductID = @ProductID", con))
-                {
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-                    int count = (int)cmd.ExecuteScalar();
-                    return count > 0;
-                }
+                SearchTxt.Text = "";
+            }
+
+            try
+            {
+                InventoryRepository inventoryRepository = new InventoryRepository();
+                DataTable userCredentials = await inventoryRepository.GetProductsAsync(searchText, category, brand);
+
+                dataGridItemMasterdata.DataSource = userCredentials;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
-        private bool IsSizeAlreadyExists(string size)
+
+        private async void AddBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            if (!isUpdating && !isAdding)
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_itemmasterdata WHERE Size = @Size", con))
-                {
-                    cmd.Parameters.AddWithValue("@Size", size);
-                    int count = (int)cmd.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(ProductIDTxt.Text, out int productId))
-            {
-                string updateQuery = "UPDATE tbl_itemmasterdata SET Barcode = @Barcode, ItemName = @ItemName, MotorBrand = @MotorBrand, Brand = @Brand, UnitPrice = @UnitPrice, Quantity = @Quantity, Category = @Category, Size = @Size, ProductID = @ProductID WHERE ProductID = @ProductID";
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Barcode", BarcodeTxt.Text);
-                        cmd.Parameters.AddWithValue("@ProductID", productId);
-                        cmd.Parameters.AddWithValue("@ItemName", ItemNameTxt.Text);
-                        cmd.Parameters.AddWithValue("@MotorBrand", MotorBrandTxt.Text);
-                        cmd.Parameters.AddWithValue("@Brand", BrandTxt.Text);
-
-                        if (decimal.TryParse(UnitPriceTxt.Text, out decimal unitPrice))
-                        {
-                            cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
-                        }
-                        else
-                        {
-           
-                        }
-
-                        if (int.TryParse(QuantityTxt.Text, out int quantity))
-                        {
-                            cmd.Parameters.AddWithValue("@Quantity", quantity);
-                        }
-                        else
-                        {
-                
-                        }
-
-                        cmd.Parameters.AddWithValue("@Category", CategoryTxt.Text);
-                        cmd.Parameters.AddWithValue("@Size", SizeTxt.Text);
-                        try
-                        {
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                        catch (Exception ex)
-                        {
-               
-                            MessageBox.Show("Error: " + ex.Message);
-                        }
-                        finally
-                        {
-                            con.Close();
-                        }
-                    }
-                }
+                isAdding = true;
+                ClearFields();
+                SetFieldsReadOnly(false);
+                AddBtn.Text = "Save";
+                GenerateBtn.Enabled = true;
+                UpdateBtn.Enabled = true;
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
+                UpdateBtn.Text = "Cancel";
             }
             else
             {
+                if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
+                {
+                    MessageBox.Show("Please fill in all the required fields.");
+                    return;
+                }
+
+                if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
+                {
+                    MessageBox.Show("Invalid price");
+                    return;
+                }
+
+                InventoryRepository repository = new InventoryRepository();
+
+                if(isAdding || (isUpdating && (prevSize != SizeTxt.Text || prevItemName != ItemNameTxt.Text)))
+                {
+                    if (await repository.AreDataExistsAsync("size", SizeTxt.Text, "item_name", ItemNameTxt.Text))
+                    {
+                        MessageBox.Show("Item already exists. Please choose diffrent item name or different size");
+                        return;
+                    }
+                }
+
+                if (isAdding)
+                {
+                    await repository.AddProductAsync(
+                        BarcodeTxt.Text,
+                        InputValidator.ParseToInt(ProductIDTxt.Text),
+                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
+                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
+                        Util.CapitalizeFirstLetter(BrandTxt.Text),
+                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
+                        InputValidator.ParseToInt(QuantityTxt.Text),
+                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
+                        Util.CapitalizeFirstLetter(SizeTxt.Text)
+                    );
+
+                    isAdding = false;
+                    GenerateBtn.Enabled = false;
+
+                    MessageBox.Show("Item added succesfully!");
+                }
+                else
+                {
+                    if(prevBarcode != BarcodeTxt.Text)
+                    {
+                        if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
+                        {
+                            MessageBox.Show("Barcode already exist.");
+                            return;
+                        }
+                    }
+                   
+                    await repository.UpdateProductAsync(
+                        selectedID,
+                        BarcodeTxt.Text,
+                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
+                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
+                        Util.CapitalizeFirstLetter(BrandTxt.Text),
+                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
+                        InputValidator.ParseToInt(QuantityTxt.Text),
+                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
+                        Util.CapitalizeFirstLetter(SizeTxt.Text)
+                    );
+                    isUpdating = false;
+
+                    MessageBox.Show($"{Util.CapitalizeFirstLetter(ItemNameTxt.Text)} updated succesfully!");
+                }
                 
-                MessageBox.Show("Please enter a valid Product ID.");
+                UpdateDataGridView();
+                ClearFields();
+                SetFieldsReadOnly(true);
+                AddBtn.Text = "Add";
+                UpdateBtn.Text = "Update";
             }
-            UpdateDataGridView();
-            ClearAllTextBoxes();
+            
         }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            if(!isUpdating && !isAdding)
+            {
+                isUpdating = true;
+                SetFieldsReadOnly(false);
+                AddBtn.Text = "Save";
+                UpdateBtn.Text = "Cancel";
+
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
+
+                prevItemName = ItemNameTxt.Text;
+                prevBarcode = BarcodeTxt.Text;
+                prevSize = SizeTxt.Text;
+            }
+            else
+            {
+                isAdding = false;
+                isUpdating = false;
+                ClearFields();
+                SetFieldsReadOnly(true);
+                AddBtn.Text = "Add";
+                GenerateBtn.Enabled = false;
+                UpdateBtn.Text = "Update";
+            }
+            
+        }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            ClearAllTextBoxes();
+            ClearFields();
+        }
+
+        private async void ArchiveBtn_Click(object sender, EventArgs e)
+        {
+            Confirmation confirmation = new Confirmation("Are you sure you want to archive", ItemNameTxt.Text + "?", "Yes", "Cancel");
+            DialogResult result = confirmation.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                InventoryRepository inventoryRepository = new InventoryRepository();
+
+                if (selectedID > 0)
+                {
+                    await inventoryRepository.ArchiveProductAsync(selectedID);
+                    UpdateDataGridView();
+                    ClearFields();
+                }
+            }
+        }
+
+        private async void ReduceStockBtn_Click(object sender, EventArgs e)
+        {
+            ReduceStockForm reduceStockForm = new ReduceStockForm(selectedID, ItemNameTxt.Text, SizeTxt.Text, InputValidator.ParseToInt(QuantityTxt.Text));
+            if (reduceStockForm.ShowDialog() == DialogResult.OK)
+            {
+                int id = reduceStockForm.SelectedId;
+                int amountToDeduct = reduceStockForm.AmountToDeduct;
+                string reason = reduceStockForm.Reason;
+                string itemName = reduceStockForm.itemName;
+
+                InventoryRepository inventoryRepository = new InventoryRepository();
+                if (await inventoryRepository.DeductStockAsync(id, amountToDeduct))
+                {
+                    MessageBox.Show($"{itemName} quantity reduced succesfully");
+                    UpdateDataGridView();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show($"Failed to reduce item quantity");
+                }
+
+            }
         }
 
         private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if(!isAdding && !isUpdating)
             {
-                DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
-                BarcodeTxt.Text = row.Cells[1].Value.ToString();
-                ProductIDTxt.Text = row.Cells[2].Value.ToString();
-                ItemNameTxt.Text = row.Cells[3].Value.ToString();
-                MotorBrandTxt.Text = row.Cells[4].Value.ToString();
-                BrandTxt.Text = row.Cells[5].Value.ToString();
-                UnitPriceTxt.Text = row.Cells[6].Value.ToString();
-                QuantityTxt.Text = row.Cells[7].Value.ToString();
-                CategoryTxt.Text = row.Cells[8].Value.ToString();
-                SizeTxt.Text = row.Cells[9].Value.ToString();
-                AddBtn.Enabled = false;
-            }
-        }
-        //refresh button
-        private void pictureBox13_Click(object sender, EventArgs e)
-        {
-            string selectQuery = "SELECT * FROM tbl_itemmasterdata";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                if (e.RowIndex >= 0)
                 {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridItemMasterdata . DataSource = dt;
+                    DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
+                    selectedID =  InputValidator.ParseToInt(row.Cells["id"].Value.ToString());
+                    BarcodeTxt.Text = row.Cells["barcode"].Value.ToString();
+                    ProductIDTxt.Text = row.Cells["product_id"].Value.ToString();
+                    ItemNameTxt.Text = row.Cells["item_name"].Value.ToString();
+                    MotorBrandTxt.Text = row.Cells["motor_brand"].Value.ToString();
+                    BrandTxt.Text = row.Cells["brand"].Value.ToString();
+                    UnitPriceTxt.Text = row.Cells["unit_price"].Value.ToString();
+                    QuantityTxt.Text = row.Cells["quantity"].Value.ToString();
+                    CategoryTxt.Text = row.Cells["category"].Value.ToString();
+                    SizeTxt.Text = row.Cells["size"].Value.ToString();
+                    UpdateBtn.Enabled = true;
+                    ArchiveBtn.Enabled = true;
+                    ReduceStockBtn.Enabled = true;
                 }
             }
-            AddBtn.Enabled = true;
-            ClearAllTextBoxes();
         }
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
@@ -271,138 +264,70 @@ namespace BenpilsBarcodeSystem
             GB.BringToFront();
         }
 
-        private void GenerateProductID()
+        private void RefreshPb_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                con.Open();
+            PopulateComboBoxes();
+            UpdateDataGridView();
+        }
+
+        private void GenerateBtn_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(10000000, 99999999);
+            ProductIDTxt.Text = randomNumber.ToString();
+        }
+
+        private void SearchTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
+        }
+
+        private void CategoryCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
+        }
+
+        private void BrandCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
+        }
+
+        private void ClearFields()
+        {
+            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+
+            if(!isAdding && !isUpdating)
             {
-
-                Random rand = new Random();
-                int randomProductID = rand.Next(1, 600);
-
-                if (randomProductID > 599)
-                {
-                    MessageBox.Show("ProductID limit exceeded.");
-                    return;
-                }
-
-                string productID = randomProductID.ToString("D4");
-                ProductIDTxt.Text = productID;
+                UpdateBtn.Enabled = false;
+                ArchiveBtn.Enabled = false;
+                ReduceStockBtn.Enabled = false;
             }
         }
 
-        private void RandomGenerateProductidBtn_Click(object sender, EventArgs e)
+        private void SetFieldsReadOnly(bool mode)
         {
-            GenerateProductID();
+            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
         }
 
-        private void PopulateComboBoxStatus()
+        private async void PopulateComboBoxes()
         {
-            // Populate the ComboBox with status options (e.g., Lost Item, Broken Item, Wrong Item).
-            comboBox2.Items.AddRange(new string[] { "Lost Item", "Broken Item", "Wrong Item" });
-        }
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            (List<string> valuesColumn1, List<string> valuesColumn2) = await inventoryRepository.GetCategoryBrandValuesAsync();
 
-        private void UpdateStockStatus(int productId)
-        {
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                con.Open();
+            CategoryCb.Items.Clear();
+            CategoryCb.Items.AddRange(valuesColumn1.ToArray());
 
-                // Assuming the table name is StockStatus and it has a column named Quantity
-                string updateStockStatusQuery = "UPDATE StockStatus SET Status = " +
-                                                "CASE " +
-                                                    "WHEN Quantity = 0 THEN 'Out of stock' " +
-                                                    "WHEN Quantity <= 20 THEN 'Low stock' " +
-                                                    "ELSE 'High stock' " +
-                                                "END " +
-                                                "WHERE ProductID = @ProductID";
+            BrandCb.Items.Clear();
+            BrandCb.Items.AddRange(valuesColumn2.ToArray());
 
-                using (SqlCommand cmd = new SqlCommand(updateStockStatusQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
+            BrandCb.SelectedIndexChanged -= BrandCb_SelectedIndexChanged;
+            CategoryCb.SelectedIndexChanged -= CategoryCb_SelectedIndexChanged;
 
-        private void ArchiveBtn_Click(object sender, EventArgs e)
-        {
-            // Check if a row is selected
-            if (dataGridItemMasterdata.SelectedRows.Count > 0)
-            {
-                // Get the selected ProductID from the DataGridView
-                int productId = Convert.ToInt32(dataGridItemMasterdata.SelectedRows[0].Cells["ProductID"].Value);
+            CategoryCb.SelectedIndex = 0;
+            BrandCb.SelectedIndex = 0;
 
-                // Call the archive function
-                ArchiveProduct(productId);
-
-                // Refresh the DataGridView
-                UpdateDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to archive.");
-            }    // Check if a row is selected
-          
-        }
-
-        private void ArchiveProduct(int productId)
-        {
-            // Fetch the product details based on ProductID
-            DataRow selectedRow = GetProductDetails(productId);
-
-            if (selectedRow != null)
-            {
-                // Archive the product by inserting it into the ArchivedItems table
-                string archiveQuery = "INSERT INTO ArchivedItems (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
-                                      "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
-
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(archiveQuery, con))
-                    {
-                        // Set parameters from the selected row
-                        cmd.Parameters.AddWithValue("@Barcode", selectedRow["Barcode"]);
-                        cmd.Parameters.AddWithValue("@ProductID", selectedRow["ProductID"]);
-                        cmd.Parameters.AddWithValue("@ItemName", selectedRow["ItemName"]);
-                        cmd.Parameters.AddWithValue("@MotorBrand", selectedRow["MotorBrand"]);
-                        cmd.Parameters.AddWithValue("@Brand", selectedRow["Brand"]);
-                        cmd.Parameters.AddWithValue("@UnitPrice", selectedRow["UnitPrice"]);
-                        cmd.Parameters.AddWithValue("@Quantity", selectedRow["Quantity"]);
-                        cmd.Parameters.AddWithValue("@Category", selectedRow["Category"]);
-                        cmd.Parameters.AddWithValue("@Size", selectedRow["Size"]);
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                // Remove the archived product from the main table
-                DeleteProduct(productId);
-            }
-        }
-
-        private void DeleteProduct(int productId)
-        {
-            string deleteQuery = "DELETE FROM tbl_itemmasterdata WHERE ProductID = @ProductID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-        private DataRow GetProductDetails(int productId)
-        {
-            DataTable dt = (DataTable)dataGridItemMasterdata.DataSource;
-            DataRow[] rows = dt.Select($"ProductID = {productId}");
-            return rows.Length > 0 ? rows[0] : null;
+            BrandCb.SelectedIndexChanged += BrandCb_SelectedIndexChanged;
+            CategoryCb.SelectedIndexChanged += CategoryCb_SelectedIndexChanged;
         }
     }
 }

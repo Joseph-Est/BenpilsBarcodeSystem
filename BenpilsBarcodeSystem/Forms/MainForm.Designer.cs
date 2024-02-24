@@ -86,12 +86,13 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(521, 7);
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(526, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(441, 20);
+            this.label5.Size = new System.Drawing.Size(404, 19);
             this.label5.TabIndex = 10;
-            this.label5.Text = "BENPIL  MOTORCYCLE PARTS AND ACCESSORIES";
+            this.label5.Text = "BENPIL MOTORCYCLE PARTS AND ACCESSORIES";
             // 
             // MinimizeBtn
             // 
@@ -136,11 +137,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(11, 8);
+            this.label6.Location = new System.Drawing.Point(9, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 18);
+            this.label6.Size = new System.Drawing.Size(80, 17);
             this.label6.TabIndex = 21;
             this.label6.Text = "Dashboard";
             // 
@@ -213,6 +214,7 @@
             // PointOfSalesBtn
             // 
             this.PointOfSalesBtn.BackColor = System.Drawing.Color.White;
+            this.PointOfSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PointOfSalesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PointOfSalesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PointOfSalesBtn.Location = new System.Drawing.Point(24, 193);
@@ -238,6 +240,7 @@
             // LogoutBtn
             // 
             this.LogoutBtn.BackColor = System.Drawing.Color.White;
+            this.LogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LogoutBtn.Location = new System.Drawing.Point(24, 668);
@@ -293,6 +296,7 @@
             // PurchasingBtn
             // 
             this.PurchasingBtn.BackColor = System.Drawing.Color.White;
+            this.PurchasingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PurchasingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PurchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PurchasingBtn.Location = new System.Drawing.Point(24, 327);
@@ -318,6 +322,7 @@
             // SettingsBtn
             // 
             this.SettingsBtn.BackColor = System.Drawing.Color.White;
+            this.SettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SettingsBtn.Location = new System.Drawing.Point(24, 598);
@@ -333,6 +338,7 @@
             // UsercredentialsBtn
             // 
             this.UsercredentialsBtn.BackColor = System.Drawing.Color.White;
+            this.UsercredentialsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UsercredentialsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.UsercredentialsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UsercredentialsBtn.Location = new System.Drawing.Point(24, 531);
@@ -348,6 +354,7 @@
             // InventoryBtn
             // 
             this.InventoryBtn.BackColor = System.Drawing.Color.White;
+            this.InventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InventoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InventoryBtn.Location = new System.Drawing.Point(24, 260);
@@ -383,6 +390,7 @@
             // StatisticsBtn
             // 
             this.StatisticsBtn.BackColor = System.Drawing.Color.White;
+            this.StatisticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StatisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StatisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StatisticsBtn.Location = new System.Drawing.Point(24, 464);
@@ -398,6 +406,7 @@
             // DashboardBtn
             // 
             this.DashboardBtn.BackColor = System.Drawing.Color.White;
+            this.DashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DashboardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboardBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DashboardBtn.Location = new System.Drawing.Point(24, 125);
@@ -423,6 +432,7 @@
             // ReportsBtn
             // 
             this.ReportsBtn.BackColor = System.Drawing.Color.White;
+            this.ReportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReportsBtn.Location = new System.Drawing.Point(24, 395);

@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
             this.ArchiveBtn = new System.Windows.Forms.Button();
@@ -49,7 +49,6 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.CategoryCb = new System.Windows.Forms.ComboBox();
-            this.RefreshPb = new System.Windows.Forms.PictureBox();
             this.SearchTxt = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -131,8 +130,8 @@
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefreshPb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -172,6 +171,7 @@
             this.panel42.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel37.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.SuspendLayout();
             // 
             // BarcodeGeneratorBtn
@@ -228,10 +228,6 @@
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
             this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Empty;
             this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridItemMasterdata.RowHeadersVisible = false;
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
@@ -240,8 +236,9 @@
             dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.dataGridItemMasterdata.RowTemplate.Height = 30;
             this.dataGridItemMasterdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -315,19 +312,6 @@
             this.CategoryCb.Size = new System.Drawing.Size(162, 24);
             this.CategoryCb.TabIndex = 157;
             this.CategoryCb.SelectedIndexChanged += new System.EventHandler(this.CategoryCb_SelectedIndexChanged);
-            // 
-            // RefreshPb
-            // 
-            this.RefreshPb.BackColor = System.Drawing.SystemColors.Control;
-            this.RefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("RefreshPb.Image")));
-            this.RefreshPb.Location = new System.Drawing.Point(935, 51);
-            this.RefreshPb.Name = "RefreshPb";
-            this.RefreshPb.Size = new System.Drawing.Size(28, 26);
-            this.RefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.RefreshPb.TabIndex = 156;
-            this.RefreshPb.TabStop = false;
-            this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
             // SearchTxt
             // 
@@ -1195,6 +1179,19 @@
             this.Active.Visible = false;
             this.Active.Width = 90;
             // 
+            // RefreshPb
+            // 
+            this.RefreshPb.BackColor = System.Drawing.SystemColors.Control;
+            this.RefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("RefreshPb.Image")));
+            this.RefreshPb.Location = new System.Drawing.Point(935, 51);
+            this.RefreshPb.Name = "RefreshPb";
+            this.RefreshPb.Size = new System.Drawing.Size(28, 26);
+            this.RefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.RefreshPb.TabIndex = 156;
+            this.RefreshPb.TabStop = false;
+            this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1210,7 +1207,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1270,6 +1266,7 @@
             this.panel42.ResumeLayout(false);
             this.panel41.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
             this.ResumeLayout(false);
 
         }

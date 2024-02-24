@@ -23,6 +23,7 @@ namespace BenpilsBarcodeSystem
         private bool isAdding = false;
         private bool isUpdating = false;
         private int selectedID;
+        private string prevItemName, prevBarcode, prevSize;
 
         public Inventory()
         {
@@ -73,52 +74,73 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                if (isAdding)
+                if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
                 {
-                    if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
-                    {
-                        MessageBox.Show("Please fill in all the required fields.");
-                        return;
-                    }
+                    MessageBox.Show("Please fill in all the required fields.");
+                    return;
+                }
 
-                    InventoryRepository repository = new InventoryRepository();
+                if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
+                {
+                    MessageBox.Show("Invalid price");
+                    return;
+                }
 
-                    if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
-                    {
-                        MessageBox.Show("Invalid price");
-                        return;
-                    }
+                InventoryRepository repository = new InventoryRepository();
 
-                    if (!InputValidator.IsValidInt(ProductIDTxt.Text))
-                    {
-                        MessageBox.Show("Product ID must be valid number");
-                        return;
-                    }
-
+                if(isAdding || (isUpdating && (prevSize != SizeTxt.Text || prevItemName != ItemNameTxt.Text)))
+                {
                     if (await repository.AreDataExistsAsync("size", SizeTxt.Text, "item_name", ItemNameTxt.Text))
                     {
-                        MessageBox.Show("Size already exists in the database. Please choose a different Size.");
+                        MessageBox.Show("Item already exists. Please choose diffrent item name or different size");
                         return;
                     }
+                }
 
+                if (isAdding)
+                {
                     await repository.AddProductAsync(
                         BarcodeTxt.Text,
                         InputValidator.ParseToInt(ProductIDTxt.Text),
-                        ItemNameTxt.Text,
-                        MotorBrandTxt.Text,
-                        BrandTxt.Text,
+                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
+                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
+                        Util.CapitalizeFirstLetter(BrandTxt.Text),
                         InputValidator.ParseToDecimal(UnitPriceTxt.Text),
                         InputValidator.ParseToInt(QuantityTxt.Text),
-                        CategoryTxt.Text,
-                        SizeTxt.Text
+                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
+                        Util.CapitalizeFirstLetter(SizeTxt.Text)
                     );
 
                     isAdding = false;
                     GenerateBtn.Enabled = false;
+
+                    MessageBox.Show("Item added succesfully!");
                 }
                 else
                 {
+                    if(prevBarcode != BarcodeTxt.Text)
+                    {
+                        if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
+                        {
+                            MessageBox.Show("Barcode already exist.");
+                            return;
+                        }
+                    }
+                   
+                    await repository.UpdateProductAsync(
+                        selectedID,
+                        BarcodeTxt.Text,
+                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
+                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
+                        Util.CapitalizeFirstLetter(BrandTxt.Text),
+                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
+                        InputValidator.ParseToInt(QuantityTxt.Text),
+                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
+                        Util.CapitalizeFirstLetter(SizeTxt.Text)
+                    );
                     isUpdating = false;
+
+                    MessageBox.Show($"{Util.CapitalizeFirstLetter(ItemNameTxt.Text)} updated succesfully!");
                 }
                 
                 UpdateDataGridView();
@@ -138,8 +160,13 @@ namespace BenpilsBarcodeSystem
                 SetFieldsReadOnly(false);
                 AddBtn.Text = "Save";
                 UpdateBtn.Text = "Cancel";
+
                 ArchiveBtn.Enabled = false;
                 ReduceStockBtn.Enabled = false;
+
+                prevItemName = ItemNameTxt.Text;
+                prevBarcode = BarcodeTxt.Text;
+                prevSize = SizeTxt.Text;
             }
             else
             {
@@ -174,6 +201,31 @@ namespace BenpilsBarcodeSystem
                     UpdateDataGridView();
                     ClearFields();
                 }
+            }
+        }
+
+        private async void ReduceStockBtn_Click(object sender, EventArgs e)
+        {
+            ReduceStockForm reduceStockForm = new ReduceStockForm(selectedID, ItemNameTxt.Text, SizeTxt.Text, InputValidator.ParseToInt(QuantityTxt.Text));
+            if (reduceStockForm.ShowDialog() == DialogResult.OK)
+            {
+                int id = reduceStockForm.SelectedId;
+                int amountToDeduct = reduceStockForm.AmountToDeduct;
+                string reason = reduceStockForm.Reason;
+                string itemName = reduceStockForm.itemName;
+
+                InventoryRepository inventoryRepository = new InventoryRepository();
+                if (await inventoryRepository.DeductStockAsync(id, amountToDeduct))
+                {
+                    MessageBox.Show($"{itemName} quantity reduced succesfully");
+                    UpdateDataGridView();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show($"Failed to reduce item quantity");
+                }
+
             }
         }
 
@@ -276,11 +328,6 @@ namespace BenpilsBarcodeSystem
 
             BrandCb.SelectedIndexChanged += BrandCb_SelectedIndexChanged;
             CategoryCb.SelectedIndexChanged += CategoryCb_SelectedIndexChanged;
-        }
-
-        private void ReduceStockBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Coming Soon");
         }
     }
 }

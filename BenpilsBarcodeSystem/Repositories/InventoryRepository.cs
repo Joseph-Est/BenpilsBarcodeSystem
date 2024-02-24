@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BenpilsBarcodeSystem.Helpers;
+using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -146,9 +147,9 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task UpdateProductAsync(int productId, string barcode, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
+        public async Task UpdateProductAsync(int id, string barcode, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_unit_price} = @UnitPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_product_id} = @ProductId";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_unit_price} = @UnitPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
 
             try
             {
@@ -164,7 +165,7 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
-                        cmd.Parameters.AddWithValue("@ProductId", productId);
+                        cmd.Parameters.AddWithValue("@ID", id);
 
                         await cmd.ExecuteNonQueryAsync();
                     }
@@ -178,7 +179,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<bool> IsDataExistsAsync(string columnName, string data)
         {
-            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {columnName} = @Data";
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {columnName} = @Data COLLATE SQL_Latin1_General_CP1_CI_AS";
 
             try
             {
@@ -201,7 +202,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<bool> AreDataExistsAsync(string column1, string data1, string column2, string data2)
         {
-            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {column1} = @Data1 AND {column2} = @Data2";
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {column1} = @Data1 COLLATE SQL_Latin1_General_CP1_CI_AS AND {column2} = @Data2 COLLATE SQL_Latin1_General_CP1_CI_AS";
 
             try
             {
@@ -281,6 +282,32 @@ namespace BenpilsBarcodeSystem.Repository
             uniqueValuesColumn2.Insert(0, "All");
 
             return (uniqueValuesColumn1, uniqueValuesColumn2);
+        }
+
+        public async Task<bool> DeductStockAsync(int id, int amountToDeduct)
+        {
+            string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@AmountToDeduct", amountToDeduct);
+                        cmd.Parameters.AddWithValue("@Id", id);
+
+                        int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return false;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,15 @@ namespace BenpilsBarcodeSystem
     public partial class MainForm : Form
     {
         private User user;
+
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
+
         public MainForm(User user)
         {
             InitializeComponent();
@@ -57,8 +67,9 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void SwitchForm(Form form)
+        private void SwitchForm(Form form, string module)
         {
+            SelectedModuleLbl.Text = module;
             mainPanel.Controls.Clear();
             form.TopLevel = false;
             mainPanel.Controls.Add(form);
@@ -74,44 +85,45 @@ namespace BenpilsBarcodeSystem
         private void PointOfSalesBtn_Click_1(object sender, EventArgs e)
         {
             POS pos = new POS();
-            SwitchForm(pos);
+            SwitchForm(pos, "Point of Sales");
+            
         }
 
         private void InventoryBtn_Click(object sender, EventArgs e)
         {
             Inventory inv = new Inventory();
-            SwitchForm(inv);
+            SwitchForm(inv, "Inventory");
         }
 
         private void PurchasingBtn_Click(object sender, EventArgs e)
         {
             PurchaseOrder purchasing = new PurchaseOrder();
-            SwitchForm(purchasing);
+            SwitchForm(purchasing, "Purchasing");
 
         }
 
         private void ReportsBtn_Click(object sender, EventArgs e)
         {
             Reports reports = new Reports();
-            SwitchForm(reports);
+            SwitchForm(reports, "Reports");
         }
 
         private void StatisticsBtn_Click(object sender, EventArgs e)
         {
             StatisticReport statisticReport = new StatisticReport();
-            SwitchForm(statisticReport);
+            SwitchForm(statisticReport, "Statistic Report");
         }
 
         private void UsercredentialsBtn_Click(object sender, EventArgs e)
         {
             Ser credentials = new Ser();
-            SwitchForm(credentials);
+            SwitchForm(credentials, "User Credentials");
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
-            SwitchForm(settings);
+            SwitchForm(settings, "Settings");
         }
 
         private void LogoutBtn_Click_1(object sender, EventArgs e)
@@ -126,10 +138,21 @@ namespace BenpilsBarcodeSystem
                 loginForm.Show();
             }
         }
-
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void MaximizeBtn_Click(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -147,6 +170,26 @@ namespace BenpilsBarcodeSystem
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+    
         }
     }
 }

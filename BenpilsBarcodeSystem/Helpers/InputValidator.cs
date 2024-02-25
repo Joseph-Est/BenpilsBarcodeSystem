@@ -72,7 +72,7 @@ namespace BenpilsBarcodeSystem.Helpers
             return parsedPrice.ToString("#,##0.00", CultureInfo.GetCultureInfo("en-US"));
         }
 
-
+         
         public static string FormatPriceWithoutCommas(string price)
         {
             return price.Replace(",", "");

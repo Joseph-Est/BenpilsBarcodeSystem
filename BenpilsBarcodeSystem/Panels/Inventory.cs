@@ -247,7 +247,12 @@ namespace BenpilsBarcodeSystem
                     CategoryTxt.Text = row.Cells["category"].Value.ToString();
                     SizeTxt.Text = row.Cells["size"].Value.ToString();
                     UpdateBtn.Enabled = true;
-                    ArchiveBtn.Enabled = true;
+
+                    if(InputValidator.ParseToInt(row.Cells["quantity"].Value.ToString()) <= 0)
+                    {
+                        ArchiveBtn.Enabled = true;
+                    }
+                    
                     ReduceStockBtn.Enabled = true;
                 }
             }
@@ -328,6 +333,12 @@ namespace BenpilsBarcodeSystem
 
             BrandCb.SelectedIndexChanged += BrandCb_SelectedIndexChanged;
             CategoryCb.SelectedIndexChanged += CategoryCb_SelectedIndexChanged;
+        }
+
+        public void RefreshUI()
+        {
+            this.Invalidate();
+            this.RefreshUI();
         }
     }
 }

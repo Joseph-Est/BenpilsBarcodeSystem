@@ -417,7 +417,7 @@
             // MaximizeBtn
             // 
             this.MaximizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MaximizeBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_full_screen_30;
+            this.MaximizeBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_restore_down_30;
             this.MaximizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MaximizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizeBtn.Location = new System.Drawing.Point(1399, 7);

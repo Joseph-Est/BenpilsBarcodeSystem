@@ -436,5 +436,50 @@
   <ItemGroup>
     <None Include="Resources\icons8-user-301.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-erase-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-unpacking-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-barcode-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-box-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-multiply-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-downloading-updates-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clipboard-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-documents-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-random-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil-15.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

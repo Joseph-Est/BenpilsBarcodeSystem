@@ -37,36 +37,36 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.PointOfSalesBtn = new System.Windows.Forms.Button();
-            this.LogoutBtn = new System.Windows.Forms.Button();
-            this.PurchasingBtn = new System.Windows.Forms.Button();
-            this.SettingsBtn = new System.Windows.Forms.Button();
-            this.UsercredentialsBtn = new System.Windows.Forms.Button();
-            this.InventoryBtn = new System.Windows.Forms.Button();
-            this.StatisticsBtn = new System.Windows.Forms.Button();
             this.DashboardBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.InventoryBtn = new System.Windows.Forms.Button();
+            this.PurchasingBtn = new System.Windows.Forms.Button();
+            this.PointOfSalesBtn = new System.Windows.Forms.Button();
             this.ReportsBtn = new System.Windows.Forms.Button();
+            this.StatisticsBtn = new System.Windows.Forms.Button();
+            this.UsercredentialsBtn = new System.Windows.Forms.Button();
+            this.SettingsBtn = new System.Windows.Forms.Button();
+            this.LogoutBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MaximizeBtn = new System.Windows.Forms.PictureBox();
             this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.MinimizeBtn = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizeBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -148,6 +148,35 @@
             this.panel2.Size = new System.Drawing.Size(249, 746);
             this.panel2.TabIndex = 19;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.DashboardBtn);
+            this.flowLayoutPanel1.Controls.Add(this.InventoryBtn);
+            this.flowLayoutPanel1.Controls.Add(this.PurchasingBtn);
+            this.flowLayoutPanel1.Controls.Add(this.PointOfSalesBtn);
+            this.flowLayoutPanel1.Controls.Add(this.ReportsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.StatisticsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.UsercredentialsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.SettingsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.LogoutBtn);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 115);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(249, 631);
+            this.flowLayoutPanel1.TabIndex = 34;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(249, 115);
+            this.panel4.TabIndex = 33;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -206,143 +235,11 @@
             this.mainPanel.Size = new System.Drawing.Size(1207, 710);
             this.mainPanel.TabIndex = 21;
             // 
-            // PointOfSalesBtn
-            // 
-            this.PointOfSalesBtn.BackColor = System.Drawing.Color.White;
-            this.PointOfSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PointOfSalesBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PointOfSalesBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_point_of_sales_32;
-            this.PointOfSalesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PointOfSalesBtn.Location = new System.Drawing.Point(23, 203);
-            this.PointOfSalesBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.PointOfSalesBtn.Name = "PointOfSalesBtn";
-            this.PointOfSalesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.PointOfSalesBtn.Size = new System.Drawing.Size(205, 52);
-            this.PointOfSalesBtn.TabIndex = 32;
-            this.PointOfSalesBtn.Text = "Point of Sales";
-            this.PointOfSalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PointOfSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.PointOfSalesBtn.UseVisualStyleBackColor = false;
-            this.PointOfSalesBtn.Click += new System.EventHandler(this.PointOfSalesBtn_Click_1);
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.BackColor = System.Drawing.Color.White;
-            this.LogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_logout_30;
-            this.LogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogoutBtn.Location = new System.Drawing.Point(23, 503);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.LogoutBtn.Size = new System.Drawing.Size(205, 52);
-            this.LogoutBtn.TabIndex = 28;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.LogoutBtn.UseVisualStyleBackColor = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click_1);
-            // 
-            // PurchasingBtn
-            // 
-            this.PurchasingBtn.BackColor = System.Drawing.Color.White;
-            this.PurchasingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PurchasingBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PurchasingBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_basket_30;
-            this.PurchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PurchasingBtn.Location = new System.Drawing.Point(23, 143);
-            this.PurchasingBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.PurchasingBtn.Name = "PurchasingBtn";
-            this.PurchasingBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.PurchasingBtn.Size = new System.Drawing.Size(205, 52);
-            this.PurchasingBtn.TabIndex = 16;
-            this.PurchasingBtn.Text = "Purchasing";
-            this.PurchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PurchasingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.PurchasingBtn.UseVisualStyleBackColor = false;
-            this.PurchasingBtn.Click += new System.EventHandler(this.PurchasingBtn_Click);
-            // 
-            // SettingsBtn
-            // 
-            this.SettingsBtn.BackColor = System.Drawing.Color.White;
-            this.SettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SettingsBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_settings_30;
-            this.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SettingsBtn.Location = new System.Drawing.Point(23, 443);
-            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.SettingsBtn.Size = new System.Drawing.Size(205, 52);
-            this.SettingsBtn.TabIndex = 20;
-            this.SettingsBtn.Text = "Settings";
-            this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SettingsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SettingsBtn.UseVisualStyleBackColor = false;
-            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
-            // 
-            // UsercredentialsBtn
-            // 
-            this.UsercredentialsBtn.BackColor = System.Drawing.Color.White;
-            this.UsercredentialsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UsercredentialsBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsercredentialsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_user_301;
-            this.UsercredentialsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsercredentialsBtn.Location = new System.Drawing.Point(23, 383);
-            this.UsercredentialsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.UsercredentialsBtn.Name = "UsercredentialsBtn";
-            this.UsercredentialsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.UsercredentialsBtn.Size = new System.Drawing.Size(205, 52);
-            this.UsercredentialsBtn.TabIndex = 19;
-            this.UsercredentialsBtn.Text = "User Credentials";
-            this.UsercredentialsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UsercredentialsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UsercredentialsBtn.UseVisualStyleBackColor = false;
-            this.UsercredentialsBtn.Click += new System.EventHandler(this.UsercredentialsBtn_Click);
-            // 
-            // InventoryBtn
-            // 
-            this.InventoryBtn.BackColor = System.Drawing.Color.White;
-            this.InventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.InventoryBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_inventory_30;
-            this.InventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InventoryBtn.Location = new System.Drawing.Point(23, 83);
-            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.InventoryBtn.Name = "InventoryBtn";
-            this.InventoryBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.InventoryBtn.Size = new System.Drawing.Size(205, 52);
-            this.InventoryBtn.TabIndex = 14;
-            this.InventoryBtn.Text = "Inventory";
-            this.InventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InventoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.InventoryBtn.UseVisualStyleBackColor = false;
-            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
-            // 
-            // StatisticsBtn
-            // 
-            this.StatisticsBtn.BackColor = System.Drawing.Color.White;
-            this.StatisticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StatisticsBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatisticsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_statistics_30;
-            this.StatisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StatisticsBtn.Location = new System.Drawing.Point(23, 323);
-            this.StatisticsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.StatisticsBtn.Name = "StatisticsBtn";
-            this.StatisticsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.StatisticsBtn.Size = new System.Drawing.Size(205, 52);
-            this.StatisticsBtn.TabIndex = 18;
-            this.StatisticsBtn.Text = "Statistic Report";
-            this.StatisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StatisticsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.StatisticsBtn.UseVisualStyleBackColor = false;
-            this.StatisticsBtn.Click += new System.EventHandler(this.StatisticsBtn_Click);
-            // 
             // DashboardBtn
             // 
             this.DashboardBtn.BackColor = System.Drawing.Color.White;
             this.DashboardBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DashboardBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboardBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_dashboard_30;
             this.DashboardBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DashboardBtn.Location = new System.Drawing.Point(23, 23);
@@ -351,11 +248,162 @@
             this.DashboardBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.DashboardBtn.Size = new System.Drawing.Size(205, 52);
             this.DashboardBtn.TabIndex = 9;
-            this.DashboardBtn.Text = "Dashboard";
+            this.DashboardBtn.Text = "   Dashboard";
             this.DashboardBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DashboardBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DashboardBtn.UseVisualStyleBackColor = false;
             this.DashboardBtn.Click += new System.EventHandler(this.DashboardBtn_Click);
+            // 
+            // InventoryBtn
+            // 
+            this.InventoryBtn.BackColor = System.Drawing.Color.White;
+            this.InventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InventoryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_inventory_30;
+            this.InventoryBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InventoryBtn.Location = new System.Drawing.Point(23, 83);
+            this.InventoryBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.InventoryBtn.Name = "InventoryBtn";
+            this.InventoryBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.InventoryBtn.Size = new System.Drawing.Size(205, 52);
+            this.InventoryBtn.TabIndex = 14;
+            this.InventoryBtn.Text = "   Inventory";
+            this.InventoryBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InventoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.InventoryBtn.UseVisualStyleBackColor = false;
+            this.InventoryBtn.Click += new System.EventHandler(this.InventoryBtn_Click);
+            // 
+            // PurchasingBtn
+            // 
+            this.PurchasingBtn.BackColor = System.Drawing.Color.White;
+            this.PurchasingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PurchasingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PurchasingBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_basket_30;
+            this.PurchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PurchasingBtn.Location = new System.Drawing.Point(23, 143);
+            this.PurchasingBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.PurchasingBtn.Name = "PurchasingBtn";
+            this.PurchasingBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.PurchasingBtn.Size = new System.Drawing.Size(205, 52);
+            this.PurchasingBtn.TabIndex = 16;
+            this.PurchasingBtn.Text = "   Purchasing";
+            this.PurchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PurchasingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.PurchasingBtn.UseVisualStyleBackColor = false;
+            this.PurchasingBtn.Click += new System.EventHandler(this.PurchasingBtn_Click);
+            // 
+            // PointOfSalesBtn
+            // 
+            this.PointOfSalesBtn.BackColor = System.Drawing.Color.White;
+            this.PointOfSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PointOfSalesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PointOfSalesBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_point_of_sales_32;
+            this.PointOfSalesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PointOfSalesBtn.Location = new System.Drawing.Point(23, 203);
+            this.PointOfSalesBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.PointOfSalesBtn.Name = "PointOfSalesBtn";
+            this.PointOfSalesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.PointOfSalesBtn.Size = new System.Drawing.Size(205, 52);
+            this.PointOfSalesBtn.TabIndex = 32;
+            this.PointOfSalesBtn.Text = "   Point of Sales";
+            this.PointOfSalesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PointOfSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.PointOfSalesBtn.UseVisualStyleBackColor = false;
+            this.PointOfSalesBtn.Click += new System.EventHandler(this.PointOfSalesBtn_Click_1);
+            // 
+            // ReportsBtn
+            // 
+            this.ReportsBtn.BackColor = System.Drawing.Color.White;
+            this.ReportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_graph_report_30;
+            this.ReportsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportsBtn.Location = new System.Drawing.Point(23, 263);
+            this.ReportsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.ReportsBtn.Name = "ReportsBtn";
+            this.ReportsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.ReportsBtn.Size = new System.Drawing.Size(205, 52);
+            this.ReportsBtn.TabIndex = 17;
+            this.ReportsBtn.Text = "   Reports";
+            this.ReportsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReportsBtn.UseVisualStyleBackColor = false;
+            this.ReportsBtn.Click += new System.EventHandler(this.ReportsBtn_Click);
+            // 
+            // StatisticsBtn
+            // 
+            this.StatisticsBtn.BackColor = System.Drawing.Color.White;
+            this.StatisticsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StatisticsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatisticsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_statistics_30;
+            this.StatisticsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StatisticsBtn.Location = new System.Drawing.Point(23, 323);
+            this.StatisticsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.StatisticsBtn.Name = "StatisticsBtn";
+            this.StatisticsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.StatisticsBtn.Size = new System.Drawing.Size(205, 52);
+            this.StatisticsBtn.TabIndex = 18;
+            this.StatisticsBtn.Text = "   Statistic Report";
+            this.StatisticsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StatisticsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.StatisticsBtn.UseVisualStyleBackColor = false;
+            this.StatisticsBtn.Click += new System.EventHandler(this.StatisticsBtn_Click);
+            // 
+            // UsercredentialsBtn
+            // 
+            this.UsercredentialsBtn.BackColor = System.Drawing.Color.White;
+            this.UsercredentialsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UsercredentialsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsercredentialsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_user_301;
+            this.UsercredentialsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UsercredentialsBtn.Location = new System.Drawing.Point(23, 383);
+            this.UsercredentialsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.UsercredentialsBtn.Name = "UsercredentialsBtn";
+            this.UsercredentialsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.UsercredentialsBtn.Size = new System.Drawing.Size(205, 52);
+            this.UsercredentialsBtn.TabIndex = 19;
+            this.UsercredentialsBtn.Text = "   User Credentials";
+            this.UsercredentialsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UsercredentialsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UsercredentialsBtn.UseVisualStyleBackColor = false;
+            this.UsercredentialsBtn.Click += new System.EventHandler(this.UsercredentialsBtn_Click);
+            // 
+            // SettingsBtn
+            // 
+            this.SettingsBtn.BackColor = System.Drawing.Color.White;
+            this.SettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_settings_30;
+            this.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBtn.Location = new System.Drawing.Point(23, 443);
+            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.SettingsBtn.Name = "SettingsBtn";
+            this.SettingsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.SettingsBtn.Size = new System.Drawing.Size(205, 52);
+            this.SettingsBtn.TabIndex = 20;
+            this.SettingsBtn.Text = "   Settings";
+            this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SettingsBtn.UseVisualStyleBackColor = false;
+            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.BackColor = System.Drawing.Color.White;
+            this.LogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_logout_30;
+            this.LogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogoutBtn.Location = new System.Drawing.Point(23, 503);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.LogoutBtn.Size = new System.Drawing.Size(205, 52);
+            this.LogoutBtn.TabIndex = 28;
+            this.LogoutBtn.Text = "   Logout";
+            this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LogoutBtn.UseVisualStyleBackColor = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click_1);
             // 
             // pictureBox1
             // 
@@ -365,25 +413,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(149, 77);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // ReportsBtn
-            // 
-            this.ReportsBtn.BackColor = System.Drawing.Color.White;
-            this.ReportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsBtn.Font = new System.Drawing.Font("Archivo Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_graph_report_30;
-            this.ReportsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReportsBtn.Location = new System.Drawing.Point(23, 263);
-            this.ReportsBtn.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.ReportsBtn.Name = "ReportsBtn";
-            this.ReportsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ReportsBtn.Size = new System.Drawing.Size(205, 52);
-            this.ReportsBtn.TabIndex = 17;
-            this.ReportsBtn.Text = "Reports";
-            this.ReportsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReportsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ReportsBtn.UseVisualStyleBackColor = false;
-            this.ReportsBtn.Click += new System.EventHandler(this.ReportsBtn_Click);
             // 
             // MaximizeBtn
             // 
@@ -424,35 +453,6 @@
             this.MinimizeBtn.TabStop = false;
             this.MinimizeBtn.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(249, 115);
-            this.panel4.TabIndex = 33;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.DashboardBtn);
-            this.flowLayoutPanel1.Controls.Add(this.InventoryBtn);
-            this.flowLayoutPanel1.Controls.Add(this.PurchasingBtn);
-            this.flowLayoutPanel1.Controls.Add(this.PointOfSalesBtn);
-            this.flowLayoutPanel1.Controls.Add(this.ReportsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.StatisticsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.UsercredentialsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.SettingsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.LogoutBtn);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 115);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(249, 631);
-            this.flowLayoutPanel1.TabIndex = 34;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,14 +475,14 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizeBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeBtn)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

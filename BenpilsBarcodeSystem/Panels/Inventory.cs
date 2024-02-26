@@ -65,12 +65,17 @@ namespace BenpilsBarcodeSystem
                 isAdding = true;
                 ClearFields();
                 SetFieldsReadOnly(false);
-                AddBtn.Text = "Save";
+
+                AddBtn.Text = " Save";
+                UpdateBtn.Text = " Cancel";
+
                 GenerateBtn.Enabled = true;
                 UpdateBtn.Enabled = true;
                 ArchiveBtn.Enabled = false;
                 ReduceStockBtn.Enabled = false;
-                UpdateBtn.Text = "Cancel";
+
+                BarcodeTxt.Focus();
+                this.CancelButton = UpdateBtn;
             }
             else
             {
@@ -146,8 +151,14 @@ namespace BenpilsBarcodeSystem
                 UpdateDataGridView();
                 ClearFields();
                 SetFieldsReadOnly(true);
-                AddBtn.Text = "Add";
-                UpdateBtn.Text = "Update";
+
+                AddBtn.Text = " Add";
+                UpdateBtn.Text = " Update";
+
+                AddBtn.ForeColor = Color.White;
+                UpdateBtn.ForeColor = Color.White;
+
+                this.CancelButton = null;
             }
             
         }
@@ -158,8 +169,9 @@ namespace BenpilsBarcodeSystem
             {
                 isUpdating = true;
                 SetFieldsReadOnly(false);
-                AddBtn.Text = "Save";
-                UpdateBtn.Text = "Cancel";
+
+                AddBtn.Text = " Save";
+                UpdateBtn.Text = " Cancel";
 
                 ArchiveBtn.Enabled = false;
                 ReduceStockBtn.Enabled = false;
@@ -167,16 +179,23 @@ namespace BenpilsBarcodeSystem
                 prevItemName = ItemNameTxt.Text;
                 prevBarcode = BarcodeTxt.Text;
                 prevSize = SizeTxt.Text;
+
+                this.CancelButton = UpdateBtn;
             }
             else
             {
                 isAdding = false;
                 isUpdating = false;
+
                 ClearFields();
                 SetFieldsReadOnly(true);
-                AddBtn.Text = "Add";
+
                 GenerateBtn.Enabled = false;
-                UpdateBtn.Text = "Update";
+
+                AddBtn.Text = " Add";
+                UpdateBtn.Text = " Update";
+
+                this.CancelButton = null;
             }
             
         }
@@ -260,13 +279,14 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
         {
-            if (GB == null || GB.IsDisposed)
-            {     
-                GB = new GenerateBarcode();
+            GenerateBarcode generateBarcode = new GenerateBarcode();
+            if (generateBarcode.ShowDialog() == DialogResult.OK)
+            {
+                if(BarcodeTxt.ReadOnly == false)
+                {
+                    BarcodeTxt.Text = Clipboard.GetText();
+                }
             }
-            GB.Show();
-            GB.StartPosition = FormStartPosition.CenterScreen;
-            GB.BringToFront();
         }
 
         private void RefreshPb_Click(object sender, EventArgs e)
@@ -312,6 +332,38 @@ namespace BenpilsBarcodeSystem
         private void SetFieldsReadOnly(bool mode)
         {
             Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+        }
+
+        private void InputFormPanel_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = AddBtn;
+        }
+
+        private void InputFormPanel_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
+        }
+
+        private void AddBtn_TextChanged(object sender, EventArgs e)
+        {
+            if (AddBtn.Text.Equals(" Save")){
+                AddBtn.ForeColor = Color.FromArgb(80, 180, 80);
+                AddBtn.Image = Properties.Resources.icons8_downloading_updates_15;
+                UpdateBtn.ForeColor = Color.FromArgb(220, 80, 80);
+                UpdateBtn.Image = Properties.Resources.icons8_multiply_15;
+            }
+            else
+            {
+                AddBtn.ForeColor = Color.Empty;
+                UpdateBtn.ForeColor = Color.Empty;
+                UpdateBtn.Image = Properties.Resources.icons8_update_15;
+                AddBtn.Image = Properties.Resources.icons8_add_15;
+            }
+            
+        }
+
+        private void BarcodeTxt_Enter(object sender, EventArgs e)
+        {
         }
 
         private async void PopulateComboBoxes()

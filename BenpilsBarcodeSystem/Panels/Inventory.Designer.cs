@@ -42,20 +42,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
-            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
-            this.ArchiveBtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.InputFormPanel = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
-            this.ReduceStockBtn = new System.Windows.Forms.Button();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
-            this.ClearBtn = new System.Windows.Forms.Button();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -97,7 +91,6 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.ProductIDTxt = new System.Windows.Forms.TextBox();
             this.panel33 = new System.Windows.Forms.Panel();
-            this.GenerateBtn = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -130,8 +123,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BrandCb = new System.Windows.Forms.ComboBox();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.GenerateBtn = new System.Windows.Forms.Button();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
-            this.panel3.SuspendLayout();
+            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
+            this.ArchiveBtn = new System.Windows.Forms.Button();
+            this.ReduceStockBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.InputFormPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel39.SuspendLayout();
@@ -177,91 +177,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.SuspendLayout();
             // 
-            // BarcodeGeneratorBtn
+            // InputFormPanel
             // 
-            this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BarcodeGeneratorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
-            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(357, 35);
-            this.BarcodeGeneratorBtn.TabIndex = 15;
-            this.BarcodeGeneratorBtn.Text = "Barcode Generator";
-            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
-            // 
-            // ArchiveBtn
-            // 
-            this.ArchiveBtn.AutoSize = true;
-            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchiveBtn.Enabled = false;
-            this.ArchiveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ArchiveBtn.Name = "ArchiveBtn";
-            this.ArchiveBtn.Size = new System.Drawing.Size(357, 35);
-            this.ArchiveBtn.TabIndex = 14;
-            this.ArchiveBtn.Text = "Archive";
-            this.ArchiveBtn.UseVisualStyleBackColor = true;
-            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateBtn.Enabled = false;
-            this.UpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(116, 35);
-            this.UpdateBtn.TabIndex = 11;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.AddBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.AddBtn.Size = new System.Drawing.Size(118, 35);
-            this.AddBtn.TabIndex = 10;
-            this.AddBtn.Text = "Add";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel14);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.panel13);
-            this.panel3.Controls.Add(this.panel12);
-            this.panel3.Controls.Add(this.panel11);
-            this.panel3.Controls.Add(this.panel10);
-            this.panel3.Controls.Add(this.panel9);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Controls.Add(this.panel7);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(973, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(0, 78, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(387, 680);
-            this.panel3.TabIndex = 186;
+            this.InputFormPanel.Controls.Add(this.panel14);
+            this.InputFormPanel.Controls.Add(this.panel4);
+            this.InputFormPanel.Controls.Add(this.panel13);
+            this.InputFormPanel.Controls.Add(this.panel12);
+            this.InputFormPanel.Controls.Add(this.panel11);
+            this.InputFormPanel.Controls.Add(this.panel10);
+            this.InputFormPanel.Controls.Add(this.panel9);
+            this.InputFormPanel.Controls.Add(this.panel8);
+            this.InputFormPanel.Controls.Add(this.panel7);
+            this.InputFormPanel.Controls.Add(this.panel6);
+            this.InputFormPanel.Controls.Add(this.panel5);
+            this.InputFormPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InputFormPanel.Location = new System.Drawing.Point(820, 0);
+            this.InputFormPanel.Name = "InputFormPanel";
+            this.InputFormPanel.Padding = new System.Windows.Forms.Padding(0, 78, 0, 0);
+            this.InputFormPanel.Size = new System.Drawing.Size(387, 710);
+            this.InputFormPanel.TabIndex = 186;
+            this.InputFormPanel.Enter += new System.EventHandler(this.InputFormPanel_Enter);
+            this.InputFormPanel.Leave += new System.EventHandler(this.InputFormPanel_Leave);
             // 
             // panel14
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(0, 616);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(387, 64);
+            this.panel14.Size = new System.Drawing.Size(387, 94);
             this.panel14.TabIndex = 193;
             // 
             // panel4
@@ -307,20 +250,6 @@
             this.panel38.Size = new System.Drawing.Size(387, 40);
             this.panel38.TabIndex = 186;
             // 
-            // ReduceStockBtn
-            // 
-            this.ReduceStockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReduceStockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReduceStockBtn.Enabled = false;
-            this.ReduceStockBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ReduceStockBtn.Location = new System.Drawing.Point(0, 0);
-            this.ReduceStockBtn.Name = "ReduceStockBtn";
-            this.ReduceStockBtn.Size = new System.Drawing.Size(357, 35);
-            this.ReduceStockBtn.TabIndex = 13;
-            this.ReduceStockBtn.Text = "Reduce Stock";
-            this.ReduceStockBtn.UseVisualStyleBackColor = true;
-            this.ReduceStockBtn.Click += new System.EventHandler(this.ReduceStockBtn_Click);
-            // 
             // panel35
             // 
             this.panel35.Controls.Add(this.panel42);
@@ -342,20 +271,6 @@
             this.panel42.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.panel42.Size = new System.Drawing.Size(117, 35);
             this.panel42.TabIndex = 182;
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ClearBtn.Location = new System.Drawing.Point(2, 0);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(115, 35);
-            this.ClearBtn.TabIndex = 12;
-            this.ClearBtn.Text = "Clear";
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // panel41
             // 
@@ -406,7 +321,7 @@
             this.SizeTxt.Name = "SizeTxt";
             this.SizeTxt.ReadOnly = true;
             this.SizeTxt.Size = new System.Drawing.Size(248, 24);
-            this.SizeTxt.TabIndex = 9;
+            this.SizeTxt.TabIndex = 13;
             // 
             // panel31
             // 
@@ -423,10 +338,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SizeLbl.AutoSize = true;
-            this.SizeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.SizeLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SizeLbl.Location = new System.Drawing.Point(5, 3);
             this.SizeLbl.Name = "SizeLbl";
-            this.SizeLbl.Size = new System.Drawing.Size(39, 16);
+            this.SizeLbl.Size = new System.Drawing.Size(41, 16);
             this.SizeLbl.TabIndex = 182;
             this.SizeLbl.Text = "Size :";
             // 
@@ -459,7 +374,7 @@
             this.UnitPriceTxt.Name = "UnitPriceTxt";
             this.UnitPriceTxt.ReadOnly = true;
             this.UnitPriceTxt.Size = new System.Drawing.Size(248, 24);
-            this.UnitPriceTxt.TabIndex = 8;
+            this.UnitPriceTxt.TabIndex = 12;
             // 
             // panel29
             // 
@@ -476,10 +391,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(5, 3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 16);
+            this.label20.Size = new System.Drawing.Size(72, 16);
             this.label20.TabIndex = 176;
             this.label20.Text = "Unit Price :";
             // 
@@ -512,7 +427,7 @@
             this.CategoryTxt.Name = "CategoryTxt";
             this.CategoryTxt.ReadOnly = true;
             this.CategoryTxt.Size = new System.Drawing.Size(248, 24);
-            this.CategoryTxt.TabIndex = 7;
+            this.CategoryTxt.TabIndex = 11;
             // 
             // panel27
             // 
@@ -529,10 +444,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(5, 3);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 16);
+            this.label15.Size = new System.Drawing.Size(67, 16);
             this.label15.TabIndex = 165;
             this.label15.Text = "Category :";
             // 
@@ -565,7 +480,7 @@
             this.QuantityTxt.Name = "QuantityTxt";
             this.QuantityTxt.ReadOnly = true;
             this.QuantityTxt.Size = new System.Drawing.Size(248, 24);
-            this.QuantityTxt.TabIndex = 6;
+            this.QuantityTxt.TabIndex = 10;
             // 
             // panel25
             // 
@@ -582,10 +497,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(5, 3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 16);
+            this.label13.Size = new System.Drawing.Size(64, 16);
             this.label13.TabIndex = 164;
             this.label13.Text = "Quantity :";
             // 
@@ -618,7 +533,7 @@
             this.BrandTxt.Name = "BrandTxt";
             this.BrandTxt.ReadOnly = true;
             this.BrandTxt.Size = new System.Drawing.Size(248, 24);
-            this.BrandTxt.TabIndex = 5;
+            this.BrandTxt.TabIndex = 9;
             // 
             // panel23
             // 
@@ -635,7 +550,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(5, 3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 16);
@@ -671,7 +586,7 @@
             this.MotorBrandTxt.Name = "MotorBrandTxt";
             this.MotorBrandTxt.ReadOnly = true;
             this.MotorBrandTxt.Size = new System.Drawing.Size(248, 24);
-            this.MotorBrandTxt.TabIndex = 4;
+            this.MotorBrandTxt.TabIndex = 8;
             // 
             // panel21
             // 
@@ -688,7 +603,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(5, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 16);
@@ -725,7 +640,7 @@
             this.ItemNameTxt.Name = "ItemNameTxt";
             this.ItemNameTxt.ReadOnly = true;
             this.ItemNameTxt.Size = new System.Drawing.Size(248, 24);
-            this.ItemNameTxt.TabIndex = 3;
+            this.ItemNameTxt.TabIndex = 7;
             // 
             // panel19
             // 
@@ -742,7 +657,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(5, 3);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 16);
@@ -779,7 +694,7 @@
             this.ProductIDTxt.Name = "ProductIDTxt";
             this.ProductIDTxt.ReadOnly = true;
             this.ProductIDTxt.Size = new System.Drawing.Size(167, 24);
-            this.ProductIDTxt.TabIndex = 2;
+            this.ProductIDTxt.TabIndex = 5;
             // 
             // panel33
             // 
@@ -790,21 +705,6 @@
             this.panel33.Padding = new System.Windows.Forms.Padding(5, 0, 30, 11);
             this.panel33.Size = new System.Drawing.Size(111, 35);
             this.panel33.TabIndex = 170;
-            // 
-            // GenerateBtn
-            // 
-            this.GenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GenerateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GenerateBtn.Enabled = false;
-            this.GenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.GenerateBtn.Location = new System.Drawing.Point(5, 0);
-            this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(76, 24);
-            this.GenerateBtn.TabIndex = 0;
-            this.GenerateBtn.TabStop = false;
-            this.GenerateBtn.Text = "Generate";
-            this.GenerateBtn.UseVisualStyleBackColor = true;
-            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
             // panel17
             // 
@@ -821,10 +721,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(5, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 16);
+            this.label9.Size = new System.Drawing.Size(76, 16);
             this.label9.TabIndex = 160;
             this.label9.Text = "Product ID :";
             // 
@@ -857,7 +757,8 @@
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.ReadOnly = true;
             this.BarcodeTxt.Size = new System.Drawing.Size(248, 24);
-            this.BarcodeTxt.TabIndex = 1;
+            this.BarcodeTxt.TabIndex = 4;
+            this.BarcodeTxt.Enter += new System.EventHandler(this.BarcodeTxt_Enter);
             // 
             // panel15
             // 
@@ -872,10 +773,10 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label8.Location = new System.Drawing.Point(9, 6);
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(5, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 16);
+            this.label8.Size = new System.Drawing.Size(63, 16);
             this.label8.TabIndex = 159;
             this.label8.Text = "Barcode :";
             // 
@@ -886,7 +787,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(973, 680);
+            this.panel2.Size = new System.Drawing.Size(820, 710);
             this.panel2.TabIndex = 188;
             // 
             // panel1
@@ -896,7 +797,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 67);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(30, 10, 10, 30);
-            this.panel1.Size = new System.Drawing.Size(973, 613);
+            this.panel1.Size = new System.Drawing.Size(820, 643);
             this.panel1.TabIndex = 183;
             // 
             // dataGridItemMasterdata
@@ -949,13 +850,14 @@
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.dataGridItemMasterdata.RowTemplate.Height = 30;
             this.dataGridItemMasterdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItemMasterdata.Size = new System.Drawing.Size(933, 573);
+            this.dataGridItemMasterdata.Size = new System.Drawing.Size(780, 603);
             this.dataGridItemMasterdata.TabIndex = 179;
+            this.dataGridItemMasterdata.TabStop = false;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
             // 
             // id
@@ -1094,7 +996,7 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel34.Location = new System.Drawing.Point(0, 0);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(973, 67);
+            this.panel34.Size = new System.Drawing.Size(820, 67);
             this.panel34.TabIndex = 182;
             // 
             // panel43
@@ -1108,84 +1010,101 @@
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel43.Location = new System.Drawing.Point(0, 0);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(934, 67);
+            this.panel43.Size = new System.Drawing.Size(781, 67);
             this.panel43.TabIndex = 177;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label2.Location = new System.Drawing.Point(28, 17);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(44, 18);
+            this.label2.Size = new System.Drawing.Size(45, 19);
             this.label2.TabIndex = 175;
             this.label2.Text = "Search:";
             // 
             // SearchTxt
             // 
-            this.SearchTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.SearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTxt.Location = new System.Drawing.Point(30, 36);
             this.SearchTxt.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.Size = new System.Drawing.Size(162, 24);
-            this.SearchTxt.TabIndex = 168;
+            this.SearchTxt.TabIndex = 1;
             this.SearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label7.Location = new System.Drawing.Point(205, 17);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(52, 18);
+            this.label7.Size = new System.Drawing.Size(54, 19);
             this.label7.TabIndex = 172;
             this.label7.Text = "Category:";
             // 
             // CategoryCb
             // 
             this.CategoryCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CategoryCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.CategoryCb.FormattingEnabled = true;
+            this.CategoryCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryCb.Location = new System.Drawing.Point(208, 36);
             this.CategoryCb.Name = "CategoryCb";
             this.CategoryCb.Size = new System.Drawing.Size(162, 24);
-            this.CategoryCb.TabIndex = 171;
+            this.CategoryCb.TabIndex = 2;
             this.CategoryCb.SelectedIndexChanged += new System.EventHandler(this.CategoryCb_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label1.Location = new System.Drawing.Point(382, 17);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(38, 18);
+            this.label1.Size = new System.Drawing.Size(39, 19);
             this.label1.TabIndex = 174;
             this.label1.Text = "Brand:";
             // 
             // BrandCb
             // 
             this.BrandCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BrandCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.BrandCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrandCb.FormattingEnabled = true;
             this.BrandCb.Location = new System.Drawing.Point(385, 36);
             this.BrandCb.Margin = new System.Windows.Forms.Padding(3, 3, 100, 3);
             this.BrandCb.Name = "BrandCb";
             this.BrandCb.Size = new System.Drawing.Size(162, 24);
-            this.BrandCb.TabIndex = 173;
+            this.BrandCb.TabIndex = 3;
             this.BrandCb.SelectedIndexChanged += new System.EventHandler(this.BrandCb_SelectedIndexChanged);
             // 
             // panel36
             // 
             this.panel36.Controls.Add(this.RefreshPb);
             this.panel36.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel36.Location = new System.Drawing.Point(934, 0);
+            this.panel36.Location = new System.Drawing.Point(781, 0);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(39, 67);
             this.panel36.TabIndex = 176;
+            // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GenerateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GenerateBtn.Enabled = false;
+            this.GenerateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateBtn.Location = new System.Drawing.Point(5, 0);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(76, 24);
+            this.GenerateBtn.TabIndex = 6;
+            this.GenerateBtn.TabStop = false;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
             // RefreshPb
             // 
@@ -1200,19 +1119,133 @@
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
+            // BarcodeGeneratorBtn
+            // 
+            this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BarcodeGeneratorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarcodeGeneratorBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
+            this.BarcodeGeneratorBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(357, 35);
+            this.BarcodeGeneratorBtn.TabIndex = 35;
+            this.BarcodeGeneratorBtn.TabStop = false;
+            this.BarcodeGeneratorBtn.Text = " Barcode Generator";
+            this.BarcodeGeneratorBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
+            // 
+            // ArchiveBtn
+            // 
+            this.ArchiveBtn.AutoSize = true;
+            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchiveBtn.Enabled = false;
+            this.ArchiveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
+            this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ArchiveBtn.Name = "ArchiveBtn";
+            this.ArchiveBtn.Size = new System.Drawing.Size(357, 35);
+            this.ArchiveBtn.TabIndex = 34;
+            this.ArchiveBtn.TabStop = false;
+            this.ArchiveBtn.Text = " Archive";
+            this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ArchiveBtn.UseVisualStyleBackColor = true;
+            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
+            // 
+            // ReduceStockBtn
+            // 
+            this.ReduceStockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReduceStockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReduceStockBtn.Enabled = false;
+            this.ReduceStockBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReduceStockBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_unpacking_15;
+            this.ReduceStockBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReduceStockBtn.Location = new System.Drawing.Point(0, 0);
+            this.ReduceStockBtn.Name = "ReduceStockBtn";
+            this.ReduceStockBtn.Size = new System.Drawing.Size(357, 35);
+            this.ReduceStockBtn.TabIndex = 33;
+            this.ReduceStockBtn.TabStop = false;
+            this.ReduceStockBtn.Text = " Reduce Stock";
+            this.ReduceStockBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReduceStockBtn.UseVisualStyleBackColor = true;
+            this.ReduceStockBtn.Click += new System.EventHandler(this.ReduceStockBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
+            this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearBtn.Location = new System.Drawing.Point(2, 0);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(115, 35);
+            this.ClearBtn.TabIndex = 32;
+            this.ClearBtn.TabStop = false;
+            this.ClearBtn.Text = " Clear";
+            this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.White;
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateBtn.Enabled = false;
+            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(116, 35);
+            this.UpdateBtn.TabIndex = 31;
+            this.UpdateBtn.TabStop = false;
+            this.UpdateBtn.Text = " Update";
+            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.AddBtn.Size = new System.Drawing.Size(118, 35);
+            this.AddBtn.TabIndex = 30;
+            this.AddBtn.TabStop = false;
+            this.AddBtn.Text = " Add";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 680);
+            this.ClientSize = new System.Drawing.Size(1207, 710);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.InputFormPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory";
             this.Text = "Inventory";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inventory_Load);
-            this.panel3.ResumeLayout(false);
+            this.InputFormPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             this.panel39.ResumeLayout(false);
@@ -1285,7 +1318,7 @@
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel InputFormPanel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel13;

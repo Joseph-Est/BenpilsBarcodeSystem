@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             barcodeWriter.Format = BarcodeFormat.CODE_128;
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
-            GeneratedBarcodeTxt.Text = randomBarcode;
+            ManualRegenratetxt.Text = randomBarcode;
         }
         private void ManualGenerateBtn_Click(object sender, EventArgs e)
         {
@@ -51,7 +51,6 @@ namespace BenpilsBarcodeSystem
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            GeneratedBarcodeTxt.Text = "";
             ManualRegenratetxt.Text  = "";
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -89,6 +88,31 @@ namespace BenpilsBarcodeSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void generatedpicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(ManualRegenratetxt.Text))
+            {
+                Clipboard.SetText(ManualRegenratetxt.Text);
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void GenerateBarcode_Load(object sender, EventArgs e)
+        {
+            ManualRegenratetxt.Focus();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)

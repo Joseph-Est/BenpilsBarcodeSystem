@@ -32,16 +32,7 @@ namespace BenpilsBarcodeSystem
 
         private void UpdateDataGridView()
         {
-            string selectQuery = "SELECT * FROM tbl_supplier";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridSupplier.DataSource = dt;
-                }
-            }
+            
         }
 
         public void UpdateDataGridView1(DataTable dataTable)
@@ -131,11 +122,6 @@ namespace BenpilsBarcodeSystem
             ClearAllTextBoxes();
         }
 
-        private void ClearBtn_Click(object sender, EventArgs e)
-        {
-            ClearAllTextBoxes();
-        }
-
         private void ContactNoTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -144,17 +130,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void dataGridSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridSupplier.Rows[e.RowIndex];
-                ContactNameTxt.Text = row.Cells[1].Value.ToString();
-                AddressTxt.Text = row.Cells[2].Value.ToString();
-                ContactNoTxt.Text = row.Cells[3].Value.ToString();
-                AddBtn.Enabled = false;
-            }
-        }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
@@ -197,12 +172,7 @@ namespace BenpilsBarcodeSystem
             // Update the Total label
             totallbl.Text = total.ToString();
         }
-        private void RegenerateTransactionNumber()
-        {
-            string transactionNumber = "PUR" + random.Next(1000000, 9999999).ToString();
-            TransactionNumberLbl.Text = transactionNumber;
-            Datelbl.Text = DateTime.Now.ToString();
-        }
+
         private void BuyBtn_Click(object sender, EventArgs e)
         {
             decimal payment = Convert.ToDecimal(paymentTxt.Text);

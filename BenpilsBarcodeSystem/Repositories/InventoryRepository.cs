@@ -26,7 +26,6 @@ namespace BenpilsBarcodeSystem.Repository
         {
             string selectQuery;
 
-            // Build the SELECT query based on search text, category, and brand
             if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
             {
                 selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
@@ -77,7 +76,6 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                     {
-                        // Add parameters for search text, category, and brand
                         adapter.SelectCommand.Parameters.AddWithValue("@searchText", $"%{searchText}%");
                         adapter.SelectCommand.Parameters.AddWithValue("@category", category);
                         adapter.SelectCommand.Parameters.AddWithValue("@brand", brand);

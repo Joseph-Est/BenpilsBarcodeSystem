@@ -24,14 +24,14 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
       
-            PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
-            DataTable dataTable = purchaseOrderRepository.GetSupplierData();
+            //PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
+            //DataTable dataTable = purchaseOrderRepository.GetSupplierData();
 
 
-            CmbSupplier.DataSource = dataTable;
-            CmbSupplier.DisplayMember = "ContactName"; // Display ContactName in the ComboBox
-            CmbSupplier.ValueMember = "SupplierID";
-            CmbSupplier.DisplayMember = "CompanyName";
+            //CmbSupplier.DataSource = dataTable;
+            //CmbSupplier.DisplayMember = "ContactName"; // Display ContactName in the ComboBox
+            //CmbSupplier.ValueMember = "SupplierID";
+            //CmbSupplier.DisplayMember = "CompanyName";
         }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,141 +11,270 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace BenpilsBarcodeSystem
 {
     public partial class PurchaseOrder : Form
     {
-        private User user;
-        private int selectedSupplierID = -1;
-        private DataTable dtCart;
-        private Random random = new Random();
-        public DataGridView DataGridView1 => Datelbl;
+        private bool isAdding = false;
+        private bool isUpdating = false;
+        private int selectedID;
+        private string prevContactName, prevContactNumber;
+
         public PurchaseOrder()
         {
             InitializeComponent();
-            dtCart = new DataTable();
-            dtCart.Columns.Add("ProductID", typeof(int));
-            dtCart.Columns.Add("ItemName", typeof(string));
-            dtCart.Columns.Add("Quantity", typeof(int));
-            dtCart.Columns.Add("Subtotal", typeof(decimal));
-
-            dataGridView2.DataSource = dtCart;
+            InputValidator.AllowOnlyDigits(ContactNoTxt);
         }
 
-        private void UpdateDataGridView()
+        private void SupplierPage_Enter(object sender, EventArgs e)
         {
-            
+            UpdateSupplierDG();
         }
 
-        public void UpdateDataGridView1(DataTable dataTable)
+        public async void UpdateSupplierDG(string searchText = null)
         {
-            Datelbl.DataSource = dataTable;
-        }
-
-        private void ClearAllTextBoxes()
-        {
-
-            ContactNameTxt.Text = "";
-            AddressTxt.Text = "";
-            ContactNoTxt.Text = "";
-
-        }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(ContactNameTxt.Text) ||
-                string.IsNullOrWhiteSpace(AddressTxt.Text) ||
-                string.IsNullOrWhiteSpace(ContactNoTxt.Text) )
+            if (string.IsNullOrEmpty(searchText))
             {
-                MessageBox.Show("Please ensure all required fields are filled.");
-                return;
+                SearchTxt.Text = "";
             }
 
-            string insertQuery = "INSERT INTO tbl_supplier (ContactName, Address, ContactNo) " +
-                             "VALUES (@ContactName, @Address, @ContactNo)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
+                DataTable suppliersDT = await purchaseOrderRepository.GetSupplierAsync(searchText);
+
+                SupplierTbl.DataSource = suppliersDT;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private async void AddBtn_Click(object sender, EventArgs e)
+        {
+            if (!isUpdating && !isAdding)
+            {
+                isAdding = true;
+                ClearSupplierFields();
+                SetSupplierFieldsReadOnly(false);
+
+                AddBtn.Text = " Save Supplier";
+                UpdateBtn.Text = " Cancel";
+
+                UpdateBtn.Enabled = true;
+                ArchiveBtn.Enabled = false;
+
+                ContactNameTxt.Focus();
+                this.CancelButton = UpdateBtn;
+            }
+            else
+            {
+                if (Util.AreTextBoxesNullOrEmpty(ContactNameTxt, ContactNoTxt, AddressTxt))
                 {
-                    cmd.Parameters.AddWithValue("@ContactName", ContactNameTxt.Text);
-                    cmd.Parameters.AddWithValue("@Address", AddressTxt.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", ContactNoTxt.Text);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    MessageBox.Show("Please fill in all the required fields.");
+                    return;
                 }
-            }
 
-            UpdateDataGridView();
-            ClearAllTextBoxes();
+                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
+                if (isAdding || (isUpdating && (prevContactName != ContactNameTxt.Text || prevContactNumber != ContactNoTxt.Text)))
+                {
+                    if (await repository.AreDataExistsAsync("contact_name", ContactNameTxt.Text, "contact_no", ContactNoTxt.Text))
+                    {
+                        MessageBox.Show("Supplier already exists.");
+                        return;
+                    }
+                }
+
+                if (isAdding)
+                {
+                    await repository.AddSupplierAsync(
+                        Util.CapitalizeFirstLetter(ContactNameTxt.Text),
+                        ContactNoTxt.Text,
+                        Util.CapitalizeFirstLetter(AddressTxt.Text)
+                    );
+
+                    isAdding = false;
+
+                    MessageBox.Show("New supplier added succesfully!");
+                }
+                else
+                {
+                    if (prevContactName != ContactNameTxt.Text || prevContactNumber != ContactNoTxt.Text)
+                    {
+                        if (await repository.AreDataExistsAsync("contact_name", ContactNameTxt.Text, "contact_no", ContactNoTxt.Text))
+                        {
+                            MessageBox.Show("Supplier already exists.");
+                            return;
+                        }
+                    }
+
+                    await repository.UpdateSupplierAsync(
+                        selectedID,
+                        Util.CapitalizeFirstLetter(ContactNameTxt.Text),
+                        ContactNoTxt.Text,
+                        Util.CapitalizeFirstLetter(AddressTxt.Text)
+                    );
+                    isUpdating = false;
+
+                    MessageBox.Show("Supplier updated succesfully!");
+                }
+
+                UpdateSupplierDG();
+                ClearSupplierFields();
+                SetSupplierFieldsReadOnly(true);
+
+                AddBtn.Text = " Add";
+                UpdateBtn.Text = " Update";
+
+                AddBtn.ForeColor = Color.White;
+                UpdateBtn.ForeColor = Color.White;
+
+                this.CancelButton = null;
+            }
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if (selectedSupplierID != -1)
+            if (!isUpdating && !isAdding)
             {
-                string contactName = ContactNameTxt.Text;
-                string address = AddressTxt.Text;
-                string contactNo = ContactNoTxt.Text;
+                isUpdating = true;
+                SetSupplierFieldsReadOnly(false);
 
+                AddBtn.Text = " Save Update";
+                UpdateBtn.Text = " Cancel";
 
-                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    connection.Open();
-                    string query = "UPDATE tbl_supplier " +
-                                   "SET ContactName = @ContactName, " +
-                                   "Address = @Address, " +
-                                   "ContactNo = @ContactNo, " +
-                                   "WHERE SupplierID = @SupplierID";
-                    SqlCommand command = new SqlCommand(query, connection);
+                ArchiveBtn.Enabled = false;
 
-                    command.Parameters.AddWithValue("@ContactName", contactName);
-                    command.Parameters.AddWithValue("@Address", address);
-                    command.Parameters.AddWithValue("@ContactNo", contactNo);
-                    command.Parameters.AddWithValue("@SupplierID", selectedSupplierID);
+                prevContactName = ContactNameTxt.Text;
+                prevContactNumber = ContactNoTxt.Text;
 
-                    int rowsAffected = command.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Supplier information updated successfully.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Update failed.");
-                    }
-                }
+                this.CancelButton = UpdateBtn;
             }
             else
             {
-                MessageBox.Show("Please select a row before updating.");
+                isAdding = false;
+                isUpdating = false;
+
+                ClearSupplierFields();
+                SetSupplierFieldsReadOnly(true);
+
+                AddBtn.Text = " Add";
+                UpdateBtn.Text = " Update";
+
+                this.CancelButton = null;
             }
-            UpdateDataGridView();
-            ClearAllTextBoxes();
         }
 
-        private void ContactNoTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void ClearBtn_Click(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            ClearSupplierFields();
+        }
+
+        private async void ArchiveBtn_Click(object sender, EventArgs e)
+        {
+            Confirmation confirmation = new Confirmation("Are you sure you want to archive", "\"" + ContactNameTxt.Text + "\"?" + "?", "Yes", "Cancel");
+            DialogResult result = confirmation.ShowDialog();
+
+            if (result == DialogResult.Yes)
             {
-                e.Handled = true;
+                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
+                if (selectedID > 0)
+                {
+                    if (await repository.ArchiveSupplierAsync(selectedID))
+                    {
+                        UpdateSupplierDG();
+                        ClearSupplierFields();
+                        MessageBox.Show("Supplier archived succesfully!");
+                    }
+                   
+                }
             }
         }
+
+        private void ClearSupplierFields()
+        {
+            Util.ClearTextBoxes(ContactNameTxt, ContactNoTxt, AddressTxt);
+
+            if (!isAdding && !isUpdating)
+            {
+                UpdateBtn.Enabled = false;
+                ArchiveBtn.Enabled = false;
+            }
+        }
+
+        private void SetSupplierFieldsReadOnly(bool mode)
+        {
+            Util.SetTextBoxesReadOnly(mode, ContactNameTxt, ContactNoTxt, AddressTxt);
+        }
+
+        private void SearchTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateSupplierDG(SearchTxt.Text);
+        }
+
+        private void SupplierTbl_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!isAdding && !isUpdating)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = SupplierTbl.Rows[e.RowIndex];
+                    selectedID = InputValidator.ParseToInt(row.Cells["supplier_id"].Value.ToString());
+                    ContactNameTxt.Text = row.Cells["contact_name"].Value.ToString();
+                    ContactNoTxt.Text = row.Cells["contact_no"].Value.ToString();
+                    AddressTxt.Text = row.Cells["address"].Value.ToString();
+                    UpdateBtn.Enabled = true;
+                    ArchiveBtn.Enabled = true;
+                }
+            }
+        }
+
+        private void AddBtn_TextChanged(object sender, EventArgs e)
+        {
+            if (AddBtn.Text.Contains("Save"))
+            {
+                AddBtn.ForeColor = Color.FromArgb(80, 180, 80);
+                AddBtn.Image = Properties.Resources.icons8_downloading_updates_15;
+                UpdateBtn.ForeColor = Color.FromArgb(220, 80, 80);
+                UpdateBtn.Image = Properties.Resources.icons8_multiply_15;
+            }
+            else
+            {
+                AddBtn.ForeColor = Color.Empty;
+                UpdateBtn.ForeColor = Color.Empty;
+                UpdateBtn.Image = Properties.Resources.icons8_update_15;
+                AddBtn.Image = Properties.Resources.icons8_add_15;
+            }
+        }
+
+        private void InputFormPanel_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = AddBtn;
+        }
+
+        private void InputFormPanel_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
+        }
+
+
+
+
 
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            UpdateDataGridView();
-            AddBtn.Enabled = true;
+
         }
 
         private void AdddBtn_Click(object sender, EventArgs e)
         {
-            AddItemSupplier addItemSupplier = new AddItemSupplier(user);
-            addItemSupplier.BringToFront();
-            addItemSupplier.StartPosition = FormStartPosition.CenterScreen;
-            addItemSupplier.ShowDialog();
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -161,39 +293,39 @@ namespace BenpilsBarcodeSystem
                 decimal change = payment - total;
 
                 // Update the Change label
-                ChangeLbl.Text = change.ToString();
+                PurchasePage.Text = change.ToString();
             }
         }
         private void UpdateTotalLabel()
         {
-            // Calculate the total from the DataTable
-            decimal total = dtCart.AsEnumerable().Sum(row => row.Field<decimal>("Subtotal"));
+            //// Calculate the total from the DataTable
+            //decimal total = dtCart.AsEnumerable().Sum(row => row.Field<decimal>("Subtotal"));
 
-            // Update the Total label
-            totallbl.Text = total.ToString();
+            //// Update the Total label
+            //totallbl.Text = total.ToString();
         }
 
         private void BuyBtn_Click(object sender, EventArgs e)
         {
-            decimal payment = Convert.ToDecimal(paymentTxt.Text);
-            decimal total = Convert.ToDecimal(totallbl.Text);
-            if (dtCart.Rows.Count == 0)
-            {
-                MessageBox.Show("Please add items to the cart before purchasing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            decimal change = payment - total;
-            ChangeLbl.Text = change.ToString();
-            if (change >= 0)
-            {
-                MessageBox.Show("Purchase successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearCart();
-                UpdateDataGridView2();
-            }
-            else
-            {
-                MessageBox.Show("Purchase failed, insufficient balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //decimal payment = Convert.ToDecimal(paymentTxt.Text);
+            //decimal total = Convert.ToDecimal(totallbl.Text);
+            //if (dtCart.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("Please add items to the cart before purchasing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //decimal change = payment - total;
+            //ChangeLbl.Text = change.ToString();
+            //if (change >= 0)
+            //{
+            //    MessageBox.Show("Purchase successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    ClearCart();
+            //    UpdateDataGridView2();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Purchase failed, insufficient balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void paymentTxt_TextChanged(object sender, EventArgs e)
@@ -202,13 +334,14 @@ namespace BenpilsBarcodeSystem
         }
         private void ClearCart()
         {
-            // Clear the DataTable
-            dtCart.Clear();
+           // // Clear the DataTable
+           // dtCart.Clear();
 
-            // Update the total label after clearing
-            UpdateTotalLabel();
-           UpdateDataGridView2();
+           // // Update the total label after clearing
+           // UpdateTotalLabel();
+           //UpdateDataGridView2();
         }
+
         private void UpdateDataGridView2()
         {
             string selectQuery = "SELECT * FROM tbl_cartpurchasing";

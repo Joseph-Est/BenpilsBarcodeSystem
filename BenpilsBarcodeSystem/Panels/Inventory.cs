@@ -19,7 +19,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Inventory : Form
     {
-        private GenerateBarcode GB;
         private bool isAdding = false;
         private bool isUpdating = false;
         private int selectedID;
@@ -48,9 +47,9 @@ namespace BenpilsBarcodeSystem
             try
             {
                 InventoryRepository inventoryRepository = new InventoryRepository();
-                DataTable userCredentials = await inventoryRepository.GetProductsAsync(searchText, category, brand);
+                DataTable inventoryDT = await inventoryRepository.GetProductsAsync(searchText, category, brand);
 
-                dataGridItemMasterdata.DataSource = userCredentials;
+                dataGridItemMasterdata.DataSource = inventoryDT;
             }
             catch (Exception ex)
             {
@@ -66,7 +65,7 @@ namespace BenpilsBarcodeSystem
                 ClearFields();
                 SetFieldsReadOnly(false);
 
-                AddBtn.Text = " Save";
+                AddBtn.Text = " Save Item";
                 UpdateBtn.Text = " Cancel";
 
                 GenerateBtn.Enabled = true;
@@ -119,7 +118,7 @@ namespace BenpilsBarcodeSystem
                     isAdding = false;
                     GenerateBtn.Enabled = false;
 
-                    MessageBox.Show("Item added succesfully!");
+                    MessageBox.Show("New item added succesfully!");
                 }
                 else
                 {
@@ -170,7 +169,7 @@ namespace BenpilsBarcodeSystem
                 isUpdating = true;
                 SetFieldsReadOnly(false);
 
-                AddBtn.Text = " Save";
+                AddBtn.Text = " Save Update";
                 UpdateBtn.Text = " Cancel";
 
                 ArchiveBtn.Enabled = false;
@@ -197,7 +196,6 @@ namespace BenpilsBarcodeSystem
 
                 this.CancelButton = null;
             }
-            
         }
 
         private void ClearBtn_Click(object sender, EventArgs e)
@@ -346,7 +344,7 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_TextChanged(object sender, EventArgs e)
         {
-            if (AddBtn.Text.Equals(" Save")){
+            if (AddBtn.Text.Contains("Save")){
                 AddBtn.ForeColor = Color.FromArgb(80, 180, 80);
                 AddBtn.Image = Properties.Resources.icons8_downloading_updates_15;
                 UpdateBtn.ForeColor = Color.FromArgb(220, 80, 80);
@@ -359,11 +357,6 @@ namespace BenpilsBarcodeSystem
                 UpdateBtn.Image = Properties.Resources.icons8_update_15;
                 AddBtn.Image = Properties.Resources.icons8_add_15;
             }
-            
-        }
-
-        private void BarcodeTxt_Enter(object sender, EventArgs e)
-        {
         }
 
         private async void PopulateComboBoxes()
@@ -385,12 +378,6 @@ namespace BenpilsBarcodeSystem
 
             BrandCb.SelectedIndexChanged += BrandCb_SelectedIndexChanged;
             CategoryCb.SelectedIndexChanged += CategoryCb_SelectedIndexChanged;
-        }
-
-        public void RefreshUI()
-        {
-            this.Invalidate();
-            this.RefreshUI();
         }
     }
 }

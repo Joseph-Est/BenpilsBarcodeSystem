@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.InputFormPanel = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -49,9 +49,10 @@
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
-            this.panel42 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
             this.SizeTxt = new System.Windows.Forms.TextBox();
@@ -91,6 +92,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.ProductIDTxt = new System.Windows.Forms.TextBox();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.GenerateBtn = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -123,21 +125,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BrandCb = new System.Windows.Forms.ComboBox();
             this.panel36 = new System.Windows.Forms.Panel();
-            this.GenerateBtn = new System.Windows.Forms.Button();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.ReduceStockBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.InputFormPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel39.SuspendLayout();
             this.panel38.SuspendLayout();
             this.panel35.SuspendLayout();
-            this.panel42.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel37.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -175,6 +174,7 @@
             this.panel43.SuspendLayout();
             this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // InputFormPanel
@@ -202,13 +202,14 @@
             // panel14
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(0, 616);
+            this.panel14.Location = new System.Drawing.Point(0, 656);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(387, 94);
+            this.panel14.Size = new System.Drawing.Size(387, 54);
             this.panel14.TabIndex = 193;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.panel40);
             this.panel4.Controls.Add(this.panel39);
             this.panel4.Controls.Add(this.panel38);
@@ -217,12 +218,12 @@
             this.panel4.Location = new System.Drawing.Point(0, 393);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(387, 223);
+            this.panel4.Size = new System.Drawing.Size(387, 263);
             this.panel4.TabIndex = 187;
             // 
             // panel40
             // 
-            this.panel40.Controls.Add(this.BarcodeGeneratorBtn);
+            this.panel40.Controls.Add(this.ArchiveBtn);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel40.Location = new System.Drawing.Point(0, 150);
             this.panel40.Name = "panel40";
@@ -232,7 +233,7 @@
             // 
             // panel39
             // 
-            this.panel39.Controls.Add(this.ArchiveBtn);
+            this.panel39.Controls.Add(this.ReduceStockBtn);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel39.Location = new System.Drawing.Point(0, 110);
             this.panel39.Name = "panel39";
@@ -242,7 +243,7 @@
             // 
             // panel38
             // 
-            this.panel38.Controls.Add(this.ReduceStockBtn);
+            this.panel38.Controls.Add(this.ClearBtn);
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel38.Location = new System.Drawing.Point(0, 70);
             this.panel38.Name = "panel38";
@@ -252,7 +253,6 @@
             // 
             // panel35
             // 
-            this.panel35.Controls.Add(this.panel42);
             this.panel35.Controls.Add(this.panel41);
             this.panel35.Controls.Add(this.panel37);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
@@ -262,25 +262,36 @@
             this.panel35.Size = new System.Drawing.Size(387, 40);
             this.panel35.TabIndex = 183;
             // 
-            // panel42
-            // 
-            this.panel42.Controls.Add(this.ClearBtn);
-            this.panel42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel42.Location = new System.Drawing.Point(240, 0);
-            this.panel42.Name = "panel42";
-            this.panel42.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.panel42.Size = new System.Drawing.Size(117, 35);
-            this.panel42.TabIndex = 182;
-            // 
             // panel41
             // 
             this.panel41.Controls.Add(this.UpdateBtn);
-            this.panel41.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel41.Location = new System.Drawing.Point(120, 0);
+            this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel41.Location = new System.Drawing.Point(177, 0);
             this.panel41.Name = "panel41";
             this.panel41.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.panel41.Size = new System.Drawing.Size(120, 35);
+            this.panel41.Size = new System.Drawing.Size(180, 35);
             this.panel41.TabIndex = 181;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.White;
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateBtn.Enabled = false;
+            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(176, 35);
+            this.UpdateBtn.TabIndex = 31;
+            this.UpdateBtn.TabStop = false;
+            this.UpdateBtn.Text = " Update";
+            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // panel37
             // 
@@ -289,8 +300,28 @@
             this.panel37.Location = new System.Drawing.Point(0, 0);
             this.panel37.Name = "panel37";
             this.panel37.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.panel37.Size = new System.Drawing.Size(120, 35);
+            this.panel37.Size = new System.Drawing.Size(177, 35);
             this.panel37.TabIndex = 180;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.AddBtn.Size = new System.Drawing.Size(175, 35);
+            this.AddBtn.TabIndex = 30;
+            this.AddBtn.TabStop = false;
+            this.AddBtn.Text = " Add";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // panel13
             // 
@@ -706,6 +737,21 @@
             this.panel33.Size = new System.Drawing.Size(111, 35);
             this.panel33.TabIndex = 170;
             // 
+            // GenerateBtn
+            // 
+            this.GenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GenerateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GenerateBtn.Enabled = false;
+            this.GenerateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateBtn.Location = new System.Drawing.Point(5, 0);
+            this.GenerateBtn.Name = "GenerateBtn";
+            this.GenerateBtn.Size = new System.Drawing.Size(76, 24);
+            this.GenerateBtn.TabIndex = 6;
+            this.GenerateBtn.TabStop = false;
+            this.GenerateBtn.Text = "Generate";
+            this.GenerateBtn.UseVisualStyleBackColor = true;
+            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.label9);
@@ -758,7 +804,6 @@
             this.BarcodeTxt.ReadOnly = true;
             this.BarcodeTxt.Size = new System.Drawing.Size(248, 24);
             this.BarcodeTxt.TabIndex = 4;
-            this.BarcodeTxt.Enter += new System.EventHandler(this.BarcodeTxt_Enter);
             // 
             // panel15
             // 
@@ -809,14 +854,14 @@
             this.dataGridItemMasterdata.BackgroundColor = System.Drawing.Color.White;
             this.dataGridItemMasterdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -841,14 +886,14 @@
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
             this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridItemMasterdata.RowHeadersVisible = false;
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
             this.dataGridItemMasterdata.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -871,8 +916,8 @@
             // barcode
             // 
             this.barcode.DataPropertyName = "barcode";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.barcode.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.barcode.DefaultCellStyle = dataGridViewCellStyle28;
             this.barcode.HeaderText = "Barcode";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
@@ -880,8 +925,8 @@
             // product_id
             // 
             this.product_id.DataPropertyName = "product_id";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.product_id.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.product_id.DefaultCellStyle = dataGridViewCellStyle29;
             this.product_id.HeaderText = "Product ID";
             this.product_id.Name = "product_id";
             this.product_id.ReadOnly = true;
@@ -890,9 +935,9 @@
             // 
             this.item_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.item_name.DataPropertyName = "item_name";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.item_name.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.item_name.DefaultCellStyle = dataGridViewCellStyle30;
             this.item_name.HeaderText = "Item Name";
             this.item_name.MinimumWidth = 200;
             this.item_name.Name = "item_name";
@@ -901,9 +946,9 @@
             // brand
             // 
             this.brand.DataPropertyName = "brand";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.brand.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.brand.DefaultCellStyle = dataGridViewCellStyle31;
             this.brand.HeaderText = "Brand";
             this.brand.Name = "brand";
             this.brand.ReadOnly = true;
@@ -912,9 +957,9 @@
             // motor_brand
             // 
             this.motor_brand.DataPropertyName = "motor_brand";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.motor_brand.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.motor_brand.DefaultCellStyle = dataGridViewCellStyle32;
             this.motor_brand.HeaderText = "Motor Brand";
             this.motor_brand.Name = "motor_brand";
             this.motor_brand.ReadOnly = true;
@@ -932,9 +977,9 @@
             // formatted_price
             // 
             this.formatted_price.DataPropertyName = "formatted_price";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.formatted_price.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle33.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.formatted_price.DefaultCellStyle = dataGridViewCellStyle33;
             this.formatted_price.HeaderText = "Unit Price";
             this.formatted_price.Name = "formatted_price";
             this.formatted_price.ReadOnly = true;
@@ -943,8 +988,8 @@
             // quantity
             // 
             this.quantity.DataPropertyName = "quantity";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle34;
             this.quantity.HeaderText = "Quantity";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
@@ -953,9 +998,9 @@
             // category
             // 
             this.category.DataPropertyName = "category";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.category.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.category.DefaultCellStyle = dataGridViewCellStyle35;
             this.category.HeaderText = "Category";
             this.category.Name = "category";
             this.category.ReadOnly = true;
@@ -964,8 +1009,8 @@
             // size
             // 
             this.size.DataPropertyName = "size";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.size.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.size.DefaultCellStyle = dataGridViewCellStyle36;
             this.size.HeaderText = "Size";
             this.size.Name = "size";
             this.size.ReadOnly = true;
@@ -974,8 +1019,8 @@
             // Status
             // 
             this.Status.DataPropertyName = "status";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Status.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Status.DefaultCellStyle = dataGridViewCellStyle37;
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
@@ -1091,21 +1136,6 @@
             this.panel36.Size = new System.Drawing.Size(39, 67);
             this.panel36.TabIndex = 176;
             // 
-            // GenerateBtn
-            // 
-            this.GenerateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GenerateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GenerateBtn.Enabled = false;
-            this.GenerateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenerateBtn.Location = new System.Drawing.Point(5, 0);
-            this.GenerateBtn.Name = "GenerateBtn";
-            this.GenerateBtn.Size = new System.Drawing.Size(76, 24);
-            this.GenerateBtn.TabIndex = 6;
-            this.GenerateBtn.TabStop = false;
-            this.GenerateBtn.Text = "Generate";
-            this.GenerateBtn.UseVisualStyleBackColor = true;
-            this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
-            // 
             // RefreshPb
             // 
             this.RefreshPb.BackColor = System.Drawing.SystemColors.Control;
@@ -1119,6 +1149,16 @@
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BarcodeGeneratorBtn);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 190);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
+            this.panel3.Size = new System.Drawing.Size(387, 40);
+            this.panel3.TabIndex = 189;
+            // 
             // BarcodeGeneratorBtn
             // 
             this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1129,7 +1169,7 @@
             this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
             this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
             this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(357, 35);
-            this.BarcodeGeneratorBtn.TabIndex = 35;
+            this.BarcodeGeneratorBtn.TabIndex = 36;
             this.BarcodeGeneratorBtn.TabStop = false;
             this.BarcodeGeneratorBtn.Text = " Barcode Generator";
             this.BarcodeGeneratorBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1149,7 +1189,7 @@
             this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(357, 35);
-            this.ArchiveBtn.TabIndex = 34;
+            this.ArchiveBtn.TabIndex = 35;
             this.ArchiveBtn.TabStop = false;
             this.ArchiveBtn.Text = " Archive";
             this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1167,7 +1207,7 @@
             this.ReduceStockBtn.Location = new System.Drawing.Point(0, 0);
             this.ReduceStockBtn.Name = "ReduceStockBtn";
             this.ReduceStockBtn.Size = new System.Drawing.Size(357, 35);
-            this.ReduceStockBtn.TabIndex = 33;
+            this.ReduceStockBtn.TabIndex = 34;
             this.ReduceStockBtn.TabStop = false;
             this.ReduceStockBtn.Text = " Reduce Stock";
             this.ReduceStockBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1181,57 +1221,16 @@
             this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
             this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearBtn.Location = new System.Drawing.Point(2, 0);
+            this.ClearBtn.Location = new System.Drawing.Point(0, 0);
             this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(115, 35);
-            this.ClearBtn.TabIndex = 32;
+            this.ClearBtn.Size = new System.Drawing.Size(357, 35);
+            this.ClearBtn.TabIndex = 33;
             this.ClearBtn.TabStop = false;
             this.ClearBtn.Text = " Clear";
             this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ClearBtn.UseVisualStyleBackColor = true;
             this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.BackColor = System.Drawing.Color.White;
-            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateBtn.Enabled = false;
-            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
-            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(116, 35);
-            this.UpdateBtn.TabIndex = 31;
-            this.UpdateBtn.TabStop = false;
-            this.UpdateBtn.Text = " Update";
-            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UpdateBtn.UseVisualStyleBackColor = false;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.AddBtn.Size = new System.Drawing.Size(118, 35);
-            this.AddBtn.TabIndex = 30;
-            this.AddBtn.TabStop = false;
-            this.AddBtn.Text = " Add";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // Inventory
             // 
@@ -1248,11 +1247,10 @@
             this.InputFormPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
+            this.panel40.PerformLayout();
             this.panel39.ResumeLayout(false);
-            this.panel39.PerformLayout();
             this.panel38.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
-            this.panel42.ResumeLayout(false);
             this.panel41.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
@@ -1309,13 +1307,12 @@
             this.panel43.PerformLayout();
             this.panel36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button BarcodeGeneratorBtn;
-        private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Panel InputFormPanel;
@@ -1371,10 +1368,7 @@
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.Button ReduceStockBtn;
         private System.Windows.Forms.Panel panel35;
-        private System.Windows.Forms.Button ClearBtn;
-        private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.Panel panel37;
         private System.Windows.Forms.Panel panel2;
@@ -1403,5 +1397,10 @@
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel36;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BarcodeGeneratorBtn;
+        private System.Windows.Forms.Button ArchiveBtn;
+        private System.Windows.Forms.Button ReduceStockBtn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }

@@ -240,6 +240,12 @@
     <Compile Include="Dialogs\PrintInvoice.Designer.cs">
       <DependentUpon>PrintInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\Dashoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\Dashoard.Designer.cs">
+      <DependentUpon>Dashoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Panels\PurchaseOrder.cs">
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PrintInvoice.resx">
       <DependentUpon>PrintInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Dashoard.resx">
+      <DependentUpon>Dashoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -407,22 +416,7 @@
     <None Include="Resources\icons8-search-30.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-dashboard-30.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-point-of-sales-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-inventory-30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-basket-30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-graph-report-30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-statistics-30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-settings-30.png" />
@@ -432,9 +426,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-logout-30.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-user-301.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-update-30.png" />
@@ -483,6 +474,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-restore-down-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-services-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-point-of-sales-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-30-white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-services-30 -white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-analytics-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-graph-report-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-point-of-sales-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-basket-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-inventory-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-graph-report-30-ios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

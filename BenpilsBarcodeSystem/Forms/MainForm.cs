@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,8 +18,6 @@ namespace BenpilsBarcodeSystem
 {
     public partial class MainForm : Form
     {
-        private User user;
-
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
 
@@ -26,104 +26,52 @@ namespace BenpilsBarcodeSystem
         [DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
 
+        private CheckBox lastChecked = null;
+        private Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
+        private Dictionary<CheckBox, Image> uncheckedImages = new Dictionary<CheckBox, Image>();
+
+        private Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
+        private Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
+
+
+
         public MainForm(User user)
         {
             InitializeComponent();
-
-            Timer timer = new Timer();
-            timer.Interval = 1000; 
-            timer.Tick += timer_Tick;
-            timer.Start();
-
-            this.user = user;
-
-            label1.Text = "Username: " + user.Username;
-            label2.Text = "Designation: " + user.Designation;
-
-            if (user.Designation == "Superadmin")
-            {
-
-            }
-            else if (user.Designation == "Admin")
-            {
-
-            }
-            else if (user.Designation == "Inventory Manager")
-            {
-                PointOfSalesBtn.Enabled = false;
-                ReportsBtn.Enabled = false;
-                StatisticsBtn.Enabled = false;
-                UsercredentialsBtn.Enabled = false;
-                SettingsBtn.Enabled = false;
-            }
-            else if (user.Designation == "Cashier")
-            {
-                InventoryBtn.Enabled = false;
-                PurchasingBtn.Enabled = false;
-                ReportsBtn.Enabled = false;
-                StatisticsBtn.Enabled = false;
-                UsercredentialsBtn.Enabled = false;
-                SettingsBtn.Enabled = false;
-            }
+            LoadImages();
+            SetForms();
+            SetTimer();
+            SetUser(user);
+            Checkbox_Clicked(DashboardCb, null);
         }
 
-        private void SwitchForm(Form form, string module)
+        private void SwitchForm(CheckBox checkBox)
         {
-            SelectedModuleLbl.Text = module;
-            mainPanel.Controls.Clear();
+            Form form;
+            if (checkBoxToForm.ContainsKey(checkBox))
+            {
+                form = checkBoxToForm[checkBox];
+            }
+            else
+            {
+                if (checkBoxToFormType.ContainsKey(checkBox)) 
+                {
+                    Type formType = checkBoxToFormType[checkBox];
+                    form = Activator.CreateInstance(formType) as Form;
+                    checkBoxToForm[checkBox] = form;
+                }
+                else
+                {
+                    return; 
+                }
+            }
+
+            SelectedModuleLbl.Text = checkBox.Text.Trim();
+            MainPanel.Controls.Clear();
             form.TopLevel = false;
-            mainPanel.Controls.Add(form);
+            MainPanel.Controls.Add(form);
             form.Dock = DockStyle.Fill;
             form.Show();
-        }
-
-        private void DashboardBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PointOfSalesBtn_Click_1(object sender, EventArgs e)
-        {
-            POS pos = new POS();
-            SwitchForm(pos, "Point of Sales");
-            
-        }
-
-        private void InventoryBtn_Click(object sender, EventArgs e)
-        {
-            Inventory inv = new Inventory();
-            SwitchForm(inv, "Inventory");
-        }
-
-        private void PurchasingBtn_Click(object sender, EventArgs e)
-        {
-            PurchaseOrder purchasing = new PurchaseOrder();
-            SwitchForm(purchasing, "Purchasing");
-
-        }
-
-        private void ReportsBtn_Click(object sender, EventArgs e)
-        {
-            Reports reports = new Reports();
-            SwitchForm(reports, "Reports");
-        }
-
-        private void StatisticsBtn_Click(object sender, EventArgs e)
-        {
-            StatisticReport statisticReport = new StatisticReport();
-            SwitchForm(statisticReport, "Statistic Report");
-        }
-
-        private void UsercredentialsBtn_Click(object sender, EventArgs e)
-        {
-            Ser credentials = new Ser();
-            SwitchForm(credentials, "User Credentials");
-        }
-
-        private void SettingsBtn_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings();
-            SwitchForm(settings, "Settings");
         }
 
         private void LogoutBtn_Click_1(object sender, EventArgs e)
@@ -138,6 +86,33 @@ namespace BenpilsBarcodeSystem
                 loginForm.Show();
             }
         }
+
+        private void Checkbox_Clicked(object sender, EventArgs e)
+        {
+            CheckBox currentCheckBox = sender as CheckBox;
+
+            if (currentCheckBox.Checked)
+            {
+                return;
+            }
+
+            currentCheckBox.Checked = true;
+            currentCheckBox.ForeColor = Color.Black;
+            currentCheckBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(240,240,240);
+            currentCheckBox.Image = checkedImages[currentCheckBox];
+            SwitchForm(currentCheckBox);
+
+            if (lastChecked != null)
+            {
+                lastChecked.Checked = false;
+                lastChecked.ForeColor = Color.White;
+                lastChecked.FlatAppearance.MouseOverBackColor = Color.FromArgb(80,80,80);
+                lastChecked.Image = uncheckedImages[lastChecked];
+            }
+
+            lastChecked = currentCheckBox;
+        }
+
         private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -166,6 +141,78 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void SetUser(User user)
+        {
+            label1.Text = "Username: " + user.Username;
+            label2.Text = "Designation: " + user.Designation;
+
+            if (user.Designation == "Superadmin")
+            {
+
+            }
+            else if (user.Designation == "Admin")
+            {
+
+            }
+            else if (user.Designation == "Inventory Manager")
+            {
+                //PointOfSalesBtn.Enabled = false;
+                //ReportsBtn.Enabled = false;
+                //StatisticsBtn.Enabled = false;
+                //UsercredentialsBtn.Enabled = false;
+                //SettingsBtn.Enabled = false;
+            }
+            else if (user.Designation == "Cashier")
+            {
+                //InventoryBtn.Enabled = false;
+                //PurchasingBtn.Enabled = false;
+                //ReportsBtn.Enabled = false;
+                //StatisticsBtn.Enabled = false;
+                //UsercredentialsBtn.Enabled = false;
+                //SettingsBtn.Enabled = false;
+            }
+        }
+
+        private void SetTimer()
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+
+        private void LoadImages()
+        {
+            checkedImages[DashboardCb] = Properties.Resources.icons8_dashboard_30;
+            uncheckedImages[DashboardCb] = Properties.Resources.icons8_dashboard_30_white;
+            checkedImages[InventoryCb] = Properties.Resources.icons8_inventory_30;
+            uncheckedImages[InventoryCb] = Properties.Resources.icons8_inventory_30_white;
+            checkedImages[PurchasingCb] = Properties.Resources.icons8_basket_30;
+            uncheckedImages[PurchasingCb] = Properties.Resources.icons8_basket_30_white;
+            checkedImages[PosCb] = Properties.Resources.icons8_point_of_sales_30;
+            uncheckedImages[PosCb] = Properties.Resources.icons8_point_of_sales_30_white;
+            checkedImages[ReportsCb] = Properties.Resources.icons8_graph_report_30_ios;
+            uncheckedImages[ReportsCb] = Properties.Resources.icons8_graph_report_30_white;
+            checkedImages[StatisticsCb] = Properties.Resources.icons8_statistics_30;
+            uncheckedImages[StatisticsCb] = Properties.Resources.icons8_analytics_30_white;
+            checkedImages[UsersCb] = Properties.Resources.icons8_user_301;
+            uncheckedImages[UsersCb] = Properties.Resources.icons8_user_30_white;
+            checkedImages[SettingsCb] = Properties.Resources.icons8_services_30;
+            uncheckedImages[SettingsCb] = Properties.Resources.icons8_services_30__white;
+        }
+
+        private void SetForms()
+        {
+            //checkBoxToFormType[DashboardCb] = typeof();
+            checkBoxToFormType[InventoryCb] = typeof(Inventory);
+            checkBoxToFormType[PurchasingCb] = typeof(PurchaseOrder);
+            //checkBoxToFormType[PosCb] = typeof(POS);
+            checkBoxToFormType[ReportsCb] = typeof(Reports);
+            checkBoxToFormType[StatisticsCb] = typeof(StatisticReport);
+            checkBoxToFormType[UsersCb] = typeof(Ser);
+            checkBoxToFormType[SettingsCb] = typeof(Settings);
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
@@ -180,16 +227,6 @@ namespace BenpilsBarcodeSystem
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void MainForm_ResizeEnd(object sender, EventArgs e)
-        {
-    
         }
     }
 }

@@ -63,6 +63,7 @@ namespace BenpilsBarcodeSystem
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            canClose = true;
             Close();
         }
 

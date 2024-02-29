@@ -194,6 +194,7 @@ namespace BenpilsBarcodeSystem
                 AddBtn.Text = " Add";
                 UpdateBtn.Text = " Update";
 
+                BarcodeTxt.Focus();
                 this.CancelButton = null;
             }
         }

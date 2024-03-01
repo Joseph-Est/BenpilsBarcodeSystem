@@ -283,18 +283,18 @@ namespace BenpilsBarcodeSystem
         }
         private void UpdateChangeLabel()
         {
-            // Calculate change whenever the payment amount changes
-            decimal payment;
-            if (decimal.TryParse(paymentTxt.Text, out payment))
-            {
-                decimal total = Convert.ToDecimal(totallbl.Text);
+            //// Calculate change whenever the payment amount changes
+            //decimal payment;
+            //if (decimal.TryParse(paymentTxt.Text, out payment))
+            //{
+            //    decimal total = Convert.ToDecimal(totallbl.Text);
 
-                // Calculate change
-                decimal change = payment - total;
+            //    // Calculate change
+            //    decimal change = payment - total;
 
-                // Update the Change label
-                PurchasePage.Text = change.ToString();
-            }
+            //    // Update the Change label
+            //    PurchasePage.Text = change.ToString();
+            //}
         }
         private void UpdateTotalLabel()
         {

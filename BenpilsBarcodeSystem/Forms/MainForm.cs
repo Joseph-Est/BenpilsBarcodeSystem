@@ -29,11 +29,8 @@ namespace BenpilsBarcodeSystem
         private CheckBox lastChecked = null;
         private Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
         private Dictionary<CheckBox, Image> uncheckedImages = new Dictionary<CheckBox, Image>();
-
         private Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
         private Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
-
-
 
         public MainForm(User user)
         {
@@ -43,48 +40,6 @@ namespace BenpilsBarcodeSystem
             SetTimer();
             SetUser(user);
             Checkbox_Clicked(DashboardCb, null);
-        }
-
-        private void SwitchForm(CheckBox checkBox)
-        {
-            Form form;
-            if (checkBoxToForm.ContainsKey(checkBox))
-            {
-                form = checkBoxToForm[checkBox];
-            }
-            else
-            {
-                if (checkBoxToFormType.ContainsKey(checkBox)) 
-                {
-                    Type formType = checkBoxToFormType[checkBox];
-                    form = Activator.CreateInstance(formType) as Form;
-                    checkBoxToForm[checkBox] = form;
-                }
-                else
-                {
-                    return; 
-                }
-            }
-
-            SelectedModuleLbl.Text = checkBox.Text.Trim();
-            MainPanel.Controls.Clear();
-            form.TopLevel = false;
-            MainPanel.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
-            form.Show();
-        }
-
-        private void LogoutBtn_Click_1(object sender, EventArgs e)
-        {
-            Confirmation confirmation = new Confirmation("Are you sure you want to logout?", null, "Yes", "Cancel");
-            DialogResult result = confirmation.ShowDialog();
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
-            }
         }
 
         private void Checkbox_Clicked(object sender, EventArgs e)
@@ -98,7 +53,7 @@ namespace BenpilsBarcodeSystem
 
             currentCheckBox.Checked = true;
             currentCheckBox.ForeColor = Color.Black;
-            currentCheckBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(240,240,240);
+            currentCheckBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(240, 240, 240);
             currentCheckBox.Image = checkedImages[currentCheckBox];
             SwitchForm(currentCheckBox);
 
@@ -106,11 +61,24 @@ namespace BenpilsBarcodeSystem
             {
                 lastChecked.Checked = false;
                 lastChecked.ForeColor = Color.White;
-                lastChecked.FlatAppearance.MouseOverBackColor = Color.FromArgb(80,80,80);
+                lastChecked.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 80, 80);
                 lastChecked.Image = uncheckedImages[lastChecked];
             }
 
             lastChecked = currentCheckBox;
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            Confirmation confirmation = new Confirmation("Are you sure you want to logout?", null, "Yes", "Cancel");
+            DialogResult result = confirmation.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
         }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)
@@ -139,6 +107,35 @@ namespace BenpilsBarcodeSystem
             {
                 this.Close();
             }
+        }
+
+        private void SwitchForm(CheckBox checkBox)
+        {
+            Form form;
+            if (checkBoxToForm.ContainsKey(checkBox))
+            {
+                form = checkBoxToForm[checkBox];
+            }
+            else
+            {
+                if (checkBoxToFormType.ContainsKey(checkBox))
+                {
+                    Type formType = checkBoxToFormType[checkBox];
+                    form = Activator.CreateInstance(formType) as Form;
+                    checkBoxToForm[checkBox] = form;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            SelectedModuleLbl.Text = checkBox.Text.Trim();
+            MainPanel.Controls.Clear();
+            form.TopLevel = false;
+            MainPanel.Controls.Add(form);
+            form.Dock = DockStyle.Fill;
+            form.Show();
         }
 
         private void SetUser(User user)

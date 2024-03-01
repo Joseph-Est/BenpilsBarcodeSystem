@@ -379,7 +379,7 @@
             this.LogoutCb.Text = "  Logout";
             this.LogoutCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.LogoutCb.UseVisualStyleBackColor = true;
-            this.LogoutCb.Click += new System.EventHandler(this.LogoutBtn_Click_1);
+            this.LogoutCb.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // panel4
             // 

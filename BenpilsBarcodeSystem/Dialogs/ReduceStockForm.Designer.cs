@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,11 +89,11 @@
             // 
             this.ReduceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ReduceTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReduceTxt.Location = new System.Drawing.Point(142, 90);
+            this.ReduceTxt.Location = new System.Drawing.Point(142, 93);
             this.ReduceTxt.Margin = new System.Windows.Forms.Padding(2);
             this.ReduceTxt.Multiline = true;
             this.ReduceTxt.Name = "ReduceTxt";
-            this.ReduceTxt.Size = new System.Drawing.Size(163, 24);
+            this.ReduceTxt.Size = new System.Drawing.Size(163, 21);
             this.ReduceTxt.TabIndex = 18;
             this.ReduceTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ReduceTxt.Enter += new System.EventHandler(this.ReduceTxt_Enter);
@@ -100,6 +101,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.ErrorTxt);
             this.panel2.Controls.Add(this.CancelBtn);
             this.panel2.Controls.Add(this.AcceptBtn);
@@ -275,6 +277,14 @@
             this.panel3.Size = new System.Drawing.Size(332, 284);
             this.panel3.TabIndex = 22;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Window;
+            this.panel4.Location = new System.Drawing.Point(142, 89);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(163, 5);
+            this.panel4.TabIndex = 32;
+            // 
             // ReduceStockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,5 +325,6 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox ErrorTxt;
+        private System.Windows.Forms.Panel panel4;
     }
 }

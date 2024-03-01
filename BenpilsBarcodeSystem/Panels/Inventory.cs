@@ -353,8 +353,8 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                AddBtn.ForeColor = Color.Empty;
-                UpdateBtn.ForeColor = Color.Empty;
+                AddBtn.ForeColor = Color.Black;
+                UpdateBtn.ForeColor = Color.Black;
                 UpdateBtn.Image = Properties.Resources.icons8_update_15;
                 AddBtn.Image = Properties.Resources.icons8_add_15;
             }

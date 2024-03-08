@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenpilsBarcodeSystem.Entities;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -41,6 +42,54 @@ namespace BenpilsBarcodeSystem.Repository
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return null;
             }
+        }
+
+        public async Task<bool> LoginAsync(string username, string password)
+        {
+            try
+            {
+                using (SqlConnection connection = await Task.Run(() => databaseConnection.OpenConnection()))
+                {
+                    if (connection != null)
+                    {
+                        string query = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Username", username);
+                            command.Parameters.AddWithValue("@Password", password);
+
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                            {
+                                DataTable dataTable = new DataTable();
+                                await Task.Run(() => adapter.Fill(dataTable));
+
+                                if (dataTable.Rows.Count > 0)
+                                {
+                                    CurrentUser.User = new User
+                                    {
+                                        iD = Convert.ToInt32(dataTable.Rows[0][col_id]),
+                                        FirstName = dataTable.Rows[0][col_first_name].ToString(),
+                                        LastName = dataTable.Rows[0][col_last_name].ToString(),
+                                        Username = dataTable.Rows[0][col_username].ToString(),
+                                        Designation = dataTable.Rows[0][col_designation].ToString()
+                                    };
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Database connection failed.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            return false;
         }
     }
 }

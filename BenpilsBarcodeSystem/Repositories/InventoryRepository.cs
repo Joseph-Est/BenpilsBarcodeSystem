@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -14,8 +14,8 @@ namespace BenpilsBarcodeSystem.Repository
     {
         private readonly Database.DatabaseConnection databaseConnection;
         private string tbl_name = "tbl_item_master_data";
-        private string col_id = "id", col_barcode = "barcode", col_product_id = "product_id", col_item_name = "item_name", col_motor_brand = "motor_brand", 
-                       col_brand = "brand", col_unit_price = "unit_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
+        private string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
+                       col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
 
         public InventoryRepository()
         {
@@ -24,15 +24,16 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<DataTable> GetProductsAsync(string searchText = "", string category = "All", string brand = "All")
         {
-            string selectQuery;
+            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {col_is_active} = '1'";
+
 
             if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
             {
-                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
+               
             }
             else
             {
-                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
+                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {col_is_active} = '1'";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
@@ -40,8 +41,7 @@ namespace BenpilsBarcodeSystem.Repository
                                    $"{col_motor_brand} LIKE @searchText OR " +
                                    $"{col_brand} LIKE @searchText OR " +
                                    $"{col_category} LIKE @searchText OR " +
-                                   $"{col_barcode} LIKE @searchText OR " +
-                                   $"{col_product_id} LIKE @searchText)";
+                                   $"{col_barcode} LIKE @searchText)";
                 }
 
                 if (!string.IsNullOrWhiteSpace(category))
@@ -84,7 +84,8 @@ namespace BenpilsBarcodeSystem.Repository
                         await Task.Run(() => adapter.Fill(dt));
 
                         dt.Columns.Add("status", typeof(string));
-                        dt.Columns.Add("formatted_price", typeof(string));
+                        dt.Columns.Add("formatted_purchase_price", typeof(string));
+                        dt.Columns.Add("formatted_selling_price", typeof(string));
 
                         foreach (DataRow row in dt.Rows)
                         {
@@ -99,7 +100,8 @@ namespace BenpilsBarcodeSystem.Repository
                             else
                                 row["status"] = "Low-Stock";
 
-                            row["formatted_price"] = InputValidator.StringToFormattedPrice(row[col_unit_price].ToString());
+                            row["formatted_purchase_price"] = InputValidator.StringToFormattedPrice(row[col_purchase_price].ToString());
+                            row["formatted_selling_price"] = InputValidator.StringToFormattedPrice(row[col_selling_price].ToString());
                         }
 
                         return dt;
@@ -113,41 +115,58 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task AddProductAsync(string barcode, int productId, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
+        public async Task<bool> AddProductAsync(string barcode, string itemName, string category, string brand, string motorBrand, string size, int quantity, decimal purchasePrice, decimal sellingPrice, int? supplier)
         {
-            string insertQuery = $"INSERT INTO {tbl_name} ({col_barcode}, {col_product_id}, {col_item_name}, {col_motor_brand}, {col_brand}, {col_unit_price}, {col_quantity}, {col_category}, {col_size}, {col_is_active}) " +
-                                 "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size, @IsActive)";
+            string insertQuery = $"INSERT INTO {tbl_name} ({col_barcode}, {col_item_name}, {col_motor_brand}, {col_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}) " +
+                                 "OUTPUT INSERTED.id " +
+                                 "VALUES (@Barcode, @ItemName, @MotorBrand, @Brand, @PurchasePrice, @SellingPrice, @Quantity, @Category, @Size)";
 
-            try
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                SqlTransaction transaction = con.BeginTransaction();
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@Barcode", barcode);
-                        cmd.Parameters.AddWithValue("@ProductID", productId);
                         cmd.Parameters.AddWithValue("@ItemName", itemName);
                         cmd.Parameters.AddWithValue("@MotorBrand", motorBrand);
                         cmd.Parameters.AddWithValue("@Brand", brand);
-                        cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                        cmd.Parameters.AddWithValue("@PurchasePrice", purchasePrice);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                         cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
-                        cmd.Parameters.AddWithValue("@IsActive", 1);
 
-                        await cmd.ExecuteNonQueryAsync();
+                        int itemId = (int)await cmd.ExecuteScalarAsync();
+
+                        if (supplier > 0)
+                        {
+                            string insertSupplierItemQuery = $"INSERT INTO tbl_supplier_items (supplier_id, item_id) VALUES (@SupplierId, @ItemId)";
+                            using (SqlCommand supplierCmd = new SqlCommand(insertSupplierItemQuery, con, transaction))
+                            {
+                                supplierCmd.Parameters.AddWithValue("@SupplierId", supplier);
+                                supplierCmd.Parameters.AddWithValue("@ItemId", itemId);
+                                await supplierCmd.ExecuteNonQueryAsync();
+                            }
+                        }
+
+                        transaction.Commit();
+                        return true;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
-        public async Task UpdateProductAsync(int id, string barcode, string itemName, string motorBrand, string brand, decimal unitPrice, int quantity, string category, string size)
+        public async Task<bool> UpdateProductAsync(int id, string barcode, string itemName, string category, string brand, string motorBrand, string size, int quantity, decimal purchasePrice, decimal sellingPrice)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_unit_price} = @UnitPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_purchase_price} = @PurchasePrice, {col_selling_price} = @SellingPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
 
             try
             {
@@ -159,19 +178,22 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@ItemName", itemName);
                         cmd.Parameters.AddWithValue("@MotorBrand", motorBrand);
                         cmd.Parameters.AddWithValue("@Brand", brand);
-                        cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                        cmd.Parameters.AddWithValue("@PurchasePrice", purchasePrice);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                         cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
                         cmd.Parameters.AddWithValue("@ID", id);
 
-                        await cmd.ExecuteNonQueryAsync();
+                        int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                        return rowsAffected > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
             }
         }
 
@@ -222,7 +244,37 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task ArchiveProductAsync(int id)
+        public async Task<bool> isItemExists(string itemName, string brand, string motorBrand, string size)
+        {
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE " +
+                $"{col_item_name} = @ItemName COLLATE SQL_Latin1_General_CP1_CI_AS AND " +
+                $"{col_brand} = @Brand COLLATE SQL_Latin1_General_CP1_CI_AS AND " +
+                $"{col_motor_brand} = @MotorBrand COLLATE SQL_Latin1_General_CP1_CI_AS AND " +
+                $"{col_size} = @Size COLLATE SQL_Latin1_General_CP1_CI_AS";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@ItemName", itemName);
+                        cmd.Parameters.AddWithValue("@Brand", brand);
+                        cmd.Parameters.AddWithValue("@MotorBrand", motorBrand);
+                        cmd.Parameters.AddWithValue("@Size", size);
+                        int count = (int)await cmd.ExecuteScalarAsync();
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> ArchiveProductAsync(int id)
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = 0 WHERE {col_id} = @ID";
 
@@ -234,13 +286,15 @@ namespace BenpilsBarcodeSystem.Repository
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
 
-                        await cmd.ExecuteNonQueryAsync();
+                        int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                        return rowsAffected > 0;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
             }
         }
 
@@ -282,6 +336,84 @@ namespace BenpilsBarcodeSystem.Repository
             return (uniqueValuesColumn1, uniqueValuesColumn2);
         }
 
+        public async Task<(List<string>, List<string>, List<string>)> GetCategoryBrandMotorBrandValuesAsync()
+        {
+            List<string> uniqueValuesColumn1 = new List<string>();
+            List<string> uniqueValuesColumn2 = new List<string>();
+            List<string> uniqueValuesColumn3 = new List<string>();
+
+            string selectQuery = $"SELECT DISTINCT {col_category}, {col_brand}, {col_motor_brand} FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                string value1 = reader[col_category].ToString();
+                                string value2 = reader[col_brand].ToString();
+                                string value3 = reader[col_motor_brand].ToString();
+
+                                uniqueValuesColumn1.Add(value1);
+                                uniqueValuesColumn2.Add(value2);
+                                uniqueValuesColumn3.Add(value3);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            uniqueValuesColumn1.Insert(0, "Uncategorized");
+            uniqueValuesColumn2.Insert(0, "None");
+            uniqueValuesColumn3.Insert(0, "None");
+
+            return (uniqueValuesColumn1, uniqueValuesColumn2, uniqueValuesColumn3);
+        }
+
+        public async Task<List<string>> GetDistinctValuesAsync(string columnName, string defaultValue)
+        {
+            List<string> uniqueValues = new List<string>();
+
+            string selectQuery = $"SELECT DISTINCT {columnName} FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                string value = reader[columnName].ToString();
+                                uniqueValues.Add(value);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            if (!uniqueValues.Contains(defaultValue))
+            {
+                uniqueValues.Insert(0, defaultValue);
+            }
+
+            return uniqueValues;
+        }
+
         public async Task<bool> DeductStockAsync(int id, int amountToDeduct)
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
@@ -306,6 +438,94 @@ namespace BenpilsBarcodeSystem.Repository
                 MessageBox.Show("An error occurred: " + ex.Message);
                 return false;
             }
+        }
+
+        public async Task<List<Item>> GetSupplierItems(int supplierId)
+        {
+            List<Item> uniqueValuesColumn = new List<Item>();
+
+            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i INNER JOIN tbl_supplier_items si ON i.{col_id} = si.item_id WHERE si.supplier_id = @supplierId AND i.{col_is_active} = '1'";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@supplierId", supplierId);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int id = reader.GetInt32(reader.GetOrdinal(col_id));
+                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
+                                string category = reader.GetString(reader.GetOrdinal(col_category));
+                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
+                                string motorBrand = reader.GetString(reader.GetOrdinal(col_motor_brand));
+                                string size = reader.GetString(reader.GetOrdinal(col_size));
+                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
+                                decimal purchasePrice = reader.GetDecimal(reader.GetOrdinal(col_purchase_price));
+                                decimal sellingPrice = reader.GetDecimal(reader.GetOrdinal(col_selling_price));
+
+                                Item item = new Item
+                                {
+                                    Id = id,
+                                    ItemName = itemName,
+                                    Category = category,
+                                    Brand = brand,
+                                    MotorBrand = motorBrand,
+                                    Size = size,
+                                    Quantity = quantity,
+                                    PurchasePrice = purchasePrice,
+                                    SellingPrice = sellingPrice
+                                };
+
+                                uniqueValuesColumn.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return uniqueValuesColumn;
+        }
+
+        public async Task<Item> GetItemByBarcodeAsync(string barcode)
+        {
+            Item item = null;
+
+            string query = $"SELECT * FROM {tbl_name} WHERE {col_barcode} = @barcode";
+
+            using (SqlConnection con = databaseConnection.OpenConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@barcode", barcode);
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            item = new Item
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal(col_id)),
+                                ItemName = reader.GetString(reader.GetOrdinal(col_item_name)),
+                                Brand = reader.GetString(reader.GetOrdinal(col_brand)),
+                                Size = reader.GetString(reader.GetOrdinal(col_size)),
+                                SellingPrice = reader.GetDecimal(reader.GetOrdinal(col_selling_price)),
+                                Quantity = reader.GetInt32(reader.GetOrdinal(col_quantity))
+                            };
+                        }
+                    }
+                }
+            }
+
+            return item;
         }
     }
 }

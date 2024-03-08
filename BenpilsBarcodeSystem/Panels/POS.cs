@@ -1,238 +1,169 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
+using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
 {
     public partial class POS : Form
     {
-        private decimal total;
-        private DataGridView dataGridView1;
-        private decimal payment;
-        private string transactionNumber;
+        InventoryRepository inventory;
+        Cart CurrentCart;
 
         public POS()
         {
             InitializeComponent();
-            GenerateTransactionNumber();
-            UpdateUI();
         }
 
-        private void BarcoderichTxt_TextChanged(object sender, EventArgs e)
+        private void POS_Load(object sender, EventArgs e)
         {
-            UpdateDateLabel();
+            CurrentCart = new Cart();
+            InputValidator.AllowOnlyDigitsAndDecimal(PaymentTxt);
         }
 
-        private void UpdateDateLabel()
+        private async void BarcodeTxt_TextChanged(object sender, EventArgs e)
         {
-            lbldate.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
-        }
+            string barcode = BarcodeTxt.Text.Trim();
 
-        private void Addttocartbtn_Click(object sender, EventArgs e)
-        {
-            string barcode = BarcoderichTxt.Text.Trim();
-            int quantity = GetQuantityFromUser();
-
-            if (quantity > 0)
+            if (inventory == null)
             {
-                Item item = GetItemDetails(barcode);
+                inventory = new InventoryRepository();
+            }
 
-                if (item != null && item.Quantity >= quantity)
+            if(CurrentCart == null)
+            {
+                CurrentCart = new Cart();
+            }
+
+            Item CurrentItem = await inventory.GetItemByBarcodeAsync(barcode);
+
+            
+            if (CurrentItem != null)
+            {
+                var existingItem = CurrentCart.Items.FirstOrDefault(item => item.Id == CurrentItem.Id);
+                if (existingItem != null)
                 {
-                    UpdateItemQuantity(barcode, item.Quantity - quantity);
-
-                    // Insert the cart item into the tbl_cart table
-                    InsertCartItem(item.ItemName, item.MotorBrand, item.Brand, item.UnitPrice * quantity, quantity);
-
-                    total = CalculateTotal(); // Recalculate total
-                    GenerateTransactionNumber();
-                    UpdateUI();
+                    existingItem.Quantity += 1;
                 }
                 else
                 {
-                    MessageBox.Show("Insufficient stock for the selected quantity.");
+                    var purchaseItem = new PurchaseItem
+                    {
+                        Id = CurrentItem.Id,
+                        ItemName = CurrentItem.ItemName,
+                        Brand = CurrentItem.Brand,
+                        Size = CurrentItem.Size,
+                        Stock = CurrentItem.Quantity,
+                        Quantity = 1,
+                        SellingPrice = CurrentItem.SellingPrice
+                    };
+
+                    CurrentCart.Items.Add(purchaseItem);
                 }
+
+                CartTbl.AutoGenerateColumns = false;
+                CartTbl.DataSource = CurrentCart.Items;
+                CartTbl.Refresh();
+                BarcodeTxt.Clear();
+                CartCheck();
             }
         }
-        private void InsertCartItem( string itemName, string motorBrand, string brand, decimal subtotal,int  quantity)
+
+        private void CartTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+
+                var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
+
+                if (senderGrid.Columns[e.ColumnIndex].Name == "increase")
                 {
-                    connection.Open();
-                    string query = "INSERT INTO tbl_cart (ItemName, MotorBrand, Brand, Subtotal, Quantity) VALUES (@ItemName, @MotorBrand, @Brand, @Subtotal, @Quantity)";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    if(selectedItem.Stock > selectedItem.Quantity)
                     {
-                        command.Parameters.AddWithValue("@ItemName", itemName);
-                        command.Parameters.AddWithValue("@MotorBrand", motorBrand);
-                        command.Parameters.AddWithValue("@Brand", brand);
-                        command.Parameters.AddWithValue("@Subtotal", subtotal);
-                        command.Parameters.AddWithValue("@Quantity", quantity);
-
-                        command.ExecuteNonQuery();
+                        selectedItem.Quantity += 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Out of stock");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error inserting cart item: {ex.Message}");
+                else if (senderGrid.Columns[e.ColumnIndex].Name == "decrease")
+                {
+                    selectedItem.Quantity -= 1;
+
+                    if (selectedItem.Quantity == 0)
+                    {
+                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            CurrentCart.Items.Remove(selectedItem);
+                        }
+                        else
+                        {
+                            selectedItem.Quantity = 1;
+                        }
+                    }
+                }
+
+                CartTbl.Refresh();
+                CartCheck();
             }
         }
 
-        private void UpdateChangeLabel()
+        private void PaymentTxt_TextChanged(object sender, EventArgs e)
         {
-            decimal change = payment - total;
+            decimal change = InputValidator.ParseToDecimal(PaymentTxt.Text) - InputValidator.ParseToDecimal(TotalLbl.Text);
 
-            if (change < 0)
+            if(change > 0)
             {
-                Changelbl.Text = "Insufficient balance";
+                ChangeLbl.Text = InputValidator.DecimalToFormattedStringPrice(change);
             }
             else
             {
-                Changelbl.Text = change.ToString();
+                ChangeLbl.Text = "0.00";
             }
+            
         }
 
-        private void UpdateItemQuantity(string barcode, int newQuantity)
+        private void CheckoutBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (CurrentCart.HasItems())
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    connection.Open();
-                    string query = "UPDATE tbl_itemmasterdata SET Quantity = @NewQuantity WHERE Barcode = @Barcode";
+                var result = MessageBox.Show("Checkout?", "Warning", MessageBoxButtons.YesNo);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@NewQuantity", newQuantity);
-                        command.Parameters.AddWithValue("@Barcode", barcode);
-                        command.ExecuteNonQuery();
-                    }
+                if (result == DialogResult.Yes)
+                {
+                    ClearCart();
+                    MessageBox.Show("Transaction completed succesfully");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error updating item quantity: {ex.Message}");
-            }
+            BarcodeTxt.Select();
         }
 
-        private Item GetItemDetails(string barcode)
+        private void CartCheck()
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    connection.Open();
-
-                    string query = "SELECT ItemName, MotorBrand, Brand, UnitPrice, Quantity FROM tbl_itemmasterdata WHERE Barcode = @Barcode";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Barcode", barcode);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                return new Item
-                                {
-                                    ItemName = reader["ItemName"].ToString(),
-                                    MotorBrand = reader["MotorBrand"].ToString(),
-                                    Brand = reader["Brand"].ToString(),
-                                    UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
-                                    Quantity = Convert.ToInt32(reader["Quantity"])
-                                };
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching item details: {ex.Message}");
-            }
-
-            return null;
+            CheckoutBtn.Enabled = CurrentCart.HasItems();
+            TotalLbl.Text = CurrentCart.GetTotalPrice();
         }
 
-        private void UpdateUI()
+        private void ClearCart()
         {
-            TotalLbl.Text = total.ToString();
-            TransactionNumberlbl.Text = transactionNumber;
-
-            // Retrieve cart items from the tbl_cart table
-            dataGridView1.DataSource = GetCartItems();
-
-            UpdateChangeLabel();
-        }
-
-        private DataTable GetCartItems()
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    connection.Open();
-                    string query = "SELECT ItemName, MotorBrand, Brand, Subtotal FROM tbl_cart WHERE TransactionNumber = @TransactionNumber";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dt);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error retrieving cart items: {ex.Message}");
-            }
-
-            return dt;
-        }
-
-        private void GenerateTransactionNumber()
-        {
-            Random random = new Random();
-            int randomDigits = random.Next(100000000, 999999999);
-            transactionNumber = "BEN - " + randomDigits.ToString();
-        }
-
-        private int GetQuantityFromUser()
-        {
-            return 0;
-        }
-
-        private decimal CalculateTotal()
-        {
-            decimal total = 0;
-
-            // Retrieve cart items from the tbl_cart table
-            DataTable cartItems = GetCartItems();
-
-            foreach (DataRow row in cartItems.Rows)
-            {
-                total += Convert.ToDecimal(row["Subtotal"]);
-            }
-
-            return total;
-        }
-
-        private class Item
-        {
-            public string ItemName { get; set; }
-            public string MotorBrand { get; set; }
-            public string Brand { get; set; }
-            public decimal UnitPrice { get; set; }
-            public int Quantity { get; set; }
+            CurrentCart = null;
+            CartTbl.DataSource = null;
+            CartTbl.Rows.Clear();
+            TotalLbl.Text = "0.00";
+            ChangeLbl.Text = "0.00";
+            PaymentTxt.Text = null;
+            BarcodeTxt.Text = null;
         }
     }
 }

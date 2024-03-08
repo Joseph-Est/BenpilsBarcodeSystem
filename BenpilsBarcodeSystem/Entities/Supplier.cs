@@ -8,7 +8,15 @@ namespace BenpilsBarcodeSystem
 {
     public class Supplier
     {
-        public string SupplierID { get; set; }
+        public int SupplierID { get; set; }
         public string ContactName { get; set;}
+        public string ContactNo { get; set; }
+        public string Address { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ContactName} ({ContactNo})";
+        }
+
     }
 }

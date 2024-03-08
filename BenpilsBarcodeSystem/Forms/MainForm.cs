@@ -1,4 +1,5 @@
-﻿using BenpilsBarcodeSystem.Utils;
+﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,18 +28,18 @@ namespace BenpilsBarcodeSystem
         private static extern bool ReleaseCapture();
 
         private CheckBox lastChecked = null;
-        private Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
-        private Dictionary<CheckBox, Image> uncheckedImages = new Dictionary<CheckBox, Image>();
-        private Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
-        private Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
+        private readonly Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
+        private readonly Dictionary<CheckBox, Image> uncheckedImages = new Dictionary<CheckBox, Image>();
+        private readonly Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
+        private readonly Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
 
-        public MainForm(User user)
+        public MainForm()
         {
             InitializeComponent();
             LoadImages();
             SetForms();
             SetTimer();
-            SetUser(user);
+            SetUser();
             Checkbox_Clicked(DashboardCb, null);
         }
 
@@ -138,20 +139,20 @@ namespace BenpilsBarcodeSystem
             form.Show();
         }
 
-        private void SetUser(User user)
+        private void SetUser()
         {
-            label1.Text = "Username: " + user.Username;
-            label2.Text = "Designation: " + user.Designation;
+            label1.Text = "Username: " + CurrentUser.User.Username;
+            label2.Text = "Designation: " + CurrentUser.User.Designation;
 
-            if (user.Designation == "Superadmin")
+            if (CurrentUser.User.Designation == "SUPER ADMIN")
             {
 
             }
-            else if (user.Designation == "Admin")
+            else if (CurrentUser.User.Designation == "ADMIN")
             {
 
             }
-            else if (user.Designation == "Inventory Manager")
+            else if (CurrentUser.User.Designation == "INVENTORY MANAGER")
             {
                 //PointOfSalesBtn.Enabled = false;
                 //ReportsBtn.Enabled = false;
@@ -159,7 +160,7 @@ namespace BenpilsBarcodeSystem
                 //UsercredentialsBtn.Enabled = false;
                 //SettingsBtn.Enabled = false;
             }
-            else if (user.Designation == "Cashier")
+            else if (CurrentUser.User.Designation == "CASHIER")
             {
                 //InventoryBtn.Enabled = false;
                 //PurchasingBtn.Enabled = false;
@@ -203,7 +204,7 @@ namespace BenpilsBarcodeSystem
             //checkBoxToFormType[DashboardCb] = typeof();
             checkBoxToFormType[InventoryCb] = typeof(Inventory);
             checkBoxToFormType[PurchasingCb] = typeof(PurchaseOrder);
-            //checkBoxToFormType[PosCb] = typeof(POS);
+            checkBoxToFormType[PosCb] = typeof(POS);
             checkBoxToFormType[ReportsCb] = typeof(Reports);
             checkBoxToFormType[StatisticsCb] = typeof(StatisticReport);
             checkBoxToFormType[UsersCb] = typeof(Ser);

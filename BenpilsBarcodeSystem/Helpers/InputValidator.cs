@@ -91,10 +91,6 @@ namespace BenpilsBarcodeSystem.Helpers
                 {
                     e.Handled = true;
                 }
-                else if (textBox.Text.Length >= 9 && !char.IsControl(e.KeyChar)) 
-                {
-                    e.Handled = true;
-                }
             };
         }
 
@@ -126,11 +122,28 @@ namespace BenpilsBarcodeSystem.Helpers
                         e.Handled = true;
                     }
                 }
-                else if (!char.IsControl(e.KeyChar) && textBox.Text.Length >= 10) 
-                {
-                    e.Handled = true;
-                }
             };
+        }
+
+        public static string CheckIfEmptyReturnZero(string input)
+        {
+            input = input.Replace(" ", "").Trim();
+
+            if (string.IsNullOrEmpty(input))
+            {
+                return "0";
+            }
+            else
+            {
+                int value;
+                return int.TryParse(input, out value) ? input : "0";
+            }
+        }
+
+        public static string CheckIfEmptyReturnNA(string input)
+        {
+            input = input.Trim();
+            return string.IsNullOrEmpty(input) ? "N/A" : input;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using BenpilsBarcodeSystem.Helpers;
+﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Repositories;
 using BenpilsBarcodeSystem.Repository;
 using BenpilsBarcodeSystem.Utils;
 using System;
@@ -19,6 +22,7 @@ namespace BenpilsBarcodeSystem
     {
         private bool isAdding = false;
         private bool isUpdating = false;
+        private bool isPurchasing = false;
         private int selectedID;
         private string prevContactName, prevContactNumber;
 
@@ -42,8 +46,8 @@ namespace BenpilsBarcodeSystem
 
             try
             {
-                PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
-                DataTable suppliersDT = await purchaseOrderRepository.GetSupplierAsync(searchText);
+                SuppliersRepository repository = new SuppliersRepository();
+                DataTable suppliersDT = await repository.GetSupplierAsync(searchText);
 
                 SupplierTbl.DataSource = suppliersDT;
             }
@@ -78,7 +82,7 @@ namespace BenpilsBarcodeSystem
                     return;
                 }
 
-                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+                SuppliersRepository repository = new SuppliersRepository();
 
                 if (isAdding || (isUpdating && (prevContactName != ContactNameTxt.Text || prevContactNumber != ContactNoTxt.Text)))
                 {
@@ -92,9 +96,9 @@ namespace BenpilsBarcodeSystem
                 if (isAdding)
                 {
                     await repository.AddSupplierAsync(
-                        Util.CapitalizeFirstLetter(ContactNameTxt.Text),
+                        Util.Capitalize(ContactNameTxt.Text),
                         ContactNoTxt.Text,
-                        Util.CapitalizeFirstLetter(AddressTxt.Text)
+                        Util.Capitalize(AddressTxt.Text)
                     );
 
                     isAdding = false;
@@ -114,9 +118,9 @@ namespace BenpilsBarcodeSystem
 
                     await repository.UpdateSupplierAsync(
                         selectedID,
-                        Util.CapitalizeFirstLetter(ContactNameTxt.Text),
+                        Util.Capitalize(ContactNameTxt.Text),
                         ContactNoTxt.Text,
-                        Util.CapitalizeFirstLetter(AddressTxt.Text)
+                        Util.Capitalize(AddressTxt.Text)
                     );
                     isUpdating = false;
 
@@ -129,9 +133,6 @@ namespace BenpilsBarcodeSystem
 
                 AddBtn.Text = " Add";
                 UpdateBtn.Text = " Update";
-
-                AddBtn.ForeColor = Color.White;
-                UpdateBtn.ForeColor = Color.White;
 
                 this.CancelButton = null;
             }
@@ -181,7 +182,7 @@ namespace BenpilsBarcodeSystem
 
             if (result == DialogResult.Yes)
             {
-                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+                SuppliersRepository repository = new SuppliersRepository();
 
                 if (selectedID > 0)
                 {
@@ -264,96 +265,241 @@ namespace BenpilsBarcodeSystem
 
 
 
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+        private Cart CurrentPurchaseCart;
+        private Supplier SelectedSupplier;
 
-
-        private void RefreshBtn_Click(object sender, EventArgs e)
+        private void PurchasePage_Enter(object sender, EventArgs e)
         {
-
+            UpdatePurchaseOrdersDG();
+            OrderDt.MinDate = DateTime.Now;
+            DeliveryDt.MinDate = DateTime.Now;
         }
 
-        private void AdddBtn_Click(object sender, EventArgs e)
+        public async void UpdatePurchaseOrdersDG()
         {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-        private void UpdateChangeLabel()
-        {
-            //// Calculate change whenever the payment amount changes
-            //decimal payment;
-            //if (decimal.TryParse(paymentTxt.Text, out payment))
-            //{
-            //    decimal total = Convert.ToDecimal(totallbl.Text);
-
-            //    // Calculate change
-            //    decimal change = payment - total;
-
-            //    // Update the Change label
-            //    PurchasePage.Text = change.ToString();
-            //}
-        }
-        private void UpdateTotalLabel()
-        {
-            //// Calculate the total from the DataTable
-            //decimal total = dtCart.AsEnumerable().Sum(row => row.Field<decimal>("Subtotal"));
-
-            //// Update the Total label
-            //totallbl.Text = total.ToString();
-        }
-
-        private void BuyBtn_Click(object sender, EventArgs e)
-        {
-            //decimal payment = Convert.ToDecimal(paymentTxt.Text);
-            //decimal total = Convert.ToDecimal(totallbl.Text);
-            //if (dtCart.Rows.Count == 0)
-            //{
-            //    MessageBox.Show("Please add items to the cart before purchasing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //decimal change = payment - total;
-            //ChangeLbl.Text = change.ToString();
-            //if (change >= 0)
-            //{
-            //    MessageBox.Show("Purchase successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    ClearCart();
-            //    UpdateDataGridView2();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Purchase failed, insufficient balance", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-
-        private void paymentTxt_TextChanged(object sender, EventArgs e)
-        {
-            UpdateChangeLabel();
-        }
-        private void ClearCart()
-        {
-           // // Clear the DataTable
-           // dtCart.Clear();
-
-           // // Update the total label after clearing
-           // UpdateTotalLabel();
-           //UpdateDataGridView2();
-        }
-
-        private void UpdateDataGridView2()
-        {
-            string selectQuery = "SELECT * FROM tbl_cartpurchasing";
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            try
             {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+                DataTable ordersDT = await repository.GetPurchaseOrderTransactionsAsync();
+
+                OrdersTbl.AutoGenerateColumns = false;
+                OrdersTbl.DataSource = ordersDT;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void NewPurchaseBtn_Click(object sender, EventArgs e)
+        {
+            SelectedSupplier = new Supplier();
+            CurrentPurchaseCart = new Cart();
+            EnablePurchasePanel(true);
+            PopulateSupplier();
+        }
+
+        private void AddItemCb_Click(object sender, EventArgs e)
+        {
+            if(SelectedSupplier != null)
+            {
+                AddPurchaseItem addPurchaseItem = new AddPurchaseItem(SelectedSupplier);
+                if (addPurchaseItem.ShowDialog() == DialogResult.OK)
                 {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridView2.DataSource = dt;
+                    int id = addPurchaseItem.SelectedItem.Id;
+                    string itemName = addPurchaseItem.SelectedItem.ItemName;
+                    string brand = addPurchaseItem.SelectedItem.Brand;
+                    string size = addPurchaseItem.SelectedItem.Size;
+                    decimal purchasePrice = addPurchaseItem.SelectedItem.PurchasePrice;
+                    int quantity = addPurchaseItem.quantity;
+
+                    var existingItem = CurrentPurchaseCart.Items.FirstOrDefault(item => item.Id == id);
+                    if (existingItem != null)
+                    {
+                        existingItem.Quantity += quantity;
+                    }
+                    else
+                    {
+                        CurrentPurchaseCart.Items.Add(new PurchaseItem { Id = id, ItemName = itemName, Brand = brand, Size = size, Quantity = quantity, PurchasePrice = purchasePrice });
+                    }
+
+                    ItemsTbl.AutoGenerateColumns = false;
+                    ItemsTbl.DataSource = CurrentPurchaseCart.Items;
+                    ItemsTbl.Refresh();
+                    ItemsTableCheck();
                 }
             }
+        }
+
+        private async void CompleteBtn_Click(object sender, EventArgs e)
+        {
+            if (CurrentPurchaseCart.HasItems() && SelectedSupplier != null)
+            {
+                DateTime orderDate = OrderDt.Value;
+                DateTime deliveryDate = DeliveryDt.Value;
+                int orderNo = Util.GenerateRandomNumber(10000000, 99999999);
+
+                OrderDetails orderDetails = new OrderDetails(true, CurrentPurchaseCart, SelectedSupplier, Util.ConvertDate(orderDate), Util.ConvertDate(deliveryDate));
+                if(orderDetails.ShowDialog() == DialogResult.OK)
+                {
+                    PurchaseOrderRepository repository = new PurchaseOrderRepository();
+                    if (await repository.InsertPurchaseOrderAsync(orderNo, CurrentPurchaseCart, SelectedSupplier, orderDate, deliveryDate))
+                    {
+                        MessageBox.Show("Purchase success, order is pending.");
+                        //await Util.SavePurchaseOrderReceiptAsync(orderNo.ToString(), CurrentPurchaseCart, "Harigato");
+                        ClearPurchase();
+                        UpdatePurchaseOrdersDG();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Purchase failed, please try again later.");
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        private void ItemsTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
+            {
+
+                var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
+
+                if (senderGrid.Columns[e.ColumnIndex].Name == "increase")
+                {
+                    selectedItem.Quantity += 1;
+                }
+                else if (senderGrid.Columns[e.ColumnIndex].Name == "decrease")
+                {
+                    selectedItem.Quantity -= 1;
+
+                    if (selectedItem.Quantity == 0)
+                    {
+                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            CurrentPurchaseCart.Items.Remove(selectedItem);
+                        }
+                        else
+                        {
+                            selectedItem.Quantity = 1;
+                        }
+                    }
+                }
+
+                ItemsTbl.Refresh();
+                ItemsTableCheck();
+            }
+        }
+
+        private void OrdersTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
+                {
+                    //OrderDetails orderDetails = new OrderDetails();
+                    //orderDetails.ShowDialog();
+                }
+
+                else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
+                {
+                   
+                }
+            }
+        }
+
+        private void SupplierCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isPurchasing)
+            {
+                if (SupplierCb.SelectedIndex != 0)
+                {
+                    AddItemPanel.Enabled = true;
+
+                    if (SupplierCb.SelectedItem is Supplier selectedSupplier)
+                    {
+                        SelectedSupplier = selectedSupplier;
+                    }
+                }
+                else
+                {
+                    AddItemPanel.Enabled = false;
+                    SelectedSupplier = null;
+                }
+            }
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Cancel Purchase", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ClearPurchase();
+            }
+        }
+
+        private void ClearPurchase()
+        {
+            SelectedSupplier = null;
+            CurrentPurchaseCart = null;
+            ItemsTbl.DataSource = null;
+            ItemsTbl.Rows.Clear();
+            TotalAmountLbl.Text = "0.00";
+            SupplierCb.SelectedIndex = -1;
+            AddItemPanel.Enabled = false;
+            CompleteBtn.Enabled = false;
+            OrderDt.Value = DateTime.Now;
+            DeliveryDt.Value = DateTime.Now;
+            EnablePurchasePanel(false);
+        }
+
+        private async void PopulateSupplier()
+        {
+            SuppliersRepository repository = new SuppliersRepository();
+            List<Supplier> suppliers = await repository.GetSuppliersAsync();
+
+            SupplierCb.Items.Clear();
+            SupplierCb.Items.Add("Select supplier");
+            SupplierCb.Items.AddRange(suppliers.ToArray());
+
+            SupplierCb.SelectedItem = "Select supplier";
+        }
+
+        private void ItemsTableCheck()
+        {
+            TotalAmountLbl.Text = CurrentPurchaseCart.GetTotalAmount();
+            CompleteBtn.Enabled = CurrentPurchaseCart.HasItems();
+            SupplierCb.Enabled = !CurrentPurchaseCart.HasItems();
+        }
+
+        private void OrderDt_ValueChanged(object sender, EventArgs e)
+        {
+            DeliveryDt.MinDate = OrderDt.Value;
+        }
+
+        private void EnablePurchasePanel(bool isEnable)
+        {
+            NewPurchaseBtn.Enabled = !isEnable;
+            AddBtn.Enabled = isEnable;
+            isPurchasing = isEnable;
+            SupplierPanel.Enabled = isEnable;
+            DatePanel.Enabled = isEnable;
+            ItemsTbl.Visible = isEnable;
+            SummaryPanel.Visible = isEnable;
+            CompleteBtn.Visible = isEnable;
+            CancelBtn.Visible = isEnable;
         }
     }
 }

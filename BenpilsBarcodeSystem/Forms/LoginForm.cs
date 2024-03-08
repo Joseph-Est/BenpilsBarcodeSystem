@@ -50,27 +50,14 @@ namespace BenpilsBarcodeSystem
 
                 try
                 {
-                    LoginRepository loginRepository = new LoginRepository();
+                    UserCredentialsRepository repository = new UserCredentialsRepository();
 
-                    DataTable dt = await loginRepository.GetUserCredentials(UsernameTxt.Text, PasswordTxt.Text);
-
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        string username = dt.Rows[0]["username"].ToString();
-                        string designation = dt.Rows[0]["designation"].ToString();
-
-                        MessageBox.Show("Login successful");
-
-                        User user = new User
-                        {
-                            Username = username,
-                            Designation = designation
-                        };
-
-                        MainForm dash = new MainForm(user);
+                    if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text)){
+                        MainForm dash = new MainForm();
                         dash.Show();
                         dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
                         this.Hide();
+                        MessageBox.Show("Login successful");
                     }
                     else
                     {

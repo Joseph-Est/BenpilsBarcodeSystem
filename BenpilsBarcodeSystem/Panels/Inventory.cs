@@ -19,16 +19,16 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Inventory : Form
     {
-        private bool isAdding = false;
         private bool isUpdating = false;
         private int selectedID;
-        private string prevItemName, prevBarcode, prevSize;
+        private string prevItemName, prevBarcode, prevSize, prevBrand, prevMotorBrand;
 
         public Inventory()
         {
             InitializeComponent();
             InputValidator.AllowOnlyDigits(QuantityTxt);
-            InputValidator.AllowOnlyDigitsAndDecimal(UnitPriceTxt);
+            InputValidator.AllowOnlyDigitsAndDecimal(PurchasePriceTxt);
+            InputValidator.AllowOnlyDigitsAndDecimal(SellingPriceTxt);
         }
 
         private void Inventory_Load(object sender, EventArgs e)
@@ -59,94 +59,69 @@ namespace BenpilsBarcodeSystem
 
         private async void AddBtn_Click(object sender, EventArgs e)
         {
-            if (!isUpdating && !isAdding)
+            if (isUpdating)
             {
-                isAdding = true;
-                ClearFields();
-                SetFieldsReadOnly(false);
+                string itemName = Util.Capitalize(ItemNameTxt.Text);
+                string category = CategoryCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(CategoryCb.Text);
+                string brand = BrandCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(BrandCb.Text);
+                string motorBrand = MotorBrandTxt.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(MotorBrandTxt.Text);
+                string size = Util.CapitalizeOrNA(SizeTxt.Text);
 
-                AddBtn.Text = " Save Item";
-                UpdateBtn.Text = " Cancel";
-
-                GenerateBtn.Enabled = true;
-                UpdateBtn.Enabled = true;
-                ArchiveBtn.Enabled = false;
-                ReduceStockBtn.Enabled = false;
-
-                BarcodeTxt.Focus();
-                this.CancelButton = UpdateBtn;
-            }
-            else
-            {
-                if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt, ProductIDTxt, UnitPriceTxt, QuantityTxt, CategoryTxt))
+                if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
                 {
                     MessageBox.Show("Please fill in all the required fields.");
                     return;
                 }
 
-                if (!InputValidator.IsValidPrice(UnitPriceTxt.Text))
+                if (!string.IsNullOrEmpty(PurchasePriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(PurchasePriceTxt.Text))
                 {
-                    MessageBox.Show("Invalid price");
+                    MessageBox.Show("Invalid purchase price");
+                    return;
+                }
+
+                if (!string.IsNullOrEmpty(SellingPriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(SellingPriceTxt.Text))
+                {
+                    MessageBox.Show("Invalid selling price");
                     return;
                 }
 
                 InventoryRepository repository = new InventoryRepository();
 
-                if(isAdding || (isUpdating && (prevSize != SizeTxt.Text || prevItemName != ItemNameTxt.Text)))
+                if (isUpdating && (prevSize != SizeTxt.Text || prevItemName != ItemNameTxt.Text) || prevBrand != BrandTxt.Text || prevMotorBrand != MotorBrandTxt.Text)
                 {
-                    if (await repository.AreDataExistsAsync("size", SizeTxt.Text, "item_name", ItemNameTxt.Text))
+                    if (await repository.isItemExists(itemName, brand, motorBrand, size))
                     {
-                        MessageBox.Show("Item already exists. Please choose diffrent item name or different size");
+                        MessageBox.Show("Item already exists");
                         return;
                     }
                 }
 
-                if (isAdding)
+                if (prevBarcode != BarcodeTxt.Text)
                 {
-                    await repository.AddProductAsync(
-                        BarcodeTxt.Text,
-                        InputValidator.ParseToInt(ProductIDTxt.Text),
-                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
-                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
-                        Util.CapitalizeFirstLetter(BrandTxt.Text),
-                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
-                        InputValidator.ParseToInt(QuantityTxt.Text),
-                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
-                        Util.CapitalizeFirstLetter(SizeTxt.Text)
-                    );
-
-                    isAdding = false;
-                    GenerateBtn.Enabled = false;
-
-                    MessageBox.Show("New item added succesfully!");
-                }
-                else
-                {
-                    if(prevBarcode != BarcodeTxt.Text)
+                    if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
                     {
-                        if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
-                        {
-                            MessageBox.Show("Barcode already exist.");
-                            return;
-                        }
+                        MessageBox.Show("Barcode already exist.");
+                        return;
                     }
-                   
-                    await repository.UpdateProductAsync(
-                        selectedID,
-                        BarcodeTxt.Text,
-                        Util.CapitalizeFirstLetter(ItemNameTxt.Text),
-                        Util.CapitalizeFirstLetter(MotorBrandTxt.Text),
-                        Util.CapitalizeFirstLetter(BrandTxt.Text),
-                        InputValidator.ParseToDecimal(UnitPriceTxt.Text),
-                        InputValidator.ParseToInt(QuantityTxt.Text),
-                        Util.CapitalizeFirstLetter(CategoryTxt.Text),
-                        Util.CapitalizeFirstLetter(SizeTxt.Text)
-                    );
-                    isUpdating = false;
-
-                    MessageBox.Show($"{Util.CapitalizeFirstLetter(ItemNameTxt.Text)} updated succesfully!");
                 }
-                
+
+                await repository.UpdateProductAsync(
+                    selectedID,
+                    BarcodeTxt.Text,
+                    itemName,
+                    category,
+                    brand,
+                    motorBrand,
+                    size,
+                    InputValidator.ParseToInt(QuantityTxt.Text),
+                    InputValidator.ParseToDecimal(PurchasePriceTxt.Text),
+                    InputValidator.ParseToDecimal(SellingPriceTxt.Text)
+                );
+
+                isUpdating = false;
+
+                MessageBox.Show($"{Util.Capitalize(ItemNameTxt.Text)} updated succesfully!");
+
                 UpdateDataGridView();
                 ClearFields();
                 SetFieldsReadOnly(true);
@@ -154,17 +129,22 @@ namespace BenpilsBarcodeSystem
                 AddBtn.Text = " Add";
                 UpdateBtn.Text = " Update";
 
-                AddBtn.ForeColor = Color.White;
-                UpdateBtn.ForeColor = Color.White;
-
                 this.CancelButton = null;
+            }
+            else
+            {
+                AddItem addItem = new AddItem();
+                if (addItem.ShowDialog() == DialogResult.OK)
+                {
+                    UpdateDataGridView();
+                }
             }
             
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            if(!isUpdating && !isAdding)
+            if(!isUpdating)
             {
                 isUpdating = true;
                 SetFieldsReadOnly(false);
@@ -177,19 +157,18 @@ namespace BenpilsBarcodeSystem
 
                 prevItemName = ItemNameTxt.Text;
                 prevBarcode = BarcodeTxt.Text;
-                prevSize = SizeTxt.Text;
+                prevBrand = BrandTxt.Text;
+                prevMotorBrand = MotorBrandTxt.Text;
+                prevSize = SellingPriceTxt.Text;
 
                 this.CancelButton = UpdateBtn;
             }
             else
             {
-                isAdding = false;
                 isUpdating = false;
 
                 ClearFields();
                 SetFieldsReadOnly(true);
-
-                GenerateBtn.Enabled = false;
 
                 AddBtn.Text = " Add";
                 UpdateBtn.Text = " Update";
@@ -249,18 +228,18 @@ namespace BenpilsBarcodeSystem
 
         private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(!isAdding && !isUpdating)
+            if(!isUpdating)
             {
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
                     selectedID =  InputValidator.ParseToInt(row.Cells["id"].Value.ToString());
                     BarcodeTxt.Text = row.Cells["barcode"].Value.ToString();
-                    ProductIDTxt.Text = row.Cells["product_id"].Value.ToString();
                     ItemNameTxt.Text = row.Cells["item_name"].Value.ToString();
                     MotorBrandTxt.Text = row.Cells["motor_brand"].Value.ToString();
                     BrandTxt.Text = row.Cells["brand"].Value.ToString();
-                    UnitPriceTxt.Text = row.Cells["unit_price"].Value.ToString();
+                    PurchasePriceTxt.Text = row.Cells["purchase_price"].Value.ToString();
+                    SellingPriceTxt.Text = row.Cells["selling_price"].Value.ToString();
                     QuantityTxt.Text = row.Cells["quantity"].Value.ToString();
                     CategoryTxt.Text = row.Cells["category"].Value.ToString();
                     SizeTxt.Text = row.Cells["size"].Value.ToString();
@@ -294,13 +273,6 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
-        private void GenerateBtn_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-            int randomNumber = random.Next(10000000, 99999999);
-            ProductIDTxt.Text = randomNumber.ToString();
-        }
-
         private void SearchTxt_TextChanged(object sender, EventArgs e)
         {
             UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
@@ -318,9 +290,9 @@ namespace BenpilsBarcodeSystem
 
         private void ClearFields()
         {
-            Util.ClearTextBoxes(BarcodeTxt, ProductIDTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+            Util.ClearTextBoxes(BarcodeTxt, ItemNameTxt, CategoryTxt, BrandTxt, QuantityTxt, PurchasePriceTxt, MotorBrandTxt, SizeTxt, SellingPriceTxt);
 
-            if(!isAdding && !isUpdating)
+            if(!isUpdating)
             {
                 UpdateBtn.Enabled = false;
                 ArchiveBtn.Enabled = false;
@@ -330,7 +302,7 @@ namespace BenpilsBarcodeSystem
 
         private void SetFieldsReadOnly(bool mode)
         {
-            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, MotorBrandTxt, BrandTxt, UnitPriceTxt, QuantityTxt, CategoryTxt, SizeTxt);
+            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, CategoryTxt, BrandTxt, QuantityTxt, MotorBrandTxt, SizeTxt, SellingPriceTxt);
         }
 
         private void InputFormPanel_Enter(object sender, EventArgs e)

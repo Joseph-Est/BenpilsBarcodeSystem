@@ -83,6 +83,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-add-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_analytics_30_white {
             get {
                 object obj = ResourceManager.GetObject("icons8-analytics-30-white", resourceCulture);
@@ -153,6 +163,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_close_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-close-30", resourceCulture);
@@ -196,6 +216,16 @@ namespace BenpilsBarcodeSystem.Properties {
         internal static System.Drawing.Bitmap icons8_downloading_updates_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-downloading-updates-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +353,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_minus_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-minus-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_multiply_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-multiply-15", resourceCulture);
@@ -376,6 +416,16 @@ namespace BenpilsBarcodeSystem.Properties {
         internal static System.Drawing.Bitmap icons8_random_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-random-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_remove_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remove-15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

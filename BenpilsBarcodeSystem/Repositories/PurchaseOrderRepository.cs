@@ -1,46 +1,33 @@
-﻿using BenpilsBarcodeSystem.Database;
+﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BenpilsBarcodeSystem.Helpers;
 
-namespace BenpilsBarcodeSystem.Repository
+namespace BenpilsBarcodeSystem.Repositories
 {
     internal class PurchaseOrderRepository
     {
-        private readonly DatabaseConnection databaseConnection;
+        private readonly Database.DatabaseConnection databaseConnection;
 
-        private string tbl_name = "tbl_suppliers";
-        private string col_id = "supplier_id", col_contact_name = "contact_name", col_address = "address", col_contact_no = "contact_no", col_is_active = "is_active";
+        private string tbl_purchase_order = "tbl_purchase_order", tbl_purchase_order_details = "tbl_purchase_order_details";
+        private string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_is_fulfilled = "is_fulfilled",
+            col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_quantity = "quantity", col_total = "total", 
+            col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by";
 
         public PurchaseOrderRepository()
         {
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<DataTable> GetSupplierAsync(string searchText = "")
+        public async Task<DataTable> GetPurchaseOrderTransactionsAsync()
         {
-            string selectQuery;
-
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
-            }
-            else
-            {
-                selectQuery = $"SELECT * FROM {tbl_name} WHERE {col_is_active} = '1'";
-
-                if (!string.IsNullOrWhiteSpace(searchText))
-                {
-                    selectQuery += $" AND ({col_contact_name} LIKE @searchText OR " +
-                                   $"{col_address} LIKE @searchText OR " +
-                                   $"{col_contact_no} LIKE @searchText)";
-                }
-            }
+            string selectQuery = $"SELECT po.{col_order_id}, s.contact_name, po.{col_order_date}, po.{col_receiving_date} FROM {tbl_purchase_order} po INNER JOIN tbl_suppliers s ON po.{col_supplier_id} = s.supplier_id WHERE po.{col_is_fulfilled} = '0'";
 
             try
             {
@@ -48,12 +35,30 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                     {
-                        adapter.SelectCommand.Parameters.AddWithValue("@searchText", $"%{searchText}%");
-
                         DataTable dt = new DataTable();
                         await Task.Run(() => adapter.Fill(dt));
 
-                        dt.Columns.Remove(col_is_active);
+                        dt.Columns.Add("status", typeof(string));
+                        dt.Columns.Add("formatted_order_date", typeof(string));
+                        dt.Columns.Add("formatted_receiving_date", typeof(string));
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            DateTime orderDate = Convert.ToDateTime(row[col_order_date]);
+                            DateTime receivingDate = Convert.ToDateTime(row[col_receiving_date]);
+
+                            if (DateTime.Today > receivingDate)
+                            {
+                                row["status"] = "Overdue";
+                            }
+                            else
+                            {
+                                row["status"] = "Pending";
+                            }
+
+                            row["formatted_order_date"] = Util.ConvertDate(orderDate);
+                            row["formatted_receiving_date"] = Util.ConvertDate(receivingDate);
+                        }
 
                         return dt;
                     }
@@ -66,72 +71,46 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task AddSupplierAsync(string contactName, string contactNo, string address)
+        public async Task<bool> InsertPurchaseOrderAsync(int orderID, Cart cart, Supplier supplier, DateTime orderDate, DateTime receivingDate)
         {
-            string insertQuery = $"INSERT INTO {tbl_name} ({col_contact_name}, {col_contact_no}, {col_address}) " +
-                                 "VALUES (@ContactName, @ContactNo, @Address)";
+            string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}) VALUES (@orderId, @supplierId, @orderDate, @receivingDate, @operatedBy)";
+            string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_quantity}, {col_total}) VALUES (@orderId, @itemId, @quantity, @total)";
 
             try
             {
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                    using (SqlTransaction transaction = con.BeginTransaction())
                     {
-                        cmd.Parameters.AddWithValue("@ContactName", contactName);
-                        cmd.Parameters.AddWithValue("@ContactNo", contactNo);
-                        cmd.Parameters.AddWithValue("@Address", address);
+                        using (SqlCommand cmd = new SqlCommand(insertOrderQuery, con, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@orderId", orderID);
+                            cmd.Parameters.AddWithValue("@supplierId", supplier.SupplierID);
+                            cmd.Parameters.AddWithValue("@orderDate", orderDate);
+                            cmd.Parameters.AddWithValue("@receivingDate", receivingDate);
+                            cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.iD);
 
-                        await cmd.ExecuteNonQueryAsync();
+                            await cmd.ExecuteNonQueryAsync(); 
+
+                            cmd.CommandText = insertOrderDetailsQuery;
+
+                            foreach (var item in cart.Items)
+                            {
+                                cmd.Parameters.Clear();
+
+                                cmd.Parameters.AddWithValue("@orderId", orderID);
+                                cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                cmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                                cmd.Parameters.AddWithValue("@total", item.PurchasePrice * item.Quantity);
+
+                                await cmd.ExecuteNonQueryAsync(); 
+                            }
+                        }
+
+                        transaction.Commit();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-        }
-
-        public async Task UpdateSupplierAsync(int id, string contactName, string contactNo, string address)
-        {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_contact_name} = @ContactName, {col_contact_no} = @ContactNo, {col_address} = @Address WHERE {col_id} = @ID";
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@ContactName", contactName);
-                        cmd.Parameters.AddWithValue("@ContactNo", contactNo);
-                        cmd.Parameters.AddWithValue("@Address", address);
-                        cmd.Parameters.AddWithValue("@ID", id);
-
-                        await cmd.ExecuteNonQueryAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-        }
-
-        public async Task<bool> AreDataExistsAsync(string column1, string data1, string column2, string data2)
-        {
-            string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE {column1} = @Data1 COLLATE SQL_Latin1_General_CP1_CI_AS AND {column2} = @Data2 COLLATE SQL_Latin1_General_CP1_CI_AS";
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Data1", data1);
-                        cmd.Parameters.AddWithValue("@Data2", data2);
-                        int count = (int)await cmd.ExecuteScalarAsync();
-                        return count > 0;
-                    }
-                }
+                return true;
             }
             catch (Exception ex)
             {
@@ -140,29 +119,66 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> ArchiveSupplierAsync(int id)
+        public async Task<Cart> GetPurchaseCartAsync(int orderId)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = 0 WHERE {col_id} = @ID";
+            var purchaseCart = new Cart();
 
-            try
+            using (var command = new SqlCommand("SELECT * FROM tbl_purchase_order_details WHERE order_id = @orderId", databaseConnection.OpenConnection()))
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                command.Parameters.AddWithValue("@orderId", orderId);
+
+                using (var reader = await command.ExecuteReaderAsync())
                 {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    while (await reader.ReadAsync())
                     {
-                        cmd.Parameters.AddWithValue("@ID", id);
+                        var itemId = reader.GetInt32(reader.GetOrdinal("item_id"));
+                        var quantity = reader.GetInt32(reader.GetOrdinal("quantity"));
+                        var total = reader.GetDecimal(reader.GetOrdinal("total"));
 
-                        int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                        var item = await GetItemAsync(itemId);
 
-                        return rowsAffected > 0;
+                        var purchaseItem = new PurchaseItem
+                        {
+                            Id = itemId,
+                            ItemName = item.ItemName,
+                            Brand = item.Brand,
+                            Size = item.Size,
+                            Quantity = quantity,
+                            PurchasePrice = total / quantity
+                        };
+
+                        purchaseCart.Items.Add(purchaseItem);
                     }
                 }
             }
-            catch (Exception ex)
+
+            return purchaseCart;
+        }
+
+        public async Task<Item> GetItemAsync(int itemId)
+        {
+            Item item = null;
+
+            using (var command = new SqlCommand("SELECT * FROM tbl_item_master_data WHERE id = @itemId", databaseConnection.OpenConnection()))
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return false;
+                command.Parameters.AddWithValue("@itemId", itemId);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        item = new Item
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("id")),
+                            ItemName = reader.GetString(reader.GetOrdinal("item_name")),
+                            Brand = reader.GetString(reader.GetOrdinal("brand")),
+                            Size = reader.GetString(reader.GetOrdinal("size"))
+                        };
+                    }
+                }
             }
+
+            return item;
         }
     }
 }

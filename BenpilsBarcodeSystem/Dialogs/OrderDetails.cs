@@ -50,7 +50,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             ItemsTbl.DataSource = CurrentPurchaseCart.Items;
             ItemsTbl.Refresh();
 
-            TotalLbl.Text = CurrentPurchaseCart.GetTotalAmount();
+            TotalLbl.Text = CurrentPurchaseCart.GetTotalAmountAsString();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

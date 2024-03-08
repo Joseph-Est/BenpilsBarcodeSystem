@@ -159,7 +159,7 @@ namespace BenpilsBarcodeSystem
                 prevBarcode = BarcodeTxt.Text;
                 prevBrand = BrandTxt.Text;
                 prevMotorBrand = MotorBrandTxt.Text;
-                prevSize = SellingPriceTxt.Text;
+                prevSize = SizeTxt.Text;
 
                 this.CancelButton = UpdateBtn;
             }

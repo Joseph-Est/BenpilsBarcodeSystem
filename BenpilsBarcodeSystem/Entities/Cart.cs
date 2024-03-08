@@ -55,19 +55,45 @@ namespace BenpilsBarcodeSystem.Entities
             Items = new BindingList<PurchaseItem>();
         }
 
-        public string GetTotalAmount()
+        public string GetTotalAmountAsString()
         {
             return InputValidator.StringToFormattedPrice((Items.Sum(item => item.PurchasePrice * item.Quantity)).ToString());
         }
 
-        public string GetTotalPrice()
+        public string GetTotalPriceAsString()
         {
             return InputValidator.StringToFormattedPrice((Items.Sum(item => item.SellingPrice * item.Quantity)).ToString());
         }
 
+        public decimal GetTotalAmount()
+        {
+            return Items.Sum(item => item.PurchasePrice * item.Quantity);
+        }
+
+        public decimal GetTotalPrice()
+        {
+            return Items.Sum(item => item.SellingPrice * item.Quantity);
+        }
+
+
         public bool HasItems()
         {
             return Items.Count > 0;
+        }
+
+        public string[] GetProductNames()
+        {
+            return Items.Select(item => item.Quantity + " x " + item.DisplayItemName).ToArray();
+        }
+
+        public decimal[] GetPrices()
+        {
+            return Items.Select(item => item.SellingPrice).ToArray();
+        }
+
+        public decimal[] GetAmounts()
+        {
+            return Items.Select(item => item.PurchasePrice).ToArray();
         }
     }
 }

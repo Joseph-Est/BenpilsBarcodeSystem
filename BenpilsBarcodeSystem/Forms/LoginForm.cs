@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BenpilsBarcodeSystem.Utils;
+using System.Drawing.Printing;
+using System.Drawing.Imaging;
 
 namespace BenpilsBarcodeSystem
 {
@@ -52,7 +54,8 @@ namespace BenpilsBarcodeSystem
                 {
                     UserCredentialsRepository repository = new UserCredentialsRepository();
 
-                    if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text)){
+                    if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text))
+                    {
                         MainForm dash = new MainForm();
                         dash.Show();
                         dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
@@ -74,6 +77,12 @@ namespace BenpilsBarcodeSystem
                     btnLogin.Enabled = true;
                 }
             }
+
+        }
+
+        private void testPrint_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            
         }
 
         private bool isDragging = false;

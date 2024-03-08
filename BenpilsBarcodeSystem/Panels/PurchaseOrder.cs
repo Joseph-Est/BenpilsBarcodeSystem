@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace BenpilsBarcodeSystem
         private bool isPurchasing = false;
         private int selectedID;
         private string prevContactName, prevContactNumber;
+        private int OrderNo { get; set; }
 
         public PurchaseOrder()
         {
@@ -347,8 +349,8 @@ namespace BenpilsBarcodeSystem
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
                     if (await repository.InsertPurchaseOrderAsync(orderNo, CurrentPurchaseCart, SelectedSupplier, orderDate, deliveryDate))
                     {
-                        MessageBox.Show("Purchase success, order is pending.");
-                        //await Util.SavePurchaseOrderReceiptAsync(orderNo.ToString(), CurrentPurchaseCart, "Harigato");
+                        OrderNo = orderNo;
+                        PrintReceipt();
                         ClearPurchase();
                         UpdatePurchaseOrdersDG();
                     }
@@ -479,7 +481,7 @@ namespace BenpilsBarcodeSystem
 
         private void ItemsTableCheck()
         {
-            TotalAmountLbl.Text = CurrentPurchaseCart.GetTotalAmount();
+            TotalAmountLbl.Text = CurrentPurchaseCart.GetTotalAmountAsString();
             CompleteBtn.Enabled = CurrentPurchaseCart.HasItems();
             SupplierCb.Enabled = !CurrentPurchaseCart.HasItems();
         }
@@ -487,6 +489,34 @@ namespace BenpilsBarcodeSystem
         private void OrderDt_ValueChanged(object sender, EventArgs e)
         {
             DeliveryDt.MinDate = OrderDt.Value;
+        }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Bitmap bitmap = new Bitmap(315, 1000);
+
+            Graphics graphics = e.Graphics;
+
+            string shopName = "Benpils Motorcycle Parts and Accessories";
+            string contactNo = "09295228592";
+            string shopAddress = "Boso Boso Brgy San Jose Antipolo city";
+            string transactionNo = $"Trx No. {OrderNo}";
+            string thankYouMessage = "Thank you for shopping, have a great day!!";
+
+            string[] products = CurrentPurchaseCart.GetProductNames();
+            decimal[] prices = CurrentPurchaseCart.GetAmounts();
+
+            Util.PrintReceipt(graphics, shopName, contactNo, shopAddress, transactionNo, thankYouMessage, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDate(DeliveryDt.Value));
+
+            //bitmap.Save("receipt.png", ImageFormat.Png);
+        }
+
+        private void PrintReceipt()
+        {
+            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 1000);
+
+            PrintPreview.Document = PrintDocument;
+            PrintPreview.ShowDialog();
         }
 
         private void EnablePurchasePanel(bool isEnable)

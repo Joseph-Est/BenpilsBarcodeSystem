@@ -31,16 +31,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.CartTbl = new System.Windows.Forms.DataGridView();
+            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PriceTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
@@ -63,12 +69,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
-            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PriceTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -183,6 +183,67 @@
             this.CartTbl.TabStop = false;
             this.CartTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartTbl_CellContentClick);
             // 
+            // DisplayItemName
+            // 
+            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DisplayItemName.DataPropertyName = "DisplayItemName";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.DisplayItemName.DefaultCellStyle = dataGridViewCellStyle23;
+            this.DisplayItemName.HeaderText = "Item Name";
+            this.DisplayItemName.Name = "DisplayItemName";
+            this.DisplayItemName.ReadOnly = true;
+            // 
+            // SellingPrice
+            // 
+            this.SellingPrice.DataPropertyName = "SellingPrice";
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle24;
+            this.SellingPrice.HeaderText = "Price";
+            this.SellingPrice.Name = "SellingPrice";
+            this.SellingPrice.ReadOnly = true;
+            // 
+            // decrease
+            // 
+            this.decrease.DataPropertyName = "decrease";
+            this.decrease.HeaderText = "";
+            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
+            this.decrease.Name = "decrease";
+            this.decrease.ReadOnly = true;
+            this.decrease.Width = 50;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle25;
+            this.Quantity.HeaderText = "Qty";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 70;
+            // 
+            // increase
+            // 
+            this.increase.DataPropertyName = "increase";
+            this.increase.HeaderText = "";
+            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
+            this.increase.Name = "increase";
+            this.increase.ReadOnly = true;
+            this.increase.Width = 50;
+            // 
+            // PriceTotal
+            // 
+            this.PriceTotal.DataPropertyName = "PriceTotal";
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.PriceTotal.DefaultCellStyle = dataGridViewCellStyle26;
+            this.PriceTotal.HeaderText = "Subtotal";
+            this.PriceTotal.Name = "PriceTotal";
+            this.PriceTotal.ReadOnly = true;
+            this.PriceTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PriceTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel6);
@@ -203,6 +264,7 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.panel6.Size = new System.Drawing.Size(473, 22);
             this.panel6.TabIndex = 203;
+            this.panel6.Enter += new System.EventHandler(this.panel6_Enter);
             // 
             // BarcodeTxt
             // 
@@ -213,6 +275,7 @@
             this.BarcodeTxt.Size = new System.Drawing.Size(186, 22);
             this.BarcodeTxt.TabIndex = 1;
             this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
+            this.BarcodeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BarcodeTxt_KeyPress);
             // 
             // panel2
             // 
@@ -435,67 +498,6 @@
             this.RefreshBtn.TabStop = false;
             this.RefreshBtn.UseWaitCursor = true;
             // 
-            // DisplayItemName
-            // 
-            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DisplayItemName.DataPropertyName = "DisplayItemName";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.DisplayItemName.DefaultCellStyle = dataGridViewCellStyle23;
-            this.DisplayItemName.HeaderText = "Item Name";
-            this.DisplayItemName.Name = "DisplayItemName";
-            this.DisplayItemName.ReadOnly = true;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle24;
-            this.SellingPrice.HeaderText = "Price";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            // 
-            // decrease
-            // 
-            this.decrease.DataPropertyName = "decrease";
-            this.decrease.HeaderText = "";
-            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
-            this.decrease.Name = "decrease";
-            this.decrease.ReadOnly = true;
-            this.decrease.Width = 50;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle25;
-            this.Quantity.HeaderText = "Qty";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 70;
-            // 
-            // increase
-            // 
-            this.increase.DataPropertyName = "increase";
-            this.increase.HeaderText = "";
-            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
-            this.increase.Name = "increase";
-            this.increase.ReadOnly = true;
-            this.increase.Width = 50;
-            // 
-            // PriceTotal
-            // 
-            this.PriceTotal.DataPropertyName = "PriceTotal";
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.PriceTotal.DefaultCellStyle = dataGridViewCellStyle26;
-            this.PriceTotal.HeaderText = "Subtotal";
-            this.PriceTotal.Name = "PriceTotal";
-            this.PriceTotal.ReadOnly = true;
-            this.PriceTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PriceTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // POS
             // 
             this.AcceptButton = this.CheckoutBtn;
@@ -509,6 +511,7 @@
             this.Text = "POSS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POS_Load);
+            this.Enter += new System.EventHandler(this.POS_Enter);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

@@ -225,6 +225,7 @@ namespace BenpilsBarcodeSystem
 
             }
         }
+        InventoryRepository repository;
 
         private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -303,6 +304,13 @@ namespace BenpilsBarcodeSystem
         private void SetFieldsReadOnly(bool mode)
         {
             Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, CategoryTxt, BrandTxt, QuantityTxt, MotorBrandTxt, SizeTxt, SellingPriceTxt);
+        }
+
+        private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
+            {
+            }
         }
 
         private void InputFormPanel_Enter(object sender, EventArgs e)

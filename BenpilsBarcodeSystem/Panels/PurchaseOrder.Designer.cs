@@ -31,6 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,11 +47,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ItemsTbl = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierTab = new System.Windows.Forms.TabControl();
             this.PurchasePage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -127,17 +138,6 @@
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
             this.SupplierTab.SuspendLayout();
             this.PurchasePage.SuspendLayout();
@@ -240,6 +240,116 @@
             this.ItemsTbl.TabStop = false;
             this.ItemsTbl.Visible = false;
             this.ItemsTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsTbl_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // ItemName
+            // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemName.DataPropertyName = "ItemName";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.ItemName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ItemName.FillWeight = 40F;
+            this.ItemName.HeaderText = "Item";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            this.ItemName.Visible = false;
+            // 
+            // DisplayItemName
+            // 
+            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DisplayItemName.DataPropertyName = "DisplayItemName";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.DisplayItemName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DisplayItemName.FillWeight = 20.58823F;
+            this.DisplayItemName.HeaderText = "Item";
+            this.DisplayItemName.Name = "DisplayItemName";
+            this.DisplayItemName.ReadOnly = true;
+            // 
+            // decrease
+            // 
+            this.decrease.DataPropertyName = "decrease";
+            this.decrease.Description = "Edit quantity";
+            this.decrease.FillWeight = 5F;
+            this.decrease.HeaderText = "";
+            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
+            this.decrease.Name = "decrease";
+            this.decrease.ReadOnly = true;
+            this.decrease.ToolTipText = "Edit quantity";
+            this.decrease.Width = 40;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Quantity.HeaderText = "Qty";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 50;
+            // 
+            // increase
+            // 
+            this.increase.DataPropertyName = "increase";
+            this.increase.Description = "Remove item";
+            this.increase.FillWeight = 5F;
+            this.increase.HeaderText = "";
+            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
+            this.increase.Name = "increase";
+            this.increase.ReadOnly = true;
+            this.increase.ToolTipText = "Remove item";
+            this.increase.Width = 40;
+            // 
+            // Size
+            // 
+            this.Size.DataPropertyName = "Size";
+            this.Size.HeaderText = "Size";
+            this.Size.Name = "Size";
+            this.Size.ReadOnly = true;
+            this.Size.Visible = false;
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            this.Brand.HeaderText = "Brand";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            this.Brand.Visible = false;
+            // 
+            // PurchasePrice
+            // 
+            this.PurchasePrice.DataPropertyName = "PurchasePrice";
+            this.PurchasePrice.HeaderText = "Purchase Price";
+            this.PurchasePrice.Name = "PurchasePrice";
+            this.PurchasePrice.ReadOnly = true;
+            this.PurchasePrice.Visible = false;
+            // 
+            // SellingPrice
+            // 
+            this.SellingPrice.DataPropertyName = "SellingPrice";
+            this.SellingPrice.HeaderText = "Selling Price";
+            this.SellingPrice.Name = "SellingPrice";
+            this.SellingPrice.ReadOnly = true;
+            this.SellingPrice.Visible = false;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.DataPropertyName = "TotalAmount";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TotalAmount.FillWeight = 20F;
+            this.TotalAmount.HeaderText = "Subtotal";
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
             // 
             // SupplierTab
             // 
@@ -1225,116 +1335,6 @@
             this.dataGridViewImageColumn2.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_remove_15;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // ItemName
-            // 
-            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemName.DataPropertyName = "ItemName";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.ItemName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ItemName.FillWeight = 40F;
-            this.ItemName.HeaderText = "Item";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            this.ItemName.Visible = false;
-            // 
-            // DisplayItemName
-            // 
-            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DisplayItemName.DataPropertyName = "DisplayItemName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.DisplayItemName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DisplayItemName.FillWeight = 20.58823F;
-            this.DisplayItemName.HeaderText = "Item";
-            this.DisplayItemName.Name = "DisplayItemName";
-            this.DisplayItemName.ReadOnly = true;
-            // 
-            // decrease
-            // 
-            this.decrease.DataPropertyName = "decrease";
-            this.decrease.Description = "Edit quantity";
-            this.decrease.FillWeight = 5F;
-            this.decrease.HeaderText = "";
-            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
-            this.decrease.Name = "decrease";
-            this.decrease.ReadOnly = true;
-            this.decrease.ToolTipText = "Edit quantity";
-            this.decrease.Width = 40;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Quantity.HeaderText = "Qty";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 50;
-            // 
-            // increase
-            // 
-            this.increase.DataPropertyName = "increase";
-            this.increase.Description = "Remove item";
-            this.increase.FillWeight = 5F;
-            this.increase.HeaderText = "";
-            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
-            this.increase.Name = "increase";
-            this.increase.ReadOnly = true;
-            this.increase.ToolTipText = "Remove item";
-            this.increase.Width = 40;
-            // 
-            // Size
-            // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
-            this.Size.Visible = false;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            this.Brand.Visible = false;
-            // 
-            // PurchasePrice
-            // 
-            this.PurchasePrice.DataPropertyName = "PurchasePrice";
-            this.PurchasePrice.HeaderText = "Purchase Price";
-            this.PurchasePrice.Name = "PurchasePrice";
-            this.PurchasePrice.ReadOnly = true;
-            this.PurchasePrice.Visible = false;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            this.SellingPrice.HeaderText = "Selling Price";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            this.SellingPrice.Visible = false;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.DataPropertyName = "TotalAmount";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TotalAmount.FillWeight = 20F;
-            this.TotalAmount.HeaderText = "Subtotal";
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
             // 
             // PurchaseOrder
             // 

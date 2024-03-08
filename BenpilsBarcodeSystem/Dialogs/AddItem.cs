@@ -99,7 +99,13 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
-            if(await repository.AddProductAsync(
+            if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
+            {
+                MessageBox.Show("Barcode already exist.");
+                return;
+            }
+
+            if (await repository.AddProductAsync(
                 barcode,
                 itemName,
                 category,
@@ -212,6 +218,13 @@ namespace BenpilsBarcodeSystem
             if (generateBarcode.ShowDialog() == DialogResult.OK)
             {
                 BarcodeTxt.Text = Clipboard.GetText();
+            }
+        }
+
+        private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
+            {
             }
         }
     }

@@ -495,6 +495,134 @@ namespace BenpilsBarcodeSystem.Repository
             return uniqueValuesColumn;
         }
 
+        public async Task<List<Item>> GetNonSupplierItems(int supplierId)
+        {
+            List<Item> uniqueValuesColumn = new List<Item>();
+
+            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i WHERE i.{col_is_active} = '1' AND NOT EXISTS (SELECT 1 FROM tbl_supplier_items si WHERE i.{col_id} = si.item_id AND si.supplier_id = @supplierId)";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@supplierId", supplierId);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int id = reader.GetInt32(reader.GetOrdinal(col_id));
+                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
+                                string category = reader.GetString(reader.GetOrdinal(col_category));
+                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
+                                string motorBrand = reader.GetString(reader.GetOrdinal(col_motor_brand));
+                                string size = reader.GetString(reader.GetOrdinal(col_size));
+                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
+                                decimal purchasePrice = reader.GetDecimal(reader.GetOrdinal(col_purchase_price));
+                                decimal sellingPrice = reader.GetDecimal(reader.GetOrdinal(col_selling_price));
+
+                                Item item = new Item
+                                {
+                                    Id = id,
+                                    ItemName = itemName,
+                                    Category = category,
+                                    Brand = brand,
+                                    MotorBrand = motorBrand,
+                                    Size = size,
+                                    Quantity = quantity,
+                                    PurchasePrice = purchasePrice,
+                                    SellingPrice = sellingPrice
+                                };
+
+                                uniqueValuesColumn.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return uniqueValuesColumn;
+        }
+
+        public async Task<Supplier> GetSupplier(int itemId)
+        {
+            Supplier supplier = null;
+
+            string selectQuery = @"
+                                SELECT i.supplier_id, i.contact_name, i.contact_no
+                                FROM tbl_suppliers i
+                                INNER JOIN tbl_supplier_items si ON i.supplier_id = si.supplier_id
+                                WHERE si.item_id = @item_id";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@item_id", itemId);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                int supplierId = (int)reader["supplier_id"];
+                                string contactName = reader["contact_name"].ToString();
+                                string contactNo = reader["contact_no"].ToString();
+
+                                supplier = new Supplier
+                                {
+                                    SupplierID = supplierId,
+                                    ContactName = contactName,
+                                    ContactNo = contactNo,
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return supplier;
+        }
+
+        public async Task<bool> AddProductToSuppier(int supplierId, int itemId)
+        {
+            string insertSupplierItemQuery = $"INSERT INTO tbl_supplier_items (supplier_id, item_id) VALUES (@SupplierId, @ItemId)";
+
+            using (SqlConnection con = databaseConnection.OpenConnection())
+            {
+                SqlTransaction transaction = con.BeginTransaction();
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(insertSupplierItemQuery, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@SupplierId", supplierId);
+                        cmd.Parameters.AddWithValue("@ItemId", itemId);
+                        await cmd.ExecuteNonQueryAsync();
+
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
         public async Task<Item> GetItemByBarcodeAsync(string barcode)
         {
             Item item = null;

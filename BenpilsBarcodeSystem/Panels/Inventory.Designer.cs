@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.InputFormPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -105,16 +105,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.panel43 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SearchTxt = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CategoryCb = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BrandCb = new System.Windows.Forms.ComboBox();
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.RefreshPb = new System.Windows.Forms.PictureBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,6 +118,16 @@
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel43 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SearchTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CategoryCb = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BrandCb = new System.Windows.Forms.ComboBox();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.RefreshPb = new System.Windows.Forms.PictureBox();
             this.InputFormPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -849,6 +849,7 @@
             this.BarcodeTxt.ReadOnly = true;
             this.BarcodeTxt.Size = new System.Drawing.Size(245, 24);
             this.BarcodeTxt.TabIndex = 4;
+            this.BarcodeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BarcodeTxt_KeyPress);
             // 
             // panel15
             // 
@@ -899,14 +900,14 @@
             this.dataGridItemMasterdata.BackgroundColor = System.Drawing.Color.White;
             this.dataGridItemMasterdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
             this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
             this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -931,14 +932,14 @@
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
             this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.dataGridItemMasterdata.RowHeadersVisible = false;
             this.dataGridItemMasterdata.RowHeadersWidth = 51;
             this.dataGridItemMasterdata.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle65;
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -949,6 +950,135 @@
             this.dataGridItemMasterdata.TabIndex = 179;
             this.dataGridItemMasterdata.TabStop = false;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // barcode
+            // 
+            this.barcode.DataPropertyName = "barcode";
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.barcode.DefaultCellStyle = dataGridViewCellStyle54;
+            this.barcode.HeaderText = "Barcode";
+            this.barcode.Name = "barcode";
+            this.barcode.ReadOnly = true;
+            // 
+            // item_name
+            // 
+            this.item_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.item_name.DataPropertyName = "item_name";
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.item_name.DefaultCellStyle = dataGridViewCellStyle55;
+            this.item_name.HeaderText = "Item Name";
+            this.item_name.MinimumWidth = 200;
+            this.item_name.Name = "item_name";
+            this.item_name.ReadOnly = true;
+            // 
+            // brand
+            // 
+            this.brand.DataPropertyName = "brand";
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.brand.DefaultCellStyle = dataGridViewCellStyle56;
+            this.brand.HeaderText = "Brand";
+            this.brand.Name = "brand";
+            this.brand.ReadOnly = true;
+            this.brand.Width = 150;
+            // 
+            // motor_brand
+            // 
+            this.motor_brand.DataPropertyName = "motor_brand";
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.motor_brand.DefaultCellStyle = dataGridViewCellStyle57;
+            this.motor_brand.HeaderText = "Motor Brand";
+            this.motor_brand.Name = "motor_brand";
+            this.motor_brand.ReadOnly = true;
+            this.motor_brand.Width = 150;
+            // 
+            // purchase_price
+            // 
+            this.purchase_price.DataPropertyName = "purchase_price";
+            this.purchase_price.HeaderText = "Purchase Price";
+            this.purchase_price.Name = "purchase_price";
+            this.purchase_price.ReadOnly = true;
+            this.purchase_price.Visible = false;
+            this.purchase_price.Width = 90;
+            // 
+            // formatted_purchase_price
+            // 
+            this.formatted_purchase_price.DataPropertyName = "formatted_purchase_price";
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle58.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.formatted_purchase_price.DefaultCellStyle = dataGridViewCellStyle58;
+            this.formatted_purchase_price.HeaderText = "Purchase Price";
+            this.formatted_purchase_price.Name = "formatted_purchase_price";
+            this.formatted_purchase_price.ReadOnly = true;
+            this.formatted_purchase_price.Width = 120;
+            // 
+            // selling_price
+            // 
+            this.selling_price.DataPropertyName = "selling_price";
+            this.selling_price.HeaderText = "Selling Price";
+            this.selling_price.Name = "selling_price";
+            this.selling_price.ReadOnly = true;
+            this.selling_price.Visible = false;
+            // 
+            // formatted_selling_price
+            // 
+            this.formatted_selling_price.DataPropertyName = "formatted_selling_price";
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle59.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.formatted_selling_price.DefaultCellStyle = dataGridViewCellStyle59;
+            this.formatted_selling_price.HeaderText = "Selling Price";
+            this.formatted_selling_price.Name = "formatted_selling_price";
+            this.formatted_selling_price.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle60;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.category.DefaultCellStyle = dataGridViewCellStyle61;
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            this.category.Visible = false;
+            // 
+            // size
+            // 
+            this.size.DataPropertyName = "size";
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.size.DefaultCellStyle = dataGridViewCellStyle62;
+            this.size.HeaderText = "Size";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            this.size.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Status.DefaultCellStyle = dataGridViewCellStyle63;
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // panel34
             // 
@@ -1064,135 +1194,6 @@
             this.RefreshPb.TabIndex = 170;
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // barcode
-            // 
-            this.barcode.DataPropertyName = "barcode";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.barcode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.barcode.HeaderText = "Barcode";
-            this.barcode.Name = "barcode";
-            this.barcode.ReadOnly = true;
-            // 
-            // item_name
-            // 
-            this.item_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.item_name.DataPropertyName = "item_name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.item_name.DefaultCellStyle = dataGridViewCellStyle3;
-            this.item_name.HeaderText = "Item Name";
-            this.item_name.MinimumWidth = 200;
-            this.item_name.Name = "item_name";
-            this.item_name.ReadOnly = true;
-            // 
-            // brand
-            // 
-            this.brand.DataPropertyName = "brand";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.brand.DefaultCellStyle = dataGridViewCellStyle4;
-            this.brand.HeaderText = "Brand";
-            this.brand.Name = "brand";
-            this.brand.ReadOnly = true;
-            this.brand.Width = 150;
-            // 
-            // motor_brand
-            // 
-            this.motor_brand.DataPropertyName = "motor_brand";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.motor_brand.DefaultCellStyle = dataGridViewCellStyle5;
-            this.motor_brand.HeaderText = "Motor Brand";
-            this.motor_brand.Name = "motor_brand";
-            this.motor_brand.ReadOnly = true;
-            this.motor_brand.Width = 150;
-            // 
-            // purchase_price
-            // 
-            this.purchase_price.DataPropertyName = "purchase_price";
-            this.purchase_price.HeaderText = "Purchase Price";
-            this.purchase_price.Name = "purchase_price";
-            this.purchase_price.ReadOnly = true;
-            this.purchase_price.Visible = false;
-            this.purchase_price.Width = 90;
-            // 
-            // formatted_purchase_price
-            // 
-            this.formatted_purchase_price.DataPropertyName = "formatted_purchase_price";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.formatted_purchase_price.DefaultCellStyle = dataGridViewCellStyle6;
-            this.formatted_purchase_price.HeaderText = "Purchase Price";
-            this.formatted_purchase_price.Name = "formatted_purchase_price";
-            this.formatted_purchase_price.ReadOnly = true;
-            this.formatted_purchase_price.Width = 120;
-            // 
-            // selling_price
-            // 
-            this.selling_price.DataPropertyName = "selling_price";
-            this.selling_price.HeaderText = "Selling Price";
-            this.selling_price.Name = "selling_price";
-            this.selling_price.ReadOnly = true;
-            this.selling_price.Visible = false;
-            // 
-            // formatted_selling_price
-            // 
-            this.formatted_selling_price.DataPropertyName = "formatted_selling_price";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.formatted_selling_price.DefaultCellStyle = dataGridViewCellStyle7;
-            this.formatted_selling_price.HeaderText = "Selling Price";
-            this.formatted_selling_price.Name = "formatted_selling_price";
-            this.formatted_selling_price.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle8;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "category";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.category.DefaultCellStyle = dataGridViewCellStyle9;
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            this.category.Visible = false;
-            // 
-            // size
-            // 
-            this.size.DataPropertyName = "size";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.size.DefaultCellStyle = dataGridViewCellStyle10;
-            this.size.HeaderText = "Size";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            this.size.Width = 80;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Status.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
             // 
             // Inventory
             // 

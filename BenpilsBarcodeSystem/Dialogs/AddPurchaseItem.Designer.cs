@@ -41,6 +41,8 @@
             this.ItemsCb = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TitleLbl = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ExistingItemPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -48,10 +50,13 @@
             this.panel15.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.ExistingItemPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -59,28 +64,33 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(356, 189);
+            this.panel1.Size = new System.Drawing.Size(356, 235);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.AutoSize = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.panel14);
             this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.ExistingItemPanel);
             this.panel3.Controls.Add(this.ItemsCb);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(1, 34);
+            this.panel3.MinimumSize = new System.Drawing.Size(354, 200);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.panel3.Size = new System.Drawing.Size(354, 154);
+            this.panel3.Size = new System.Drawing.Size(354, 200);
             this.panel3.TabIndex = 87;
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.panel16);
             this.panel14.Controls.Add(this.panel15);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(20, 79);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(20, 125);
+            this.panel14.MinimumSize = new System.Drawing.Size(314, 75);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(314, 75);
             this.panel14.TabIndex = 136;
@@ -106,6 +116,7 @@
             this.CancelBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.Black;
             this.CancelBtn.Location = new System.Drawing.Point(10, 20);
+            this.CancelBtn.MaximumSize = new System.Drawing.Size(0, 35);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(147, 35);
             this.CancelBtn.TabIndex = 128;
@@ -134,6 +145,7 @@
             this.AcceptBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcceptBtn.ForeColor = System.Drawing.Color.Black;
             this.AcceptBtn.Location = new System.Drawing.Point(0, 20);
+            this.AcceptBtn.MaximumSize = new System.Drawing.Size(0, 35);
             this.AcceptBtn.Name = "AcceptBtn";
             this.AcceptBtn.Size = new System.Drawing.Size(147, 35);
             this.AcceptBtn.TabIndex = 127;
@@ -146,7 +158,7 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.QuantityTxt);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(20, 44);
+            this.panel4.Location = new System.Drawing.Point(20, 90);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panel4.Size = new System.Drawing.Size(314, 35);
@@ -180,6 +192,7 @@
             this.ItemsCb.Font = new System.Drawing.Font("Arial", 9.75F);
             this.ItemsCb.FormattingEnabled = true;
             this.ItemsCb.Location = new System.Drawing.Point(20, 20);
+            this.ItemsCb.MinimumSize = new System.Drawing.Size(314, 0);
             this.ItemsCb.Name = "ItemsCb";
             this.ItemsCb.Size = new System.Drawing.Size(314, 24);
             this.ItemsCb.TabIndex = 1;
@@ -208,19 +221,47 @@
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Add Supplier Item";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(314, 24);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // ExistingItemPanel
+            // 
+            this.ExistingItemPanel.Controls.Add(this.comboBox1);
+            this.ExistingItemPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ExistingItemPanel.Location = new System.Drawing.Point(20, 44);
+            this.ExistingItemPanel.Name = "ExistingItemPanel";
+            this.ExistingItemPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.ExistingItemPanel.Size = new System.Drawing.Size(314, 46);
+            this.ExistingItemPanel.TabIndex = 137;
+            this.ExistingItemPanel.Visible = false;
+            // 
             // AddPurchaseItem
             // 
+            this.AcceptButton = this.AcceptBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 189);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(356, 235);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(356, 200);
             this.Name = "AddPurchaseItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddPurchaseItem_FormClosing);
             this.Load += new System.EventHandler(this.AddPurchaseItem_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -229,7 +270,9 @@
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.ExistingItemPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -248,5 +291,7 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button AcceptBtn;
+        private System.Windows.Forms.Panel ExistingItemPanel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

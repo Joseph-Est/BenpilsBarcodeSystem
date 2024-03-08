@@ -527,6 +527,7 @@
             this.BarcodeTxt.Name = "BarcodeTxt";
             this.BarcodeTxt.Size = new System.Drawing.Size(205, 24);
             this.BarcodeTxt.TabIndex = 91;
+            this.BarcodeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BarcodeTxt_KeyPress);
             // 
             // panel13
             // 

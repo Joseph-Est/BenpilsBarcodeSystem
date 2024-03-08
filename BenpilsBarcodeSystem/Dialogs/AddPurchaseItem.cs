@@ -21,6 +21,7 @@ namespace BenpilsBarcodeSystem.Dialogs
         private bool canClose = false;
         public int quantity {get; set;}
         public bool isModify { get; set; }
+        public bool isExistingItem;
 
         public AddPurchaseItem(Supplier supplier, bool isModify = false)
         {
@@ -49,23 +50,43 @@ namespace BenpilsBarcodeSystem.Dialogs
             List<Item> items = await repository.GetSupplierItems(CurrentSupplier.SupplierID);
 
             ItemsCb.Items.Clear();
-            ItemsCb.Items.Add("Select an item");
+            ItemsCb.Items.Add("-- Select an item --");
             ItemsCb.Items.AddRange(items.ToArray());
-            ItemsCb.Items.Add("Add new item");
-            ItemsCb.SelectedItem = "Select an item";
+            ItemsCb.Items.Add("-- Add an existing item --");
+            ItemsCb.Items.Add("-- Add new item --");
+            ItemsCb.SelectedItem = "-- Select an item --";
+        }
+
+        private async void PopulateExistingItem()
+        {
+            InventoryRepository repository = new InventoryRepository();
+            List<Item> items = await repository.GetNonSupplierItems(CurrentSupplier.SupplierID);
+
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("-- Select an existing item --");
+            comboBox1.Items.AddRange(items.ToArray());
+            comboBox1.SelectedItem = "-- Select an existing item --";
         }
 
         private void ItemsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ItemsCb.SelectedItem != null && ItemsCb.SelectedItem.ToString() == "Add new item")
+            ExistingItemPanel.Visible = false;
+
+            if (ItemsCb.SelectedItem != null && ItemsCb.SelectedItem.ToString() == "-- Add new item --")
             {
                 AddItem addItem = new AddItem(CurrentSupplier);
                 addItem.ShowDialog();
                 PopulateItem();
-            }else if(ItemsCb.SelectedIndex != 0 && ItemsCb.SelectedIndex != ItemsCb.Items.Count - 1)
+            }else if (ItemsCb.SelectedItem != null && ItemsCb.SelectedItem.ToString() == "-- Add an existing item --")
+            {
+                PopulateExistingItem();
+                ExistingItemPanel.Visible = true;
+            }
+            else if(ItemsCb.SelectedIndex != 0 && ItemsCb.SelectedIndex != ItemsCb.Items.Count - 1 && ItemsCb.SelectedIndex != ItemsCb.Items.Count - 2)
             {
                 if (ItemsCb.SelectedItem is Item selectedItem)
                 {
+                    isExistingItem = false;
                     SelectedItem = selectedItem;
                 }
             }
@@ -75,7 +96,23 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
         }
 
-        private void AcceptBtn_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex != 0)
+            {
+                if (comboBox1.SelectedItem is Item selectedItem)
+                {
+                    isExistingItem = true;
+                    SelectedItem = selectedItem;
+                }
+            }
+            else
+            {
+                SelectedItem = null;
+            }
+        }
+
+        private async void AcceptBtn_Click(object sender, EventArgs e)
         {
             if (ItemsCb.SelectedIndex != 0 && ItemsCb.SelectedIndex != ItemsCb.Items.Count - 1 && SelectedItem != null)
             {
@@ -88,9 +125,26 @@ namespace BenpilsBarcodeSystem.Dialogs
                 }
 
                 this.quantity = quantity;
-                canClose = true;
-                DialogResult = DialogResult.OK;
-                Close();
+
+                if (isExistingItem)
+                {
+                    InventoryRepository repository = new InventoryRepository();
+                    if (await repository.AddProductToSuppier(CurrentSupplier.SupplierID, SelectedItem.Id))
+                    {
+                        canClose = true;
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    canClose = true;
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+
+                }
+
+               
             }
             else
             {

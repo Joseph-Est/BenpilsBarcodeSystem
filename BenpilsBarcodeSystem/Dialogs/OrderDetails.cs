@@ -46,6 +46,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void OrderDetails_Load(object sender, EventArgs e)
         {
+            ItemsTbl.AutoGenerateColumns = false;
             ItemsTbl.DataSource = CurrentPurchaseCart.Items;
             ItemsTbl.Refresh();
 

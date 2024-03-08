@@ -165,5 +165,22 @@ namespace BenpilsBarcodeSystem
             PaymentTxt.Text = null;
             BarcodeTxt.Text = null;
         }
+
+        private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
+            {
+            }
+        }
+
+        private void panel6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void POS_Enter(object sender, EventArgs e)
+        {
+            BarcodeTxt.Select();
+        }
     }
 }

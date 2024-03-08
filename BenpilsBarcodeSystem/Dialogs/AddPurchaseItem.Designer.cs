@@ -38,19 +38,19 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.QuantityTxt = new System.Windows.Forms.TextBox();
+            this.ExistingItemPanel = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.ItemsCb = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TitleLbl = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.ExistingItemPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.ExistingItemPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -185,6 +185,29 @@
             this.QuantityTxt.Size = new System.Drawing.Size(238, 25);
             this.QuantityTxt.TabIndex = 2;
             // 
+            // ExistingItemPanel
+            // 
+            this.ExistingItemPanel.Controls.Add(this.comboBox1);
+            this.ExistingItemPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ExistingItemPanel.Location = new System.Drawing.Point(20, 44);
+            this.ExistingItemPanel.Name = "ExistingItemPanel";
+            this.ExistingItemPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.ExistingItemPanel.Size = new System.Drawing.Size(314, 46);
+            this.ExistingItemPanel.TabIndex = 137;
+            this.ExistingItemPanel.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(314, 24);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // ItemsCb
             // 
             this.ItemsCb.Dock = System.Windows.Forms.DockStyle.Top;
@@ -221,29 +244,6 @@
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Add Supplier Item";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(314, 24);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // ExistingItemPanel
-            // 
-            this.ExistingItemPanel.Controls.Add(this.comboBox1);
-            this.ExistingItemPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExistingItemPanel.Location = new System.Drawing.Point(20, 44);
-            this.ExistingItemPanel.Name = "ExistingItemPanel";
-            this.ExistingItemPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.ExistingItemPanel.Size = new System.Drawing.Size(314, 46);
-            this.ExistingItemPanel.TabIndex = 137;
-            this.ExistingItemPanel.Visible = false;
-            // 
             // AddPurchaseItem
             // 
             this.AcceptButton = this.AcceptBtn;
@@ -268,9 +268,9 @@
             this.panel15.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.ExistingItemPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.ExistingItemPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

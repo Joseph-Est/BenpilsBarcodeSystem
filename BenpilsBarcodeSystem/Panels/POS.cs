@@ -161,6 +161,7 @@ namespace BenpilsBarcodeSystem
             {
                 if (string.IsNullOrEmpty(PaymentTxt.Text.Trim())){
                     MessageBox.Show("Please enter received payment");
+                    PaymentTxt.Select();
                     return;
                 }
 
@@ -168,6 +169,7 @@ namespace BenpilsBarcodeSystem
                 if(InputValidator.ParseToDecimal(PaymentTxt.Text.Trim()) < CurrentCart.GetTotalPrice())
                 {
                     MessageBox.Show("Invalid payment amount");
+                    PaymentTxt.Select();
                     return;
                 }
 

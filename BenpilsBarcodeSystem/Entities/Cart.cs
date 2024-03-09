@@ -88,12 +88,12 @@ namespace BenpilsBarcodeSystem.Entities
 
         public decimal[] GetPrices()
         {
-            return Items.Select(item => item.SellingPrice).ToArray();
+            return Items.Select(item => item.SellingPrice * item.Quantity).ToArray();
         }
 
         public decimal[] GetAmounts()
         {
-            return Items.Select(item => item.PurchasePrice).ToArray();
+            return Items.Select(item => item.PurchasePrice * item.Quantity).ToArray();
         }
     }
 }

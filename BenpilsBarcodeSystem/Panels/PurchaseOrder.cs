@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace BenpilsBarcodeSystem
@@ -403,7 +404,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void OrdersTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void OrdersTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -411,13 +412,20 @@ namespace BenpilsBarcodeSystem
             {
                 if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
                 {
-                    //OrderDetails orderDetails = new OrderDetails();
-                    //orderDetails.ShowDialog();
+                    DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+                    int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
+                    string orderDate = row.Cells["formatted_order_date"].Value.ToString();
+                    string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
+                    InventoryRepository repository = new InventoryRepository();
+                    (Supplier supplier, Cart cart, string orderedBy) = await repository.GetOrderDetails(orderId);
+
+                    OrderDetails orderDetails = new OrderDetails(false, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy);
+                    orderDetails.ShowDialog();
                 }
 
                 else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
                 {
-                   
+
                 }
             }
         }
@@ -497,16 +505,12 @@ namespace BenpilsBarcodeSystem
 
             Graphics graphics = e.Graphics;
 
-            string shopName = "Benpils Motorcycle Parts and Accessories";
-            string contactNo = "09295228592";
-            string shopAddress = "Boso Boso Brgy San Jose Antipolo city";
             string transactionNo = $"Trx No. {OrderNo}";
-            string thankYouMessage = "Thank you for shopping, have a great day!!";
 
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, shopName, contactNo, shopAddress, transactionNo, thankYouMessage, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDate(DeliveryDt.Value));
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDate(DeliveryDt.Value));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

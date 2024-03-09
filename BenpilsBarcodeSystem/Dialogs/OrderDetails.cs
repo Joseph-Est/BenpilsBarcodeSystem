@@ -1,9 +1,11 @@
 ﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +17,11 @@ namespace BenpilsBarcodeSystem.Dialogs
     {
         bool isConfirmation;
         private Cart CurrentPurchaseCart;
+        private Supplier CurrentSupplier;
         private bool canClose = false;
+        private string OrderNo {get;set;}
 
-        internal OrderDetails(bool isConfirmation = false, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null, string deliverDate = null)
+        internal OrderDetails(bool isConfirmation = false, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null, string deliverDate = null, string orderNo = null, string orderedBy = null)
         {
             InitializeComponent();
             this.isConfirmation = isConfirmation;
@@ -33,11 +37,15 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
             else
             {
+                OrderNo = orderNo;
+                OrderNoLbl.Text = orderNo;
+                OrdereByLbl.Text = orderedBy;
                 PrintBtn.Visible = true;
                 CancelBtn.Visible = true;
                 CancelBtn.Text = "Close";
             }
 
+            CurrentSupplier = currentSupplier;
             CurrentPurchaseCart = currentPurchaseCart;
             SupplierLbl.Text = currentSupplier.ContactName;
             OrderDateLbl.Text = orderDate;
@@ -73,6 +81,35 @@ namespace BenpilsBarcodeSystem.Dialogs
             {
                 e.Cancel = true;
             }
+        }
+
+        private void PrintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Bitmap bitmap = new Bitmap(315, 1000);
+
+            Graphics graphics = e.Graphics;
+            string transactionNo = $"Order No. {OrderNo}";
+            
+
+            string[] products = CurrentPurchaseCart.GetProductNames();
+            decimal[] prices = CurrentPurchaseCart.GetAmounts();
+
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, DeliveryDateLbl.Text);
+
+            //bitmap.Save("receipt.png", ImageFormat.Png);
+        }
+
+        private void PrintReceipt()
+        {
+            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 1000);
+
+            PrintPreview.Document = PrintDocument;
+            PrintPreview.ShowDialog();
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            PrintReceipt();
         }
     }
 }

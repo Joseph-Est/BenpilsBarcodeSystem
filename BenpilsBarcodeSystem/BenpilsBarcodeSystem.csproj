@@ -334,6 +334,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\GenerateBarcode.resx">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>

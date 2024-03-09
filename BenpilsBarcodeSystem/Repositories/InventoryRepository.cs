@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BenpilsBarcodeSystem.Helpers;
 using System.Windows.Forms;
+using BenpilsBarcodeSystem.Entities;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -655,5 +656,119 @@ namespace BenpilsBarcodeSystem.Repository
 
             return item;
         }
+
+        public async Task<(Supplier, Cart, string)> GetOrderDetails(int orderId)
+        {
+            Supplier supplier = null;
+            Cart cart = new Cart();
+            string orderedBy = null;
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    string sql = $"SELECT supplier_id, operated_by FROM tbl_purchase_order WHERE order_id = @order_id";
+                    int supplierId;
+                    int orderedById;
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@order_id", orderId);
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                supplierId = (int)reader["supplier_id"];
+                                orderedById = (int)reader["operated_by"];
+                            }
+                            else
+                            {
+                                throw new Exception("Order not found");
+                            }
+                        }
+                    }
+
+                    sql = $"SELECT * FROM tbl_suppliers WHERE supplier_id = @supplier_id";
+                    using (SqlCommand cmdSupplier = new SqlCommand(sql, con))
+                    {
+                        cmdSupplier.Parameters.AddWithValue("@supplier_id", supplierId);
+                        using (SqlDataReader supplierReader = await cmdSupplier.ExecuteReaderAsync())
+                        {
+                            if (await supplierReader.ReadAsync())
+                            {
+                                supplier = new Supplier
+                                {
+                                    SupplierID = (int)supplierReader["supplier_id"],
+                                    ContactName = supplierReader["contact_name"].ToString(),
+                                    ContactNo = supplierReader["contact_no"].ToString(),
+                                    Address = supplierReader["address"].ToString()
+                                };
+                            }
+                            else
+                            {
+                                throw new Exception("Supplier not found");
+                            }
+                        }
+                    }
+
+                    sql = $"SELECT username FROM tbl_user_credentials WHERE id = @ordered_by_id";
+                    using (SqlCommand cmdUser = new SqlCommand(sql, con))
+                    {
+                        cmdUser.Parameters.AddWithValue("@ordered_by_id", orderedById);
+                        orderedBy = (string)await cmdUser.ExecuteScalarAsync();
+                    }
+
+                    sql = $"SELECT * FROM tbl_purchase_order_details WHERE order_id = @order_id";
+                    using (SqlCommand cmdOrderDetails = new SqlCommand(sql, con))
+                    {
+                        cmdOrderDetails.Parameters.AddWithValue("@order_id", orderId);
+                        List<int> itemIds = new List<int>();
+                        List<int> quantities = new List<int>();
+                        List<decimal> totals = new List<decimal>();
+                        using (SqlDataReader reader = await cmdOrderDetails.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                itemIds.Add((int)reader["item_id"]);
+                                quantities.Add((int)reader["quantity"]);
+                                totals.Add((decimal)reader["total"]);
+                            }
+                        }
+
+                        for (int i = 0; i < itemIds.Count; i++)
+                        {
+                            sql = $"SELECT * FROM tbl_item_master_data WHERE id = @item_id";
+                            using (SqlCommand cmdItem = new SqlCommand(sql, con))
+                            {
+                                cmdItem.Parameters.AddWithValue("@item_id", itemIds[i]);
+                                using (SqlDataReader itemReader = await cmdItem.ExecuteReaderAsync())
+                                {
+                                    if (await itemReader.ReadAsync())
+                                    {
+                                        PurchaseItem purchaseItem = new PurchaseItem
+                                        {
+                                            Id = (int)itemReader["id"],
+                                            ItemName = itemReader["item_name"].ToString(),
+                                            Brand = itemReader["brand"].ToString(),
+                                            Size = itemReader["size"].ToString(),
+                                            Quantity = quantities[i],
+                                            PurchasePrice = totals[i] / quantities[i],
+                                        };
+                                        cart.Items.Add(purchaseItem);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            // Return the Supplier and Cart
+            return (supplier, cart, orderedBy);
+        }
+
     }
 }

@@ -241,16 +241,12 @@ namespace BenpilsBarcodeSystem
 
             Graphics graphics = e.Graphics;
 
-            string shopName = "Benpils Motorcycle Parts and Accessories";
-            string contactNo = "09295228592";
-            string shopAddress = "Boso Boso Brgy San Jose Antipolo city";
             string transactionNo = $"Trx No. {TransactionNo}";
-            string thankYouMessage = "Thank you for shopping, have a great day!!";
 
             string[] products = CurrentCart.GetProductNames();
             decimal[] prices = CurrentCart.GetPrices();
 
-            Util.PrintReceipt(graphics, shopName, contactNo, shopAddress, transactionNo, thankYouMessage, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text));
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

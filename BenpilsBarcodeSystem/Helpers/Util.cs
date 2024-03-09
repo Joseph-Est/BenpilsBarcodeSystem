@@ -82,7 +82,7 @@ namespace BenpilsBarcodeSystem.Utils
             return formattedDate;
         }
 
-        public static void PrintReceipt(Graphics graphics, string shopName, string contactNo, string shopAddress, string transactionNo, string thankYouMessage, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string supplierName = null, string deliveryDate = null)
+        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string supplierName = null, string deliveryDate = null)
         {
             Font fontBold = new Font("Courier New", 12, FontStyle.Bold);
             Font fontDash = new Font("Courier New", 12, FontStyle.Regular);
@@ -94,7 +94,10 @@ namespace BenpilsBarcodeSystem.Utils
             string date = $"Date: {DateTime.Now.ToString("MM/dd/yyyy")}";
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
-            string thankyouMessage = "Thank you for shopping, have a great day!!";
+            string shopName = "Benpils Motorcycle Parts and Accessories";
+            string contactNo = "09295228592";
+            string shopAddress = "Ortigas, Cainta, Rizal";
+            string thankYouMessage = "Thank you for shopping, have a great day!!";
 
             int y = 10;
 
@@ -159,7 +162,7 @@ namespace BenpilsBarcodeSystem.Utils
 
             y = DrawText(graphics, dashes, fontDash, y + 20, 315);
             y = DrawText(graphics, space, fontDash, y, 315);
-            y = DrawText(graphics, thankyouMessage, fontBoldSmall, y, 315, 50);
+            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y, 315, 50);
             y = DrawText(graphics, space, fontDash, y, 315);
         }
 

@@ -219,6 +219,7 @@ namespace BenpilsBarcodeSystem
         {
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
             {
+                e.Handled = true;
             }
         }
 

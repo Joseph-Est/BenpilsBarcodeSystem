@@ -48,7 +48,11 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.increase = new System.Windows.Forms.DataGridViewImageColumn();
             this.PriceTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Void = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.VoidCartBtn = new System.Windows.Forms.Button();
+            this.SearchItemBtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -61,6 +65,7 @@
             this.ChangeLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.PaymentTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -78,6 +83,8 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CartTbl)).BeginInit();
             this.panel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -85,6 +92,7 @@
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
             this.SuspendLayout();
@@ -93,11 +101,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(30, 45);
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(30, 35);
             this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.label12.Size = new System.Drawing.Size(75, 18);
+            this.label12.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.label12.Size = new System.Drawing.Size(80, 26);
             this.label12.TabIndex = 189;
             this.label12.Text = "Barcode : ";
             // 
@@ -157,7 +165,8 @@
             this.decrease,
             this.Quantity,
             this.increase,
-            this.PriceTotal});
+            this.PriceTotal,
+            this.Void});
             this.CartTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CartTbl.EnableHeadersVisualStyles = false;
             this.CartTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -248,34 +257,95 @@
             this.PriceTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PriceTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // Void
+            // 
+            this.Void.DataPropertyName = "Void";
+            this.Void.HeaderText = "";
+            this.Void.Name = "Void";
+            this.Void.ReadOnly = true;
+            this.Void.Text = "Void";
+            this.Void.UseColumnTextForButtonValue = true;
+            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.BarcodeTxt);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(30, 45, 0, 0);
+            this.panel4.Padding = new System.Windows.Forms.Padding(30, 35, 0, 0);
             this.panel4.Size = new System.Drawing.Size(764, 67);
             this.panel4.TabIndex = 203;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.VoidCartBtn);
+            this.flowLayoutPanel1.Controls.Add(this.SearchItemBtn);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(297, 35);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(467, 32);
+            this.flowLayoutPanel1.TabIndex = 190;
+            // 
+            // VoidCartBtn
+            // 
+            this.VoidCartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.VoidCartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.VoidCartBtn.Enabled = false;
+            this.VoidCartBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.VoidCartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VoidCartBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VoidCartBtn.ForeColor = System.Drawing.Color.White;
+            this.VoidCartBtn.Location = new System.Drawing.Point(343, 0);
+            this.VoidCartBtn.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.VoidCartBtn.Name = "VoidCartBtn";
+            this.VoidCartBtn.Size = new System.Drawing.Size(114, 32);
+            this.VoidCartBtn.TabIndex = 202;
+            this.VoidCartBtn.TabStop = false;
+            this.VoidCartBtn.Text = "Void Cart";
+            this.VoidCartBtn.UseVisualStyleBackColor = false;
+            this.VoidCartBtn.Click += new System.EventHandler(this.VoidCartBtn_Click);
+            // 
+            // SearchItemBtn
+            // 
+            this.SearchItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SearchItemBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchItemBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SearchItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchItemBtn.ForeColor = System.Drawing.Color.White;
+            this.SearchItemBtn.Location = new System.Drawing.Point(222, 0);
+            this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.SearchItemBtn.Name = "SearchItemBtn";
+            this.SearchItemBtn.Size = new System.Drawing.Size(114, 32);
+            this.SearchItemBtn.TabIndex = 203;
+            this.SearchItemBtn.TabStop = false;
+            this.SearchItemBtn.Text = "Search Item";
+            this.SearchItemBtn.UseVisualStyleBackColor = false;
+            // 
             // panel6
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(291, 45);
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.BarcodeTxt);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(110, 35);
             this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.panel6.Size = new System.Drawing.Size(473, 22);
-            this.panel6.TabIndex = 203;
+            this.panel6.Size = new System.Drawing.Size(187, 32);
+            this.panel6.TabIndex = 191;
             // 
             // BarcodeTxt
             // 
-            this.BarcodeTxt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BarcodeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeTxt.Location = new System.Drawing.Point(105, 45);
+            this.BarcodeTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BarcodeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarcodeTxt.Location = new System.Drawing.Point(5, 5);
+            this.BarcodeTxt.Multiline = true;
             this.BarcodeTxt.Name = "BarcodeTxt";
-            this.BarcodeTxt.Size = new System.Drawing.Size(186, 22);
+            this.BarcodeTxt.Size = new System.Drawing.Size(182, 21);
             this.BarcodeTxt.TabIndex = 1;
             this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
             this.BarcodeTxt.Enter += new System.EventHandler(this.BarcodeTxt_Enter);
@@ -297,10 +367,10 @@
             // 
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 77);
+            this.panel8.Location = new System.Drawing.Point(0, 35);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel8.Size = new System.Drawing.Size(413, 613);
+            this.panel8.Size = new System.Drawing.Size(413, 655);
             this.panel8.TabIndex = 205;
             // 
             // panel9
@@ -311,7 +381,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(1);
-            this.panel9.Size = new System.Drawing.Size(413, 603);
+            this.panel9.Size = new System.Drawing.Size(413, 645);
             this.panel9.TabIndex = 0;
             // 
             // panel10
@@ -325,14 +395,14 @@
             this.panel10.Location = new System.Drawing.Point(1, 1);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panel10.Size = new System.Drawing.Size(411, 601);
+            this.panel10.Size = new System.Drawing.Size(411, 643);
             this.panel10.TabIndex = 0;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.CheckoutBtn);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(10, 534);
+            this.panel11.Location = new System.Drawing.Point(10, 576);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(391, 57);
             this.panel11.TabIndex = 217;
@@ -342,6 +412,7 @@
             this.CheckoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CheckoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CheckoutBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckoutBtn.Enabled = false;
             this.CheckoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckoutBtn.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckoutBtn.ForeColor = System.Drawing.Color.White;
@@ -360,7 +431,7 @@
             this.panel12.Controls.Add(this.ChangeLbl);
             this.panel12.Controls.Add(this.label14);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(10, 102);
+            this.panel12.Location = new System.Drawing.Point(10, 107);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panel12.Size = new System.Drawing.Size(391, 65);
@@ -395,28 +466,41 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.SystemColors.Control;
-            this.panel13.Controls.Add(this.PaymentTxt);
+            this.panel13.Controls.Add(this.panel15);
             this.panel13.Controls.Add(this.label11);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(10, 65);
             this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(0, 10, 11, 0);
-            this.panel13.Size = new System.Drawing.Size(391, 37);
+            this.panel13.Padding = new System.Windows.Forms.Padding(0, 10, 12, 0);
+            this.panel13.Size = new System.Drawing.Size(391, 42);
             this.panel13.TabIndex = 215;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.White;
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.PaymentTxt);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel15.Location = new System.Drawing.Point(180, 10);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(199, 32);
+            this.panel15.TabIndex = 192;
             // 
             // PaymentTxt
             // 
-            this.PaymentTxt.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PaymentTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.PaymentTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PaymentTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.PaymentTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.PaymentTxt.Location = new System.Drawing.Point(194, 10);
+            this.PaymentTxt.Location = new System.Drawing.Point(6, 5);
             this.PaymentTxt.MaxLength = 10;
             this.PaymentTxt.Name = "PaymentTxt";
-            this.PaymentTxt.Size = new System.Drawing.Size(186, 26);
-            this.PaymentTxt.TabIndex = 2;
+            this.PaymentTxt.Size = new System.Drawing.Size(186, 17);
+            this.PaymentTxt.TabIndex = 3;
             this.PaymentTxt.TabStop = false;
             this.PaymentTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.PaymentTxt.TextChanged += new System.EventHandler(this.PaymentTxt_TextChanged);
+            this.PaymentTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PaymentTxt_KeyDown);
+            this.PaymentTxt.Leave += new System.EventHandler(this.PaymentTxt_Leave);
             // 
             // label11
             // 
@@ -426,7 +510,8 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(0, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 22);
+            this.label11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.label11.Size = new System.Drawing.Size(161, 26);
             this.label11.TabIndex = 188;
             this.label11.Text = "Payment amount :";
             // 
@@ -474,7 +559,8 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(413, 77);
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 40, 0, 10);
+            this.panel7.Size = new System.Drawing.Size(413, 35);
             this.panel7.TabIndex = 204;
             // 
             // dataGridViewImageColumn1
@@ -544,6 +630,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.CartTbl)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -553,6 +642,8 @@
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
@@ -568,8 +659,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox BarcodeTxt;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView CartTbl;
@@ -581,21 +670,28 @@
         private System.Windows.Forms.Label ChangeLbl;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox PaymentTxt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label TotalLbl;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Drawing.Printing.PrintDocument PrintDocument;
+        private System.Windows.Forms.PrintPreviewDialog PrintPreview;
+        private System.Windows.Forms.Timer BarcodeTimer;
         private System.Windows.Forms.DataGridViewTextBoxColumn DisplayItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
         private System.Windows.Forms.DataGridViewImageColumn decrease;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewImageColumn increase;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceTotal;
-        private System.Drawing.Printing.PrintDocument PrintDocument;
-        private System.Windows.Forms.PrintPreviewDialog PrintPreview;
-        private System.Windows.Forms.Timer BarcodeTimer;
+        private System.Windows.Forms.DataGridViewButtonColumn Void;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button VoidCartBtn;
+        private System.Windows.Forms.Button SearchItemBtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox BarcodeTxt;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.TextBox PaymentTxt;
     }
 }

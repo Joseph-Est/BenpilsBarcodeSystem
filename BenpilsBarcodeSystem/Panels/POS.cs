@@ -22,6 +22,7 @@ namespace BenpilsBarcodeSystem
         private string TransactionNo { get; set; }
         private StringBuilder _barcode;
         MainForm mainForm;
+
         public POS()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace BenpilsBarcodeSystem
         private async void BarcodeTxt_TextChanged(object sender, EventArgs e)
         {
             string barcode = BarcodeTxt.Text.Trim();
+            bool isExistingItem = false;
 
             if (inventory == null)
             {
@@ -68,60 +70,66 @@ namespace BenpilsBarcodeSystem
             
             if (CurrentItem != null)
             {
-
-                QuantityDialog quantityDialog = new QuantityDialog();
-                quantityDialog.ShowDialog();
-
-                int quantity = quantityDialog.quantity;
-
+                
                 var existingItem = CurrentCart.Items.FirstOrDefault(item => item.Id == CurrentItem.Id);
-                if (existingItem != null)
+
+                isExistingItem = existingItem != null;
+
+                int stock = CurrentItem.Quantity - (isExistingItem ? existingItem.Quantity : 0);
+
+                if (stock <= 0)
                 {
-                    if (CurrentItem.Quantity - existingItem.Quantity - quantity <= 0)
-                    {
-                        MessageBox.Show("Not enough stock");
-                        BarcodeTxt.Clear();
-                        return;
-
-                    }
-
-                    existingItem.Quantity += quantity;
-                }
-                else
-                {
-                    if (CurrentItem.Quantity <= 0)
-                    {
-                        MessageBox.Show("Out of stock");
-                        BarcodeTxt.Clear();
-                        return;
-                    }
-
-                    if (CurrentItem.Quantity - quantity < 0)
-                    {
-                        MessageBox.Show("Not enough stock");
-                        BarcodeTxt.Clear();
-                        return;
-                    }
-
-                    var purchaseItem = new PurchaseItem
-                    {
-                        Id = CurrentItem.Id,
-                        ItemName = CurrentItem.ItemName,
-                        Brand = CurrentItem.Brand,
-                        Size = CurrentItem.Size,
-                        Stock = CurrentItem.Quantity,
-                        Quantity = quantity,
-                        SellingPrice = CurrentItem.SellingPrice
-                    };
-
-                    CurrentCart.Items.Add(purchaseItem);
+                    MessageBox.Show("Out of stock");
+                    BarcodeTxt.Clear();
+                    return;
                 }
 
-                CartTbl.AutoGenerateColumns = false;
-                CartTbl.DataSource = CurrentCart.Items;
-                CartTbl.Refresh();
-                BarcodeTxt.Clear();
-                CartCheck();
+                QuantityDialog quantityDialog = new QuantityDialog(stock, CurrentItem.ItemName, CurrentItem.Size, CurrentItem.Brand);
+                
+                if(quantityDialog.ShowDialog() == DialogResult.OK){
+                    int quantity = quantityDialog.quantity;
+
+                    if (isExistingItem)
+                    {
+                        if (CurrentItem.Quantity - existingItem.Quantity - quantity < 0)
+                        {
+                            MessageBox.Show("Not enough stock");
+                            BarcodeTxt.Clear();
+                            return;
+
+                        }
+
+                        existingItem.Quantity += quantity;
+                    }
+                    else
+                    {
+                        if (CurrentItem.Quantity - quantity < 0)
+                        {
+                            MessageBox.Show("Not enough stock");
+                            BarcodeTxt.Clear();
+                            return;
+                        }
+
+                        var purchaseItem = new PurchaseItem
+                        {
+                            Id = CurrentItem.Id,
+                            ItemName = CurrentItem.ItemName,
+                            Brand = CurrentItem.Brand,
+                            Size = CurrentItem.Size,
+                            Stock = CurrentItem.Quantity,
+                            Quantity = quantity,
+                            SellingPrice = CurrentItem.SellingPrice
+                        };
+
+                        CurrentCart.Items.Add(purchaseItem);
+                    }
+
+                    CartTbl.AutoGenerateColumns = false;
+                    CartTbl.DataSource = CurrentCart.Items;
+                    CartTbl.Refresh();
+                    BarcodeTxt.Clear();
+                    CartCheck();
+                }
             }
         }
 
@@ -166,6 +174,31 @@ namespace BenpilsBarcodeSystem
 
                 CartTbl.Refresh();
                 CartCheck();
+            }else if(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
+
+                if (senderGrid.Columns[e.ColumnIndex].Name == "Void")
+                {
+                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        CurrentCart.Items.Remove(selectedItem);
+                        CartTbl.Refresh();
+                        CartCheck();
+                    }
+                }
+            }
+        }
+
+        private void VoidCartBtn_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to remove all items from the cart?", "Warning", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                ClearCart();
             }
         }
 
@@ -229,9 +262,20 @@ namespace BenpilsBarcodeSystem
 
         private void CartCheck()
         {
-            CheckoutBtn.Enabled = CurrentCart.HasItems();
-            mainForm.CanSwitchPanel = !CurrentCart.HasItems();
-            TotalLbl.Text = CurrentCart.GetTotalPriceAsString();
+            if (CurrentCart == null)
+            {
+                CheckoutBtn.Enabled = false;
+                VoidCartBtn.Enabled = false;
+                mainForm.CanSwitchPanel = true;
+            }
+            else
+            {
+                CheckoutBtn.Enabled = CurrentCart.HasItems();
+                VoidCartBtn.Enabled = CurrentCart.HasItems();
+                mainForm.CanSwitchPanel = !CurrentCart.HasItems();
+                TotalLbl.Text = CurrentCart.GetTotalPrice().ToString();
+            }
+            BarcodeTxt.Select();
         }
 
         private void ClearCart()
@@ -239,11 +283,11 @@ namespace BenpilsBarcodeSystem
             CurrentCart = null;
             CartTbl.DataSource = null;
             CartTbl.Rows.Clear();
-            TotalLbl.Text = "0.00";
             ChangeLbl.Text = "0.00";
+            TotalLbl.Text = "0.00";
             PaymentTxt.Text = null;
             BarcodeTxt.Text = null;
-            mainForm.CanSwitchPanel = true;
+            CartCheck();
         }
 
         private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -296,7 +340,24 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeTxt_Leave(object sender, EventArgs e)
         {
-            this.AcceptButton = CheckoutBtn;
+            if (PaymentTxt.Focused)
+            {
+                this.AcceptButton = CheckoutBtn;
+            }
+            else
+            {
+                BarcodeTxt.Select();
+            }
+        }
+
+        private void PaymentTxt_Leave(object sender, EventArgs e)
+        {
+            BarcodeTxt.Select();
+        }
+
+        private void PaymentTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }

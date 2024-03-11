@@ -61,10 +61,10 @@ namespace BenpilsBarcodeSystem
         {
             string barcode = BarcodeTxt.Text.Trim();
             string itemName = Util.Capitalize(ItemNameTxt.Text);
-            string category = CategoryCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(CategoryCb.Text);
-            string brand = BrandCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(BrandCb.Text);
-            string motorBrand = MotorBrandCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(MotorBrandCb.Text);
-            string size = Util.CapitalizeOrNA(SizeTxt.Text);
+            string category = CategoryCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(CategoryCb.Text);
+            string brand = BrandCb.Text.Trim().ToLower() == "n/a" ? "n/a" : Util.CapitalizeOrNA(BrandCb.Text);
+            string motorBrand = MotorBrandCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(MotorBrandCb.Text);
+            string size = SizeCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(SizeCb.Text);
             int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
 
             if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
@@ -139,36 +139,6 @@ namespace BenpilsBarcodeSystem
             SupplierCb.SelectedItem = "Select a supplier (optional)";
         }
 
-        private async void CategoryCb_Enter(object sender, EventArgs e)
-        {
-            if (CategoryCb.Items.Count == 0)
-            {
-                InventoryRepository repository = new InventoryRepository();
-                List<string> categories = await repository.GetDistinctValuesAsync("category", "N/A");
-                CategoryCb.Items.AddRange(categories.ToArray());
-            }
-        }
-
-        private async void BrandCb_Enter(object sender, EventArgs e)
-        {
-            if (BrandCb.Items.Count == 0)
-            {
-                InventoryRepository repository = new InventoryRepository();
-                List<string> brands = await repository.GetDistinctValuesAsync("brand", "N/A");
-                BrandCb.Items.AddRange(brands.ToArray());
-            }
-        }
-
-        private async void MotorBrandCb_Enter(object sender, EventArgs e)
-        {
-            if (MotorBrandCb.Items.Count == 0)
-            {
-                InventoryRepository repository = new InventoryRepository();
-                List<string> motorBrands = await repository.GetDistinctValuesAsync("motor_brand", "N/A");
-                MotorBrandCb.Items.AddRange(motorBrands.ToArray());
-            }
-        }
-
         private void AddItem_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!canClose) 
@@ -233,6 +203,51 @@ namespace BenpilsBarcodeSystem
         private void BarcodeTxt_Leave(object sender, EventArgs e)
         {
             this.AcceptButton = AcceptBtn;
+        }
+
+        private async void ComboBox_Enter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
+            if (cb != null && cb.Items.Count == 0)
+            {
+                InventoryRepository repository = new InventoryRepository();
+                string column = "";
+                switch (cb.Name)
+                {
+                    case "CategoryCb":
+                        column = "category";
+                        break;
+                    case "BrandCb":
+                        column = "brand";
+                        break;
+                    case "MotorBrandCb":
+                        column = "motor_brand";
+                        break;
+                    case "SizeCb":
+                        column = "size";
+                        break;
+                }
+                List<string> values = await repository.GetDistinctValuesAsync(column, "N/A");
+                cb.Items.AddRange(values.ToArray());
+            }
+        }
+
+        private void ComboBox_Leave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
+            if (cb != null && string.IsNullOrEmpty(cb.Text.Trim()))
+            {
+                cb.SelectedIndex = 0;
+            }
+        }
+
+        private void NumberTextBox_Leave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox tb = sender as System.Windows.Forms.TextBox;
+            if (tb != null && string.IsNullOrEmpty(tb.Text.Trim()))
+            {
+                tb.Text = "0";
+            }
         }
     }
 }

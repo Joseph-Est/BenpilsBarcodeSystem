@@ -94,6 +94,29 @@ namespace BenpilsBarcodeSystem.Helpers
             };
         }
 
+        public static void AllowOnlyDigitsMinMax(TextBox textBox, int min, int max)
+        {
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                else if (char.IsDigit(e.KeyChar))
+                {
+                    string newText = textBox.Text + e.KeyChar;
+
+                    if (int.TryParse(newText, out int number))
+                    {
+                        if (number < min || number > max)
+                        {
+                            e.Handled = true;
+                        }
+                    }
+                }
+            };
+        }
+
         public static void AllowOnlyDigitsAndDecimal(TextBox textBox)
         {
             textBox.KeyPress += (sender, e) =>

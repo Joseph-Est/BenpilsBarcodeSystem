@@ -307,7 +307,7 @@ namespace BenpilsBarcodeSystem.Repository
             List<string> uniqueValuesColumn1 = new List<string>();
             List<string> uniqueValuesColumn2 = new List<string>();
 
-            string selectQuery = $"SELECT DISTINCT {col_category}, {col_brand} FROM {tbl_name}";
+            string selectQuery = $"SELECT DISTINCT {col_category}, {col_brand} FROM {tbl_name} WHERE {col_category} NOT IN ('All') AND {col_brand} NOT IN ('All')";
 
             try
             {
@@ -386,7 +386,7 @@ namespace BenpilsBarcodeSystem.Repository
         {
             List<string> uniqueValues = new List<string>();
 
-            string selectQuery = $"SELECT DISTINCT {columnName} FROM {tbl_name}";
+            string selectQuery = $"SELECT DISTINCT {columnName} FROM {tbl_name} WHERE {columnName} NOT IN ('{defaultValue}')";
 
             try
             {
@@ -410,10 +410,7 @@ namespace BenpilsBarcodeSystem.Repository
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
 
-            if (!uniqueValues.Contains(defaultValue))
-            {
-                uniqueValues.Insert(0, defaultValue);
-            }
+            uniqueValues.Insert(0, defaultValue);
 
             return uniqueValues;
         }

@@ -15,10 +15,14 @@ namespace BenpilsBarcodeSystem.Dialogs
     {
         public int quantity { get; set; }
         bool canClose = false;
-        public QuantityDialog()
+        public QuantityDialog(int stock, string itemName, string itemSize, string itemBrand)
         {
             InitializeComponent();
-            InputValidator.AllowOnlyDigits(QuantityTxt);
+            InputValidator.AllowOnlyDigitsMinMax(QuantityTxt, 1, stock);
+            StockLbl.Text = stock.ToString();
+            ItemLbl.Text = itemName;
+            SizeLbl.Text = itemSize;
+            BrandLbl.Text = itemBrand;
         }
 
         private void QuantityDialog_Load(object sender, EventArgs e)
@@ -48,6 +52,13 @@ namespace BenpilsBarcodeSystem.Dialogs
             {
                 e.Cancel = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            canClose = true;
+            DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

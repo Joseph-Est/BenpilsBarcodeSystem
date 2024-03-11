@@ -22,6 +22,15 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
+        public static void ResetComboBoxes(params ComboBox[] comboBoxes)
+        {
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                comboBox.Items.Clear();
+                comboBox.SelectedIndex = -1;
+            }
+        }
+
         public static bool AreTextBoxesNullOrEmpty(params TextBox[] textBoxes)
         {
             foreach (TextBox textBox in textBoxes)
@@ -42,12 +51,20 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
+        public static void SetComboBoxesDisabled(bool mode, params ComboBox[] comboBoxes)
+        {
+            foreach (ComboBox comboBox in comboBoxes)
+            {
+                comboBox.Enabled = !mode;
+            }
+        }
+
         public static string Capitalize(string input)
         {
             if (string.IsNullOrEmpty(input.Trim()))
                 return input.Trim();
 
-            input = input.Trim(); 
+            input = input.Trim().ToLower(); 
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             input = Regex.Replace(input, @"\b\w", match => match.Value.ToUpper()); 
             return input;
@@ -58,7 +75,7 @@ namespace BenpilsBarcodeSystem.Utils
             if (string.IsNullOrEmpty(input.Trim()))
                 return "N/A";
 
-            input = input.Trim();
+            input = input.Trim().ToLower();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             input = Regex.Replace(input, @"\b\w", match => match.Value.ToUpper());
             return input;

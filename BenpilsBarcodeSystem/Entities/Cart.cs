@@ -24,7 +24,7 @@ namespace BenpilsBarcodeSystem.Entities
         {
             get
             {
-                return $"{ItemName} (Brand: {Brand}, Size: {Size})";
+                return $"{ItemName} ({Brand}, {Size})";
             }
         }
 

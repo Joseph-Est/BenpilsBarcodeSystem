@@ -48,7 +48,6 @@
             this.QuantityTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.SizeTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.MotorBrandCb = new System.Windows.Forms.ComboBox();
@@ -70,6 +69,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.SizeCb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -245,6 +245,7 @@
             this.SellingPriceTxt.Name = "SellingPriceTxt";
             this.SellingPriceTxt.Size = new System.Drawing.Size(298, 24);
             this.SellingPriceTxt.TabIndex = 102;
+            this.SellingPriceTxt.Leave += new System.EventHandler(this.NumberTextBox_Leave);
             // 
             // label4
             // 
@@ -279,6 +280,7 @@
             this.PurchasePriceTxt.Name = "PurchasePriceTxt";
             this.PurchasePriceTxt.Size = new System.Drawing.Size(298, 24);
             this.PurchasePriceTxt.TabIndex = 102;
+            this.PurchasePriceTxt.Leave += new System.EventHandler(this.NumberTextBox_Leave);
             // 
             // lblcategory
             // 
@@ -313,6 +315,7 @@
             this.QuantityTxt.Name = "QuantityTxt";
             this.QuantityTxt.Size = new System.Drawing.Size(298, 24);
             this.QuantityTxt.TabIndex = 102;
+            this.QuantityTxt.Leave += new System.EventHandler(this.NumberTextBox_Leave);
             // 
             // label3
             // 
@@ -328,7 +331,7 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.SizeTxt);
+            this.panel11.Controls.Add(this.SizeCb);
             this.panel11.Controls.Add(this.label2);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(20, 247);
@@ -336,17 +339,6 @@
             this.panel11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.panel11.Size = new System.Drawing.Size(408, 34);
             this.panel11.TabIndex = 125;
-            // 
-            // SizeTxt
-            // 
-            this.SizeTxt.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SizeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.SizeTxt.Location = new System.Drawing.Point(110, 5);
-            this.SizeTxt.MaxLength = 100;
-            this.SizeTxt.Multiline = true;
-            this.SizeTxt.Name = "SizeTxt";
-            this.SizeTxt.Size = new System.Drawing.Size(298, 24);
-            this.SizeTxt.TabIndex = 102;
             // 
             // label2
             // 
@@ -383,7 +375,8 @@
             this.MotorBrandCb.Name = "MotorBrandCb";
             this.MotorBrandCb.Size = new System.Drawing.Size(298, 24);
             this.MotorBrandCb.TabIndex = 99;
-            this.MotorBrandCb.Enter += new System.EventHandler(this.MotorBrandCb_Enter);
+            this.MotorBrandCb.Enter += new System.EventHandler(this.ComboBox_Enter);
+            this.MotorBrandCb.Leave += new System.EventHandler(this.ComboBox_Leave);
             // 
             // lblunitprice
             // 
@@ -420,7 +413,8 @@
             this.BrandCb.Name = "BrandCb";
             this.BrandCb.Size = new System.Drawing.Size(298, 24);
             this.BrandCb.TabIndex = 97;
-            this.BrandCb.Enter += new System.EventHandler(this.BrandCb_Enter);
+            this.BrandCb.Enter += new System.EventHandler(this.ComboBox_Enter);
+            this.BrandCb.Leave += new System.EventHandler(this.ComboBox_Leave);
             // 
             // lblBrand
             // 
@@ -457,7 +451,8 @@
             this.CategoryCb.Name = "CategoryCb";
             this.CategoryCb.Size = new System.Drawing.Size(298, 24);
             this.CategoryCb.TabIndex = 96;
-            this.CategoryCb.Enter += new System.EventHandler(this.CategoryCb_Enter);
+            this.CategoryCb.Enter += new System.EventHandler(this.ComboBox_Enter);
+            this.CategoryCb.Leave += new System.EventHandler(this.ComboBox_Leave);
             // 
             // lvlmotorbrand
             // 
@@ -600,6 +595,21 @@
             this.panel3.Size = new System.Drawing.Size(450, 493);
             this.panel3.TabIndex = 112;
             // 
+            // SizeCb
+            // 
+            this.SizeCb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.SizeCb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.SizeCb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SizeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.SizeCb.FormattingEnabled = true;
+            this.SizeCb.Location = new System.Drawing.Point(110, 5);
+            this.SizeCb.MaxLength = 50;
+            this.SizeCb.Name = "SizeCb";
+            this.SizeCb.Size = new System.Drawing.Size(298, 24);
+            this.SizeCb.TabIndex = 101;
+            this.SizeCb.Enter += new System.EventHandler(this.ComboBox_Enter);
+            this.SizeCb.Leave += new System.EventHandler(this.ComboBox_Leave);
+            // 
             // AddItem
             // 
             this.AcceptButton = this.AcceptBtn;
@@ -655,7 +665,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox SizeTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lblunitprice;
@@ -689,5 +698,6 @@
         private System.Windows.Forms.ComboBox MotorBrandCb;
         private System.Windows.Forms.ComboBox BrandCb;
         private System.Windows.Forms.ComboBox CategoryCb;
+        private System.Windows.Forms.ComboBox SizeCb;
     }
 }

@@ -117,7 +117,7 @@ namespace BenpilsBarcodeSystem.Helpers
                 else if (char.IsDigit(e.KeyChar) && textBox.Text.Contains("."))
                 {
                     int decimalIndex = textBox.Text.IndexOf('.');
-                    if (textBox.Text.Substring(decimalIndex).Length > 2) 
+                    if (textBox.SelectionStart > decimalIndex && textBox.Text.Length - decimalIndex > 2)
                     {
                         e.Handled = true;
                     }

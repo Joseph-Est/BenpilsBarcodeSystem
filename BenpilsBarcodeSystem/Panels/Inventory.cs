@@ -50,6 +50,24 @@ namespace BenpilsBarcodeSystem
                 DataTable inventoryDT = await inventoryRepository.GetProductsAsync(searchText, category, brand);
 
                 dataGridItemMasterdata.DataSource = inventoryDT;
+
+                //foreach (DataGridViewRow row in dataGridItemMasterdata.Rows)
+                //{
+                //    string status = row.Cells["status"].Value.ToString();
+
+                //    if (status == "No Stock")
+                //    {
+                //        row.Cells["status"].Style.BackColor = Color.Red;
+                //    }
+                //    else if (status == "High-Stock")
+                //    {
+                //        row.Cells["status"].Style.BackColor = Color.Green;
+                //    }
+                //    else if (status == "Low-Stock")
+                //    {
+                //        row.Cells["status"].Style.BackColor = Color.Orange;
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -254,6 +272,11 @@ namespace BenpilsBarcodeSystem
                     ReduceStockBtn.Enabled = true;
                 }
             }
+        }
+
+        private void dataGridItemMasterdata_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
         }
 
         private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)

@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
@@ -19,14 +20,32 @@ namespace BenpilsBarcodeSystem
         InventoryRepository inventory;
         Cart CurrentCart;
         private string TransactionNo { get; set; }
-
+        private StringBuilder _barcode;
+        MainForm mainForm;
         public POS()
         {
             InitializeComponent();
+            _barcode = new StringBuilder();
+        }
+
+        private void BarcodeTimer_Tick(object sender, EventArgs e)
+        {
+            BarcodeTimer.Stop();
+            BarcodeTxt.Text = _barcode.ToString();
+            _barcode.Clear();
+        }
+
+        private void POS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _barcode.Append(e.KeyChar);
+
+            BarcodeTimer.Stop();
+            BarcodeTimer.Start();
         }
 
         private void POS_Load(object sender, EventArgs e)
         {
+            mainForm = (MainForm)this.ParentForm;
             CurrentCart = new Cart();
             InputValidator.AllowOnlyDigitsAndDecimal(PaymentTxt);
         }
@@ -46,23 +65,27 @@ namespace BenpilsBarcodeSystem
             }
 
             Item CurrentItem = await inventory.GetItemByBarcodeAsync(barcode);
-
             
             if (CurrentItem != null)
             {
-                
+
+                QuantityDialog quantityDialog = new QuantityDialog();
+                quantityDialog.ShowDialog();
+
+                int quantity = quantityDialog.quantity;
+
                 var existingItem = CurrentCart.Items.FirstOrDefault(item => item.Id == CurrentItem.Id);
                 if (existingItem != null)
                 {
-                    if (CurrentItem.Quantity - existingItem.Quantity <= 0)
+                    if (CurrentItem.Quantity - existingItem.Quantity - quantity <= 0)
                     {
-                        MessageBox.Show("Out of stock");
+                        MessageBox.Show("Not enough stock");
                         BarcodeTxt.Clear();
                         return;
 
                     }
 
-                    existingItem.Quantity += 1;
+                    existingItem.Quantity += quantity;
                 }
                 else
                 {
@@ -71,7 +94,13 @@ namespace BenpilsBarcodeSystem
                         MessageBox.Show("Out of stock");
                         BarcodeTxt.Clear();
                         return;
+                    }
 
+                    if (CurrentItem.Quantity - quantity < 0)
+                    {
+                        MessageBox.Show("Not enough stock");
+                        BarcodeTxt.Clear();
+                        return;
                     }
 
                     var purchaseItem = new PurchaseItem
@@ -81,7 +110,7 @@ namespace BenpilsBarcodeSystem
                         Brand = CurrentItem.Brand,
                         Size = CurrentItem.Size,
                         Stock = CurrentItem.Quantity,
-                        Quantity = 1,
+                        Quantity = quantity,
                         SellingPrice = CurrentItem.SellingPrice
                     };
 
@@ -201,6 +230,7 @@ namespace BenpilsBarcodeSystem
         private void CartCheck()
         {
             CheckoutBtn.Enabled = CurrentCart.HasItems();
+            mainForm.CanSwitchPanel = !CurrentCart.HasItems();
             TotalLbl.Text = CurrentCart.GetTotalPriceAsString();
         }
 
@@ -213,6 +243,7 @@ namespace BenpilsBarcodeSystem
             ChangeLbl.Text = "0.00";
             PaymentTxt.Text = null;
             BarcodeTxt.Text = null;
+            mainForm.CanSwitchPanel = true;
         }
 
         private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -225,7 +256,7 @@ namespace BenpilsBarcodeSystem
 
         private void POS_Enter(object sender, EventArgs e)
         {
-            BarcodeTxt.Select();
+            
         }
 
         private void PrintReceipt()
@@ -250,6 +281,22 @@ namespace BenpilsBarcodeSystem
             Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
+        }
+
+        private void POS_ParentChanged(object sender, EventArgs e)
+        {
+            BarcodeTxt.Select();
+        }
+
+        private void BarcodeTxt_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
+        }
+
+
+        private void BarcodeTxt_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = CheckoutBtn;
         }
     }
 }

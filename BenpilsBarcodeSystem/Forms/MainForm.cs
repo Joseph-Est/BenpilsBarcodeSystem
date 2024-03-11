@@ -26,6 +26,7 @@ namespace BenpilsBarcodeSystem
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
+        public bool CanSwitchPanel { get; set; } = true;
 
         private CheckBox lastChecked = null;
         private readonly Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
@@ -45,28 +46,35 @@ namespace BenpilsBarcodeSystem
 
         private void Checkbox_Clicked(object sender, EventArgs e)
         {
-            CheckBox currentCheckBox = sender as CheckBox;
-
-            if (currentCheckBox.Checked)
+            if (CanSwitchPanel)
             {
-                return;
+                CheckBox currentCheckBox = sender as CheckBox;
+
+                if (currentCheckBox.Checked)
+                {
+                    return;
+                }
+
+                currentCheckBox.Checked = true;
+                currentCheckBox.ForeColor = Color.Black;
+                currentCheckBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(240, 240, 240);
+                currentCheckBox.Image = checkedImages[currentCheckBox];
+                SwitchForm(currentCheckBox);
+
+                if (lastChecked != null)
+                {
+                    lastChecked.Checked = false;
+                    lastChecked.ForeColor = Color.White;
+                    lastChecked.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 80, 80);
+                    lastChecked.Image = uncheckedImages[lastChecked];
+                }
+
+                lastChecked = currentCheckBox;
             }
-
-            currentCheckBox.Checked = true;
-            currentCheckBox.ForeColor = Color.Black;
-            currentCheckBox.FlatAppearance.MouseOverBackColor = Color.FromArgb(240, 240, 240);
-            currentCheckBox.Image = checkedImages[currentCheckBox];
-            SwitchForm(currentCheckBox);
-
-            if (lastChecked != null)
+            else
             {
-                lastChecked.Checked = false;
-                lastChecked.ForeColor = Color.White;
-                lastChecked.FlatAppearance.MouseOverBackColor = Color.FromArgb(80, 80, 80);
-                lastChecked.Image = uncheckedImages[lastChecked];
+                MessageBox.Show("Please complete the ongoing transaction.", "Transaction in Progress", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            lastChecked = currentCheckBox;
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)

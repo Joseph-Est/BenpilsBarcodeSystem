@@ -18,6 +18,9 @@ namespace BenpilsBarcodeSystem.Repository
         private string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
                        col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
 
+        private int lowStockThreshold = 20;
+        private int highStockThreshold = 100;
+
         public InventoryRepository()
         {
             databaseConnection = new Database.DatabaseConnection();
@@ -92,14 +95,14 @@ namespace BenpilsBarcodeSystem.Repository
                         {
                             int quantity = Convert.ToInt32(row[col_quantity]);
 
-                            if (quantity > 1000)
+                            if (quantity > highStockThreshold)
                                 row["status"] = "High-Stock";
-                            else if (quantity > 100)
+                            else if (quantity >= lowStockThreshold)
                                 row["status"] = "In-Stock";
-                            else if (quantity == 0)
-                                row["status"] = "No Stock";
-                            else
+                            else if (quantity < lowStockThreshold && quantity > 0)
                                 row["status"] = "Low-Stock";
+                            else
+                                row["status"] = "No Stock";
 
                             row["formatted_purchase_price"] = InputValidator.StringToFormattedPrice(row[col_purchase_price].ToString());
                             row["formatted_selling_price"] = InputValidator.StringToFormattedPrice(row[col_selling_price].ToString());
@@ -724,19 +727,21 @@ namespace BenpilsBarcodeSystem.Repository
                         List<int> itemIds = new List<int>();
                         List<int> quantities = new List<int>();
                         List<decimal> totals = new List<decimal>();
+                        List<int> receivedQuantities = new List<int>();
                         using (SqlDataReader reader = await cmdOrderDetails.ExecuteReaderAsync())
                         {
                             while (await reader.ReadAsync())
                             {
-                                itemIds.Add((int)reader["item_id"]);
-                                quantities.Add((int)reader["quantity"]);
-                                totals.Add((decimal)reader["total"]);
+                                itemIds.Add(reader["item_id"] == DBNull.Value ? 0 : (int)reader["item_id"]);
+                                quantities.Add(reader["order_quantity"] == DBNull.Value ? 0 : (int)reader["order_quantity"]);
+                                totals.Add(reader["total"] == DBNull.Value ? 0m : (decimal)reader["total"]);
+                                receivedQuantities.Add(reader["received_quantity"] == DBNull.Value ? 0 : (int)reader["received_quantity"]);
                             }
                         }
 
                         for (int i = 0; i < itemIds.Count; i++)
                         {
-                            sql = $"SELECT * FROM tbl_item_master_data WHERE id = @item_id";
+                            sql = $"SELECT * FROM {tbl_name} WHERE {col_id} = @item_id";
                             using (SqlCommand cmdItem = new SqlCommand(sql, con))
                             {
                                 cmdItem.Parameters.AddWithValue("@item_id", itemIds[i]);
@@ -746,12 +751,13 @@ namespace BenpilsBarcodeSystem.Repository
                                     {
                                         PurchaseItem purchaseItem = new PurchaseItem
                                         {
-                                            Id = (int)itemReader["id"],
-                                            ItemName = itemReader["item_name"].ToString(),
-                                            Brand = itemReader["brand"].ToString(),
-                                            Size = itemReader["size"].ToString(),
+                                            Id = (int)itemReader[col_id],
+                                            ItemName = itemReader[col_item_name].ToString(),
+                                            Brand = itemReader[col_brand].ToString(),
+                                            Size = itemReader[col_size].ToString(),
                                             Quantity = quantities[i],
                                             PurchasePrice = totals[i] / quantities[i],
+                                            ReceivedQuantity = receivedQuantities[i],
                                         };
                                         cart.Items.Add(purchaseItem);
                                     }

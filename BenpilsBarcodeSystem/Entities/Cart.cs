@@ -18,6 +18,7 @@ namespace BenpilsBarcodeSystem.Entities
         public int Stock { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal SellingPrice { get; set; }
+        public int ReceivedQuantity { get; set; }
 
         public string DisplayItemName
         {

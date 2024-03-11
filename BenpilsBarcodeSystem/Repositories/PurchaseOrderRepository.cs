@@ -16,9 +16,9 @@ namespace BenpilsBarcodeSystem.Repositories
         private readonly Database.DatabaseConnection databaseConnection;
 
         private string tbl_purchase_order = "tbl_purchase_order", tbl_purchase_order_details = "tbl_purchase_order_details";
-        private string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_is_fulfilled = "is_fulfilled",
-            col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_quantity = "quantity", col_total = "total", 
-            col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by";
+        private string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_status = "status", col_remarks = "remarks", col_is_backorder = "is_backorder",
+            col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_order_quantity = "order_quantity", col_total = "total", 
+            col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by", col_received_quantity = "received_quantity";
 
         public PurchaseOrderRepository()
         {
@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<DataTable> GetPurchaseOrderTransactionsAsync()
         {
-            string selectQuery = $"SELECT po.{col_order_id}, s.contact_name, po.{col_order_date}, po.{col_receiving_date} FROM {tbl_purchase_order} po INNER JOIN tbl_suppliers s ON po.{col_supplier_id} = s.supplier_id WHERE po.{col_is_fulfilled} = '0'";
+            string selectQuery = $"SELECT po.{col_order_id}, s.contact_name, po.{col_order_date}, po.{col_receiving_date} FROM {tbl_purchase_order} po INNER JOIN tbl_suppliers s ON po.{col_supplier_id} = s.supplier_id WHERE po.{col_status} = 'PENDING' AND po.{col_is_backorder} = 0";
 
             try
             {
@@ -74,7 +74,7 @@ namespace BenpilsBarcodeSystem.Repositories
         public async Task<bool> InsertPurchaseOrderAsync(int orderID, Cart cart, Supplier supplier, DateTime orderDate, DateTime receivingDate)
         {
             string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}) VALUES (@orderId, @supplierId, @orderDate, @receivingDate, @operatedBy)";
-            string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_quantity}, {col_total}) VALUES (@orderId, @itemId, @quantity, @total)";
+            string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_order_quantity}, {col_total}) VALUES (@orderId, @itemId, @quantity, @total)";
 
             try
             {
@@ -117,68 +117,6 @@ namespace BenpilsBarcodeSystem.Repositories
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
-        }
-
-        public async Task<Cart> GetPurchaseCartAsync(int orderId)
-        {
-            var purchaseCart = new Cart();
-
-            using (var command = new SqlCommand("SELECT * FROM tbl_purchase_order_details WHERE order_id = @orderId", databaseConnection.OpenConnection()))
-            {
-                command.Parameters.AddWithValue("@orderId", orderId);
-
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    while (await reader.ReadAsync())
-                    {
-                        var itemId = reader.GetInt32(reader.GetOrdinal("item_id"));
-                        var quantity = reader.GetInt32(reader.GetOrdinal("quantity"));
-                        var total = reader.GetDecimal(reader.GetOrdinal("total"));
-
-                        var item = await GetItemAsync(itemId);
-
-                        var purchaseItem = new PurchaseItem
-                        {
-                            Id = itemId,
-                            ItemName = item.ItemName,
-                            Brand = item.Brand,
-                            Size = item.Size,
-                            Quantity = quantity,
-                            PurchasePrice = total / quantity
-                        };
-
-                        purchaseCart.Items.Add(purchaseItem);
-                    }
-                }
-            }
-
-            return purchaseCart;
-        }
-
-        public async Task<Item> GetItemAsync(int itemId)
-        {
-            Item item = null;
-
-            using (var command = new SqlCommand("SELECT * FROM tbl_item_master_data WHERE id = @itemId", databaseConnection.OpenConnection()))
-            {
-                command.Parameters.AddWithValue("@itemId", itemId);
-
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    if (await reader.ReadAsync())
-                    {
-                        item = new Item
-                        {
-                            Id = reader.GetInt32(reader.GetOrdinal("id")),
-                            ItemName = reader.GetString(reader.GetOrdinal("item_name")),
-                            Brand = reader.GetString(reader.GetOrdinal("brand")),
-                            Size = reader.GetString(reader.GetOrdinal("size"))
-                        };
-                    }
-                }
-            }
-
-            return item;
         }
     }
 }

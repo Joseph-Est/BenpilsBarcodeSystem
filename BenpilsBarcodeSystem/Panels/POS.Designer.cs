@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -71,6 +72,7 @@
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
             this.PrintDocument = new System.Drawing.Printing.PrintDocument();
             this.PrintPreview = new System.Windows.Forms.PrintPreviewDialog();
+            this.BarcodeTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -276,7 +278,9 @@
             this.BarcodeTxt.Size = new System.Drawing.Size(186, 22);
             this.BarcodeTxt.TabIndex = 1;
             this.BarcodeTxt.TextChanged += new System.EventHandler(this.BarcodeTxt_TextChanged);
+            this.BarcodeTxt.Enter += new System.EventHandler(this.BarcodeTxt_Enter);
             this.BarcodeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BarcodeTxt_KeyPress);
+            this.BarcodeTxt.Leave += new System.EventHandler(this.BarcodeTxt_Leave);
             // 
             // panel2
             // 
@@ -406,6 +410,7 @@
             this.PaymentTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PaymentTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.PaymentTxt.Location = new System.Drawing.Point(194, 10);
+            this.PaymentTxt.MaxLength = 10;
             this.PaymentTxt.Name = "PaymentTxt";
             this.PaymentTxt.Size = new System.Drawing.Size(186, 26);
             this.PaymentTxt.TabIndex = 2;
@@ -513,6 +518,10 @@
             this.PrintPreview.Name = "testPrintPreview";
             this.PrintPreview.Visible = false;
             // 
+            // BarcodeTimer
+            // 
+            this.BarcodeTimer.Tick += new System.EventHandler(this.BarcodeTimer_Tick);
+            // 
             // POS
             // 
             this.AcceptButton = this.CheckoutBtn;
@@ -527,6 +536,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POS_Load);
             this.Enter += new System.EventHandler(this.POS_Enter);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.POS_KeyPress);
+            this.ParentChanged += new System.EventHandler(this.POS_ParentChanged);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -585,5 +596,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceTotal;
         private System.Drawing.Printing.PrintDocument PrintDocument;
         private System.Windows.Forms.PrintPreviewDialog PrintPreview;
+        private System.Windows.Forms.Timer BarcodeTimer;
     }
 }

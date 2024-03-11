@@ -28,11 +28,17 @@ namespace BenpilsBarcodeSystem
         private int selectedID;
         private string prevContactName, prevContactNumber;
         private int OrderNo { get; set; }
+        MainForm mainForm;
 
         public PurchaseOrder()
         {
             InitializeComponent();
             InputValidator.AllowOnlyDigits(ContactNoTxt);
+        }
+
+        private void PurchaseOrder_Load(object sender, EventArgs e)
+        {
+            mainForm = (MainForm)this.ParentForm;
         }
 
         private void SupplierPage_Enter(object sender, EventArgs e)
@@ -302,6 +308,7 @@ namespace BenpilsBarcodeSystem
             CurrentPurchaseCart = new Cart();
             EnablePurchasePanel(true);
             PopulateSupplier();
+            mainForm.CanSwitchPanel = false;
         }
 
         private void AddItemCb_Click(object sender, EventArgs e)
@@ -473,6 +480,7 @@ namespace BenpilsBarcodeSystem
             OrderDt.Value = DateTime.Now;
             DeliveryDt.Value = DateTime.Now;
             EnablePurchasePanel(false);
+            mainForm.CanSwitchPanel = true;
         }
 
         private async void PopulateSupplier()
@@ -528,7 +536,7 @@ namespace BenpilsBarcodeSystem
             NewPurchaseBtn.Enabled = !isEnable;
             AddBtn.Enabled = isEnable;
             isPurchasing = isEnable;
-            SupplierPanel.Enabled = isEnable;
+            SupplierCb.Enabled = isEnable;
             DatePanel.Enabled = isEnable;
             ItemsTbl.Visible = isEnable;
             SummaryPanel.Visible = isEnable;

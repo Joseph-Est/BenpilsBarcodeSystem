@@ -88,7 +88,7 @@
             // 
             this.panel14.Controls.Add(this.panel16);
             this.panel14.Controls.Add(this.panel15);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel14.Location = new System.Drawing.Point(20, 125);
             this.panel14.MinimumSize = new System.Drawing.Size(314, 75);
             this.panel14.Name = "panel14";

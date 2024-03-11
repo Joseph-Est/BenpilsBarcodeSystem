@@ -59,8 +59,6 @@ namespace BenpilsBarcodeSystem
 
         private async void AcceptBtn_Click(object sender, EventArgs e)
         {
-            AcceptBtn.Text = "Saving.....";
-
             string barcode = BarcodeTxt.Text.Trim();
             string itemName = Util.Capitalize(ItemNameTxt.Text);
             string category = CategoryCb.Text.Trim().ToLower() == "none" ? "N/A" : Util.CapitalizeOrNA(CategoryCb.Text);
@@ -127,8 +125,6 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("Failed to save item, please try again");
             }
-
-            AcceptBtn.Text = "Save";
         }
 
         private async void PopulateSupplier()
@@ -227,6 +223,16 @@ namespace BenpilsBarcodeSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void BarcodeTxt_Enter(object sender, EventArgs e)
+        {
+            this.AcceptButton = null;
+        }
+
+        private void BarcodeTxt_Leave(object sender, EventArgs e)
+        {
+            this.AcceptButton = AcceptBtn;
         }
     }
 }

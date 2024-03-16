@@ -27,6 +27,7 @@ namespace BenpilsBarcodeSystem.Utils
             foreach (ComboBox comboBox in comboBoxes)
             {
                 comboBox.Items.Clear();
+                comboBox.Text = null;
                 comboBox.SelectedIndex = -1;
             }
         }

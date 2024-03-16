@@ -328,7 +328,7 @@ namespace BenpilsBarcodeSystem
         private void AddBtn_TextChanged(object sender, EventArgs e)
         {
             if (AddBtn.Text.Contains("Save")){
-                AddBtn.ForeColor = Color.FromArgb(80, 180, 80);
+                AddBtn.ForeColor = Color.FromArgb(62, 146, 62);
                 AddBtn.Image = Properties.Resources.icons8_downloading_updates_15;
                 UpdateBtn.ForeColor = Color.FromArgb(220, 80, 80);
                 UpdateBtn.Image = Properties.Resources.icons8_multiply_15;
@@ -408,6 +408,11 @@ namespace BenpilsBarcodeSystem
             {
                 tb.Text = "0";
             }
+        }
+
+        public void updateTable()
+        {
+            UpdateDataGridView();
         }
     }
 }

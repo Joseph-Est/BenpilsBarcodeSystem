@@ -194,6 +194,7 @@
             this.CartTbl.Size = new System.Drawing.Size(724, 603);
             this.CartTbl.TabIndex = 181;
             this.CartTbl.TabStop = false;
+            this.CartTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartTbl_CellClick);
             this.CartTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartTbl_CellContentClick);
             // 
             // DisplayItemName
@@ -314,6 +315,7 @@
             // 
             this.SearchItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.SearchItemBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchItemBtn.Enabled = false;
             this.SearchItemBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.SearchItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -499,7 +501,6 @@
             this.PaymentTxt.TabStop = false;
             this.PaymentTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.PaymentTxt.TextChanged += new System.EventHandler(this.PaymentTxt_TextChanged);
-            this.PaymentTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PaymentTxt_KeyDown);
             this.PaymentTxt.Leave += new System.EventHandler(this.PaymentTxt_Leave);
             // 
             // label11
@@ -621,9 +622,7 @@
             this.Text = "POSS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POS_Load);
-            this.Enter += new System.EventHandler(this.POS_Enter);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.POS_KeyPress);
-            this.ParentChanged += new System.EventHandler(this.POS_ParentChanged);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

@@ -60,7 +60,6 @@ namespace BenpilsBarcodeSystem
                         dash.Show();
                         dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
                         this.Hide();
-                        MessageBox.Show("Login successful");
                     }
                     else
                     {

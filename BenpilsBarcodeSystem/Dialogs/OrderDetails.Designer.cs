@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TitleLbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,42 +47,56 @@
             this.TotalLbl = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ItemsTbl = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.DeliveryDateLbl = new System.Windows.Forms.Label();
+            this.RemarksPanel = new System.Windows.Forms.Panel();
+            this.RemarksLbl = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.FulfilledByPanel = new System.Windows.Forms.Panel();
+            this.FulfilledByLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.OrderDateLbl = new System.Windows.Forms.Label();
+            this.DateFulfilledPanel = new System.Windows.Forms.Panel();
+            this.DateFulfilledLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.SupplierLbl = new System.Windows.Forms.Label();
+            this.StatusPanel = new System.Windows.Forms.Panel();
+            this.StatusLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.OrderedByPanel = new System.Windows.Forms.Panel();
-            this.OrdereByLbl = new System.Windows.Forms.Label();
+            this.SupplierPanel = new System.Windows.Forms.Panel();
+            this.SupplierLbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.OrderedByPanel = new System.Windows.Forms.Panel();
+            this.OrderedByLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DeliveryDatePanel = new System.Windows.Forms.Panel();
+            this.DeliveryDateLbl = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.OrderDatePanel = new System.Windows.Forms.Panel();
+            this.OrderDateLbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.OrderNoPanel = new System.Windows.Forms.Panel();
             this.OrderNoLbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.PrintPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.PrintDocument = new System.Drawing.Printing.PrintDocument();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Decrease = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ReceivedQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Increase = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.RemarksPanel.SuspendLayout();
+            this.FulfilledByPanel.SuspendLayout();
+            this.DateFulfilledPanel.SuspendLayout();
+            this.StatusPanel.SuspendLayout();
+            this.SupplierPanel.SuspendLayout();
             this.OrderedByPanel.SuspendLayout();
+            this.DeliveryDatePanel.SuspendLayout();
+            this.OrderDatePanel.SuspendLayout();
             this.OrderNoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,16 +131,20 @@
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.RemarksPanel);
+            this.panel1.Controls.Add(this.FulfilledByPanel);
+            this.panel1.Controls.Add(this.DateFulfilledPanel);
+            this.panel1.Controls.Add(this.StatusPanel);
+            this.panel1.Controls.Add(this.SupplierPanel);
             this.panel1.Controls.Add(this.OrderedByPanel);
+            this.panel1.Controls.Add(this.DeliveryDatePanel);
+            this.panel1.Controls.Add(this.OrderDatePanel);
             this.panel1.Controls.Add(this.OrderNoPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 34);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(447, 569);
+            this.panel1.Size = new System.Drawing.Size(447, 654);
             this.panel1.TabIndex = 88;
             // 
             // flowLayoutPanel1
@@ -135,7 +154,7 @@
             this.flowLayoutPanel1.Controls.Add(this.CancelBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 490);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 580);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(427, 63);
@@ -185,7 +204,7 @@
             this.panel9.Controls.Add(this.label7);
             this.panel9.Controls.Add(this.TotalLbl);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(10, 453);
+            this.panel9.Location = new System.Drawing.Point(10, 543);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panel9.Size = new System.Drawing.Size(427, 37);
@@ -219,7 +238,7 @@
             // 
             this.panel7.Controls.Add(this.ItemsTbl);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(10, 190);
+            this.panel7.Location = new System.Drawing.Point(10, 280);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(427, 263);
             this.panel7.TabIndex = 188;
@@ -246,14 +265,12 @@
             this.ItemsTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ItemsTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.ItemName,
             this.DisplayItemName,
             this.Quantity,
-            this.Size,
-            this.Brand,
-            this.PurchasePrice,
-            this.SellingPrice,
-            this.TotalAmount});
+            this.TotalAmount,
+            this.Decrease,
+            this.ReceivedQuantity,
+            this.Increase});
             this.ItemsTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemsTbl.EnableHeadersVisualStyles = false;
             this.ItemsTbl.GridColor = System.Drawing.Color.White;
@@ -263,15 +280,15 @@
             this.ItemsTbl.Name = "ItemsTbl";
             this.ItemsTbl.ReadOnly = true;
             this.ItemsTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ItemsTbl.RowHeadersVisible = false;
             this.ItemsTbl.RowHeadersWidth = 51;
             this.ItemsTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.ItemsTbl.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.ItemsTbl.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.ItemsTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ItemsTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
             this.ItemsTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
@@ -282,253 +299,295 @@
             this.ItemsTbl.Size = new System.Drawing.Size(427, 263);
             this.ItemsTbl.TabIndex = 183;
             this.ItemsTbl.TabStop = false;
+            this.ItemsTbl.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.ItemsTbl_DataBindingComplete);
             // 
-            // Id
+            // RemarksPanel
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            this.RemarksPanel.Controls.Add(this.RemarksLbl);
+            this.RemarksPanel.Controls.Add(this.label8);
+            this.RemarksPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RemarksPanel.Location = new System.Drawing.Point(10, 250);
+            this.RemarksPanel.Name = "RemarksPanel";
+            this.RemarksPanel.Size = new System.Drawing.Size(427, 30);
+            this.RemarksPanel.TabIndex = 193;
             // 
-            // ItemName
+            // RemarksLbl
             // 
-            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemName.DataPropertyName = "ItemName";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.ItemName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ItemName.FillWeight = 40F;
-            this.ItemName.HeaderText = "Item";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            this.ItemName.Visible = false;
+            this.RemarksLbl.AutoSize = true;
+            this.RemarksLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemarksLbl.Location = new System.Drawing.Point(110, 0);
+            this.RemarksLbl.Name = "RemarksLbl";
+            this.RemarksLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.RemarksLbl.Size = new System.Drawing.Size(0, 21);
+            this.RemarksLbl.TabIndex = 4;
             // 
-            // DisplayItemName
+            // label8
             // 
-            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DisplayItemName.DataPropertyName = "DisplayItemName";
-            this.DisplayItemName.FillWeight = 60F;
-            this.DisplayItemName.HeaderText = "Item";
-            this.DisplayItemName.Name = "DisplayItemName";
-            this.DisplayItemName.ReadOnly = true;
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label8.Size = new System.Drawing.Size(70, 21);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Remarks :";
             // 
-            // Quantity
+            // FulfilledByPanel
             // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.FillWeight = 10F;
-            this.Quantity.HeaderText = "Qty";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.FulfilledByPanel.Controls.Add(this.FulfilledByLbl);
+            this.FulfilledByPanel.Controls.Add(this.label4);
+            this.FulfilledByPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FulfilledByPanel.Location = new System.Drawing.Point(10, 220);
+            this.FulfilledByPanel.Name = "FulfilledByPanel";
+            this.FulfilledByPanel.Size = new System.Drawing.Size(427, 30);
+            this.FulfilledByPanel.TabIndex = 187;
             // 
-            // Size
+            // FulfilledByLbl
             // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
-            this.Size.Visible = false;
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            this.Brand.Visible = false;
-            // 
-            // PurchasePrice
-            // 
-            this.PurchasePrice.DataPropertyName = "PurchasePrice";
-            this.PurchasePrice.HeaderText = "Purchase Price";
-            this.PurchasePrice.Name = "PurchasePrice";
-            this.PurchasePrice.ReadOnly = true;
-            this.PurchasePrice.Visible = false;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            this.SellingPrice.HeaderText = "Selling Price";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            this.SellingPrice.Visible = false;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.DataPropertyName = "TotalAmount";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TotalAmount.FillWeight = 20F;
-            this.TotalAmount.HeaderText = "Subtotal";
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.DeliveryDateLbl);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(10, 154);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(427, 36);
-            this.panel6.TabIndex = 187;
-            // 
-            // DeliveryDateLbl
-            // 
-            this.DeliveryDateLbl.AutoSize = true;
-            this.DeliveryDateLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDateLbl.Location = new System.Drawing.Point(99, 0);
-            this.DeliveryDateLbl.Name = "DeliveryDateLbl";
-            this.DeliveryDateLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.DeliveryDateLbl.Size = new System.Drawing.Size(83, 21);
-            this.DeliveryDateLbl.TabIndex = 4;
-            this.DeliveryDateLbl.Text = "Delivery Date";
+            this.FulfilledByLbl.AutoSize = true;
+            this.FulfilledByLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FulfilledByLbl.Location = new System.Drawing.Point(110, 0);
+            this.FulfilledByLbl.Name = "FulfilledByLbl";
+            this.FulfilledByLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.FulfilledByLbl.Size = new System.Drawing.Size(0, 21);
+            this.FulfilledByLbl.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label4.Size = new System.Drawing.Size(91, 21);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Delivery Date :";
+            this.label4.Text = "Fullfilled By :";
             // 
-            // panel5
+            // DateFulfilledPanel
             // 
-            this.panel5.Controls.Add(this.OrderDateLbl);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(10, 118);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(427, 36);
-            this.panel5.TabIndex = 186;
+            this.DateFulfilledPanel.Controls.Add(this.DateFulfilledLbl);
+            this.DateFulfilledPanel.Controls.Add(this.label3);
+            this.DateFulfilledPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DateFulfilledPanel.Location = new System.Drawing.Point(10, 190);
+            this.DateFulfilledPanel.Name = "DateFulfilledPanel";
+            this.DateFulfilledPanel.Size = new System.Drawing.Size(427, 30);
+            this.DateFulfilledPanel.TabIndex = 186;
             // 
-            // OrderDateLbl
+            // DateFulfilledLbl
             // 
-            this.OrderDateLbl.AutoSize = true;
-            this.OrderDateLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDateLbl.Location = new System.Drawing.Point(99, 0);
-            this.OrderDateLbl.Name = "OrderDateLbl";
-            this.OrderDateLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.OrderDateLbl.Size = new System.Drawing.Size(70, 21);
-            this.OrderDateLbl.TabIndex = 3;
-            this.OrderDateLbl.Text = "Order Date";
+            this.DateFulfilledLbl.AutoSize = true;
+            this.DateFulfilledLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateFulfilledLbl.Location = new System.Drawing.Point(110, 0);
+            this.DateFulfilledLbl.Name = "DateFulfilledLbl";
+            this.DateFulfilledLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.DateFulfilledLbl.Size = new System.Drawing.Size(0, 21);
+            this.DateFulfilledLbl.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(78, 21);
+            this.label3.Size = new System.Drawing.Size(100, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Order Date :";
+            this.label3.Text = "Date Fulfilled :";
             // 
-            // panel4
+            // StatusPanel
             // 
-            this.panel4.Controls.Add(this.SupplierLbl);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(10, 82);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(427, 36);
-            this.panel4.TabIndex = 185;
+            this.StatusPanel.Controls.Add(this.StatusLbl);
+            this.StatusPanel.Controls.Add(this.label2);
+            this.StatusPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StatusPanel.Location = new System.Drawing.Point(10, 160);
+            this.StatusPanel.Name = "StatusPanel";
+            this.StatusPanel.Size = new System.Drawing.Size(427, 30);
+            this.StatusPanel.TabIndex = 185;
             // 
-            // SupplierLbl
+            // StatusLbl
             // 
-            this.SupplierLbl.AutoSize = true;
-            this.SupplierLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SupplierLbl.Location = new System.Drawing.Point(99, 3);
-            this.SupplierLbl.Name = "SupplierLbl";
-            this.SupplierLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.SupplierLbl.Size = new System.Drawing.Size(58, 21);
-            this.SupplierLbl.TabIndex = 2;
-            this.SupplierLbl.Text = "Supplier:";
+            this.StatusLbl.AutoSize = true;
+            this.StatusLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLbl.Location = new System.Drawing.Point(110, 0);
+            this.StatusLbl.Name = "StatusLbl";
+            this.StatusLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.StatusLbl.Size = new System.Drawing.Size(0, 21);
+            this.StatusLbl.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(62, 21);
+            this.label2.Size = new System.Drawing.Size(54, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Supplier :";
+            this.label2.Text = "Status :";
             // 
-            // OrderedByPanel
+            // SupplierPanel
             // 
-            this.OrderedByPanel.Controls.Add(this.OrdereByLbl);
-            this.OrderedByPanel.Controls.Add(this.label5);
-            this.OrderedByPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.OrderedByPanel.Location = new System.Drawing.Point(10, 46);
-            this.OrderedByPanel.Name = "OrderedByPanel";
-            this.OrderedByPanel.Size = new System.Drawing.Size(427, 36);
-            this.OrderedByPanel.TabIndex = 190;
+            this.SupplierPanel.Controls.Add(this.SupplierLbl);
+            this.SupplierPanel.Controls.Add(this.label5);
+            this.SupplierPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SupplierPanel.Location = new System.Drawing.Point(10, 130);
+            this.SupplierPanel.Name = "SupplierPanel";
+            this.SupplierPanel.Size = new System.Drawing.Size(427, 30);
+            this.SupplierPanel.TabIndex = 190;
             // 
-            // OrdereByLbl
+            // SupplierLbl
             // 
-            this.OrdereByLbl.AutoSize = true;
-            this.OrdereByLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrdereByLbl.Location = new System.Drawing.Point(99, 0);
-            this.OrdereByLbl.Name = "OrdereByLbl";
-            this.OrdereByLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.OrdereByLbl.Size = new System.Drawing.Size(81, 21);
-            this.OrdereByLbl.TabIndex = 3;
-            this.OrdereByLbl.Text = "Ordered By :";
+            this.SupplierLbl.AutoSize = true;
+            this.SupplierLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierLbl.Location = new System.Drawing.Point(110, 0);
+            this.SupplierLbl.Name = "SupplierLbl";
+            this.SupplierLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.SupplierLbl.Size = new System.Drawing.Size(0, 21);
+            this.SupplierLbl.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Size = new System.Drawing.Size(81, 21);
+            this.label5.Size = new System.Drawing.Size(69, 21);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Ordered By :";
+            this.label5.Text = "Supplier :";
             // 
-            // OrderNoPanel
+            // OrderedByPanel
             // 
-            this.OrderNoPanel.Controls.Add(this.OrderNoLbl);
-            this.OrderNoPanel.Controls.Add(this.label1);
-            this.OrderNoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.OrderNoPanel.Location = new System.Drawing.Point(10, 10);
-            this.OrderNoPanel.Name = "OrderNoPanel";
-            this.OrderNoPanel.Size = new System.Drawing.Size(427, 36);
-            this.OrderNoPanel.TabIndex = 184;
+            this.OrderedByPanel.Controls.Add(this.OrderedByLbl);
+            this.OrderedByPanel.Controls.Add(this.label1);
+            this.OrderedByPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OrderedByPanel.Location = new System.Drawing.Point(10, 100);
+            this.OrderedByPanel.Name = "OrderedByPanel";
+            this.OrderedByPanel.Size = new System.Drawing.Size(427, 30);
+            this.OrderedByPanel.TabIndex = 184;
             // 
-            // OrderNoLbl
+            // OrderedByLbl
             // 
-            this.OrderNoLbl.AutoSize = true;
-            this.OrderNoLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderNoLbl.Location = new System.Drawing.Point(99, 0);
-            this.OrderNoLbl.Name = "OrderNoLbl";
-            this.OrderNoLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.OrderNoLbl.Size = new System.Drawing.Size(63, 21);
-            this.OrderNoLbl.TabIndex = 1;
-            this.OrderNoLbl.Text = "Order No:";
+            this.OrderedByLbl.AutoSize = true;
+            this.OrderedByLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderedByLbl.Location = new System.Drawing.Point(110, 0);
+            this.OrderedByLbl.Name = "OrderedByLbl";
+            this.OrderedByLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.OrderedByLbl.Size = new System.Drawing.Size(0, 21);
+            this.OrderedByLbl.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(67, 21);
+            this.label1.Size = new System.Drawing.Size(87, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Order No :";
+            this.label1.Text = "Ordered By :";
+            // 
+            // DeliveryDatePanel
+            // 
+            this.DeliveryDatePanel.Controls.Add(this.DeliveryDateLbl);
+            this.DeliveryDatePanel.Controls.Add(this.label10);
+            this.DeliveryDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DeliveryDatePanel.Location = new System.Drawing.Point(10, 70);
+            this.DeliveryDatePanel.Name = "DeliveryDatePanel";
+            this.DeliveryDatePanel.Size = new System.Drawing.Size(427, 30);
+            this.DeliveryDatePanel.TabIndex = 196;
+            // 
+            // DeliveryDateLbl
+            // 
+            this.DeliveryDateLbl.AutoSize = true;
+            this.DeliveryDateLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliveryDateLbl.Location = new System.Drawing.Point(110, 0);
+            this.DeliveryDateLbl.Name = "DeliveryDateLbl";
+            this.DeliveryDateLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.DeliveryDateLbl.Size = new System.Drawing.Size(0, 21);
+            this.DeliveryDateLbl.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label10.Size = new System.Drawing.Size(100, 21);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Delivery Date :";
+            // 
+            // OrderDatePanel
+            // 
+            this.OrderDatePanel.Controls.Add(this.OrderDateLbl);
+            this.OrderDatePanel.Controls.Add(this.label12);
+            this.OrderDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OrderDatePanel.Location = new System.Drawing.Point(10, 40);
+            this.OrderDatePanel.Name = "OrderDatePanel";
+            this.OrderDatePanel.Size = new System.Drawing.Size(427, 30);
+            this.OrderDatePanel.TabIndex = 195;
+            // 
+            // OrderDateLbl
+            // 
+            this.OrderDateLbl.AutoSize = true;
+            this.OrderDateLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderDateLbl.Location = new System.Drawing.Point(110, 0);
+            this.OrderDateLbl.Name = "OrderDateLbl";
+            this.OrderDateLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.OrderDateLbl.Size = new System.Drawing.Size(0, 21);
+            this.OrderDateLbl.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label12.Size = new System.Drawing.Size(84, 21);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Order Date :";
+            // 
+            // OrderNoPanel
+            // 
+            this.OrderNoPanel.Controls.Add(this.OrderNoLbl);
+            this.OrderNoPanel.Controls.Add(this.label14);
+            this.OrderNoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OrderNoPanel.Location = new System.Drawing.Point(10, 10);
+            this.OrderNoPanel.Name = "OrderNoPanel";
+            this.OrderNoPanel.Size = new System.Drawing.Size(427, 30);
+            this.OrderNoPanel.TabIndex = 194;
+            // 
+            // OrderNoLbl
+            // 
+            this.OrderNoLbl.AutoSize = true;
+            this.OrderNoLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderNoLbl.Location = new System.Drawing.Point(110, 0);
+            this.OrderNoLbl.Name = "OrderNoLbl";
+            this.OrderNoLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.OrderNoLbl.Size = new System.Drawing.Size(0, 21);
+            this.OrderNoLbl.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label14.Size = new System.Drawing.Size(72, 21);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Order No :";
             // 
             // PrintPreview
             // 
@@ -544,6 +603,84 @@
             // 
             this.PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // DisplayItemName
+            // 
+            this.DisplayItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DisplayItemName.DataPropertyName = "DisplayItemName";
+            this.DisplayItemName.FillWeight = 41.13402F;
+            this.DisplayItemName.HeaderText = "Item";
+            this.DisplayItemName.Name = "DisplayItemName";
+            this.DisplayItemName.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Quantity.DataPropertyName = "Quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Quantity.FillWeight = 28.86598F;
+            this.Quantity.HeaderText = "Qty";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 40;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.DataPropertyName = "TotalAmount";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TotalAmount.FillWeight = 20F;
+            this.TotalAmount.HeaderText = "Subtotal";
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.Width = 80;
+            // 
+            // Decrease
+            // 
+            this.Decrease.DataPropertyName = "Decrease";
+            this.Decrease.FillWeight = 5F;
+            this.Decrease.HeaderText = "";
+            this.Decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
+            this.Decrease.MinimumWidth = 40;
+            this.Decrease.Name = "Decrease";
+            this.Decrease.ReadOnly = true;
+            this.Decrease.Visible = false;
+            this.Decrease.Width = 40;
+            // 
+            // ReceivedQuantity
+            // 
+            this.ReceivedQuantity.DataPropertyName = "ReceivedQuantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ReceivedQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ReceivedQuantity.FillWeight = 10F;
+            this.ReceivedQuantity.HeaderText = "Delivered";
+            this.ReceivedQuantity.MinimumWidth = 70;
+            this.ReceivedQuantity.Name = "ReceivedQuantity";
+            this.ReceivedQuantity.ReadOnly = true;
+            this.ReceivedQuantity.Visible = false;
+            this.ReceivedQuantity.Width = 70;
+            // 
+            // Increase
+            // 
+            this.Increase.DataPropertyName = "Increase";
+            this.Increase.FillWeight = 5F;
+            this.Increase.HeaderText = "";
+            this.Increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
+            this.Increase.MinimumWidth = 40;
+            this.Increase.Name = "Increase";
+            this.Increase.ReadOnly = true;
+            this.Increase.Visible = false;
+            this.Increase.Width = 40;
+            // 
             // OrderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,7 +688,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(449, 604);
+            this.ClientSize = new System.Drawing.Size(449, 689);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -570,14 +707,22 @@
             this.panel9.PerformLayout();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.RemarksPanel.ResumeLayout(false);
+            this.RemarksPanel.PerformLayout();
+            this.FulfilledByPanel.ResumeLayout(false);
+            this.FulfilledByPanel.PerformLayout();
+            this.DateFulfilledPanel.ResumeLayout(false);
+            this.DateFulfilledPanel.PerformLayout();
+            this.StatusPanel.ResumeLayout(false);
+            this.StatusPanel.PerformLayout();
+            this.SupplierPanel.ResumeLayout(false);
+            this.SupplierPanel.PerformLayout();
             this.OrderedByPanel.ResumeLayout(false);
             this.OrderedByPanel.PerformLayout();
+            this.DeliveryDatePanel.ResumeLayout(false);
+            this.DeliveryDatePanel.PerformLayout();
+            this.OrderDatePanel.ResumeLayout(false);
+            this.OrderDatePanel.PerformLayout();
             this.OrderNoPanel.ResumeLayout(false);
             this.OrderNoPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -599,31 +744,41 @@
         private System.Windows.Forms.Button PrintBtn;
         private System.Windows.Forms.Button ConfirmBtn;
         private System.Windows.Forms.Button CancelBtn;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label DeliveryDateLbl;
+        private System.Windows.Forms.Panel FulfilledByPanel;
+        private System.Windows.Forms.Label FulfilledByLbl;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label OrderDateLbl;
+        private System.Windows.Forms.Panel DateFulfilledPanel;
+        private System.Windows.Forms.Label DateFulfilledLbl;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label SupplierLbl;
+        private System.Windows.Forms.Panel StatusPanel;
+        private System.Windows.Forms.Label StatusLbl;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel OrderedByPanel;
-        private System.Windows.Forms.Label OrdereByLbl;
+        private System.Windows.Forms.Panel SupplierPanel;
+        private System.Windows.Forms.Label SupplierLbl;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel OrderNoPanel;
-        private System.Windows.Forms.Label OrderNoLbl;
+        private System.Windows.Forms.Panel OrderedByPanel;
+        private System.Windows.Forms.Label OrderedByLbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DisplayItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PurchasePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.PrintPreviewDialog PrintPreview;
         private System.Drawing.Printing.PrintDocument PrintDocument;
+        private System.Windows.Forms.Panel RemarksPanel;
+        private System.Windows.Forms.Label RemarksLbl;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel DeliveryDatePanel;
+        private System.Windows.Forms.Label DeliveryDateLbl;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel OrderDatePanel;
+        private System.Windows.Forms.Label OrderDateLbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel OrderNoPanel;
+        private System.Windows.Forms.Label OrderNoLbl;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DisplayItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
+        private System.Windows.Forms.DataGridViewImageColumn Decrease;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceivedQuantity;
+        private System.Windows.Forms.DataGridViewImageColumn Increase;
     }
 }

@@ -248,7 +248,7 @@ namespace BenpilsBarcodeSystem
         {
             if (AddBtn.Text.Contains("Save"))
             {
-                AddBtn.ForeColor = Color.FromArgb(80, 180, 80);
+                AddBtn.ForeColor = Color.FromArgb(62, 146, 62);
                 AddBtn.Image = Properties.Resources.icons8_downloading_updates_15;
                 UpdateBtn.ForeColor = Color.FromArgb(220, 80, 80);
                 UpdateBtn.Image = Properties.Resources.icons8_multiply_15;
@@ -351,7 +351,7 @@ namespace BenpilsBarcodeSystem
                 DateTime deliveryDate = DeliveryDt.Value;
                 int orderNo = Util.GenerateRandomNumber(10000000, 99999999);
 
-                OrderDetails orderDetails = new OrderDetails(true, CurrentPurchaseCart, SelectedSupplier, Util.ConvertDate(orderDate), Util.ConvertDate(deliveryDate));
+                OrderDetails orderDetails = new OrderDetails(Mode.OrderConfirmation, CurrentPurchaseCart, SelectedSupplier, Util.ConvertDate(orderDate), Util.ConvertDate(deliveryDate));
                 if(orderDetails.ShowDialog() == DialogResult.OK)
                 {
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
@@ -374,7 +374,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void ItemsTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ItemsTbl_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -405,9 +405,44 @@ namespace BenpilsBarcodeSystem
                         }
                     }
                 }
+                else if (senderGrid.Columns[e.ColumnIndex].Name == "remove")
+                {
+                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        CurrentPurchaseCart.Items.Remove(selectedItem);
+                    }
+                }
 
                 ItemsTbl.Refresh();
                 ItemsTableCheck();
+            }
+            else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewTextBoxColumn && e.RowIndex >= 0)
+            {
+                var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
+
+                if (senderGrid.Columns[e.ColumnIndex].Name == "Quantity")
+                {
+                    AddPurchaseItem addPurchaseItem = new AddPurchaseItem(null, true, selectedItem.Id, selectedItem.DisplayItemName);
+                    if (addPurchaseItem.ShowDialog() == DialogResult.OK)
+                    {
+                        int id = addPurchaseItem.itemId;
+                        int quantity = addPurchaseItem.quantity;
+
+                        var existingItem = CurrentPurchaseCart.Items.FirstOrDefault(item => item.Id == id);
+
+                        if (existingItem != null)
+                        {
+                            existingItem.Quantity = quantity;
+                        }
+
+                        ItemsTbl.AutoGenerateColumns = false;
+                        ItemsTbl.DataSource = CurrentPurchaseCart.Items;
+                        ItemsTbl.Refresh();
+                        ItemsTableCheck();
+                    }
+                }
             }
         }
 
@@ -415,24 +450,40 @@ namespace BenpilsBarcodeSystem
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
-                if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
+                DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+
+                if (row.Cells != null && row.Cells.Count > 0)
                 {
-                    DataGridViewRow row = senderGrid.Rows[e.RowIndex];
                     int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
                     string orderDate = row.Cells["formatted_order_date"].Value.ToString();
                     string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
-                    InventoryRepository repository = new InventoryRepository();
-                    (Supplier supplier, Cart cart, string orderedBy) = await repository.GetOrderDetails(orderId);
 
-                    OrderDetails orderDetails = new OrderDetails(false, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy);
-                    orderDetails.ShowDialog();
-                }
+                    PurchaseOrderRepository repository = new PurchaseOrderRepository();
+                    (Supplier supplier, Cart cart, Dictionary<string, object> details) = await repository.GetOrderDetails(orderId);
 
-                else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
-                {
+                    string orderedBy = (string)details["OrderedBy"];
+                    string status = (string)details["Status"];
+                    string remarks = (string)details["Remarks"];
+                    string dateFulfilled = (string)details["DateFulfilled"];
+                    string fulfilledBy = (string)details["FulfilledBy"];
+                    bool isBackorder = (bool)details["IsBackorder"];
 
+                    if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
+                    {
+                        OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
+                        orderDetails.ShowDialog();
+                    }
+                    else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
+                    {
+                        OrderDetails orderDetails = new OrderDetails(Mode.OrderCompletion, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
+                        if(orderDetails.ShowDialog() == DialogResult.OK)
+                        {
+                            UpdatePurchaseOrdersDG();
+                            mainForm.updateInventoryTable = true;
+                        }
+                    }
                 }
             }
         }

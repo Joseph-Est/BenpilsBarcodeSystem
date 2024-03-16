@@ -27,12 +27,15 @@ namespace BenpilsBarcodeSystem
         [DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
         public bool CanSwitchPanel { get; set; } = true;
+        public bool updateInventoryTable { get; set; } = false;
 
         private CheckBox lastChecked = null;
         private readonly Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
         private readonly Dictionary<CheckBox, Image> uncheckedImages = new Dictionary<CheckBox, Image>();
         private readonly Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
         private readonly Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
+
+        
 
         public MainForm()
         {
@@ -75,6 +78,7 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("Please complete the ongoing transaction.", "Transaction in Progress", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -145,6 +149,17 @@ namespace BenpilsBarcodeSystem
             MainPanel.Controls.Add(form);
             form.Dock = DockStyle.Fill;
             form.Show();
+
+            if (form is POS posForm)
+            {
+                posForm.SelectBarcode();
+            }
+
+            if (form is Inventory inventoryForm && updateInventoryTable)
+            {
+                inventoryForm.updateTable();
+                updateInventoryTable = false;
+            }
         }
 
         private void SetUser()

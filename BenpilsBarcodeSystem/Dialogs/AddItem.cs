@@ -133,10 +133,10 @@ namespace BenpilsBarcodeSystem
             List<Supplier> suppliers = await repository.GetSuppliersAsync();
 
             SupplierCb.Items.Clear();
-            SupplierCb.Items.Add("Select a supplier (optional)");
+            SupplierCb.Items.Add("– Optional ");
             SupplierCb.Items.AddRange(suppliers.ToArray());
 
-            SupplierCb.SelectedItem = "Select a supplier (optional)";
+            SupplierCb.SelectedItem = "-- Optional --";
         }
 
         private void AddItem_FormClosing(object sender, FormClosingEventArgs e)

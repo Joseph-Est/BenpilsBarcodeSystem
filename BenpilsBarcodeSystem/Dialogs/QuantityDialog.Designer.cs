@@ -31,31 +31,31 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TitleLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.ConfrimBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.QuantityTxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.StockLbl = new System.Windows.Forms.Label();
-            this.ItemLbl = new System.Windows.Forms.Label();
-            this.BrandLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.PriceLblTxt = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.SizeLbl = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.ConfrimBtn = new System.Windows.Forms.Button();
-            this.CancelBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.ItemLbl = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -87,21 +87,68 @@
             this.panel3.Controls.Add(this.panel14);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel1);
+            this.panel3.Controls.Add(this.panel8);
             this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(1, 34);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.panel3.Size = new System.Drawing.Size(270, 201);
+            this.panel3.Size = new System.Drawing.Size(270, 192);
             this.panel3.TabIndex = 88;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.CancelBtn);
+            this.panel14.Controls.Add(this.ConfrimBtn);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(20, 139);
+            this.panel14.MinimumSize = new System.Drawing.Size(230, 52);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(0, 10, 0, 15);
+            this.panel14.Size = new System.Drawing.Size(230, 52);
+            this.panel14.TabIndex = 141;
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.White;
+            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9F);
+            this.CancelBtn.Location = new System.Drawing.Point(120, 10);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(110, 27);
+            this.CancelBtn.TabIndex = 143;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ConfrimBtn
+            // 
+            this.ConfrimBtn.BackColor = System.Drawing.Color.White;
+            this.ConfrimBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConfrimBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ConfrimBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ConfrimBtn.FlatAppearance.BorderSize = 0;
+            this.ConfrimBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfrimBtn.Font = new System.Drawing.Font("Arial", 9F);
+            this.ConfrimBtn.Location = new System.Drawing.Point(0, 10);
+            this.ConfrimBtn.Name = "ConfrimBtn";
+            this.ConfrimBtn.Size = new System.Drawing.Size(110, 27);
+            this.ConfrimBtn.TabIndex = 142;
+            this.ConfrimBtn.Text = "Confirm";
+            this.ConfrimBtn.UseVisualStyleBackColor = false;
+            this.ConfrimBtn.Click += new System.EventHandler(this.AcceptBtn_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.QuantityTxt);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(20, 120);
+            this.panel4.Location = new System.Drawing.Point(20, 114);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(230, 25);
             this.panel4.TabIndex = 4;
@@ -123,40 +170,89 @@
             this.panel1.Controls.Add(this.StockLbl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(20, 86);
+            this.panel1.Location = new System.Drawing.Point(20, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 34);
             this.panel1.TabIndex = 137;
+            // 
+            // StockLbl
+            // 
+            this.StockLbl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.StockLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockLbl.ForeColor = System.Drawing.Color.White;
+            this.StockLbl.Location = new System.Drawing.Point(104, 0);
+            this.StockLbl.Name = "StockLbl";
+            this.StockLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.StockLbl.Size = new System.Drawing.Size(120, 34);
+            this.StockLbl.TabIndex = 146;
+            this.StockLbl.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.label1.Size = new System.Drawing.Size(104, 26);
+            this.label1.TabIndex = 145;
+            this.label1.Text = "Available Stock :";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.PriceLblTxt);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(20, 60);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(230, 20);
+            this.panel8.TabIndex = 142;
+            // 
+            // PriceLblTxt
+            // 
+            this.PriceLblTxt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PriceLblTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PriceLblTxt.ForeColor = System.Drawing.Color.White;
+            this.PriceLblTxt.Location = new System.Drawing.Point(45, 0);
+            this.PriceLblTxt.Name = "PriceLblTxt";
+            this.PriceLblTxt.Size = new System.Drawing.Size(182, 20);
+            this.PriceLblTxt.TabIndex = 148;
+            this.PriceLblTxt.Text = "0.00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.TabIndex = 147;
+            this.label6.Text = "Price :";
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.SizeLbl);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(20, 64);
+            this.panel5.Location = new System.Drawing.Point(20, 40);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(230, 22);
+            this.panel5.Size = new System.Drawing.Size(230, 20);
             this.panel5.TabIndex = 138;
             // 
-            // panel6
+            // SizeLbl
             // 
-            this.panel6.Controls.Add(this.BrandLbl);
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(20, 42);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(230, 22);
-            this.panel6.TabIndex = 139;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.ItemLbl);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(20, 20);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(230, 22);
-            this.panel7.TabIndex = 140;
+            this.SizeLbl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SizeLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SizeLbl.ForeColor = System.Drawing.Color.White;
+            this.SizeLbl.Location = new System.Drawing.Point(41, 0);
+            this.SizeLbl.Name = "SizeLbl";
+            this.SizeLbl.Size = new System.Drawing.Size(183, 20);
+            this.SizeLbl.TabIndex = 148;
+            this.SizeLbl.Text = "Size";
             // 
             // label3
             // 
@@ -166,22 +262,32 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(41, 21);
+            this.label3.Size = new System.Drawing.Size(41, 16);
             this.label3.TabIndex = 147;
             this.label3.Text = "Size :";
             // 
-            // label2
+            // panel7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 16);
-            this.label2.TabIndex = 146;
-            this.label2.Text = "Brand :";
+            this.panel7.Controls.Add(this.ItemLbl);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(20, 20);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(230, 20);
+            this.panel7.TabIndex = 140;
+            // 
+            // ItemLbl
+            // 
+            this.ItemLbl.AutoEllipsis = true;
+            this.ItemLbl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ItemLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemLbl.ForeColor = System.Drawing.Color.White;
+            this.ItemLbl.Location = new System.Drawing.Point(40, 0);
+            this.ItemLbl.Name = "ItemLbl";
+            this.ItemLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.ItemLbl.Size = new System.Drawing.Size(184, 20);
+            this.ItemLbl.TabIndex = 149;
+            this.ItemLbl.Text = "Item ";
             // 
             // label4
             // 
@@ -196,113 +302,6 @@
             this.label4.TabIndex = 148;
             this.label4.Text = "Item :";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 10);
-            this.label1.Size = new System.Drawing.Size(104, 31);
-            this.label1.TabIndex = 145;
-            this.label1.Text = "Available Stock :";
-            // 
-            // StockLbl
-            // 
-            this.StockLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.StockLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StockLbl.ForeColor = System.Drawing.Color.White;
-            this.StockLbl.Location = new System.Drawing.Point(104, 0);
-            this.StockLbl.Name = "StockLbl";
-            this.StockLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 10);
-            this.StockLbl.Size = new System.Drawing.Size(120, 34);
-            this.StockLbl.TabIndex = 146;
-            this.StockLbl.Text = "0";
-            // 
-            // ItemLbl
-            // 
-            this.ItemLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ItemLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemLbl.ForeColor = System.Drawing.Color.White;
-            this.ItemLbl.Location = new System.Drawing.Point(40, 0);
-            this.ItemLbl.Name = "ItemLbl";
-            this.ItemLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.ItemLbl.Size = new System.Drawing.Size(175, 22);
-            this.ItemLbl.TabIndex = 149;
-            this.ItemLbl.Text = "Item";
-            // 
-            // BrandLbl
-            // 
-            this.BrandLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BrandLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BrandLbl.ForeColor = System.Drawing.Color.White;
-            this.BrandLbl.Location = new System.Drawing.Point(49, 0);
-            this.BrandLbl.Name = "BrandLbl";
-            this.BrandLbl.Size = new System.Drawing.Size(175, 22);
-            this.BrandLbl.TabIndex = 147;
-            this.BrandLbl.Text = "Brand";
-            // 
-            // SizeLbl
-            // 
-            this.SizeLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SizeLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SizeLbl.ForeColor = System.Drawing.Color.White;
-            this.SizeLbl.Location = new System.Drawing.Point(41, 0);
-            this.SizeLbl.Name = "SizeLbl";
-            this.SizeLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.SizeLbl.Size = new System.Drawing.Size(175, 22);
-            this.SizeLbl.TabIndex = 148;
-            this.SizeLbl.Text = "Size";
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.CancelBtn);
-            this.panel14.Controls.Add(this.ConfrimBtn);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(20, 145);
-            this.panel14.MinimumSize = new System.Drawing.Size(230, 52);
-            this.panel14.Name = "panel14";
-            this.panel14.Padding = new System.Windows.Forms.Padding(0, 10, 0, 15);
-            this.panel14.Size = new System.Drawing.Size(230, 52);
-            this.panel14.TabIndex = 141;
-            // 
-            // ConfrimBtn
-            // 
-            this.ConfrimBtn.BackColor = System.Drawing.Color.White;
-            this.ConfrimBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConfrimBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ConfrimBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ConfrimBtn.FlatAppearance.BorderSize = 0;
-            this.ConfrimBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfrimBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.ConfrimBtn.Location = new System.Drawing.Point(0, 10);
-            this.ConfrimBtn.Name = "ConfrimBtn";
-            this.ConfrimBtn.Size = new System.Drawing.Size(110, 27);
-            this.ConfrimBtn.TabIndex = 142;
-            this.ConfrimBtn.Text = "Confirm";
-            this.ConfrimBtn.UseVisualStyleBackColor = false;
-            this.ConfrimBtn.Click += new System.EventHandler(this.AcceptBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.White;
-            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.CancelBtn.Location = new System.Drawing.Point(120, 10);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(110, 27);
-            this.CancelBtn.TabIndex = 143;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
             // QuantityDialog
             // 
             this.AcceptButton = this.ConfrimBtn;
@@ -310,7 +309,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.CancelButton = this.CancelBtn;
-            this.ClientSize = new System.Drawing.Size(272, 236);
+            this.ClientSize = new System.Drawing.Size(272, 227);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -323,17 +322,17 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel14.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -348,17 +347,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label StockLbl;
         private System.Windows.Forms.Label SizeLbl;
-        private System.Windows.Forms.Label BrandLbl;
         private System.Windows.Forms.Label ItemLbl;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button ConfrimBtn;
         private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label PriceLblTxt;
+        private System.Windows.Forms.Label label6;
     }
 }

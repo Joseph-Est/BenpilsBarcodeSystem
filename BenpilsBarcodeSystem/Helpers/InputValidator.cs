@@ -104,13 +104,21 @@ namespace BenpilsBarcodeSystem.Helpers
                 }
                 else if (char.IsDigit(e.KeyChar))
                 {
-                    string newText = textBox.Text + e.KeyChar;
-
-                    if (int.TryParse(newText, out int number))
+                    // If the textbox content is highlighted, bypass the limits
+                    if (textBox.SelectedText.Length == textBox.TextLength)
                     {
-                        if (number < min || number > max)
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        string newText = textBox.Text + e.KeyChar;
+
+                        if (int.TryParse(newText, out int number))
                         {
-                            e.Handled = true;
+                            if (number < min || number > max)
+                            {
+                                e.Handled = true;
+                            }
                         }
                     }
                 }

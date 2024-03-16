@@ -12,8 +12,8 @@ namespace BenpilsBarcodeSystem.Repositories
     internal class SuppliersRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
-        private string tbl_name = "tbl_suppliers";
-        private string col_id = "supplier_id", col_contact_name = "contact_name", col_contact_no = "contact_no", col_address = "address", col_is_active = "is_active";
+        public static string tbl_name = "tbl_suppliers", tbl_supplier_items = "tbl_supplier_items";
+        public static string col_id = "supplier_id", col_contact_name = "contact_name", col_contact_no = "contact_no", col_address = "address", col_is_active = "is_active", col_item_id = "item_id", col_supplier_item_id = "supplier_item_id";
 
         public SuppliersRepository()
         {

@@ -48,6 +48,7 @@
             this.QuantityTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.SizeCb = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.MotorBrandCb = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.SizeCb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -340,6 +340,21 @@
             this.panel11.Size = new System.Drawing.Size(408, 34);
             this.panel11.TabIndex = 125;
             // 
+            // SizeCb
+            // 
+            this.SizeCb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.SizeCb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.SizeCb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SizeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.SizeCb.FormattingEnabled = true;
+            this.SizeCb.Location = new System.Drawing.Point(110, 5);
+            this.SizeCb.MaxLength = 50;
+            this.SizeCb.Name = "SizeCb";
+            this.SizeCb.Size = new System.Drawing.Size(298, 24);
+            this.SizeCb.TabIndex = 101;
+            this.SizeCb.Enter += new System.EventHandler(this.ComboBox_Enter);
+            this.SizeCb.Leave += new System.EventHandler(this.ComboBox_Leave);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -594,21 +609,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(1);
             this.panel3.Size = new System.Drawing.Size(450, 493);
             this.panel3.TabIndex = 112;
-            // 
-            // SizeCb
-            // 
-            this.SizeCb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.SizeCb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.SizeCb.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SizeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.SizeCb.FormattingEnabled = true;
-            this.SizeCb.Location = new System.Drawing.Point(110, 5);
-            this.SizeCb.MaxLength = 50;
-            this.SizeCb.Name = "SizeCb";
-            this.SizeCb.Size = new System.Drawing.Size(298, 24);
-            this.SizeCb.TabIndex = 101;
-            this.SizeCb.Enter += new System.EventHandler(this.ComboBox_Enter);
-            this.SizeCb.Leave += new System.EventHandler(this.ComboBox_Leave);
             // 
             // AddItem
             // 

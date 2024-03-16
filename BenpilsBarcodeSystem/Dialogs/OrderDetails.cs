@@ -1,4 +1,6 @@
 ﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Repositories;
 using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
@@ -10,46 +12,112 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BenpilsBarcodeSystem.Dialogs
 {
+    enum Mode
+    {
+        OrderConfirmation = 1,
+        OrderCompletion = 2,
+        OrderView = 3
+    }
+
     public partial class OrderDetails : Form
     {
-        bool isConfirmation;
+        private Mode mode;
         private Cart CurrentPurchaseCart;
         private Supplier CurrentSupplier;
         private bool canClose = false;
-        private string OrderNo {get;set;}
+        private string OrderNo { get; set; }
 
-        internal OrderDetails(bool isConfirmation = false, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null, string deliverDate = null, string orderNo = null, string orderedBy = null)
+        internal OrderDetails(Mode mode = Mode.OrderConfirmation, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null,
+                            string deliverDate = null, string orderNo = null, string orderedBy = null, string status = null, string dateFulfilled = null,
+                            string fulfilledBy = null, string remarks = null, bool isBackOrder = false)
         {
             InitializeComponent();
-            this.isConfirmation = isConfirmation;
 
-            if (isConfirmation)
-            {
-                OrderNoPanel.Visible = false;
-                OrderedByPanel.Visible = false;
-                TitleLbl.Text = "Order Confirmation";
-                ConfirmBtn.Visible = true;
-                CancelBtn.Visible = true;
-                CancelBtn.Text = "Cancel";
-            }
-            else
-            {
-                OrderNo = orderNo;
-                OrderNoLbl.Text = orderNo;
-                OrdereByLbl.Text = orderedBy;
-                PrintBtn.Visible = true;
-                CancelBtn.Visible = true;
-                CancelBtn.Text = "Close";
-            }
+            this.mode = mode;
+            OrderNo = orderNo;
 
             CurrentSupplier = currentSupplier;
             CurrentPurchaseCart = currentPurchaseCart;
             SupplierLbl.Text = currentSupplier.ContactName;
             OrderDateLbl.Text = orderDate;
             DeliveryDateLbl.Text = deliverDate;
+
+            switch (mode)
+            {
+                case Mode.OrderConfirmation:
+                    SetOrderConfirmationMode();
+                    break;
+                case Mode.OrderCompletion:
+                    SetOrderCompletionMode(orderedBy, status);
+                    break;
+                case Mode.OrderView:
+                    SetOrderViewMode(fulfilledBy, dateFulfilled, remarks, orderedBy, status);
+                    break;
+            }
+        }
+
+        private void SetOrderConfirmationMode()
+        {
+            OrderNoPanel.Visible = false;
+            OrderedByPanel.Visible = false;
+            StatusPanel.Visible = false;
+            DateFulfilledPanel.Visible = false;
+            FulfilledByPanel.Visible = false;
+            RemarksPanel.Visible = false;
+
+            ConfirmBtn.Visible = true;
+            CancelBtn.Visible = true;
+
+            TitleLbl.Text = "Order Confirmation";
+        }
+
+        private void SetOrderCompletionMode(string orderedBy, string status)
+        {
+            DateFulfilledPanel.Visible = false;
+            FulfilledByPanel.Visible = false;
+            RemarksPanel.Visible = false;
+
+            OrderNoLbl.Text = OrderNo;
+            OrderedByLbl.Text = orderedBy;
+            StatusLbl.Text = status;
+
+            ConfirmBtn.Visible = true;
+            CancelBtn.Visible = true;
+            ConfirmBtn.Text = "Complete Order";
+            CancelBtn.Text = "Close";
+
+            foreach (var item in CurrentPurchaseCart.Items)
+            {
+                item.ReceivedQuantity = item.Quantity;
+            }
+
+            ItemsTbl.Columns["ReceivedQuantity"].Visible = true;
+            ItemsTbl.Columns["Decrease"].Visible = true;
+            ItemsTbl.Columns["Increase"].Visible = true;
+        }
+
+        private void SetOrderViewMode(string fulfilledBy, string dateFulfilled, string remarks, string orderedBy, string status)
+        {
+            FulfilledByLbl.Text = fulfilledBy;
+            DateFulfilledLbl.Text = dateFulfilled;
+            RemarksLbl.Text = remarks;
+
+            OrderNoLbl.Text = OrderNo;
+            OrderedByLbl.Text = orderedBy;
+            StatusLbl.Text = status;
+
+            PrintBtn.Visible = true;
+            CancelBtn.Visible = true;
+            FulfilledByPanel.Visible = fulfilledBy != null;
+            DateFulfilledPanel.Visible = fulfilledBy != null;
+            RemarksPanel.Visible = remarks != null;
+
+            CancelBtn.Text = "Close";
+            TitleLbl.Text = "Order Details";
         }
 
         private void OrderDetails_Load(object sender, EventArgs e)
@@ -61,6 +129,11 @@ namespace BenpilsBarcodeSystem.Dialogs
             TotalLbl.Text = CurrentPurchaseCart.GetTotalAmountAsString();
         }
 
+        private void ItemsTbl_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+           
+        }
+
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             canClose = true;
@@ -68,11 +141,37 @@ namespace BenpilsBarcodeSystem.Dialogs
             this.Close();
         }
 
-        private void ConfirmBtn_Click(object sender, EventArgs e)
+        private async void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            canClose = true;
-            DialogResult = DialogResult.OK;
-            this.Close();
+            if (mode == Mode.OrderCompletion)
+            {
+                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
+                if (CurrentPurchaseCart.AreAllQuantitiesReceived())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Are you sure all the items is delivered exactly, and you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, repository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart))
+                        {
+                            MessageBox.Show("Purchase order has been completed successfully!");
+                            canClose = true;
+                            DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                    }
+                }
+                else
+                {
+                   
+                }
+            }
+            else
+            {
+                canClose = true;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void OrderDetails_FormClosing(object sender, FormClosingEventArgs e)
@@ -94,7 +193,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, DeliveryDateLbl.Text);
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, FulfilledByLbl.Text);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 using BenpilsBarcodeSystem.Helpers;
 using System.Windows.Forms;
 using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Repositories;
 
 namespace BenpilsBarcodeSystem.Repository
 {
     internal class InventoryRepository
     {
         private readonly Database.DatabaseConnection databaseConnection;
-        private string tbl_name = "tbl_item_master_data";
-        private string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
+        public static string tbl_name = "tbl_item_master_data";
+        public static string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
                        col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
 
         private int lowStockThreshold = 20;
@@ -445,7 +446,7 @@ namespace BenpilsBarcodeSystem.Repository
         {
             List<Item> uniqueValuesColumn = new List<Item>();
 
-            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i INNER JOIN tbl_supplier_items si ON i.{col_id} = si.item_id WHERE si.supplier_id = @supplierId AND i.{col_is_active} = '1'";
+            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i INNER JOIN {SuppliersRepository.tbl_supplier_items} si ON i.{col_id} = si.{SuppliersRepository.col_item_id} WHERE si.{SuppliersRepository.col_id} = @supplierId AND i.{col_is_active} = '1'";
 
             try
             {
@@ -500,7 +501,7 @@ namespace BenpilsBarcodeSystem.Repository
         {
             List<Item> uniqueValuesColumn = new List<Item>();
 
-            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i WHERE i.{col_is_active} = '1' AND NOT EXISTS (SELECT 1 FROM tbl_supplier_items si WHERE i.{col_id} = si.item_id AND si.supplier_id = @supplierId)";
+            string selectQuery = $"SELECT i.{col_id}, i.{col_item_name}, i.{col_brand}, i.{col_motor_brand}, i.{col_purchase_price}, i.{col_selling_price}, i.{col_quantity}, i.{col_category}, i.{col_size} FROM {tbl_name} i WHERE i.{col_is_active} = '1' AND NOT EXISTS (SELECT 1 FROM {SuppliersRepository.tbl_supplier_items} si WHERE i.{col_id} = si.{SuppliersRepository.col_item_id} AND si.{SuppliersRepository.col_id} = @supplierId)";
 
             try
             {
@@ -551,54 +552,9 @@ namespace BenpilsBarcodeSystem.Repository
             return uniqueValuesColumn;
         }
 
-        public async Task<Supplier> GetSupplier(int itemId)
-        {
-            Supplier supplier = null;
-
-            string selectQuery = @"
-                                SELECT i.supplier_id, i.contact_name, i.contact_no
-                                FROM tbl_suppliers i
-                                INNER JOIN tbl_supplier_items si ON i.supplier_id = si.supplier_id
-                                WHERE si.item_id = @item_id";
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
-                    {
-                        cmd.Parameters.AddWithValue("@item_id", itemId);
-
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                int supplierId = (int)reader["supplier_id"];
-                                string contactName = reader["contact_name"].ToString();
-                                string contactNo = reader["contact_no"].ToString();
-
-                                supplier = new Supplier
-                                {
-                                    SupplierID = supplierId,
-                                    ContactName = contactName,
-                                    ContactNo = contactNo,
-                                };
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-
-            return supplier;
-        }
-
         public async Task<bool> AddProductToSuppier(int supplierId, int itemId)
         {
-            string insertSupplierItemQuery = $"INSERT INTO tbl_supplier_items (supplier_id, item_id) VALUES (@SupplierId, @ItemId)";
+            string insertSupplierItemQuery = $"INSERT INTO {SuppliersRepository.tbl_supplier_items} ({SuppliersRepository.col_id}, {SuppliersRepository.col_item_id}) VALUES (@SupplierId, @ItemId)";
 
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
@@ -657,121 +613,37 @@ namespace BenpilsBarcodeSystem.Repository
             return item;
         }
 
-        public async Task<(Supplier, Cart, string)> GetOrderDetails(int orderId)
+        public async Task<Item> GetItemByIDAsync(int id)
         {
-            Supplier supplier = null;
-            Cart cart = new Cart();
-            string orderedBy = null;
+            Item item = null;
 
-            try
+            string query = $"SELECT * FROM {tbl_name} WHERE {col_id} = @id";
+
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    string sql = $"SELECT supplier_id, operated_by FROM tbl_purchase_order WHERE order_id = @order_id";
-                    int supplierId;
-                    int orderedById;
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
-                    {
-                        cmd.Parameters.AddWithValue("@order_id", orderId);
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                supplierId = (int)reader["supplier_id"];
-                                orderedById = (int)reader["operated_by"];
-                            }
-                            else
-                            {
-                                throw new Exception("Order not found");
-                            }
-                        }
-                    }
+                    cmd.Parameters.AddWithValue("@id", id);
 
-                    sql = $"SELECT * FROM tbl_suppliers WHERE supplier_id = @supplier_id";
-                    using (SqlCommand cmdSupplier = new SqlCommand(sql, con))
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
-                        cmdSupplier.Parameters.AddWithValue("@supplier_id", supplierId);
-                        using (SqlDataReader supplierReader = await cmdSupplier.ExecuteReaderAsync())
+                        if (await reader.ReadAsync())
                         {
-                            if (await supplierReader.ReadAsync())
+                            item = new Item
                             {
-                                supplier = new Supplier
-                                {
-                                    SupplierID = (int)supplierReader["supplier_id"],
-                                    ContactName = supplierReader["contact_name"].ToString(),
-                                    ContactNo = supplierReader["contact_no"].ToString(),
-                                    Address = supplierReader["address"].ToString()
-                                };
-                            }
-                            else
-                            {
-                                throw new Exception("Supplier not found");
-                            }
-                        }
-                    }
-
-                    sql = $"SELECT username FROM tbl_user_credentials WHERE id = @ordered_by_id";
-                    using (SqlCommand cmdUser = new SqlCommand(sql, con))
-                    {
-                        cmdUser.Parameters.AddWithValue("@ordered_by_id", orderedById);
-                        orderedBy = (string)await cmdUser.ExecuteScalarAsync();
-                    }
-
-                    sql = $"SELECT * FROM tbl_purchase_order_details WHERE order_id = @order_id";
-                    using (SqlCommand cmdOrderDetails = new SqlCommand(sql, con))
-                    {
-                        cmdOrderDetails.Parameters.AddWithValue("@order_id", orderId);
-                        List<int> itemIds = new List<int>();
-                        List<int> quantities = new List<int>();
-                        List<decimal> totals = new List<decimal>();
-                        List<int> receivedQuantities = new List<int>();
-                        using (SqlDataReader reader = await cmdOrderDetails.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                itemIds.Add(reader["item_id"] == DBNull.Value ? 0 : (int)reader["item_id"]);
-                                quantities.Add(reader["order_quantity"] == DBNull.Value ? 0 : (int)reader["order_quantity"]);
-                                totals.Add(reader["total"] == DBNull.Value ? 0m : (decimal)reader["total"]);
-                                receivedQuantities.Add(reader["received_quantity"] == DBNull.Value ? 0 : (int)reader["received_quantity"]);
-                            }
-                        }
-
-                        for (int i = 0; i < itemIds.Count; i++)
-                        {
-                            sql = $"SELECT * FROM {tbl_name} WHERE {col_id} = @item_id";
-                            using (SqlCommand cmdItem = new SqlCommand(sql, con))
-                            {
-                                cmdItem.Parameters.AddWithValue("@item_id", itemIds[i]);
-                                using (SqlDataReader itemReader = await cmdItem.ExecuteReaderAsync())
-                                {
-                                    if (await itemReader.ReadAsync())
-                                    {
-                                        PurchaseItem purchaseItem = new PurchaseItem
-                                        {
-                                            Id = (int)itemReader[col_id],
-                                            ItemName = itemReader[col_item_name].ToString(),
-                                            Brand = itemReader[col_brand].ToString(),
-                                            Size = itemReader[col_size].ToString(),
-                                            Quantity = quantities[i],
-                                            PurchasePrice = totals[i] / quantities[i],
-                                            ReceivedQuantity = receivedQuantities[i],
-                                        };
-                                        cart.Items.Add(purchaseItem);
-                                    }
-                                }
-                            }
+                                Id = reader.GetInt32(reader.GetOrdinal(col_id)),
+                                ItemName = reader.GetString(reader.GetOrdinal(col_item_name)),
+                                Brand = reader.GetString(reader.GetOrdinal(col_brand)),
+                                Size = reader.GetString(reader.GetOrdinal(col_size)),
+                                SellingPrice = reader.GetDecimal(reader.GetOrdinal(col_selling_price)),
+                                Quantity = reader.GetInt32(reader.GetOrdinal(col_quantity))
+                            };
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
 
-            // Return the Supplier and Cart
-            return (supplier, cart, orderedBy);
+            return item;
         }
-
     }
 }

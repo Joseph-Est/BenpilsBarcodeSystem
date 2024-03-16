@@ -15,19 +15,23 @@ namespace BenpilsBarcodeSystem.Dialogs
     {
         public int quantity { get; set; }
         bool canClose = false;
-        public QuantityDialog(int stock, string itemName, string itemSize, string itemBrand)
+        private int defaultQuantity;
+
+        public QuantityDialog(int stock, string itemName, string itemSize, string itemBrand, string price, int defaultQuantity = 1)
         {
             InitializeComponent();
             InputValidator.AllowOnlyDigitsMinMax(QuantityTxt, 1, stock);
             StockLbl.Text = stock.ToString();
-            ItemLbl.Text = itemName;
+            ItemLbl.Text = $"{itemName} ({itemBrand})";
             SizeLbl.Text = itemSize;
-            BrandLbl.Text = itemBrand;
+            PriceLblTxt.Text = price;
+
+            this.defaultQuantity = defaultQuantity;
         }
 
         private void QuantityDialog_Load(object sender, EventArgs e)
         {
-            QuantityTxt.Text = "1";
+            QuantityTxt.Text = defaultQuantity.ToString();
             QuantityTxt.Select();
         }
 

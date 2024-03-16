@@ -21,14 +21,27 @@ namespace BenpilsBarcodeSystem.Dialogs
         private bool canClose = false;
         public int quantity {get; set;}
         public bool isModify { get; set; }
+        public int itemId { get; set; }
         public bool isExistingItem;
 
-        public AddPurchaseItem(Supplier supplier, bool isModify = false)
+        public AddPurchaseItem(Supplier supplier = null, bool isModify = false, int itemId = 0, string itemName = null)
         {
             InitializeComponent();
-            InputValidator.AllowOnlyDigits(QuantityTxt);
-            CurrentSupplier = supplier;
+            InputValidator.AllowOnlyDigitsMinMax(QuantityTxt, 1, 999999999);
+
             this.isModify = isModify;
+
+            if (!isModify && supplier != null)
+            {
+                CurrentSupplier = supplier;
+            }
+            else if(isModify && itemId > 0)
+            {
+                this.itemId = itemId;
+                ItemsCb.Items.Add(itemName);
+                ItemsCb.SelectedItem = itemName;
+                ItemsCb.Enabled = false;
+            }
         }
 
         private void AddPurchaseItem_Load(object sender, EventArgs e)
@@ -50,11 +63,11 @@ namespace BenpilsBarcodeSystem.Dialogs
             List<Item> items = await repository.GetSupplierItems(CurrentSupplier.SupplierID);
 
             ItemsCb.Items.Clear();
-            ItemsCb.Items.Add("-- Select an item --");
+            ItemsCb.Items.Add("-- Select --");
             ItemsCb.Items.AddRange(items.ToArray());
             ItemsCb.Items.Add("-- Add an existing item --");
             ItemsCb.Items.Add("-- Add new item --");
-            ItemsCb.SelectedItem = "-- Select an item --";
+            ItemsCb.SelectedItem = "-- Select --";
         }
 
         private async void PopulateExistingItem()
@@ -114,17 +127,31 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private async void AcceptBtn_Click(object sender, EventArgs e)
         {
-            if (ItemsCb.SelectedIndex != 0 && ItemsCb.SelectedIndex != ItemsCb.Items.Count - 1 && SelectedItem != null)
-            {
-                int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+            int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
 
-                if (quantity <= 0)
+            if (quantity <= 0)
+            {
+                MessageBox.Show("Enter quantity");
+                return;
+            }
+
+            this.quantity = quantity;
+
+            if (isModify)
+            {
+                canClose = true;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                if (ItemsCb.SelectedIndex == 0 || ItemsCb.SelectedIndex == ItemsCb.Items.Count - 1 || SelectedItem == null)
                 {
-                    MessageBox.Show("Enter quantity");
+                    MessageBox.Show("Select an item");
                     return;
                 }
 
-                this.quantity = quantity;
+                
 
                 if (isExistingItem)
                 {
@@ -141,14 +168,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                     canClose = true;
                     DialogResult = DialogResult.OK;
                     this.Close();
-
                 }
-
-               
-            }
-            else
-            {
-                MessageBox.Show("Select an item");
             }
         }
 

@@ -12,6 +12,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ZXing.QrCode.Internal;
 
 namespace BenpilsBarcodeSystem
 {
@@ -20,28 +21,28 @@ namespace BenpilsBarcodeSystem
         InventoryRepository inventory;
         Cart CurrentCart;
         private string TransactionNo { get; set; }
-        private StringBuilder _barcode;
+        //private StringBuilder _barcode;
         MainForm mainForm;
 
         public POS()
         {
             InitializeComponent();
-            _barcode = new StringBuilder();
+            //_barcode = new StringBuilder();
         }
 
         private void BarcodeTimer_Tick(object sender, EventArgs e)
         {
-            BarcodeTimer.Stop();
-            BarcodeTxt.Text = _barcode.ToString();
-            _barcode.Clear();
+            //BarcodeTimer.Stop();
+            //BarcodeTxt.Text = _barcode.ToString();
+            //_barcode.Clear();
         }
 
         private void POS_KeyPress(object sender, KeyPressEventArgs e)
         {
-            _barcode.Append(e.KeyChar);
+            //_barcode.Append(e.KeyChar);
 
-            BarcodeTimer.Stop();
-            BarcodeTimer.Start();
+            //BarcodeTimer.Stop();
+            //BarcodeTimer.Start();
         }
 
         private void POS_Load(object sender, EventArgs e)
@@ -84,7 +85,7 @@ namespace BenpilsBarcodeSystem
                     return;
                 }
 
-                QuantityDialog quantityDialog = new QuantityDialog(stock, CurrentItem.ItemName, CurrentItem.Size, CurrentItem.Brand);
+                QuantityDialog quantityDialog = new QuantityDialog(stock, CurrentItem.ItemName, CurrentItem.Size, CurrentItem.Brand, InputValidator.DecimalToFormattedStringPrice(CurrentItem.SellingPrice));
                 
                 if(quantityDialog.ShowDialog() == DialogResult.OK){
                     int quantity = quantityDialog.quantity;
@@ -127,13 +128,14 @@ namespace BenpilsBarcodeSystem
                     CartTbl.AutoGenerateColumns = false;
                     CartTbl.DataSource = CurrentCart.Items;
                     CartTbl.Refresh();
-                    BarcodeTxt.Clear();
-                    CartCheck();
                 }
+
+                BarcodeTxt.Clear();
+                CartCheck();
             }
         }
 
-        private void CartTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void CartTbl_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -144,7 +146,7 @@ namespace BenpilsBarcodeSystem
 
                 if (senderGrid.Columns[e.ColumnIndex].Name == "increase")
                 {
-                    if(selectedItem.Stock > selectedItem.Quantity)
+                    if (selectedItem.Stock > selectedItem.Quantity)
                     {
                         selectedItem.Quantity += 1;
                     }
@@ -174,7 +176,8 @@ namespace BenpilsBarcodeSystem
 
                 CartTbl.Refresh();
                 CartCheck();
-            }else if(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            }
+            else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
 
@@ -190,6 +193,52 @@ namespace BenpilsBarcodeSystem
                     }
                 }
             }
+            else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewTextBoxColumn && e.RowIndex >= 0)
+            {
+                var selectedItem = (PurchaseItem)senderGrid.Rows[e.RowIndex].DataBoundItem;
+
+                if (senderGrid.Columns[e.ColumnIndex].Name == "Quantity")
+                {
+                    if (inventory == null)
+                    {
+                        inventory = new InventoryRepository();
+                    }
+
+                    Item CurrentItem = await inventory.GetItemByIDAsync(selectedItem.Id);
+
+                    if (CurrentItem != null)
+                    {
+                        var existingItem = CurrentCart.Items.FirstOrDefault(item => item.Id == CurrentItem.Id);
+
+                        if (existingItem != null)
+                        {
+                            QuantityDialog quantityDialog = new QuantityDialog(CurrentItem.Quantity, CurrentItem.ItemName, CurrentItem.Size, CurrentItem.Brand, InputValidator.DecimalToFormattedStringPrice(CurrentItem.SellingPrice), existingItem.Quantity);
+
+                            if (quantityDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                int quantity = quantityDialog.quantity;
+
+                                if (CurrentItem.Quantity - quantity < 0)
+                                {
+                                    MessageBox.Show("Not enough stock");
+                                    BarcodeTxt.Clear();
+                                    return;
+
+                                }
+
+                                existingItem.Quantity = quantity;
+                                CartTbl.Refresh();
+                                CartCheck();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CartTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private void VoidCartBtn_Click(object sender, EventArgs e)
@@ -223,7 +272,7 @@ namespace BenpilsBarcodeSystem
             {
                 if (string.IsNullOrEmpty(PaymentTxt.Text.Trim())){
                     MessageBox.Show("Please enter received payment");
-                    PaymentTxt.Select();
+                    PaymentTxt.Focus();
                     return;
                 }
 
@@ -246,6 +295,7 @@ namespace BenpilsBarcodeSystem
                         TransactionNo = transactionNo;
                         PrintReceipt();
                         ClearCart();
+                        mainForm.updateInventoryTable = true;
                     }
                     else
                     {
@@ -273,7 +323,7 @@ namespace BenpilsBarcodeSystem
                 CheckoutBtn.Enabled = CurrentCart.HasItems();
                 VoidCartBtn.Enabled = CurrentCart.HasItems();
                 mainForm.CanSwitchPanel = !CurrentCart.HasItems();
-                TotalLbl.Text = CurrentCart.GetTotalPrice().ToString();
+                TotalLbl.Text = InputValidator.DecimalToFormattedStringPrice(CurrentCart.GetTotalPrice());
             }
             BarcodeTxt.Select();
         }
@@ -298,15 +348,9 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void POS_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
         private void PrintReceipt()
         {
             PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 1000);
-
             PrintPreview.Document = PrintDocument;
             PrintPreview.ShowDialog();
         }
@@ -327,11 +371,6 @@ namespace BenpilsBarcodeSystem
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }
 
-        private void POS_ParentChanged(object sender, EventArgs e)
-        {
-            BarcodeTxt.Select();
-        }
-
         private void BarcodeTxt_Enter(object sender, EventArgs e)
         {
             this.AcceptButton = null;
@@ -346,18 +385,26 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                BarcodeTxt.Select();
+                FocusBarcode();
             }
         }
 
         private void PaymentTxt_Leave(object sender, EventArgs e)
         {
+            FocusBarcode();
+        }
+
+        public void SelectBarcode()
+        {
             BarcodeTxt.Select();
         }
 
-        private void PaymentTxt_KeyDown(object sender, KeyEventArgs e)
+        private void FocusBarcode()
         {
-            
+            if (this.ContainsFocus)
+            {
+                BarcodeTxt.Select();
+            }
         }
     }
 }

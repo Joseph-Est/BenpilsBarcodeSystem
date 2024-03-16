@@ -43,7 +43,6 @@ namespace BenpilsBarcodeSystem.Entities
                 return InputValidator.StringToFormattedPrice((SellingPrice * Quantity).ToString());
             }
         }
-
     }
 
 
@@ -95,6 +94,11 @@ namespace BenpilsBarcodeSystem.Entities
         public decimal[] GetAmounts()
         {
             return Items.Select(item => item.PurchasePrice * item.Quantity).ToArray();
+        }
+
+        public bool AreAllQuantitiesReceived()
+        {
+            return Items.All(item => item.Quantity == item.ReceivedQuantity);
         }
     }
 }

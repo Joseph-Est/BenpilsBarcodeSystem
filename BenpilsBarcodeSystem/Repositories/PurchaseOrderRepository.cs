@@ -289,7 +289,7 @@ namespace BenpilsBarcodeSystem.Repositories
         {
             string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
             string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @itemId";
-            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId";
+            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId AND {col_order_id} = @orderId";
 
             SqlTransaction transaction = null;
 
@@ -323,6 +323,7 @@ namespace BenpilsBarcodeSystem.Repositories
                             {
                                 cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
                                 cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                cmd.Parameters.AddWithValue("@orderId", orderId);
                                 await cmd.ExecuteNonQueryAsync();
                             }
                         }

@@ -56,7 +56,7 @@ namespace BenpilsBarcodeSystem
             try
             {
                 SuppliersRepository repository = new SuppliersRepository();
-                DataTable suppliersDT = await repository.GetSupplierAsync(searchText);
+                DataTable suppliersDT = await repository.GetSupplierAsync(true, searchText);
 
                 SupplierTbl.DataSource = suppliersDT;
             }
@@ -186,7 +186,7 @@ namespace BenpilsBarcodeSystem
 
         private async void ArchiveBtn_Click(object sender, EventArgs e)
         {
-            Confirmation confirmation = new Confirmation("Are you sure you want to archive", "\"" + ContactNameTxt.Text + "\"?" + "?", "Yes", "Cancel");
+            Confirmation confirmation = new Confirmation("Are you sure you want to archive", ContactNameTxt.Text + "?", "Yes", "Cancel");
             DialogResult result = confirmation.ShowDialog();
 
             if (result == DialogResult.Yes)
@@ -199,7 +199,6 @@ namespace BenpilsBarcodeSystem
                     {
                         UpdateSupplierDG();
                         ClearSupplierFields();
-                        MessageBox.Show("Supplier archived succesfully!");
                     }
                    
                 }
@@ -351,7 +350,7 @@ namespace BenpilsBarcodeSystem
                 DateTime deliveryDate = DeliveryDt.Value;
                 int orderNo = Util.GenerateRandomNumber(10000000, 99999999);
 
-                OrderDetails orderDetails = new OrderDetails(Mode.OrderConfirmation, CurrentPurchaseCart, SelectedSupplier, Util.ConvertDate(orderDate), Util.ConvertDate(deliveryDate));
+                OrderDetails orderDetails = new OrderDetails(Mode.OrderConfirmation, CurrentPurchaseCart, SelectedSupplier, Util.ConvertDateLongWithTime(orderDate), Util.ConvertDateLong(deliveryDate));
                 if(orderDetails.ShowDialog() == DialogResult.OK)
                 {
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
@@ -457,8 +456,9 @@ namespace BenpilsBarcodeSystem
                 if (row.Cells != null && row.Cells.Count > 0)
                 {
                     int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
-                    string orderDate = row.Cells["formatted_order_date"].Value.ToString();
+                    string orderDate = Util.ConvertDateLongWithTime(DateTime.Parse(row.Cells["order_date"].Value.ToString()));
                     string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
+                    string backorderFrom = row.Cells["backorder_from"].Value.ToString();
 
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
                     (Supplier supplier, Cart cart, Dictionary<string, object> details) = await repository.GetOrderDetails(orderId);
@@ -569,7 +569,7 @@ namespace BenpilsBarcodeSystem
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDate(DeliveryDt.Value));
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDateLongWithTime(DeliveryDt.Value));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

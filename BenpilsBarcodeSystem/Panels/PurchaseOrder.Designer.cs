@@ -37,8 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,29 +44,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ItemsTbl = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remove = new System.Windows.Forms.DataGridViewImageColumn();
             this.SupplierTab = new System.Windows.Forms.TabControl();
             this.PurchasePage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.OrdersTbl = new System.Windows.Forms.DataGridView();
-            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formatted_order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formatted_receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.complete_order = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel25 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -103,15 +91,11 @@
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InputFormPanel = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ArchiveBtn = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.ClearBtn = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.ContactNoTxt = new System.Windows.Forms.TextBox();
@@ -132,11 +116,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SearchTxt = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.RefreshBtn = new System.Windows.Forms.PictureBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PrintDocument = new System.Drawing.Printing.PrintDocument();
             this.PrintPreview = new System.Windows.Forms.PrintPreviewDialog();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.decrease = new System.Windows.Forms.DataGridViewImageColumn();
+            this.increase = new System.Windows.Forms.DataGridViewImageColumn();
+            this.remove = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ArchiveBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.PictureBox();
+            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatted_order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatted_receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backorder_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.complete_order = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
             this.SupplierTab.SuspendLayout();
             this.PurchasePage.SuspendLayout();
@@ -257,18 +259,6 @@
             this.DisplayItemName.Name = "DisplayItemName";
             this.DisplayItemName.ReadOnly = true;
             // 
-            // decrease
-            // 
-            this.decrease.DataPropertyName = "decrease";
-            this.decrease.Description = "Edit quantity";
-            this.decrease.FillWeight = 5F;
-            this.decrease.HeaderText = "";
-            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
-            this.decrease.Name = "decrease";
-            this.decrease.ReadOnly = true;
-            this.decrease.ToolTipText = "Edit quantity";
-            this.decrease.Width = 40;
-            // 
             // Quantity
             // 
             this.Quantity.DataPropertyName = "Quantity";
@@ -278,18 +268,6 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
             this.Quantity.Width = 50;
-            // 
-            // increase
-            // 
-            this.increase.DataPropertyName = "increase";
-            this.increase.Description = "Remove item";
-            this.increase.FillWeight = 5F;
-            this.increase.HeaderText = "";
-            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
-            this.increase.Name = "increase";
-            this.increase.ReadOnly = true;
-            this.increase.ToolTipText = "Remove item";
-            this.increase.Width = 40;
             // 
             // TotalAmount
             // 
@@ -301,15 +279,6 @@
             this.TotalAmount.HeaderText = "Subtotal";
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
-            // 
-            // remove
-            // 
-            this.remove.FillWeight = 5F;
-            this.remove.HeaderText = "";
-            this.remove.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15;
-            this.remove.Name = "remove";
-            this.remove.ReadOnly = true;
-            this.remove.Width = 40;
             // 
             // SupplierTab
             // 
@@ -326,7 +295,7 @@
             // 
             // PurchasePage
             // 
-            this.PurchasePage.BackColor = System.Drawing.SystemColors.Control;
+            this.PurchasePage.BackColor = System.Drawing.Color.Transparent;
             this.PurchasePage.Controls.Add(this.panel2);
             this.PurchasePage.Cursor = System.Windows.Forms.Cursors.Default;
             this.PurchasePage.Location = new System.Drawing.Point(4, 24);
@@ -396,6 +365,7 @@
             this.formatted_receiving_date,
             this.receiving_date,
             this.status,
+            this.backorder_from,
             this.view_details,
             this.complete_order});
             this.OrdersTbl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -428,90 +398,6 @@
             this.OrdersTbl.TabStop = false;
             this.OrdersTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellContentClick);
             // 
-            // order_id
-            // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.HeaderText = "Order ID";
-            this.order_id.Name = "order_id";
-            this.order_id.ReadOnly = true;
-            this.order_id.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "contact_name";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Contact Name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // formatted_order_date
-            // 
-            this.formatted_order_date.DataPropertyName = "formatted_order_date";
-            this.formatted_order_date.HeaderText = "Order Date";
-            this.formatted_order_date.Name = "formatted_order_date";
-            this.formatted_order_date.ReadOnly = true;
-            this.formatted_order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.formatted_order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // order_date
-            // 
-            this.order_date.DataPropertyName = "order_date";
-            this.order_date.HeaderText = "Order Date";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
-            this.order_date.Visible = false;
-            // 
-            // formatted_receiving_date
-            // 
-            this.formatted_receiving_date.DataPropertyName = "formatted_receiving_date";
-            this.formatted_receiving_date.HeaderText = "Delivery Date";
-            this.formatted_receiving_date.Name = "formatted_receiving_date";
-            this.formatted_receiving_date.ReadOnly = true;
-            // 
-            // receiving_date
-            // 
-            this.receiving_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.receiving_date.DataPropertyName = "receiving_date";
-            this.receiving_date.HeaderText = "Delivery Date";
-            this.receiving_date.Name = "receiving_date";
-            this.receiving_date.ReadOnly = true;
-            this.receiving_date.Visible = false;
-            this.receiving_date.Width = 104;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle9;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 80;
-            // 
-            // view_details
-            // 
-            this.view_details.DataPropertyName = "view_details";
-            this.view_details.HeaderText = "";
-            this.view_details.Name = "view_details";
-            this.view_details.ReadOnly = true;
-            this.view_details.Text = "Details";
-            this.view_details.UseColumnTextForButtonValue = true;
-            this.view_details.Width = 80;
-            // 
-            // complete_order
-            // 
-            this.complete_order.DataPropertyName = "complete_order";
-            this.complete_order.HeaderText = "";
-            this.complete_order.Name = "complete_order";
-            this.complete_order.ReadOnly = true;
-            this.complete_order.Text = "Complete Order";
-            this.complete_order.UseColumnTextForButtonValue = true;
-            this.complete_order.Width = 120;
-            // 
             // panel25
             // 
             this.panel25.Controls.Add(this.label3);
@@ -527,7 +413,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(22, 15);
+            this.label3.Location = new System.Drawing.Point(22, 18);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label3.Size = new System.Drawing.Size(45, 19);
@@ -537,7 +423,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(24, 34);
+            this.textBox1.Location = new System.Drawing.Point(24, 37);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -957,26 +843,6 @@
             this.panel8.Size = new System.Drawing.Size(511, 40);
             this.panel8.TabIndex = 18;
             // 
-            // ArchiveBtn
-            // 
-            this.ArchiveBtn.AutoSize = true;
-            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchiveBtn.Enabled = false;
-            this.ArchiveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
-            this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ArchiveBtn.Name = "ArchiveBtn";
-            this.ArchiveBtn.Size = new System.Drawing.Size(481, 35);
-            this.ArchiveBtn.TabIndex = 41;
-            this.ArchiveBtn.TabStop = false;
-            this.ArchiveBtn.Text = " Archive";
-            this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ArchiveBtn.UseVisualStyleBackColor = true;
-            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
-            // 
             // panel16
             // 
             this.panel16.Controls.Add(this.ClearBtn);
@@ -986,24 +852,6 @@
             this.panel16.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
             this.panel16.Size = new System.Drawing.Size(511, 40);
             this.panel16.TabIndex = 16;
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
-            this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearBtn.Location = new System.Drawing.Point(0, 0);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(481, 35);
-            this.ClearBtn.TabIndex = 33;
-            this.ClearBtn.TabStop = false;
-            this.ClearBtn.Text = " Clear";
-            this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // panel18
             // 
@@ -1036,27 +884,6 @@
             this.panel21.Size = new System.Drawing.Size(246, 35);
             this.panel21.TabIndex = 43;
             // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.BackColor = System.Drawing.Color.White;
-            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateBtn.Enabled = false;
-            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
-            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.Location = new System.Drawing.Point(3, 0);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(243, 35);
-            this.UpdateBtn.TabIndex = 41;
-            this.UpdateBtn.TabStop = false;
-            this.UpdateBtn.Text = " Update";
-            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UpdateBtn.UseVisualStyleBackColor = false;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
             // panel20
             // 
             this.panel20.Controls.Add(this.AddBtn);
@@ -1066,26 +893,6 @@
             this.panel20.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.panel20.Size = new System.Drawing.Size(235, 35);
             this.panel20.TabIndex = 42;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.AddBtn.Size = new System.Drawing.Size(232, 35);
-            this.AddBtn.TabIndex = 39;
-            this.AddBtn.TabStop = false;
-            this.AddBtn.Text = " Add";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // panel6
             // 
@@ -1292,39 +1099,6 @@
             this.panel17.Size = new System.Drawing.Size(521, 67);
             this.panel17.TabIndex = 1;
             // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.BackColor = System.Drawing.Color.White;
-            this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
-            this.RefreshBtn.Location = new System.Drawing.Point(1200, 29);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(40, 39);
-            this.RefreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.RefreshBtn.TabIndex = 35;
-            this.RefreshBtn.TabStop = false;
-            this.RefreshBtn.UseWaitCursor = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewImageColumn1.DataPropertyName = "edit";
-            this.dataGridViewImageColumn1.FillWeight = 10F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_edit_15;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewImageColumn2.DataPropertyName = "remove";
-            this.dataGridViewImageColumn2.FillWeight = 10F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_remove_15;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            // 
             // PrintDocument
             // 
             this.PrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument_PrintPage);
@@ -1338,6 +1112,256 @@
             this.PrintPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("PrintPreview.Icon")));
             this.PrintPreview.Name = "testPrintPreview";
             this.PrintPreview.Visible = false;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn1.DataPropertyName = "edit";
+            this.dataGridViewImageColumn1.Description = "Edit quantity";
+            this.dataGridViewImageColumn1.FillWeight = 10F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_edit_15;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.ToolTipText = "Edit quantity";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn2.DataPropertyName = "remove";
+            this.dataGridViewImageColumn2.Description = "Remove item";
+            this.dataGridViewImageColumn2.FillWeight = 10F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_remove_15;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.ToolTipText = "Remove item";
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.FillWeight = 5F;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 40;
+            // 
+            // decrease
+            // 
+            this.decrease.DataPropertyName = "decrease";
+            this.decrease.Description = "Edit quantity";
+            this.decrease.FillWeight = 5F;
+            this.decrease.HeaderText = "";
+            this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
+            this.decrease.Name = "decrease";
+            this.decrease.ReadOnly = true;
+            this.decrease.ToolTipText = "Edit quantity";
+            this.decrease.Width = 40;
+            // 
+            // increase
+            // 
+            this.increase.DataPropertyName = "increase";
+            this.increase.Description = "Remove item";
+            this.increase.FillWeight = 5F;
+            this.increase.HeaderText = "";
+            this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
+            this.increase.Name = "increase";
+            this.increase.ReadOnly = true;
+            this.increase.ToolTipText = "Remove item";
+            this.increase.Width = 40;
+            // 
+            // remove
+            // 
+            this.remove.FillWeight = 5F;
+            this.remove.HeaderText = "";
+            this.remove.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15;
+            this.remove.Name = "remove";
+            this.remove.ReadOnly = true;
+            this.remove.Width = 40;
+            // 
+            // ArchiveBtn
+            // 
+            this.ArchiveBtn.AutoSize = true;
+            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchiveBtn.Enabled = false;
+            this.ArchiveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
+            this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ArchiveBtn.Name = "ArchiveBtn";
+            this.ArchiveBtn.Size = new System.Drawing.Size(481, 35);
+            this.ArchiveBtn.TabIndex = 41;
+            this.ArchiveBtn.TabStop = false;
+            this.ArchiveBtn.Text = " Archive";
+            this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ArchiveBtn.UseVisualStyleBackColor = true;
+            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
+            this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearBtn.Location = new System.Drawing.Point(0, 0);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(481, 35);
+            this.ClearBtn.TabIndex = 33;
+            this.ClearBtn.TabStop = false;
+            this.ClearBtn.Text = " Clear";
+            this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.White;
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateBtn.Enabled = false;
+            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateBtn.Location = new System.Drawing.Point(3, 0);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(243, 35);
+            this.UpdateBtn.TabIndex = 41;
+            this.UpdateBtn.TabStop = false;
+            this.UpdateBtn.Text = " Update";
+            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.AddBtn.Size = new System.Drawing.Size(232, 35);
+            this.AddBtn.TabIndex = 39;
+            this.AddBtn.TabStop = false;
+            this.AddBtn.Text = " Add";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.BackColor = System.Drawing.Color.White;
+            this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
+            this.RefreshBtn.Location = new System.Drawing.Point(1200, 29);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(40, 39);
+            this.RefreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.RefreshBtn.TabIndex = 35;
+            this.RefreshBtn.TabStop = false;
+            this.RefreshBtn.UseWaitCursor = true;
+            // 
+            // order_id
+            // 
+            this.order_id.DataPropertyName = "order_id";
+            this.order_id.HeaderText = "Order ID";
+            this.order_id.Name = "order_id";
+            this.order_id.ReadOnly = true;
+            this.order_id.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "contact_name";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // formatted_order_date
+            // 
+            this.formatted_order_date.DataPropertyName = "formatted_order_date";
+            this.formatted_order_date.HeaderText = "Order Date";
+            this.formatted_order_date.Name = "formatted_order_date";
+            this.formatted_order_date.ReadOnly = true;
+            this.formatted_order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formatted_order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // order_date
+            // 
+            this.order_date.DataPropertyName = "order_date";
+            this.order_date.HeaderText = "Order Date";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
+            this.order_date.Visible = false;
+            // 
+            // formatted_receiving_date
+            // 
+            this.formatted_receiving_date.DataPropertyName = "formatted_receiving_date";
+            this.formatted_receiving_date.HeaderText = "Delivery Date";
+            this.formatted_receiving_date.Name = "formatted_receiving_date";
+            this.formatted_receiving_date.ReadOnly = true;
+            // 
+            // receiving_date
+            // 
+            this.receiving_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.receiving_date.DataPropertyName = "receiving_date";
+            this.receiving_date.HeaderText = "Delivery Date";
+            this.receiving_date.Name = "receiving_date";
+            this.receiving_date.ReadOnly = true;
+            this.receiving_date.Visible = false;
+            this.receiving_date.Width = 102;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle9;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 80;
+            // 
+            // backorder_from
+            // 
+            this.backorder_from.DataPropertyName = "backorder_from";
+            this.backorder_from.HeaderText = "Backorder From";
+            this.backorder_from.Name = "backorder_from";
+            this.backorder_from.ReadOnly = true;
+            this.backorder_from.Visible = false;
+            // 
+            // view_details
+            // 
+            this.view_details.DataPropertyName = "view_details";
+            this.view_details.HeaderText = "";
+            this.view_details.Name = "view_details";
+            this.view_details.ReadOnly = true;
+            this.view_details.Text = "Details";
+            this.view_details.UseColumnTextForButtonValue = true;
+            this.view_details.Width = 80;
+            // 
+            // complete_order
+            // 
+            this.complete_order.DataPropertyName = "complete_order";
+            this.complete_order.HeaderText = "";
+            this.complete_order.Name = "complete_order";
+            this.complete_order.ReadOnly = true;
+            this.complete_order.Text = "Complete Order";
+            this.complete_order.UseColumnTextForButtonValue = true;
+            this.complete_order.Width = 120;
             // 
             // PurchaseOrder
             // 
@@ -1478,15 +1502,6 @@
         private System.Windows.Forms.Label label1;
         private System.Drawing.Printing.PrintDocument PrintDocument;
         private System.Windows.Forms.PrintPreviewDialog PrintPreview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formatted_order_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formatted_receiving_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receiving_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewButtonColumn view_details;
-        private System.Windows.Forms.DataGridViewButtonColumn complete_order;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DisplayItemName;
         private System.Windows.Forms.DataGridViewImageColumn decrease;
@@ -1496,5 +1511,16 @@
         private System.Windows.Forms.DataGridViewImageColumn remove;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formatted_order_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formatted_receiving_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receiving_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn backorder_from;
+        private System.Windows.Forms.DataGridViewButtonColumn view_details;
+        private System.Windows.Forms.DataGridViewButtonColumn complete_order;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }

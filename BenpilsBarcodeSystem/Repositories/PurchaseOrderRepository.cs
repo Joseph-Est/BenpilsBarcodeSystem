@@ -1,15 +1,18 @@
-﻿using BenpilsBarcodeSystem.Entities;
+﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
 using BenpilsBarcodeSystem.Helpers;
 using BenpilsBarcodeSystem.Repository;
 using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace BenpilsBarcodeSystem.Repositories
 {
@@ -20,11 +23,11 @@ namespace BenpilsBarcodeSystem.Repositories
         public static string tbl_purchase_order = "tbl_purchase_order", tbl_purchase_order_details = "tbl_purchase_order_details";
         public static string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_status = "status", col_remarks = "remarks", col_is_backorder = "is_backorder",
             col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_order_quantity = "order_quantity", col_total = "total", 
-            col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by", col_received_quantity = "received_quantity";
+            col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by", col_received_quantity = "received_quantity", col_backorder_from = "backorder_from";
         public string pending_status = "PENDING", delivered_status = "DELIVERED", partially_delivered_status = "PARTIALLY DELIVERED";
 
         public string remarks_complete_delivery = "All items have been delivered as expected.";
-        public string remarks_partially_delivered = "Some items have not been delivered yet.";
+        public string remarks_partially_delivered = "Some items have not been delivered on the arrival date.";
 
         public PurchaseOrderRepository()
         {
@@ -33,7 +36,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<DataTable> GetPurchaseOrderTransactionsAsync()
         {
-            string selectQuery = $"SELECT po.{col_order_id}, s.contact_name, po.{col_order_date}, po.{col_receiving_date} FROM {tbl_purchase_order} po INNER JOIN tbl_suppliers s ON po.{col_supplier_id} = s.supplier_id WHERE po.{col_status} = 'PENDING' AND po.{col_is_backorder} = 0";
+            string selectQuery = $"SELECT po.{col_order_id}, s.{SuppliersRepository.col_contact_name}, po.{col_order_date}, po.{col_receiving_date}, po.{col_backorder_from} FROM {tbl_purchase_order} po INNER JOIN {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id} WHERE po.{col_status} = 'PENDING'";
 
             try
             {
@@ -62,8 +65,8 @@ namespace BenpilsBarcodeSystem.Repositories
                                 row["status"] = "Pending";
                             }
 
-                            row["formatted_order_date"] = Util.ConvertDate(orderDate);
-                            row["formatted_receiving_date"] = Util.ConvertDate(receivingDate);
+                            row["formatted_order_date"] = Util.ConvertDateShort(orderDate);
+                            row["formatted_receiving_date"] = Util.ConvertDateShort(receivingDate);
                         }
 
                         return dt;
@@ -77,51 +80,66 @@ namespace BenpilsBarcodeSystem.Repositories
             }
         }
 
-        public async Task<bool> InsertPurchaseOrderAsync(int orderID, Cart cart, Supplier supplier, DateTime orderDate, DateTime receivingDate)
+        public async Task<bool> InsertPurchaseOrderAsync(int orderID, Cart cart, Supplier supplier, DateTime orderDate, DateTime receivingDate, SqlTransaction transaction = null, bool isBackOrder = false, int backOrderFrom = 0)
         {
-            string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}) VALUES (@orderId, @supplierId, @orderDate, @receivingDate, @operatedBy)";
+            string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}, {col_is_backorder}, {col_backorder_from}) VALUES (@orderId, @supplierId, @orderDate, @receivingDate, @operatedBy, @isBackOrder, @backOrderFrom)";
             string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_order_quantity}, {col_total}) VALUES (@orderId, @itemId, @quantity, @total)";
+
+            SqlConnection con = null;
 
             try
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                using (SqlCommand cmd = new SqlCommand(insertOrderQuery, transaction?.Connection ?? databaseConnection.OpenConnection(), transaction))
                 {
-                    using (SqlTransaction transaction = con.BeginTransaction())
+                    cmd.Parameters.AddWithValue("@orderId", orderID);
+                    cmd.Parameters.AddWithValue("@supplierId", supplier.SupplierID);
+                    cmd.Parameters.AddWithValue("@orderDate", orderDate);
+                    cmd.Parameters.AddWithValue("@receivingDate", receivingDate);
+                    cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.iD);
+                    cmd.Parameters.AddWithValue("@isBackOrder", isBackOrder ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@backOrderFrom", backOrderFrom);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+
+                using (SqlCommand cmd = new SqlCommand(insertOrderDetailsQuery, transaction?.Connection ?? databaseConnection.OpenConnection(), transaction))
+                {
+                    foreach (var item in cart.Items)
                     {
-                        using (SqlCommand cmd = new SqlCommand(insertOrderQuery, con, transaction))
-                        {
-                            cmd.Parameters.AddWithValue("@orderId", orderID);
-                            cmd.Parameters.AddWithValue("@supplierId", supplier.SupplierID);
-                            cmd.Parameters.AddWithValue("@orderDate", orderDate);
-                            cmd.Parameters.AddWithValue("@receivingDate", receivingDate);
-                            cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.iD);
+                        cmd.Parameters.Clear();
 
-                            await cmd.ExecuteNonQueryAsync(); 
+                        cmd.Parameters.AddWithValue("@orderId", orderID);
+                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+                        cmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                        cmd.Parameters.AddWithValue("@total", item.PurchasePrice * item.Quantity);
 
-                            cmd.CommandText = insertOrderDetailsQuery;
-
-                            foreach (var item in cart.Items)
-                            {
-                                cmd.Parameters.Clear();
-
-                                cmd.Parameters.AddWithValue("@orderId", orderID);
-                                cmd.Parameters.AddWithValue("@itemId", item.Id);
-                                cmd.Parameters.AddWithValue("@quantity", item.Quantity);
-                                cmd.Parameters.AddWithValue("@total", item.PurchasePrice * item.Quantity);
-
-                                await cmd.ExecuteNonQueryAsync(); 
-                            }
-                        }
-
-                        transaction.Commit();
+                        await cmd.ExecuteNonQueryAsync();
                     }
                 }
+
+                if (transaction != null && !isBackOrder)
+                {
+                    transaction.Commit();
+                }
+
                 return true;
             }
             catch (Exception ex)
             {
+                if (!isBackOrder)
+                {
+                    transaction?.Rollback();
+                }
+
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                if (con != null && transaction == null)
+                {
+                    con.Close();
+                }
             }
         }
 
@@ -168,7 +186,7 @@ namespace BenpilsBarcodeSystem.Repositories
                                 status = (string)reader[col_status];
                                 remarks = reader[col_remarks] is DBNull ? null : (string)reader[col_remarks];
                                 isBackorder = (bool)reader[col_is_backorder];
-                                dateFulfilled = reader[col_fulfillment_date] is DBNull ? null : (string)reader[col_fulfillment_date];
+                                dateFulfilled = reader[col_fulfillment_date] is DBNull ? null : Util.ConvertDateLongWithTime((DateTime)reader[col_fulfillment_date]);
                             }
                             else
                             {
@@ -285,11 +303,93 @@ namespace BenpilsBarcodeSystem.Repositories
             return (supplier, cart, orderDetails);
         }
 
-        public async Task<bool> CompletePurchaseOrderAsync(int orderId, int fulfilledBy, string status, string remarks, Cart cart)
+        //public async Task<bool> CompletePurchaseOrderAsync2(int orderId, int fulfilledBy, string status, string remarks, Cart cart, DateTime? newReceivingDate)
+        //{
+        //    string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
+        //    string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @itemId";
+        //    string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
+        //    string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId";
+
+        //    SqlTransaction transaction = null;
+
+        //    try
+        //    {
+        //        using (SqlConnection con = databaseConnection.OpenConnection())
+        //        {
+        //            using (transaction = con.BeginTransaction())
+        //            {
+        //                using (SqlCommand cmd = new SqlCommand(updatePurchaseOrderQuery, con, transaction))
+        //                {
+        //                    cmd.Parameters.AddWithValue("@fulfillmentDate", DateTime.Now);
+        //                    cmd.Parameters.AddWithValue("@fulfilledBy", fulfilledBy);
+        //                    cmd.Parameters.AddWithValue("@remarks", remarks);
+        //                    cmd.Parameters.AddWithValue("@status", status);
+        //                    cmd.Parameters.AddWithValue("@orderId", orderId);
+        //                    await cmd.ExecuteNonQueryAsync();
+        //                }
+
+        //                foreach (var item in cart.Items)
+        //                {
+        //                    using (SqlCommand cmd = new SqlCommand(updatePurchaseOrderDetailsQuery, con, transaction))
+        //                    {
+        //                        cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
+        //                        cmd.Parameters.AddWithValue("@orderId", orderId);
+        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        await cmd.ExecuteNonQueryAsync();
+        //                    }
+
+        //                    int oldStock;
+        //                    int newStock;
+
+        //                    using (SqlCommand cmd = new SqlCommand(getItemQuantityQuery, con, transaction))
+        //                    {
+        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        oldStock = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+        //                    }
+
+        //                    newStock = oldStock + item.ReceivedQuantity;
+
+        //                    using (SqlCommand cmd = new SqlCommand(updateItemMasterDataQuery, con, transaction))
+        //                    {
+        //                        cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
+        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        await cmd.ExecuteNonQueryAsync();
+        //                    }
+
+        //                    if (item.ReceivedQuantity > 0)
+        //                    {
+        //                        ReportsRepository repository = new ReportsRepository();
+
+        //                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, item.Id, orderId, $"Purchase Order", item.ReceivedQuantity, oldStock, newStock ,fulfilledBy, $"Order no. {orderId}");
+
+        //                        if (!reportAdded)
+        //                        {
+        //                            MessageBox.Show("wews");
+        //                            throw new Exception("Failed to add inventory report");
+        //                        }
+        //                    }
+        //                }
+
+        //                transaction.Commit();
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        transaction?.Rollback();
+        //        Console.WriteLine("An error occurred: " + ex.Message);
+        //        return false;
+        //    }
+        //}
+
+        public async Task<bool> CompletePurchaseOrderAsync(int orderId, int fulfilledBy, string status, string remarks, Cart cart, DateTime? newReceivingDate)
         {
             string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
             string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @itemId";
-            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId AND {col_order_id} = @orderId";
+            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
+            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId";
+            string getSupplierIdQuery = $"SELECT {col_supplier_id} FROM {tbl_purchase_order} WHERE {col_order_id} = @orderId";
 
             SqlTransaction transaction = null;
 
@@ -319,17 +419,90 @@ namespace BenpilsBarcodeSystem.Repositories
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
+                            int oldStock;
+                            int newStock;
+
+                            using (SqlCommand cmd = new SqlCommand(getItemQuantityQuery, con, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                oldStock = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                            }
+
+                            newStock = oldStock + item.ReceivedQuantity;
+
                             using (SqlCommand cmd = new SqlCommand(updateItemMasterDataQuery, con, transaction))
                             {
                                 cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
                                 cmd.Parameters.AddWithValue("@itemId", item.Id);
-                                cmd.Parameters.AddWithValue("@orderId", orderId);
                                 await cmd.ExecuteNonQueryAsync();
+                            }
+
+                            if (item.ReceivedQuantity > 0)
+                            {
+                                ReportsRepository repository = new ReportsRepository();
+
+                                bool reportAdded = await repository.AddInventoryReportAsync(transaction, item.Id, orderId, $"Purchase Order", item.ReceivedQuantity, oldStock, newStock, fulfilledBy, $"Order no. {orderId}");
+
+                                if (!reportAdded)
+                                {
+                                    MessageBox.Show("wews");
+                                    throw new Exception("Failed to add inventory report");
+                                }
+                            }
+                        }
+
+                        if (status == partially_delivered_status)
+                        {
+                            int supplierId;
+                            using (SqlCommand cmd = new SqlCommand(getSupplierIdQuery, con, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@orderId", orderId);
+                                supplierId = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                            }
+
+                            Supplier supplier = new Supplier
+                            {
+                                SupplierID = supplierId
+                            };
+
+
+                            List<PurchaseItem> remainingItems = new List<PurchaseItem>();
+
+                            foreach (var item in cart.Items)
+                            {
+                                if (item.ReceivedQuantity < item.Quantity)
+                                {
+                                    int remainingQuantity = item.Quantity - item.ReceivedQuantity;
+
+                                    if (remainingQuantity > 0)
+                                    {
+                                        remainingItems.Add(new PurchaseItem
+                                        {
+                                            Id = item.Id,
+                                            Quantity = remainingQuantity,
+                                            PurchasePrice = item.PurchasePrice
+                                        });
+                                    }
+                                }
+                            }
+
+                            if (remainingItems.Any())
+                            {
+                                int orderNo = Util.GenerateRandomNumber(10000000, 99999999);
+                                DateTime orderDate = DateTime.Now;
+                                DateTime receivingDate = newReceivingDate ?? throw new ArgumentNullException(nameof(newReceivingDate), "Receiving date cannot be null");
+
+                                bool isBackOrderInserted = await InsertPurchaseOrderAsync(orderNo, new Cart { Items = new BindingList<PurchaseItem>(remainingItems) }, supplier, orderDate, receivingDate, transaction, true, orderId);
+
+                                if (!isBackOrderInserted)
+                                {
+                                    throw new Exception("Failed to create backorder");
+                                }
                             }
                         }
 
                         transaction.Commit();
-                        return true;  
+                        return true;
                     }
                 }
             }
@@ -337,7 +510,70 @@ namespace BenpilsBarcodeSystem.Repositories
             {
                 transaction?.Rollback();
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return false;  
+                return false;
+            }
+        }
+
+        public async Task<List<PurchaseOrderEntity>> GetOverduePurchaseOrdersAsync()
+        {
+            List<PurchaseOrderEntity> overdueOrders = new List<PurchaseOrderEntity>();
+
+            string selectQuery = $"SELECT {col_order_id}, {col_receiving_date} FROM {tbl_purchase_order} WHERE {col_status} = @status AND {col_receiving_date} < @currentDate";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@status", pending_status);
+                        cmd.Parameters.AddWithValue("@currentDate", DateTime.Now);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int orderId = reader.GetInt32(reader.GetOrdinal(col_order_id));
+                                DateTime deliveryDate = reader.GetDateTime(reader.GetOrdinal(col_receiving_date));
+
+                                string daysOverdue = CalculateDaysOverdue(deliveryDate);
+
+                                PurchaseOrderEntity order = new PurchaseOrderEntity
+                                {
+                                    OrderId = orderId,
+                                    DeliveryStatus = daysOverdue
+                                };
+
+                                overdueOrders.Add(order);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return overdueOrders;
+        }
+
+        private string CalculateDaysOverdue(DateTime deliveryDate)
+        {
+            TimeSpan timeSpan = DateTime.Now - deliveryDate;
+            int daysOverdue = timeSpan.Days;
+
+            if (daysOverdue == 1)
+            {
+                return "Yesterday";
+            }
+            else if (daysOverdue > 1)
+            {
+                return $"{daysOverdue} days overdue";
+            }
+            else
+            {
+                return "On time";
             }
         }
     }

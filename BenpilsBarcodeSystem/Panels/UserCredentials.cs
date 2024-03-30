@@ -1,4 +1,8 @@
-﻿using BenpilsBarcodeSystem.Repository;
+﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,167 +19,36 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Ser : Form
     {
-        private string searchValue = "";
+        private bool isAdding = false;
+        private bool isUpdating = false;
+        private string prevUsername;
+        private int selectedID = 0;
 
         public Ser()
         {
             InitializeComponent();
-            dataGridView1.CellClick += dataGridView1_CellClick;
-            ComboDesignation.Items.Clear();
-            ComboDesignation.Items.Add("SuperAdmin");
-            ComboDesignation.Items.Add("Admin");
-            ComboDesignation.Items.Add("Inventory Manager");
-            ComboDesignation.Items.Add("Cashier");
+            InputValidator.AllowOnlyDigits(ContactNoTxt);
         }
-
-
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
             UpdateDataGridView();
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        public async void UpdateDataGridView(string searchText = null)
         {
-            if (string.IsNullOrWhiteSpace(TxtFirstName.Text) ||
-                string.IsNullOrWhiteSpace(TxtLastName.Text) ||
-                string.IsNullOrWhiteSpace(TxtUsername.Text) ||
-                string.IsNullOrWhiteSpace(TxtPassword.Text) ||
-                string.IsNullOrWhiteSpace(TxtAddress.Text) ||
-                string.IsNullOrWhiteSpace(TxtContactNo.Text) ||
-                string.IsNullOrWhiteSpace(ComboDesignation.Text))
+            if (string.IsNullOrWhiteSpace(searchText))
             {
-                MessageBox.Show("Please fill up all the textboxes below.");
-                return;
-            }
-            if (IsUsernameAlreadyExists(TxtUsername.Text))
-            {
-                MessageBox.Show("Username already exists. Please choose a different username.");
-                return;
-            }
-            string insertQuery = "INSERT INTO tbl_usercredential (firstname, [lastname], username, [password], designation, address, [contactno]) " +
-                                 "VALUES (@FirstName, @LastName, @UserName, @Password, @Designation, @Address, @ContactNo)";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@FirstName", TxtFirstName.Text);
-                    cmd.Parameters.AddWithValue("@LastName", TxtLastName.Text);
-                    cmd.Parameters.AddWithValue("@UserName", TxtUsername.Text);
-                    cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
-                    cmd.Parameters.AddWithValue("@Address", TxtAddress.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", TxtContactNo.Text);
-                    cmd.Parameters.AddWithValue("@Designation", ComboDesignation.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
+                SearchTxt.Text = "";
             }
 
-            UpdateDataGridView();
-            ClearAllTextBoxes();
-        }
-        private bool IsUsernameAlreadyExists(string username)
-        {
-            string query = "SELECT COUNT(*) FROM tbl_usercredential WHERE username = @Username";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@Username", username);
-
-                    int count = (int)cmd.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-        private void ClearAllTextBoxes()
-        {
-            TxtFirstName.Text = "";
-            TxtLastName.Text = "";
-            TxtUsername.Text = "";
-            TxtPassword.Text = "";
-            TxtAddress.Text = "";
-            TxtContactNo.Text = "";
-            ComboDesignation.Text = string.Empty;
-        }
-        private void UpdateBtn_Click_1(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to update.");
-                return;
-            }
-
-
-            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-
-            string updateQuery = "UPDATE tbl_usercredential SET firstname = @FirstName, [lastname] = @LastName, username = @UserName, [password] = @Password, " +
-                                 "designation = @Designation, address = @Address, [contactno] = @ContactNo WHERE ID = @ID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
-                    cmd.Parameters.AddWithValue("@FirstName", TxtFirstName.Text);
-                    cmd.Parameters.AddWithValue("@LastName", TxtLastName.Text);
-                    cmd.Parameters.AddWithValue("@UserName", TxtUsername.Text);
-                    cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
-                    cmd.Parameters.AddWithValue("@Address", TxtAddress.Text);
-                    cmd.Parameters.AddWithValue("@ContactNo", TxtContactNo.Text);
-                    cmd.Parameters.AddWithValue("@Designation", ComboDesignation.Text);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-            UpdateDataGridView();
-            ClearAllTextBoxes();
-        }
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to delete.");
-                return;
-            }
-
-            int selectedRowID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value);
-
-            string deleteQuery = "DELETE FROM tbl_usercredential WHERE ID = @ID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ID", selectedRowID);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-
-            UpdateDataGridView();
-        }
-
-        private async void UpdateDataGridView()
-        {
             try
             {
                 UserCredentialsRepository userCredentialsRepository = new UserCredentialsRepository();
-                DataTable userCredentials = await userCredentialsRepository.GetUserCredentialsAsync();
+                DataTable userCredentials = await userCredentialsRepository.GetUserCredentialsAsync(true, searchText);
 
-                dataGridView1.DataSource = userCredentials;
+                UserTbl.AutoGenerateColumns = false;
+                UserTbl.DataSource = userCredentials;
             }
             catch (Exception ex)
             {
@@ -183,77 +56,216 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void UserTbl_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-
-                    TxtFirstName.Text = selectedRow.Cells[1].Value.ToString();
-                    TxtLastName.Text = selectedRow.Cells[2].Value.ToString();
-                    TxtUsername.Text = selectedRow.Cells[3].Value.ToString();
-                    TxtPassword.Text = selectedRow.Cells[4].Value.ToString();
-                    TxtAddress.Text = selectedRow.Cells[6].Value.ToString();
-                    TxtContactNo.Text = selectedRow.Cells[7].Value.ToString();
-                    ComboDesignation.Text = selectedRow.Cells[5].Value.ToString();
-                    AddBtn.Enabled = false;
-                }
-            
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            UpdateDataGridView();
-            dataGridView1.ClearSelection();
-            AddBtn.Enabled = true;
-            ClearAllTextBoxes();
-        }
-
-        private void TxtSearchBar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)8)
+            if (e.RowIndex >= 0 && !isAdding && !isUpdating)
             {
-                e.Handled = true;
-                MessageBox.Show("Cannot input symbols");
+                DataGridViewRow selectedRow = UserTbl.Rows[e.RowIndex];
+                selectedID = InputValidator.ParseToInt(selectedRow.Cells["id"].Value.ToString());
+                FirstNameTxt.Text = selectedRow.Cells["first_name"].Value.ToString();
+                LastNameTxt.Text = selectedRow.Cells["last_name"].Value.ToString();
+                UsernameTxt.Text = selectedRow.Cells["username"].Value.ToString();
+                PasswordTxt.Text = selectedRow.Cells["password"].Value.ToString();
+                AddressTxt.Text = selectedRow.Cells["address"].Value.ToString();
+                ContactNoTxt.Text = selectedRow.Cells["contact_no"].Value.ToString();
+                SetUpDesignation(selectedRow.Cells["designation"].Value.ToString());
             }
         }
 
-        private void TxtSearchBar_TextChanged(object sender, EventArgs e)
+        private async void UserTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
 
-            searchValue = TxtSearchBar.Text; 
-            FilterDataGridView(searchValue);
-        }
-        private void FilterDataGridView(string searchValue)
-        {
-            string filterQuery = "SELECT * FROM tbl_usercredential WHERE FirstName LIKE @Search OR LastName LIKE @Search OR UserName LIKE @Search OR Designation LIKE @Search";
-            DataTable filteredTable = new DataTable();
-            using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0 && !isAdding && !isUpdating)
             {
-                using (SqlCommand cmd = new SqlCommand(filterQuery, con))
+                if (senderGrid.Columns[e.ColumnIndex].Name == "update")
                 {
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@Search", "%" + searchValue + "%"); 
+                    isUpdating = true;
+                    SetFieldsReadOnly(false);
+                    prevUsername = UsernameTxt.Text;
+                }
+                else if (senderGrid.Columns[e.ColumnIndex].Name == "archive")
+                {
+                    Confirmation confirmation = new Confirmation("Are you sure you want to archive", UsernameTxt.Text + "?", "Yes", "Cancel");
+                    DialogResult result = confirmation.ShowDialog();
 
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    if (result == DialogResult.Yes)
                     {
-                        adapter.Fill(filteredTable); 
+                        UserCredentialsRepository repository = new UserCredentialsRepository();
+
+                        if (selectedID > 0)
+                        {
+                            await repository.ArchiveUserAsync(selectedID);
+                            UpdateDataGridView();
+                            ClearFields();
+                        }
                     }
                 }
             }
-            dataGridView1.DataSource = filteredTable;
         }
 
-        private void ClearBtn_Click(object sender, EventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e)
         {
-            ClearAllTextBoxes();
+            ClearFields();
+            isAdding = true;
+            SetFieldsReadOnly(false);
+            SetUpDesignation();
         }
 
-        private void ArchiveBtn_Click(object sender, EventArgs e)
+        private async void SaveBtn_Click(object sender, EventArgs e)
         {
+            if (Util.AreTextBoxesNullOrEmpty(FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt) || DesignationCb.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please fill in all the required fields.");
+                return;
+            }
 
+            string firstName = Util.Capitalize(FirstNameTxt.Text);
+            string lastName = Util.Capitalize(LastNameTxt.Text);
+            string username = UsernameTxt.Text;
+            string password = PasswordTxt.Text;
+            string designation = DesignationCb.Text;
+            string address = Util.Capitalize(AddressTxt.Text);
+            string contactNo = ContactNoTxt.Text;
+
+            UserCredentialsRepository repository = new UserCredentialsRepository();
+
+            if(isAdding || (isUpdating && !(prevUsername.ToLower().Equals(username.ToLower()))))
+            {
+                if (await repository.IsDataExistsAsync("username", username))
+                {
+                    MessageBox.Show("Username already exist.");
+                    return;
+                }
+            }
+
+            if (isAdding)
+            {
+                Confirmation confirmation = new Confirmation("Do you want to save this new user?", null, "Yes", "Cancel");
+                DialogResult result = confirmation.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    if (await repository.AddUserAsync(
+                        firstName,
+                        lastName,
+                        username,
+                        password,
+                        designation,
+                        address,
+                        contactNo
+                    ))
+                    {
+                        ClearFields();
+                        isAdding = false;
+                        SetFieldsReadOnly(true);
+                        UpdateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Failed to add new user!");
+                    }
+                }
+            }
+            else
+            {
+                Confirmation confirmation = new Confirmation($"Do you want to save changes to user {prevUsername}?", null, "Yes", "Cancel");
+                DialogResult result = confirmation.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    if (await repository.UpdateUserAsync(
+                        selectedID,
+                        firstName,
+                        lastName,
+                        username,
+                        password,
+                        designation,
+                        address,
+                        contactNo
+                    ))
+                    {
+                        ClearFields();
+                        isUpdating = false;
+                        SetFieldsReadOnly(true);
+                        UpdateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Failed to update user!");
+                    }
+                }
+            }
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            SetFieldsReadOnly(true);
+            isAdding = false;
+            isUpdating = false;
+        }
+
+        private void SearchTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView(SearchTxt.Text);
+        }
+
+        private void ClearFields()
+        {
+            Util.ClearTextBoxes(FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
+            Util.ResetComboBoxes(DesignationCb);
+            FirstNameTxt.Text = "";
+            LastNameTxt.Text = "";
+            UsernameTxt.Text = "";
+            PasswordTxt.Text = "";
+            AddressTxt.Text = "";
+            ContactNoTxt.Text = "";
+            DesignationCb.Text = string.Empty;
+        }
+
+        private void SetFieldsReadOnly(bool mode)
+        {
+            Util.SetTextBoxesReadOnly(mode, FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
+            Util.SetComboBoxesDisabled(mode, DesignationCb);
+
+            AddBtn.Visible = mode;
+            SaveBtn.Visible = !mode;
+            CancelBtn.Visible = !mode;
+            FirstNameTxt.Select();
+        }
+
+        private void SetUpDesignation(string selectedRow = null)
+        {
+            DesignationCb.Items.Clear();
+            DesignationCb.Items.Add("-- Select --");
+            DesignationCb.Items.Add("Super Admin");
+            DesignationCb.Items.Add("Admin");
+            DesignationCb.Items.Add("Inventory Manager");
+            DesignationCb.Items.Add("Cashier");
+
+            if (selectedRow == null)
+            {
+                DesignationCb.SelectedItem = "-- Select --";
+            }
+            else
+            {
+                DesignationCb.SelectedItem = selectedRow;
+            }
+           
+        }
+
+        private void SaveBtn_VisibleChanged(object sender, EventArgs e)
+        {
+            if (SaveBtn.Visible)
+            {
+                this.AcceptButton = SaveBtn;
+                this.CancelButton = CancelBtn;
+            }
+            else
+            {
+                this.AcceptButton = AddBtn;
+            }
         }
     }
 }

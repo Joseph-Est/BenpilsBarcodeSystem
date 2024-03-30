@@ -30,6 +30,7 @@ namespace BenpilsBarcodeSystem.Dialogs
         private Supplier CurrentSupplier;
         private bool canClose = false;
         private string OrderNo { get; set; }
+        private string deliveryDate;
 
         internal OrderDetails(Mode mode = Mode.OrderConfirmation, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null,
                             string deliverDate = null, string orderNo = null, string orderedBy = null, string status = null, string dateFulfilled = null,
@@ -42,7 +43,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             CurrentSupplier = currentSupplier;
             CurrentPurchaseCart = currentPurchaseCart;
-            SupplierLbl.Text = currentSupplier.ContactName;
+            SupplierLbl.Text = currentSupplier?.ContactName;
             OrderDateLbl.Text = orderDate;
             DeliveryDateLbl.Text = deliverDate;
 
@@ -96,8 +97,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
 
             ItemsTbl.Columns["ReceivedQuantity"].Visible = true;
-            ItemsTbl.Columns["Decrease"].Visible = true;
-            ItemsTbl.Columns["Increase"].Visible = true;
         }
 
         private void SetOrderViewMode(string fulfilledBy, string dateFulfilled, string remarks, string orderedBy, string status)
@@ -152,18 +151,42 @@ namespace BenpilsBarcodeSystem.Dialogs
                     DialogResult dialogResult = MessageBox.Show("Are you sure all the items is delivered exactly, and you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, repository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart))
+                        if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, repository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart, null))
                         {
                             MessageBox.Show("Purchase order has been completed successfully!");
                             canClose = true;
                             DialogResult = DialogResult.OK;
                             this.Close();
                         }
+                        else
+                        {
+                            MessageBox.Show("Something went wrong. Please contact administrator");
+                        }
                     }
                 }
                 else
                 {
-                   
+                    DialogResult dialogResult = MessageBox.Show("Some items are still missing from this order. If you proceed to complete this order now, a new one will automatically be created for the missing items. Are you sure you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DateDialog dateDialog = new DateDialog();
+
+                        if (dateDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            DateTime receivingDate = dateDialog.receivingDate;
+                            if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, repository.partially_delivered_status, repository.remarks_partially_delivered, CurrentPurchaseCart, receivingDate))
+                            {
+                                MessageBox.Show("Purchase order has been completed successfully!");
+                                canClose = true;
+                                DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something went wrong. Please contact administrator");
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -193,7 +216,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, FulfilledByLbl.Text);
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, DeliveryDateLbl.Text);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }
@@ -209,6 +232,40 @@ namespace BenpilsBarcodeSystem.Dialogs
         private void PrintBtn_Click(object sender, EventArgs e)
         {
             PrintReceipt();
+        }
+
+        private void ItemsTbl_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl tb = e.Control as DataGridViewTextBoxEditingControl;
+            if (tb != null && ItemsTbl.CurrentCell.OwningColumn.Name == "ReceivedQuantity" && ItemsTbl.Columns["ReceivedQuantity"].Visible)
+            {
+                int maxQuantity = Convert.ToInt32(ItemsTbl.CurrentRow.Cells["Quantity"].Value);
+                InputValidator.DGAllowOnlyDigitsMinMax(tb, 0, maxQuantity);
+            }
+        }
+
+        private void ItemsTbl_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (ItemsTbl.Columns[e.ColumnIndex].Name == "ReceivedQuantity" && ItemsTbl.Columns["ReceivedQuantity"].Visible)
+            {
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    ItemsTbl.Rows[e.RowIndex].ErrorText = string.Empty;
+                }
+            }
+        }
+
+        private void ItemsTbl_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && ItemsTbl.Columns["ReceivedQuantity"].Visible)
+            {
+                ItemsTbl.CurrentCell = ItemsTbl.Rows[e.RowIndex].Cells["ReceivedQuantity"];
+                ItemsTbl.BeginEdit(true);
+            }
         }
     }
 }

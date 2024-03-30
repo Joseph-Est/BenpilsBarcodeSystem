@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseCb = new System.Windows.Forms.CheckBox();
+            this.RestoreCb = new System.Windows.Forms.CheckBox();
+            this.MinimizeCb = new System.Windows.Forms.CheckBox();
             this.SelectedModuleLbl = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -49,25 +53,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.MinimizeCb = new System.Windows.Forms.CheckBox();
-            this.RestoreCb = new System.Windows.Forms.CheckBox();
-            this.CloseCb = new System.Windows.Forms.CheckBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SidebarPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -95,6 +94,76 @@
             this.panel1.Size = new System.Drawing.Size(1456, 35);
             this.panel1.TabIndex = 15;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.CloseCb);
+            this.flowLayoutPanel1.Controls.Add(this.RestoreCb);
+            this.flowLayoutPanel1.Controls.Add(this.MinimizeCb);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1370, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(86, 35);
+            this.flowLayoutPanel1.TabIndex = 27;
+            // 
+            // CloseCb
+            // 
+            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.CloseCb.AutoCheck = false;
+            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseCb.FlatAppearance.BorderSize = 0;
+            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseCb.Location = new System.Drawing.Point(58, 8);
+            this.CloseCb.Name = "CloseCb";
+            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
+            this.CloseCb.Size = new System.Drawing.Size(20, 20);
+            this.CloseCb.TabIndex = 26;
+            this.CloseCb.UseVisualStyleBackColor = true;
+            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // RestoreCb
+            // 
+            this.RestoreCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RestoreCb.AutoCheck = false;
+            this.RestoreCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_restore_down_30;
+            this.RestoreCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RestoreCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RestoreCb.FlatAppearance.BorderSize = 0;
+            this.RestoreCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.RestoreCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.RestoreCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestoreCb.Location = new System.Drawing.Point(32, 8);
+            this.RestoreCb.Name = "RestoreCb";
+            this.RestoreCb.Padding = new System.Windows.Forms.Padding(5);
+            this.RestoreCb.Size = new System.Drawing.Size(20, 20);
+            this.RestoreCb.TabIndex = 25;
+            this.RestoreCb.UseVisualStyleBackColor = true;
+            this.RestoreCb.Click += new System.EventHandler(this.MaximizeBtn_Click);
+            // 
+            // MinimizeCb
+            // 
+            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.MinimizeCb.AutoCheck = false;
+            this.MinimizeCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
+            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MinimizeCb.FlatAppearance.BorderSize = 0;
+            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeCb.Location = new System.Drawing.Point(6, 8);
+            this.MinimizeCb.Name = "MinimizeCb";
+            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
+            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
+            this.MinimizeCb.TabIndex = 24;
+            this.MinimizeCb.UseVisualStyleBackColor = true;
+            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // SelectedModuleLbl
             // 
@@ -403,73 +472,42 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(249, 35);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1207, 36);
             this.panel3.TabIndex = 20;
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1061, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Date:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(516, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Designation:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 8);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Padding = new System.Windows.Forms.Padding(10, 8, 0, 0);
+            this.label1.Size = new System.Drawing.Size(90, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(249, 781);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1207, 35);
-            this.panel5.TabIndex = 21;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1061, 8);
+            this.label4.Location = new System.Drawing.Point(1153, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 17);
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 8, 10, 0);
+            this.label4.Size = new System.Drawing.Size(54, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
             // 
@@ -478,78 +516,44 @@
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(249, 71);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1207, 710);
+            this.MainPanel.Size = new System.Drawing.Size(1207, 735);
             this.MainPanel.TabIndex = 22;
             // 
-            // MinimizeCb
+            // label2
             // 
-            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.MinimizeCb.AutoCheck = false;
-            this.MinimizeCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
-            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeCb.FlatAppearance.BorderSize = 0;
-            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeCb.Location = new System.Drawing.Point(6, 8);
-            this.MinimizeCb.Name = "MinimizeCb";
-            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
-            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
-            this.MinimizeCb.TabIndex = 24;
-            this.MinimizeCb.UseVisualStyleBackColor = true;
-            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(90, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1010, 36);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Designation:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // RestoreCb
+            // label3
             // 
-            this.RestoreCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RestoreCb.AutoCheck = false;
-            this.RestoreCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_restore_down_30;
-            this.RestoreCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RestoreCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RestoreCb.FlatAppearance.BorderSize = 0;
-            this.RestoreCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RestoreCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.RestoreCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RestoreCb.Location = new System.Drawing.Point(32, 8);
-            this.RestoreCb.Name = "RestoreCb";
-            this.RestoreCb.Padding = new System.Windows.Forms.Padding(5);
-            this.RestoreCb.Size = new System.Drawing.Size(20, 20);
-            this.RestoreCb.TabIndex = 25;
-            this.RestoreCb.UseVisualStyleBackColor = true;
-            this.RestoreCb.Click += new System.EventHandler(this.MaximizeBtn_Click);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(1100, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 8, 10, 0);
+            this.label3.Size = new System.Drawing.Size(53, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Date:";
             // 
-            // CloseCb
+            // panel5
             // 
-            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.CloseCb.AutoCheck = false;
-            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseCb.FlatAppearance.BorderSize = 0;
-            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseCb.Location = new System.Drawing.Point(58, 8);
-            this.CloseCb.Name = "CloseCb";
-            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
-            this.CloseCb.Size = new System.Drawing.Size(20, 20);
-            this.CloseCb.TabIndex = 26;
-            this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.CloseCb);
-            this.flowLayoutPanel1.Controls.Add(this.RestoreCb);
-            this.flowLayoutPanel1.Controls.Add(this.MinimizeCb);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1370, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(86, 35);
-            this.flowLayoutPanel1.TabIndex = 27;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(249, 806);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1207, 10);
+            this.panel5.TabIndex = 21;
             // 
             // MainForm
             // 
@@ -567,6 +571,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.SidebarPanel.ResumeLayout(false);
@@ -575,9 +580,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -591,8 +593,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.FlowLayoutPanel SidebarPanel;
@@ -606,12 +606,14 @@
         private System.Windows.Forms.CheckBox UsersCb;
         private System.Windows.Forms.CheckBox SettingsCb;
         private System.Windows.Forms.CheckBox LogoutCb;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.CheckBox MinimizeCb;
         private System.Windows.Forms.CheckBox CloseCb;
         private System.Windows.Forms.CheckBox RestoreCb;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel5;
     }
 }

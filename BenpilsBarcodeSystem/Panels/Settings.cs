@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BenpilsBarcodeSystem.Repositories;
+using BenpilsBarcodeSystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,102 +21,207 @@ namespace BenpilsBarcodeSystem
             InitializeComponent();
         }
 
-        private void RetrievedItemBtn_Click(object sender, EventArgs e)
-        {
-            // Check if a row is selected
-            if (dataGridArchived.SelectedRows.Count > 0)
-            {
-                // Get the selected ProductID from the DataGridView
-                int productId = Convert.ToInt32(dataGridArchived.SelectedRows[0].Cells["ProductID"].Value);
-
-                // Call the retrieve function
-                RetrieveProduct(productId);
-
-                // Refresh the DataGridView in the Archive window
-                UpdateArchivedDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to retrieve.");
-            }
-        }
-
-        private void RetrieveProduct(int productId)
-        {
-            // Fetch the product details based on ProductID
-            DataRow selectedRow = GetArchivedProductDetails(productId);
-
-            if (selectedRow != null)
-            {
-                // Retrieve the product by inserting it back into the main table
-                string retrieveQuery = "INSERT INTO tbl_itemmasterdata (Barcode, ProductID, ItemName, MotorBrand, Brand, UnitPrice, Quantity, Category, Size) " +
-                                       "VALUES (@Barcode, @ProductID, @ItemName, @MotorBrand, @Brand, @UnitPrice, @Quantity, @Category, @Size)";
-
-                using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-                {
-                    using (SqlCommand cmd = new SqlCommand(retrieveQuery, con))
-                    {
-                        // Set parameters from the selected row in the ArchivedItems table
-                        cmd.Parameters.AddWithValue("@Barcode", selectedRow["Barcode"]);
-                        cmd.Parameters.AddWithValue("@ProductID", selectedRow["ProductID"]);
-                        cmd.Parameters.AddWithValue("@ItemName", selectedRow["ItemName"]);
-                        cmd.Parameters.AddWithValue("@MotorBrand", selectedRow["MotorBrand"]);
-                        cmd.Parameters.AddWithValue("@Brand", selectedRow["Brand"]);
-                        cmd.Parameters.AddWithValue("@UnitPrice", selectedRow["UnitPrice"]);
-                        cmd.Parameters.AddWithValue("@Quantity", selectedRow["Quantity"]);
-                        cmd.Parameters.AddWithValue("@Category", selectedRow["Category"]);
-                        cmd.Parameters.AddWithValue("@Size", selectedRow["Size"]);
-
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                // Remove the retrieved product from the ArchivedItems table
-                DeleteArchivedProduct(productId);
-            }
-        }
-        private DataRow GetArchivedProductDetails(int productId)
-        {
-            DataTable dt = (DataTable)dataGridArchived.DataSource;
-            DataRow[] rows = dt.Select($"ProductID = {productId}");
-            return rows.Length > 0 ? rows[0] : null;
-        }
-        private void UpdateArchivedDataGridView()
-        {
-            // Fetch data from the ArchivedItems table and update the DataGridView
-            string selectQuery = "SELECT * FROM ArchivedItems";
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridArchived.DataSource = dt;
-                }
-            }
-        }
-        private void DeleteArchivedProduct(int productId)
-        {
-            string deleteQuery = "DELETE FROM ArchivedItems WHERE ProductID = @ProductID";
-
-            using (SqlConnection con = new SqlConnection("Data Source=SKLERBIDI;Initial Catalog=BenpillMotorcycleDatabase;Integrated Security=True"))
-            {
-                using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
-                {
-                    cmd.Parameters.AddWithValue("@ProductID", productId);
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
         private void Settings_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'benpillMotorcycleArchivedItemMaster.ArchivedItems' table. You can move, or remove it, as needed.
-            //this.archivedItemsTableAdapter.Fill(this.benpillMotorcycleArchivedItemMaster.ArchivedItems);
+            UpdateInventoryDG();
+        }
 
+        private void ArchiveTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tc = (TabControl)sender;
+            switch (tc.SelectedIndex)
+            {
+                case 0: // Inventory
+                    UpdateInventoryDG();
+                    break;
+                case 1: // Supplier
+                    UpdateSupplierDG();
+                    break;
+                case 2: // Users
+                    UpdateUsersDG();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SearchTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                switch (textBox.Name)
+                {
+                    case "InventorySearchTxt":
+                        UpdateInventoryDG();
+                        break;
+                    case "SuppliersSearchTxt":
+                        UpdateSupplierDG();
+                        break;
+                    case "UsersSearchTxt":
+                        UpdateUsersDG();
+                        break;
+
+                }
+            }
+
+        }
+
+        private async void UpdateInventoryDG(string category = "All", string brand = "All")
+        {
+            if (string.IsNullOrEmpty(InventorySearchTxt.Text))
+            {
+                InventorySearchTxt.Text = "";
+            }
+
+            try
+            {
+                InventoryRepository inventoryRepository = new InventoryRepository();
+                DataTable inventoryDT = await inventoryRepository.GetProductsAsync(false, InventorySearchTxt.Text, category, brand);
+
+                InventoryTbl.AutoGenerateColumns = false;
+                InventoryTbl.DataSource = inventoryDT;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        public async void UpdateSupplierDG()
+        {
+            if (string.IsNullOrEmpty(SuppliersSearchTxt.Text))
+            {
+                SuppliersSearchTxt.Text = "";
+            }
+
+            try
+            {
+                SuppliersRepository repository = new SuppliersRepository();
+                DataTable suppliersDT = await repository.GetSupplierAsync(false, SuppliersSearchTxt.Text);
+
+                SupplierTbl.AutoGenerateColumns = false;
+                SupplierTbl.DataSource = suppliersDT;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        public async void UpdateUsersDG()
+        {
+            if (string.IsNullOrEmpty(UsersSearchTxt.Text))
+            {
+                UsersSearchTxt.Text = "";
+            }
+
+            try
+            {
+                UserCredentialsRepository repository = new UserCredentialsRepository();
+                DataTable suppliersDT = await repository.GetUserCredentialsAsync(false, UsersSearchTxt.Text);
+
+                UserTbl.AutoGenerateColumns = false;
+                UserTbl.DataSource = suppliersDT;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private async void DataGridViewButtonCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (sender is DataGridView senderGrid)
+            {
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                {
+                    if (senderGrid.Columns[e.ColumnIndex].Name.Contains("restore"))
+                    {
+                        int selectedID;
+                        Confirmation confirmation;
+                        DialogResult dialogResult;
+
+                        switch (senderGrid.Name)
+                        {
+                            case "InventoryTbl":
+                                selectedID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["id"].Value);
+                                string itemName = senderGrid.Rows[e.RowIndex].Cells["item_name"].Value.ToString();
+
+                                confirmation = new Confirmation("Are you sure you want to restore", itemName + "?", "Yes", "Cancel");
+                                dialogResult = confirmation.ShowDialog();
+
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    InventoryRepository repository = new InventoryRepository();
+
+                                    if (selectedID > 0)
+                                    {
+                                        if (await repository.ArchiveProductAsync(selectedID, true))
+                                        {
+                                            UpdateInventoryDG();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Failed to restore item");
+                                        }
+
+                                    }
+                                }
+                                break;
+                            case "SupplierTbl":
+                                selectedID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["supplier_id"].Value);
+                                string contactName = senderGrid.Rows[e.RowIndex].Cells["contact_name"].Value.ToString();
+
+                                confirmation = new Confirmation("Are you sure you want to restore", contactName + "?", "Yes", "Cancel");
+                                dialogResult = confirmation.ShowDialog();
+
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    SuppliersRepository repository = new SuppliersRepository();
+
+                                    if (selectedID > 0)
+                                    {
+                                        if (await repository.ArchiveSupplierAsync(selectedID, true))
+                                        {
+                                            UpdateSupplierDG();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Failed to restore supplier");
+                                        }
+
+                                    }
+                                }
+                                break;
+                            case "UserTbl":
+                                selectedID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["user_id"].Value);
+                                string username = senderGrid.Rows[e.RowIndex].Cells["username"].Value.ToString();
+
+                                confirmation = new Confirmation("Are you sure you want to restore", username + "?", "Yes", "Cancel");
+                                dialogResult = confirmation.ShowDialog();
+
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    UserCredentialsRepository repository = new UserCredentialsRepository();
+
+                                    if (selectedID > 0)
+                                    {
+                                        if(await repository.ArchiveUserAsync(selectedID, true))
+                                        {
+                                            UpdateUsersDG();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Failed to restore user");
+                                        }
+                                        
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

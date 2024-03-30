@@ -24,7 +24,19 @@ namespace BenpilsBarcodeSystem.Entities
         {
             get
             {
-                return $"{ItemName} ({Brand}, {Size})";
+                string displayName = $"{ItemName}";
+
+                if (Brand != "N/A")
+                {
+                    displayName += $", {Brand}";
+                }
+
+                if (Size != "N/A")
+                {
+                    displayName += $", {Size}";
+                }
+
+                return displayName;
             }
         }
 

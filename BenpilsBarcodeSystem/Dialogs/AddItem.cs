@@ -62,7 +62,7 @@ namespace BenpilsBarcodeSystem
             string barcode = BarcodeTxt.Text.Trim();
             string itemName = Util.Capitalize(ItemNameTxt.Text);
             string category = CategoryCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(CategoryCb.Text);
-            string brand = BrandCb.Text.Trim().ToLower() == "n/a" ? "n/a" : Util.CapitalizeOrNA(BrandCb.Text);
+            string brand = BrandCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(BrandCb.Text);
             string motorBrand = MotorBrandCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(MotorBrandCb.Text);
             string size = SizeCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(SizeCb.Text);
             int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
@@ -133,7 +133,7 @@ namespace BenpilsBarcodeSystem
             List<Supplier> suppliers = await repository.GetSuppliersAsync();
 
             SupplierCb.Items.Clear();
-            SupplierCb.Items.Add("– Optional ");
+            SupplierCb.Items.Add("-- Optional --");
             SupplierCb.Items.AddRange(suppliers.ToArray());
 
             SupplierCb.SelectedItem = "-- Optional --";

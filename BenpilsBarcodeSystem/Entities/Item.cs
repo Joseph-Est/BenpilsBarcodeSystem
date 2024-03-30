@@ -18,10 +18,41 @@ namespace BenpilsBarcodeSystem
         public int Quantity { get; set; }
         public string Category { get; set; }
         public string Size { get; set; }
+        public string DisplayItemName
+        {
+            get
+            {
+                string displayName = $"{ItemName}";
+
+                if (Brand != "N/A")
+                {
+                    displayName += $", {Brand}";
+                }
+
+                if (Size != "N/A")
+                {
+                    displayName += $", {Size}";
+                }
+
+                return displayName;
+            }
+        }
 
         public override string ToString()
         {
-            return $"{ItemName} (Brand: {Brand}, Size: {Size})";
+            string displayName = $"{ItemName}";
+
+            if (Brand != "N/A")
+            {
+                displayName += $", {Brand}";
+            }
+
+            if (Size != "N/A")
+            {
+                displayName += $", {Size}";
+            }
+
+            return displayName;
         }
 
     }

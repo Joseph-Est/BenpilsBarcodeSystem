@@ -27,9 +27,17 @@ namespace BenpilsBarcodeSystem.Repository
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<DataTable> GetProductsAsync(string searchText = "", string category = "All", string brand = "All")
+        public async Task<DataTable> GetProductsAsync(bool isActive, string searchText = "", string category = "All", string brand = "All", bool showNoStock = true)
         {
-            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {col_is_active} = '1'";
+            string whereClause = $"{col_is_active} = '{isActive}'";
+
+            if (!showNoStock)
+            {
+                whereClause += $" AND {col_quantity} > 0";
+
+            }
+
+            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {whereClause}";
 
 
             if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
@@ -38,7 +46,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
             else
             {
-                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {col_is_active} = '1'";
+                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {whereClause}";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
@@ -147,13 +155,22 @@ namespace BenpilsBarcodeSystem.Repository
 
                         if (supplier > 0)
                         {
-                            string insertSupplierItemQuery = $"INSERT INTO tbl_supplier_items (supplier_id, item_id) VALUES (@SupplierId, @ItemId)";
+                            string insertSupplierItemQuery = $"INSERT INTO {SuppliersRepository.tbl_supplier_items} ({SuppliersRepository.col_id}, {SuppliersRepository.col_item_id}) VALUES (@SupplierId, @ItemId)";
                             using (SqlCommand supplierCmd = new SqlCommand(insertSupplierItemQuery, con, transaction))
                             {
                                 supplierCmd.Parameters.AddWithValue("@SupplierId", supplier);
                                 supplierCmd.Parameters.AddWithValue("@ItemId", itemId);
                                 await supplierCmd.ExecuteNonQueryAsync();
                             }
+                        }
+
+                        ReportsRepository repository = new ReportsRepository();
+
+                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, itemId, null, "Add Item", quantity, 0, quantity, CurrentUser.User.iD, "Item added succesfully");
+
+                        if (!reportAdded)
+                        {
+                            throw new Exception("Failed to add inventory report");
                         }
 
                         transaction.Commit();
@@ -173,11 +190,12 @@ namespace BenpilsBarcodeSystem.Repository
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_purchase_price} = @PurchasePrice, {col_selling_price} = @SellingPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
 
-            try
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                SqlTransaction transaction = con.BeginTransaction();
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@Barcode", barcode);
                         cmd.Parameters.AddWithValue("@ItemName", itemName);
@@ -191,14 +209,28 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@ID", id);
 
                         int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                        //if (rowsAffected > 0)
+                        //{
+                        //    ReportsRepository repository = new ReportsRepository();
+                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Update Product", quantity, modifiedBy, "Product updated successfully");
+
+                        //    if (!reportAdded)
+                        //    {
+                        //        throw new Exception("Failed to add inventory report");
+                        //    }
+                        //}
+
+                        transaction.Commit();
                         return rowsAffected > 0;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -279,27 +311,42 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> ArchiveProductAsync(int id)
+        public async Task<bool> ArchiveProductAsync(int id, bool archive = false)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = 0 WHERE {col_id} = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{archive}' WHERE {col_id} = @ID";
 
-            try
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                SqlTransaction transaction = con.BeginTransaction();
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
 
                         int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                        if (rowsAffected > 0)
+                        {
+                            ReportsRepository repository = new ReportsRepository();
+                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Archive Item", 0, 0, 0, CurrentUser.User.iD, "Item archived succesfully");
+
+                            if (!reportAdded)
+                            {
+                                throw new Exception("Failed to add inventory report");
+                            }
+                        }
+
+                        transaction.Commit();
                         return rowsAffected > 0;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -416,29 +463,46 @@ namespace BenpilsBarcodeSystem.Repository
             return uniqueValues;
         }
 
-        public async Task<bool> DeductStockAsync(int id, int amountToDeduct)
+        public async Task<bool> DeductStockAsync(int id, int amountToDeduct, string remarks)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
-
-            try
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                SqlTransaction transaction = con.BeginTransaction();
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    string selectQuery = $"SELECT {col_quantity} FROM {tbl_name} WHERE {col_id} = @Id";
+                    SqlCommand selectCmd = new SqlCommand(selectQuery, con, transaction);
+                    selectCmd.Parameters.AddWithValue("@Id", id);
+                    int oldStock = (int)await selectCmd.ExecuteScalarAsync();
+
+                    string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
+                    SqlCommand updateCmd = new SqlCommand(updateQuery, con, transaction);
+                    updateCmd.Parameters.AddWithValue("@AmountToDeduct", amountToDeduct);
+                    updateCmd.Parameters.AddWithValue("@Id", id);
+                    int rowsAffected = await updateCmd.ExecuteNonQueryAsync();
+
+                    int newStock = oldStock - amountToDeduct;
+
+                    if (rowsAffected > 0)
                     {
-                        cmd.Parameters.AddWithValue("@AmountToDeduct", amountToDeduct);
-                        cmd.Parameters.AddWithValue("@Id", id);
+                        ReportsRepository repository = new ReportsRepository();
+                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Reduce Stock", amountToDeduct, oldStock, newStock, CurrentUser.User.iD, remarks);
 
-                        int rowsAffected = await cmd.ExecuteNonQueryAsync();
-
-                        return rowsAffected > 0;
+                        if (!reportAdded)
+                        {
+                            throw new Exception("Failed to add inventory report");
+                        }
                     }
+
+                    transaction.Commit();
+                    return rowsAffected > 0;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-                return false;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 
@@ -645,5 +709,74 @@ namespace BenpilsBarcodeSystem.Repository
 
             return item;
         }
+
+        public async Task<int> GetActiveItemsCount()
+        {
+            int count = 0;
+            string countQuery = $"SELECT COUNT({col_id}) FROM {tbl_name} WHERE {col_is_active} = 'true'";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(countQuery, con))
+                    {
+                        count = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return count;
+        }
+
+        public async Task<List<Item>> GetLowStockItemsAsync()
+        {
+            List<Item> lowStockItems = new List<Item>();
+
+            string selectQuery = $"SELECT {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_quantity} < {lowStockThreshold} AND {col_is_active} = 'true'";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
+                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
+                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
+                                string size = reader.GetString(reader.GetOrdinal(col_size));
+                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
+
+                                Item item = new Item
+                                {
+                                    Barcode = barcode,
+                                    ItemName = itemName,
+                                    Brand = brand,
+                                    Size = size,
+                                    Quantity = quantity,
+                                };
+
+                                lowStockItems.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return lowStockItems;
+        }
+
     }
 }

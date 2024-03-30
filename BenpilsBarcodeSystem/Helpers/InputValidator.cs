@@ -125,6 +125,37 @@ namespace BenpilsBarcodeSystem.Helpers
             };
         }
 
+        public static void DGAllowOnlyDigitsMinMax(DataGridViewTextBoxEditingControl textBox, int min, int max)
+        {
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                else if (char.IsDigit(e.KeyChar))
+                {
+                    // If the textbox content is highlighted, bypass the limits
+                    if (textBox.SelectedText.Length == textBox.TextLength)
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        string newText = textBox.Text + e.KeyChar;
+
+                        if (int.TryParse(newText, out int number))
+                        {
+                            if (number < min || number > max)
+                            {
+                                e.Handled = true;
+                            }
+                        }
+                    }
+                }
+            };
+        }
+
         public static void AllowOnlyDigitsAndDecimal(TextBox textBox)
         {
             textBox.KeyPress += (sender, e) =>

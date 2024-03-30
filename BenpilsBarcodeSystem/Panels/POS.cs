@@ -310,6 +310,16 @@ namespace BenpilsBarcodeSystem
             BarcodeTxt.Select();
         }
 
+        private void SearchItemBtn_Click(object sender, EventArgs e)
+        {
+            SearchItem searchItemDialog = new SearchItem();
+
+            if (searchItemDialog.ShowDialog() == DialogResult.OK)
+            {
+                BarcodeTxt.Text = searchItemDialog.barcode;
+            }
+        }
+
         private void CartCheck()
         {
             if (CurrentCart == null)

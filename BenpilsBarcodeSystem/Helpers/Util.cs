@@ -22,6 +22,11 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
+        public static string SanitizeString(string input)
+        {
+            return System.Security.SecurityElement.Escape(input);
+        }
+
         public static void ResetComboBoxes(params ComboBox[] comboBoxes)
         {
             foreach (ComboBox comboBox in comboBoxes)
@@ -94,9 +99,27 @@ namespace BenpilsBarcodeSystem.Utils
             return $"{value}{random.Next(min, max)}";
         }
 
-        public static string ConvertDate(DateTime date)
+        public static string ConvertDateLong(DateTime date)
         {
             string formattedDate = date.ToString("MMM dd, yyyy");
+            return formattedDate;
+        }
+
+        public static string ConvertDateLongWithTime(DateTime date)
+        {
+            string formattedDate = date.ToString("MMM dd, yyyy hh:mm tt");
+            return formattedDate;
+        }
+
+        public static string ConvertDateShort(DateTime date)
+        {
+            string formattedDate = date.ToString("MMM dd, yyyy");
+            return formattedDate;
+        }
+
+        public static string ConvertDateShortWithTime(DateTime date)
+        {
+            string formattedDate = date.ToString("MMM dd, yyyy hh:mm tt");
             return formattedDate;
         }
 

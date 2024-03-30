@@ -22,7 +22,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             InitializeComponent();
             InputValidator.AllowOnlyDigitsMinMax(QuantityTxt, 1, stock);
             StockLbl.Text = stock.ToString();
-            ItemLbl.Text = $"{itemName} ({itemBrand})";
+            ItemLbl.Text = $"{itemName}" + (itemBrand != "N/A" ? $", {itemBrand}" : "");
             SizeLbl.Text = itemSize;
             PriceLblTxt.Text = price;
 

@@ -44,18 +44,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.InputFormPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
-            this.ArchiveBtn = new System.Windows.Forms.Button();
             this.panel39 = new System.Windows.Forms.Panel();
-            this.ReduceStockBtn = new System.Windows.Forms.Button();
             this.panel38 = new System.Windows.Forms.Panel();
-            this.ClearBtn = new System.Windows.Forms.Button();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
-            this.UpdateBtn = new System.Windows.Forms.Button();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.SizeLbl = new System.Windows.Forms.Label();
             this.SellingPriceTxt = new System.Windows.Forms.TextBox();
@@ -109,6 +103,12 @@
             this.BrandCb = new System.Windows.Forms.ComboBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
+            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
+            this.ArchiveBtn = new System.Windows.Forms.Button();
+            this.ReduceStockBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.InputFormPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel40.SuspendLayout();
@@ -154,7 +154,7 @@
             this.InputFormPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.InputFormPanel.Location = new System.Drawing.Point(820, 0);
             this.InputFormPanel.Name = "InputFormPanel";
-            this.InputFormPanel.Padding = new System.Windows.Forms.Padding(10, 78, 0, 0);
+            this.InputFormPanel.Padding = new System.Windows.Forms.Padding(10, 68, 0, 0);
             this.InputFormPanel.Size = new System.Drawing.Size(387, 710);
             this.InputFormPanel.TabIndex = 186;
             this.InputFormPanel.Enter += new System.EventHandler(this.InputFormPanel_Enter);
@@ -164,121 +164,48 @@
             // 
             this.panel3.Controls.Add(this.BarcodeGeneratorBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(10, 573);
+            this.panel3.Location = new System.Drawing.Point(10, 563);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
             this.panel3.Size = new System.Drawing.Size(377, 40);
             this.panel3.TabIndex = 199;
             // 
-            // BarcodeGeneratorBtn
-            // 
-            this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BarcodeGeneratorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeGeneratorBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
-            this.BarcodeGeneratorBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
-            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(347, 35);
-            this.BarcodeGeneratorBtn.TabIndex = 36;
-            this.BarcodeGeneratorBtn.TabStop = false;
-            this.BarcodeGeneratorBtn.Text = " Barcode Generator";
-            this.BarcodeGeneratorBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
-            // 
             // panel40
             // 
             this.panel40.Controls.Add(this.ArchiveBtn);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel40.Location = new System.Drawing.Point(10, 533);
+            this.panel40.Location = new System.Drawing.Point(10, 523);
             this.panel40.Name = "panel40";
             this.panel40.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
             this.panel40.Size = new System.Drawing.Size(377, 40);
             this.panel40.TabIndex = 198;
             // 
-            // ArchiveBtn
-            // 
-            this.ArchiveBtn.AutoSize = true;
-            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArchiveBtn.Enabled = false;
-            this.ArchiveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
-            this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ArchiveBtn.Name = "ArchiveBtn";
-            this.ArchiveBtn.Size = new System.Drawing.Size(347, 35);
-            this.ArchiveBtn.TabIndex = 35;
-            this.ArchiveBtn.TabStop = false;
-            this.ArchiveBtn.Text = " Archive";
-            this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ArchiveBtn.UseVisualStyleBackColor = true;
-            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
-            // 
             // panel39
             // 
             this.panel39.Controls.Add(this.ReduceStockBtn);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel39.Location = new System.Drawing.Point(10, 493);
+            this.panel39.Location = new System.Drawing.Point(10, 483);
             this.panel39.Name = "panel39";
             this.panel39.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
             this.panel39.Size = new System.Drawing.Size(377, 40);
             this.panel39.TabIndex = 197;
             // 
-            // ReduceStockBtn
-            // 
-            this.ReduceStockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReduceStockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReduceStockBtn.Enabled = false;
-            this.ReduceStockBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReduceStockBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_unpacking_15;
-            this.ReduceStockBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ReduceStockBtn.Location = new System.Drawing.Point(0, 0);
-            this.ReduceStockBtn.Name = "ReduceStockBtn";
-            this.ReduceStockBtn.Size = new System.Drawing.Size(347, 35);
-            this.ReduceStockBtn.TabIndex = 34;
-            this.ReduceStockBtn.TabStop = false;
-            this.ReduceStockBtn.Text = " Reduce Stock";
-            this.ReduceStockBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ReduceStockBtn.UseVisualStyleBackColor = true;
-            this.ReduceStockBtn.Click += new System.EventHandler(this.ReduceStockBtn_Click);
-            // 
             // panel38
             // 
             this.panel38.Controls.Add(this.ClearBtn);
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel38.Location = new System.Drawing.Point(10, 453);
+            this.panel38.Location = new System.Drawing.Point(10, 443);
             this.panel38.Name = "panel38";
             this.panel38.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
             this.panel38.Size = new System.Drawing.Size(377, 40);
             this.panel38.TabIndex = 196;
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
-            this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearBtn.Location = new System.Drawing.Point(0, 0);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(347, 35);
-            this.ClearBtn.TabIndex = 33;
-            this.ClearBtn.TabStop = false;
-            this.ClearBtn.Text = " Clear";
-            this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // panel35
             // 
             this.panel35.Controls.Add(this.panel41);
             this.panel35.Controls.Add(this.panel37);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel35.Location = new System.Drawing.Point(10, 393);
+            this.panel35.Location = new System.Drawing.Point(10, 383);
             this.panel35.Name = "panel35";
             this.panel35.Padding = new System.Windows.Forms.Padding(0, 20, 30, 5);
             this.panel35.Size = new System.Drawing.Size(377, 60);
@@ -294,27 +221,6 @@
             this.panel41.Size = new System.Drawing.Size(170, 35);
             this.panel41.TabIndex = 181;
             // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.BackColor = System.Drawing.Color.White;
-            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateBtn.Enabled = false;
-            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
-            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
-            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(166, 35);
-            this.UpdateBtn.TabIndex = 31;
-            this.UpdateBtn.TabStop = false;
-            this.UpdateBtn.Text = " Update";
-            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.UpdateBtn.UseVisualStyleBackColor = false;
-            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
-            // 
             // panel37
             // 
             this.panel37.Controls.Add(this.AddBtn);
@@ -325,32 +231,12 @@
             this.panel37.Size = new System.Drawing.Size(177, 35);
             this.panel37.TabIndex = 180;
             // 
-            // AddBtn
-            // 
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.AddBtn.Size = new System.Drawing.Size(175, 35);
-            this.AddBtn.TabIndex = 30;
-            this.AddBtn.TabStop = false;
-            this.AddBtn.Text = " Add";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.SizeLbl);
             this.panel13.Controls.Add(this.SellingPriceTxt);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(10, 358);
+            this.panel13.Location = new System.Drawing.Point(10, 348);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel13.Size = new System.Drawing.Size(377, 35);
@@ -385,7 +271,7 @@
             this.panel14.Controls.Add(this.label3);
             this.panel14.Controls.Add(this.PurchasePriceTxt);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(10, 323);
+            this.panel14.Location = new System.Drawing.Point(10, 313);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel14.Size = new System.Drawing.Size(377, 35);
@@ -420,7 +306,7 @@
             this.panel12.Controls.Add(this.label20);
             this.panel12.Controls.Add(this.QuantityTxt);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(10, 288);
+            this.panel12.Location = new System.Drawing.Point(10, 278);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel12.Size = new System.Drawing.Size(377, 35);
@@ -456,7 +342,7 @@
             this.panel11.Controls.Add(this.SizeCb);
             this.panel11.Controls.Add(this.label15);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(10, 253);
+            this.panel11.Location = new System.Drawing.Point(10, 243);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel11.Size = new System.Drawing.Size(377, 35);
@@ -495,7 +381,7 @@
             this.panel10.Controls.Add(this.MotorBrandInputCb);
             this.panel10.Controls.Add(this.label13);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(10, 218);
+            this.panel10.Location = new System.Drawing.Point(10, 208);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel10.Size = new System.Drawing.Size(377, 35);
@@ -534,7 +420,7 @@
             this.panel9.Controls.Add(this.BrandInputCb);
             this.panel9.Controls.Add(this.label12);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(10, 183);
+            this.panel9.Location = new System.Drawing.Point(10, 173);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel9.Size = new System.Drawing.Size(377, 35);
@@ -573,7 +459,7 @@
             this.panel8.Controls.Add(this.CategoryInputCb);
             this.panel8.Controls.Add(this.label11);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(10, 148);
+            this.panel8.Location = new System.Drawing.Point(10, 138);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel8.Size = new System.Drawing.Size(377, 35);
@@ -613,7 +499,7 @@
             this.panel7.Controls.Add(this.label10);
             this.panel7.Controls.Add(this.ItemNameTxt);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(10, 113);
+            this.panel7.Location = new System.Drawing.Point(10, 103);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel7.Size = new System.Drawing.Size(377, 35);
@@ -647,7 +533,7 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.BarcodeTxt);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(10, 78);
+            this.panel5.Location = new System.Drawing.Point(10, 68);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 30, 10);
             this.panel5.Size = new System.Drawing.Size(377, 35);
@@ -692,7 +578,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(30, 10, 10, 30);
+            this.panel1.Padding = new System.Windows.Forms.Padding(30, 0, 10, 30);
             this.panel1.Size = new System.Drawing.Size(820, 643);
             this.panel1.TabIndex = 183;
             // 
@@ -732,7 +618,7 @@
             this.dataGridItemMasterdata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridItemMasterdata.EnableHeadersVisualStyles = false;
             this.dataGridItemMasterdata.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridItemMasterdata.Location = new System.Drawing.Point(30, 10);
+            this.dataGridItemMasterdata.Location = new System.Drawing.Point(30, 0);
             this.dataGridItemMasterdata.MultiSelect = false;
             this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
             this.dataGridItemMasterdata.ReadOnly = true;
@@ -751,7 +637,7 @@
             this.dataGridItemMasterdata.RowTemplate.Height = 30;
             this.dataGridItemMasterdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItemMasterdata.Size = new System.Drawing.Size(780, 603);
+            this.dataGridItemMasterdata.Size = new System.Drawing.Size(780, 613);
             this.dataGridItemMasterdata.TabIndex = 179;
             this.dataGridItemMasterdata.TabStop = false;
             this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
@@ -914,7 +800,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(28, 17);
+            this.label2.Location = new System.Drawing.Point(28, 16);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label2.Size = new System.Drawing.Size(45, 19);
@@ -924,7 +810,7 @@
             // SearchTxt
             // 
             this.SearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTxt.Location = new System.Drawing.Point(30, 36);
+            this.SearchTxt.Location = new System.Drawing.Point(30, 35);
             this.SearchTxt.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
@@ -937,7 +823,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label7.Location = new System.Drawing.Point(205, 17);
+            this.label7.Location = new System.Drawing.Point(205, 16);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label7.Size = new System.Drawing.Size(54, 19);
@@ -948,7 +834,7 @@
             // 
             this.CategoryCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoryCb.Location = new System.Drawing.Point(208, 36);
+            this.CategoryCb.Location = new System.Drawing.Point(208, 35);
             this.CategoryCb.Name = "CategoryCb";
             this.CategoryCb.Size = new System.Drawing.Size(162, 24);
             this.CategoryCb.TabIndex = 2;
@@ -959,7 +845,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(382, 17);
+            this.label1.Location = new System.Drawing.Point(382, 16);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label1.Size = new System.Drawing.Size(39, 19);
@@ -971,7 +857,7 @@
             this.BrandCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BrandCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrandCb.FormattingEnabled = true;
-            this.BrandCb.Location = new System.Drawing.Point(385, 36);
+            this.BrandCb.Location = new System.Drawing.Point(385, 35);
             this.BrandCb.Margin = new System.Windows.Forms.Padding(3, 3, 100, 3);
             this.BrandCb.Name = "BrandCb";
             this.BrandCb.Size = new System.Drawing.Size(162, 24);
@@ -999,6 +885,120 @@
             this.RefreshPb.TabIndex = 170;
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
+            // 
+            // BarcodeGeneratorBtn
+            // 
+            this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BarcodeGeneratorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarcodeGeneratorBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
+            this.BarcodeGeneratorBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
+            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
+            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(347, 35);
+            this.BarcodeGeneratorBtn.TabIndex = 36;
+            this.BarcodeGeneratorBtn.TabStop = false;
+            this.BarcodeGeneratorBtn.Text = " Barcode Generator";
+            this.BarcodeGeneratorBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
+            // 
+            // ArchiveBtn
+            // 
+            this.ArchiveBtn.AutoSize = true;
+            this.ArchiveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ArchiveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchiveBtn.Enabled = false;
+            this.ArchiveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
+            this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ArchiveBtn.Name = "ArchiveBtn";
+            this.ArchiveBtn.Size = new System.Drawing.Size(347, 35);
+            this.ArchiveBtn.TabIndex = 35;
+            this.ArchiveBtn.TabStop = false;
+            this.ArchiveBtn.Text = " Archive";
+            this.ArchiveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ArchiveBtn.UseVisualStyleBackColor = true;
+            this.ArchiveBtn.Click += new System.EventHandler(this.ArchiveBtn_Click);
+            // 
+            // ReduceStockBtn
+            // 
+            this.ReduceStockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReduceStockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReduceStockBtn.Enabled = false;
+            this.ReduceStockBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReduceStockBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_unpacking_15;
+            this.ReduceStockBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReduceStockBtn.Location = new System.Drawing.Point(0, 0);
+            this.ReduceStockBtn.Name = "ReduceStockBtn";
+            this.ReduceStockBtn.Size = new System.Drawing.Size(347, 35);
+            this.ReduceStockBtn.TabIndex = 34;
+            this.ReduceStockBtn.TabStop = false;
+            this.ReduceStockBtn.Text = " Reduce Stock";
+            this.ReduceStockBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReduceStockBtn.UseVisualStyleBackColor = true;
+            this.ReduceStockBtn.Click += new System.EventHandler(this.ReduceStockBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ClearBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
+            this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearBtn.Location = new System.Drawing.Point(0, 0);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(347, 35);
+            this.ClearBtn.TabIndex = 33;
+            this.ClearBtn.TabStop = false;
+            this.ClearBtn.Text = " Clear";
+            this.ClearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.BackColor = System.Drawing.Color.White;
+            this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateBtn.Enabled = false;
+            this.UpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.UpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15;
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateBtn.Location = new System.Drawing.Point(2, 0);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(166, 35);
+            this.UpdateBtn.TabIndex = 31;
+            this.UpdateBtn.TabStop = false;
+            this.UpdateBtn.Text = " Update";
+            this.UpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(0, 0);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(2, 2, 3, 2);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.AddBtn.Size = new System.Drawing.Size(175, 35);
+            this.AddBtn.TabIndex = 30;
+            this.AddBtn.TabStop = false;
+            this.AddBtn.Text = " Add";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.TextChanged += new System.EventHandler(this.AddBtn_TextChanged);
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // Inventory
             // 

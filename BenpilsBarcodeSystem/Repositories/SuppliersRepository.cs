@@ -20,9 +20,9 @@ namespace BenpilsBarcodeSystem.Repositories
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<DataTable> GetSupplierAsync(string searchText = "")
+        public async Task<DataTable> GetSupplierAsync(bool isActive, string searchText = "")
         {
-            string selectQuery = $"SELECT {col_id}, {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '1'";
+            string selectQuery = $"SELECT {col_id}, {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -30,7 +30,7 @@ namespace BenpilsBarcodeSystem.Repositories
             }
             else
             {
-                selectQuery = $"SELECT {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '1'";
+                selectQuery = $"SELECT {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
@@ -136,9 +136,9 @@ namespace BenpilsBarcodeSystem.Repositories
             }
         }
 
-        public async Task<bool> ArchiveSupplierAsync(int id)
+        public async Task<bool> ArchiveSupplierAsync(int id, bool archive = false)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = 0 WHERE {col_id} = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{archive}' WHERE {col_id} = @ID";
 
             try
             {
@@ -202,6 +202,72 @@ namespace BenpilsBarcodeSystem.Repositories
             }
 
             return uniqueValuesColumn;
+        }
+
+        public async Task<int> GetActiveSuppliersCount()
+        {
+            int count = 0;
+            string countQuery = $"SELECT COUNT({col_id}) FROM {tbl_name} WHERE {col_is_active} = 'true'";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(countQuery, con))
+                    {
+                        count = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return count;
+        }
+
+        public async Task<Supplier> GetSupplierByOrderIdAsync(int orderId, SqlTransaction transaction = null)
+        {
+            string query = $"SELECT {col_id}, {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} INNER JOIN {PurchaseOrderRepository.tbl_purchase_order} ON {tbl_name}.{col_id} = {PurchaseOrderRepository.tbl_purchase_order}.{col_id} WHERE {PurchaseOrderRepository.tbl_purchase_order}.{PurchaseOrderRepository.col_order_id} = @orderId";
+
+            Supplier supplier = null;
+
+            try
+            {
+                using (SqlConnection con = transaction?.Connection ?? databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@orderId", orderId);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                int supplierId = reader.GetInt32(reader.GetOrdinal(col_id));
+                                string contactName = reader.GetString(reader.GetOrdinal(col_contact_name));
+                                string contactNo = reader.GetString(reader.GetOrdinal(col_contact_no));
+                                string address = reader.GetString(reader.GetOrdinal(col_address));
+
+                                supplier = new Supplier
+                                {
+                                    SupplierID = supplierId,
+                                    ContactName = contactName,
+                                    ContactNo = contactNo,
+                                    Address = address
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return supplier;
         }
     }
 }

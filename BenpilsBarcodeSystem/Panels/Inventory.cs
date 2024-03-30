@@ -47,8 +47,9 @@ namespace BenpilsBarcodeSystem
             try
             {
                 InventoryRepository inventoryRepository = new InventoryRepository();
-                DataTable inventoryDT = await inventoryRepository.GetProductsAsync(searchText, category, brand);
+                DataTable inventoryDT = await inventoryRepository.GetProductsAsync(true, searchText, category, brand);
 
+                dataGridItemMasterdata.AutoGenerateColumns = false;
                 dataGridItemMasterdata.DataSource = inventoryDT;
 
                 //foreach (DataGridViewRow row in dataGridItemMasterdata.Rows)
@@ -123,7 +124,7 @@ namespace BenpilsBarcodeSystem
                     }
                 }
 
-                await repository.UpdateProductAsync(
+                if (await repository.UpdateProductAsync(
                     selectedID,
                     BarcodeTxt.Text,
                     itemName,
@@ -134,20 +135,25 @@ namespace BenpilsBarcodeSystem
                     InputValidator.ParseToInt(QuantityTxt.Text),
                     InputValidator.ParseToDecimal(PurchasePriceTxt.Text),
                     InputValidator.ParseToDecimal(SellingPriceTxt.Text)
-                );
+                ))
+                {
+                    isUpdating = false;
 
-                isUpdating = false;
+                    MessageBox.Show($"{Util.Capitalize(ItemNameTxt.Text)} updated succesfully!");
 
-                MessageBox.Show($"{Util.Capitalize(ItemNameTxt.Text)} updated succesfully!");
+                    UpdateDataGridView();
+                    ClearFields();
+                    SetFieldsReadOnly(true);
 
-                UpdateDataGridView();
-                ClearFields();
-                SetFieldsReadOnly(true);
+                    AddBtn.Text = " Add";
+                    UpdateBtn.Text = " Update";
 
-                AddBtn.Text = " Add";
-                UpdateBtn.Text = " Update";
-
-                this.CancelButton = null;
+                    this.CancelButton = null;
+                }
+                else
+                {
+                    MessageBox.Show($"Failed to update {prevItemName}!");
+                }
             }
             else
             {
@@ -230,7 +236,7 @@ namespace BenpilsBarcodeSystem
                 string itemName = reduceStockForm.itemName;
 
                 InventoryRepository inventoryRepository = new InventoryRepository();
-                if (await inventoryRepository.DeductStockAsync(id, amountToDeduct))
+                if (await inventoryRepository.DeductStockAsync(id, amountToDeduct, reason))
                 {
                     MessageBox.Show($"{itemName} quantity reduced succesfully");
                     UpdateDataGridView();

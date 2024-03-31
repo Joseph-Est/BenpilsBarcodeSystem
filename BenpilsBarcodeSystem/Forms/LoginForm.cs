@@ -19,6 +19,7 @@ namespace BenpilsBarcodeSystem
     {
         private string usernamePlaceholder = "Username";
         private string passwordPlaceholder = "Password";
+        private bool isLoggingIn = false;
 
         public LoginForm()
         {
@@ -37,46 +38,51 @@ namespace BenpilsBarcodeSystem
 
         private async void btnlogin_Click(object sender, EventArgs e)
         {
-            if (UsernameTxt.Text == "")
+            if (!isLoggingIn)
             {
-                MessageBox.Show("Enter your username!");
-            }
-            else if (PasswordTxt.Text == "")
-            {
-                MessageBox.Show("Enter your password!");
-            }
-            else
-            {
-                btnLogin.Text = "Logging in....";
-                btnLogin.Enabled = false;
+                isLoggingIn = true;
 
-                try
+                if (UsernameTxt.Text == "")
                 {
-                    UserCredentialsRepository repository = new UserCredentialsRepository();
+                    MessageBox.Show("Enter your username!");
+                }
+                else if (PasswordTxt.Text == "")
+                {
+                    MessageBox.Show("Enter your password!");
+                }
+                else
+                {
+                    btnLogin.Text = "LOGGING IN....";
 
-                    if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text))
+                    try
                     {
-                        MainForm dash = new MainForm();
-                        dash.Show();
-                        dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                        this.Hide();
+                        UserCredentialsRepository repository = new UserCredentialsRepository();
+
+                        if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text))
+                        {
+                            MainForm dash = new MainForm();
+                            dash.Show();
+                            dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password!");
+                            UsernameTxt.Select();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Invalid username or password!");
+                        MessageBox.Show("An error occurred: " + ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
-                finally
-                {
-                    btnLogin.Text = "Login";
-                    btnLogin.Enabled = true;
+                    finally
+                    {
+                        btnLogin.Text = "LOGIN";
+                    }
                 }
             }
 
+            isLoggingIn = false;
         }
 
         private void testPrint_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

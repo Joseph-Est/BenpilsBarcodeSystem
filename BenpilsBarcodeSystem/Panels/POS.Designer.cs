@@ -294,12 +294,12 @@
             // 
             // VoidCartBtn
             // 
-            this.VoidCartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.VoidCartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.VoidCartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VoidCartBtn.Enabled = false;
             this.VoidCartBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.VoidCartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VoidCartBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VoidCartBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VoidCartBtn.ForeColor = System.Drawing.Color.White;
             this.VoidCartBtn.Location = new System.Drawing.Point(343, 0);
             this.VoidCartBtn.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -317,7 +317,7 @@
             this.SearchItemBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchItemBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.SearchItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchItemBtn.ForeColor = System.Drawing.Color.White;
             this.SearchItemBtn.Location = new System.Drawing.Point(222, 0);
             this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0);

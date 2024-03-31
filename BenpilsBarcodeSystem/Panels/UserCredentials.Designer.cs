@@ -59,10 +59,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.CancelBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -74,8 +71,6 @@
             this.panel43 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchTxt = new System.Windows.Forms.TextBox();
-            this.tblusercredentialBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.tblusercredentialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.UserTbl = new System.Windows.Forms.DataGridView();
             this.archive = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -89,6 +84,11 @@
             this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.tblusercredentialBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tblusercredentialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -103,10 +103,10 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel43.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserTbl)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -347,26 +347,6 @@
             this.panel15.Size = new System.Drawing.Size(806, 79);
             this.panel15.TabIndex = 55;
             // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_user_15;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(610, 10);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(196, 69);
-            this.AddBtn.TabIndex = 51;
-            this.AddBtn.Text = " Add New User";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.CancelBtn);
@@ -377,47 +357,6 @@
             this.panel13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panel13.Size = new System.Drawing.Size(806, 85);
             this.panel13.TabIndex = 53;
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15__3_;
-            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelBtn.Location = new System.Drawing.Point(3, 45);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(196, 25);
-            this.CancelBtn.TabIndex = 53;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Visible = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15__2_;
-            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SaveBtn.Location = new System.Drawing.Point(3, 10);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(196, 25);
-            this.SaveBtn.TabIndex = 52;
-            this.SaveBtn.Text = " Save";
-            this.SaveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Visible = false;
-            this.SaveBtn.VisibleChanged += new System.EventHandler(this.SaveBtn_VisibleChanged);
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // panel4
             // 
@@ -544,14 +483,6 @@
             this.SearchTxt.Size = new System.Drawing.Size(162, 24);
             this.SearchTxt.TabIndex = 1;
             this.SearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
-            // 
-            // tblusercredentialBindingSource2
-            // 
-            this.tblusercredentialBindingSource2.DataMember = "tbl_usercredential";
-            // 
-            // tblusercredentialBindingSource1
-            // 
-            this.tblusercredentialBindingSource1.DataMember = "tbl_usercredential";
             // 
             // UserTbl
             // 
@@ -749,6 +680,75 @@
             this.panel2.Size = new System.Drawing.Size(1207, 338);
             this.panel2.TabIndex = 179;
             // 
+            // AddBtn
+            // 
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_user_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(610, 10);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(196, 69);
+            this.AddBtn.TabIndex = 51;
+            this.AddBtn.Text = " Add New User";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15__3_;
+            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelBtn.Location = new System.Drawing.Point(3, 45);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(196, 25);
+            this.CancelBtn.TabIndex = 53;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Visible = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15__2_;
+            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveBtn.Location = new System.Drawing.Point(3, 10);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(196, 25);
+            this.SaveBtn.TabIndex = 52;
+            this.SaveBtn.Text = " Save";
+            this.SaveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Visible = false;
+            this.SaveBtn.VisibleChanged += new System.EventHandler(this.SaveBtn_VisibleChanged);
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // tblusercredentialBindingSource2
+            // 
+            this.tblusercredentialBindingSource2.DataMember = "tbl_usercredential";
+            // 
+            // tblusercredentialBindingSource1
+            // 
+            this.tblusercredentialBindingSource1.DataMember = "tbl_usercredential";
+            // 
             // Ser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,10 +784,10 @@
             this.panel5.PerformLayout();
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserTbl)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblusercredentialBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -438,10 +438,12 @@ namespace BenpilsBarcodeSystem.Repository
             if (!string.IsNullOrEmpty(searchText))
             {
                 whereClause += $@" AND (u.{UserCredentialsRepository.col_username} LIKE '%' + @SearchTxt + '%' OR 
+                                u.{UserCredentialsRepository.col_first_name} LIKE '%' + @SearchTxt + '%' OR 
+                                u.{UserCredentialsRepository.col_last_name} LIKE '%' + @SearchTxt + '%' OR 
                                 a.{col_action} LIKE '%' + @SearchTxt + '%')";
             }
 
-            string selectQuery = $"SELECT a.{col_id}, u.{UserCredentialsRepository.col_username}, a.{col_action}, a.{col_date}, a.{col_details} FROM {tbl_audit_trail} a INNER JOIN {UserCredentialsRepository.tbl_name} u ON a.{col_user_id} = u.{UserCredentialsRepository.col_id} {whereClause} ORDER BY a.{col_date} DESC";
+            string selectQuery = $"SELECT a.{col_id}, u.{UserCredentialsRepository.col_username}, u.{UserCredentialsRepository.col_first_name}, u.{UserCredentialsRepository.col_last_name}, a.{col_action}, a.{col_date}, a.{col_details} FROM {tbl_audit_trail} a INNER JOIN {UserCredentialsRepository.tbl_name} u ON a.{col_user_id} = u.{UserCredentialsRepository.col_id} {whereClause} ORDER BY a.{col_date} DESC";
 
             try
             {
@@ -460,12 +462,14 @@ namespace BenpilsBarcodeSystem.Repository
                         await Task.Run(() => adapter.Fill(dt));
 
                         dt.Columns.Add("formatted_date", typeof(string));
+                        dt.Columns.Add("name", typeof(string));
 
                         foreach (DataRow row in dt.Rows)
                         {
                             DateTime date = Convert.ToDateTime(row[col_date]);
 
                             row["formatted_date"] = Util.ConvertDateLongWithTime(date);
+                            row["name"] = $"{row[UserCredentialsRepository.col_first_name]} {row[UserCredentialsRepository.col_last_name]}";
                         }
 
                         return dt;

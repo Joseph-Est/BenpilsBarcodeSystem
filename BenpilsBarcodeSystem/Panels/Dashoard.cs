@@ -30,6 +30,8 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
 
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+
             toolTip1.SetToolTip(PendingOrdersLbl, "Total pending orders");
             toolTip2.SetToolTip(OverdueOrdersLbl, "Overdue orders");
             toolTip3.SetToolTip(LowStockLbl, "Low stock tems");

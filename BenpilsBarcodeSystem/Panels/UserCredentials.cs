@@ -85,25 +85,51 @@ namespace BenpilsBarcodeSystem
             {
                 if (senderGrid.Columns[e.ColumnIndex].Name == "update")
                 {
+                    string userDesignation = senderGrid.Rows[e.RowIndex].Cells["designation"].Value.ToString();
+
+                    if (CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
+                    {
+                        MessageBox.Show("Action not allowed");
+                        return;
+                    }
+
                     isUpdating = true;
                     SetFieldsReadOnly(false);
                     prevUsername = UsernameTxt.Text;
+
+                    SetUpDesignation(userDesignation);
                 }
                 else if (senderGrid.Columns[e.ColumnIndex].Name == "archive")
                 {
-                    Confirmation confirmation = new Confirmation("Are you sure you want to archive", UsernameTxt.Text + "?", "Yes", "Cancel");
-                    DialogResult result = confirmation.ShowDialog();
+                    int id = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["id"].Value);
+                    string userDesignation = senderGrid.Rows[e.RowIndex].Cells["designation"].Value.ToString();
 
-                    if (result == DialogResult.Yes)
+                    if (CurrentUser.User.iD != id)
                     {
-                        UserCredentialsRepository repository = new UserCredentialsRepository();
-
-                        if (selectedID > 0)
+                        if(CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
                         {
-                            await repository.ArchiveUserAsync(selectedID);
-                            UpdateDataGridView();
-                            ClearFields();
+                            MessageBox.Show("Action denied. Insufficient privileges.");
+                            return;
                         }
+
+                        Confirmation confirmation = new Confirmation("Are you sure you want to archive", UsernameTxt.Text + "?", "Yes", "Cancel");
+                        DialogResult result = confirmation.ShowDialog();
+
+                        if (result == DialogResult.Yes)
+                        {
+                            UserCredentialsRepository repository = new UserCredentialsRepository();
+
+                            if (selectedID > 0)
+                            {
+                                await repository.ArchiveUserAsync(selectedID);
+                                UpdateDataGridView();
+                                ClearFields();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to archive logged in user");
                     }
                 }
             }
@@ -244,10 +270,19 @@ namespace BenpilsBarcodeSystem
         {
             DesignationCb.Items.Clear();
             DesignationCb.Items.Add("-- Select --");
+
             DesignationCb.Items.Add("Super Admin");
             DesignationCb.Items.Add("Admin");
             DesignationCb.Items.Add("Inventory Manager");
             DesignationCb.Items.Add("Cashier");
+
+            if(isAdding || isUpdating)
+            {
+                if (CurrentUser.User.Designation != "Super Admin")
+                {
+                    DesignationCb.Items.Remove("Super Admin");
+                }
+            }
 
             if (selectedRow == null)
             {

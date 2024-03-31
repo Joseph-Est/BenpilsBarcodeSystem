@@ -149,8 +149,10 @@ namespace BenpilsBarcodeSystem
                 }
             }
 
+           
             SelectedModuleLbl.Text = checkBox.Text.Trim();
             MainPanel.Controls.Clear();
+            
             form.TopLevel = false;
             MainPanel.Controls.Add(form);
             form.Dock = DockStyle.Fill;

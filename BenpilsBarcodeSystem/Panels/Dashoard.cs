@@ -279,27 +279,27 @@ namespace BenpilsBarcodeSystem
 
         private void ItemsSold_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("wews1");
+
         }
 
         private void Sales_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("wews2");
+
         }
 
         private void Profit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("wews3");
+
         }
 
         private void Supplier_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("wews1");
+
         }
 
         private void ItemsClick(object sender, EventArgs e)
         {
-            MessageBox.Show("wews1");
+
         }
 
         private void Panel_MouseEnter(object sender, EventArgs e)

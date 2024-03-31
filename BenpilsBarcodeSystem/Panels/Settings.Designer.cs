@@ -40,13 +40,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,22 +72,17 @@
             this.tabSupplier = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SupplierTbl = new System.Windows.Forms.DataGridView();
+            this.supplier_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restore_supplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.SuppliersSearchTxt = new System.Windows.Forms.TextBox();
             this.tabUsers = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.UserTbl = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.UsersSearchTxt = new System.Windows.Forms.TextBox();
-            this.tabAutomatic = new System.Windows.Forms.TabPage();
-            this.tabManual = new System.Windows.Forms.TabPage();
-            this.supplier_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contact_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contact_no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restore_supplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +92,11 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.restore_user = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.UsersSearchTxt = new System.Windows.Forms.TextBox();
+            this.tabAutomatic = new System.Windows.Forms.TabPage();
+            this.tabManual = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabArchive.SuspendLayout();
             this.Users.SuspendLayout();
@@ -119,11 +119,12 @@
             this.tabControl1.Controls.Add(this.tabArchive);
             this.tabControl1.Controls.Add(this.tabAutomatic);
             this.tabControl1.Controls.Add(this.tabManual);
-            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(20, 5);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1207, 710);
             this.tabControl1.TabIndex = 0;
@@ -131,10 +132,10 @@
             // tabArchive
             // 
             this.tabArchive.Controls.Add(this.Users);
-            this.tabArchive.Location = new System.Drawing.Point(4, 24);
+            this.tabArchive.Location = new System.Drawing.Point(4, 28);
             this.tabArchive.Name = "tabArchive";
-            this.tabArchive.Padding = new System.Windows.Forms.Padding(3);
-            this.tabArchive.Size = new System.Drawing.Size(1199, 682);
+            this.tabArchive.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.tabArchive.Size = new System.Drawing.Size(1199, 678);
             this.tabArchive.TabIndex = 0;
             this.tabArchive.Text = "Archive Data";
             this.tabArchive.UseVisualStyleBackColor = true;
@@ -145,10 +146,12 @@
             this.Users.Controls.Add(this.tabSupplier);
             this.Users.Controls.Add(this.tabUsers);
             this.Users.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Users.Location = new System.Drawing.Point(3, 3);
+            this.Users.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Users.Location = new System.Drawing.Point(0, 3);
             this.Users.Name = "Users";
+            this.Users.Padding = new System.Drawing.Point(20, 5);
             this.Users.SelectedIndex = 0;
-            this.Users.Size = new System.Drawing.Size(1193, 676);
+            this.Users.Size = new System.Drawing.Size(1199, 675);
             this.Users.TabIndex = 0;
             this.Users.SelectedIndexChanged += new System.EventHandler(this.ArchiveTabControl_SelectedIndexChanged);
             // 
@@ -156,10 +159,9 @@
             // 
             this.tabInventory.Controls.Add(this.panel1);
             this.tabInventory.Controls.Add(this.panel2);
-            this.tabInventory.Location = new System.Drawing.Point(4, 24);
+            this.tabInventory.Location = new System.Drawing.Point(4, 28);
             this.tabInventory.Name = "tabInventory";
-            this.tabInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInventory.Size = new System.Drawing.Size(1185, 648);
+            this.tabInventory.Size = new System.Drawing.Size(1191, 643);
             this.tabInventory.TabIndex = 0;
             this.tabInventory.Text = "Inventory";
             this.tabInventory.UseVisualStyleBackColor = true;
@@ -167,11 +169,12 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.InventoryTbl);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 70);
+            this.panel1.Location = new System.Drawing.Point(0, 67);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel1.Size = new System.Drawing.Size(1179, 575);
+            this.panel1.Size = new System.Drawing.Size(1191, 576);
             this.panel1.TabIndex = 38;
             // 
             // InventoryTbl
@@ -184,10 +187,10 @@
             this.InventoryTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.InventoryTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.InventoryTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -201,6 +204,7 @@
             this.motor_brand,
             this.size,
             this.restore});
+            this.InventoryTbl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.InventoryTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InventoryTbl.EnableHeadersVisualStyles = false;
             this.InventoryTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -209,7 +213,7 @@
             this.InventoryTbl.Name = "InventoryTbl";
             this.InventoryTbl.ReadOnly = true;
             this.InventoryTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InventoryTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.InventoryTbl.RowHeadersVisible = false;
             this.InventoryTbl.RowHeadersWidth = 51;
@@ -224,7 +228,7 @@
             this.InventoryTbl.RowTemplate.Height = 30;
             this.InventoryTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.InventoryTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InventoryTbl.Size = new System.Drawing.Size(1119, 545);
+            this.InventoryTbl.Size = new System.Drawing.Size(1131, 546);
             this.InventoryTbl.TabIndex = 180;
             this.InventoryTbl.TabStop = false;
             this.InventoryTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewButtonCellClick);
@@ -247,7 +251,7 @@
             this.barcode.HeaderText = "Barcode";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 76;
+            this.barcode.Width = 78;
             // 
             // item_name
             // 
@@ -271,7 +275,7 @@
             this.brand.HeaderText = "Brand";
             this.brand.Name = "brand";
             this.brand.ReadOnly = true;
-            this.brand.Width = 63;
+            this.brand.Width = 64;
             // 
             // motor_brand
             // 
@@ -283,7 +287,6 @@
             this.motor_brand.HeaderText = "Motor Brand";
             this.motor_brand.Name = "motor_brand";
             this.motor_brand.ReadOnly = true;
-            this.motor_brand.Width = 96;
             // 
             // size
             // 
@@ -295,7 +298,7 @@
             this.size.HeaderText = "Size";
             this.size.Name = "size";
             this.size.ReadOnly = true;
-            this.size.Width = 53;
+            this.size.Width = 54;
             // 
             // restore
             // 
@@ -315,10 +318,11 @@
             // 
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.InventorySearchTxt);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1179, 67);
+            this.panel2.Size = new System.Drawing.Size(1191, 67);
             this.panel2.TabIndex = 39;
             // 
             // label2
@@ -349,10 +353,9 @@
             // 
             this.tabSupplier.Controls.Add(this.panel3);
             this.tabSupplier.Controls.Add(this.panel4);
-            this.tabSupplier.Location = new System.Drawing.Point(4, 24);
+            this.tabSupplier.Location = new System.Drawing.Point(4, 28);
             this.tabSupplier.Name = "tabSupplier";
-            this.tabSupplier.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSupplier.Size = new System.Drawing.Size(1185, 648);
+            this.tabSupplier.Size = new System.Drawing.Size(1191, 643);
             this.tabSupplier.TabIndex = 1;
             this.tabSupplier.Text = "Suppliers";
             this.tabSupplier.UseVisualStyleBackColor = true;
@@ -360,11 +363,12 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.SupplierTbl);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 70);
+            this.panel3.Location = new System.Drawing.Point(0, 67);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel3.Size = new System.Drawing.Size(1179, 575);
+            this.panel3.Size = new System.Drawing.Size(1191, 576);
             this.panel3.TabIndex = 40;
             // 
             // SupplierTbl
@@ -378,10 +382,10 @@
             this.SupplierTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SupplierTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.SupplierTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
@@ -401,7 +405,7 @@
             this.SupplierTbl.Name = "SupplierTbl";
             this.SupplierTbl.ReadOnly = true;
             this.SupplierTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SupplierTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.SupplierTbl.RowHeadersVisible = false;
             this.SupplierTbl.RowHeadersWidth = 51;
@@ -417,178 +421,10 @@
             this.SupplierTbl.RowTemplate.Height = 30;
             this.SupplierTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.SupplierTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SupplierTbl.Size = new System.Drawing.Size(1119, 545);
+            this.SupplierTbl.Size = new System.Drawing.Size(1131, 546);
             this.SupplierTbl.TabIndex = 181;
             this.SupplierTbl.TabStop = false;
             this.SupplierTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewButtonCellClick);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.SuppliersSearchTxt);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1179, 67);
-            this.panel4.TabIndex = 41;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(28, 16);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 181;
-            this.label1.Text = "Search:";
-            // 
-            // SuppliersSearchTxt
-            // 
-            this.SuppliersSearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SuppliersSearchTxt.Location = new System.Drawing.Point(30, 35);
-            this.SuppliersSearchTxt.Margin = new System.Windows.Forms.Padding(2);
-            this.SuppliersSearchTxt.MaxLength = 20;
-            this.SuppliersSearchTxt.Multiline = true;
-            this.SuppliersSearchTxt.Name = "SuppliersSearchTxt";
-            this.SuppliersSearchTxt.Size = new System.Drawing.Size(162, 24);
-            this.SuppliersSearchTxt.TabIndex = 180;
-            this.SuppliersSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
-            // 
-            // tabUsers
-            // 
-            this.tabUsers.Controls.Add(this.panel5);
-            this.tabUsers.Controls.Add(this.panel6);
-            this.tabUsers.Location = new System.Drawing.Point(4, 24);
-            this.tabUsers.Name = "tabUsers";
-            this.tabUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUsers.Size = new System.Drawing.Size(1185, 648);
-            this.tabUsers.TabIndex = 3;
-            this.tabUsers.Text = "Users";
-            this.tabUsers.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.UserTbl);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 70);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel5.Size = new System.Drawing.Size(1179, 575);
-            this.panel5.TabIndex = 40;
-            // 
-            // UserTbl
-            // 
-            this.UserTbl.AllowUserToAddRows = false;
-            this.UserTbl.AllowUserToDeleteRows = false;
-            this.UserTbl.AllowUserToResizeColumns = false;
-            this.UserTbl.AllowUserToResizeRows = false;
-            this.UserTbl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.UserTbl.BackgroundColor = System.Drawing.Color.White;
-            this.UserTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UserTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.UserTbl.ColumnHeadersHeight = 30;
-            this.UserTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.UserTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.user_id,
-            this.first_name,
-            this.last_name,
-            this.name,
-            this.username,
-            this.designation,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.restore_user});
-            this.UserTbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserTbl.EnableHeadersVisualStyles = false;
-            this.UserTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.UserTbl.Location = new System.Drawing.Point(30, 0);
-            this.UserTbl.MultiSelect = false;
-            this.UserTbl.Name = "UserTbl";
-            this.UserTbl.ReadOnly = true;
-            this.UserTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.UserTbl.RowHeadersVisible = false;
-            this.UserTbl.RowHeadersWidth = 51;
-            this.UserTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.Black;
-            this.UserTbl.RowsDefaultCellStyle = dataGridViewCellStyle25;
-            this.UserTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.UserTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
-            this.UserTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.UserTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.UserTbl.RowTemplate.Height = 30;
-            this.UserTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.UserTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UserTbl.Size = new System.Drawing.Size(1119, 545);
-            this.UserTbl.TabIndex = 183;
-            this.UserTbl.TabStop = false;
-            this.UserTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewButtonCellClick);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.UsersSearchTxt);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1179, 67);
-            this.panel6.TabIndex = 41;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label3.Location = new System.Drawing.Point(28, 16);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(45, 19);
-            this.label3.TabIndex = 181;
-            this.label3.Text = "Search:";
-            // 
-            // UsersSearchTxt
-            // 
-            this.UsersSearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersSearchTxt.Location = new System.Drawing.Point(30, 35);
-            this.UsersSearchTxt.Margin = new System.Windows.Forms.Padding(2);
-            this.UsersSearchTxt.MaxLength = 20;
-            this.UsersSearchTxt.Multiline = true;
-            this.UsersSearchTxt.Name = "UsersSearchTxt";
-            this.UsersSearchTxt.Size = new System.Drawing.Size(162, 24);
-            this.UsersSearchTxt.TabIndex = 180;
-            this.UsersSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
-            // 
-            // tabAutomatic
-            // 
-            this.tabAutomatic.Location = new System.Drawing.Point(4, 24);
-            this.tabAutomatic.Name = "tabAutomatic";
-            this.tabAutomatic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAutomatic.Size = new System.Drawing.Size(1199, 682);
-            this.tabAutomatic.TabIndex = 1;
-            this.tabAutomatic.Text = "Automatic Backup";
-            this.tabAutomatic.UseVisualStyleBackColor = true;
-            // 
-            // tabManual
-            // 
-            this.tabManual.Location = new System.Drawing.Point(4, 24);
-            this.tabManual.Name = "tabManual";
-            this.tabManual.Size = new System.Drawing.Size(1199, 682);
-            this.tabManual.TabIndex = 2;
-            this.tabManual.Text = "Manual Backup";
-            this.tabManual.UseVisualStyleBackColor = true;
             // 
             // supplier_id
             // 
@@ -650,6 +486,122 @@
             this.restore_supplier.Text = "Restore";
             this.restore_supplier.UseColumnTextForButtonValue = true;
             this.restore_supplier.Width = 17;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.SuppliersSearchTxt);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1191, 67);
+            this.panel4.TabIndex = 41;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label1.Location = new System.Drawing.Point(28, 16);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 181;
+            this.label1.Text = "Search:";
+            // 
+            // SuppliersSearchTxt
+            // 
+            this.SuppliersSearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SuppliersSearchTxt.Location = new System.Drawing.Point(30, 35);
+            this.SuppliersSearchTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.SuppliersSearchTxt.MaxLength = 20;
+            this.SuppliersSearchTxt.Multiline = true;
+            this.SuppliersSearchTxt.Name = "SuppliersSearchTxt";
+            this.SuppliersSearchTxt.Size = new System.Drawing.Size(162, 24);
+            this.SuppliersSearchTxt.TabIndex = 180;
+            this.SuppliersSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            // 
+            // tabUsers
+            // 
+            this.tabUsers.Controls.Add(this.panel5);
+            this.tabUsers.Controls.Add(this.panel6);
+            this.tabUsers.Location = new System.Drawing.Point(4, 28);
+            this.tabUsers.Name = "tabUsers";
+            this.tabUsers.Size = new System.Drawing.Size(1191, 643);
+            this.tabUsers.TabIndex = 3;
+            this.tabUsers.Text = "Users";
+            this.tabUsers.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.UserTbl);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 67);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
+            this.panel5.Size = new System.Drawing.Size(1191, 576);
+            this.panel5.TabIndex = 40;
+            // 
+            // UserTbl
+            // 
+            this.UserTbl.AllowUserToAddRows = false;
+            this.UserTbl.AllowUserToDeleteRows = false;
+            this.UserTbl.AllowUserToResizeColumns = false;
+            this.UserTbl.AllowUserToResizeRows = false;
+            this.UserTbl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.UserTbl.BackgroundColor = System.Drawing.Color.White;
+            this.UserTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UserTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.UserTbl.ColumnHeadersHeight = 30;
+            this.UserTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.UserTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_id,
+            this.first_name,
+            this.last_name,
+            this.name,
+            this.username,
+            this.designation,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.restore_user});
+            this.UserTbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UserTbl.EnableHeadersVisualStyles = false;
+            this.UserTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.UserTbl.Location = new System.Drawing.Point(30, 0);
+            this.UserTbl.MultiSelect = false;
+            this.UserTbl.Name = "UserTbl";
+            this.UserTbl.ReadOnly = true;
+            this.UserTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.UserTbl.RowHeadersVisible = false;
+            this.UserTbl.RowHeadersWidth = 51;
+            this.UserTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.Black;
+            this.UserTbl.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            this.UserTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.UserTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
+            this.UserTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.UserTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.UserTbl.RowTemplate.Height = 30;
+            this.UserTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.UserTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.UserTbl.Size = new System.Drawing.Size(1131, 546);
+            this.UserTbl.TabIndex = 183;
+            this.UserTbl.TabStop = false;
+            this.UserTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewButtonCellClick);
             // 
             // user_id
             // 
@@ -752,6 +704,59 @@
             this.restore_user.Text = "Restore";
             this.restore_user.UseColumnTextForButtonValue = true;
             this.restore_user.Width = 5;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.UsersSearchTxt);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1191, 67);
+            this.panel6.TabIndex = 41;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label3.Location = new System.Drawing.Point(28, 16);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.TabIndex = 181;
+            this.label3.Text = "Search:";
+            // 
+            // UsersSearchTxt
+            // 
+            this.UsersSearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsersSearchTxt.Location = new System.Drawing.Point(30, 35);
+            this.UsersSearchTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.UsersSearchTxt.MaxLength = 20;
+            this.UsersSearchTxt.Multiline = true;
+            this.UsersSearchTxt.Name = "UsersSearchTxt";
+            this.UsersSearchTxt.Size = new System.Drawing.Size(162, 24);
+            this.UsersSearchTxt.TabIndex = 180;
+            this.UsersSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            // 
+            // tabAutomatic
+            // 
+            this.tabAutomatic.Location = new System.Drawing.Point(4, 28);
+            this.tabAutomatic.Name = "tabAutomatic";
+            this.tabAutomatic.Size = new System.Drawing.Size(1199, 678);
+            this.tabAutomatic.TabIndex = 1;
+            this.tabAutomatic.Text = "Automatic Backup";
+            this.tabAutomatic.UseVisualStyleBackColor = true;
+            // 
+            // tabManual
+            // 
+            this.tabManual.Location = new System.Drawing.Point(4, 28);
+            this.tabManual.Name = "tabManual";
+            this.tabManual.Size = new System.Drawing.Size(1199, 678);
+            this.tabManual.TabIndex = 2;
+            this.tabManual.Text = "Manual Backup";
+            this.tabManual.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 

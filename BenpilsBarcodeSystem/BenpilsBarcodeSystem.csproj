@@ -634,5 +634,41 @@
   <ItemGroup>
     <None Include="Resources\icons8-cancel-30.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-coin-in-hand-75-edited.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-product-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sales-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-70 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sell-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sales-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-351.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-package-351.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

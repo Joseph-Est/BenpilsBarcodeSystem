@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
@@ -169,7 +170,7 @@ namespace BenpilsBarcodeSystem.Repository
                         }
                     }
                 }
-                Console.WriteLine($"Fetched {salesDataList.Count} records. in {startDateWithTime} to {endDateWithTime}");
+                //Console.WriteLine($"Fetched {salesDataList.Count} records. in {startDateWithTime} to {endDateWithTime}");
                 //DisplaySalesDataInMessageBox(salesDataList);
             }
             catch (Exception ex)
@@ -193,86 +194,57 @@ namespace BenpilsBarcodeSystem.Repository
             MessageBox.Show(sb.ToString(), "Sales Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList)
+        public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null)
         {
+            //StringBuilder debugMessage = new StringBuilder();
+            //debugMessage.AppendLine("SalesDataList contents:");
+            //foreach (var data in salesDataList)
+            //{
+            //    debugMessage.AppendLine($"Date: {data.Date}, TotalSales: {data.TotalSales}");
+            //}
+            //MessageBox.Show(debugMessage.ToString());
 
             DataTable dt = new DataTable();
+
             dt.Columns.Add("Date", typeof(string));
             dt.Columns.Add("SalesAmount", typeof(decimal));
 
-
-            var minDate = salesDataList.Min(d => d.Date);
-            var maxDate = salesDataList.Max(d => d.Date);
-            var totalDays = (maxDate - minDate).TotalDays;
-
-            if (totalDays == 0)
+            if (salesDataList.Count > 0)
             {
-                var groupedData = salesDataList.GroupBy(d => d.Date.Date)
-                                                .Select(g => new
-                                                {
-                                                    Date = g.Key.ToString("dd-MMM-yyyy"),
-                                                    SalesAmount = g.Sum(s => s.TotalSales)
-                                                });
-
-                foreach (var item in groupedData)
+                var groupedData = salesDataList.GroupBy(d =>
                 {
-                    dt.Rows.Add(item.Date, item.SalesAmount);
-                }
-            }
-            else if (totalDays <= 7)
-            {
-                // If more than 1 day and less than or equal to 7 days, get the total sales per day
-                var groupedData = salesDataList.GroupBy(d => d.Date.Date)
-                                                .Select(g => new
-                                                {
-                                                    Date = g.Key.ToString("dd-MMM-yyyy"),
-                                                    SalesAmount = g.Sum(s => s.TotalSales)
-                                                });
-
-                foreach (var item in groupedData)
+                    if (timeFrame == "today")
+                    {
+                        return d.Date.ToString("h tt");
+                    }
+                    else if(timeFrame == "week")
+                    {
+                        return d.Date.ToString("dd-MM-yy");
+                    }else if(timeFrame == "month")
+                    {
+                        return d.Date.ToString("dd-MM-yy");
+                    }
+                    else
+                    {
+                        return d.Date.ToString("dd-MM-yy");
+                    }
+                })
+                .Select(g => new
                 {
-                    dt.Rows.Add(item.Date, item.SalesAmount);
-                }
-            }
-            else if (totalDays <= 31)
-            {
-                // If more than 1 day and less than or equal to 1 month, get the total sales per day
-                var groupedData = salesDataList.GroupBy(d => d.Date.Date)
-                                                .Select(g => new
-                                                {
-                                                    Date = g.Key.ToString("dd-MMM-yyyy"),
-                                                    SalesAmount = g.Sum(s => s.TotalSales)
-                                                });
-
-                foreach (var item in groupedData)
+                    Date = timeFrame == "today" ? g.Key : DateTime.ParseExact(g.Key, "dd-MM-yy", CultureInfo.InvariantCulture).ToString("MMM-dd"),
+                    SalesAmount = g.Sum(s => s.TotalSales)
+                })
+                .OrderBy(g =>
                 {
-                    dt.Rows.Add(item.Date, item.SalesAmount);
-                }
-            }
-            else if (totalDays <= 365)
-            {
-                // If more than 1 month and less than or equal to 1 year, get the total sales per month
-                var groupedData = salesDataList.GroupBy(d => new { d.Date.Year, d.Date.Month })
-                                                .Select(g => new
-                                                {
-                                                    Date = $"{g.First().Date.ToString("MMM-yyyy")}",
-                                                    SalesAmount = g.Sum(s => s.TotalSales)
-                                                });
-
-                foreach (var item in groupedData)
-                {
-                    dt.Rows.Add(item.Date, item.SalesAmount);
-                }
-            }
-            else
-            {
-                // If more than 1 year, get the total sales per year
-                var groupedData = salesDataList.GroupBy(d => d.Date.Year)
-                                                .Select(g => new
-                                                {
-                                                    Date = g.Key.ToString(),
-                                                    SalesAmount = g.Sum(s => s.TotalSales)
-                                                });
+                    if (DateTime.TryParseExact(g.Date, "MMM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+                    {
+                        return result;
+                    }
+                    else
+                    {
+                        return DateTime.ParseExact(g.Date, "h tt", CultureInfo.InvariantCulture);
+                    }
+                });
 
                 foreach (var item in groupedData)
                 {
@@ -286,14 +258,13 @@ namespace BenpilsBarcodeSystem.Repository
         public Task<DataTable> GetTopSellingItems(List<SalesData> salesDataList)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("DisplayItemName", typeof(string));  // Change to DisplayItemName
+            dt.Columns.Add("DisplayItemName", typeof(string)); 
             dt.Columns.Add("TotalItemSold", typeof(int));
 
-            // Group by DisplayItemName to avoid repeating items
             var groupedSalesData = salesDataList.GroupBy(s => s.DisplayItemName)
                                                  .Select(g => new
                                                  {
-                                                     DisplayItemName = g.Key,  // Change to DisplayItemName
+                                                     DisplayItemName = g.Key,  
                                                      TotalItemSold = g.Sum(s => s.TotalItemSold)
                                                  })
                                                  .OrderByDescending(g => g.TotalItemSold)
@@ -301,7 +272,7 @@ namespace BenpilsBarcodeSystem.Repository
 
             foreach (var item in groupedSalesData)
             {
-                dt.Rows.Add($"({item.TotalItemSold}) {item.DisplayItemName}", item.TotalItemSold);  // Change to item.DisplayItemName
+                dt.Rows.Add($"({item.TotalItemSold}) {item.DisplayItemName}", item.TotalItemSold); 
             }
 
             return Task.FromResult(dt);

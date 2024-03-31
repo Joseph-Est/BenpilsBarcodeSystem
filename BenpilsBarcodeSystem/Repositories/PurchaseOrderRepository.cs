@@ -514,11 +514,21 @@ namespace BenpilsBarcodeSystem.Repositories
             }
         }
 
-        public async Task<List<PurchaseOrderEntity>> GetOverduePurchaseOrdersAsync()
+        public async Task<List<PurchaseOrderEntity>> GetPendingOrdersAsync()
         {
             List<PurchaseOrderEntity> overdueOrders = new List<PurchaseOrderEntity>();
 
-            string selectQuery = $"SELECT {col_order_id}, {col_receiving_date} FROM {tbl_purchase_order} WHERE {col_status} = @status AND {col_receiving_date} < @currentDate";
+            string selectQuery = $@"
+                SELECT 
+                    po.{col_order_id}, 
+                    po.{col_receiving_date},
+                    s.{SuppliersRepository.col_contact_name} as supplier_name
+                FROM 
+                    {tbl_purchase_order} po
+                INNER JOIN 
+                    {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id}
+                WHERE 
+                    po.{col_status} = @status";
 
             try
             {
@@ -535,13 +545,15 @@ namespace BenpilsBarcodeSystem.Repositories
                             {
                                 int orderId = reader.GetInt32(reader.GetOrdinal(col_order_id));
                                 DateTime deliveryDate = reader.GetDateTime(reader.GetOrdinal(col_receiving_date));
+                                string supplierName = reader.GetString(reader.GetOrdinal("supplier_name"));
 
-                                string daysOverdue = CalculateDaysOverdue(deliveryDate);
+                                string days = CalculateDays(deliveryDate);
 
                                 PurchaseOrderEntity order = new PurchaseOrderEntity
                                 {
                                     OrderId = orderId,
-                                    DeliveryStatus = daysOverdue
+                                    DeliveryStatus = days ?? Util.ConvertDateShort(deliveryDate),
+                                    SupplierName = supplierName
                                 };
 
                                 overdueOrders.Add(order);
@@ -558,23 +570,65 @@ namespace BenpilsBarcodeSystem.Repositories
             return overdueOrders;
         }
 
-        private string CalculateDaysOverdue(DateTime deliveryDate)
+        private string CalculateDays(DateTime deliveryDate)
         {
-            TimeSpan timeSpan = DateTime.Now - deliveryDate;
+            TimeSpan timeSpan = deliveryDate - DateTime.Now;
             int daysOverdue = timeSpan.Days;
 
             if (daysOverdue == 1)
             {
+                return "Tomorrow";
+            }
+            else if (daysOverdue == 0)
+            {
+                return "Today";
+            }
+            else if (daysOverdue == -1)
+            {
                 return "Yesterday";
             }
-            else if (daysOverdue > 1)
+            else if (daysOverdue < -1)
             {
-                return $"{daysOverdue} days overdue";
+                return $"{Math.Abs(daysOverdue)} days overdue";
             }
             else
             {
-                return "On time";
+                return null;
             }
+        }
+
+        public async Task<(int TotalPending, int TotalOverdue)> GetPendingStatusCountsAsync()
+        {
+            int totalPending = 0;
+            int totalOverdue = 0;
+
+            string selectQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = @status";
+            string overdueQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = @status AND {col_receiving_date} < @currentDate";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@status", pending_status);
+                        totalPending = (int)await cmd.ExecuteScalarAsync();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(overdueQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@status", pending_status);
+                        cmd.Parameters.AddWithValue("@currentDate", DateTime.Now.Date);
+                        totalOverdue = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return (totalPending, totalOverdue);
         }
     }
 }

@@ -10,5 +10,6 @@ namespace BenpilsBarcodeSystem.Entities
     {
         public int OrderId { get; set; }
         public string DeliveryStatus { get; set; }
+        public string SupplierName { get; set; }
     }
 }

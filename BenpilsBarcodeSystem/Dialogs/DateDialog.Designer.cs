@@ -144,6 +144,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DateDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DateDialog_FormClosing);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

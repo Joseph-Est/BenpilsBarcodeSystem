@@ -291,15 +291,15 @@ namespace BenpilsBarcodeSystem
 
                 if (SalesStartDateDt.Value.Date == DateTime.Now.Date && SalesEndDateDt.Value.Date == DateTime.Now.Date)
                 {
-                    SummaryLbl.Text = $"Sales Summary for Today";
+                    SummaryLbl.Text = $"SALES REPORT FOR TODAY";
                 }
                 else if (SalesStartDateDt.Value == SalesEndDateDt.Value)
                 {
-                    SummaryLbl.Text = $"Sales Summary for {Util.ConvertDateLong(SalesStartDateDt.Value)}";
+                    SummaryLbl.Text = $"SALES REPORT FOR {Util.ConvertDateLong(SalesStartDateDt.Value).ToUpper()}";
                 }
                 else
                 {
-                    SummaryLbl.Text = $"Sales Summary for {Util.ConvertDateLong(SalesStartDateDt.Value)} - {Util.ConvertDateLong(SalesEndDateDt.Value)}";
+                    SummaryLbl.Text = $"SALES REPORT FOR {Util.ConvertDateLong(SalesStartDateDt.Value).ToUpper()} - {Util.ConvertDateLong(SalesEndDateDt.Value).ToUpper()}";
                 }
                
                 ItemsSoldLbl.Text = salesData.Sum(s => s.TotalItemSold).ToString();

@@ -1,4 +1,5 @@
 ﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
 using BenpilsBarcodeSystem.Repository;
 using BenpilsBarcodeSystem.Utils;
 using System;
@@ -169,8 +170,8 @@ namespace BenpilsBarcodeSystem
 
         private void SetUser()
         {
-            label1.Text = "Username: " + CurrentUser.User.Username;
-            label2.Text = "Designation: " + CurrentUser.User.Designation;
+            label1.Text = "Username : " + CurrentUser.User.Username;
+            label2.Text = "Designation : " + CurrentUser.User.Designation;
 
             if (CurrentUser.User.Designation == "Super Admin")
             {
@@ -242,7 +243,7 @@ namespace BenpilsBarcodeSystem
         private void timer_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
-            label3.Text = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+            label3.Text = "Date: " + Util.ConvertDateLong(DateTime.Now);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

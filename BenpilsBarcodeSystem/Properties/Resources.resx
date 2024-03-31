@@ -139,11 +139,17 @@
   <data name="icons8-full-screen-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-full-screen-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-cancel-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cancel-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-inventory-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-inventory-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-lock-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-lock-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money-bag-70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money-bag-70.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-point-of-sales-30-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-point-of-sales-30-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,11 +184,17 @@
   <data name="icons8-cancel-15 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cancel-15 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-full-screen-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-full-screen-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-coin-in-hand-75-edited" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-coin-in-hand-75-edited.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-erase-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-erase-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-full-screen-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-full-screen-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money-bag-70 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money-bag-70 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-update-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-update-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +214,9 @@
   <data name="icons8-cancel-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cancel-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-sales-70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-sales-70.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-logout-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-logout-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,6 +228,9 @@
   </data>
   <data name="icons8-coin-in-hand-75" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-coin-in-hand-75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-supplier-351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-supplier-351.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-product-75" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-product-75.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,17 +253,29 @@
   <data name="icons8-update-15 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-update-15 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-sales-55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-sales-55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-downloading-updates-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-downloading-updates-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-statistics-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-statistics-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-product-70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-product-70.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money-bag-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money-bag-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-documents-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-documents-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-restore-down-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-restore-down-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-statistics-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-statistics-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-sell-55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-sell-55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-multiply-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-multiply-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,6 +304,9 @@
   <data name="icons8-supplier-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-supplier-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-money-bag-501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money-bag-501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-box-15 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-box-15 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -297,6 +330,9 @@
   </data>
   <data name="icons8-add-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money-bag-55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money-bag-55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-pencil-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-pencil-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,7 +361,7 @@
   <data name="icons8-user-30-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-user-30-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-cancel-30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-cancel-30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-package-351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-package-351.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

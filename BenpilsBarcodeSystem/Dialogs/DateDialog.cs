@@ -13,7 +13,7 @@ namespace BenpilsBarcodeSystem.Dialogs
     public partial class DateDialog : Form
     {
         public DateTime receivingDate { get; set; }
-        bool canClose = false;
+        private bool canClose = false;
 
         public DateDialog()
         {
@@ -37,6 +37,19 @@ namespace BenpilsBarcodeSystem.Dialogs
         private void ReceivingDateDt_ValueChanged(object sender, EventArgs e)
         {
             receivingDate = ReceivingDateDt.Value;
+        }
+
+        private void DateDialog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void DateDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!canClose)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

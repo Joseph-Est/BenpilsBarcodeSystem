@@ -139,6 +139,7 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
+            this.panel36 = new System.Windows.Forms.Panel();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
             this.SupplierTab.SuspendLayout();
@@ -180,6 +181,7 @@
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
+            this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1156,7 +1158,7 @@
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.RefreshPb);
+            this.panel15.Controls.Add(this.panel36);
             this.panel15.Controls.Add(this.label2);
             this.panel15.Controls.Add(this.SearchTxt);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1368,16 +1370,25 @@
             this.RefreshBtn.TabStop = false;
             this.RefreshBtn.UseWaitCursor = true;
             // 
+            // panel36
+            // 
+            this.panel36.Controls.Add(this.RefreshPb);
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel36.Location = new System.Drawing.Point(639, 0);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(39, 67);
+            this.panel36.TabIndex = 178;
+            // 
             // RefreshPb
             // 
             this.RefreshPb.BackColor = System.Drawing.SystemColors.Control;
             this.RefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("RefreshPb.Image")));
-            this.RefreshPb.Location = new System.Drawing.Point(640, 34);
+            this.RefreshPb.Location = new System.Drawing.Point(0, 36);
             this.RefreshPb.Name = "RefreshPb";
             this.RefreshPb.Size = new System.Drawing.Size(29, 28);
             this.RefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.RefreshPb.TabIndex = 178;
+            this.RefreshPb.TabIndex = 170;
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
@@ -1442,6 +1453,7 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
+            this.panel36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
             this.ResumeLayout(false);
 
@@ -1541,6 +1553,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn view_details;
         private System.Windows.Forms.DataGridViewButtonColumn complete_order;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
+        private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.PictureBox RefreshPb;
     }
 }

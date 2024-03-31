@@ -161,6 +161,31 @@ namespace BenpilsBarcodeSystem.Repositories
             }
         }
 
+        public async Task<bool> HasPendingTransactionsAsync(int supplierId)
+        {
+            string selectQuery = $"SELECT COUNT(*) FROM {PurchaseOrderRepository.tbl_purchase_order} WHERE {PurchaseOrderRepository.col_supplier_id} = @SupplierID AND status = {PurchaseOrderRepository.pending_status}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@SupplierID", supplierId);
+
+                        int count = (int)await cmd.ExecuteScalarAsync();
+
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
+
         public async Task<List<Supplier>> GetSuppliersAsync()
         {
             List<Supplier> uniqueValuesColumn = new List<Supplier>();

@@ -108,7 +108,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if(CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
                         {
-                            MessageBox.Show("Action denied. Insufficient privileges.");
+                            MessageBox.Show("Insufficient privileges", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -129,7 +129,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("Unable to archive logged in user");
+                        MessageBox.Show("Unable to archive logged in user", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

@@ -24,7 +24,7 @@ namespace BenpilsBarcodeSystem.Repositories
         public static string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_status = "status", col_remarks = "remarks", col_is_backorder = "is_backorder",
             col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_order_quantity = "order_quantity", col_total = "total", 
             col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by", col_received_quantity = "received_quantity", col_backorder_from = "backorder_from";
-        public string pending_status = "PENDING", delivered_status = "DELIVERED", partially_delivered_status = "PARTIALLY DELIVERED";
+        public static string pending_status = "PENDING", delivered_status = "DELIVERED", partially_delivered_status = "PARTIALLY DELIVERED";
 
         public string remarks_complete_delivery = "All items have been delivered as expected.";
         public string remarks_partially_delivered = "Some items have not been delivered on the arrival date.";

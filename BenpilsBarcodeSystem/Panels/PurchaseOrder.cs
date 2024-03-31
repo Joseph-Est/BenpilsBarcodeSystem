@@ -197,6 +197,12 @@ namespace BenpilsBarcodeSystem
 
                 if (selectedID > 0)
                 {
+                    if(await repository.HasPendingTransactionsAsync(selectedID))
+                    {
+                        MessageBox.Show("Unable to archive supplier. There are pending orders.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     if (await repository.ArchiveSupplierAsync(selectedID))
                     {
                         UpdateSupplierDG();

@@ -52,23 +52,6 @@ namespace BenpilsBarcodeSystem
                 dataGridItemMasterdata.AutoGenerateColumns = false;
                 dataGridItemMasterdata.DataSource = inventoryDT;
 
-                //foreach (DataGridViewRow row in dataGridItemMasterdata.Rows)
-                //{
-                //    string status = row.Cells["status"].Value.ToString();
-
-                //    if (status == "No Stock")
-                //    {
-                //        row.Cells["status"].Style.BackColor = Color.Red;
-                //    }
-                //    else if (status == "High-Stock")
-                //    {
-                //        row.Cells["status"].Style.BackColor = Color.Green;
-                //    }
-                //    else if (status == "Low-Stock")
-                //    {
-                //        row.Cells["status"].Style.BackColor = Color.Orange;
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -209,6 +192,12 @@ namespace BenpilsBarcodeSystem
 
         private async void ArchiveBtn_Click(object sender, EventArgs e)
         {
+            if (InputValidator.ParseToInt(QuantityTxt.Text) > 0)
+            {
+                MessageBox.Show("Unable to archive item. Item must be out of stock.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Confirmation confirmation = new Confirmation("Are you sure you want to archive", ItemNameTxt.Text + "?", "Yes", "Cancel");
             DialogResult result = confirmation.ShowDialog();
 
@@ -218,9 +207,20 @@ namespace BenpilsBarcodeSystem
 
                 if (selectedID > 0)
                 {
-                    await inventoryRepository.ArchiveProductAsync(selectedID);
-                    UpdateDataGridView();
-                    ClearFields();
+                    if(await inventoryRepository.HasPendingOrdersAsync(selectedID))
+                    {
+                        MessageBox.Show("Unable to archive item. There are pending orders.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if(await inventoryRepository.ArchiveProductAsync(selectedID))
+                    {
+                        UpdateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to archive item");
+                    }
                 }
             }
         }
@@ -268,12 +268,7 @@ namespace BenpilsBarcodeSystem
                     CategoryInputCb.Text = row.Cells["category"].Value.ToString();
                     SizeCb.Text = row.Cells["size"].Value.ToString();
                     UpdateBtn.Enabled = true;
-
-                    if(InputValidator.ParseToInt(row.Cells["quantity"].Value.ToString()) <= 0)
-                    {
-                        ArchiveBtn.Enabled = true;
-                    }
-                    
+                    ArchiveBtn.Enabled = InputValidator.ParseToInt(row.Cells["quantity"].Value.ToString()) <= 0;
                     ReduceStockBtn.Enabled = true;
                 }
             }

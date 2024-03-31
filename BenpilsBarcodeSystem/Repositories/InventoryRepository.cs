@@ -781,5 +781,33 @@ namespace BenpilsBarcodeSystem.Repository
             return lowStockItems;
         }
 
+        public async Task<bool> HasPendingOrdersAsync(int itemId)
+        {
+            string query = $"SELECT COUNT(*) FROM {PurchaseOrderRepository.tbl_purchase_order} po " +
+                           $"INNER JOIN {PurchaseOrderRepository.tbl_purchase_order_details} pod ON po.{PurchaseOrderRepository.col_order_id} = pod.{PurchaseOrderRepository.col_order_id} " +
+                           $"WHERE pod.{PurchaseOrderRepository.col_item_id} = @ItemId AND po.{PurchaseOrderRepository.col_status} = @Status";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@ItemId", itemId);
+                        cmd.Parameters.AddWithValue("@Status", PurchaseOrderRepository.pending_status);
+
+                        int count = (int)await cmd.ExecuteScalarAsync();
+
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
+
     }
 }

@@ -65,11 +65,11 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.BarcodeBtn = new System.Windows.Forms.Button();
             this.lvlbarcode = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BarcodeBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -551,22 +551,6 @@
             this.panel13.Size = new System.Drawing.Size(93, 24);
             this.panel13.TabIndex = 90;
             // 
-            // BarcodeBtn
-            // 
-            this.BarcodeBtn.BackColor = System.Drawing.Color.White;
-            this.BarcodeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BarcodeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarcodeBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
-            this.BarcodeBtn.Location = new System.Drawing.Point(5, 0);
-            this.BarcodeBtn.Name = "BarcodeBtn";
-            this.BarcodeBtn.Size = new System.Drawing.Size(88, 24);
-            this.BarcodeBtn.TabIndex = 89;
-            this.BarcodeBtn.Text = " Generate";
-            this.BarcodeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BarcodeBtn.UseVisualStyleBackColor = false;
-            this.BarcodeBtn.Click += new System.EventHandler(this.BarcodeBtn_Click);
-            // 
             // lvlbarcode
             // 
             this.lvlbarcode.AutoSize = true;
@@ -610,6 +594,22 @@
             this.panel3.Size = new System.Drawing.Size(450, 493);
             this.panel3.TabIndex = 112;
             // 
+            // BarcodeBtn
+            // 
+            this.BarcodeBtn.BackColor = System.Drawing.Color.White;
+            this.BarcodeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BarcodeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BarcodeBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarcodeBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
+            this.BarcodeBtn.Location = new System.Drawing.Point(5, 0);
+            this.BarcodeBtn.Name = "BarcodeBtn";
+            this.BarcodeBtn.Size = new System.Drawing.Size(88, 24);
+            this.BarcodeBtn.TabIndex = 89;
+            this.BarcodeBtn.Text = " Generate";
+            this.BarcodeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BarcodeBtn.UseVisualStyleBackColor = false;
+            this.BarcodeBtn.Click += new System.EventHandler(this.BarcodeBtn_Click);
+            // 
             // AddItem
             // 
             this.AcceptButton = this.AcceptBtn;
@@ -619,6 +619,8 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddItem";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddItemSupplier";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddItem_FormClosing);

@@ -314,6 +314,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuantityDialog";
             this.Padding = new System.Windows.Forms.Padding(1);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QuantityDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuantityDialog_FormClosing);

@@ -142,6 +142,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DateDialog";
             this.Padding = new System.Windows.Forms.Padding(1);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DateDialog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DateDialog_FormClosing);

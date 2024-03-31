@@ -233,6 +233,12 @@
     <Compile Include="Dialogs\SearchItem.Designer.cs">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\TableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TableDialog.Designer.cs">
+      <DependentUpon>TableDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\CurrentUser.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\PurchaseOrderEntity.cs" />
@@ -269,12 +275,6 @@
     <Compile Include="Panels\POS.Designer.cs">
       <DependentUpon>POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\PrintInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\PrintInvoice.Designer.cs">
-      <DependentUpon>PrintInvoice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Panels\Dashoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,12 +300,6 @@
     </Compile>
     <Compile Include="Panels\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ServiceInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ServiceInvoice.Designer.cs">
-      <DependentUpon>ServiceInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\Settings.cs">
       <SubType>Form</SubType>
@@ -356,6 +350,9 @@
     <EmbeddedResource Include="Dialogs\SearchItem.resx">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TableDialog.resx">
+      <DependentUpon>TableDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,9 +368,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\POS.resx">
       <DependentUpon>POS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\PrintInvoice.resx">
-      <DependentUpon>PrintInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Dashoard.resx">
       <DependentUpon>Dashoard.cs</DependentUpon>
@@ -397,9 +391,6 @@
     <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ServiceInvoice.resx">
-      <DependentUpon>ServiceInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

@@ -45,7 +45,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(24, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
@@ -87,7 +86,7 @@
             // 
             // ReduceTxt
             // 
-            this.ReduceTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ReduceTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ReduceTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReduceTxt.Location = new System.Drawing.Point(142, 93);
             this.ReduceTxt.Margin = new System.Windows.Forms.Padding(2);
@@ -100,8 +99,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.ErrorTxt);
             this.panel2.Controls.Add(this.CancelBtn);
             this.panel2.Controls.Add(this.AcceptBtn);
@@ -123,7 +121,7 @@
             // 
             // ErrorTxt
             // 
-            this.ErrorTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ErrorTxt.BackColor = System.Drawing.SystemColors.Control;
             this.ErrorTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ErrorTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ErrorTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
@@ -141,11 +139,10 @@
             this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.Location = new System.Drawing.Point(231, 195);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(74, 30);
+            this.CancelBtn.Size = new System.Drawing.Size(74, 35);
             this.CancelBtn.TabIndex = 30;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = false;
@@ -157,11 +154,10 @@
             this.AcceptBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AcceptBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.AcceptBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.AcceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AcceptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcceptBtn.Location = new System.Drawing.Point(142, 195);
             this.AcceptBtn.Name = "AcceptBtn";
-            this.AcceptBtn.Size = new System.Drawing.Size(74, 30);
+            this.AcceptBtn.Size = new System.Drawing.Size(74, 35);
             this.AcceptBtn.TabIndex = 29;
             this.AcceptBtn.Text = "Confirm";
             this.AcceptBtn.UseVisualStyleBackColor = false;
@@ -169,7 +165,6 @@
             // 
             // ReasonCb
             // 
-            this.ReasonCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReasonCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReasonCb.FormattingEnabled = true;
             this.ReasonCb.Items.AddRange(new object[] {
@@ -185,7 +180,7 @@
             // 
             this.StockLbl.AutoSize = true;
             this.StockLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.StockLbl.ForeColor = System.Drawing.Color.White;
+            this.StockLbl.ForeColor = System.Drawing.Color.Black;
             this.StockLbl.Location = new System.Drawing.Point(139, 51);
             this.StockLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.StockLbl.Name = "StockLbl";
@@ -197,7 +192,7 @@
             // 
             this.SizeLbl.AutoSize = true;
             this.SizeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.SizeLbl.ForeColor = System.Drawing.Color.White;
+            this.SizeLbl.ForeColor = System.Drawing.Color.Black;
             this.SizeLbl.Location = new System.Drawing.Point(139, 35);
             this.SizeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SizeLbl.Name = "SizeLbl";
@@ -209,7 +204,7 @@
             // 
             this.ItemNameLbl.AutoSize = true;
             this.ItemNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ItemNameLbl.ForeColor = System.Drawing.Color.White;
+            this.ItemNameLbl.ForeColor = System.Drawing.Color.Black;
             this.ItemNameLbl.Location = new System.Drawing.Point(139, 19);
             this.ItemNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ItemNameLbl.Name = "ItemNameLbl";
@@ -221,7 +216,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(24, 125);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
@@ -233,7 +228,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(24, 93);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
@@ -245,7 +240,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(24, 51);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
@@ -257,7 +252,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(24, 35);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -277,19 +272,13 @@
             this.panel3.Size = new System.Drawing.Size(332, 284);
             this.panel3.TabIndex = 22;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Location = new System.Drawing.Point(142, 89);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(163, 5);
-            this.panel4.TabIndex = 32;
-            // 
             // ReduceStockForm
             // 
+            this.AcceptButton = this.AcceptBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.CancelBtn;
             this.ClientSize = new System.Drawing.Size(332, 284);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -325,6 +314,5 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox ErrorTxt;
-        private System.Windows.Forms.Panel panel4;
     }
 }

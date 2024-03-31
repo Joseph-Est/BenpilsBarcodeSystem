@@ -59,17 +59,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void ItemsTbl_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = ItemsTbl.Rows[e.RowIndex];
-                barcode = row.Cells["item_barcode"].Value.ToString();
-
-                if (!string.IsNullOrEmpty(barcode))
-                {
-                    canClose = true;
-                    DialogResult = DialogResult.OK;
-                }
-            }
+            
         }
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
@@ -101,6 +91,21 @@ namespace BenpilsBarcodeSystem.Dialogs
             if (!canClose)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void ItemsTbl_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = ItemsTbl.Rows[e.RowIndex];
+                barcode = row.Cells["item_barcode"].Value.ToString();
+
+                if (!string.IsNullOrEmpty(barcode))
+                {
+                    canClose = true;
+                    DialogResult = DialogResult.OK;
+                }
             }
         }
     }

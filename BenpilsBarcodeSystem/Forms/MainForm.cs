@@ -46,8 +46,8 @@ namespace BenpilsBarcodeSystem
             SetForms();
             SetTimer();
             SetUser();
-            Checkbox_Clicked(DashboardCb, null);
-            SwitchForm(DashboardCb);
+            Checkbox_Clicked(CurrentUser.User.Designation == "Cashier" ? PosCb : CurrentUser.User.Designation == "Inventory Manager" ? InventoryCb : DashboardCb, null);
+            SwitchForm(CurrentUser.User.Designation == "Cashier" ? PosCb : CurrentUser.User.Designation == "Inventory Manager" ? InventoryCb : DashboardCb);
         }
 
         private void Checkbox_Clicked(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace BenpilsBarcodeSystem
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
         }
 
@@ -183,20 +183,22 @@ namespace BenpilsBarcodeSystem
             }
             else if (CurrentUser.User.Designation == "Inventory Manager")
             {
-                //PointOfSalesBtn.Enabled = false;
-                //ReportsBtn.Enabled = false;
-                //StatisticsBtn.Enabled = false;
-                //UsercredentialsBtn.Enabled = false;
-                //SettingsBtn.Enabled = false;
+                DashboardCb.Visible = false;
+                PosCb.Visible = false;
+                ReportsCb.Visible = false;
+                StatisticsCb.Visible = false;
+                UsersCb.Visible = false;
+                SettingsCb.Visible = false;
             }
             else if (CurrentUser.User.Designation == "Cashier")
             {
-                //InventoryBtn.Enabled = false;
-                //PurchasingBtn.Enabled = false;
-                //ReportsBtn.Enabled = false;
-                //StatisticsBtn.Enabled = false;
-                //UsercredentialsBtn.Enabled = false;
-                //SettingsBtn.Enabled = false;
+                DashboardCb.Visible = false;
+                InventoryCb.Visible = false;
+                PurchasingCb.Visible = false;
+                ReportsCb.Visible = false;
+                StatisticsCb.Visible = false;
+                UsersCb.Visible = false;
+                SettingsCb.Visible = false;
             }
         }
 

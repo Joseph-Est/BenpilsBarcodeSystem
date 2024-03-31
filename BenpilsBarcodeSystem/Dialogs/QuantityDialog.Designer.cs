@@ -83,7 +83,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.panel14);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel1);
@@ -94,7 +94,7 @@
             this.panel3.Location = new System.Drawing.Point(1, 34);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.panel3.Size = new System.Drawing.Size(270, 192);
+            this.panel3.Size = new System.Drawing.Size(270, 202);
             this.panel3.TabIndex = 88;
             // 
             // panel14
@@ -103,10 +103,10 @@
             this.panel14.Controls.Add(this.ConfrimBtn);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(20, 139);
-            this.panel14.MinimumSize = new System.Drawing.Size(230, 52);
+            this.panel14.MinimumSize = new System.Drawing.Size(230, 54);
             this.panel14.Name = "panel14";
-            this.panel14.Padding = new System.Windows.Forms.Padding(0, 10, 0, 15);
-            this.panel14.Size = new System.Drawing.Size(230, 52);
+            this.panel14.Padding = new System.Windows.Forms.Padding(0, 13, 0, 12);
+            this.panel14.Size = new System.Drawing.Size(230, 60);
             this.panel14.TabIndex = 141;
             // 
             // CancelBtn
@@ -117,11 +117,10 @@
             this.CancelBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.CancelBtn.Location = new System.Drawing.Point(120, 10);
+            this.CancelBtn.Location = new System.Drawing.Point(120, 13);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(110, 27);
+            this.CancelBtn.Size = new System.Drawing.Size(110, 35);
             this.CancelBtn.TabIndex = 143;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = false;
@@ -134,11 +133,10 @@
             this.ConfrimBtn.Dock = System.Windows.Forms.DockStyle.Left;
             this.ConfrimBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.ConfrimBtn.FlatAppearance.BorderSize = 0;
-            this.ConfrimBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfrimBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.ConfrimBtn.Location = new System.Drawing.Point(0, 10);
+            this.ConfrimBtn.Location = new System.Drawing.Point(0, 13);
             this.ConfrimBtn.Name = "ConfrimBtn";
-            this.ConfrimBtn.Size = new System.Drawing.Size(110, 27);
+            this.ConfrimBtn.Size = new System.Drawing.Size(110, 35);
             this.ConfrimBtn.TabIndex = 142;
             this.ConfrimBtn.Text = "Confirm";
             this.ConfrimBtn.UseVisualStyleBackColor = false;
@@ -155,6 +153,7 @@
             // 
             // QuantityTxt
             // 
+            this.QuantityTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QuantityTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.QuantityTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuantityTxt.Location = new System.Drawing.Point(0, 0);
@@ -179,7 +178,7 @@
             // 
             this.StockLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.StockLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StockLbl.ForeColor = System.Drawing.Color.White;
+            this.StockLbl.ForeColor = System.Drawing.Color.Black;
             this.StockLbl.Location = new System.Drawing.Point(104, 0);
             this.StockLbl.Name = "StockLbl";
             this.StockLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
@@ -192,7 +191,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
@@ -214,7 +213,7 @@
             // 
             this.PriceLblTxt.Dock = System.Windows.Forms.DockStyle.Left;
             this.PriceLblTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PriceLblTxt.ForeColor = System.Drawing.Color.White;
+            this.PriceLblTxt.ForeColor = System.Drawing.Color.Black;
             this.PriceLblTxt.Location = new System.Drawing.Point(45, 0);
             this.PriceLblTxt.Name = "PriceLblTxt";
             this.PriceLblTxt.Size = new System.Drawing.Size(182, 20);
@@ -226,7 +225,7 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 16);
@@ -247,7 +246,7 @@
             // 
             this.SizeLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.SizeLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SizeLbl.ForeColor = System.Drawing.Color.White;
+            this.SizeLbl.ForeColor = System.Drawing.Color.Black;
             this.SizeLbl.Location = new System.Drawing.Point(41, 0);
             this.SizeLbl.Name = "SizeLbl";
             this.SizeLbl.Size = new System.Drawing.Size(183, 20);
@@ -259,7 +258,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 16);
@@ -281,7 +280,7 @@
             this.ItemLbl.AutoEllipsis = true;
             this.ItemLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.ItemLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemLbl.ForeColor = System.Drawing.Color.White;
+            this.ItemLbl.ForeColor = System.Drawing.Color.Black;
             this.ItemLbl.Location = new System.Drawing.Point(40, 0);
             this.ItemLbl.Name = "ItemLbl";
             this.ItemLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -294,7 +293,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
@@ -309,7 +308,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.CancelButton = this.CancelBtn;
-            this.ClientSize = new System.Drawing.Size(272, 227);
+            this.ClientSize = new System.Drawing.Size(272, 237);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

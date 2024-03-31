@@ -15,6 +15,7 @@ namespace BenpilsBarcodeSystem
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
+        bool canClose = false;
         public GenerateBarcode()
         {
             InitializeComponent();
@@ -95,15 +96,11 @@ namespace BenpilsBarcodeSystem
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(ManualRegenratetxt.Text))
             {
+                canClose = true;
                 Clipboard.SetText(ManualRegenratetxt.Text);
                 DialogResult = DialogResult.OK;
                 this.Close();
@@ -115,13 +112,18 @@ namespace BenpilsBarcodeSystem
             ManualRegenratetxt.Focus();
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e)
+        private void GenerateBarcode_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Close();
+            if (!canClose)
+            {
+                e.Cancel = true;
+            }
         }
 
-      
-
-     
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            canClose = true;
+            this.Close();
+        }
     }
 }

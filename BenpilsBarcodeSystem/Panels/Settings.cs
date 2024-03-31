@@ -156,7 +156,7 @@ namespace BenpilsBarcodeSystem
 
                                     if (selectedID > 0)
                                     {
-                                        if (await repository.ArchiveProductAsync(selectedID, true))
+                                        if (await repository.ArchiveProductAsync(selectedID, false))
                                         {
                                             UpdateInventoryDG();
                                         }

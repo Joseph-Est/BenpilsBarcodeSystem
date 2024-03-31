@@ -311,9 +311,9 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> ArchiveProductAsync(int id, bool archive = false)
+        public async Task<bool> ArchiveProductAsync(int id, bool archive = true)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{archive}' WHERE {col_id} = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{!archive}' WHERE {col_id} = @ID";
 
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
@@ -329,7 +329,7 @@ namespace BenpilsBarcodeSystem.Repository
                         if (rowsAffected > 0)
                         {
                             ReportsRepository repository = new ReportsRepository();
-                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Archive Item", 0, 0, 0, CurrentUser.User.iD, "Item archived succesfully");
+                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, archive == true ? "Archive Item" : "Restore Item", 0, 0, 0, CurrentUser.User.iD, archive == true ? "Item archived succesfully" : "Item restored succesfully");
 
                             if (!reportAdded)
                             {
@@ -355,7 +355,7 @@ namespace BenpilsBarcodeSystem.Repository
             List<string> uniqueValuesColumn1 = new List<string>();
             List<string> uniqueValuesColumn2 = new List<string>();
 
-            string selectQuery = $"SELECT DISTINCT {col_category}, {col_brand} FROM {tbl_name} WHERE {col_category} NOT IN ('All') AND {col_brand} NOT IN ('All')";
+            string selectQuery = $"SELECT {col_category}, {col_brand} FROM {tbl_name} WHERE {col_category} NOT IN ('All') AND {col_brand} NOT IN ('All') AND {col_is_active} = 'true'";
 
             try
             {
@@ -367,8 +367,8 @@ namespace BenpilsBarcodeSystem.Repository
                         {
                             while (await reader.ReadAsync())
                             {
-                                string value1 = reader[col_category].ToString();
-                                string value2 = reader[col_brand].ToString();
+                                string value1 = reader[col_category].ToString().Trim();
+                                string value2 = reader[col_brand].ToString().Trim();
 
                                 uniqueValuesColumn1.Add(value1);
                                 uniqueValuesColumn2.Add(value2);
@@ -381,6 +381,9 @@ namespace BenpilsBarcodeSystem.Repository
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
+
+            uniqueValuesColumn1 = uniqueValuesColumn1.Distinct().ToList();
+            uniqueValuesColumn2 = uniqueValuesColumn2.Distinct().ToList();
 
             uniqueValuesColumn1.Insert(0, "All");
             uniqueValuesColumn2.Insert(0, "All");

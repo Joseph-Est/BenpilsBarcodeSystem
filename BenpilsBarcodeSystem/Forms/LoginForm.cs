@@ -188,14 +188,7 @@ namespace BenpilsBarcodeSystem
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            Confirmation confirmation = new Confirmation("Are you sure you want to exit?", null, "Yes", "Cancel");
-            DialogResult result = confirmation.ShowDialog();
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
-
+            Application.Exit();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)

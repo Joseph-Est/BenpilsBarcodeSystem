@@ -54,11 +54,10 @@
             this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.Location = new System.Drawing.Point(158, 10);
+            this.CancelBtn.Location = new System.Drawing.Point(154, 10);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(75, 30);
+            this.CancelBtn.Size = new System.Drawing.Size(107, 35);
             this.CancelBtn.TabIndex = 12;
             this.CancelBtn.Text = "No";
             this.CancelBtn.UseVisualStyleBackColor = false;
@@ -70,11 +69,10 @@
             this.AcceptBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AcceptBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.AcceptBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.AcceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AcceptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AcceptBtn.Location = new System.Drawing.Point(47, 10);
+            this.AcceptBtn.Location = new System.Drawing.Point(24, 10);
             this.AcceptBtn.Name = "AcceptBtn";
-            this.AcceptBtn.Size = new System.Drawing.Size(75, 30);
+            this.AcceptBtn.Size = new System.Drawing.Size(107, 35);
             this.AcceptBtn.TabIndex = 11;
             this.AcceptBtn.Text = "Yes";
             this.AcceptBtn.UseVisualStyleBackColor = false;
@@ -106,7 +104,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -129,6 +127,7 @@
             // 
             // panel7
             // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 19);
             this.panel7.Name = "panel7";
@@ -137,10 +136,10 @@
             // 
             // MessageLbl2
             // 
-            this.MessageLbl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MessageLbl2.BackColor = System.Drawing.Color.Transparent;
             this.MessageLbl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.MessageLbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MessageLbl2.ForeColor = System.Drawing.Color.White;
+            this.MessageLbl2.ForeColor = System.Drawing.Color.Black;
             this.MessageLbl2.Location = new System.Drawing.Point(0, 0);
             this.MessageLbl2.Name = "MessageLbl2";
             this.MessageLbl2.Size = new System.Drawing.Size(285, 19);
@@ -158,10 +157,10 @@
             // 
             // MessageLbl
             // 
-            this.MessageLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MessageLbl.BackColor = System.Drawing.Color.Transparent;
             this.MessageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MessageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MessageLbl.ForeColor = System.Drawing.Color.White;
+            this.MessageLbl.ForeColor = System.Drawing.Color.Black;
             this.MessageLbl.Location = new System.Drawing.Point(0, 0);
             this.MessageLbl.Name = "MessageLbl";
             this.MessageLbl.Size = new System.Drawing.Size(285, 20);
@@ -171,7 +170,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel1);
@@ -184,7 +183,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.Controls.Add(this.CancelBtn);
             this.panel4.Controls.Add(this.AcceptBtn);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;

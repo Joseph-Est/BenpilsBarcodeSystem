@@ -25,12 +25,11 @@ namespace BenpilsBarcodeSystem.Dialogs
 
     public partial class OrderDetails : Form
     {
-        private Mode mode;
-        private Cart CurrentPurchaseCart;
-        private Supplier CurrentSupplier;
+        private readonly Mode mode;
+        private readonly Cart CurrentPurchaseCart;
+        private readonly Supplier CurrentSupplier;
         private bool canClose = false;
         private string OrderNo { get; set; }
-        private string deliveryDate;
 
         internal OrderDetails(Mode mode = Mode.OrderConfirmation, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null,
                             string deliverDate = null, string orderNo = null, string orderedBy = null, string status = null, string dateFulfilled = null,
@@ -97,6 +96,8 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
 
             ItemsTbl.Columns["ReceivedQuantity"].Visible = true;
+
+            TitleLbl.Text = "Order Completion";
         }
 
         private void SetOrderViewMode(string fulfilledBy, string dateFulfilled, string remarks, string orderedBy, string status)
@@ -236,8 +237,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void ItemsTbl_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            DataGridViewTextBoxEditingControl tb = e.Control as DataGridViewTextBoxEditingControl;
-            if (tb != null && ItemsTbl.CurrentCell.OwningColumn.Name == "ReceivedQuantity" && ItemsTbl.Columns["ReceivedQuantity"].Visible)
+            if (e.Control is DataGridViewTextBoxEditingControl tb && ItemsTbl.CurrentCell.OwningColumn.Name == "ReceivedQuantity" && ItemsTbl.Columns["ReceivedQuantity"].Visible)
             {
                 int maxQuantity = Convert.ToInt32(ItemsTbl.CurrentRow.Cells["Quantity"].Value);
                 InputValidator.DGAllowOnlyDigitsMinMax(tb, 0, maxQuantity);

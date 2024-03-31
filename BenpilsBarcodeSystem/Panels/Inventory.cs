@@ -295,11 +295,13 @@ namespace BenpilsBarcodeSystem
         {
             PopulateComboBoxes();
             UpdateDataGridView();
+            CancelFilterCb.Visible = false;
         }
 
         private void UpdateDataGridView_Event(object sender, EventArgs e)
         {
             UpdateDataGridView(SearchTxt.Text, CategoryCb.SelectedItem?.ToString(), BrandCb.SelectedItem?.ToString());
+            CancelFilterCb.Visible = (!string.IsNullOrEmpty(SearchTxt.Text) || CategoryCb.SelectedIndex != 0 || BrandCb.SelectedIndex != 0);
         }
 
         private void ClearFields()
@@ -367,6 +369,13 @@ namespace BenpilsBarcodeSystem
 
             BrandCb.SelectedIndexChanged += UpdateDataGridView_Event;
             CategoryCb.SelectedIndexChanged += UpdateDataGridView_Event;
+        }
+
+        private void CancelFilterCb_Click(object sender, EventArgs e)
+        {
+            PopulateComboBoxes();
+            UpdateDataGridView();
+            CancelFilterCb.Visible = false;
         }
 
         private async void ComboBox_Enter(object sender, EventArgs e)

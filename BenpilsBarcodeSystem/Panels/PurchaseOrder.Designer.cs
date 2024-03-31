@@ -484,7 +484,7 @@
             this.receiving_date.Name = "receiving_date";
             this.receiving_date.ReadOnly = true;
             this.receiving_date.Visible = false;
-            this.receiving_date.Width = 104;
+            this.receiving_date.Width = 106;
             // 
             // status
             // 

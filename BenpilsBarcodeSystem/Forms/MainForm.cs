@@ -159,12 +159,26 @@ namespace BenpilsBarcodeSystem
             if (form is POS posForm)
             {
                 posForm.SelectBarcode();
-            }
-
-            if (form is Inventory inventoryForm && updateInventoryTable)
+            }else if (form is Inventory inventoryForm && updateInventoryTable)
             {
                 inventoryForm.updateTable();
                 updateInventoryTable = false;
+            }
+            else if (form is Ser users)
+            {
+                users.updateTable();
+                updateInventoryTable = false;
+            }
+            else if (form is Ser userForm)
+            {
+                userForm.updateTable();
+            }
+            else if (form is Dashboard dashForm && (MainPanel.Controls[0] is Dashboard))
+            {
+                if (!dashForm.IsLoadCalled)
+                {
+                    dashForm.Dashboard_Load(null, null);
+                }
             }
         }
 

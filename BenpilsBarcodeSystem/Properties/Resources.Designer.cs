@@ -63,6 +63,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ben_and_ben {
+            get {
+                object obj = ResourceManager.GetObject("ben and ben", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ben_small_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("ben_small-removebg-preview", resourceCulture);

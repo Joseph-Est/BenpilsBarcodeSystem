@@ -13,7 +13,7 @@ namespace BenpilsBarcodeSystem.Repositories
     {
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_name = "tbl_suppliers", tbl_supplier_items = "tbl_supplier_items";
-        public static string col_id = "supplier_id", col_contact_name = "contact_name", col_contact_no = "contact_no", col_address = "address", col_is_active = "is_active", col_item_id = "item_id", col_supplier_item_id = "supplier_item_id";
+        public static string col_date_created = "date_created", col_date_updated = "date_updated", col_id = "supplier_id", col_contact_name = "contact_name", col_contact_no = "contact_no", col_address = "address", col_is_active = "is_active", col_item_id = "item_id", col_supplier_item_id = "supplier_item_id";
 
         public SuppliersRepository()
         {
@@ -22,7 +22,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<DataTable> GetSupplierAsync(bool isActive, string searchText = "")
         {
-            string selectQuery = $"SELECT {col_id}, {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
+            string selectQuery = $"SELECT {col_id}, {col_contact_name}, {col_contact_no}, {col_address}, {col_date_created} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -30,7 +30,7 @@ namespace BenpilsBarcodeSystem.Repositories
             }
             else
             {
-                selectQuery = $"SELECT {col_contact_name}, {col_contact_no}, {col_address} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
+                selectQuery = $"SELECT {col_contact_name}, {col_contact_no}, {col_address}, {col_date_created} FROM {tbl_name} WHERE {col_is_active} = '{isActive}'";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {

@@ -24,6 +24,7 @@ namespace BenpilsBarcodeSystem
         public Reports()
         {
             InitializeComponent();
+            Util.SetDateTimePickerFormat("MMM dd, yyyy", InventoryStartDateDt, InventoryEndDateDt, PurchaseEndDateDt, PurchaseStartDateDt, SalesStartDateDt, SalesEndDateDt, AuditEndDateDt, AuditStartDateDt);
         }
 
         private void Reports_Load(object sender, EventArgs e)

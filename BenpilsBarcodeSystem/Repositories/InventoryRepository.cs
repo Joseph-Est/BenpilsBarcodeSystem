@@ -17,7 +17,7 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_name = "tbl_item_master_data";
         public static string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
-                       col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active";
+                       col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active", col_date_created = "date_created", col_date_updated = "date_updated";
 
         private int lowStockThreshold = 20;
         private int highStockThreshold = 100;
@@ -37,7 +37,7 @@ namespace BenpilsBarcodeSystem.Repository
 
             }
 
-            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {whereClause}";
+            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause}";
 
 
             if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
@@ -46,7 +46,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
             else
             {
-                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size} FROM {tbl_name} WHERE {whereClause}";
+                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause}";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {

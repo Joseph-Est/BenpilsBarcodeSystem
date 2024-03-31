@@ -34,6 +34,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             InputValidator.AllowOnlyDigits(ContactNoTxt);
+            Util.SetDateTimePickerFormat("MMM dd, yyyy", OrderDt, DeliveryDt);
         }
 
         private void PurchaseOrder_Load(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace BenpilsBarcodeSystem
                 SuppliersRepository repository = new SuppliersRepository();
                 DataTable suppliersDT = await repository.GetSupplierAsync(true, searchText);
 
+                SupplierTbl.AutoGenerateColumns = false;
                 SupplierTbl.DataSource = suppliersDT;
             }
             catch (Exception ex)
@@ -582,10 +584,14 @@ namespace BenpilsBarcodeSystem
             PrintPreview.ShowDialog();
         }
 
+        private void RefreshPb_Click(object sender, EventArgs e)
+        {
+            UpdateSupplierDG();
+        }
+
         private void EnablePurchasePanel(bool isEnable)
         {
             NewPurchaseBtn.Enabled = !isEnable;
-            AddBtn.Enabled = isEnable;
             isPurchasing = isEnable;
             SupplierCb.Enabled = isEnable;
             DatePanel.Enabled = isEnable;

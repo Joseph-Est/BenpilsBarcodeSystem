@@ -35,6 +35,11 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
+        public void updateTable()
+        {
+            UpdateDataGridView();
+        }
+
         public async void UpdateDataGridView(string searchText = null)
         {
             if (string.IsNullOrWhiteSpace(searchText))

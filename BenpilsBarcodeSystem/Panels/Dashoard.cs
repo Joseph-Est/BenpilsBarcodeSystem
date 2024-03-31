@@ -1,6 +1,8 @@
-﻿using BenpilsBarcodeSystem.Entities;
+﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
 using BenpilsBarcodeSystem.Repositories;
 using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,9 @@ namespace BenpilsBarcodeSystem
         private DateTime dateFrom;
         private DateTime dateTo;
         private string selectedCb = "today";
+        private List<SalesData> currentSalesData;
+
+        public bool IsLoadCalled { get; set; } = false;
 
         public Dashboard()
         {
@@ -31,18 +36,23 @@ namespace BenpilsBarcodeSystem
             toolTip4.SetToolTip(NoStockLbl, "Out of stock items");
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        public void Dashboard_Load(object sender, EventArgs e)
         {
-            TodayCb.Checked = true;
-            dateFrom = DateTime.Today;
-            dateTo = DateTime.Today;
+            if (!IsLoadCalled)
+            {
+                TodayCb.Checked = true;
+                dateFrom = DateTime.Today;
+                dateTo = DateTime.Today;
 
-            RefreshData(dateFrom, dateTo);
-            LowStockTbl.MouseWheel += LowStockTbl_MouseWheel;
-            OverdueTbl.MouseWheel += OverdueTbl_MouseWheel;
+                RefreshData(dateFrom, dateTo);
+                LowStockTbl.MouseWheel += LowStockTbl_MouseWheel;
+                OverdueTbl.MouseWheel += OverdueTbl_MouseWheel;
+
+                IsLoadCalled = true;
+            }
         }
 
-        private async void RefreshData(DateTime dateFrom, DateTime dateTo)
+        public async void RefreshData(DateTime dateFrom, DateTime dateTo)
         {
             InventoryRepository inventoryRepository = new InventoryRepository();
             SuppliersRepository suppliersRepository = new SuppliersRepository();
@@ -57,14 +67,19 @@ namespace BenpilsBarcodeSystem
             //DateTime tomorrow = DateTime.Today.AddDays(1);
             //DateTime tomorrowEnd = tomorrow.AddDays(1).AddTicks(-1);  // End of tomorrow
 
-            List<SalesData> salesData = await posRepository.GetSalesAsync(dateFrom, dateTo);
+            currentSalesData = await posRepository.GetSalesAsync(dateFrom, dateTo);
 
-            ItemsSoldLbl.Text = salesData.Sum(s => s.TotalItemSold).ToString();
-            SalesRevenueLbl.Text = salesData.Sum(s => s.TotalSales).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
-            TotalProfitLbl.Text = salesData.Sum(s => s.TotalProfit).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
+            foreach (var sale in currentSalesData)
+            {
+                Console.WriteLine($"Date: {sale.Date}, Item: {sale.DisplayItemName}, Total Item Sold: {sale.TotalItemSold}, Total Sales: {sale.TotalSales}, Total Profit: {sale.TotalProfit}");
+            }
 
-            LoadSalesChart(posRepository, salesData);
-            LoadTopSellingItems(posRepository, salesData);
+            ItemsSoldLbl.Text = currentSalesData.Sum(s => s.TotalItemSold).ToString();
+            SalesRevenueLbl.Text = currentSalesData.Sum(s => s.TotalSales).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
+            TotalProfitLbl.Text = currentSalesData.Sum(s => s.TotalProfit).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
+
+            LoadSalesChart(posRepository, currentSalesData);
+            LoadTopSellingItems(posRepository, currentSalesData);
 
             List<Item> lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
 
@@ -91,6 +106,8 @@ namespace BenpilsBarcodeSystem
             var (TotalPending, TotalOverdue) = await purchaseOrderRepository.GetPendingStatusCountsAsync();
             OverdueOrdersLbl.Text = TotalOverdue.ToString();
             PendingOrdersLbl.Text = TotalPending.ToString();
+
+            IsLoadCalled = false;
         }
 
         private async void LoadSalesChart(POSRepository posRepository, List<SalesData> salesData)
@@ -280,26 +297,161 @@ namespace BenpilsBarcodeSystem
         private void ItemsSold_Click(object sender, EventArgs e)
         {
 
+            List<object[]> data = new List<object[]>();
+
+            if (!currentSalesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = currentSalesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
+                                              })
+                                              .OrderByDescending(g => g.Quantity);
+
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Quantity });
+            }
+
+            string[] headers = { "Date", "Item", "Quantity" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = { 2 };
+            int[] middleRightColumns = {};
+
+            ShowCustomReport("Total Items Sold", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
         }
 
         private void Sales_Click(object sender, EventArgs e)
         {
+            List<object[]> data = new List<object[]>();
 
+            if (!currentSalesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = currentSalesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Amount = g.Sum(s => s.TotalSales)
+                                              })
+                                              .OrderByDescending(g => g.Amount);
+
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Amount });
+            }
+
+            string[] headers = {"Date", "Item", "Total Sales" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = {};
+            int[] middleRightColumns = {2};
+
+            ShowCustomReport("Sales Revenue", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
         }
 
         private void Profit_Click(object sender, EventArgs e)
         {
+            List<object[]> data = new List<object[]>();
 
+            if (!currentSalesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = currentSalesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Profit = g.Sum(s => s.TotalProfit)
+                                              })
+                                              .OrderByDescending(g => g.Profit);
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Profit });
+            }
+
+            string[] headers = {"Date", "Item", "Total Profit" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = {};
+            int[] middleRightColumns = {2};
+
+            ShowCustomReport("Total Profit", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
         }
 
-        private void Supplier_Click(object sender, EventArgs e)
+        private async void Supplier_Click(object sender, EventArgs e)
         {
+            SuppliersRepository repository = new SuppliersRepository();
+            DataTable dt = await repository.GetSupplierAsync(true);
 
+            if (dt.Rows.Count == 0)
+            {
+                return;
+            }
+
+            List<object[]> data = new List<object[]>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                data.Add(new object[]
+                {
+                    Util.ConvertDateLongWithTime(DateTime.Parse(row["date_created"].ToString())),
+                    row["contact_name"],
+                    row["contact_no"],
+                });
+            }
+
+            string[] headers = { "Date Added", "Name", "Contact #" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = { 2 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Available Suppliers", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
         }
 
-        private void ItemsClick(object sender, EventArgs e)
+        private async void ItemsClick(object sender, EventArgs e)
         {
+            InventoryRepository repository = new InventoryRepository();
+            DataTable dt = await repository.GetProductsAsync(true);
 
+            if (dt.Rows.Count == 0)
+            {
+                return;
+            }
+
+            List<object[]> data = new List<object[]>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                data.Add(new object[]
+                {
+                    Util.ConvertDateLongWithTime(DateTime.Parse(row["date_created"].ToString())),
+                    row["item_name"],
+                    row["brand"],
+                    row["size"],
+                });
+            }
+
+            string[] headers = { "Date Added", "Item", "Brand", "Size"};
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = {3};
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Available Items", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        public void ShowCustomReport(string title, List<object[]> data, string[] headers, int fillColumnIndex, int[] middleCenterColumns, int[] middleRightColumns, bool countTotal = true)
+        {
+            TableDialog dialog = new TableDialog(title, data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, countTotal);
+            dialog.ShowDialog();
         }
 
         private void Panel_MouseEnter(object sender, EventArgs e)

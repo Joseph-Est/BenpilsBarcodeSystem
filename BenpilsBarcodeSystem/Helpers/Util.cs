@@ -292,5 +292,14 @@ namespace BenpilsBarcodeSystem.Utils
             graphics.DrawString(rightText, font, Brushes.Black, new PointF(rightTextX, startY));
             return startY + lineHeight;
         }
+
+        public static void SetDateTimePickerFormat(string format, params DateTimePicker[] dateTimePickers)
+        {
+            foreach (var dtp in dateTimePickers)
+            {
+                dtp.Format = DateTimePickerFormat.Custom;
+                dtp.CustomFormat = format;
+            }
+        }
     }
 }

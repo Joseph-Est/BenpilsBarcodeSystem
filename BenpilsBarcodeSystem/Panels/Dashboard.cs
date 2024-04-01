@@ -71,13 +71,13 @@ namespace BenpilsBarcodeSystem
 
             currentSalesData = await posRepository.GetSalesAsync(dateFrom, dateTo);
 
-            foreach (var sale in currentSalesData)
-            {
-                Console.WriteLine($"Date: {sale.Date}, Item: {sale.DisplayItemName}, Total Item Sold: {sale.TotalItemSold}, Total Sales: {sale.TotalSales}, Total Profit: {sale.TotalProfit}");
-            }
+            //foreach (var sale in currentSalesData)
+            //{
+            //    Console.WriteLine($"Date: {sale.Date}, Item: {sale.DisplayItemName}, Total Item Sold: {sale.TotalItemSold}, Total Sales: {sale.TotalSales}, Total Profit: {sale.TotalProfit}");
+            //}
 
             ItemsSoldLbl.Text = currentSalesData.Sum(s => s.TotalItemSold).ToString();
-            SalesRevenueLbl.Text = currentSalesData.Sum(s => s.TotalSales).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
+            TotalSalesLbl.Text = currentSalesData.Sum(s => s.TotalSales).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
             TotalProfitLbl.Text = currentSalesData.Sum(s => s.TotalProfit).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
 
             LoadSalesChart(posRepository, currentSalesData);
@@ -99,7 +99,7 @@ namespace BenpilsBarcodeSystem
             OverdueTbl.AutoGenerateColumns = false;
             OverdueTbl.DataSource = overduePurchaseOrder;
 
-            int activeItemCount = await inventoryRepository.GetActiveItemsCount();
+            int activeItemCount = await inventoryRepository.GetItemAcount();
             int activeSupplierCount = await suppliersRepository.GetActiveSuppliersCount();
 
             TotalItemsLbl.Text = activeItemCount.ToString();
@@ -313,14 +313,14 @@ namespace BenpilsBarcodeSystem
                                                   Item = g.Key.DisplayItemName,
                                                   Quantity = g.Sum(s => s.TotalItemSold)
                                               })
-                                              .OrderByDescending(g => g.Quantity);
+                                              .OrderByDescending(g => g.Date);
 
             foreach (var item in groupedData)
             {
                 data.Add(new object[] { item.Date, item.Item, item.Quantity });
             }
 
-            string[] headers = { "Date", "Item", "Quantity" };
+            string[] headers = { "Date", "Item", "Qty" };
             int fillColumnIndex = 1;
             int[] middleCenterColumns = { 2 };
             int[] middleRightColumns = {};
@@ -342,21 +342,22 @@ namespace BenpilsBarcodeSystem
                                               {
                                                   Date = Util.ConvertDateLongWithTime(g.Key.Date),
                                                   Item = g.Key.DisplayItemName,
-                                                  Amount = g.Sum(s => s.TotalSales)
+                                                  Amount = g.Sum(s => s.TotalSales),
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
                                               })
-                                              .OrderByDescending(g => g.Amount);
+                                              .OrderByDescending(g => g.Date);
 
             foreach (var item in groupedData)
             {
-                data.Add(new object[] { item.Date, item.Item, item.Amount });
+                data.Add(new object[] { item.Date, item.Item, item.Quantity, item.Amount });
             }
 
-            string[] headers = {"Date", "Item", "Total Sales" };
+            string[] headers = {"Date", "Item", "Qty", "Total Sales" };
             int fillColumnIndex = 1;
-            int[] middleCenterColumns = {};
-            int[] middleRightColumns = {2};
+            int[] middleCenterColumns = {2};
+            int[] middleRightColumns = {3};
 
-            ShowCustomReport("Sales Revenue", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
+            ShowCustomReport("Total Sales", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
         }
 
         private void Profit_Click(object sender, EventArgs e)
@@ -373,18 +374,19 @@ namespace BenpilsBarcodeSystem
                                               {
                                                   Date = Util.ConvertDateLongWithTime(g.Key.Date),
                                                   Item = g.Key.DisplayItemName,
-                                                  Profit = g.Sum(s => s.TotalProfit)
+                                                  Profit = g.Sum(s => s.TotalProfit),
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
                                               })
-                                              .OrderByDescending(g => g.Profit);
+                                              .OrderByDescending(g => g.Date);
             foreach (var item in groupedData)
             {
-                data.Add(new object[] { item.Date, item.Item, item.Profit });
+                data.Add(new object[] { item.Date, item.Item, item.Quantity, item.Profit });
             }
 
-            string[] headers = {"Date", "Item", "Total Profit" };
+            string[] headers = {"Date", "Item", "Qty", "Total Profit" };
             int fillColumnIndex = 1;
-            int[] middleCenterColumns = {};
-            int[] middleRightColumns = {2};
+            int[] middleCenterColumns = {2};
+            int[] middleRightColumns = {3};
 
             ShowCustomReport("Total Profit", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
         }

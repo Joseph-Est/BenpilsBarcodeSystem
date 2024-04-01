@@ -278,11 +278,17 @@
     <Compile Include="Panels\POS.Designer.cs">
       <DependentUpon>POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Dashoard.cs">
+    <Compile Include="Panels\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panels\Dashoard.Designer.cs">
-      <DependentUpon>Dashoard.cs</DependentUpon>
+    <Compile Include="Panels\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -372,8 +378,11 @@
     <EmbeddedResource Include="Panels\POS.resx">
       <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\Dashoard.resx">
-      <DependentUpon>Dashoard.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

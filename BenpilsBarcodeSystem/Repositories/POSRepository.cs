@@ -101,34 +101,41 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<List<SalesData>> GetSalesAsync(DateTime dateFrom, DateTime dateTo)
+        public async Task<List<SalesData>> GetSalesAsync(DateTime dateFrom, DateTime dateTo, bool getAll = false)
         {
             List<SalesData> salesDataList = new List<SalesData>();
-           
+
             string selectQuery = $@"
-            SELECT 
-                t.{col_transaction_date}, 
-                SUM(td.{col_quantity}) AS TotalItemSold, 
-                SUM(td.{col_total}) AS TotalSales,
-                SUM((td.{col_quantity} * (imd.{InventoryRepository.col_selling_price} - imd.{InventoryRepository.col_purchase_price}))) AS TotalProfit,
-                imd.{InventoryRepository.col_item_name} AS ItemName,
-                imd.{InventoryRepository.col_brand} AS ItemBrand,
-                imd.{InventoryRepository.col_size} AS ItemSize
-            FROM 
-                {tbl_transactions} t
-            JOIN 
-                {tbl_transaction_details} td ON t.{col_transaction_id} = td.{col_transaction_id}
-            JOIN 
-                {InventoryRepository.tbl_name} imd ON td.{col_item_id} = imd.{InventoryRepository.col_id}
-            WHERE 
-                t.{col_transaction_date} BETWEEN @dateFrom AND @dateTo
-            GROUP BY 
-                t.{col_transaction_date}, 
-                imd.{InventoryRepository.col_item_name},
-                imd.{InventoryRepository.col_brand},
-                imd.{InventoryRepository.col_size}
-            ORDER BY 
-                t.{col_transaction_date} DESC";
+                SELECT 
+                    t.{col_transaction_date}, 
+                    SUM(td.{col_quantity}) AS TotalItemSold, 
+                    SUM(td.{col_total}) AS TotalSales,
+                    SUM((td.{col_quantity} * (imd.{InventoryRepository.col_selling_price} - imd.{InventoryRepository.col_purchase_price}))) AS TotalProfit,
+                    imd.{InventoryRepository.col_item_name} AS ItemName,
+                    imd.{InventoryRepository.col_brand} AS ItemBrand,
+                    imd.{InventoryRepository.col_size} AS ItemSize,
+                    imd.{InventoryRepository.col_category} AS Category
+                FROM 
+                    {tbl_transactions} t
+                JOIN 
+                    {tbl_transaction_details} td ON t.{col_transaction_id} = td.{col_transaction_id}
+                JOIN 
+                    {InventoryRepository.tbl_name} imd ON td.{col_item_id} = imd.{InventoryRepository.col_id}";
+
+            if (!getAll)
+            {
+                selectQuery += $@" WHERE t.{col_transaction_date} BETWEEN @dateFrom AND @dateTo";
+            }
+
+            selectQuery += $@"
+                GROUP BY 
+                    t.{col_transaction_date}, 
+                    imd.{InventoryRepository.col_item_name},
+                    imd.{InventoryRepository.col_brand},
+                    imd.{InventoryRepository.col_size},
+                    imd.{InventoryRepository.col_category}
+                ORDER BY 
+                    t.{col_transaction_date} DESC";
 
             DateTime startDateWithTime = dateFrom.Date.Add(new TimeSpan(00, 00, 00));
             DateTime endDateWithTime = dateTo.Date.Add(new TimeSpan(23, 59, 59));
@@ -153,6 +160,7 @@ namespace BenpilsBarcodeSystem.Repository
                                 string itemName = reader.GetString(reader.GetOrdinal("ItemName"));
                                 string itemBrand = reader.GetString(reader.GetOrdinal("itemBrand"));
                                 string itemSize = reader.GetString(reader.GetOrdinal("itemSize"));
+                                string category = reader.GetString(reader.GetOrdinal("Category"));
 
                                 SalesData salesData = new SalesData
                                 {
@@ -162,7 +170,8 @@ namespace BenpilsBarcodeSystem.Repository
                                     TotalProfit = totalProfit,
                                     ItemName = itemName,
                                     Brand = itemBrand,
-                                    Size = itemSize
+                                    Size = itemSize,
+                                    Category = category
                                 };
 
                                 salesDataList.Add(salesData);
@@ -196,13 +205,6 @@ namespace BenpilsBarcodeSystem.Repository
 
         public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null)
         {
-            //StringBuilder debugMessage = new StringBuilder();
-            //debugMessage.AppendLine("SalesDataList contents:");
-            //foreach (var data in salesDataList)
-            //{
-            //    debugMessage.AppendLine($"Date: {data.Date}, TotalSales: {data.TotalSales}");
-            //}
-            //MessageBox.Show(debugMessage.ToString());
 
             DataTable dt = new DataTable();
 

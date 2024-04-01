@@ -78,7 +78,9 @@
             this.item_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.SalesCancelSearchCb = new System.Windows.Forms.CheckBox();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.SalesCancelDateCb = new System.Windows.Forms.CheckBox();
             this.SalesEndDateDt = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -93,10 +95,8 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.SalesRevenueLbl = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.ItemsSoldLbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.SummaryLbl = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.PurchaseReportTab = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.OrdersTbl = new System.Windows.Forms.DataGridView();
@@ -110,7 +110,9 @@
             this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
             this.backorder_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.PurchaseCancelSearchCb = new System.Windows.Forms.CheckBox();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.PurchaseCancelDateCb = new System.Windows.Forms.CheckBox();
             this.PurchaseEndDateDt = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -131,40 +133,38 @@
             this.new_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.InventoryCancelSearchCb = new System.Windows.Forms.CheckBox();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.InventoryCancelDateCb = new System.Windows.Forms.CheckBox();
             this.InventoryEndDateDt = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.InventoryStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.InventorySearchTxt = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ReportsTabControl = new System.Windows.Forms.TabControl();
             this.AuditTrailTab = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.AuditTrailTbl = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.details = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.AuditCancelSearchCb = new System.Windows.Forms.CheckBox();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.AuditCancelDateCb = new System.Windows.Forms.CheckBox();
             this.AuditEndDateDt = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.AuditStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.AuditSearchTxt = new System.Windows.Forms.TextBox();
-            this.InventoryCancelSearchCb = new System.Windows.Forms.CheckBox();
-            this.InventoryCancelDateCb = new System.Windows.Forms.CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.PurchaseCancelSearchCb = new System.Windows.Forms.CheckBox();
-            this.PurchaseCancelDateCb = new System.Windows.Forms.CheckBox();
-            this.SalesCancelSearchCb = new System.Windows.Forms.CheckBox();
-            this.SalesCancelDateCb = new System.Windows.Forms.CheckBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.AuditCancelSearchCb = new System.Windows.Forms.CheckBox();
-            this.AuditCancelDateCb = new System.Windows.Forms.CheckBox();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.details = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ItemsSoldLbl = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.SalesReportTab.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTbl)).BeginInit();
@@ -174,7 +174,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.PurchaseReportTab.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).BeginInit();
@@ -185,14 +185,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.ReportsTabControl.SuspendLayout();
             this.AuditTrailTab.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AuditTrailTbl)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // SalesReportTab
@@ -367,6 +367,24 @@
             this.panel6.Size = new System.Drawing.Size(1199, 67);
             this.panel6.TabIndex = 40;
             // 
+            // SalesCancelSearchCb
+            // 
+            this.SalesCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.SalesCancelSearchCb.AutoCheck = false;
+            this.SalesCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.SalesCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SalesCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.SalesCancelSearchCb.FlatAppearance.BorderSize = 0;
+            this.SalesCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesCancelSearchCb.Location = new System.Drawing.Point(197, 39);
+            this.SalesCancelSearchCb.Name = "SalesCancelSearchCb";
+            this.SalesCancelSearchCb.Size = new System.Drawing.Size(20, 20);
+            this.SalesCancelSearchCb.TabIndex = 188;
+            this.SalesCancelSearchCb.UseVisualStyleBackColor = true;
+            this.SalesCancelSearchCb.Visible = false;
+            this.SalesCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
+            // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.Control;
@@ -380,6 +398,24 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(516, 67);
             this.panel17.TabIndex = 186;
+            // 
+            // SalesCancelDateCb
+            // 
+            this.SalesCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.SalesCancelDateCb.AutoCheck = false;
+            this.SalesCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.SalesCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SalesCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.SalesCancelDateCb.FlatAppearance.BorderSize = 0;
+            this.SalesCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesCancelDateCb.Location = new System.Drawing.Point(132, 39);
+            this.SalesCancelDateCb.Name = "SalesCancelDateCb";
+            this.SalesCancelDateCb.Size = new System.Drawing.Size(20, 20);
+            this.SalesCancelDateCb.TabIndex = 187;
+            this.SalesCancelDateCb.UseVisualStyleBackColor = true;
+            this.SalesCancelDateCb.Visible = false;
+            this.SalesCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
             // 
             // SalesEndDateDt
             // 
@@ -556,45 +592,6 @@
             this.label16.Text = "Sales Revenue";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel10.Controls.Add(this.ItemsSoldLbl);
-            this.panel10.Controls.Add(this.label6);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(30, 3);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(373, 64);
-            this.panel10.TabIndex = 7;
-            // 
-            // ItemsSoldLbl
-            // 
-            this.ItemsSoldLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsSoldLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemsSoldLbl.ForeColor = System.Drawing.Color.White;
-            this.ItemsSoldLbl.Location = new System.Drawing.Point(0, 27);
-            this.ItemsSoldLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ItemsSoldLbl.Name = "ItemsSoldLbl";
-            this.ItemsSoldLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.ItemsSoldLbl.Size = new System.Drawing.Size(373, 37);
-            this.ItemsSoldLbl.TabIndex = 4;
-            this.ItemsSoldLbl.Text = "0";
-            this.ItemsSoldLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label6.Size = new System.Drawing.Size(373, 27);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Items Sold";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SummaryLbl
             // 
             this.SummaryLbl.Cursor = System.Windows.Forms.Cursors.Default;
@@ -608,6 +605,18 @@
             this.SummaryLbl.TabIndex = 0;
             this.SummaryLbl.Text = "SALES REPORT FOR TODAY";
             this.SummaryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Location = new System.Drawing.Point(1279, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.UseWaitCursor = true;
+            this.pictureBox3.Visible = false;
             // 
             // PurchaseReportTab
             // 
@@ -811,6 +820,24 @@
             this.panel4.Size = new System.Drawing.Size(1199, 67);
             this.panel4.TabIndex = 39;
             // 
+            // PurchaseCancelSearchCb
+            // 
+            this.PurchaseCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.PurchaseCancelSearchCb.AutoCheck = false;
+            this.PurchaseCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.PurchaseCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PurchaseCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PurchaseCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.PurchaseCancelSearchCb.FlatAppearance.BorderSize = 0;
+            this.PurchaseCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PurchaseCancelSearchCb.Location = new System.Drawing.Point(197, 39);
+            this.PurchaseCancelSearchCb.Name = "PurchaseCancelSearchCb";
+            this.PurchaseCancelSearchCb.Size = new System.Drawing.Size(20, 20);
+            this.PurchaseCancelSearchCb.TabIndex = 188;
+            this.PurchaseCancelSearchCb.UseVisualStyleBackColor = true;
+            this.PurchaseCancelSearchCb.Visible = false;
+            this.PurchaseCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
+            // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.SystemColors.Control;
@@ -824,6 +851,24 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(516, 67);
             this.panel16.TabIndex = 186;
+            // 
+            // PurchaseCancelDateCb
+            // 
+            this.PurchaseCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.PurchaseCancelDateCb.AutoCheck = false;
+            this.PurchaseCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.PurchaseCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PurchaseCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PurchaseCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.PurchaseCancelDateCb.FlatAppearance.BorderSize = 0;
+            this.PurchaseCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PurchaseCancelDateCb.Location = new System.Drawing.Point(132, 39);
+            this.PurchaseCancelDateCb.Name = "PurchaseCancelDateCb";
+            this.PurchaseCancelDateCb.Size = new System.Drawing.Size(20, 20);
+            this.PurchaseCancelDateCb.TabIndex = 187;
+            this.PurchaseCancelDateCb.UseVisualStyleBackColor = true;
+            this.PurchaseCancelDateCb.Visible = false;
+            this.PurchaseCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
             // 
             // PurchaseEndDateDt
             // 
@@ -1104,6 +1149,24 @@
             this.panel2.Size = new System.Drawing.Size(1199, 67);
             this.panel2.TabIndex = 37;
             // 
+            // InventoryCancelSearchCb
+            // 
+            this.InventoryCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.InventoryCancelSearchCb.AutoCheck = false;
+            this.InventoryCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.InventoryCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.InventoryCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InventoryCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.InventoryCancelSearchCb.FlatAppearance.BorderSize = 0;
+            this.InventoryCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InventoryCancelSearchCb.Location = new System.Drawing.Point(197, 39);
+            this.InventoryCancelSearchCb.Name = "InventoryCancelSearchCb";
+            this.InventoryCancelSearchCb.Size = new System.Drawing.Size(20, 20);
+            this.InventoryCancelSearchCb.TabIndex = 188;
+            this.InventoryCancelSearchCb.UseVisualStyleBackColor = true;
+            this.InventoryCancelSearchCb.Visible = false;
+            this.InventoryCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
@@ -1117,6 +1180,24 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(516, 67);
             this.panel15.TabIndex = 186;
+            // 
+            // InventoryCancelDateCb
+            // 
+            this.InventoryCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.InventoryCancelDateCb.AutoCheck = false;
+            this.InventoryCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.InventoryCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.InventoryCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InventoryCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.InventoryCancelDateCb.FlatAppearance.BorderSize = 0;
+            this.InventoryCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InventoryCancelDateCb.Location = new System.Drawing.Point(132, 39);
+            this.InventoryCancelDateCb.Name = "InventoryCancelDateCb";
+            this.InventoryCancelDateCb.Size = new System.Drawing.Size(20, 20);
+            this.InventoryCancelDateCb.TabIndex = 187;
+            this.InventoryCancelDateCb.UseVisualStyleBackColor = true;
+            this.InventoryCancelDateCb.Visible = false;
+            this.InventoryCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
             // 
             // InventoryEndDateDt
             // 
@@ -1185,6 +1266,17 @@
             this.InventorySearchTxt.Size = new System.Drawing.Size(162, 22);
             this.InventorySearchTxt.TabIndex = 180;
             this.InventorySearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(1279, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
             // 
             // ReportsTabControl
             // 
@@ -1278,6 +1370,66 @@
             this.AuditTrailTbl.TabIndex = 183;
             this.AuditTrailTbl.TabStop = false;
             // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "formatted_date";
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle33;
+            this.dataGridViewTextBoxColumn20.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 56;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.name.DataPropertyName = "name";
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.name.DefaultCellStyle = dataGridViewCellStyle34;
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "username";
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle35;
+            this.dataGridViewTextBoxColumn21.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Width = 89;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "action";
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle36;
+            this.dataGridViewTextBoxColumn23.HeaderText = "Action";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Width = 66;
+            // 
+            // details
+            // 
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.details.DataPropertyName = "details";
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.details.DefaultCellStyle = dataGridViewCellStyle37;
+            this.details.HeaderText = "Remarks";
+            this.details.MinimumWidth = 100;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.Control;
@@ -1292,6 +1444,24 @@
             this.panel8.Size = new System.Drawing.Size(1199, 67);
             this.panel8.TabIndex = 41;
             // 
+            // AuditCancelSearchCb
+            // 
+            this.AuditCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.AuditCancelSearchCb.AutoCheck = false;
+            this.AuditCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.AuditCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AuditCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AuditCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.AuditCancelSearchCb.FlatAppearance.BorderSize = 0;
+            this.AuditCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuditCancelSearchCb.Location = new System.Drawing.Point(197, 39);
+            this.AuditCancelSearchCb.Name = "AuditCancelSearchCb";
+            this.AuditCancelSearchCb.Size = new System.Drawing.Size(20, 20);
+            this.AuditCancelSearchCb.TabIndex = 188;
+            this.AuditCancelSearchCb.UseVisualStyleBackColor = true;
+            this.AuditCancelSearchCb.Visible = false;
+            this.AuditCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.SystemColors.Control;
@@ -1305,6 +1475,24 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(516, 67);
             this.panel18.TabIndex = 186;
+            // 
+            // AuditCancelDateCb
+            // 
+            this.AuditCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.AuditCancelDateCb.AutoCheck = false;
+            this.AuditCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
+            this.AuditCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AuditCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AuditCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.AuditCancelDateCb.FlatAppearance.BorderSize = 0;
+            this.AuditCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuditCancelDateCb.Location = new System.Drawing.Point(132, 39);
+            this.AuditCancelDateCb.Name = "AuditCancelDateCb";
+            this.AuditCancelDateCb.Size = new System.Drawing.Size(20, 20);
+            this.AuditCancelDateCb.TabIndex = 187;
+            this.AuditCancelDateCb.UseVisualStyleBackColor = true;
+            this.AuditCancelDateCb.Visible = false;
+            this.AuditCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
             // 
             // AuditEndDateDt
             // 
@@ -1374,232 +1562,44 @@
             this.AuditSearchTxt.TabIndex = 180;
             this.AuditSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
             // 
-            // InventoryCancelSearchCb
+            // label6
             // 
-            this.InventoryCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.InventoryCancelSearchCb.AutoCheck = false;
-            this.InventoryCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.InventoryCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.InventoryCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.InventoryCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.InventoryCancelSearchCb.FlatAppearance.BorderSize = 0;
-            this.InventoryCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InventoryCancelSearchCb.Location = new System.Drawing.Point(197, 39);
-            this.InventoryCancelSearchCb.Name = "InventoryCancelSearchCb";
-            this.InventoryCancelSearchCb.Size = new System.Drawing.Size(20, 20);
-            this.InventoryCancelSearchCb.TabIndex = 188;
-            this.InventoryCancelSearchCb.UseVisualStyleBackColor = true;
-            this.InventoryCancelSearchCb.Visible = false;
-            this.InventoryCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.LightGray;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label6.Size = new System.Drawing.Size(373, 27);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Items Sold";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // InventoryCancelDateCb
+            // ItemsSoldLbl
             // 
-            this.InventoryCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.InventoryCancelDateCb.AutoCheck = false;
-            this.InventoryCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.InventoryCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.InventoryCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.InventoryCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.InventoryCancelDateCb.FlatAppearance.BorderSize = 0;
-            this.InventoryCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InventoryCancelDateCb.Location = new System.Drawing.Point(132, 39);
-            this.InventoryCancelDateCb.Name = "InventoryCancelDateCb";
-            this.InventoryCancelDateCb.Size = new System.Drawing.Size(20, 20);
-            this.InventoryCancelDateCb.TabIndex = 187;
-            this.InventoryCancelDateCb.UseVisualStyleBackColor = true;
-            this.InventoryCancelDateCb.Visible = false;
-            this.InventoryCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
+            this.ItemsSoldLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsSoldLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemsSoldLbl.ForeColor = System.Drawing.Color.White;
+            this.ItemsSoldLbl.Location = new System.Drawing.Point(0, 27);
+            this.ItemsSoldLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ItemsSoldLbl.Name = "ItemsSoldLbl";
+            this.ItemsSoldLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.ItemsSoldLbl.Size = new System.Drawing.Size(373, 37);
+            this.ItemsSoldLbl.TabIndex = 4;
+            this.ItemsSoldLbl.Text = "0";
+            this.ItemsSoldLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
+            // panel10
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(1279, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
-            // PurchaseCancelSearchCb
-            // 
-            this.PurchaseCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.PurchaseCancelSearchCb.AutoCheck = false;
-            this.PurchaseCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.PurchaseCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PurchaseCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PurchaseCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.PurchaseCancelSearchCb.FlatAppearance.BorderSize = 0;
-            this.PurchaseCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PurchaseCancelSearchCb.Location = new System.Drawing.Point(197, 39);
-            this.PurchaseCancelSearchCb.Name = "PurchaseCancelSearchCb";
-            this.PurchaseCancelSearchCb.Size = new System.Drawing.Size(20, 20);
-            this.PurchaseCancelSearchCb.TabIndex = 188;
-            this.PurchaseCancelSearchCb.UseVisualStyleBackColor = true;
-            this.PurchaseCancelSearchCb.Visible = false;
-            this.PurchaseCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
-            // 
-            // PurchaseCancelDateCb
-            // 
-            this.PurchaseCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.PurchaseCancelDateCb.AutoCheck = false;
-            this.PurchaseCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.PurchaseCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PurchaseCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PurchaseCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.PurchaseCancelDateCb.FlatAppearance.BorderSize = 0;
-            this.PurchaseCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PurchaseCancelDateCb.Location = new System.Drawing.Point(132, 39);
-            this.PurchaseCancelDateCb.Name = "PurchaseCancelDateCb";
-            this.PurchaseCancelDateCb.Size = new System.Drawing.Size(20, 20);
-            this.PurchaseCancelDateCb.TabIndex = 187;
-            this.PurchaseCancelDateCb.UseVisualStyleBackColor = true;
-            this.PurchaseCancelDateCb.Visible = false;
-            this.PurchaseCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
-            // 
-            // SalesCancelSearchCb
-            // 
-            this.SalesCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.SalesCancelSearchCb.AutoCheck = false;
-            this.SalesCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.SalesCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SalesCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SalesCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.SalesCancelSearchCb.FlatAppearance.BorderSize = 0;
-            this.SalesCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesCancelSearchCb.Location = new System.Drawing.Point(197, 39);
-            this.SalesCancelSearchCb.Name = "SalesCancelSearchCb";
-            this.SalesCancelSearchCb.Size = new System.Drawing.Size(20, 20);
-            this.SalesCancelSearchCb.TabIndex = 188;
-            this.SalesCancelSearchCb.UseVisualStyleBackColor = true;
-            this.SalesCancelSearchCb.Visible = false;
-            this.SalesCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
-            // 
-            // SalesCancelDateCb
-            // 
-            this.SalesCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.SalesCancelDateCb.AutoCheck = false;
-            this.SalesCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.SalesCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SalesCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SalesCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.SalesCancelDateCb.FlatAppearance.BorderSize = 0;
-            this.SalesCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesCancelDateCb.Location = new System.Drawing.Point(132, 39);
-            this.SalesCancelDateCb.Name = "SalesCancelDateCb";
-            this.SalesCancelDateCb.Size = new System.Drawing.Size(20, 20);
-            this.SalesCancelDateCb.TabIndex = 187;
-            this.SalesCancelDateCb.UseVisualStyleBackColor = true;
-            this.SalesCancelDateCb.Visible = false;
-            this.SalesCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(1279, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.UseWaitCursor = true;
-            this.pictureBox3.Visible = false;
-            // 
-            // AuditCancelSearchCb
-            // 
-            this.AuditCancelSearchCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.AuditCancelSearchCb.AutoCheck = false;
-            this.AuditCancelSearchCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.AuditCancelSearchCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AuditCancelSearchCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AuditCancelSearchCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.AuditCancelSearchCb.FlatAppearance.BorderSize = 0;
-            this.AuditCancelSearchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AuditCancelSearchCb.Location = new System.Drawing.Point(197, 39);
-            this.AuditCancelSearchCb.Name = "AuditCancelSearchCb";
-            this.AuditCancelSearchCb.Size = new System.Drawing.Size(20, 20);
-            this.AuditCancelSearchCb.TabIndex = 188;
-            this.AuditCancelSearchCb.UseVisualStyleBackColor = true;
-            this.AuditCancelSearchCb.Visible = false;
-            this.AuditCancelSearchCb.Click += new System.EventHandler(this.CancelSearchCb_Click);
-            // 
-            // AuditCancelDateCb
-            // 
-            this.AuditCancelDateCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.AuditCancelDateCb.AutoCheck = false;
-            this.AuditCancelDateCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_30;
-            this.AuditCancelDateCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AuditCancelDateCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AuditCancelDateCb.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.AuditCancelDateCb.FlatAppearance.BorderSize = 0;
-            this.AuditCancelDateCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AuditCancelDateCb.Location = new System.Drawing.Point(132, 39);
-            this.AuditCancelDateCb.Name = "AuditCancelDateCb";
-            this.AuditCancelDateCb.Size = new System.Drawing.Size(20, 20);
-            this.AuditCancelDateCb.TabIndex = 187;
-            this.AuditCancelDateCb.UseVisualStyleBackColor = true;
-            this.AuditCancelDateCb.Visible = false;
-            this.AuditCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "formatted_date";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle33;
-            this.dataGridViewTextBoxColumn20.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 56;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.name.DataPropertyName = "name";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.name.DefaultCellStyle = dataGridViewCellStyle34;
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "username";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle35;
-            this.dataGridViewTextBoxColumn21.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 89;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "action";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle36;
-            this.dataGridViewTextBoxColumn23.HeaderText = "Action";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 66;
-            // 
-            // details
-            // 
-            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.details.DataPropertyName = "details";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.details.DefaultCellStyle = dataGridViewCellStyle37;
-            this.details.HeaderText = "Remarks";
-            this.details.MinimumWidth = 100;
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel10.Controls.Add(this.ItemsSoldLbl);
+            this.panel10.Controls.Add(this.label6);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(30, 3);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(373, 64);
+            this.panel10.TabIndex = 7;
             // 
             // Reports
             // 
@@ -1623,7 +1623,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.PurchaseReportTab.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).EndInit();
@@ -1638,6 +1638,7 @@
             this.panel2.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ReportsTabControl.ResumeLayout(false);
             this.AuditTrailTab.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -1646,8 +1647,7 @@
             this.panel8.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1735,9 +1735,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label SalesRevenueLbl;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label ItemsSoldLbl;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatted_order_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn operated_by;
@@ -1752,5 +1749,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn details;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label ItemsSoldLbl;
+        private System.Windows.Forms.Label label6;
     }
 }

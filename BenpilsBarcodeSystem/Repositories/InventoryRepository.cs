@@ -713,10 +713,19 @@ namespace BenpilsBarcodeSystem.Repository
             return item;
         }
 
-        public async Task<int> GetActiveItemsCount()
+        public async Task<int> GetItemAcount(bool isActive = true)
         {
             int count = 0;
-            string countQuery = $"SELECT COUNT({col_id}) FROM {tbl_name} WHERE {col_is_active} = 'true'";
+            string countQuery;
+
+            if (isActive)
+            {
+                countQuery = $"SELECT COUNT({col_id}) FROM {tbl_name} WHERE {col_is_active} = 'true'";
+            }
+            else
+            {
+                countQuery = $"SELECT COUNT({col_id}) FROM {tbl_name}";
+            }
 
             try
             {
@@ -807,6 +816,287 @@ namespace BenpilsBarcodeSystem.Repository
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
+        }
+
+        public async Task<int> GetCategoryCount()
+        {
+            int count = 0;
+            string countQuery = $"SELECT COUNT(DISTINCT {col_category}) FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(countQuery, con))
+                    {
+                        count = (int)await cmd.ExecuteScalarAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return count;
+        }
+
+        public async Task<DataTable> GetItemCountByCategoryAsync()
+        {
+            DataTable itemCounts = new DataTable();
+            itemCounts.Columns.Add("Category", typeof(string));
+            itemCounts.Columns.Add("Count", typeof(int));
+
+            string countQuery = $"SELECT {col_category}, COUNT(*) FROM {tbl_name} GROUP BY {col_category}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(countQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int count = Convert.ToInt32(reader[1]);
+                                string category = $"{count} {reader[0]}";
+                                itemCounts.Rows.Add(category, count);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return itemCounts;
+        }
+
+        public async Task<DataTable> GetBrandPopularityAsync()
+        {
+            DataTable brandPopularity = new DataTable();
+            brandPopularity.Columns.Add("Brand", typeof(string));
+            brandPopularity.Columns.Add("ItemCount", typeof(int));
+
+            string countQuery = $@"
+                SELECT i.{col_brand}, SUM(td.{POSRepository.col_quantity}) 
+                FROM {POSRepository.tbl_transaction_details} td
+                INNER JOIN {tbl_name} i ON td.{POSRepository.col_item_id} = i.{col_id}
+                GROUP BY i.{col_brand}
+                ORDER BY SUM(td.{POSRepository.col_quantity}) DESC";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(countQuery, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int itemCount = Convert.ToInt32(reader[1]);
+                                string brand = $"{reader[0]} ({itemCount}) ";
+                                brandPopularity.Rows.Add(brand, itemCount);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return brandPopularity;
+        }
+
+        public async Task<decimal> GetTotalStockValue(bool useSellingPrice = true)
+        {
+            decimal totalStockValue = 0;
+            string priceColumn = useSellingPrice ? col_selling_price : col_purchase_price;
+            string query = $"SELECT SUM({col_quantity} * {priceColumn}) FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        object result = await cmd.ExecuteScalarAsync();
+                        totalStockValue = (result != DBNull.Value) ? (decimal)result : 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return totalStockValue;
+        }
+
+        public async Task<decimal> GetPotentialProfit()
+        {
+            decimal potentialProfit = 0;
+            string query = $"SELECT SUM({col_quantity} * ({col_selling_price} - {col_purchase_price})) FROM {tbl_name}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        object result = await cmd.ExecuteScalarAsync();
+                        potentialProfit = (result != DBNull.Value) ? (decimal)result : 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return potentialProfit;
+        }
+
+        public async Task<(List<SalesData> TopLowestProfitMarginItems, List<SalesData> TopHighestProfitMarginItems)> GetTopProfitMarginItemsAsync()
+        {
+            List<SalesData> topLowestProfitMarginItems = new List<SalesData>();
+            List<SalesData> topHighestProfitMarginItems = new List<SalesData>();
+
+            string queryLowestProfitMargin = $@"
+                SELECT TOP 5 
+                    {col_item_name},
+                    {col_brand},
+                    {col_size},
+                    AVG(CASE WHEN {col_selling_price} = 0 THEN 0 ELSE ({col_selling_price} - {col_purchase_price}) / {col_selling_price} END) AS AvgProfitMargin
+                FROM 
+                    {tbl_name}
+                WHERE
+                    {col_is_active} = 'true'
+                GROUP BY
+                    {col_item_name},
+                    {col_brand},
+                    {col_size}
+                ORDER BY 
+                    AvgProfitMargin ASC";
+
+            string queryHighestProfitMargin = $@"
+                SELECT TOP 5 
+                    {col_item_name},
+                    {col_brand},
+                    {col_size},
+                    AVG(CASE WHEN {col_selling_price} = 0 THEN 0 ELSE ({col_selling_price} - {col_purchase_price}) / {col_selling_price} END) AS AvgProfitMargin
+                FROM 
+                    {tbl_name}
+                WHERE
+                    {col_is_active} = 'true'
+                GROUP BY
+                    {col_item_name},
+                    {col_brand},
+                    {col_size}
+                ORDER BY 
+                    AvgProfitMargin DESC";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(queryLowestProfitMargin, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                SalesData item = new SalesData
+                                {
+                                    ItemName = reader[col_item_name].ToString(),
+                                    Brand = reader[col_brand].ToString(),
+                                    Size = reader[col_size].ToString(),
+                                    AvgProfitMargin = Convert.ToDecimal(reader["AvgProfitMargin"])
+                                };
+                                topLowestProfitMarginItems.Add(item);
+                            }
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(queryHighestProfitMargin, con))
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                SalesData item = new SalesData
+                                {
+                                    ItemName = reader[col_item_name].ToString(),
+                                    Brand = reader[col_brand].ToString(),
+                                    Size = reader[col_size].ToString(),
+                                    AvgProfitMargin = Convert.ToDecimal(reader["AvgProfitMargin"])
+                                };
+                                topHighestProfitMarginItems.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return (topLowestProfitMarginItems, topHighestProfitMarginItems);
+        }
+
+        public Task<DataTable> GetSalesByCategoryAsync(List<SalesData> salesDataList)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Category", typeof(string));
+            dt.Columns.Add("TotalSales", typeof(decimal));
+
+            if (salesDataList.Count > 0)
+            {
+                var groupedData = salesDataList.GroupBy(d => d.Category)
+                    .Select(g => new
+                    {
+                        Category = g.Key,
+                        TotalSales = g.Sum(s => s.TotalSales)
+                    });
+
+                foreach (var item in groupedData)
+                {
+                    dt.Rows.Add(item.Category, item.TotalSales);
+                }
+            }
+
+            return Task.FromResult(dt);
+        }
+
+        public Task<DataTable> GetSalesByBrandAsync(List<SalesData> salesDataList)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Brand", typeof(string));
+            dt.Columns.Add("TotalSales", typeof(decimal));
+
+            if (salesDataList.Count > 0)
+            {
+                var groupedData = salesDataList.GroupBy(d => d.Brand)
+                    .Select(g => new
+                    {
+                        Brand = g.Key,
+                        TotalSales = g.Sum(s => s.TotalSales)
+                    });
+
+                foreach (var item in groupedData)
+                {
+                    dt.Rows.Add(item.Brand, item.TotalSales);
+                }
+            }
+
+            return Task.FromResult(dt);
         }
 
     }

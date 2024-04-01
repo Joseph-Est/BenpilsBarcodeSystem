@@ -157,6 +157,7 @@
             // 
             // tabInventory
             // 
+            this.tabInventory.BackColor = System.Drawing.SystemColors.Control;
             this.tabInventory.Controls.Add(this.panel1);
             this.tabInventory.Controls.Add(this.panel2);
             this.tabInventory.Location = new System.Drawing.Point(4, 28);
@@ -164,7 +165,6 @@
             this.tabInventory.Size = new System.Drawing.Size(1191, 643);
             this.tabInventory.TabIndex = 0;
             this.tabInventory.Text = "Inventory";
-            this.tabInventory.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -351,6 +351,7 @@
             // 
             // tabSupplier
             // 
+            this.tabSupplier.BackColor = System.Drawing.SystemColors.Control;
             this.tabSupplier.Controls.Add(this.panel3);
             this.tabSupplier.Controls.Add(this.panel4);
             this.tabSupplier.Location = new System.Drawing.Point(4, 28);
@@ -358,7 +359,6 @@
             this.tabSupplier.Size = new System.Drawing.Size(1191, 643);
             this.tabSupplier.TabIndex = 1;
             this.tabSupplier.Text = "Suppliers";
-            this.tabSupplier.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -524,6 +524,7 @@
             // 
             // tabUsers
             // 
+            this.tabUsers.BackColor = System.Drawing.SystemColors.Control;
             this.tabUsers.Controls.Add(this.panel5);
             this.tabUsers.Controls.Add(this.panel6);
             this.tabUsers.Location = new System.Drawing.Point(4, 28);
@@ -531,7 +532,6 @@
             this.tabUsers.Size = new System.Drawing.Size(1191, 643);
             this.tabUsers.TabIndex = 3;
             this.tabUsers.Text = "Users";
-            this.tabUsers.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 

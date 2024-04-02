@@ -163,7 +163,7 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     if (connection != null)
                     {
-                        string query = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password AMD {col_is_active} = 'true'";
+                        string query = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password AND {col_is_active} = 'true'";
 
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {

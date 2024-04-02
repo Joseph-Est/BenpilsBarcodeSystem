@@ -1064,7 +1064,8 @@ namespace BenpilsBarcodeSystem.Repository
                     {
                         Category = g.Key,
                         TotalSales = g.Sum(s => s.TotalSales)
-                    });
+                    })
+                    .OrderByDescending(g => g.TotalSales);
 
                 foreach (var item in groupedData)
                 {
@@ -1088,7 +1089,8 @@ namespace BenpilsBarcodeSystem.Repository
                     {
                         Brand = g.Key,
                         TotalSales = g.Sum(s => s.TotalSales)
-                    });
+                    })
+                    .OrderByDescending(g => g.TotalSales);
 
                 foreach (var item in groupedData)
                 {

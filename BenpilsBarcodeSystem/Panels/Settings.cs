@@ -1,5 +1,6 @@
 ﻿using BenpilsBarcodeSystem.Repositories;
 using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace BenpilsBarcodeSystem
         public Settings()
         {
             InitializeComponent();
+            Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, EndDt);
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -242,6 +244,18 @@ namespace BenpilsBarcodeSystem
                 DisabledLbl.ForeColor = Color.FromArgb(240, 62, 62);
                 DisabledLbl.Text = "Disabled";
                 AutomaticBackupPanel.Enabled = false;
+            }
+        }
+
+        private void DisabledLbl_Click(object sender, EventArgs e)
+        {
+            if (SwitchCb.Checked)
+            {
+                SwitchCb.Checked = false;
+            }
+            else
+            {
+                SwitchCb.Checked = true;
             }
         }
     }

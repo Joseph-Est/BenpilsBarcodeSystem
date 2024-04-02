@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -43,12 +49,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -71,7 +71,11 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.SalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.BrandChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -110,21 +114,17 @@
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel30 = new System.Windows.Forms.Panel();
-            this.ProjectedProfitLbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.ProjectedSalesLbl = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.TStockValueLbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.BrandChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label20 = new System.Windows.Forms.Label();
-            this.SalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ProjectedSalesLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ProjectedProfitLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -138,7 +138,9 @@
             this.panel25.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).BeginInit();
             this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel22.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -164,12 +166,10 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BestSellingTbl)).BeginInit();
             this.panel13.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.panel30.SuspendLayout();
-            this.panel28.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).BeginInit();
+            this.panel28.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -212,7 +212,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1147, 73);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -232,7 +232,7 @@
             // 
             this.ASalesMonthlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesMonthlyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesMonthlyLbl.ForeColor = System.Drawing.Color.White;
+            this.ASalesMonthlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.ASalesMonthlyLbl.Location = new System.Drawing.Point(0, 27);
             this.ASalesMonthlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesMonthlyLbl.Name = "ASalesMonthlyLbl";
@@ -271,7 +271,7 @@
             // 
             this.ASalesYearlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesYearlyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesYearlyLbl.ForeColor = System.Drawing.Color.White;
+            this.ASalesYearlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.ASalesYearlyLbl.Location = new System.Drawing.Point(0, 27);
             this.ASalesYearlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesYearlyLbl.Name = "ASalesYearlyLbl";
@@ -310,7 +310,7 @@
             // 
             this.ASalesDailyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesDailyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesDailyLbl.ForeColor = System.Drawing.Color.White;
+            this.ASalesDailyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.ASalesDailyLbl.Location = new System.Drawing.Point(0, 27);
             this.ASalesDailyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesDailyLbl.Name = "ASalesDailyLbl";
@@ -349,7 +349,7 @@
             // 
             this.ASalesWeeklyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesWeeklyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesWeeklyLbl.ForeColor = System.Drawing.Color.White;
+            this.ASalesWeeklyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.ASalesWeeklyLbl.Location = new System.Drawing.Point(0, 27);
             this.ASalesWeeklyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesWeeklyLbl.Name = "ASalesWeeklyLbl";
@@ -459,6 +459,92 @@
             this.panel27.Size = new System.Drawing.Size(439, 264);
             this.panel27.TabIndex = 0;
             // 
+            // SalesChart
+            // 
+            this.SalesChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineWidth = 0;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineWidth = 0;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisX.MajorTickMark.LineWidth = 0;
+            chartArea1.AxisX.MajorTickMark.Size = 3F;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineWidth = 0;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea1.BorderColor = System.Drawing.Color.White;
+            chartArea1.Name = "ChartArea1";
+            this.SalesChart.ChartAreas.Add(chartArea1);
+            this.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend1.Enabled = false;
+            legend1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.SalesChart.Legends.Add(legend1);
+            this.SalesChart.Location = new System.Drawing.Point(0, 39);
+            this.SalesChart.Name = "SalesChart";
+            this.SalesChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.IsVisibleInLegend = false;
+            series1.LabelBackColor = System.Drawing.Color.White;
+            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series1.LabelFormat = "₱ {0:#,##0.##}";
+            series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series1.MarkerColor = System.Drawing.Color.White;
+            series1.MarkerSize = 7;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series1.Name = "Series1";
+            series1.ShadowColor = System.Drawing.Color.Silver;
+            series1.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series1.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
+            series1.YValuesPerPoint = 6;
+            this.SalesChart.Series.Add(series1);
+            this.SalesChart.Size = new System.Drawing.Size(439, 220);
+            this.SalesChart.TabIndex = 12;
+            this.SalesChart.Text = "chart1";
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(0, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(439, 39);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "SALES BY CATEGORY";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel29
             // 
             this.panel29.Controls.Add(this.BrandChart);
@@ -470,6 +556,92 @@
             this.panel29.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panel29.Size = new System.Drawing.Size(439, 265);
             this.panel29.TabIndex = 1;
+            // 
+            // BrandChart
+            // 
+            this.BrandChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BrandChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineWidth = 0;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineWidth = 0;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisX.MajorTickMark.LineWidth = 0;
+            chartArea2.AxisX.MajorTickMark.Size = 3F;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineWidth = 0;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea2.BorderColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.BrandChart.ChartAreas.Add(chartArea2);
+            this.BrandChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend2.Enabled = false;
+            legend2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.BrandChart.Legends.Add(legend2);
+            this.BrandChart.Location = new System.Drawing.Point(0, 44);
+            this.BrandChart.Name = "BrandChart";
+            this.BrandChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.LabelBackColor = System.Drawing.Color.White;
+            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.LabelFormat = "₱ {0:#,##0.##}";
+            series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.MarkerColor = System.Drawing.Color.White;
+            series2.MarkerSize = 7;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
+            series2.YValuesPerPoint = 6;
+            this.BrandChart.Series.Add(series2);
+            this.BrandChart.Size = new System.Drawing.Size(439, 221);
+            this.BrandChart.TabIndex = 13;
+            this.BrandChart.Text = "chart1";
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(0, 5);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(439, 39);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "SALES BY BRAND";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel11
             // 
@@ -502,7 +674,7 @@
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(688, 529);
@@ -512,10 +684,10 @@
             // 
             this.panel23.Controls.Add(this.tableLayoutPanel6);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel23.Location = new System.Drawing.Point(0, 90);
+            this.panel23.Location = new System.Drawing.Point(0, 110);
             this.panel23.Margin = new System.Windows.Forms.Padding(0);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(688, 219);
+            this.panel23.Size = new System.Drawing.Size(688, 199);
             this.panel23.TabIndex = 8;
             // 
             // tableLayoutPanel6
@@ -531,8 +703,8 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(688, 219);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 219F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(688, 199);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel8
@@ -543,7 +715,7 @@
             this.panel8.Location = new System.Drawing.Point(344, 5);
             this.panel8.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(344, 209);
+            this.panel8.Size = new System.Drawing.Size(344, 189);
             this.panel8.TabIndex = 1;
             // 
             // BrandPopularityChart
@@ -582,7 +754,7 @@
             series3.BorderColor = System.Drawing.SystemColors.Control;
             series3.BorderWidth = 2;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series3.Color = System.Drawing.SystemColors.Control;
             series3.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series3.IsValueShownAsLabel = true;
@@ -591,7 +763,7 @@
             series3.Name = "Series1";
             series3.YValuesPerPoint = 4;
             this.BrandPopularityChart.Series.Add(series3);
-            this.BrandPopularityChart.Size = new System.Drawing.Size(344, 170);
+            this.BrandPopularityChart.Size = new System.Drawing.Size(344, 150);
             this.BrandPopularityChart.TabIndex = 11;
             this.BrandPopularityChart.Text = "chart2";
             // 
@@ -617,7 +789,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 5);
             this.panel7.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(344, 209);
+            this.panel7.Size = new System.Drawing.Size(344, 189);
             this.panel7.TabIndex = 0;
             // 
             // CategoryDistributionChart
@@ -665,7 +837,7 @@
             series4.Name = "Series1";
             series4.YValuesPerPoint = 4;
             this.CategoryDistributionChart.Series.Add(series4);
-            this.CategoryDistributionChart.Size = new System.Drawing.Size(344, 170);
+            this.CategoryDistributionChart.Size = new System.Drawing.Size(344, 150);
             this.CategoryDistributionChart.TabIndex = 12;
             this.CategoryDistributionChart.Text = "chart1";
             // 
@@ -1106,8 +1278,62 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
-            this.panel13.Size = new System.Drawing.Size(688, 90);
+            this.panel13.Size = new System.Drawing.Size(688, 110);
             this.panel13.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label2.Location = new System.Drawing.Point(2, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label2.Size = new System.Drawing.Size(684, 40);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "SALES PROJECTION";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Control;
+            this.panel9.Controls.Add(this.TStockValueLbl);
+            this.panel9.Controls.Add(this.label18);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 3);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(199, 60);
+            this.panel9.TabIndex = 21;
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.SystemColors.Control;
+            this.panel28.Controls.Add(this.ProjectedSalesLbl);
+            this.panel28.Controls.Add(this.label4);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(205, 3);
+            this.panel28.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel28.Name = "panel28";
+            this.panel28.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel28.Size = new System.Drawing.Size(233, 60);
+            this.panel28.TabIndex = 26;
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.SystemColors.Control;
+            this.panel30.Controls.Add(this.ProjectedProfitLbl);
+            this.panel30.Controls.Add(this.label6);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel30.Location = new System.Drawing.Point(444, 3);
+            this.panel30.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel30.Name = "panel30";
+            this.panel30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel30.Size = new System.Drawing.Size(234, 60);
+            this.panel30.TabIndex = 27;
             // 
             // tableLayoutPanel4
             // 
@@ -1121,105 +1347,12 @@
             this.tableLayoutPanel4.Controls.Add(this.panel28, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel9, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 34);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 42);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(684, 54);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(684, 66);
             this.tableLayoutPanel4.TabIndex = 12;
-            // 
-            // panel30
-            // 
-            this.panel30.BackColor = System.Drawing.SystemColors.Control;
-            this.panel30.Controls.Add(this.ProjectedProfitLbl);
-            this.panel30.Controls.Add(this.label6);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(444, 3);
-            this.panel30.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel30.Name = "panel30";
-            this.panel30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel30.Size = new System.Drawing.Size(234, 48);
-            this.panel30.TabIndex = 27;
-            // 
-            // ProjectedProfitLbl
-            // 
-            this.ProjectedProfitLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectedProfitLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProjectedProfitLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ProjectedProfitLbl.Location = new System.Drawing.Point(10, 18);
-            this.ProjectedProfitLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ProjectedProfitLbl.Name = "ProjectedProfitLbl";
-            this.ProjectedProfitLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ProjectedProfitLbl.Size = new System.Drawing.Size(224, 30);
-            this.ProjectedProfitLbl.TabIndex = 8;
-            this.ProjectedProfitLbl.Text = "₱ 0.00";
-            this.ProjectedProfitLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label6.Location = new System.Drawing.Point(10, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(224, 18);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Projected Profit";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // panel28
-            // 
-            this.panel28.BackColor = System.Drawing.SystemColors.Control;
-            this.panel28.Controls.Add(this.ProjectedSalesLbl);
-            this.panel28.Controls.Add(this.label4);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(205, 3);
-            this.panel28.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel28.Name = "panel28";
-            this.panel28.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel28.Size = new System.Drawing.Size(233, 48);
-            this.panel28.TabIndex = 26;
-            // 
-            // ProjectedSalesLbl
-            // 
-            this.ProjectedSalesLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectedSalesLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProjectedSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ProjectedSalesLbl.Location = new System.Drawing.Point(10, 18);
-            this.ProjectedSalesLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ProjectedSalesLbl.Name = "ProjectedSalesLbl";
-            this.ProjectedSalesLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ProjectedSalesLbl.Size = new System.Drawing.Size(223, 30);
-            this.ProjectedSalesLbl.TabIndex = 6;
-            this.ProjectedSalesLbl.Text = "₱ 0.00";
-            this.ProjectedSalesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label4.Location = new System.Drawing.Point(10, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(223, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Projected Sales";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Control;
-            this.panel9.Controls.Add(this.TStockValueLbl);
-            this.panel9.Controls.Add(this.label18);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 3);
-            this.panel9.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(199, 48);
-            this.panel9.TabIndex = 21;
             // 
             // TStockValueLbl
             // 
@@ -1230,7 +1363,7 @@
             this.TStockValueLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.TStockValueLbl.Name = "TStockValueLbl";
             this.TStockValueLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.TStockValueLbl.Size = new System.Drawing.Size(189, 30);
+            this.TStockValueLbl.Size = new System.Drawing.Size(189, 42);
             this.TStockValueLbl.TabIndex = 6;
             this.TStockValueLbl.Text = "₱ 0.00";
             this.TStockValueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1239,205 +1372,68 @@
             // 
             this.label18.Dock = System.Windows.Forms.DockStyle.Top;
             this.label18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.label18.Location = new System.Drawing.Point(10, 0);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label18.Size = new System.Drawing.Size(189, 18);
             this.label18.TabIndex = 5;
             this.label18.Text = "Total Stock Value";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label2
+            // label4
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(684, 32);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "SALES PROJECTION";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label4.Location = new System.Drawing.Point(10, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(223, 18);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Projected Sales";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label21
+            // ProjectedSalesLbl
             // 
-            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(0, 5);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(439, 39);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "SALES BY BRAND";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ProjectedSalesLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectedSalesLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectedSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ProjectedSalesLbl.Location = new System.Drawing.Point(10, 18);
+            this.ProjectedSalesLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ProjectedSalesLbl.Name = "ProjectedSalesLbl";
+            this.ProjectedSalesLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.ProjectedSalesLbl.Size = new System.Drawing.Size(223, 42);
+            this.ProjectedSalesLbl.TabIndex = 6;
+            this.ProjectedSalesLbl.Text = "₱ 0.00";
+            this.ProjectedSalesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BrandChart
+            // label6
             // 
-            this.BrandChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BrandChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineWidth = 0;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisX.MajorTickMark.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.Size = 3F;
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LabelStyle.Format = "₱ {0}";
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LineWidth = 0;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.BorderColor = System.Drawing.Color.White;
-            chartArea2.Name = "ChartArea1";
-            this.BrandChart.ChartAreas.Add(chartArea2);
-            this.BrandChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.Enabled = false;
-            legend2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.BrandChart.Legends.Add(legend2);
-            this.BrandChart.Location = new System.Drawing.Point(0, 44);
-            this.BrandChart.Name = "BrandChart";
-            this.BrandChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.BorderColor = System.Drawing.Color.White;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsValueShownAsLabel = true;
-            series2.IsVisibleInLegend = false;
-            series2.LabelBackColor = System.Drawing.Color.White;
-            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelFormat = "₱ {}";
-            series2.Legend = "Legend1";
-            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.MarkerColor = System.Drawing.Color.White;
-            series2.MarkerSize = 7;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Silver;
-            series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
-            series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
-            series2.YValuesPerPoint = 6;
-            this.BrandChart.Series.Add(series2);
-            this.BrandChart.Size = new System.Drawing.Size(439, 221);
-            this.BrandChart.TabIndex = 13;
-            this.BrandChart.Text = "chart1";
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label6.Location = new System.Drawing.Point(10, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(224, 18);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Projected Profit";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label20
+            // ProjectedProfitLbl
             // 
-            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(0, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(439, 39);
-            this.label20.TabIndex = 11;
-            this.label20.Text = "SALES BY CATEGORY";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // SalesChart
-            // 
-            this.SalesChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.LineWidth = 0;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.LineWidth = 0;
-            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisX.MajorTickMark.LineWidth = 0;
-            chartArea1.AxisX.MajorTickMark.Size = 3F;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LabelStyle.Format = "₱ {0}";
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.LineWidth = 0;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea1.BorderColor = System.Drawing.Color.White;
-            chartArea1.Name = "ChartArea1";
-            this.SalesChart.ChartAreas.Add(chartArea1);
-            this.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend1.Enabled = false;
-            legend1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.SalesChart.Legends.Add(legend1);
-            this.SalesChart.Location = new System.Drawing.Point(0, 39);
-            this.SalesChart.Name = "SalesChart";
-            this.SalesChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            series1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.IsVisibleInLegend = false;
-            series1.LabelBackColor = System.Drawing.Color.White;
-            series1.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series1.LabelFormat = "₱ {}";
-            series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series1.MarkerColor = System.Drawing.Color.White;
-            series1.MarkerSize = 7;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series1.Name = "Series1";
-            series1.ShadowColor = System.Drawing.Color.Silver;
-            series1.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
-            series1.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
-            series1.YValuesPerPoint = 6;
-            this.SalesChart.Series.Add(series1);
-            this.SalesChart.Size = new System.Drawing.Size(439, 220);
-            this.SalesChart.TabIndex = 12;
-            this.SalesChart.Text = "chart1";
+            this.ProjectedProfitLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectedProfitLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectedProfitLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ProjectedProfitLbl.Location = new System.Drawing.Point(10, 18);
+            this.ProjectedProfitLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ProjectedProfitLbl.Name = "ProjectedProfitLbl";
+            this.ProjectedProfitLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.ProjectedProfitLbl.Size = new System.Drawing.Size(224, 42);
+            this.ProjectedProfitLbl.TabIndex = 8;
+            this.ProjectedProfitLbl.Text = "₱ 0.00";
+            this.ProjectedProfitLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StatisticReport
             // 
@@ -1464,7 +1460,9 @@
             this.panel25.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).EndInit();
             this.panel29.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1491,12 +1489,10 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BestSellingTbl)).EndInit();
             this.panel13.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).EndInit();
+            this.panel28.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1554,16 +1550,6 @@
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.DataVisualization.Charting.Chart CategoryDistributionChart;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Label ProjectedProfitLbl;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Label ProjectedSalesLbl;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label TStockValueLbl;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rank;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridView LeastSellingTbl;
@@ -1578,5 +1564,15 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataVisualization.Charting.Chart BrandChart;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label TStockValueLbl;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label ProjectedProfitLbl;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label ProjectedSalesLbl;
+        private System.Windows.Forms.Label label4;
     }
 }

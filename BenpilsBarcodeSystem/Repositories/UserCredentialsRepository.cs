@@ -155,7 +155,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> LoginAsync(string username, string password)
+        public async Task<int> LoginAsync(string username, string password)
         {
             try
             {
@@ -163,28 +163,50 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     if (connection != null)
                     {
-                        string query = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password AND {col_is_active} = 'true'";
+                        // First, check if the username exists
+                        string usernameQuery = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username";
 
-                        using (SqlCommand command = new SqlCommand(query, connection))
+                        using (SqlCommand usernameCommand = new SqlCommand(usernameQuery, connection))
                         {
-                            command.Parameters.AddWithValue("@Username", username);
-                            command.Parameters.AddWithValue("@Password", password);
+                            usernameCommand.Parameters.AddWithValue("@Username", username);
 
-                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                            using (SqlDataAdapter usernameAdapter = new SqlDataAdapter(usernameCommand))
                             {
-                                DataTable dataTable = new DataTable();
-                                await Task.Run(() => adapter.Fill(dataTable));
+                                DataTable usernameDataTable = new DataTable();
+                                await Task.Run(() => usernameAdapter.Fill(usernameDataTable));
 
-                                if (dataTable.Rows.Count > 0)
+                                if (usernameDataTable.Rows.Count == 0)
                                 {
-                                    int userId = Convert.ToInt32(dataTable.Rows[0][col_id]);
+                                    // Username does not exist
+                                    return 1;
+                                }
+                            }
+                        }
+
+                        // Then, check if the password is correct
+                        string passwordQuery = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password AND {col_is_active} = 'true'";
+
+                        using (SqlCommand passwordCommand = new SqlCommand(passwordQuery, connection))
+                        {
+                            passwordCommand.Parameters.AddWithValue("@Username", username);
+                            passwordCommand.Parameters.AddWithValue("@Password", password);
+
+                            using (SqlDataAdapter passwordAdapter = new SqlDataAdapter(passwordCommand))
+                            {
+                                DataTable passwordDataTable = new DataTable();
+                                await Task.Run(() => passwordAdapter.Fill(passwordDataTable));
+
+                                if (passwordDataTable.Rows.Count > 0)
+                                {
+                                    // Password is correct
+                                    int userId = Convert.ToInt32(passwordDataTable.Rows[0][col_id]);
                                     CurrentUser.User = new User
                                     {
                                         iD = userId,
-                                        FirstName = dataTable.Rows[0][col_first_name].ToString(),
-                                        LastName = dataTable.Rows[0][col_last_name].ToString(),
-                                        Username = dataTable.Rows[0][col_username].ToString(),
-                                        Designation = dataTable.Rows[0][col_designation].ToString()
+                                        FirstName = passwordDataTable.Rows[0][col_first_name].ToString(),
+                                        LastName = passwordDataTable.Rows[0][col_last_name].ToString(),
+                                        Username = passwordDataTable.Rows[0][col_username].ToString(),
+                                        Designation = passwordDataTable.Rows[0][col_designation].ToString()
                                     };
 
                                     ReportsRepository repository = new ReportsRepository();
@@ -196,7 +218,12 @@ namespace BenpilsBarcodeSystem.Repository
                                         throw new Exception("Failed to add audit trail");
                                     }
 
-                                    return true;
+                                    return 0; // Login successful
+                                }
+                                else
+                                {
+                                    // Password is incorrect
+                                    return 2;
                                 }
                             }
                         }
@@ -204,14 +231,15 @@ namespace BenpilsBarcodeSystem.Repository
                     else
                     {
                         Console.WriteLine("Database connection failed.");
+                        return 3; // Database connection failed
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                return 4; // An error occurred
             }
-            return false;
         }
 
         public async Task<bool> LogoutAsync()

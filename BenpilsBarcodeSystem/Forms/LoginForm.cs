@@ -58,18 +58,29 @@ namespace BenpilsBarcodeSystem
                     {
                         UserCredentialsRepository repository = new UserCredentialsRepository();
 
-                        if (await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text))
+                        switch(await repository.LoginAsync(UsernameTxt.Text, PasswordTxt.Text))
                         {
-                            MainForm dash = new MainForm();
-                            dash.Show();
-                            dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                            this.Hide();
+                            case 0:
+                                MainForm dash = new MainForm();
+                                dash.Show();
+                                dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                                this.Hide();
+                                break;
+                            case 1:
+                                MessageBox.Show("User does not exist or archived.");
+                                break;
+                            case 2:
+                                MessageBox.Show("Incorrect password!");
+                                break;
+                            case 3:
+                                MessageBox.Show("Connection failed!");
+                                break;
+                            case 4:
+                                MessageBox.Show("An error has occured, please try again later!");
+                                break;
                         }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password!");
-                            UsernameTxt.Select();
-                        }
+
+                        UsernameTxt.Select();
                     }
                     catch (Exception ex)
                     {

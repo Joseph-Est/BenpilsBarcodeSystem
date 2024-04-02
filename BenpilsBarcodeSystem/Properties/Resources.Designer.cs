@@ -939,5 +939,15 @@ namespace BenpilsBarcodeSystem.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading_icon_animated_gif_9 {
+            get {
+                object obj = ResourceManager.GetObject("loading-icon-animated-gif-9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

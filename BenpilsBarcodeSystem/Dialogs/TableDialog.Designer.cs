@@ -32,18 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseCb = new System.Windows.Forms.CheckBox();
             this.TitleLbl = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.TableTbl = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseCb = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TotalLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TableTbl)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,35 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel2.Size = new System.Drawing.Size(646, 33);
             this.panel2.TabIndex = 89;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.CloseCb);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(608, -1);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(37, 33);
+            this.flowLayoutPanel1.TabIndex = 85;
+            // 
+            // CloseCb
+            // 
+            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.CloseCb.AutoCheck = false;
+            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseCb.FlatAppearance.BorderSize = 0;
+            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseCb.Location = new System.Drawing.Point(9, 8);
+            this.CloseCb.Name = "CloseCb";
+            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
+            this.CloseCb.Size = new System.Drawing.Size(20, 20);
+            this.CloseCb.TabIndex = 26;
+            this.CloseCb.UseVisualStyleBackColor = true;
+            this.CloseCb.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // TitleLbl
             // 
@@ -134,35 +163,6 @@
             this.TableTbl.TabIndex = 184;
             this.TableTbl.TabStop = false;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.CloseCb);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(608, -1);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(37, 33);
-            this.flowLayoutPanel1.TabIndex = 85;
-            // 
-            // CloseCb
-            // 
-            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.CloseCb.AutoCheck = false;
-            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseCb.FlatAppearance.BorderSize = 0;
-            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseCb.Location = new System.Drawing.Point(9, 8);
-            this.CloseCb.Name = "CloseCb";
-            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
-            this.CloseCb.Size = new System.Drawing.Size(20, 20);
-            this.CloseCb.TabIndex = 26;
-            this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -225,9 +225,9 @@
             this.Text = "TableDialog";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TableTbl)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

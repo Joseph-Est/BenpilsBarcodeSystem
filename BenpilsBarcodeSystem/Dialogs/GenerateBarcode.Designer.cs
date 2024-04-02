@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.LvlBarcodeGenerator = new System.Windows.Forms.Label();
             this.ManualRegenratetxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.CopyBtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.generatedpicture = new System.Windows.Forms.PictureBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.ManualGenerateBtn = new System.Windows.Forms.Button();
             this.GenerateBtn = new System.Windows.Forms.Button();
-            this.CloseBtn = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +62,18 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // CloseBtn
+            // 
+            this.CloseBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBtn.Location = new System.Drawing.Point(262, 7);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(20, 20);
+            this.CloseBtn.TabIndex = 7;
+            this.CloseBtn.TabStop = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // LvlBarcodeGenerator
             // 
@@ -103,28 +115,6 @@
             this.panel2.Size = new System.Drawing.Size(289, 309);
             this.panel2.TabIndex = 119;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.generatedpicture);
-            this.panel4.Location = new System.Drawing.Point(21, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 150);
-            this.panel4.TabIndex = 119;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(1);
-            this.panel3.Size = new System.Drawing.Size(291, 344);
-            this.panel3.TabIndex = 120;
-            // 
             // CopyBtn
             // 
             this.CopyBtn.BackColor = System.Drawing.Color.White;
@@ -140,6 +130,16 @@
             this.CopyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CopyBtn.UseVisualStyleBackColor = false;
             this.CopyBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.generatedpicture);
+            this.panel4.Location = new System.Drawing.Point(21, 18);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(247, 150);
+            this.panel4.TabIndex = 119;
             // 
             // generatedpicture
             // 
@@ -199,17 +199,17 @@
             this.GenerateBtn.UseVisualStyleBackColor = false;
             this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
-            // CloseBtn
+            // panel3
             // 
-            this.CloseBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBtn.Location = new System.Drawing.Point(262, 7);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(20, 20);
-            this.CloseBtn.TabIndex = 7;
-            this.CloseBtn.TabStop = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(1);
+            this.panel3.Size = new System.Drawing.Size(291, 344);
+            this.panel3.TabIndex = 120;
             // 
             // GenerateBarcode
             // 
@@ -230,12 +230,12 @@
             this.Load += new System.EventHandler(this.GenerateBarcode_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.generatedpicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -1,9 +1,12 @@
 ﻿using BenpilsBarcodeSystem.Entities;
 using BenpilsBarcodeSystem.Helpers;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -300,6 +303,106 @@ namespace BenpilsBarcodeSystem.Utils
                 dtp.Format = DateTimePickerFormat.Custom;
                 dtp.CustomFormat = format;
             }
+        }
+
+        public static int ExportToExcel(string filePath, string fileName, Dictionary<DataTable, string> dataTableSheetMapping)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(filePath) || string.IsNullOrWhiteSpace(fileName) || dataTableSheetMapping == null || dataTableSheetMapping.Count == 0)
+                {
+                    throw new ArgumentException("Invalid arguments provided.");
+                }
+
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+
+                string fullFilePath = Path.Combine(filePath, $"{fileName}.xlsx");
+
+                FileInfo newFile = new FileInfo(fullFilePath);
+
+                using (ExcelPackage excelPackage = new ExcelPackage(newFile))
+                {
+                    foreach (var mapping in dataTableSheetMapping)
+                    {
+                        ExcelWorksheet existingWorksheet = excelPackage.Workbook.Worksheets.FirstOrDefault(ws => ws.Name == mapping.Value);
+                        if (existingWorksheet != null)
+                        {
+                            try
+                            {
+                                excelPackage.Workbook.Worksheets.Delete(existingWorksheet);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error deleting existing worksheet '{mapping.Value}': {ex.Message}");
+                                continue;
+                            }
+                        }
+
+                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add(mapping.Value);
+
+                        worksheet.Cells["A1"].LoadFromDataTable(mapping.Key, true);
+
+                        for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                        {
+                            if (worksheet.Cells[1, col].Value.ToString().ToLower().Contains("date"))
+                            {
+                                worksheet.Column(col).Style.Numberformat.Format = "mm/dd/yyyy";
+                            }
+                        }
+
+                        worksheet.Cells.AutoFitColumns();
+                    }
+
+                    using (FileStream fs = new FileStream(fullFilePath, FileMode.Create))
+                    {
+                        excelPackage.SaveAs(fs);
+                    }
+                }
+            }
+            catch (IOException)
+            {
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 2; 
+            }
+
+            return 0; 
+        }
+
+        public static DataTable ReorderColumns(DataTable dt, List<string> columnOrder)
+        {
+            DataTable reorderedDt = dt.Clone();  // empty table with same schema
+
+            // Arrange the columns in the specified order
+            foreach (string columnName in columnOrder)
+            {
+                reorderedDt.Columns[columnName].SetOrdinal(columnOrder.IndexOf(columnName));
+            }
+
+            // Import the data from the original table
+            foreach (DataRow row in dt.Rows)
+            {
+                reorderedDt.ImportRow(row);
+            }
+
+            return reorderedDt;
+        }
+
+        public static bool IsAnyCheckboxChecked(params CheckBox[] checkBoxes)
+        {
+            foreach (var checkBox in checkBoxes)
+            {
+                if (checkBox.Checked)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

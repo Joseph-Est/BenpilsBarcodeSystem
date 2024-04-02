@@ -273,5 +273,9 @@ namespace BenpilsBarcodeSystem
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
+        private void MainPanel_Resize(object sender, EventArgs e)
+        {
+        }
     }
 }

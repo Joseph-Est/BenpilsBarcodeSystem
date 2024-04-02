@@ -546,6 +546,7 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1207, 735);
             this.MainPanel.TabIndex = 22;
+            this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
             // 
             // panel5
             // 

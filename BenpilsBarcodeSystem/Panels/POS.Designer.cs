@@ -60,7 +60,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.CheckoutBtn = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.ChangeLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
+            this.CheckoutBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -409,24 +409,6 @@
             this.panel11.Size = new System.Drawing.Size(391, 57);
             this.panel11.TabIndex = 217;
             // 
-            // CheckoutBtn
-            // 
-            this.CheckoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CheckoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CheckoutBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckoutBtn.Enabled = false;
-            this.CheckoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckoutBtn.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckoutBtn.ForeColor = System.Drawing.Color.White;
-            this.CheckoutBtn.Location = new System.Drawing.Point(0, 0);
-            this.CheckoutBtn.Name = "CheckoutBtn";
-            this.CheckoutBtn.Size = new System.Drawing.Size(391, 57);
-            this.CheckoutBtn.TabIndex = 198;
-            this.CheckoutBtn.TabStop = false;
-            this.CheckoutBtn.Text = "Checkout";
-            this.CheckoutBtn.UseVisualStyleBackColor = false;
-            this.CheckoutBtn.Click += new System.EventHandler(this.CheckoutBtn_Click);
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.SystemColors.Control;
@@ -612,6 +594,24 @@
             this.RefreshBtn.TabStop = false;
             this.RefreshBtn.UseWaitCursor = true;
             // 
+            // CheckoutBtn
+            // 
+            this.CheckoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CheckoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckoutBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckoutBtn.Enabled = false;
+            this.CheckoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckoutBtn.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckoutBtn.ForeColor = System.Drawing.Color.White;
+            this.CheckoutBtn.Location = new System.Drawing.Point(0, 0);
+            this.CheckoutBtn.Name = "CheckoutBtn";
+            this.CheckoutBtn.Size = new System.Drawing.Size(391, 57);
+            this.CheckoutBtn.TabIndex = 198;
+            this.CheckoutBtn.TabStop = false;
+            this.CheckoutBtn.Text = "Checkout";
+            this.CheckoutBtn.UseVisualStyleBackColor = false;
+            this.CheckoutBtn.Click += new System.EventHandler(this.CheckoutBtn_Click);
+            // 
             // POS
             // 
             this.AcceptButton = this.CheckoutBtn;
@@ -667,7 +667,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button CheckoutBtn;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label ChangeLbl;
         private System.Windows.Forms.Label label14;
@@ -695,5 +694,6 @@
         private System.Windows.Forms.TextBox BarcodeTxt;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox PaymentTxt;
+        private System.Windows.Forms.Button CheckoutBtn;
     }
 }

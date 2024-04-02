@@ -682,5 +682,14 @@
   <ItemGroup>
     <None Include="Resources\ben and ben.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-switch-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-on-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-off-30.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

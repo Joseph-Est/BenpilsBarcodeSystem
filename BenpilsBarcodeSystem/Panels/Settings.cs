@@ -223,5 +223,26 @@ namespace BenpilsBarcodeSystem
                 }
             }
         }
+
+
+        // BACKUP
+
+        private void SwitchCb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SwitchCb.Checked)
+            {
+                SwitchCb.Image = Properties.Resources.icons8_toggle_on_30;
+                DisabledLbl.ForeColor = Color.FromArgb(255, 255, 255);
+                DisabledLbl.Text = "Enabled";
+                AutomaticBackupPanel.Enabled = true;
+            }
+            else
+            {
+                SwitchCb.Image = Properties.Resources.icons8_toggle_off_30;
+                DisabledLbl.ForeColor = Color.FromArgb(240, 62, 62);
+                DisabledLbl.Text = "Disabled";
+                AutomaticBackupPanel.Enabled = false;
+            }
+        }
     }
 }

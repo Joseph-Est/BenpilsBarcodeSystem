@@ -188,10 +188,10 @@
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.Controls.Add(this.tableLayoutPanel2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(30, 63);
+            this.panel5.Location = new System.Drawing.Point(30, 53);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel5.Size = new System.Drawing.Size(1147, 83);
+            this.panel5.Size = new System.Drawing.Size(1147, 93);
             this.panel5.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -213,7 +213,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1147, 73);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1147, 83);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel6
@@ -225,7 +225,7 @@
             this.panel6.Location = new System.Drawing.Point(577, 3);
             this.panel6.Margin = new System.Windows.Forms.Padding(5, 3, 6, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(275, 67);
+            this.panel6.Size = new System.Drawing.Size(275, 77);
             this.panel6.TabIndex = 22;
             // 
             // ASalesMonthlyLbl
@@ -233,11 +233,11 @@
             this.ASalesMonthlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesMonthlyLbl.Font = new System.Drawing.Font("Arial", 18F);
             this.ASalesMonthlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ASalesMonthlyLbl.Location = new System.Drawing.Point(0, 27);
+            this.ASalesMonthlyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesMonthlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesMonthlyLbl.Name = "ASalesMonthlyLbl";
             this.ASalesMonthlyLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ASalesMonthlyLbl.Size = new System.Drawing.Size(275, 40);
+            this.ASalesMonthlyLbl.Size = new System.Drawing.Size(275, 47);
             this.ASalesMonthlyLbl.TabIndex = 4;
             this.ASalesMonthlyLbl.Text = "₱ 0.00";
             this.ASalesMonthlyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -250,10 +250,10 @@
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(4, 10, 0, 0);
-            this.label7.Size = new System.Drawing.Size(275, 27);
+            this.label7.Size = new System.Drawing.Size(275, 30);
             this.label7.TabIndex = 3;
             this.label7.Text = "Monthly";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel3
             // 
@@ -264,7 +264,7 @@
             this.panel3.Location = new System.Drawing.Point(863, 3);
             this.panel3.Margin = new System.Windows.Forms.Padding(5, 3, 0, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(284, 67);
+            this.panel3.Size = new System.Drawing.Size(284, 77);
             this.panel3.TabIndex = 21;
             // 
             // ASalesYearlyLbl
@@ -272,11 +272,11 @@
             this.ASalesYearlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesYearlyLbl.Font = new System.Drawing.Font("Arial", 18F);
             this.ASalesYearlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ASalesYearlyLbl.Location = new System.Drawing.Point(0, 27);
+            this.ASalesYearlyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesYearlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesYearlyLbl.Name = "ASalesYearlyLbl";
             this.ASalesYearlyLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ASalesYearlyLbl.Size = new System.Drawing.Size(284, 40);
+            this.ASalesYearlyLbl.Size = new System.Drawing.Size(284, 47);
             this.ASalesYearlyLbl.TabIndex = 4;
             this.ASalesYearlyLbl.Text = "₱ 0.00";
             this.ASalesYearlyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,10 +289,10 @@
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(4, 10, 0, 0);
-            this.label5.Size = new System.Drawing.Size(284, 27);
+            this.label5.Size = new System.Drawing.Size(284, 30);
             this.label5.TabIndex = 3;
             this.label5.Text = "Yearly";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel10
             // 
@@ -303,7 +303,7 @@
             this.panel10.Location = new System.Drawing.Point(0, 3);
             this.panel10.Margin = new System.Windows.Forms.Padding(0, 3, 5, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(281, 67);
+            this.panel10.Size = new System.Drawing.Size(281, 77);
             this.panel10.TabIndex = 20;
             // 
             // ASalesDailyLbl
@@ -311,11 +311,11 @@
             this.ASalesDailyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesDailyLbl.Font = new System.Drawing.Font("Arial", 18F);
             this.ASalesDailyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ASalesDailyLbl.Location = new System.Drawing.Point(0, 27);
+            this.ASalesDailyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesDailyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesDailyLbl.Name = "ASalesDailyLbl";
             this.ASalesDailyLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ASalesDailyLbl.Size = new System.Drawing.Size(281, 40);
+            this.ASalesDailyLbl.Size = new System.Drawing.Size(281, 47);
             this.ASalesDailyLbl.TabIndex = 4;
             this.ASalesDailyLbl.Text = "₱ 0.00";
             this.ASalesDailyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,10 +328,10 @@
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(4, 10, 0, 0);
-            this.label8.Size = new System.Drawing.Size(281, 27);
+            this.label8.Size = new System.Drawing.Size(281, 30);
             this.label8.TabIndex = 3;
             this.label8.Text = "Daily";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel2
             // 
@@ -342,7 +342,7 @@
             this.panel2.Location = new System.Drawing.Point(291, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(5, 3, 6, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 67);
+            this.panel2.Size = new System.Drawing.Size(275, 77);
             this.panel2.TabIndex = 19;
             // 
             // ASalesWeeklyLbl
@@ -350,11 +350,11 @@
             this.ASalesWeeklyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesWeeklyLbl.Font = new System.Drawing.Font("Arial", 18F);
             this.ASalesWeeklyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ASalesWeeklyLbl.Location = new System.Drawing.Point(0, 27);
+            this.ASalesWeeklyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesWeeklyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesWeeklyLbl.Name = "ASalesWeeklyLbl";
             this.ASalesWeeklyLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ASalesWeeklyLbl.Size = new System.Drawing.Size(275, 40);
+            this.ASalesWeeklyLbl.Size = new System.Drawing.Size(275, 47);
             this.ASalesWeeklyLbl.TabIndex = 4;
             this.ASalesWeeklyLbl.Text = "₱ 0.00";
             this.ASalesWeeklyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -367,10 +367,10 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(4, 10, 0, 0);
-            this.label3.Size = new System.Drawing.Size(275, 27);
+            this.label3.Size = new System.Drawing.Size(275, 30);
             this.label3.TabIndex = 3;
             this.label3.Text = "Weekly";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label1
             // 
@@ -380,10 +380,11 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label1.Location = new System.Drawing.Point(30, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1147, 33);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.label1.Size = new System.Drawing.Size(1147, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "AVERAGE SALES";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -733,9 +734,8 @@
             legend3.BorderColor = System.Drawing.Color.White;
             legend3.BorderWidth = 0;
             legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.Font = new System.Drawing.Font("Arial", 8F);
             legend3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend3.IsTextAutoFit = false;
             legend3.Name = "Legend1";
             legend3.TitleFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrandPopularityChart.Legends.Add(legend3);
@@ -807,9 +807,8 @@
             legend4.BorderColor = System.Drawing.Color.White;
             legend4.BorderWidth = 0;
             legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend4.Font = new System.Drawing.Font("Arial", 8F);
             legend4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend4.IsTextAutoFit = false;
             legend4.Name = "Legend1";
             legend4.TitleFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryDistributionChart.Legends.Add(legend4);

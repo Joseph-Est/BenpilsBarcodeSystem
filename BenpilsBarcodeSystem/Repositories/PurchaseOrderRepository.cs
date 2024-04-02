@@ -528,7 +528,9 @@ namespace BenpilsBarcodeSystem.Repositories
                 INNER JOIN 
                     {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id}
                 WHERE 
-                    po.{col_status} = @status";
+                    po.{col_status} = @status
+                ORDER BY
+                    po.{col_receiving_date} ASC";
 
             try
             {
@@ -597,29 +599,40 @@ namespace BenpilsBarcodeSystem.Repositories
             }
         }
 
-        public async Task<(int TotalPending, int TotalOverdue)> GetPendingStatusCountsAsync()
+        public async Task<(int DeliveredCount, int PendingCount, int OverdueCount, int PendingToday)> GetOrderStatusCountsAsync()
         {
-            int totalPending = 0;
-            int totalOverdue = 0;
+            int deliveredCount = 0;
+            int pendingCount = 0;
+            int overdueCount = 0;
+            int pendingToday = 0;
 
-            string selectQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = @status";
-            string overdueQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = @status AND {col_receiving_date} < @currentDate";
+            string deliveredQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = '{delivered_status}' OR {col_status} = '{partially_delivered_status}'";
+            string pendingQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_status} = '{pending_status}'";
+            string overdueQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE {col_receiving_date} < CONVERT(DATE, GETDATE()) AND {col_status} = '{pending_status}'";
+            string pendingTodayQuery = $"SELECT COUNT(*) FROM {tbl_purchase_order} WHERE CONVERT(DATE, {col_receiving_date}) = CONVERT(DATE, GETDATE()) AND {col_status} = '{pending_status}'";
 
             try
             {
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    using (SqlCommand cmd = new SqlCommand(deliveredQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@status", pending_status);
-                        totalPending = (int)await cmd.ExecuteScalarAsync();
+                        deliveredCount = (int)await cmd.ExecuteScalarAsync();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(pendingQuery, con))
+                    {
+                        pendingCount = (int)await cmd.ExecuteScalarAsync();
                     }
 
                     using (SqlCommand cmd = new SqlCommand(overdueQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@status", pending_status);
-                        cmd.Parameters.AddWithValue("@currentDate", DateTime.Now.Date);
-                        totalOverdue = (int)await cmd.ExecuteScalarAsync();
+                        overdueCount = (int)await cmd.ExecuteScalarAsync();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(pendingTodayQuery, con))
+                    {
+                        pendingToday = (int)await cmd.ExecuteScalarAsync();
                     }
                 }
             }
@@ -628,7 +641,7 @@ namespace BenpilsBarcodeSystem.Repositories
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
 
-            return (totalPending, totalOverdue);
+            return (DeliveredCount: deliveredCount, PendingCount: pendingCount, OverdueCount: overdueCount, PendingToday: pendingToday);
         }
     }
 }

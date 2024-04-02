@@ -230,6 +230,13 @@ namespace BenpilsBarcodeSystem
                 DataTable pr = await repository.GetPurchaseOrderTransactionsAsync(PurchaseStartDateDt.Value, PurchaseEndDateDt.Value, PurchaseSearchTxt.Text);
                 OrdersTbl.AutoGenerateColumns = false;
                 OrdersTbl.DataSource = pr;
+
+                PurchaseOrderRepository posRepository = new PurchaseOrderRepository();
+                (int delivered, int pending, int overdue, int pendingToday) = await posRepository.GetOrderStatusCountsAsync();
+                DueToday.Text = pendingToday.ToString();
+                TotalPendingLbl.Text = pending.ToString();
+                TotalOverdueLbl.Text = overdue.ToString();
+                TotalDeliveredLbl.Text = delivered.ToString();
             }
             catch (Exception ex)
             {

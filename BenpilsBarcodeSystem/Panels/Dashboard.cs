@@ -36,6 +36,7 @@ namespace BenpilsBarcodeSystem
             toolTip2.SetToolTip(OverdueOrdersLbl, "Overdue orders");
             toolTip3.SetToolTip(LowStockLbl, "Low stock tems");
             toolTip4.SetToolTip(NoStockLbl, "Out of stock items");
+            toolTip4.SetToolTip(PendingTodayLbl, "Due today");
         }
 
         public void Dashboard_Load(object sender, EventArgs e)
@@ -105,9 +106,10 @@ namespace BenpilsBarcodeSystem
             TotalItemsLbl.Text = activeItemCount.ToString();
             TotalSuppliersLbl.Text = activeSupplierCount.ToString();
 
-            var (TotalPending, TotalOverdue) = await purchaseOrderRepository.GetPendingStatusCountsAsync();
-            OverdueOrdersLbl.Text = TotalOverdue.ToString();
-            PendingOrdersLbl.Text = TotalPending.ToString();
+            var (delivered, pending, overdue, pendingToday) = await purchaseOrderRepository.GetOrderStatusCountsAsync();
+            OverdueOrdersLbl.Text = overdue.ToString();
+            PendingOrdersLbl.Text = pending.ToString();
+            PendingTodayLbl.Text = pendingToday.ToString();
 
             IsLoadCalled = false;
         }

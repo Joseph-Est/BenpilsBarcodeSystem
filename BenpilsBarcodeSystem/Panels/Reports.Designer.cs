@@ -95,6 +95,9 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.SalesRevenueLbl = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.ItemsSoldLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SummaryLbl = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.PurchaseReportTab = new System.Windows.Forms.TabPage();
@@ -162,9 +165,20 @@
             this.AuditStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.AuditSearchTxt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ItemsSoldLbl = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TotalPendingLbl = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.DueToday = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.TotalDeliveredLbl = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.TotalOverdueLbl = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.SalesReportTab.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTbl)).BeginInit();
@@ -174,6 +188,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.PurchaseReportTab.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -192,7 +207,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.AuditTrailTbl)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // SalesReportTab
@@ -592,6 +612,45 @@
             this.label16.Text = "Sales Revenue";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel10.Controls.Add(this.ItemsSoldLbl);
+            this.panel10.Controls.Add(this.label6);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(30, 3);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(373, 64);
+            this.panel10.TabIndex = 7;
+            // 
+            // ItemsSoldLbl
+            // 
+            this.ItemsSoldLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsSoldLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemsSoldLbl.ForeColor = System.Drawing.Color.White;
+            this.ItemsSoldLbl.Location = new System.Drawing.Point(0, 27);
+            this.ItemsSoldLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ItemsSoldLbl.Name = "ItemsSoldLbl";
+            this.ItemsSoldLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.ItemsSoldLbl.Size = new System.Drawing.Size(373, 37);
+            this.ItemsSoldLbl.TabIndex = 4;
+            this.ItemsSoldLbl.Text = "0";
+            this.ItemsSoldLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.LightGray;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label6.Size = new System.Drawing.Size(373, 27);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Items Sold";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SummaryLbl
             // 
             this.SummaryLbl.Cursor = System.Windows.Forms.Cursors.Default;
@@ -623,6 +682,7 @@
             this.PurchaseReportTab.BackColor = System.Drawing.Color.Transparent;
             this.PurchaseReportTab.Controls.Add(this.panel3);
             this.PurchaseReportTab.Controls.Add(this.panel4);
+            this.PurchaseReportTab.Controls.Add(this.panel13);
             this.PurchaseReportTab.Location = new System.Drawing.Point(4, 28);
             this.PurchaseReportTab.Name = "PurchaseReportTab";
             this.PurchaseReportTab.Size = new System.Drawing.Size(1199, 678);
@@ -635,10 +695,10 @@
             this.panel3.Controls.Add(this.OrdersTbl);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 67);
+            this.panel3.Location = new System.Drawing.Point(0, 167);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel3.Size = new System.Drawing.Size(1199, 611);
+            this.panel3.Size = new System.Drawing.Size(1199, 511);
             this.panel3.TabIndex = 38;
             // 
             // OrdersTbl
@@ -696,7 +756,7 @@
             this.OrdersTbl.RowTemplate.Height = 30;
             this.OrdersTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrdersTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrdersTbl.Size = new System.Drawing.Size(1139, 581);
+            this.OrdersTbl.Size = new System.Drawing.Size(1139, 481);
             this.OrdersTbl.TabIndex = 182;
             this.OrdersTbl.TabStop = false;
             this.OrdersTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellContentClick);
@@ -815,7 +875,7 @@
             this.panel4.Controls.Add(this.PurchaseSearchTxt);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Location = new System.Drawing.Point(0, 100);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1199, 67);
             this.panel4.TabIndex = 39;
@@ -1562,44 +1622,193 @@
             this.AuditSearchTxt.TabIndex = 180;
             this.AuditSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
             // 
-            // label6
+            // tableLayoutPanel2
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label6.Size = new System.Drawing.Size(373, 27);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Items Sold";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.panel21, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel19, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel20, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1199, 70);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // ItemsSoldLbl
+            // panel20
             // 
-            this.ItemsSoldLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsSoldLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemsSoldLbl.ForeColor = System.Drawing.Color.White;
-            this.ItemsSoldLbl.Location = new System.Drawing.Point(0, 27);
-            this.ItemsSoldLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ItemsSoldLbl.Name = "ItemsSoldLbl";
-            this.ItemsSoldLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.ItemsSoldLbl.Size = new System.Drawing.Size(373, 37);
-            this.ItemsSoldLbl.TabIndex = 4;
-            this.ItemsSoldLbl.Text = "0";
-            this.ItemsSoldLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel20.Controls.Add(this.TotalPendingLbl);
+            this.panel20.Controls.Add(this.label21);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(319, 0);
+            this.panel20.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(274, 70);
+            this.panel20.TabIndex = 7;
             // 
-            // panel10
+            // label21
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel10.Controls.Add(this.ItemsSoldLbl);
-            this.panel10.Controls.Add(this.label6);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(30, 3);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(373, 64);
-            this.panel10.TabIndex = 7;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.LightGray;
+            this.label21.Location = new System.Drawing.Point(0, 0);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label21.Size = new System.Drawing.Size(274, 27);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Total Pending";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TotalPendingLbl
+            // 
+            this.TotalPendingLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalPendingLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalPendingLbl.ForeColor = System.Drawing.Color.White;
+            this.TotalPendingLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalPendingLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalPendingLbl.Name = "TotalPendingLbl";
+            this.TotalPendingLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalPendingLbl.Size = new System.Drawing.Size(274, 43);
+            this.TotalPendingLbl.TabIndex = 4;
+            this.TotalPendingLbl.Text = "0";
+            this.TotalPendingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.Control;
+            this.panel13.Controls.Add(this.tableLayoutPanel2);
+            this.panel13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel13.Size = new System.Drawing.Size(1199, 100);
+            this.panel13.TabIndex = 42;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel14.Controls.Add(this.DueToday);
+            this.panel14.Controls.Add(this.label7);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(30, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(279, 70);
+            this.panel14.TabIndex = 8;
+            // 
+            // DueToday
+            // 
+            this.DueToday.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DueToday.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DueToday.ForeColor = System.Drawing.Color.White;
+            this.DueToday.Location = new System.Drawing.Point(0, 27);
+            this.DueToday.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.DueToday.Name = "DueToday";
+            this.DueToday.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.DueToday.Size = new System.Drawing.Size(279, 43);
+            this.DueToday.TabIndex = 4;
+            this.DueToday.Text = "0";
+            this.DueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.LightGray;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label7.Size = new System.Drawing.Size(279, 27);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Due Today";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel19.Controls.Add(this.TotalDeliveredLbl);
+            this.panel19.Controls.Add(this.label19);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(887, 0);
+            this.panel19.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(282, 70);
+            this.panel19.TabIndex = 12;
+            // 
+            // TotalDeliveredLbl
+            // 
+            this.TotalDeliveredLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalDeliveredLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalDeliveredLbl.ForeColor = System.Drawing.Color.White;
+            this.TotalDeliveredLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalDeliveredLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalDeliveredLbl.Name = "TotalDeliveredLbl";
+            this.TotalDeliveredLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalDeliveredLbl.Size = new System.Drawing.Size(282, 43);
+            this.TotalDeliveredLbl.TabIndex = 6;
+            this.TotalDeliveredLbl.Text = "0";
+            this.TotalDeliveredLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.LightGray;
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label19.Size = new System.Drawing.Size(282, 27);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Total Delivered";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel21.Controls.Add(this.TotalOverdueLbl);
+            this.panel21.Controls.Add(this.label17);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(603, 0);
+            this.panel21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(274, 70);
+            this.panel21.TabIndex = 13;
+            // 
+            // TotalOverdueLbl
+            // 
+            this.TotalOverdueLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalOverdueLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalOverdueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.TotalOverdueLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalOverdueLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalOverdueLbl.Name = "TotalOverdueLbl";
+            this.TotalOverdueLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalOverdueLbl.Size = new System.Drawing.Size(274, 43);
+            this.TotalOverdueLbl.TabIndex = 6;
+            this.TotalOverdueLbl.Text = "0";
+            this.TotalOverdueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.LightGray;
+            this.label17.Location = new System.Drawing.Point(0, 0);
+            this.label17.Name = "label17";
+            this.label17.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label17.Size = new System.Drawing.Size(274, 27);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Total Overdue";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Reports
             // 
@@ -1623,6 +1832,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.PurchaseReportTab.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1647,7 +1857,12 @@
             this.panel8.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
-            this.panel10.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1752,5 +1967,19 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label ItemsSoldLbl;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label TotalPendingLbl;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label DueToday;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Label TotalDeliveredLbl;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label TotalOverdueLbl;
+        private System.Windows.Forms.Label label17;
     }
 }

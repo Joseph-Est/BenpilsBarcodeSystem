@@ -116,6 +116,11 @@
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.PendingTodayLbl = new System.Windows.Forms.Label();
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -151,6 +156,8 @@
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel35.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -286,9 +293,8 @@
             legend1.BorderColor = System.Drawing.Color.White;
             legend1.BorderWidth = 0;
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.Font = new System.Drawing.Font("Arial", 8F);
             legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.SellingItemsChart.Legends.Add(legend1);
             this.SellingItemsChart.Location = new System.Drawing.Point(0, 47);
@@ -970,14 +976,16 @@
             // 
             // panel29
             // 
+            this.panel29.Controls.Add(this.panel34);
+            this.panel29.Controls.Add(this.label2);
             this.panel29.Controls.Add(this.panel27);
             this.panel29.Controls.Add(this.label1);
             this.panel29.Controls.Add(this.panel28);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel29.Location = new System.Drawing.Point(337, 0);
+            this.panel29.Location = new System.Drawing.Point(334, 0);
             this.panel29.Name = "panel29";
             this.panel29.Padding = new System.Windows.Forms.Padding(0, 2, 0, 15);
-            this.panel29.Size = new System.Drawing.Size(77, 36);
+            this.panel29.Size = new System.Drawing.Size(80, 36);
             this.panel29.TabIndex = 11;
             // 
             // panel27
@@ -986,7 +994,7 @@
             this.panel27.BackColor = System.Drawing.Color.White;
             this.panel27.Controls.Add(this.PendingOrdersLbl);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel27.Location = new System.Drawing.Point(29, 2);
+            this.panel27.Location = new System.Drawing.Point(32, 2);
             this.panel27.MinimumSize = new System.Drawing.Size(20, 0);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(20, 19);
@@ -1015,7 +1023,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(49, 2);
+            this.label1.Location = new System.Drawing.Point(52, 2);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
             this.label1.Size = new System.Drawing.Size(8, 18);
@@ -1027,7 +1035,7 @@
             this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.panel28.Controls.Add(this.OverdueOrdersLbl);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel28.Location = new System.Drawing.Point(57, 2);
+            this.panel28.Location = new System.Drawing.Point(60, 2);
             this.panel28.MinimumSize = new System.Drawing.Size(20, 0);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(20, 19);
@@ -1250,6 +1258,58 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(24, 2);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
+            this.label2.Size = new System.Drawing.Size(8, 18);
+            this.label2.TabIndex = 11;
+            // 
+            // panel34
+            // 
+            this.panel34.AutoSize = true;
+            this.panel34.BackColor = System.Drawing.Color.White;
+            this.panel34.Controls.Add(this.panel35);
+            this.panel34.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel34.Location = new System.Drawing.Point(2, 2);
+            this.panel34.MinimumSize = new System.Drawing.Size(20, 0);
+            this.panel34.Name = "panel34";
+            this.panel34.Padding = new System.Windows.Forms.Padding(1);
+            this.panel34.Size = new System.Drawing.Size(22, 19);
+            this.panel34.TabIndex = 12;
+            // 
+            // panel35
+            // 
+            this.panel35.AutoSize = true;
+            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel35.Controls.Add(this.PendingTodayLbl);
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel35.Location = new System.Drawing.Point(1, 1);
+            this.panel35.MinimumSize = new System.Drawing.Size(20, 0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(20, 17);
+            this.panel35.TabIndex = 13;
+            // 
+            // PendingTodayLbl
+            // 
+            this.PendingTodayLbl.AutoSize = true;
+            this.PendingTodayLbl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PendingTodayLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PendingTodayLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PendingTodayLbl.ForeColor = System.Drawing.Color.White;
+            this.PendingTodayLbl.Location = new System.Drawing.Point(0, 0);
+            this.PendingTodayLbl.Name = "PendingTodayLbl";
+            this.PendingTodayLbl.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.PendingTodayLbl.Size = new System.Drawing.Size(18, 16);
+            this.PendingTodayLbl.TabIndex = 1;
+            this.PendingTodayLbl.Text = "0";
+            this.PendingTodayLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1307,6 +1367,10 @@
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            this.panel35.ResumeLayout(false);
+            this.panel35.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1386,5 +1450,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.Panel panel34;
+        private System.Windows.Forms.Panel panel35;
+        private System.Windows.Forms.Label PendingTodayLbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip toolTip5;
     }
 }

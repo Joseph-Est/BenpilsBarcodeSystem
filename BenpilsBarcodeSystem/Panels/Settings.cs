@@ -20,7 +20,7 @@ namespace BenpilsBarcodeSystem
         public Settings()
         {
             InitializeComponent();
-            Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, EndDt);
+            Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, DeliveryDt);
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -249,14 +249,7 @@ namespace BenpilsBarcodeSystem
 
         private void DisabledLbl_Click(object sender, EventArgs e)
         {
-            if (SwitchCb.Checked)
-            {
-                SwitchCb.Checked = false;
-            }
-            else
-            {
-                SwitchCb.Checked = true;
-            }
+
         }
     }
 }

@@ -847,7 +847,15 @@ namespace BenpilsBarcodeSystem.Repository
             itemCounts.Columns.Add("Category", typeof(string));
             itemCounts.Columns.Add("Count", typeof(int));
 
-            string countQuery = $"SELECT {col_category}, COUNT(*) FROM {tbl_name} GROUP BY {col_category}";
+            string countQuery = $@"
+                SELECT 
+                    CASE 
+                        WHEN {col_category} = 'N/A' THEN 'Uncategorized'
+                        ELSE {col_category}
+                    END as Category,
+                    COUNT(*) 
+                FROM {tbl_name} 
+                GROUP BY Category";
 
             try
             {
@@ -885,6 +893,7 @@ namespace BenpilsBarcodeSystem.Repository
                 SELECT i.{col_brand}, SUM(td.{POSRepository.col_quantity}) 
                 FROM {POSRepository.tbl_transaction_details} td
                 INNER JOIN {tbl_name} i ON td.{POSRepository.col_item_id} = i.{col_id}
+                WHERE i.{col_brand} != 'N/A'
                 GROUP BY i.{col_brand}
                 ORDER BY SUM(td.{POSRepository.col_quantity}) DESC";
 

@@ -24,6 +24,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, EndDt);
+            SetUpCB();
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -275,7 +276,7 @@ namespace BenpilsBarcodeSystem
                 this.Focus();
             };
 
-            if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, SalesTransactionsCb, InventoryReportCb, SalesReportCb, AuditTrailCb))
+            if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb))
             {
                 Dictionary<DataTable, string> dataTableSheetMapping = new Dictionary<DataTable, string>();
 
@@ -325,15 +326,6 @@ namespace BenpilsBarcodeSystem
                     {
                         dataTableSheetMapping.Add(dt, "Inventory Report");
                     }
-                }
-
-                if (SalesReportCb.Checked)
-                {
-                    //DataTable dt = await GetInventoryReportDT(fromDate, endDate);
-                    //if (dt != null && dt.Rows.Count > 0)
-                    //{
-                    //    dataTableSheetMapping.Add(dt, "Inventory Report");
-                    //}
                 }
 
                 if (AuditTrailCb.Checked)
@@ -616,6 +608,89 @@ namespace BenpilsBarcodeSystem
         private void StartDt_ValueChanged(object sender, EventArgs e)
         {
             EndDt.MinDate = StartDt.Value;
+        }
+
+        private void CB_CheckedChanged(object sender, EventArgs e)
+        {
+            bool check = Util.IsAnyCheckboxChecked(PurchaseOrdersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb);
+            DateRangePanel.Enabled = check;;
+
+            if (!check)
+            {
+                StartDt.Value = DateTime.Today;
+                EndDt.Value = DateTime.Today;
+            }
+        }
+
+        private void RB_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+
+            if (radioButton != null && radioButton.Checked)
+            {
+                string radioButtonName = radioButton.Name;
+
+                bool activeHours = false;
+                HoursCb.Enabled = false;
+                WeeklyCb.Enabled = false;
+                MonthlyCb.Enabled = false;
+
+                switch (radioButtonName)
+                {
+                    case "HourlyRb":
+                        break;
+                    case "EveryHoursRb":
+                        HoursCb.Enabled = true;
+                        break;
+                    case "DailyRb":
+                        activeHours = true;
+                        break;
+                    case "WeeklyRb":
+                        activeHours = true;
+                        WeeklyCb.Enabled = true;
+                        break;
+                    case "MonthlyRb":
+                        MonthlyCb.Enabled = true;
+                        activeHours = true;
+                        break;
+                    default:
+                        break;
+                }
+
+                ActiveHoursPanel.Enabled = activeHours;
+                HoursPanel.Enabled = activeHours;
+            }
+        }
+
+        private void SetUpCB(bool isReset = false)
+        {
+            if (isReset)
+            {
+                HoursCb.SelectedIndex = 0;
+                WeeklyCb.SelectedIndex = 0;
+                MonthlyCb.SelectedIndex = 0;
+            }
+            else
+            {
+                for (int i = 1; i <= 23; i++)
+                {
+                    HoursCb.Items.Add(i.ToString());
+                }
+
+                HoursCb.SelectedIndex = 0;
+
+                string[] daysOfWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+                WeeklyCb.Items.AddRange(daysOfWeek);
+
+                WeeklyCb.SelectedIndex = 0;
+
+                for (int i = 1; i <= 31; i++)
+                {
+                    MonthlyCb.Items.Add(i.ToString());
+                }
+
+                MonthlyCb.SelectedIndex = 0;
+            }
         }
     }
 }

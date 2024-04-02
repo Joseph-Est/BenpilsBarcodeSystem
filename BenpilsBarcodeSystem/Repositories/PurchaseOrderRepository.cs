@@ -522,6 +522,7 @@ namespace BenpilsBarcodeSystem.Repositories
                 SELECT 
                     po.{col_order_id}, 
                     po.{col_receiving_date},
+                    po.{col_order_date},
                     s.{SuppliersRepository.col_contact_name} as supplier_name
                 FROM 
                     {tbl_purchase_order} po
@@ -547,6 +548,7 @@ namespace BenpilsBarcodeSystem.Repositories
                             {
                                 int orderId = reader.GetInt32(reader.GetOrdinal(col_order_id));
                                 DateTime deliveryDate = reader.GetDateTime(reader.GetOrdinal(col_receiving_date));
+                                DateTime orderDate = reader.GetDateTime(reader.GetOrdinal(col_order_date));
                                 string supplierName = reader.GetString(reader.GetOrdinal("supplier_name"));
 
                                 string days = CalculateDays(deliveryDate);
@@ -554,6 +556,8 @@ namespace BenpilsBarcodeSystem.Repositories
                                 PurchaseOrderEntity order = new PurchaseOrderEntity
                                 {
                                     OrderId = orderId,
+                                    OrderDate = Util.ConvertDateLong(orderDate),
+                                    DeliveryDate = Util.ConvertDateLong(deliveryDate),
                                     DeliveryStatus = days ?? Util.ConvertDateShort(deliveryDate),
                                     SupplierName = supplierName
                                 };

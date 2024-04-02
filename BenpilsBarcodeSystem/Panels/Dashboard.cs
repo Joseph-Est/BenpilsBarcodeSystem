@@ -23,6 +23,8 @@ namespace BenpilsBarcodeSystem
         private DateTime dateTo;
         private string selectedCb = "today";
         private List<SalesData> currentSalesData;
+        List<Item> lowStockItems;
+        List<PurchaseOrderEntity> purchaseOrder;
 
         public bool IsLoadCalled { get; set; } = false;
 
@@ -84,7 +86,7 @@ namespace BenpilsBarcodeSystem
             LoadSalesChart(posRepository, currentSalesData);
             LoadTopSellingItems(posRepository, currentSalesData);
 
-            List<Item> lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
+            lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
 
             LowStockTbl.AutoGenerateColumns = false;
             LowStockTbl.DataSource = lowStockItems;
@@ -95,10 +97,10 @@ namespace BenpilsBarcodeSystem
             LowStockLbl.Text = lowStockCount.ToString();
             NoStockLbl.Text = noStockCount.ToString();
 
-            List<PurchaseOrderEntity> overduePurchaseOrder = await purchaseOrderRepository.GetPendingOrdersAsync();
+            purchaseOrder = await purchaseOrderRepository.GetPendingOrdersAsync();
 
             OverdueTbl.AutoGenerateColumns = false;
-            OverdueTbl.DataSource = overduePurchaseOrder;
+            OverdueTbl.DataSource = purchaseOrder;
 
             int activeItemCount = await inventoryRepository.GetItemAcount();
             int activeSupplierCount = await suppliersRepository.GetActiveSuppliersCount();
@@ -199,7 +201,6 @@ namespace BenpilsBarcodeSystem
             {
 
             }
-            
         }
 
         private void DateCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -452,6 +453,148 @@ namespace BenpilsBarcodeSystem
             int[] middleRightColumns = { };
 
             ShowCustomReport("Available Items", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void LowStockLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!lowStockItems.Any())
+            {
+                return;
+            }
+
+            foreach (var item in lowStockItems)
+            {
+                if (item.Quantity > 0)
+                {
+                    data.Add(new object[] { item.DisplayItemName, item.Quantity });
+                }
+            }
+
+            string[] headers = { "Item", "Qty" };
+            int fillColumnIndex = 0;
+
+            int[] middleCenterColumns = {};
+            int[] middleRightColumns = {1};
+
+            ShowCustomReport("Low Stock Items", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void NoStockLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!lowStockItems.Any())
+            {
+                return;
+            }
+
+            foreach (var item in lowStockItems)
+            {
+                if (item.Quantity == 0)
+                {
+                    data.Add(new object[] { item.DisplayItemName, item.Quantity });
+                }
+            }
+
+            string[] headers = { "Item", "Qty" };
+            int fillColumnIndex = 0;
+
+            int[] middleCenterColumns = { };
+            int[] middleRightColumns = { 1 };
+
+            ShowCustomReport("Out of Stock Items", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void PendingTodayLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                if (order.DeliveryStatus.ToLower().Equals("today"))
+                {
+                    data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+                }
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = {0};
+            int[] middleRightColumns = {};
+
+            ShowCustomReport("Due Today", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void PendingOrdersLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Pending Orders", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void OverdueOrdersLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                if (order.DeliveryStatus.ToLower().Contains("overdue") || order.DeliveryStatus.ToLower().Contains("yesterday"))
+                {
+                    data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+                }
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Overdue Orders", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
         }
 
         public void ShowCustomReport(string title, List<object[]> data, string[] headers, int fillColumnIndex, int[] middleCenterColumns, int[] middleRightColumns, bool countTotal = true)

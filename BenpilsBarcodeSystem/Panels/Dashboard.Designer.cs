@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.TodayCb = new System.Windows.Forms.CheckBox();
             this.WeeklyCb = new System.Windows.Forms.CheckBox();
@@ -93,6 +93,10 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.PendingTodayLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.PendingOrdersLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -116,10 +120,6 @@
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.PendingTodayLbl = new System.Windows.Forms.Label();
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -147,6 +147,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OverdueTbl)).BeginInit();
             this.panel26.SuspendLayout();
             this.panel29.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel35.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -156,8 +158,6 @@
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
-            this.panel34.SuspendLayout();
-            this.panel35.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -281,22 +281,23 @@
             // SellingItemsChart
             // 
             this.SellingItemsChart.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisY.IsMarginVisible = false;
-            chartArea1.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.BorderColor = System.Drawing.SystemColors.Control;
-            chartArea1.Name = "ChartArea1";
-            this.SellingItemsChart.ChartAreas.Add(chartArea1);
+            chartArea9.AxisX.IsMarginVisible = false;
+            chartArea9.AxisY.IsMarginVisible = false;
+            chartArea9.BackColor = System.Drawing.SystemColors.Control;
+            chartArea9.BorderColor = System.Drawing.SystemColors.Control;
+            chartArea9.Name = "ChartArea1";
+            this.SellingItemsChart.ChartAreas.Add(chartArea9);
             this.SellingItemsChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.SystemColors.Control;
-            legend1.BorderColor = System.Drawing.Color.White;
-            legend1.BorderWidth = 0;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Font = new System.Drawing.Font("Arial", 8F);
-            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend1.Name = "Legend1";
-            this.SellingItemsChart.Legends.Add(legend1);
+            legend9.Alignment = System.Drawing.StringAlignment.Center;
+            legend9.BackColor = System.Drawing.SystemColors.Control;
+            legend9.BorderColor = System.Drawing.Color.White;
+            legend9.BorderWidth = 0;
+            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend9.Font = new System.Drawing.Font("Arial", 8F);
+            legend9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend9.IsTextAutoFit = false;
+            legend9.Name = "Legend1";
+            this.SellingItemsChart.Legends.Add(legend9);
             this.SellingItemsChart.Location = new System.Drawing.Point(0, 47);
             this.SellingItemsChart.MinimumSize = new System.Drawing.Size(10, 10);
             this.SellingItemsChart.Name = "SellingItemsChart";
@@ -307,17 +308,17 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))))};
             this.SellingItemsChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series1.BorderColor = System.Drawing.SystemColors.Control;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.SellingItemsChart.Series.Add(series1);
+            series9.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series9.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series9.BorderColor = System.Drawing.SystemColors.Control;
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.IsValueShownAsLabel = true;
+            series9.LabelForeColor = System.Drawing.Color.White;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.SellingItemsChart.Series.Add(series9);
             this.SellingItemsChart.Size = new System.Drawing.Size(416, 272);
             this.SellingItemsChart.TabIndex = 5;
             this.SellingItemsChart.Text = "chart2";
@@ -371,71 +372,71 @@
             // 
             this.SalesChart.BackColor = System.Drawing.SystemColors.Control;
             this.SalesChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineWidth = 0;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisX.MajorTickMark.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.Size = 3F;
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LineWidth = 0;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.BackColor = System.Drawing.SystemColors.Control;
-            chartArea2.Name = "ChartArea1";
-            this.SalesChart.ChartAreas.Add(chartArea2);
+            chartArea10.AxisX.IsLabelAutoFit = false;
+            chartArea10.AxisX.IsMarginVisible = false;
+            chartArea10.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea10.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea10.AxisX.LineWidth = 0;
+            chartArea10.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea10.AxisX.MajorGrid.LineWidth = 0;
+            chartArea10.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea10.AxisX.MajorTickMark.LineWidth = 0;
+            chartArea10.AxisX.MajorTickMark.Size = 3F;
+            chartArea10.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea10.AxisY.IsLabelAutoFit = false;
+            chartArea10.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea10.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
+            chartArea10.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea10.AxisY.LineWidth = 0;
+            chartArea10.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea10.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea10.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea10.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea10.BackColor = System.Drawing.SystemColors.Control;
+            chartArea10.Name = "ChartArea1";
+            this.SalesChart.ChartAreas.Add(chartArea10);
             this.SalesChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.Enabled = false;
-            legend2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.SalesChart.Legends.Add(legend2);
+            legend10.Alignment = System.Drawing.StringAlignment.Center;
+            legend10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend10.Enabled = false;
+            legend10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend10.IsTextAutoFit = false;
+            legend10.Name = "Legend1";
+            this.SalesChart.Legends.Add(legend10);
             this.SalesChart.Location = new System.Drawing.Point(0, 47);
             this.SalesChart.MinimumSize = new System.Drawing.Size(500, 0);
             this.SalesChart.Name = "SalesChart";
             this.SalesChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsValueShownAsLabel = true;
-            series2.IsVisibleInLegend = false;
-            series2.LabelBackColor = System.Drawing.Color.White;
-            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelFormat = "₱ {0:#,##0.##}";
-            series2.Legend = "Legend1";
-            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.MarkerColor = System.Drawing.Color.White;
-            series2.MarkerSize = 7;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Silver;
-            series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
-            series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
-            series2.YValuesPerPoint = 6;
-            this.SalesChart.Series.Add(series2);
+            series10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series10.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series10.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series10.IsValueShownAsLabel = true;
+            series10.IsVisibleInLegend = false;
+            series10.LabelBackColor = System.Drawing.Color.White;
+            series10.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series10.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series10.LabelFormat = "₱ {0:#,##0.##}";
+            series10.Legend = "Legend1";
+            series10.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series10.MarkerColor = System.Drawing.Color.White;
+            series10.MarkerSize = 7;
+            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series10.Name = "Series1";
+            series10.ShadowColor = System.Drawing.Color.Silver;
+            series10.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series10.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
+            series10.YValuesPerPoint = 6;
+            this.SalesChart.Series.Add(series10);
             this.SalesChart.Size = new System.Drawing.Size(713, 272);
             this.SalesChart.TabIndex = 2;
             this.SalesChart.Text = "chart1";
@@ -897,14 +898,14 @@
             this.OverdueTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OverdueTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.OverdueTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OverdueTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OverdueTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.OverdueTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OverdueTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -934,9 +935,9 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderId";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn1.HeaderText = "Order ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -945,9 +946,9 @@
             // 
             this.SupplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SupplierName.DataPropertyName = "SupplierName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.SupplierName.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.SupplierName.DefaultCellStyle = dataGridViewCellStyle31;
             this.SupplierName.HeaderText = "Supplier";
             this.SupplierName.MinimumWidth = 100;
             this.SupplierName.Name = "SupplierName";
@@ -956,9 +957,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "DeliveryStatus";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn2.HeaderText = "Delivery Date";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -988,6 +989,59 @@
             this.panel29.Size = new System.Drawing.Size(80, 36);
             this.panel29.TabIndex = 11;
             // 
+            // panel34
+            // 
+            this.panel34.AutoSize = true;
+            this.panel34.BackColor = System.Drawing.Color.White;
+            this.panel34.Controls.Add(this.panel35);
+            this.panel34.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel34.Location = new System.Drawing.Point(2, 2);
+            this.panel34.MinimumSize = new System.Drawing.Size(20, 0);
+            this.panel34.Name = "panel34";
+            this.panel34.Padding = new System.Windows.Forms.Padding(1);
+            this.panel34.Size = new System.Drawing.Size(22, 19);
+            this.panel34.TabIndex = 12;
+            // 
+            // panel35
+            // 
+            this.panel35.AutoSize = true;
+            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel35.Controls.Add(this.PendingTodayLbl);
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel35.Location = new System.Drawing.Point(1, 1);
+            this.panel35.MinimumSize = new System.Drawing.Size(20, 0);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(20, 17);
+            this.panel35.TabIndex = 13;
+            // 
+            // PendingTodayLbl
+            // 
+            this.PendingTodayLbl.AutoSize = true;
+            this.PendingTodayLbl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PendingTodayLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PendingTodayLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PendingTodayLbl.ForeColor = System.Drawing.Color.White;
+            this.PendingTodayLbl.Location = new System.Drawing.Point(0, 0);
+            this.PendingTodayLbl.Name = "PendingTodayLbl";
+            this.PendingTodayLbl.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.PendingTodayLbl.Size = new System.Drawing.Size(18, 16);
+            this.PendingTodayLbl.TabIndex = 1;
+            this.PendingTodayLbl.Text = "0";
+            this.PendingTodayLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PendingTodayLbl.Click += new System.EventHandler(this.PendingTodayLbl_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(24, 2);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
+            this.label2.Size = new System.Drawing.Size(8, 18);
+            this.label2.TabIndex = 11;
+            // 
             // panel27
             // 
             this.panel27.AutoSize = true;
@@ -1014,6 +1068,7 @@
             this.PendingOrdersLbl.TabIndex = 0;
             this.PendingOrdersLbl.Text = "0";
             this.PendingOrdersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PendingOrdersLbl.Click += new System.EventHandler(this.PendingOrdersLbl_Click);
             this.PendingOrdersLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.PendingOrdersLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
@@ -1055,6 +1110,7 @@
             this.OverdueOrdersLbl.TabIndex = 1;
             this.OverdueOrdersLbl.Text = "0";
             this.OverdueOrdersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OverdueOrdersLbl.Click += new System.EventHandler(this.OverdueOrdersLbl_Click);
             this.OverdueOrdersLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.OverdueOrdersLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
@@ -1102,14 +1158,14 @@
             this.LowStockTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LowStockTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.LowStockTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LowStockTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LowStockTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.LowStockTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LowStockTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Item,
@@ -1138,9 +1194,9 @@
             // 
             this.Item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Item.DataPropertyName = "DisplayItemName";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.Item.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.Item.DefaultCellStyle = dataGridViewCellStyle34;
             this.Item.HeaderText = "Item";
             this.Item.Name = "Item";
             this.Item.ReadOnly = true;
@@ -1148,9 +1204,9 @@
             // quantity
             // 
             this.quantity.DataPropertyName = "Quantity";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle35;
             this.quantity.HeaderText = "Quantity";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
@@ -1203,6 +1259,7 @@
             this.LowStockLbl.TabIndex = 0;
             this.LowStockLbl.Text = "0";
             this.LowStockLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LowStockLbl.Click += new System.EventHandler(this.LowStockLbl_Click);
             this.LowStockLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.LowStockLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
@@ -1244,6 +1301,7 @@
             this.NoStockLbl.TabIndex = 1;
             this.NoStockLbl.Text = "0";
             this.NoStockLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NoStockLbl.Click += new System.EventHandler(this.NoStockLbl_Click);
             this.NoStockLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.NoStockLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
@@ -1257,58 +1315,6 @@
             this.label7.Size = new System.Drawing.Size(219, 36);
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(24, 2);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
-            this.label2.Size = new System.Drawing.Size(8, 18);
-            this.label2.TabIndex = 11;
-            // 
-            // panel34
-            // 
-            this.panel34.AutoSize = true;
-            this.panel34.BackColor = System.Drawing.Color.White;
-            this.panel34.Controls.Add(this.panel35);
-            this.panel34.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel34.Location = new System.Drawing.Point(2, 2);
-            this.panel34.MinimumSize = new System.Drawing.Size(20, 0);
-            this.panel34.Name = "panel34";
-            this.panel34.Padding = new System.Windows.Forms.Padding(1);
-            this.panel34.Size = new System.Drawing.Size(22, 19);
-            this.panel34.TabIndex = 12;
-            // 
-            // panel35
-            // 
-            this.panel35.AutoSize = true;
-            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel35.Controls.Add(this.PendingTodayLbl);
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel35.Location = new System.Drawing.Point(1, 1);
-            this.panel35.MinimumSize = new System.Drawing.Size(20, 0);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(20, 17);
-            this.panel35.TabIndex = 13;
-            // 
-            // PendingTodayLbl
-            // 
-            this.PendingTodayLbl.AutoSize = true;
-            this.PendingTodayLbl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PendingTodayLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PendingTodayLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PendingTodayLbl.ForeColor = System.Drawing.Color.White;
-            this.PendingTodayLbl.Location = new System.Drawing.Point(0, 0);
-            this.PendingTodayLbl.Name = "PendingTodayLbl";
-            this.PendingTodayLbl.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.PendingTodayLbl.Size = new System.Drawing.Size(18, 16);
-            this.PendingTodayLbl.TabIndex = 1;
-            this.PendingTodayLbl.Text = "0";
-            this.PendingTodayLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Dashboard
             // 
@@ -1353,6 +1359,10 @@
             this.panel26.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel29.PerformLayout();
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            this.panel35.ResumeLayout(false);
+            this.panel35.PerformLayout();
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             this.panel28.ResumeLayout(false);
@@ -1367,10 +1377,6 @@
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
-            this.panel34.ResumeLayout(false);
-            this.panel34.PerformLayout();
-            this.panel35.ResumeLayout(false);
-            this.panel35.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -67,16 +67,19 @@ namespace BenpilsBarcodeSystem
                                 this.Hide();
                                 break;
                             case 1:
-                                MessageBox.Show("User does not exist or archived.");
+                                MessageBox.Show("User does not exist.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             case 2:
-                                MessageBox.Show("Incorrect password!");
+                                MessageBox.Show("Incorrect password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             case 3:
-                                MessageBox.Show("Connection failed!");
+                                MessageBox.Show("Connection failed!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             case 4:
-                                MessageBox.Show("An error has occured, please try again later!");
+                                MessageBox.Show("An error has occured, please try again later!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                break;
+                            case 5:
+                                MessageBox.Show("User is not active.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                         }
 

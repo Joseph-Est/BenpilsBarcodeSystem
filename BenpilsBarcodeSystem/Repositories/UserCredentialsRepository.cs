@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BenpilsBarcodeSystem.Entities;
 using BenpilsBarcodeSystem.Helpers;
 using BenpilsBarcodeSystem.Repositories;
+using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -179,6 +180,11 @@ namespace BenpilsBarcodeSystem.Repository
                                 {
                                     // Username does not exist
                                     return 1;
+                                }
+                                else if (usernameDataTable.Rows[0][col_is_active].ToString() != "True")
+                                {
+                                    // User exists but is not active (archived)
+                                    return 5;
                                 }
                             }
                         }

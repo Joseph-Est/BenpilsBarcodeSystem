@@ -114,17 +114,17 @@
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.panel30 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.ProjectedProfitLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.ProjectedSalesLbl = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.TStockValueLbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ProjectedSalesLbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ProjectedProfitLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -166,10 +166,10 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BestSellingTbl)).BeginInit();
             this.panel13.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel30.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -212,7 +212,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1147, 83);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -704,7 +704,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 219F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 199F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(688, 199);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -736,6 +736,7 @@
             legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend3.Font = new System.Drawing.Font("Arial", 8F);
             legend3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend3.IsTextAutoFit = false;
             legend3.Name = "Legend1";
             legend3.TitleFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrandPopularityChart.Legends.Add(legend3);
@@ -809,6 +810,7 @@
             legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend4.Font = new System.Drawing.Font("Arial", 8F);
             legend4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend4.IsTextAutoFit = false;
             legend4.Name = "Legend1";
             legend4.TitleFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryDistributionChart.Legends.Add(legend4);
@@ -1280,60 +1282,6 @@
             this.panel13.Size = new System.Drawing.Size(688, 110);
             this.panel13.TabIndex = 5;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.label2.Size = new System.Drawing.Size(684, 40);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "SALES PROJECTION";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Control;
-            this.panel9.Controls.Add(this.TStockValueLbl);
-            this.panel9.Controls.Add(this.label18);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 3);
-            this.panel9.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(199, 60);
-            this.panel9.TabIndex = 21;
-            // 
-            // panel28
-            // 
-            this.panel28.BackColor = System.Drawing.SystemColors.Control;
-            this.panel28.Controls.Add(this.ProjectedSalesLbl);
-            this.panel28.Controls.Add(this.label4);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(205, 3);
-            this.panel28.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel28.Name = "panel28";
-            this.panel28.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel28.Size = new System.Drawing.Size(233, 60);
-            this.panel28.TabIndex = 26;
-            // 
-            // panel30
-            // 
-            this.panel30.BackColor = System.Drawing.SystemColors.Control;
-            this.panel30.Controls.Add(this.ProjectedProfitLbl);
-            this.panel30.Controls.Add(this.label6);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(444, 3);
-            this.panel30.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
-            this.panel30.Name = "panel30";
-            this.panel30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.panel30.Size = new System.Drawing.Size(234, 60);
-            this.panel30.TabIndex = 27;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Control;
@@ -1352,6 +1300,99 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(684, 66);
             this.tableLayoutPanel4.TabIndex = 12;
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.SystemColors.Control;
+            this.panel30.Controls.Add(this.ProjectedProfitLbl);
+            this.panel30.Controls.Add(this.label6);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel30.Location = new System.Drawing.Point(444, 3);
+            this.panel30.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel30.Name = "panel30";
+            this.panel30.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel30.Size = new System.Drawing.Size(234, 60);
+            this.panel30.TabIndex = 27;
+            // 
+            // ProjectedProfitLbl
+            // 
+            this.ProjectedProfitLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectedProfitLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectedProfitLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ProjectedProfitLbl.Location = new System.Drawing.Point(10, 18);
+            this.ProjectedProfitLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ProjectedProfitLbl.Name = "ProjectedProfitLbl";
+            this.ProjectedProfitLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.ProjectedProfitLbl.Size = new System.Drawing.Size(224, 42);
+            this.ProjectedProfitLbl.TabIndex = 8;
+            this.ProjectedProfitLbl.Text = "₱ 0.00";
+            this.ProjectedProfitLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label6.Location = new System.Drawing.Point(10, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(224, 18);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Projected Profit";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.SystemColors.Control;
+            this.panel28.Controls.Add(this.ProjectedSalesLbl);
+            this.panel28.Controls.Add(this.label4);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(205, 3);
+            this.panel28.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel28.Name = "panel28";
+            this.panel28.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel28.Size = new System.Drawing.Size(233, 60);
+            this.panel28.TabIndex = 26;
+            // 
+            // ProjectedSalesLbl
+            // 
+            this.ProjectedSalesLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProjectedSalesLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectedSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ProjectedSalesLbl.Location = new System.Drawing.Point(10, 18);
+            this.ProjectedSalesLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.ProjectedSalesLbl.Name = "ProjectedSalesLbl";
+            this.ProjectedSalesLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.ProjectedSalesLbl.Size = new System.Drawing.Size(223, 42);
+            this.ProjectedSalesLbl.TabIndex = 6;
+            this.ProjectedSalesLbl.Text = "₱ 0.00";
+            this.ProjectedSalesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label4.Location = new System.Drawing.Point(10, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label4.Size = new System.Drawing.Size(223, 18);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Projected Sales";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Control;
+            this.panel9.Controls.Add(this.TStockValueLbl);
+            this.panel9.Controls.Add(this.label18);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 3);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(199, 60);
+            this.panel9.TabIndex = 21;
             // 
             // TStockValueLbl
             // 
@@ -1380,59 +1421,20 @@
             this.label18.Text = "Total Stock Value";
             this.label18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label4
+            // label2
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label4.Location = new System.Drawing.Point(10, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(223, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Projected Sales";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ProjectedSalesLbl
-            // 
-            this.ProjectedSalesLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectedSalesLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProjectedSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ProjectedSalesLbl.Location = new System.Drawing.Point(10, 18);
-            this.ProjectedSalesLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ProjectedSalesLbl.Name = "ProjectedSalesLbl";
-            this.ProjectedSalesLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ProjectedSalesLbl.Size = new System.Drawing.Size(223, 42);
-            this.ProjectedSalesLbl.TabIndex = 6;
-            this.ProjectedSalesLbl.Text = "₱ 0.00";
-            this.ProjectedSalesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label6.Location = new System.Drawing.Point(10, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(224, 18);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Projected Profit";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ProjectedProfitLbl
-            // 
-            this.ProjectedProfitLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProjectedProfitLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProjectedProfitLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ProjectedProfitLbl.Location = new System.Drawing.Point(10, 18);
-            this.ProjectedProfitLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.ProjectedProfitLbl.Name = "ProjectedProfitLbl";
-            this.ProjectedProfitLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.ProjectedProfitLbl.Size = new System.Drawing.Size(224, 42);
-            this.ProjectedProfitLbl.TabIndex = 8;
-            this.ProjectedProfitLbl.Text = "₱ 0.00";
-            this.ProjectedProfitLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label2.Location = new System.Drawing.Point(2, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.label2.Size = new System.Drawing.Size(684, 40);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "SALES PROJECTION";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StatisticReport
             // 
@@ -1488,10 +1490,10 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BestSellingTbl)).EndInit();
             this.panel13.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
-            this.panel30.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

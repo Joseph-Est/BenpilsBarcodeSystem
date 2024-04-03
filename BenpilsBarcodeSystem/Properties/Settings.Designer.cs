@@ -12,7 +12,7 @@ namespace BenpilsBarcodeSystem.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,22 +26,165 @@ namespace BenpilsBarcodeSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-GM16NRU;Initial Catalog=UserCredentials;Integrated Security=T" +
-            "rue")]
-        public string UserCredentialsConnectionString {
+        public string ConnectionString {
             get {
-                return ((string)(this["UserCredentialsConnectionString"]));
+                return ((string)(this["ConnectionString"]));
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-GM16NRU;Initial Catalog=BenpillMotorcycleDatabase;Integrated " +
-            "Security=True")]
-        public string BenpillMotorcycleDatabaseConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupInventory {
             get {
-                return ((string)(this["BenpillMotorcycleDatabaseConnectionString"]));
+                return ((bool)(this["BackupInventory"]));
+            }
+            set {
+                this["BackupInventory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupSuppliers {
+            get {
+                return ((bool)(this["BackupSuppliers"]));
+            }
+            set {
+                this["BackupSuppliers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupSalesTransactions {
+            get {
+                return ((bool)(this["BackupSalesTransactions"]));
+            }
+            set {
+                this["BackupSalesTransactions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupInventoryReport {
+            get {
+                return ((bool)(this["BackupInventoryReport"]));
+            }
+            set {
+                this["BackupInventoryReport"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupAuditTrail {
+            get {
+                return ((bool)(this["BackupAuditTrail"]));
+            }
+            set {
+                this["BackupAuditTrail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Interval {
+            get {
+                return ((string)(this["Interval"]));
+            }
+            set {
+                this["Interval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IntervalValue {
+            get {
+                return ((string)(this["IntervalValue"]));
+            }
+            set {
+                this["IntervalValue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseActiveHours {
+            get {
+                return ((bool)(this["UseActiveHours"]));
+            }
+            set {
+                this["UseActiveHours"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("08:00:00")]
+        public global::System.TimeSpan ActiveStartTime {
+            get {
+                return ((global::System.TimeSpan)(this["ActiveStartTime"]));
+            }
+            set {
+                this["ActiveStartTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("17:00:00")]
+        public global::System.TimeSpan ActiveEndTime {
+            get {
+                return ((global::System.TimeSpan)(this["ActiveEndTime"]));
+            }
+            set {
+                this["ActiveEndTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutomaticBackupEnabled {
+            get {
+                return ((bool)(this["AutomaticBackupEnabled"]));
+            }
+            set {
+                this["AutomaticBackupEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BackupPurchaseOrders {
+            get {
+                return ((bool)(this["BackupPurchaseOrders"]));
+            }
+            set {
+                this["BackupPurchaseOrders"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string SaveLocation {
+            get {
+                return ((string)(this["SaveLocation"]));
+            }
+            set {
+                this["SaveLocation"] = value;
             }
         }
     }

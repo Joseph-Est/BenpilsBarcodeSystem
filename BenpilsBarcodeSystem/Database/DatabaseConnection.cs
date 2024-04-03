@@ -9,13 +9,23 @@ namespace BenpilsBarcodeSystem.Database
 {
     internal class DatabaseConnection
     {
-        private const string DataSource = "SKLERBIDI";
+        private readonly string DataSource;
         private const string InitialCatalog = "BenpilsMotorcycleDatabase";
         private readonly string connectionString;
 
         public DatabaseConnection()
         {
-            connectionString = $"Data Source={DataSource};Initial Catalog={InitialCatalog};Integrated Security=True";
+            string projectConnectionString = Properties.Settings.Default.ConnectionString;
+
+            if (!string.IsNullOrEmpty(projectConnectionString))
+            {
+                connectionString = projectConnectionString;
+            }
+            else
+            {
+                DataSource = Environment.MachineName;
+                connectionString = $"Data Source={DataSource};Initial Catalog={InitialCatalog};Integrated Security=True";
+            }
         }
 
         public SqlConnection OpenConnection()

@@ -1,4 +1,7 @@
 ﻿using BenpilsBarcodeSystem.Dialogs;
+using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Helpers;
+using BenpilsBarcodeSystem.Properties;
 using BenpilsBarcodeSystem.Repositories;
 using BenpilsBarcodeSystem.Repository;
 using BenpilsBarcodeSystem.Utils;
@@ -10,6 +13,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Configuration;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
@@ -20,11 +24,13 @@ namespace BenpilsBarcodeSystem
 {
     public partial class Settings : Form
     {
+        private BackupInterval selectedInterval;
         public Settings()
         {
             InitializeComponent();
             Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, EndDt);
             SetUpCB();
+            SetUpAutomaticBackup();
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -241,13 +247,21 @@ namespace BenpilsBarcodeSystem
                 DisabledLbl.ForeColor = Color.FromArgb(255, 255, 255);
                 DisabledLbl.Text = "Enabled";
                 AutomaticBackupPanel.Enabled = true;
+                EnableAutomaticBackup(true);
             }
             else
             {
-                SwitchCb.Image = Properties.Resources.icons8_toggle_off_30;
-                DisabledLbl.ForeColor = Color.FromArgb(240, 62, 62);
-                DisabledLbl.Text = "Disabled";
-                AutomaticBackupPanel.Enabled = false;
+                Confirmation confirmation = new Confirmation("Are you sure you want to disable automatic backup?", "", "Yes", "No");
+                DialogResult result = confirmation.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    SwitchCb.Image = Properties.Resources.icons8_toggle_off_30;
+                    DisabledLbl.ForeColor = Color.FromArgb(240, 62, 62);
+                    DisabledLbl.Text = "Disabled";
+                    AutomaticBackupPanel.Enabled = false;
+                    EnableAutomaticBackup(false);
+                }
             }
         }
 
@@ -638,18 +652,23 @@ namespace BenpilsBarcodeSystem
                 switch (radioButtonName)
                 {
                     case "HourlyRb":
+                        selectedInterval = BackupInterval.Hourly;
                         break;
                     case "EveryHoursRb":
+                        selectedInterval = BackupInterval.EveryXHours;
                         HoursCb.Enabled = true;
                         break;
                     case "DailyRb":
+                        selectedInterval = BackupInterval.Daily;
                         activeHours = true;
                         break;
                     case "WeeklyRb":
+                        selectedInterval = BackupInterval.Weekly;
                         activeHours = true;
                         WeeklyCb.Enabled = true;
                         break;
                     case "MonthlyRb":
+                        selectedInterval = BackupInterval.Monthly;
                         MonthlyCb.Enabled = true;
                         activeHours = true;
                         break;
@@ -691,6 +710,204 @@ namespace BenpilsBarcodeSystem
 
                 MonthlyCb.SelectedIndex = 0;
             }
+        }
+
+        private void SaveBackupSettings_Click(object sender, EventArgs e)
+        {
+            BackupSettings settings = new BackupSettings();
+
+            settings.IsEnabled = true;
+            settings.BackupInventory = AInventoryCb.Checked;
+            settings.BackupSuppliers = ASuppliersCb.Checked;
+            settings.BackupPurchaseOrder = APurchaseOrdersCb.Checked;
+            settings.BackupSalesTransactions = ASalesTransactionsCb.Checked;
+            settings.BackupInventoryReport = AInventoryReportCb.Checked;
+            settings.BackupAuditTrail = AAuditTrailCb.Checked;
+
+            settings.Interval = selectedInterval;
+            settings.IntervalValue = selectedInterval == BackupInterval.EveryXHours ? HoursCb.Text :
+                                     selectedInterval == BackupInterval.Weekly ? WeeklyCb.Text : MonthlyCb.Text;
+
+            bool activeHoursEnabled = selectedInterval == BackupInterval.Daily || selectedInterval == BackupInterval.Weekly || selectedInterval == BackupInterval.Monthly;
+            settings.UseActiveHours = activeHoursEnabled;
+
+            string hour1 = Hour1Txt.Text;
+            string minute1 = Minute1Txt.Text;
+            string ampm1 = Ampm1Txt.Text;
+
+            string hour2 = Hour2Txt.Text;
+            string minute2 = Minute2Txt.Text;
+            string ampm2 = Ampm2Txt.Text;
+
+            DateTime time1 = DateTime.Parse($"{hour1}:{minute1} {ampm1}", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime time2 = DateTime.Parse($"{hour2}:{minute2} {ampm2}", System.Globalization.CultureInfo.InvariantCulture);
+
+            settings.ActiveStartTime = time1.TimeOfDay;
+            settings.ActiveEndTime = time2.TimeOfDay;
+
+            settings.SaveLocation = SaveLocationTxt.Text;
+
+            SaveAutomaticBackupSettings(settings);
+        }
+
+        private BackupSettings LoadBackupSettings()
+        {
+            BackupSettings settings = new BackupSettings
+            {
+                IsEnabled = Properties.Settings.Default.AutomaticBackupEnabled,
+                BackupInventory = Properties.Settings.Default.BackupInventory,
+                BackupSuppliers = Properties.Settings.Default.BackupSuppliers,
+                BackupPurchaseOrder = Properties.Settings.Default.BackupPurchaseOrders,
+                BackupSalesTransactions = Properties.Settings.Default.BackupSalesTransactions,
+                BackupInventoryReport = Properties.Settings.Default.BackupInventoryReport,
+                BackupAuditTrail = Properties.Settings.Default.BackupAuditTrail,
+
+                IntervalValue = Properties.Settings.Default.IntervalValue,
+
+                UseActiveHours = Properties.Settings.Default.UseActiveHours,
+
+                ActiveStartTime = Properties.Settings.Default.ActiveStartTime,
+                ActiveEndTime = Properties.Settings.Default.ActiveEndTime,
+                SaveLocation = Properties.Settings.Default.SaveLocation
+            };
+
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.Interval))
+            {
+                if (Enum.TryParse(Properties.Settings.Default.Interval, out BackupInterval interval))
+                {
+                    settings.Interval = interval;
+                }
+                else
+                {
+                    settings.Interval = default;
+                }
+            }
+
+            return settings;
+        }
+
+        private void SetUpAutomaticBackup()
+        {
+            BackupSettings settings = LoadBackupSettings();
+
+            //MessageBox.Show(settings.IsEnabled.ToString());
+
+            SwitchCb.Checked = settings.IsEnabled;
+            
+            AInventoryCb.Checked = settings.BackupInventory;
+            ASuppliersCb.Checked = settings.BackupSuppliers;
+            APurchaseOrdersCb.Checked = settings.BackupPurchaseOrder;
+            AInventoryReportCb.Checked = settings.BackupInventoryReport;
+            ASalesTransactionsCb.Checked = settings.BackupSalesTransactions;
+            AAuditTrailCb.Checked = settings.BackupAuditTrail;
+
+            switch (settings.Interval)
+            {
+                case BackupInterval.Hourly:
+                    HourlyRb.Checked = true;
+                    break;
+                case BackupInterval.EveryXHours:
+                    EveryHoursRb.Checked = true;
+                    HoursCb.SelectedItem = settings.IntervalValue;
+                    break;
+                case BackupInterval.Daily:
+                    DailyRb.Checked = true;
+                    break;
+                case BackupInterval.Weekly:
+                    WeeklyRb.Checked = true;
+                    WeeklyCb.SelectedItem = settings.IntervalValue;
+                    break;
+                case BackupInterval.Monthly:
+                    MonthlyRb.Checked = true;
+                    MonthlyCb.SelectedItem = settings.IntervalValue;
+                    break;
+                default:
+                    break;
+            }
+
+            switch (settings.Interval)
+            {
+                case BackupInterval.Daily:
+                case BackupInterval.Weekly:
+                case BackupInterval.Monthly:
+                    if (settings.UseActiveHours)
+                    {
+                        (string hour1, string minute1, string ampm1, string hour2, string minute2, string ampm2) = DisectTime(settings.ActiveStartTime, settings.ActiveEndTime);
+                        Hour1Txt.Text = hour1;
+                        Minute1Txt.Text = minute1;
+                        Ampm1Txt.Text = ampm1;
+                        Hour2Txt.Text = hour2;
+                        Minute2Txt.Text = minute2;
+                        Ampm2Txt.Text = ampm2;
+                    }
+                    else
+                    {
+                        Hour1Txt.Text = "08";
+                        Minute1Txt.Text = "00";
+                        Ampm1Txt.Text = "AM";
+                        Hour2Txt.Text = "05";
+                        Minute2Txt.Text = "00";
+                        Ampm2Txt.Text = "PM";
+                    }
+                    break;
+                default:
+                    Hour1Txt.Text = "08";
+                    Minute1Txt.Text = "00";
+                    Ampm1Txt.Text = "AM";
+                    Hour2Txt.Text = "05";
+                    Minute2Txt.Text = "00";
+                    Ampm2Txt.Text = "PM";
+                    break;
+            }
+
+            SaveLocationTxt.Text = settings.SaveLocation;
+        }
+
+        private (string hour1, string minute1, string ampm1, string hour2, string minute2, string ampm2) DisectTime(TimeSpan activeStartTime, TimeSpan activeEndTime)
+        {
+            // Format TimeSpan to DateTime to get AM/PM time
+            DateTime time1 = DateTime.Today.Add(activeStartTime);
+            DateTime time2 = DateTime.Today.Add(activeEndTime);
+
+            // Convert DateTime to formatted strings
+            string hour1 = time1.ToString("hh");
+            string minute1 = time1.ToString("mm");
+            string ampm1 = time1.ToString("tt");
+
+            string hour2 = time2.ToString("hh");
+            string minute2 = time2.ToString("mm");
+            string ampm2 = time2.ToString("tt");
+
+            return (hour1, minute1, ampm1, hour2, minute2, ampm2);
+        }
+
+        private void SaveAutomaticBackupSettings(BackupSettings settings)
+        {
+            Properties.Settings.Default.AutomaticBackupEnabled = settings.IsEnabled;
+            Properties.Settings.Default.BackupInventory = settings.BackupInventory;
+            Properties.Settings.Default.BackupSuppliers = settings.BackupSuppliers;
+            Properties.Settings.Default.BackupPurchaseOrders = settings.BackupPurchaseOrder;
+            Properties.Settings.Default.BackupSalesTransactions = settings.BackupSalesTransactions;
+            Properties.Settings.Default.BackupInventoryReport = settings.BackupInventoryReport;
+            Properties.Settings.Default.BackupAuditTrail = settings.BackupAuditTrail;
+
+            Properties.Settings.Default.Interval = settings.Interval.ToString();
+            Properties.Settings.Default.IntervalValue = settings.IntervalValue;
+
+            Properties.Settings.Default.UseActiveHours = settings.UseActiveHours;
+            Properties.Settings.Default.ActiveStartTime = settings.ActiveStartTime;
+            Properties.Settings.Default.ActiveEndTime = settings.ActiveEndTime;
+            Properties.Settings.Default.SaveLocation = settings.SaveLocation;
+
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Settings saved succesfully");
+        }
+
+        private void EnableAutomaticBackup(bool enable)
+        {
+            Properties.Settings.Default.AutomaticBackupEnabled = enable;
+            Properties.Settings.Default.Save();
         }
     }
 }

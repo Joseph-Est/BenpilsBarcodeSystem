@@ -279,6 +279,7 @@
     <Compile Include="Dialogs\TableDialog.Designer.cs">
       <DependentUpon>TableDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BackupSettings.cs" />
     <Compile Include="Entities\CurrentUser.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\PurchaseOrderEntity.cs" />

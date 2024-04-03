@@ -302,6 +302,7 @@
     <Compile Include="Dialogs\GenerateBarcode.Designer.cs">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AutoBackupManager.cs" />
     <Compile Include="Helpers\InputValidator.cs" />
     <Compile Include="Panels\Inventory.cs">
       <SubType>Form</SubType>
@@ -734,6 +735,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loading-icon-animated-gif-9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xconvert.com.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

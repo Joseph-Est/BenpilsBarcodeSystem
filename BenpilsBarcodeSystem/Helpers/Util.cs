@@ -305,6 +305,113 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
+        public static int ExportData(Form form, Dictionary<DataTable, string> dataTableSheetMapping, string saveLocation = null, bool isAutoBackup = false)
+        {
+            int result = 0;
+            //LoadingDialog loadingDialog = null;
+
+            //Thread thread = new Thread(() =>
+            //{
+            //    loadingDialog = new LoadingDialog("Backing up data, please wait.");
+
+            //    loadingDialog.StartPosition = FormStartPosition.Manual;
+            //    loadingDialog.Location = new Point(this.Location.X + this.Width / 2 - loadingDialog.Width / 2,
+            //                                       this.Location.Y + this.Height / 2 - loadingDialog.Height / 2);
+
+            //    loadingDialog.ShowDialog();
+            //});
+
+            Action<string, string, MessageBoxIcon> showMessage = (message, title, MessageBoxIcon) =>
+            {
+                //if (loadingDialog != null && loadingDialog.InvokeRequired)
+                //{
+                //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
+                //}
+                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon);
+                form.Focus();
+            };
+
+            if (dataTableSheetMapping != null && dataTableSheetMapping.Count > 0)
+            {
+                string filePath;
+                string fileName;
+
+                if (isAutoBackup)
+                {
+                    filePath = saveLocation;
+                    fileName = "AutoBackup";
+                }
+                else
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog
+                    {
+                        Filter = "Excel Files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
+                        FileName = "Backup.xlsx",
+                        Title = "Save Excel File",
+                        InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                    };
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        filePath = Path.GetDirectoryName(saveFileDialog.FileName);
+                        fileName = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
+                    }
+                    else
+                    {
+                        return result; 
+                    }
+                }
+
+                try
+                {
+                    switch (ExportToExcel(filePath, fileName, dataTableSheetMapping))
+                    {
+                        case 0:
+                            if (!isAutoBackup)
+                            {
+                                showMessage("Backup Exported Successfully", "Backup", MessageBoxIcon.Information);
+                            }
+                            break;
+                        case 1:
+                            if (!isAutoBackup)
+                            {
+                                showMessage("Unable to overwrite existing file. Either it's open or you don't have the necessary permissions.", "File Overwrite Error", MessageBoxIcon.Error);
+                            }
+
+                            result = 2;
+                            break;
+                        case 2:
+                            if (!isAutoBackup)
+                            {
+                                showMessage("Unable to export backup", "Export Error", MessageBoxIcon.Error);
+                            }
+                            result = 3;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                finally
+                {
+                    //if (loadingDialog != null && loadingDialog.InvokeRequired)
+                    //{
+                    //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
+                    //}
+                }
+            }
+            else
+            {
+                if (!isAutoBackup)
+                {
+                    MessageBox.Show("No available data to backup.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+                result = 1;
+            }
+
+            return result;
+        }
+
         public static int ExportToExcel(string filePath, string fileName, Dictionary<DataTable, string> dataTableSheetMapping)
         {
             try
@@ -403,6 +510,35 @@ namespace BenpilsBarcodeSystem.Utils
                 }
             }
             return false;
+        }
+
+        public static bool IsAnyRadioButtonChecked(params RadioButton[] radioButtons)
+        {
+            foreach (var radioButton in radioButtons)
+            {
+                if (radioButton.Checked)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static readonly string logFilePath = @"autobackup_log.txt";
+
+        public static void Log(string message)
+        {
+            try
+            {
+                using (System.IO.StreamWriter writer = new System.IO.StreamWriter(logFilePath, true))
+                {
+                    writer.WriteLine($"{DateTime.Now}: {message}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to write to log file: {ex.Message}");
+            }
         }
     }
 }

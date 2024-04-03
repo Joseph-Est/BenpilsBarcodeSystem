@@ -37,7 +37,8 @@ namespace BenpilsBarcodeSystem
         private readonly Dictionary<CheckBox, Form> checkBoxToForm = new Dictionary<CheckBox, Form>();
         private readonly Dictionary<CheckBox, Type> checkBoxToFormType = new Dictionary<CheckBox, Type>();
 
-        
+        private AutoBackupManager autoBackupManager;
+        public AutoBackupManager AutoBackupManagerInstance => autoBackupManager;
 
         public MainForm()
         {
@@ -48,6 +49,12 @@ namespace BenpilsBarcodeSystem
             SetUser();
             Checkbox_Clicked(CurrentUser.User.Designation == "Cashier" ? PosCb : CurrentUser.User.Designation == "Inventory Manager" ? InventoryCb : DashboardCb, null);
             SwitchForm(CurrentUser.User.Designation == "Cashier" ? PosCb : CurrentUser.User.Designation == "Inventory Manager" ? InventoryCb : DashboardCb);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            autoBackupManager = new AutoBackupManager();
+            autoBackupManager.SetupAutoBackup(this);
         }
 
         private void Checkbox_Clicked(object sender, EventArgs e)

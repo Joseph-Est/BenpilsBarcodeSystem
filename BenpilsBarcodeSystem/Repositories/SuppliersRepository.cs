@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BenpilsBarcodeSystem.Utils;
 
 namespace BenpilsBarcodeSystem.Repositories
 {
@@ -293,6 +294,41 @@ namespace BenpilsBarcodeSystem.Repositories
             }
 
             return supplier;
+        }
+
+        public async Task<DataTable> GetSuppliersDT(DateTime dateFom, DateTime dateTo)
+        {
+            DataTable dt = await GetSupplierAsync(true);
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return dt;
+            }
+
+            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
+            {
+                {SuppliersRepository.col_id, "Supplier ID"},
+                {SuppliersRepository.col_contact_name, "Contact Name"},
+                {SuppliersRepository.col_contact_no, "Contact No"},
+                {SuppliersRepository.col_address, "Address"},
+                {SuppliersRepository.col_date_created, "Date Created"},
+            };
+
+            foreach (var item in columnRenameDict)
+            {
+                dt.Columns[item.Key].ColumnName = item.Value;
+            }
+
+            List<string> columnOrder = new List<string>
+                {
+                    "Supplier ID",
+                    "Date Created",
+                    "Contact Name",
+                    "Contact No",
+                    "Address",
+                };
+
+            return Util.ReorderColumns(dt, columnOrder);
         }
     }
 }

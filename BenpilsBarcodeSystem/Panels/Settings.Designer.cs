@@ -101,7 +101,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.AutomaticBackupPanel = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BrowseBtn = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
             this.SaveLocationTxt = new System.Windows.Forms.TextBox();
             this.panel23 = new System.Windows.Forms.Panel();
@@ -110,13 +110,13 @@
             this.SaveBackupSettings = new System.Windows.Forms.Button();
             this.Wews = new System.Windows.Forms.Panel();
             this.HoursPanel = new System.Windows.Forms.Panel();
-            this.Ampm2Txt = new System.Windows.Forms.ComboBox();
+            this.Ampm2Cb = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.Minute2Txt = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.Hour2Txt = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.Ampm1Txt = new System.Windows.Forms.ComboBox();
+            this.Ampm1Cb = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.Minute1Txt = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -145,7 +145,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.DisabledLbl = new System.Windows.Forms.Label();
-            this.SwitchCb = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -169,6 +168,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.SwitchCb = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabArchive.SuspendLayout();
             this.Users.SuspendLayout();
@@ -890,7 +890,7 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.button3);
+            this.panel16.Controls.Add(this.BrowseBtn);
             this.panel16.Controls.Add(this.panel22);
             this.panel16.Controls.Add(this.SaveLocationTxt);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
@@ -900,21 +900,22 @@
             this.panel16.Size = new System.Drawing.Size(1135, 25);
             this.panel16.TabIndex = 14;
             // 
-            // button3
+            // BrowseBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(266, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 201;
-            this.button3.TabStop = false;
-            this.button3.Text = "Browse";
-            this.button3.UseVisualStyleBackColor = false;
+            this.BrowseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BrowseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BrowseBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BrowseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BrowseBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrowseBtn.ForeColor = System.Drawing.Color.White;
+            this.BrowseBtn.Location = new System.Drawing.Point(266, 0);
+            this.BrowseBtn.Name = "BrowseBtn";
+            this.BrowseBtn.Size = new System.Drawing.Size(75, 25);
+            this.BrowseBtn.TabIndex = 201;
+            this.BrowseBtn.TabStop = false;
+            this.BrowseBtn.Text = "Browse";
+            this.BrowseBtn.UseVisualStyleBackColor = false;
+            this.BrowseBtn.Click += new System.EventHandler(this.BrowseBtn_Click);
             // 
             // panel22
             // 
@@ -1006,13 +1007,13 @@
             // 
             // HoursPanel
             // 
-            this.HoursPanel.Controls.Add(this.Ampm2Txt);
+            this.HoursPanel.Controls.Add(this.Ampm2Cb);
             this.HoursPanel.Controls.Add(this.label25);
             this.HoursPanel.Controls.Add(this.Minute2Txt);
             this.HoursPanel.Controls.Add(this.label26);
             this.HoursPanel.Controls.Add(this.Hour2Txt);
             this.HoursPanel.Controls.Add(this.label27);
-            this.HoursPanel.Controls.Add(this.Ampm1Txt);
+            this.HoursPanel.Controls.Add(this.Ampm1Cb);
             this.HoursPanel.Controls.Add(this.label28);
             this.HoursPanel.Controls.Add(this.Minute1Txt);
             this.HoursPanel.Controls.Add(this.label29);
@@ -1025,17 +1026,17 @@
             this.HoursPanel.Size = new System.Drawing.Size(307, 25);
             this.HoursPanel.TabIndex = 212;
             // 
-            // Ampm2Txt
+            // Ampm2Cb
             // 
-            this.Ampm2Txt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Ampm2Txt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ampm2Txt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ampm2Txt.FormattingEnabled = true;
-            this.Ampm2Txt.Location = new System.Drawing.Point(254, 0);
-            this.Ampm2Txt.Name = "Ampm2Txt";
-            this.Ampm2Txt.Size = new System.Drawing.Size(45, 23);
-            this.Ampm2Txt.TabIndex = 255;
-            this.Ampm2Txt.Text = "PM";
+            this.Ampm2Cb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Ampm2Cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ampm2Cb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ampm2Cb.FormattingEnabled = true;
+            this.Ampm2Cb.Location = new System.Drawing.Point(254, 0);
+            this.Ampm2Cb.Name = "Ampm2Cb";
+            this.Ampm2Cb.Size = new System.Drawing.Size(45, 23);
+            this.Ampm2Cb.TabIndex = 255;
+            this.Ampm2Cb.Text = "PM";
             // 
             // label25
             // 
@@ -1097,17 +1098,17 @@
             this.label27.Text = "-";
             this.label27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Ampm1Txt
+            // Ampm1Cb
             // 
-            this.Ampm1Txt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Ampm1Txt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ampm1Txt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ampm1Txt.FormattingEnabled = true;
-            this.Ampm1Txt.Location = new System.Drawing.Point(106, 0);
-            this.Ampm1Txt.Name = "Ampm1Txt";
-            this.Ampm1Txt.Size = new System.Drawing.Size(45, 23);
-            this.Ampm1Txt.TabIndex = 249;
-            this.Ampm1Txt.Text = "PM";
+            this.Ampm1Cb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Ampm1Cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ampm1Cb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ampm1Cb.FormattingEnabled = true;
+            this.Ampm1Cb.Location = new System.Drawing.Point(106, 0);
+            this.Ampm1Cb.Name = "Ampm1Cb";
+            this.Ampm1Cb.Size = new System.Drawing.Size(45, 23);
+            this.Ampm1Cb.TabIndex = 249;
+            this.Ampm1Cb.Text = "PM";
             // 
             // label28
             // 
@@ -1471,25 +1472,6 @@
             this.DisabledLbl.TabIndex = 0;
             this.DisabledLbl.Text = "Disabled";
             // 
-            // SwitchCb
-            // 
-            this.SwitchCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.SwitchCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SwitchCb.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SwitchCb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SwitchCb.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SwitchCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SwitchCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SwitchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SwitchCb.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_toggle_off_30;
-            this.SwitchCb.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.SwitchCb.Location = new System.Drawing.Point(179, 0);
-            this.SwitchCb.Name = "SwitchCb";
-            this.SwitchCb.Size = new System.Drawing.Size(36, 42);
-            this.SwitchCb.TabIndex = 4;
-            this.SwitchCb.UseVisualStyleBackColor = true;
-            this.SwitchCb.CheckedChanged += new System.EventHandler(this.SwitchCb_CheckedChanged);
-            // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
@@ -1777,6 +1759,25 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // SwitchCb
+            // 
+            this.SwitchCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.SwitchCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SwitchCb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SwitchCb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SwitchCb.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SwitchCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SwitchCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SwitchCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SwitchCb.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_toggle_off_30;
+            this.SwitchCb.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SwitchCb.Location = new System.Drawing.Point(179, 0);
+            this.SwitchCb.Name = "SwitchCb";
+            this.SwitchCb.Size = new System.Drawing.Size(36, 42);
+            this.SwitchCb.TabIndex = 4;
+            this.SwitchCb.UseVisualStyleBackColor = true;
+            this.SwitchCb.CheckedChanged += new System.EventHandler(this.SwitchCb_CheckedChanged);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1922,7 +1923,7 @@
         private System.Windows.Forms.CheckBox SuppliersCb;
         private System.Windows.Forms.CheckBox InventoryCb;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BrowseBtn;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.TextBox SaveLocationTxt;
         private System.Windows.Forms.Panel panel23;
@@ -1942,13 +1943,13 @@
         private System.Windows.Forms.Label ActiveHoursPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel HoursPanel;
-        private System.Windows.Forms.ComboBox Ampm2Txt;
+        private System.Windows.Forms.ComboBox Ampm2Cb;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox Minute2Txt;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox Hour2Txt;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox Ampm1Txt;
+        private System.Windows.Forms.ComboBox Ampm1Cb;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox Minute1Txt;
         private System.Windows.Forms.Label label29;

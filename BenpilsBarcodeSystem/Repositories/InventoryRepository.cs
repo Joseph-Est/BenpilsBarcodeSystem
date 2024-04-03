@@ -9,6 +9,7 @@ using BenpilsBarcodeSystem.Helpers;
 using System.Windows.Forms;
 using BenpilsBarcodeSystem.Entities;
 using BenpilsBarcodeSystem.Repositories;
+using BenpilsBarcodeSystem.Utils;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -1108,6 +1109,57 @@ namespace BenpilsBarcodeSystem.Repository
             }
 
             return Task.FromResult(dt);
+        }
+
+        public async Task<DataTable> GetInventoryExportDT(DateTime dateFom, DateTime dateTo)
+        {
+            DataTable dt = await GetProductsAsync(true);
+
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return dt;
+            }
+
+            dt.Columns.Remove("formatted_purchase_price");
+            dt.Columns.Remove("formatted_selling_price");
+            dt.Columns.Remove("status");
+
+            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
+                {
+                    {col_id, "Product ID"},
+                    {col_barcode, "Barcode"},
+                    {col_item_name, "Item"},
+                    {col_brand, "Brand"},
+                    {col_motor_brand, "Motor Brand"},
+                    {col_category, "Category"},
+                    {col_size, "Size"},
+                    {col_date_created, "Date Created"},
+                    {col_purchase_price, "Purchase Price"},
+                    {col_selling_price, "Selling Price"},
+                    {col_quantity, "Quantity"}
+                };
+
+            foreach (var item in columnRenameDict)
+            {
+                dt.Columns[item.Key].ColumnName = item.Value;
+            }
+
+            List<string> columnOrder = new List<string>
+                {
+                    "Product ID",
+                    "Date Created",
+                    "Barcode",
+                    "Category",
+                    "Item",
+                    "Brand",
+                    "Motor Brand",
+                    "Size",
+                    "Purchase Price",
+                    "Selling Price",
+                    "Quantity"
+                };
+
+            return Util.ReorderColumns(dt, columnOrder);
         }
 
     }

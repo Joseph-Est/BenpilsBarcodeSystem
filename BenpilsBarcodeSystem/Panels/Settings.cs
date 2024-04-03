@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Configuration;
@@ -25,16 +26,23 @@ namespace BenpilsBarcodeSystem
     public partial class Settings : Form
     {
         private BackupInterval selectedInterval;
+        MainForm mainForm;
+
         public Settings()
         {
             InitializeComponent();
             Util.SetDateTimePickerFormat("MMM dd, yyyy", StartDt, EndDt);
+            InputValidator.AllowOnlyDigitsMinMax(Hour1Txt, 1, 12);
+            InputValidator.AllowOnlyDigitsMinMax(Hour2Txt, 1, 12);
+            InputValidator.AllowOnlyDigitsMinMax(Minute1Txt, 1, 59);
+            InputValidator.AllowOnlyDigitsMinMax(Minute2Txt, 1, 59);
             SetUpCB();
             SetUpAutomaticBackup();
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            mainForm = (MainForm)this.ParentForm;
             UpdateInventoryDG();
         }
 
@@ -267,29 +275,6 @@ namespace BenpilsBarcodeSystem
 
         private async void ExportBtn_Click(object sender, EventArgs e)
         {
-            //LoadingDialog loadingDialog = null;
-
-            //Thread thread = new Thread(() =>
-            //{
-            //    loadingDialog = new LoadingDialog("Backing up data, please wait.");
-
-            //    loadingDialog.StartPosition = FormStartPosition.Manual;
-            //    loadingDialog.Location = new Point(this.Location.X + this.Width / 2 - loadingDialog.Width / 2,
-            //                                       this.Location.Y + this.Height / 2 - loadingDialog.Height / 2);
-
-            //    loadingDialog.ShowDialog();
-            //});
-
-            Action<string, string, MessageBoxIcon> showMessage = (message, title, MessageBoxIcon) =>
-            {
-                //if (loadingDialog != null && loadingDialog.InvokeRequired)
-                //{
-                //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
-                //}
-                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon);
-                this.Focus();
-            };
-
             if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb))
             {
                 Dictionary<DataTable, string> dataTableSheetMapping = new Dictionary<DataTable, string>();
@@ -299,7 +284,8 @@ namespace BenpilsBarcodeSystem
 
                 if (InventoryCb.Checked)
                 {
-                    DataTable dt = await GetInventoryDT(fromDate, endDate);
+                    InventoryRepository repository = new InventoryRepository();
+                    DataTable dt = await repository.GetInventoryExportDT(fromDate, endDate);
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dataTableSheetMapping.Add(dt, "Inventory");
@@ -308,7 +294,8 @@ namespace BenpilsBarcodeSystem
 
                 if (SuppliersCb.Checked)
                 {
-                    DataTable dt = await GetSuppliersDT(fromDate, endDate);
+                    SuppliersRepository repository = new SuppliersRepository();
+                    DataTable dt = await repository.GetSuppliersDT(fromDate, endDate);
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dataTableSheetMapping.Add(dt, "Suppliers");
@@ -317,16 +304,18 @@ namespace BenpilsBarcodeSystem
 
                 if (PurchaseOrdersCb.Checked)
                 {
-                    //DataTable dt = await getpurc(fromDate, endDate);
-                    //if (dt != null && dt.Rows.Count > 0)
-                    //{
-                    //    dataTableSheetMapping.Add(dt, "Suppliers");
-                    //}
+                    ReportsRepository repository = new ReportsRepository();
+                    DataTable dt = await repository.GetPurchaseOrderExportDT(fromDate, endDate);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dataTableSheetMapping.Add(dt, "Purchase Order");
+                    }
                 }
 
                 if (SalesTransactionsCb.Checked)
                 {
-                    DataTable dt = await GetSalesTransactionsDT(fromDate, endDate);
+                    ReportsRepository repository = new ReportsRepository();
+                    DataTable dt = await repository.GetSalesTransactionsExportDT(fromDate, endDate);
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dataTableSheetMapping.Add(dt, "Sales Transactions");
@@ -335,7 +324,8 @@ namespace BenpilsBarcodeSystem
 
                 if (InventoryReportCb.Checked)
                 {
-                    DataTable dt = await GetInventoryReportDT(fromDate, endDate);
+                    ReportsRepository repository = new ReportsRepository();
+                    DataTable dt = await repository.GetInventoryReportExportDT(fromDate, endDate);
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dataTableSheetMapping.Add(dt, "Inventory Report");
@@ -344,279 +334,20 @@ namespace BenpilsBarcodeSystem
 
                 if (AuditTrailCb.Checked)
                 {
-                    DataTable dt = await GetAuditTrailDT(fromDate, endDate);
+                    ReportsRepository repository = new ReportsRepository();
+                    DataTable dt = await repository.GetAuditTrailExportDT(fromDate, endDate);
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dataTableSheetMapping.Add(dt, "Audit Trail");
                     }
                 }
 
-                if (dataTableSheetMapping != null && dataTableSheetMapping.Count > 0)
-                {
-                    SaveFileDialog saveFileDialog = new SaveFileDialog
-                    {
-                        Filter = "Excel Files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
-                        FileName = "Backup.xlsx",
-                        Title = "Save Excel File",
-                        InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-                    };
-                    try
-                    {
-                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            //thread.Start();
-
-                            string filePath = Path.GetDirectoryName(saveFileDialog.FileName);
-                            string fileName = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
-                            switch(Util.ExportToExcel(filePath, fileName, dataTableSheetMapping))
-                            {
-                                case 0:
-                                    showMessage("Backup Exported Successfully", "Backup", MessageBoxIcon.Information);
-                                    break;
-                                case 1:
-                                    showMessage("Unable to overwrite existing file. Either it's open or you don't have the necessary permissions.", "File Overwrite Error", MessageBoxIcon.Error);
-                                    break;
-                                case 2:
-                                    showMessage("Unable to export backup", "Export Error", MessageBoxIcon.Error);
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }
-                    finally
-                    {
-                        //if (loadingDialog != null && loadingDialog.InvokeRequired)
-                        //{
-                        //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
-                        //}
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No available data to backup.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                Util.ExportData(this, dataTableSheetMapping);
             }
             else
             {
                 MessageBox.Show("Please check a data to export", "Export Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private async Task<DataTable> GetInventoryDT(DateTime dateFom, DateTime dateTo)
-        {
-            InventoryRepository inventoryRepository = new InventoryRepository();
-            DataTable dt = await inventoryRepository.GetProductsAsync(true);
-
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return dt;
-            }
-
-            dt.Columns.Remove("formatted_purchase_price");
-            dt.Columns.Remove("formatted_selling_price");
-            dt.Columns.Remove("status");
-
-            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
-                {
-                    {InventoryRepository.col_id, "Product ID"},
-                    {InventoryRepository.col_barcode, "Barcode"},
-                    {InventoryRepository.col_item_name, "Item"},
-                    {InventoryRepository.col_brand, "Brand"},
-                    {InventoryRepository.col_motor_brand, "Motor Brand"},
-                    {InventoryRepository.col_category, "Category"},
-                    {InventoryRepository.col_size, "Size"},
-                    {InventoryRepository.col_date_created, "Date Created"},
-                    {InventoryRepository.col_purchase_price, "Purchase Price"},
-                    {InventoryRepository.col_selling_price, "Selling Price"},
-                    {InventoryRepository.col_quantity, "Quantity"}
-                };
-
-            foreach (var item in columnRenameDict)
-            {
-                dt.Columns[item.Key].ColumnName = item.Value;
-            }
-
-            List<string> columnOrder = new List<string>
-                {
-                    "Date Created",
-                    "Product ID",
-                    "Barcode",
-                    "Category",
-                    "Item",
-                    "Brand",
-                    "Motor Brand",
-                    "Size",
-                    "Purchase Price",
-                    "Selling Price",
-                    "Quantity"
-                };
-
-            return Util.ReorderColumns(dt, columnOrder);
-        }
-
-        private async Task<DataTable> GetSuppliersDT(DateTime dateFom, DateTime dateTo)
-        {
-            SuppliersRepository repository = new SuppliersRepository();
-            DataTable dt = await repository.GetSupplierAsync(true);
-
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return dt;
-            }
-
-            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
-            {
-                {SuppliersRepository.col_id, "Supplier ID"},
-                {SuppliersRepository.col_contact_name, "Contact Name"},
-                {SuppliersRepository.col_contact_no, "Contact No"},
-                {SuppliersRepository.col_address, "Address"},
-                {SuppliersRepository.col_date_created, "Date Created"},
-            };
-
-            foreach (var item in columnRenameDict)
-            {
-                dt.Columns[item.Key].ColumnName = item.Value;
-            }
-
-            List<string> columnOrder = new List<string>
-                {
-                    "Date Created",
-                    "Supplier ID",
-                    "Contact Name",
-                    "Contact No",
-                    "Address",
-                };
-
-            return Util.ReorderColumns(dt, columnOrder);
-        }
-
-        private async Task<DataTable> GetSalesTransactionsDT(DateTime dateFrom, DateTime dateTo)
-        {
-            ReportsRepository repository = new ReportsRepository();
-            DataTable dt = await repository.GetSalesAsync(dateFrom, dateTo);
-
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return dt;
-            }
-
-            dt.Columns.Remove("formatted_transaction_date");
-
-            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
-                {
-                    {POSRepository.col_transaction_id, "Transaction ID"},
-                    {UserCredentialsRepository.col_username, "Salesperson"},
-                    {POSRepository.col_transaction_date, "Transaction Date"},
-                    {"item_name", "Item"},
-                    {POSRepository.col_quantity, "Quantity"},
-                    {POSRepository.col_total, "Total"},
-                };
-
-            foreach (var item in columnRenameDict)
-            {
-                dt.Columns[item.Key].ColumnName = item.Value;
-            }
-
-            List<string> columnOrder = new List<string>
-                {
-                    "Transaction Date",
-                    "Transaction ID",
-                    "Salesperson",
-                    "Item",
-                    "Quantity",
-                    "Total",
-                };
-
-            return Util.ReorderColumns(dt, columnOrder);
-        }
-
-        private async Task<DataTable> GetInventoryReportDT(DateTime dateFrom, DateTime dateTo)
-        {
-            ReportsRepository repository = new ReportsRepository();
-            DataTable dt = await repository.GetInventoryReportsAsync(dateFrom, dateTo);
-
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return dt;
-            }
-
-            dt.Columns.Remove(ReportsRepository.col_item_id);
-            dt.Columns.Remove(ReportsRepository.col_purchase_order_id);
-
-            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
-                {
-                    {InventoryRepository.col_barcode, "Barcode"},
-                    {ReportsRepository.col_date, "Date"},
-                    {ReportsRepository.col_action, "Action"},
-                    {ReportsRepository.col_quantity, "Quantity"},
-                    {ReportsRepository.col_modified_by, "Operated By"},
-                    {ReportsRepository.col_old_stock, "Old Stock"},
-                    {ReportsRepository.col_new_stock, "New Stock"},
-                    {ReportsRepository.col_remarks, "Remarks"},
-                    {"item", "Item"},
-                };
-
-            foreach (var item in columnRenameDict)
-            {
-                dt.Columns[item.Key].ColumnName = item.Value;
-            }
-
-            List<string> columnOrder = new List<string>
-                {
-                    "Date",
-                    "Operated By",
-                    "Action",
-                    "Barcode",
-                    "Item",
-                    "Quantity",
-                    "Old Stock",
-                    "New Stock",
-                    "Remarks",
-                };
-
-            return Util.ReorderColumns(dt, columnOrder);
-        }
-
-        private async Task<DataTable> GetAuditTrailDT(DateTime dateFrom, DateTime dateTo)
-        {
-            ReportsRepository repository = new ReportsRepository();
-            DataTable dt = await repository.GetAuditTrailAsync(dateFrom, dateTo);
-
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return dt;
-            }
-
-            dt.Columns.Remove("name");
-            dt.Columns.Remove("formatted_date");
-
-            Dictionary<string, string> columnRenameDict = new Dictionary<string, string>
-                {
-                    {UserCredentialsRepository.col_username, "Username"},
-                    {UserCredentialsRepository.col_first_name, "First Name"},
-                    {UserCredentialsRepository.col_last_name, "Last Name"},
-                    {ReportsRepository.col_action, "Action"},
-                    {ReportsRepository.col_date, "Date"},
-                    {ReportsRepository.col_details, "Details"},
-                };
-
-            foreach (var item in columnRenameDict)
-            {
-                dt.Columns[item.Key].ColumnName = item.Value;
-            }
-
-            List<string> columnOrder = new List<string>
-                {
-                    "Date",
-                    "Username",
-                    "First Name",
-                    "Last Name",
-                    "Action",
-                    "Details",
-                };
-
-            return Util.ReorderColumns(dt, columnOrder);
         }
 
         private void StartDt_ValueChanged(object sender, EventArgs e)
@@ -709,45 +440,95 @@ namespace BenpilsBarcodeSystem
                 }
 
                 MonthlyCb.SelectedIndex = 0;
+
+                string[] tt = { "AM", "PM"};
+                Ampm1Cb.Items.AddRange(tt);
+                Ampm1Cb.SelectedIndex = 0;
+
+                Ampm2Cb.Items.AddRange(tt);
+                Ampm2Cb.SelectedIndex = 0;
             }
         }
 
         private void SaveBackupSettings_Click(object sender, EventArgs e)
         {
-            BackupSettings settings = new BackupSettings();
+            if (Util.IsAnyCheckboxChecked(AInventoryCb, ASuppliersCb, ASalesTransactionsCb, AInventoryReportCb, AAuditTrailCb))
+            {
+                BackupSettings settings = new BackupSettings();
 
-            settings.IsEnabled = true;
-            settings.BackupInventory = AInventoryCb.Checked;
-            settings.BackupSuppliers = ASuppliersCb.Checked;
-            settings.BackupPurchaseOrder = APurchaseOrdersCb.Checked;
-            settings.BackupSalesTransactions = ASalesTransactionsCb.Checked;
-            settings.BackupInventoryReport = AInventoryReportCb.Checked;
-            settings.BackupAuditTrail = AAuditTrailCb.Checked;
+                settings.IsEnabled = true;
+                settings.BackupInventory = AInventoryCb.Checked;
+                settings.BackupSuppliers = ASuppliersCb.Checked;
+                settings.BackupPurchaseOrder = APurchaseOrdersCb.Checked;
+                settings.BackupSalesTransactions = ASalesTransactionsCb.Checked;
+                settings.BackupInventoryReport = AInventoryReportCb.Checked;
+                settings.BackupAuditTrail = AAuditTrailCb.Checked;
 
-            settings.Interval = selectedInterval;
-            settings.IntervalValue = selectedInterval == BackupInterval.EveryXHours ? HoursCb.Text :
-                                     selectedInterval == BackupInterval.Weekly ? WeeklyCb.Text : MonthlyCb.Text;
+                if (!Util.IsAnyRadioButtonChecked(HourlyRb, EveryHoursRb, DailyRb, WeeklyRb, MonthlyRb))
+                {
+                    MessageBox.Show("Please select backup interval.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            bool activeHoursEnabled = selectedInterval == BackupInterval.Daily || selectedInterval == BackupInterval.Weekly || selectedInterval == BackupInterval.Monthly;
-            settings.UseActiveHours = activeHoursEnabled;
+                settings.Interval = selectedInterval;
+                settings.IntervalValue = selectedInterval == BackupInterval.EveryXHours ? HoursCb.Text :
+                                         selectedInterval == BackupInterval.Weekly ? WeeklyCb.Text : MonthlyCb.Text;
 
-            string hour1 = Hour1Txt.Text;
-            string minute1 = Minute1Txt.Text;
-            string ampm1 = Ampm1Txt.Text;
+                bool activeHoursEnabled = selectedInterval == BackupInterval.Daily || selectedInterval == BackupInterval.Weekly || selectedInterval == BackupInterval.Monthly;
+                settings.UseActiveHours = activeHoursEnabled;
 
-            string hour2 = Hour2Txt.Text;
-            string minute2 = Minute2Txt.Text;
-            string ampm2 = Ampm2Txt.Text;
+                if (ActiveHoursPanel.Enabled && Util.AreTextBoxesNullOrEmpty(Hour1Txt, Minute1Txt, Hour2Txt, Minute2Txt))
+                {
+                    MessageBox.Show("Please select valid active hours.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-            DateTime time1 = DateTime.Parse($"{hour1}:{minute1} {ampm1}", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime time2 = DateTime.Parse($"{hour2}:{minute2} {ampm2}", System.Globalization.CultureInfo.InvariantCulture);
+                string hour1 = Hour1Txt.Text;
+                string minute1 = Minute1Txt.Text;
+                string ampm1 = Ampm1Cb.SelectedItem.ToString();
 
-            settings.ActiveStartTime = time1.TimeOfDay;
-            settings.ActiveEndTime = time2.TimeOfDay;
+                string hour2 = Hour2Txt.Text;
+                string minute2 = Minute2Txt.Text;
+                string ampm2 = Ampm2Cb.SelectedItem.ToString();
 
-            settings.SaveLocation = SaveLocationTxt.Text;
+                DateTime time1 = DateTime.Parse($"{hour1}:{minute1} {ampm1}", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime time2 = DateTime.Parse($"{hour2}:{minute2} {ampm2}", System.Globalization.CultureInfo.InvariantCulture);
 
-            SaveAutomaticBackupSettings(settings);
+                if (ActiveHoursPanel.Enabled)
+                {
+                    if (time1 > time2)
+                    {
+                        MessageBox.Show("Start time should be earlier than or equal to end time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (time1.TimeOfDay > time2.TimeOfDay)
+                    {
+                        MessageBox.Show("Start time and end time should not overlap to the next day.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                settings.ActiveStartTime = time1.TimeOfDay;
+                settings.ActiveEndTime = time2.TimeOfDay;
+
+                if (Util.AreTextBoxesNullOrEmpty(SaveLocationTxt))
+                {
+                    MessageBox.Show("Please select save location.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                if (!Directory.Exists(SaveLocationTxt.Text))
+                {
+                    MessageBox.Show("Please enter a valid directory for the backup location.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                SaveAutomaticBackupSettings(settings);
+            }
+            else
+            {
+                MessageBox.Show("Please check a data to backup", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private BackupSettings LoadBackupSettings()
@@ -789,8 +570,6 @@ namespace BenpilsBarcodeSystem
         private void SetUpAutomaticBackup()
         {
             BackupSettings settings = LoadBackupSettings();
-
-            //MessageBox.Show(settings.IsEnabled.ToString());
 
             SwitchCb.Checked = settings.IsEnabled;
             
@@ -835,28 +614,28 @@ namespace BenpilsBarcodeSystem
                         (string hour1, string minute1, string ampm1, string hour2, string minute2, string ampm2) = DisectTime(settings.ActiveStartTime, settings.ActiveEndTime);
                         Hour1Txt.Text = hour1;
                         Minute1Txt.Text = minute1;
-                        Ampm1Txt.Text = ampm1;
+                        Ampm1Cb.SelectedItem = ampm1;
                         Hour2Txt.Text = hour2;
                         Minute2Txt.Text = minute2;
-                        Ampm2Txt.Text = ampm2;
+                        Ampm2Cb.SelectedItem = ampm2;
                     }
                     else
                     {
                         Hour1Txt.Text = "08";
                         Minute1Txt.Text = "00";
-                        Ampm1Txt.Text = "AM";
+                        Ampm1Cb.SelectedItem = "AM";
                         Hour2Txt.Text = "05";
                         Minute2Txt.Text = "00";
-                        Ampm2Txt.Text = "PM";
+                        Ampm2Cb.SelectedItem = "PM";
                     }
                     break;
                 default:
                     Hour1Txt.Text = "08";
                     Minute1Txt.Text = "00";
-                    Ampm1Txt.Text = "AM";
+                    Ampm1Cb.SelectedItem = "AM";
                     Hour2Txt.Text = "05";
                     Minute2Txt.Text = "00";
-                    Ampm2Txt.Text = "PM";
+                    Ampm2Cb.SelectedItem = "PM";
                     break;
             }
 
@@ -902,12 +681,27 @@ namespace BenpilsBarcodeSystem
             Properties.Settings.Default.Save();
 
             MessageBox.Show("Settings saved succesfully");
+
+            mainForm.AutoBackupManagerInstance.SetupAutoBackup(mainForm);
         }
 
         private void EnableAutomaticBackup(bool enable)
         {
             Properties.Settings.Default.AutomaticBackupEnabled = enable;
             Properties.Settings.Default.Save();
+        }
+
+        private void BrowseBtn_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                DialogResult result = folderBrowserDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                {
+                    SaveLocationTxt.Text = folderBrowserDialog.SelectedPath;
+                }
+            }
         }
     }
 }

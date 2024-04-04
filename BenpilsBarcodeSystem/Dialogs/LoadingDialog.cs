@@ -23,7 +23,7 @@ namespace BenpilsBarcodeSystem.Dialogs
         Dictionary<DataTable, string> dataTableSheetMapping;
         private Timer hideLoadingTimer;
         private string message;
-        private bool backupSuccess = false;
+        private bool canClose = false;
 
         internal LoadingDialog(string title, LoadingFor loadingFor = LoadingFor.ManualBackup, Dictionary<DataTable, string> dataTableSheetMapping = null)
         {
@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             this.dataTableSheetMapping = dataTableSheetMapping;
 
             hideLoadingTimer = new Timer();
-            hideLoadingTimer.Interval = 2000; // 5 seconds
+            hideLoadingTimer.Interval = 2000; 
             hideLoadingTimer.Tick += HideLoadingTimer_Tick;
         }
 
@@ -51,7 +51,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             switch (Util.ExportData(this, dataTableSheetMapping))
             {
                 case 0:
-                    backupSuccess = true;
                     message = "Backup completed successfully.";
                     break;
                 case 1:
@@ -64,6 +63,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                     message = "Backup failed: Unable to export backup.";
                     break;
                 case 5:
+                    canClose = true;
                     this.Close();
                     break;
                 default:
@@ -86,17 +86,26 @@ namespace BenpilsBarcodeSystem.Dialogs
             //{
             //    AcceptBtn.BackColor = Color.FromArgb(193, 57, 57);
             //}
+
             hideLoadingTimer.Stop();
         }
 
         private void AcceptBtn_Click(object sender, EventArgs e)
         {
+            canClose = true;
             this.Close();
         }
 
         private void LoadingDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            hideLoadingTimer.Stop();
+            if (!canClose)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                hideLoadingTimer.Stop();
+            }
         }
     }
 }

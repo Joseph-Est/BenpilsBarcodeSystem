@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         internal OrderDetails(Mode mode = Mode.OrderConfirmation, Cart currentPurchaseCart = null, Supplier currentSupplier = null, string orderDate = null,
                             string deliverDate = null, string orderNo = null, string orderedBy = null, string status = null, string dateFulfilled = null,
-                            string fulfilledBy = null, string remarks = null, bool isBackOrder = false)
+                            string fulfilledBy = null, string remarks = null, bool isBackOrder = false, bool showCancelOrder = true)
         {
             InitializeComponent();
 
@@ -55,7 +55,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                     SetOrderCompletionMode(orderedBy, status);
                     break;
                 case Mode.OrderView:
-                    SetOrderViewMode(fulfilledBy, dateFulfilled, remarks, orderedBy, status);
+                    SetOrderViewMode(fulfilledBy, dateFulfilled, remarks, orderedBy, status, showCancelOrder);
                     break;
             }
         }
@@ -100,7 +100,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             TitleLbl.Text = "Order Completion";
         }
 
-        private void SetOrderViewMode(string fulfilledBy, string dateFulfilled, string remarks, string orderedBy, string status)
+        private void SetOrderViewMode(string fulfilledBy, string dateFulfilled, string remarks, string orderedBy, string status, bool showCancelOrder = true)
         {
             FulfilledByLbl.Text = fulfilledBy;
             DateFulfilledLbl.Text = dateFulfilled;
@@ -112,7 +112,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             PrintBtn.Visible = true;
             CancelBtn.Visible = true;
-            ConfirmBtn.Visible = true;
+            ConfirmBtn.Visible = showCancelOrder;
             FulfilledByPanel.Visible = fulfilledBy != null;
             DateFulfilledPanel.Visible = fulfilledBy != null;
             RemarksPanel.Visible = remarks != null;

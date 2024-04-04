@@ -269,7 +269,7 @@ namespace BenpilsBarcodeSystem
 
                     if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
                     {
-                        OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks);
+                        OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, false, false);
                         orderDetails.ShowDialog();
                     }
                 }

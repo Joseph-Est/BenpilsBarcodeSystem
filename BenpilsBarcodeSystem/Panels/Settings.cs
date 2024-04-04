@@ -280,7 +280,7 @@ namespace BenpilsBarcodeSystem
 
         private async void ExportBtn_Click(object sender, EventArgs e)
         {
-            if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb))
+            if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, PurchaseOrdersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb))
             {
                 Dictionary<DataTable, string> dataTableSheetMapping = new Dictionary<DataTable, string>();
 
@@ -347,7 +347,8 @@ namespace BenpilsBarcodeSystem
                     }
                 }
 
-                Util.ExportData(this, dataTableSheetMapping);
+                LoadingDialog loading = new LoadingDialog("Backing up data, please wait ...", LoadingFor.ManualBackup, dataTableSheetMapping);
+                loading.ShowDialog();
             }
             else
             {

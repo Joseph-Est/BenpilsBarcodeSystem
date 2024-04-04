@@ -324,104 +324,55 @@ namespace BenpilsBarcodeSystem.Utils
         public static int ExportData(Form form, Dictionary<DataTable, string> dataTableSheetMapping, string saveLocation = null, bool isAutoBackup = false)
         {
             int result = 0;
-            //LoadingDialog loadingDialog = null;
 
-            //Thread thread = new Thread(() =>
-            //{
-            //    loadingDialog = new LoadingDialog("Backing up data, please wait.");
+            string filePath;
+            string fileName;
 
-            //    loadingDialog.StartPosition = FormStartPosition.Manual;
-            //    loadingDialog.Location = new Point(this.Location.X + this.Width / 2 - loadingDialog.Width / 2,
-            //                                       this.Location.Y + this.Height / 2 - loadingDialog.Height / 2);
-
-            //    loadingDialog.ShowDialog();
-            //});
-
-            Action<string, string, MessageBoxIcon> showMessage = (message, title, MessageBoxIcon) =>
+            if (isAutoBackup)
             {
-                //if (loadingDialog != null && loadingDialog.InvokeRequired)
-                //{
-                //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
-                //}
-                MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon);
-                form.Focus();
-            };
-
-            if (dataTableSheetMapping != null && dataTableSheetMapping.Count > 0)
+                filePath = saveLocation;
+                fileName = "AutoBackup";
+            }
+            else
             {
-                string filePath;
-                string fileName;
-
-                if (isAutoBackup)
+                SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
-                    filePath = saveLocation;
-                    fileName = "AutoBackup";
+                    Filter = "Excel Files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
+                    FileName = "Backup.xlsx",
+                    Title = "Save Excel File",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = Path.GetDirectoryName(saveFileDialog.FileName);
+                    fileName = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
                 }
                 else
                 {
-                    SaveFileDialog saveFileDialog = new SaveFileDialog
-                    {
-                        Filter = "Excel Files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
-                        FileName = "Backup.xlsx",
-                        Title = "Save Excel File",
-                        InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-                    };
-
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        filePath = Path.GetDirectoryName(saveFileDialog.FileName);
-                        fileName = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
-                    }
-                    else
-                    {
-                        return result; 
-                    }
+                    return 5;
                 }
+            }
 
-                try
+            if (dataTableSheetMapping != null && dataTableSheetMapping.Count > 0)
+            {
+                switch (ExportToExcel(filePath, fileName, dataTableSheetMapping))
                 {
-                    switch (ExportToExcel(filePath, fileName, dataTableSheetMapping))
-                    {
-                        case 0:
-                            if (!isAutoBackup)
-                            {
-                                showMessage("Backup Exported Successfully", "Backup", MessageBoxIcon.Information);
-                            }
-                            break;
-                        case 1:
-                            if (!isAutoBackup)
-                            {
-                                showMessage("Unable to overwrite existing file. Either it's open or you don't have the necessary permissions.", "File Overwrite Error", MessageBoxIcon.Error);
-                            }
-
-                            result = 2;
-                            break;
-                        case 2:
-                            if (!isAutoBackup)
-                            {
-                                showMessage("Unable to export backup", "Export Error", MessageBoxIcon.Error);
-                            }
-                            result = 3;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                finally
-                {
-                    //if (loadingDialog != null && loadingDialog.InvokeRequired)
-                    //{
-                    //    loadingDialog.Invoke(new Action(() => loadingDialog.Close()));
-                    //}
+                    case 0:
+                        result = 0;
+                        break;
+                    case 1:
+                        result = 2;
+                        break;
+                    case 2:
+                        result = 3;
+                        break;
+                    default:
+                        break;
                 }
             }
             else
             {
-                if (!isAutoBackup)
-                {
-                    MessageBox.Show("No available data to backup.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                
                 result = 1;
             }
 

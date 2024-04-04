@@ -458,7 +458,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private async void OrdersTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void OrdersTbl_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
@@ -492,35 +492,19 @@ namespace BenpilsBarcodeSystem
                     else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
                     {
                         OrderDetails orderDetails = new OrderDetails(Mode.OrderCompletion, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
-                        if(orderDetails.ShowDialog() == DialogResult.OK)
+                        if (orderDetails.ShowDialog() == DialogResult.OK)
                         {
                             UpdatePurchaseOrdersDG();
                             mainForm.updateInventoryTable = true;
                         }
-                        else
-                        {
-                            MessageBox.Show("The purchase operation failed due to an error. Please try again later.", "Purchase Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else if (senderGrid.Columns[e.ColumnIndex].Name == "cancel_order")
-                    {
-                        ConfirmationWithRemarks confirmation = new ConfirmationWithRemarks("Confirm Order Cancellation", $"Are you sure you want to cancel order {orderId}? Once cancelled, this action cannot be undone.");
-                        DialogResult result = confirmation.ShowDialog();
-
-                        if (result == DialogResult.OK)
-                        {
-                            if(await repository.CancelPurchaseOrderAsync(orderId, confirmation.Remarks))
-                            {
-                                UpdatePurchaseOrdersDG();
-                            }
-                            else
-                            {
-                                MessageBox.Show("The operation to cancel the order failed. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
                     }
                 }
             }
+        }
+
+        private void OrdersTbl_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private void SupplierCb_SelectedIndexChanged(object sender, EventArgs e)

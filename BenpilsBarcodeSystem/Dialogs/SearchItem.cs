@@ -57,11 +57,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
         }
 
-        private void ItemsTbl_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(barcode))

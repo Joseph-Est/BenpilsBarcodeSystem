@@ -296,7 +296,6 @@
             this.ItemsTbl.TabStop = false;
             this.ItemsTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsTbl_CellClick);
             this.ItemsTbl.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.ItemsTbl_CellValidating);
-            this.ItemsTbl.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.ItemsTbl_DataBindingComplete);
             this.ItemsTbl.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.ItemsTbl_EditingControlShowing);
             // 
             // Id

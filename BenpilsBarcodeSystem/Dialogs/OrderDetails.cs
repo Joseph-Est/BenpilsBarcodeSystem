@@ -112,11 +112,13 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             PrintBtn.Visible = true;
             CancelBtn.Visible = true;
+            ConfirmBtn.Visible = true;
             FulfilledByPanel.Visible = fulfilledBy != null;
             DateFulfilledPanel.Visible = fulfilledBy != null;
             RemarksPanel.Visible = remarks != null;
 
             CancelBtn.Text = "Close";
+            ConfirmBtn.Text = "Cancel Order";
             TitleLbl.Text = "Order Details";
         }
 
@@ -127,11 +129,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             ItemsTbl.Refresh();
 
             TotalLbl.Text = CurrentPurchaseCart.GetTotalAmountAsString();
-        }
-
-        private void ItemsTbl_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-           
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -177,7 +174,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                             DateTime receivingDate = dateDialog.receivingDate;
                             if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, PurchaseOrderRepository.partially_delivered_status, repository.remarks_partially_delivered, CurrentPurchaseCart, receivingDate))
                             {
-                                MessageBox.Show("The purchase order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("The order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 canClose = true;
                                 DialogResult = DialogResult.OK;
                                 this.Close();
@@ -187,6 +184,26 @@ namespace BenpilsBarcodeSystem.Dialogs
                                 MessageBox.Show("An unexpected error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
+                    }
+                }
+            }else if(mode == Mode.OrderView)
+            {
+                PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
+                ConfirmationWithRemarks confirmation = new ConfirmationWithRemarks("Confirm Order Cancellation", $"Are you sure you want to cancel this order? Once cancelled, this action cannot be undone.");
+                DialogResult result = confirmation.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    if (await repository.CancelPurchaseOrderAsync(InputValidator.ParseToInt(OrderNoLbl.Text), confirmation.Remarks))
+                    {
+                        MessageBox.Show("The order has been successfully cancelled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        canClose = true;
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("The operation to cancel the order failed. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

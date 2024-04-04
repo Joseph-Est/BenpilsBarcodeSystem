@@ -234,6 +234,7 @@
             this.DashboardCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.DashboardCb.Size = new System.Drawing.Size(246, 50);
             this.DashboardCb.TabIndex = 0;
+            this.DashboardCb.TabStop = false;
             this.DashboardCb.Text = "  Dashboard";
             this.DashboardCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DashboardCb.UseVisualStyleBackColor = true;
@@ -259,6 +260,7 @@
             this.InventoryCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.InventoryCb.Size = new System.Drawing.Size(246, 50);
             this.InventoryCb.TabIndex = 1;
+            this.InventoryCb.TabStop = false;
             this.InventoryCb.Text = "  Inventory";
             this.InventoryCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.InventoryCb.UseVisualStyleBackColor = true;
@@ -284,6 +286,7 @@
             this.PurchasingCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.PurchasingCb.Size = new System.Drawing.Size(246, 50);
             this.PurchasingCb.TabIndex = 2;
+            this.PurchasingCb.TabStop = false;
             this.PurchasingCb.Text = "  Purchasing";
             this.PurchasingCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PurchasingCb.UseVisualStyleBackColor = true;
@@ -309,6 +312,7 @@
             this.PosCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.PosCb.Size = new System.Drawing.Size(246, 50);
             this.PosCb.TabIndex = 3;
+            this.PosCb.TabStop = false;
             this.PosCb.Text = "  Point of Sales";
             this.PosCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PosCb.UseVisualStyleBackColor = true;
@@ -334,6 +338,7 @@
             this.ReportsCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.ReportsCb.Size = new System.Drawing.Size(246, 50);
             this.ReportsCb.TabIndex = 4;
+            this.ReportsCb.TabStop = false;
             this.ReportsCb.Text = "  Reports";
             this.ReportsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ReportsCb.UseVisualStyleBackColor = true;
@@ -359,6 +364,7 @@
             this.StatisticsCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.StatisticsCb.Size = new System.Drawing.Size(246, 50);
             this.StatisticsCb.TabIndex = 5;
+            this.StatisticsCb.TabStop = false;
             this.StatisticsCb.Text = "  Statistic Reports";
             this.StatisticsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StatisticsCb.UseVisualStyleBackColor = true;
@@ -384,6 +390,7 @@
             this.UsersCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.UsersCb.Size = new System.Drawing.Size(246, 50);
             this.UsersCb.TabIndex = 6;
+            this.UsersCb.TabStop = false;
             this.UsersCb.Text = "  User Credentials";
             this.UsersCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.UsersCb.UseVisualStyleBackColor = true;
@@ -409,6 +416,7 @@
             this.SettingsCb.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.SettingsCb.Size = new System.Drawing.Size(246, 50);
             this.SettingsCb.TabIndex = 7;
+            this.SettingsCb.TabStop = false;
             this.SettingsCb.Text = "  Settings";
             this.SettingsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SettingsCb.UseVisualStyleBackColor = true;

@@ -138,7 +138,6 @@
             this.ItemsTbl.TabIndex = 184;
             this.ItemsTbl.TabStop = false;
             this.ItemsTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsTbl_CellClick);
-            this.ItemsTbl.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsTbl_CellContentDoubleClick);
             this.ItemsTbl.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemsTbl_CellDoubleClick);
             // 
             // Id

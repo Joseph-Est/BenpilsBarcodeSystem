@@ -122,6 +122,21 @@
             this.PurchaseStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.PurchaseSearchTxt = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.TotalOverdueLbl = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.TotalDeliveredLbl = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.DueToday = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.TotalPendingLbl = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.InventoryReportTab = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.InventoryTbl = new System.Windows.Forms.DataGridView();
@@ -165,20 +180,6 @@
             this.AuditStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.AuditSearchTxt = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.TotalPendingLbl = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.DueToday = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.TotalDeliveredLbl = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.TotalOverdueLbl = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.SalesReportTab.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTbl)).BeginInit();
@@ -195,6 +196,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.InventoryReportTab.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).BeginInit();
@@ -207,12 +214,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AuditTrailTbl)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // SalesReportTab
@@ -504,6 +505,7 @@
             this.SalesSearchTxt.Size = new System.Drawing.Size(162, 22);
             this.SalesSearchTxt.TabIndex = 180;
             this.SalesSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            this.SalesSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
             // panel9
             // 
@@ -695,10 +697,10 @@
             this.panel3.Controls.Add(this.OrdersTbl);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 167);
+            this.panel3.Location = new System.Drawing.Point(0, 177);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel3.Size = new System.Drawing.Size(1199, 511);
+            this.panel3.Size = new System.Drawing.Size(1199, 501);
             this.panel3.TabIndex = 38;
             // 
             // OrdersTbl
@@ -756,7 +758,7 @@
             this.OrdersTbl.RowTemplate.Height = 30;
             this.OrdersTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrdersTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrdersTbl.Size = new System.Drawing.Size(1139, 481);
+            this.OrdersTbl.Size = new System.Drawing.Size(1139, 471);
             this.OrdersTbl.TabIndex = 182;
             this.OrdersTbl.TabStop = false;
             this.OrdersTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellContentClick);
@@ -875,7 +877,7 @@
             this.panel4.Controls.Add(this.PurchaseSearchTxt);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 100);
+            this.panel4.Location = new System.Drawing.Point(0, 110);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1199, 67);
             this.panel4.TabIndex = 39;
@@ -997,6 +999,209 @@
             this.PurchaseSearchTxt.Size = new System.Drawing.Size(162, 22);
             this.PurchaseSearchTxt.TabIndex = 180;
             this.PurchaseSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            this.PurchaseSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.Control;
+            this.panel13.Controls.Add(this.tableLayoutPanel2);
+            this.panel13.Controls.Add(this.label5);
+            this.panel13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1199, 110);
+            this.panel13.TabIndex = 42;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.panel21, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel19, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel20, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 45);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1199, 65);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel21.Controls.Add(this.TotalOverdueLbl);
+            this.panel21.Controls.Add(this.label17);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(603, 3);
+            this.panel21.Margin = new System.Windows.Forms.Padding(5, 3, 5, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(274, 70);
+            this.panel21.TabIndex = 13;
+            // 
+            // TotalOverdueLbl
+            // 
+            this.TotalOverdueLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalOverdueLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalOverdueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.TotalOverdueLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalOverdueLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalOverdueLbl.Name = "TotalOverdueLbl";
+            this.TotalOverdueLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalOverdueLbl.Size = new System.Drawing.Size(274, 43);
+            this.TotalOverdueLbl.TabIndex = 6;
+            this.TotalOverdueLbl.Text = "0";
+            this.TotalOverdueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.LightGray;
+            this.label17.Location = new System.Drawing.Point(0, 0);
+            this.label17.Name = "label17";
+            this.label17.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label17.Size = new System.Drawing.Size(274, 27);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Total Overdue";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel19.Controls.Add(this.TotalDeliveredLbl);
+            this.panel19.Controls.Add(this.label19);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(887, 3);
+            this.panel19.Margin = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(282, 70);
+            this.panel19.TabIndex = 12;
+            // 
+            // TotalDeliveredLbl
+            // 
+            this.TotalDeliveredLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalDeliveredLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalDeliveredLbl.ForeColor = System.Drawing.Color.White;
+            this.TotalDeliveredLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalDeliveredLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalDeliveredLbl.Name = "TotalDeliveredLbl";
+            this.TotalDeliveredLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalDeliveredLbl.Size = new System.Drawing.Size(282, 43);
+            this.TotalDeliveredLbl.TabIndex = 6;
+            this.TotalDeliveredLbl.Text = "0";
+            this.TotalDeliveredLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.LightGray;
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label19.Size = new System.Drawing.Size(282, 27);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Total Delivered";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel14.Controls.Add(this.DueToday);
+            this.panel14.Controls.Add(this.label7);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(30, 3);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0, 3, 5, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(279, 70);
+            this.panel14.TabIndex = 8;
+            // 
+            // DueToday
+            // 
+            this.DueToday.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DueToday.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DueToday.ForeColor = System.Drawing.Color.White;
+            this.DueToday.Location = new System.Drawing.Point(0, 27);
+            this.DueToday.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.DueToday.Name = "DueToday";
+            this.DueToday.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.DueToday.Size = new System.Drawing.Size(279, 43);
+            this.DueToday.TabIndex = 4;
+            this.DueToday.Text = "0";
+            this.DueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.LightGray;
+            this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label7.Size = new System.Drawing.Size(279, 27);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Due Today";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel20.Controls.Add(this.TotalPendingLbl);
+            this.panel20.Controls.Add(this.label21);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(319, 3);
+            this.panel20.Margin = new System.Windows.Forms.Padding(5, 3, 5, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(274, 70);
+            this.panel20.TabIndex = 7;
+            // 
+            // TotalPendingLbl
+            // 
+            this.TotalPendingLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TotalPendingLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalPendingLbl.ForeColor = System.Drawing.Color.White;
+            this.TotalPendingLbl.Location = new System.Drawing.Point(0, 27);
+            this.TotalPendingLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
+            this.TotalPendingLbl.Name = "TotalPendingLbl";
+            this.TotalPendingLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.TotalPendingLbl.Size = new System.Drawing.Size(274, 43);
+            this.TotalPendingLbl.TabIndex = 4;
+            this.TotalPendingLbl.Text = "0";
+            this.TotalPendingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.LightGray;
+            this.label21.Location = new System.Drawing.Point(0, 0);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
+            this.label21.Size = new System.Drawing.Size(274, 27);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Total Pending";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.label5.Size = new System.Drawing.Size(1199, 45);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "PURCHASE ORDER SUMMARY";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InventoryReportTab
             // 
@@ -1326,6 +1531,7 @@
             this.InventorySearchTxt.Size = new System.Drawing.Size(162, 22);
             this.InventorySearchTxt.TabIndex = 180;
             this.InventorySearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
+            this.InventorySearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
             // pictureBox2
             // 
@@ -1621,194 +1827,7 @@
             this.AuditSearchTxt.Size = new System.Drawing.Size(162, 22);
             this.AuditSearchTxt.TabIndex = 180;
             this.AuditSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.panel21, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel19, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel20, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 30);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1199, 70);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel20.Controls.Add(this.TotalPendingLbl);
-            this.panel20.Controls.Add(this.label21);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(319, 0);
-            this.panel20.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(274, 70);
-            this.panel20.TabIndex = 7;
-            // 
-            // label21
-            // 
-            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.LightGray;
-            this.label21.Location = new System.Drawing.Point(0, 0);
-            this.label21.Name = "label21";
-            this.label21.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label21.Size = new System.Drawing.Size(274, 27);
-            this.label21.TabIndex = 3;
-            this.label21.Text = "Total Pending";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TotalPendingLbl
-            // 
-            this.TotalPendingLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TotalPendingLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalPendingLbl.ForeColor = System.Drawing.Color.White;
-            this.TotalPendingLbl.Location = new System.Drawing.Point(0, 27);
-            this.TotalPendingLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.TotalPendingLbl.Name = "TotalPendingLbl";
-            this.TotalPendingLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.TotalPendingLbl.Size = new System.Drawing.Size(274, 43);
-            this.TotalPendingLbl.TabIndex = 4;
-            this.TotalPendingLbl.Text = "0";
-            this.TotalPendingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.SystemColors.Control;
-            this.panel13.Controls.Add(this.tableLayoutPanel2);
-            this.panel13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel13.Size = new System.Drawing.Size(1199, 100);
-            this.panel13.TabIndex = 42;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel14.Controls.Add(this.DueToday);
-            this.panel14.Controls.Add(this.label7);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(30, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(279, 70);
-            this.panel14.TabIndex = 8;
-            // 
-            // DueToday
-            // 
-            this.DueToday.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DueToday.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DueToday.ForeColor = System.Drawing.Color.White;
-            this.DueToday.Location = new System.Drawing.Point(0, 27);
-            this.DueToday.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.DueToday.Name = "DueToday";
-            this.DueToday.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.DueToday.Size = new System.Drawing.Size(279, 43);
-            this.DueToday.TabIndex = 4;
-            this.DueToday.Text = "0";
-            this.DueToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.LightGray;
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(279, 27);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Due Today";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel19.Controls.Add(this.TotalDeliveredLbl);
-            this.panel19.Controls.Add(this.label19);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(887, 0);
-            this.panel19.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(282, 70);
-            this.panel19.TabIndex = 12;
-            // 
-            // TotalDeliveredLbl
-            // 
-            this.TotalDeliveredLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TotalDeliveredLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalDeliveredLbl.ForeColor = System.Drawing.Color.White;
-            this.TotalDeliveredLbl.Location = new System.Drawing.Point(0, 27);
-            this.TotalDeliveredLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.TotalDeliveredLbl.Name = "TotalDeliveredLbl";
-            this.TotalDeliveredLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.TotalDeliveredLbl.Size = new System.Drawing.Size(282, 43);
-            this.TotalDeliveredLbl.TabIndex = 6;
-            this.TotalDeliveredLbl.Text = "0";
-            this.TotalDeliveredLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.LightGray;
-            this.label19.Location = new System.Drawing.Point(0, 0);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label19.Size = new System.Drawing.Size(282, 27);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Total Delivered";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel21.Controls.Add(this.TotalOverdueLbl);
-            this.panel21.Controls.Add(this.label17);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(603, 0);
-            this.panel21.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(274, 70);
-            this.panel21.TabIndex = 13;
-            // 
-            // TotalOverdueLbl
-            // 
-            this.TotalOverdueLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TotalOverdueLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalOverdueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.TotalOverdueLbl.Location = new System.Drawing.Point(0, 27);
-            this.TotalOverdueLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
-            this.TotalOverdueLbl.Name = "TotalOverdueLbl";
-            this.TotalOverdueLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.TotalOverdueLbl.Size = new System.Drawing.Size(274, 43);
-            this.TotalOverdueLbl.TabIndex = 6;
-            this.TotalOverdueLbl.Text = "0";
-            this.TotalOverdueLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.LightGray;
-            this.label17.Location = new System.Drawing.Point(0, 0);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(4, 5, 0, 0);
-            this.label17.Size = new System.Drawing.Size(274, 27);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Total Overdue";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AuditSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
             // Reports
             // 
@@ -1841,6 +1860,12 @@
             this.panel4.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
             this.InventoryReportTab.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).EndInit();
@@ -1857,12 +1882,6 @@
             this.panel8.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1981,5 +2000,6 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label TotalOverdueLbl;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label5;
     }
 }

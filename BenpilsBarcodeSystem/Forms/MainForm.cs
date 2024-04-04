@@ -86,7 +86,7 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                MessageBox.Show("Please complete the ongoing transaction.", "Transaction in Progress", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please complete the ongoing operation.", "Operation in Progress", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -193,8 +193,8 @@ namespace BenpilsBarcodeSystem
 
         private void SetUser()
         {
-            label1.Text = "Username : " + CurrentUser.User.Username;
-            label2.Text = "Designation : " + CurrentUser.User.Designation;
+            UsernameTxt.Text = "Username: " + CurrentUser.User.Username;
+            DesignationTxt.Text = "Designation: " + CurrentUser.User.Designation;
 
             if (CurrentUser.User.Designation == "Super Admin")
             {
@@ -223,6 +223,11 @@ namespace BenpilsBarcodeSystem
                 UsersCb.Visible = false;
                 SettingsCb.Visible = false;
             }
+        }
+
+        public void updateUsername()
+        {
+            UsernameTxt.Text = "Username: " + CurrentUser.User.Username;
         }
 
         private void SetTimer()

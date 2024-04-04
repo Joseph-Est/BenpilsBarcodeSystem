@@ -341,5 +341,10 @@ namespace BenpilsBarcodeSystem
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
+
+        private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
     }
 }

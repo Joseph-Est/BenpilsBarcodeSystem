@@ -22,6 +22,7 @@ namespace BenpilsBarcodeSystem
         private bool isUpdating = false;
         private int selectedID;
         private string prevItemName, prevBarcode, prevSize, prevBrand, prevMotorBrand;
+        MainForm mainForm;
 
         public Inventory()
         {
@@ -33,6 +34,7 @@ namespace BenpilsBarcodeSystem
 
         private void Inventory_Load(object sender, EventArgs e)
         {
+            mainForm = (MainForm)this.ParentForm;
             PopulateComboBoxes();
             UpdateDataGridView();
         }
@@ -49,8 +51,8 @@ namespace BenpilsBarcodeSystem
                 InventoryRepository inventoryRepository = new InventoryRepository();
                 DataTable inventoryDT = await inventoryRepository.GetProductsAsync(true, searchText, category, brand);
 
-                dataGridItemMasterdata.AutoGenerateColumns = false;
-                dataGridItemMasterdata.DataSource = inventoryDT;
+                InventoryTbl.AutoGenerateColumns = false;
+                InventoryTbl.DataSource = inventoryDT;
 
             }
             catch (Exception ex)
@@ -71,19 +73,19 @@ namespace BenpilsBarcodeSystem
 
                 if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
                 {
-                    MessageBox.Show("Please fill in all the required fields.");
+                    MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!string.IsNullOrEmpty(PurchasePriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(PurchasePriceTxt.Text))
                 {
-                    MessageBox.Show("Invalid purchase price");
+                    MessageBox.Show("The purchase price entered is not valid. Please enter a valid number.", "Invalid Purchase Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!string.IsNullOrEmpty(SellingPriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(SellingPriceTxt.Text))
                 {
-                    MessageBox.Show("Invalid selling price");
+                    MessageBox.Show("The selling price entered is not valid. Please enter a valid number.", "Invalid Selling Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -93,7 +95,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if (await repository.isItemExists(itemName, brand, motorBrand, size))
                     {
-                        MessageBox.Show("Item already exists");
+                        MessageBox.Show("The item you're trying to update already exists. Please check the item details.", "Item Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -102,7 +104,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
                     {
-                        MessageBox.Show("Barcode already exist.");
+                        MessageBox.Show("The barcode you've entered is already in use. Please enter a unique barcode.", "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -122,7 +124,7 @@ namespace BenpilsBarcodeSystem
                 {
                     isUpdating = false;
 
-                    MessageBox.Show($"{Util.Capitalize(ItemNameTxt.Text)} updated succesfully!");
+                    MessageBox.Show($"The item '{Util.Capitalize(ItemNameTxt.Text)}' has been successfully updated!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     UpdateDataGridView();
                     ClearFields();
@@ -135,7 +137,7 @@ namespace BenpilsBarcodeSystem
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to update {prevItemName}!");
+                    MessageBox.Show($"Unfortunately, the update operation for '{prevItemName}' failed. Please try again.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -194,7 +196,7 @@ namespace BenpilsBarcodeSystem
         {
             if (InputValidator.ParseToInt(QuantityTxt.Text) > 0)
             {
-                MessageBox.Show("Unable to archive item. Item must be out of stock.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The item cannot be archived because it is still in stock. Please ensure the item is out of stock before attempting to archive it.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -209,7 +211,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if(await inventoryRepository.HasPendingOrdersAsync(selectedID))
                     {
-                        MessageBox.Show("Unable to archive item. There are pending orders.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("The item cannot be archived because there are pending orders associated with it. Please complete or cancel all pending orders before attempting to archive the item.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -219,7 +221,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("Failed to archive item");
+                        MessageBox.Show("An error occurred while attempting to archive the item. Please try again.", "Archive Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -238,13 +240,13 @@ namespace BenpilsBarcodeSystem
                 InventoryRepository inventoryRepository = new InventoryRepository();
                 if (await inventoryRepository.DeductStockAsync(id, amountToDeduct, reason))
                 {
-                    MessageBox.Show($"{itemName} quantity reduced succesfully");
+                    MessageBox.Show($"The quantity of '{itemName}' has been successfully reduced.", "Quantity Reduced", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateDataGridView();
                     ClearFields();
                 }
                 else
                 {
-                    MessageBox.Show($"Failed to reduce item quantity");
+                    MessageBox.Show("An error occurred while attempting to reduce the item quantity. Please try again.", "Quantity Reduction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -256,7 +258,7 @@ namespace BenpilsBarcodeSystem
             {
                 if (e.RowIndex >= 0)
                 {
-                    DataGridViewRow row = dataGridItemMasterdata.Rows[e.RowIndex];
+                    DataGridViewRow row = InventoryTbl.Rows[e.RowIndex];
                     selectedID =  InputValidator.ParseToInt(row.Cells["id"].Value.ToString());
                     BarcodeTxt.Text = row.Cells["barcode"].Value.ToString();
                     ItemNameTxt.Text = row.Cells["item_name"].Value.ToString();
@@ -316,6 +318,7 @@ namespace BenpilsBarcodeSystem
         {
             Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, QuantityTxt, PurchasePriceTxt,SellingPriceTxt);
             Util.SetComboBoxesDisabled(mode, CategoryInputCb, BrandInputCb, MotorBrandInputCb, SizeCb);
+            mainForm.CanSwitchPanel = mode;
         }
 
         private void InputFormPanel_Enter(object sender, EventArgs e)
@@ -371,6 +374,17 @@ namespace BenpilsBarcodeSystem
             PopulateComboBoxes();
             UpdateDataGridView();
             CancelFilterCb.Visible = false;
+        }
+
+        private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
+
+        private void CB_DropDownClosed(object sender, EventArgs e)
+        {
+            InventoryTbl.Focus();
+
         }
 
         private async void ComboBox_Enter(object sender, EventArgs e)

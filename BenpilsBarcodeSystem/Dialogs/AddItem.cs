@@ -69,13 +69,13 @@ namespace BenpilsBarcodeSystem
 
             if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
             {
-                MessageBox.Show("Please fill in all the required fields.");
+                MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!string.IsNullOrEmpty(PurchasePriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(PurchasePriceTxt.Text))
             {
-                MessageBox.Show("Invalid purchase price");
+                MessageBox.Show("The purchase price entered is not valid. Please enter a valid number.", "Invalid Purchase Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace BenpilsBarcodeSystem
 
             if (!string.IsNullOrEmpty(SellingPriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(SellingPriceTxt.Text))
             {
-                MessageBox.Show("Invalid selling price");
+                MessageBox.Show("The selling price entered is not valid. Please enter a valid number.", "Invalid Selling Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -93,13 +93,13 @@ namespace BenpilsBarcodeSystem
 
             if(await repository.isItemExists(itemName, brand, motorBrand, size))
             {
-                MessageBox.Show("Item already exists");
+                MessageBox.Show("The item already exists. Please check the item details.", "Item Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (await repository.IsDataExistsAsync("barcode", BarcodeTxt.Text))
             {
-                MessageBox.Show("Barcode already exist.");
+                MessageBox.Show("The barcode you've entered is already in use. Please enter a unique barcode.", "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -116,14 +116,14 @@ namespace BenpilsBarcodeSystem
                 CurrentSupplier?.SupplierID
             ))
             {
-                MessageBox.Show("Item added succesfully");
+                MessageBox.Show("The item has been successfully added!", "Addition Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 canClose = true;
                 DialogResult = DialogResult.OK;
                 Close();
             }
             else
             {
-                MessageBox.Show("Failed to save item, please try again");
+                MessageBox.Show("An error occurred while attempting to save the item. Please try again.", "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -167,7 +167,7 @@ namespace BenpilsBarcodeSystem
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 canClose = true;

@@ -131,7 +131,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             if (quantity <= 0)
             {
-                MessageBox.Show("Enter quantity");
+                MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -147,7 +147,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             {
                 if (ItemsCb.SelectedIndex == 0 || ItemsCb.SelectedIndex == ItemsCb.Items.Count - 1 || SelectedItem == null)
                 {
-                    MessageBox.Show("Select an item");
+                    MessageBox.Show("Please select an item from the list.", "No Item Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

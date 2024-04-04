@@ -182,7 +182,7 @@ namespace BenpilsBarcodeSystem
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Failed to restore item");
+                                            MessageBox.Show("Failed to restore item due to an error. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
 
                                     }
@@ -207,7 +207,7 @@ namespace BenpilsBarcodeSystem
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Failed to restore supplier");
+                                            MessageBox.Show("Failed to restore supplier due to an error. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
 
                                     }
@@ -232,7 +232,7 @@ namespace BenpilsBarcodeSystem
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Failed to restore user");
+                                            MessageBox.Show("Failed to restore user due to an error. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                         
                                     }
@@ -242,6 +242,11 @@ namespace BenpilsBarcodeSystem
                     }
                 }
             }
+        }
+
+        private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
         }
 
 
@@ -521,6 +526,8 @@ namespace BenpilsBarcodeSystem
                     MessageBox.Show("Please enter a valid directory for the backup location.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                settings.SaveLocation = SaveLocationTxt.Text;
 
                 SaveAutomaticBackupSettings(settings);
             }

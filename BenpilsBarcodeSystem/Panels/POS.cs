@@ -27,6 +27,7 @@ namespace BenpilsBarcodeSystem
         public POS()
         {
             InitializeComponent();
+            InputValidator.AllowOnlyDigits(BarcodeTxt);
             //_barcode = new StringBuilder();
         }
 
@@ -80,7 +81,15 @@ namespace BenpilsBarcodeSystem
 
                 if (stock <= 0)
                 {
-                    MessageBox.Show("Out of stock");
+                    if (isExistingItem)
+                    {
+                        MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item is out of stock.", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    
                     BarcodeTxt.Clear();
                     return;
                 }
@@ -94,7 +103,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if (CurrentItem.Quantity - existingItem.Quantity - quantity < 0)
                         {
-                            MessageBox.Show("Not enough stock");
+                            MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             BarcodeTxt.Clear();
                             return;
 
@@ -106,7 +115,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if (CurrentItem.Quantity - quantity < 0)
                         {
-                            MessageBox.Show("Not enough stock");
+                            MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             BarcodeTxt.Clear();
                             return;
                         }
@@ -161,7 +170,7 @@ namespace BenpilsBarcodeSystem
 
                     if (selectedItem.Quantity == 0)
                     {
-                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (result == DialogResult.Yes)
                         {
@@ -183,7 +192,7 @@ namespace BenpilsBarcodeSystem
 
                 if (senderGrid.Columns[e.ColumnIndex].Name == "Void")
                 {
-                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
@@ -220,7 +229,7 @@ namespace BenpilsBarcodeSystem
 
                                 if (CurrentItem.Quantity - quantity < 0)
                                 {
-                                    MessageBox.Show("Not enough stock");
+                                    MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     BarcodeTxt.Clear();
                                     return;
 
@@ -243,7 +252,7 @@ namespace BenpilsBarcodeSystem
 
         private void VoidCartBtn_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Are you sure you want to remove all items from the cart?", "Warning", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Are you sure you want to remove all items from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -271,7 +280,7 @@ namespace BenpilsBarcodeSystem
             if (CurrentCart.HasItems())
             {
                 if (string.IsNullOrEmpty(PaymentTxt.Text.Trim())){
-                    MessageBox.Show("Please enter received payment");
+                    MessageBox.Show("Please enter the amount received from the customer.", "Payment Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PaymentTxt.Focus();
                     return;
                 }
@@ -279,12 +288,12 @@ namespace BenpilsBarcodeSystem
 
                 if(InputValidator.ParseToDecimal(PaymentTxt.Text.Trim()) < CurrentCart.GetTotalPrice())
                 {
-                    MessageBox.Show("Invalid payment amount");
+                    MessageBox.Show("The payment amount entered is not valid. Please enter a valid number.", "Invalid Payment Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PaymentTxt.Select();
                     return;
                 }
 
-                var result = MessageBox.Show("Checkout?", "Warning", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show("Checkout transaction?", "Confirm Checkout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -299,13 +308,13 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("Transaction failed, please try again later.");
+                        MessageBox.Show("The transaction failed due to an error. Please try again later.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Cart is empty");
+                MessageBox.Show("Cart is currently empty. Please add items to the cart before proceeding.", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             BarcodeTxt.Select();
         }
@@ -355,6 +364,9 @@ namespace BenpilsBarcodeSystem
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
             {
                 e.Handled = true;
+                MessageBox.Show("The barcode you entered does not match any existing items. Please check the barcode and try again.", "Barcode Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                BarcodeTxt.Clear();
+                BarcodeTxt.Select();
             }
         }
 

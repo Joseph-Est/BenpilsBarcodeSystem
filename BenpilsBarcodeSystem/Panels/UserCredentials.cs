@@ -23,7 +23,7 @@ namespace BenpilsBarcodeSystem
         private bool isUpdating = false;
         private string prevUsername;
         private int selectedID = 0;
-
+        MainForm mainForm;
         public Ser()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace BenpilsBarcodeSystem
 
         private void UserCredentials_Load(object sender, EventArgs e)
         {
+            mainForm = (MainForm)this.ParentForm;
             UpdateDataGridView();
         }
 
@@ -89,7 +90,7 @@ namespace BenpilsBarcodeSystem
 
                     if (CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
                     {
-                        MessageBox.Show("Action not allowed");
+                        MessageBox.Show("You do not have the necessary privileges to update this user.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -108,7 +109,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if(CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
                         {
-                            MessageBox.Show("Insufficient privileges", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You do not have the necessary privileges to archive this user.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -129,7 +130,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("Unable to archive logged in user", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("You cannot archive the currently logged in user. If you need to do this, please log in as a different user.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -147,7 +148,7 @@ namespace BenpilsBarcodeSystem
         {
             if (Util.AreTextBoxesNullOrEmpty(FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt) || DesignationCb.SelectedIndex == 0)
             {
-                MessageBox.Show("Please fill in all the required fields.");
+                MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -165,7 +166,7 @@ namespace BenpilsBarcodeSystem
             {
                 if (await repository.IsDataExistsAsync("username", username))
                 {
-                    MessageBox.Show("Username already exist.");
+                    MessageBox.Show("The username you've entered is already in use. Please enter a unique username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -194,13 +195,13 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show($"Failed to add new user!");
+                        MessageBox.Show($"An error occurred while attempting to add new user. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                Confirmation confirmation = new Confirmation($"Do you want to save changes to user {prevUsername}?", null, "Yes", "Cancel");
+                Confirmation confirmation = new Confirmation($"Do you want to save changes to user", $"{prevUsername}?", "Yes", "Cancel");
                 DialogResult result = confirmation.ShowDialog();
 
                 if (result == DialogResult.Yes)
@@ -216,6 +217,12 @@ namespace BenpilsBarcodeSystem
                         contactNo
                     ))
                     {
+                        if (!prevUsername.Equals(username) && (selectedID == CurrentUser.User.iD))
+                        {
+                            CurrentUser.User.Username = username;
+                            mainForm.updateUsername();
+                        }
+
                         ClearFields();
                         isUpdating = false;
                         SetFieldsReadOnly(true);
@@ -223,7 +230,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show($"Failed to update user!");
+                        MessageBox.Show($"An error occurred while attempting to update the user. Please try again.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -258,12 +265,17 @@ namespace BenpilsBarcodeSystem
         private void SetFieldsReadOnly(bool mode)
         {
             Util.SetTextBoxesReadOnly(mode, FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
-            Util.SetComboBoxesDisabled(mode, DesignationCb);
 
-            AddBtn.Visible = mode;
+            if(selectedID != CurrentUser.User.iD)
+            {
+                Util.SetComboBoxesDisabled(mode, DesignationCb);
+            }
+            
+            AddBtn.Enabled = mode;
             SaveBtn.Visible = !mode;
             CancelBtn.Visible = !mode;
             FirstNameTxt.Select();
+            mainForm.CanSwitchPanel = mode;
         }
 
         private void SetUpDesignation(string selectedRow = null)

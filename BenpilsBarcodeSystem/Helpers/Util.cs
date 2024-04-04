@@ -73,10 +73,18 @@ namespace BenpilsBarcodeSystem.Utils
             if (string.IsNullOrEmpty(input.Trim()))
                 return input.Trim();
 
-            input = input.Trim().ToLower(); 
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-            input = Regex.Replace(input, @"\b\w", match => match.Value.ToUpper()); 
-            return input;
+            string[] words = input.Split(' ');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i] != words[i].ToUpper())
+                {
+                    words[i] = textInfo.ToTitleCase(words[i].ToLower());
+                }
+            }
+
+            return string.Join(" ", words);
         }
 
         public static string CapitalizeOrNA(string input)
@@ -84,10 +92,18 @@ namespace BenpilsBarcodeSystem.Utils
             if (string.IsNullOrEmpty(input.Trim()))
                 return "N/A";
 
-            input = input.Trim().ToLower();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-            input = Regex.Replace(input, @"\b\w", match => match.Value.ToUpper());
-            return input;
+            string[] words = input.Split(' ');
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i] != words[i].ToUpper())
+                {
+                    words[i] = textInfo.ToTitleCase(words[i].ToLower());
+                }
+            }
+
+            return string.Join(" ", words);
         }
 
         public static int GenerateRandomNumber(int min, int max)

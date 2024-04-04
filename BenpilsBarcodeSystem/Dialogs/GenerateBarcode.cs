@@ -47,7 +47,7 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                MessageBox.Show("Please enter data to generate a barcode.");
+                MessageBox.Show("Please enter the data for which you want to generate a barcode.", "No Data Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void ClearBtn_Click(object sender, EventArgs e)

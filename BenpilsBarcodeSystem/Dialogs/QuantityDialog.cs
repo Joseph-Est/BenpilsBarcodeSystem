@@ -46,7 +46,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
             else
             {
-                MessageBox.Show("Invalid quantity");
+                MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

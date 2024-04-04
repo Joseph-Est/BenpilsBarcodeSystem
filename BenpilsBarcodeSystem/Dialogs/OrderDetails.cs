@@ -149,25 +149,25 @@ namespace BenpilsBarcodeSystem.Dialogs
 
                 if (CurrentPurchaseCart.AreAllQuantitiesReceived())
                 {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure all the items is delivered exactly, and you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Are you sure all the items is delivered exactly, and you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, PurchaseOrderRepository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart, null))
                         {
-                            MessageBox.Show("Purchase order has been completed successfully!");
+                            MessageBox.Show("The purchase order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             canClose = true;
                             DialogResult = DialogResult.OK;
                             this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Something went wrong. Please contact administrator");
+                            MessageBox.Show("An unexpected error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Some items are still missing from this order. If you proceed to complete this order now, a new one will automatically be created for the missing items. Are you sure you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Some items are still missing from this order. If you proceed to complete this order now, a new one will automatically be created for the missing items. Are you sure you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
                         DateDialog dateDialog = new DateDialog();
@@ -177,14 +177,14 @@ namespace BenpilsBarcodeSystem.Dialogs
                             DateTime receivingDate = dateDialog.receivingDate;
                             if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, PurchaseOrderRepository.partially_delivered_status, repository.remarks_partially_delivered, CurrentPurchaseCart, receivingDate))
                             {
-                                MessageBox.Show("Purchase order has been completed successfully!");
+                                MessageBox.Show("The purchase order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 canClose = true;
                                 DialogResult = DialogResult.OK;
                                 this.Close();
                             }
                             else
                             {
-                                MessageBox.Show("Something went wrong. Please contact administrator");
+                                MessageBox.Show("An unexpected error occurred. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }

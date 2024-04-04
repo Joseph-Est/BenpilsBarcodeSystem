@@ -24,7 +24,7 @@ namespace BenpilsBarcodeSystem.Repositories
         public static string col_order_id = "order_id", col_supplier_id = "supplier_id", col_order_date = "order_date", col_receiving_date = "receiving_date", col_status = "status", col_remarks = "remarks", col_is_backorder = "is_backorder",
             col_fulfillment_date = "fulfillment_date" ,col_order_details_id = "id", col_item_id = "item_id", col_order_quantity = "order_quantity", col_total = "total", 
             col_operated_by = "operated_by", col_fulfilled_by = "fulfilled_by", col_received_quantity = "received_quantity", col_backorder_from = "backorder_from";
-        public static string pending_status = "PENDING", delivered_status = "DELIVERED", partially_delivered_status = "PARTIALLY DELIVERED";
+        public static string pending_status = "PENDING", delivered_status = "DELIVERED", partially_delivered_status = "PARTIALLY DELIVERED", cancelled_status = "CANCELLED";
 
         public string remarks_complete_delivery = "All items have been delivered as expected.";
         public string remarks_partially_delivered = "Some items have not been delivered on the arrival date.";
@@ -34,9 +34,15 @@ namespace BenpilsBarcodeSystem.Repositories
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<DataTable> GetPurchaseOrderTransactionsAsync()
+        public async Task<DataTable> GetPurchaseOrderTransactionsAsync(string searchText = null)
         {
             string selectQuery = $"SELECT po.{col_order_id}, s.{SuppliersRepository.col_contact_name}, po.{col_order_date}, po.{col_receiving_date}, po.{col_backorder_from} FROM {tbl_purchase_order} po INNER JOIN {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id} WHERE po.{col_status} = 'PENDING'";
+
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                selectQuery += $" AND (s.{SuppliersRepository.col_contact_name} LIKE @searchText OR " +
+                               $"po.{col_order_id} LIKE @searchText)";
+            }
 
             try
             {
@@ -44,6 +50,11 @@ namespace BenpilsBarcodeSystem.Repositories
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
                     {
+                        if (!string.IsNullOrWhiteSpace(searchText))
+                        {
+                            adapter.SelectCommand.Parameters.AddWithValue("@searchText", $"%{searchText}%");
+                        }
+
                         DataTable dt = new DataTable();
                         await Task.Run(() => adapter.Fill(dt));
 
@@ -499,6 +510,40 @@ namespace BenpilsBarcodeSystem.Repositories
                                     throw new Exception("Failed to create backorder");
                                 }
                             }
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> CancelPurchaseOrderAsync(int orderId, string remarks)
+        {
+            string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
+            SqlTransaction transaction = null;
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (transaction = con.BeginTransaction())
+                    {
+                        using (SqlCommand cmd = new SqlCommand(updatePurchaseOrderQuery, con, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@fulfillmentDate", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@fulfilledBy", CurrentUser.User.iD);
+                            cmd.Parameters.AddWithValue("@remarks", string.IsNullOrEmpty(remarks) ? "N/A" : remarks);
+                            cmd.Parameters.AddWithValue("@status", cancelled_status);
+                            cmd.Parameters.AddWithValue("@orderId", orderId);
+                            await cmd.ExecuteNonQueryAsync();
                         }
 
                         transaction.Commit();

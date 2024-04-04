@@ -89,7 +89,7 @@ namespace BenpilsBarcodeSystem
             {
                 if (Util.AreTextBoxesNullOrEmpty(ContactNameTxt, ContactNoTxt, AddressTxt))
                 {
-                    MessageBox.Show("Please fill in all the required fields.");
+                    MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -99,7 +99,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if (await repository.AreDataExistsAsync("contact_name", ContactNameTxt.Text, "contact_no", ContactNoTxt.Text))
                     {
-                        MessageBox.Show("Supplier already exists.");
+                        MessageBox.Show("The supplier you're trying to add already exists in the system. Please check the supplier details.", "Supplier Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
@@ -114,7 +114,7 @@ namespace BenpilsBarcodeSystem
 
                     isAdding = false;
 
-                    MessageBox.Show("New supplier added succesfully!");
+                    MessageBox.Show("The new supplier has been successfully added!", "Supplier Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -122,7 +122,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if (await repository.AreDataExistsAsync("contact_name", ContactNameTxt.Text, "contact_no", ContactNoTxt.Text))
                         {
-                            MessageBox.Show("Supplier already exists.");
+                            MessageBox.Show("The supplier you're trying to update already exists. Please check the supplier details.", "Supplier Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                     }
@@ -135,7 +135,7 @@ namespace BenpilsBarcodeSystem
                     );
                     isUpdating = false;
 
-                    MessageBox.Show("Supplier updated succesfully!");
+                    MessageBox.Show("The supplier details have been successfully updated!", "Supplier Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 UpdateSupplierDG();
@@ -199,7 +199,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if(await repository.HasPendingTransactionsAsync(selectedID))
                     {
-                        MessageBox.Show("Unable to archive supplier. There are pending orders.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("The supplier cannot be archived because there are pending orders associated with it. Please complete or cancel all pending orders before attempting to archive the supplier.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -293,12 +293,17 @@ namespace BenpilsBarcodeSystem
             DeliveryDt.MinDate = DateTime.Now;
         }
 
-        public async void UpdatePurchaseOrdersDG()
+        public async void UpdatePurchaseOrdersDG(string searchTxt = null)
         {
+            if (string.IsNullOrEmpty(PSearchTxt.Text))
+            {
+                SearchTxt.Text = "";
+            }
+
             try
             {
                 PurchaseOrderRepository repository = new PurchaseOrderRepository();
-                DataTable ordersDT = await repository.GetPurchaseOrderTransactionsAsync();
+                DataTable ordersDT = await repository.GetPurchaseOrderTransactionsAsync(searchTxt);
 
                 OrdersTbl.AutoGenerateColumns = false;
                 OrdersTbl.DataSource = ordersDT;
@@ -371,7 +376,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("Purchase failed, please try again later.");
+                        MessageBox.Show("The purchase operation failed due to an error. Please try again later.", "Purchase Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -400,7 +405,7 @@ namespace BenpilsBarcodeSystem
 
                     if (selectedItem.Quantity == 0)
                     {
-                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+                        var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (result == DialogResult.Yes)
                         {
@@ -414,7 +419,7 @@ namespace BenpilsBarcodeSystem
                 }
                 else if (senderGrid.Columns[e.ColumnIndex].Name == "remove")
                 {
-                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Warning", MessageBoxButtons.YesNo);
+                    var result = MessageBox.Show("Are you sure you want to remove this item from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
@@ -469,6 +474,7 @@ namespace BenpilsBarcodeSystem
                     string backorderFrom = row.Cells["backorder_from"].Value.ToString();
 
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
                     (Supplier supplier, Cart cart, Dictionary<string, object> details) = await repository.GetOrderDetails(orderId);
 
                     string orderedBy = (string)details["OrderedBy"];
@@ -490,6 +496,27 @@ namespace BenpilsBarcodeSystem
                         {
                             UpdatePurchaseOrdersDG();
                             mainForm.updateInventoryTable = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("The purchase operation failed due to an error. Please try again later.", "Purchase Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (senderGrid.Columns[e.ColumnIndex].Name == "cancel_order")
+                    {
+                        ConfirmationWithRemarks confirmation = new ConfirmationWithRemarks("Confirm Order Cancellation", $"Are you sure you want to cancel order {orderId}? Once cancelled, this action cannot be undone.");
+                        DialogResult result = confirmation.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            if(await repository.CancelPurchaseOrderAsync(orderId, confirmation.Remarks))
+                            {
+                                UpdatePurchaseOrdersDG();
+                            }
+                            else
+                            {
+                                MessageBox.Show("The operation to cancel the order failed. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
@@ -519,7 +546,7 @@ namespace BenpilsBarcodeSystem
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure?", "Cancel Purchase", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Are you sure you want to cancel the purchase?", "Confirm Cancel Purchase", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 ClearPurchase();
@@ -593,6 +620,30 @@ namespace BenpilsBarcodeSystem
         private void RefreshPb_Click(object sender, EventArgs e)
         {
             UpdateSupplierDG();
+        }
+
+        private void SupplierTab_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (isPurchasing || isAdding || isUpdating)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Please complete the ongoing operation.", "Operation in Progress", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
+
+        private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
+
+        private void PSearchTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePurchaseOrdersDG(PSearchTxt.Text);
         }
 
         private void EnablePurchasePanel(bool isEnable)

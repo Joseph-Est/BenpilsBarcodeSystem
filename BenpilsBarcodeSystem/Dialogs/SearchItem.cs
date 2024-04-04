@@ -71,7 +71,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
             else
             {
-                MessageBox.Show("Please select an item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select an item before proceeding.", "No Item Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

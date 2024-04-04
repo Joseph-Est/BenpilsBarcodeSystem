@@ -85,7 +85,7 @@
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridItemMasterdata = new System.Windows.Forms.DataGridView();
+            this.InventoryTbl = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +129,7 @@
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).BeginInit();
             this.panel34.SuspendLayout();
             this.panel43.SuspendLayout();
             this.panel36.SuspendLayout();
@@ -689,7 +689,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridItemMasterdata);
+            this.panel1.Controls.Add(this.InventoryTbl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 67);
             this.panel1.Name = "panel1";
@@ -697,15 +697,15 @@
             this.panel1.Size = new System.Drawing.Size(820, 643);
             this.panel1.TabIndex = 183;
             // 
-            // dataGridItemMasterdata
+            // InventoryTbl
             // 
-            this.dataGridItemMasterdata.AllowUserToAddRows = false;
-            this.dataGridItemMasterdata.AllowUserToDeleteRows = false;
-            this.dataGridItemMasterdata.AllowUserToResizeColumns = false;
-            this.dataGridItemMasterdata.AllowUserToResizeRows = false;
-            this.dataGridItemMasterdata.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridItemMasterdata.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridItemMasterdata.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.InventoryTbl.AllowUserToAddRows = false;
+            this.InventoryTbl.AllowUserToDeleteRows = false;
+            this.InventoryTbl.AllowUserToResizeColumns = false;
+            this.InventoryTbl.AllowUserToResizeRows = false;
+            this.InventoryTbl.BackgroundColor = System.Drawing.Color.White;
+            this.InventoryTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.InventoryTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -713,10 +713,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItemMasterdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridItemMasterdata.ColumnHeadersHeight = 30;
-            this.dataGridItemMasterdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridItemMasterdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.InventoryTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.InventoryTbl.ColumnHeadersHeight = 30;
+            this.InventoryTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.InventoryTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.barcode,
             this.item_name,
@@ -730,32 +730,32 @@
             this.category,
             this.size,
             this.Status});
-            this.dataGridItemMasterdata.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridItemMasterdata.EnableHeadersVisualStyles = false;
-            this.dataGridItemMasterdata.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridItemMasterdata.Location = new System.Drawing.Point(30, 0);
-            this.dataGridItemMasterdata.MultiSelect = false;
-            this.dataGridItemMasterdata.Name = "dataGridItemMasterdata";
-            this.dataGridItemMasterdata.ReadOnly = true;
-            this.dataGridItemMasterdata.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridItemMasterdata.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridItemMasterdata.RowHeadersVisible = false;
-            this.dataGridItemMasterdata.RowHeadersWidth = 51;
-            this.dataGridItemMasterdata.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.InventoryTbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryTbl.EnableHeadersVisualStyles = false;
+            this.InventoryTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InventoryTbl.Location = new System.Drawing.Point(30, 0);
+            this.InventoryTbl.MultiSelect = false;
+            this.InventoryTbl.Name = "InventoryTbl";
+            this.InventoryTbl.ReadOnly = true;
+            this.InventoryTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.InventoryTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.InventoryTbl.RowHeadersVisible = false;
+            this.InventoryTbl.RowHeadersWidth = 51;
+            this.InventoryTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridItemMasterdata.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.dataGridItemMasterdata.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.dataGridItemMasterdata.RowTemplate.Height = 30;
-            this.dataGridItemMasterdata.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridItemMasterdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridItemMasterdata.Size = new System.Drawing.Size(780, 613);
-            this.dataGridItemMasterdata.TabIndex = 179;
-            this.dataGridItemMasterdata.TabStop = false;
-            this.dataGridItemMasterdata.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
+            this.InventoryTbl.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.InventoryTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.InventoryTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.InventoryTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryTbl.RowTemplate.Height = 30;
+            this.InventoryTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.InventoryTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.InventoryTbl.Size = new System.Drawing.Size(780, 613);
+            this.InventoryTbl.TabIndex = 179;
+            this.InventoryTbl.TabStop = false;
+            this.InventoryTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
             // 
             // id
             // 
@@ -951,7 +951,9 @@
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.Size = new System.Drawing.Size(162, 24);
             this.SearchTxt.TabIndex = 1;
+            this.SearchTxt.WordWrap = false;
             this.SearchTxt.TextChanged += new System.EventHandler(this.UpdateDataGridView_Event);
+            this.SearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
             // label7
             // 
@@ -967,6 +969,7 @@
             // 
             // CategoryCb
             // 
+            this.CategoryCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoryCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryCb.Location = new System.Drawing.Point(208, 35);
@@ -974,6 +977,7 @@
             this.CategoryCb.Size = new System.Drawing.Size(162, 24);
             this.CategoryCb.TabIndex = 2;
             this.CategoryCb.SelectedIndexChanged += new System.EventHandler(this.UpdateDataGridView_Event);
+            this.CategoryCb.DropDownClosed += new System.EventHandler(this.CB_DropDownClosed);
             // 
             // label1
             // 
@@ -989,6 +993,7 @@
             // 
             // BrandCb
             // 
+            this.BrandCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BrandCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BrandCb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrandCb.FormattingEnabled = true;
@@ -998,6 +1003,7 @@
             this.BrandCb.Size = new System.Drawing.Size(162, 24);
             this.BrandCb.TabIndex = 3;
             this.BrandCb.SelectedIndexChanged += new System.EventHandler(this.UpdateDataGridView_Event);
+            this.BrandCb.DropDownClosed += new System.EventHandler(this.CB_DropDownClosed);
             // 
             // panel36
             // 
@@ -1062,7 +1068,7 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemMasterdata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).EndInit();
             this.panel34.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
@@ -1083,7 +1089,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridItemMasterdata;
+        private System.Windows.Forms.DataGridView InventoryTbl;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Label label7;

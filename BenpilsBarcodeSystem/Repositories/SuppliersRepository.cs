@@ -164,7 +164,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<bool> HasPendingTransactionsAsync(int supplierId)
         {
-            string selectQuery = $"SELECT COUNT(*) FROM {PurchaseOrderRepository.tbl_purchase_order} WHERE {PurchaseOrderRepository.col_supplier_id} = @SupplierID AND status = {PurchaseOrderRepository.pending_status}";
+            string selectQuery = $"SELECT COUNT(*) FROM {PurchaseOrderRepository.tbl_purchase_order} WHERE {PurchaseOrderRepository.col_supplier_id} = @SupplierID AND status = '{PurchaseOrderRepository.pending_status}'";
 
             try
             {

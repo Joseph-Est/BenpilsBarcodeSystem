@@ -67,27 +67,30 @@ namespace BenpilsBarcodeSystem
                                 this.Hide();
                                 break;
                             case 1:
-                                MessageBox.Show("User does not exist.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("The username you entered does not match any account. Please check your username and try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                UsernameTxt.Select();
                                 break;
                             case 2:
-                                MessageBox.Show("Incorrect password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("The password you entered is incorrect. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                PasswordTxt.Select();
                                 break;
                             case 3:
-                                MessageBox.Show("Connection failed!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Unable to connect to the server. Please try again later.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             case 4:
-                                MessageBox.Show("An error has occured, please try again later!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("An unexpected error occurred. Please try again later.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 break;
                             case 5:
-                                MessageBox.Show("User is not active.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("This account is currently inactive. If you believe this is an error, please contact administrator.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                UsernameTxt.Select();
                                 break;
                         }
 
-                        UsernameTxt.Select();
+                        
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred: " + ex.Message);
+                        MessageBox.Show("An unexpected error occurred: " + ex.Message);
                     }
                     finally
                     {
@@ -133,6 +136,7 @@ namespace BenpilsBarcodeSystem
         
         private void UsernameTxt_Enter(object sender, EventArgs e)
         {
+            UsernameBorder.BackColor = Color.FromArgb(193, 57, 57);
             if (UsernameTxt.Text == usernamePlaceholder)
             {
                 UsernameTxt.Text = "";
@@ -142,6 +146,7 @@ namespace BenpilsBarcodeSystem
 
         private void UsernameTxt_Leave(object sender, EventArgs e)
         {
+            UsernameBorder.BackColor = Color.FromArgb(40, 40, 40);
             if (string.IsNullOrWhiteSpace(UsernameTxt.Text))
             {
                 UsernameTxt.Text = usernamePlaceholder;
@@ -168,6 +173,7 @@ namespace BenpilsBarcodeSystem
 
         private void PasswordTxt_Enter(object sender, EventArgs e)
         {
+            PasswordBorder.BackColor = Color.FromArgb(193, 57, 57);
             if (!passwordModified)
             {
                 if (!ShowPassword.Checked)
@@ -181,6 +187,7 @@ namespace BenpilsBarcodeSystem
 
         private void PasswordTxt_Leave(object sender, EventArgs e)
         {
+            PasswordBorder.BackColor = Color.FromArgb(40, 40, 40);
             if (!passwordModified)
             {
                 PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
@@ -209,6 +216,16 @@ namespace BenpilsBarcodeSystem
         private void closeBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void UsernamePanel_Click(object sender, EventArgs e)
+        {
+            UsernameTxt.Select();
+        }
+
+        private void PasswordPanel_Click(object sender, EventArgs e)
+        {
+            PasswordTxt.Select();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)

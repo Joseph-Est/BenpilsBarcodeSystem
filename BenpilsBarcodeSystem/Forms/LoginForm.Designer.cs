@@ -35,23 +35,27 @@
             this.MinimizeCb = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PasswordTxt = new System.Windows.Forms.TextBox();
-            this.UsernameTxt = new System.Windows.Forms.TextBox();
             this.ShowPassword = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PasswordPanel = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.testPrint = new System.Drawing.Printing.PrintDocument();
             this.testPrintPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UsernameBorder = new System.Windows.Forms.Panel();
+            this.UsernamePanel = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.UsernameTxt = new System.Windows.Forms.TextBox();
+            this.PasswordBorder = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.PasswordPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.UsernameBorder.SuspendLayout();
+            this.UsernamePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.PasswordBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -95,6 +99,7 @@
             this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
             this.CloseCb.Size = new System.Drawing.Size(20, 20);
             this.CloseCb.TabIndex = 26;
+            this.CloseCb.TabStop = false;
             this.CloseCb.UseVisualStyleBackColor = true;
             this.CloseCb.Click += new System.EventHandler(this.closeBtn_Click);
             // 
@@ -114,6 +119,7 @@
             this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
             this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
             this.MinimizeCb.TabIndex = 24;
+            this.MinimizeCb.TabStop = false;
             this.MinimizeCb.UseVisualStyleBackColor = true;
             this.MinimizeCb.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
@@ -141,27 +147,17 @@
             this.PasswordTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PasswordTxt_KeyPress);
             this.PasswordTxt.Leave += new System.EventHandler(this.PasswordTxt_Leave);
             // 
-            // UsernameTxt
-            // 
-            this.UsernameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UsernameTxt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTxt.Location = new System.Drawing.Point(35, 12);
-            this.UsernameTxt.Name = "UsernameTxt";
-            this.UsernameTxt.Size = new System.Drawing.Size(175, 14);
-            this.UsernameTxt.TabIndex = 1;
-            this.UsernameTxt.Enter += new System.EventHandler(this.UsernameTxt_Enter);
-            this.UsernameTxt.Leave += new System.EventHandler(this.UsernameTxt_Leave);
-            // 
             // ShowPassword
             // 
             this.ShowPassword.AutoSize = true;
             this.ShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShowPassword.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShowPassword.ForeColor = System.Drawing.Color.White;
-            this.ShowPassword.Location = new System.Drawing.Point(38, 238);
+            this.ShowPassword.Location = new System.Drawing.Point(38, 241);
             this.ShowPassword.Name = "ShowPassword";
             this.ShowPassword.Size = new System.Drawing.Size(105, 18);
             this.ShowPassword.TabIndex = 3;
+            this.ShowPassword.TabStop = false;
             this.ShowPassword.Text = "Show Password";
             this.ShowPassword.UseVisualStyleBackColor = true;
             this.ShowPassword.CheckedChanged += new System.EventHandler(this.Showpassword_CheckedChanged);
@@ -179,42 +175,23 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(219, 40);
             this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabStop = false;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
-            // panel2
+            // PasswordPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Controls.Add(this.UsernameTxt);
-            this.panel2.Location = new System.Drawing.Point(37, 147);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 37);
-            this.panel2.TabIndex = 23;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_user_30__2_;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.TabIndex = 19;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pictureBox5);
-            this.panel3.Controls.Add(this.PasswordTxt);
-            this.panel3.Location = new System.Drawing.Point(38, 193);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(218, 35);
-            this.panel3.TabIndex = 24;
+            this.PasswordPanel.BackColor = System.Drawing.Color.White;
+            this.PasswordPanel.Controls.Add(this.pictureBox5);
+            this.PasswordPanel.Controls.Add(this.PasswordTxt);
+            this.PasswordPanel.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PasswordPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PasswordPanel.Location = new System.Drawing.Point(1, 1);
+            this.PasswordPanel.Name = "PasswordPanel";
+            this.PasswordPanel.Size = new System.Drawing.Size(218, 38);
+            this.PasswordPanel.TabIndex = 24;
+            this.PasswordPanel.Click += new System.EventHandler(this.PasswordPanel_Click);
             // 
             // pictureBox5
             // 
@@ -251,14 +228,69 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // UsernameBorder
+            // 
+            this.UsernameBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.UsernameBorder.Controls.Add(this.UsernamePanel);
+            this.UsernameBorder.Location = new System.Drawing.Point(37, 148);
+            this.UsernameBorder.Name = "UsernameBorder";
+            this.UsernameBorder.Padding = new System.Windows.Forms.Padding(1);
+            this.UsernameBorder.Size = new System.Drawing.Size(220, 40);
+            this.UsernameBorder.TabIndex = 25;
+            // 
+            // UsernamePanel
+            // 
+            this.UsernamePanel.BackColor = System.Drawing.Color.White;
+            this.UsernamePanel.Controls.Add(this.pictureBox4);
+            this.UsernamePanel.Controls.Add(this.UsernameTxt);
+            this.UsernamePanel.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.UsernamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UsernamePanel.Location = new System.Drawing.Point(1, 1);
+            this.UsernamePanel.Name = "UsernamePanel";
+            this.UsernamePanel.Size = new System.Drawing.Size(218, 38);
+            this.UsernamePanel.TabIndex = 24;
+            this.UsernamePanel.Click += new System.EventHandler(this.UsernamePanel_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_user_30__2_;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
+            // 
+            // UsernameTxt
+            // 
+            this.UsernameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UsernameTxt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameTxt.Location = new System.Drawing.Point(35, 12);
+            this.UsernameTxt.Name = "UsernameTxt";
+            this.UsernameTxt.Size = new System.Drawing.Size(175, 14);
+            this.UsernameTxt.TabIndex = 1;
+            this.UsernameTxt.Enter += new System.EventHandler(this.UsernameTxt_Enter);
+            this.UsernameTxt.Leave += new System.EventHandler(this.UsernameTxt_Leave);
+            // 
+            // PasswordBorder
+            // 
+            this.PasswordBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PasswordBorder.Controls.Add(this.PasswordPanel);
+            this.PasswordBorder.Location = new System.Drawing.Point(37, 194);
+            this.PasswordBorder.Name = "PasswordBorder";
+            this.PasswordBorder.Padding = new System.Windows.Forms.Padding(1);
+            this.PasswordBorder.Size = new System.Drawing.Size(220, 40);
+            this.PasswordBorder.TabIndex = 26;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(288, 349);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.PasswordBorder);
+            this.Controls.Add(this.UsernameBorder);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.ShowPassword);
             this.Controls.Add(this.panelHeader);
@@ -271,13 +303,15 @@
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.PasswordPanel.ResumeLayout(false);
+            this.PasswordPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.UsernameBorder.ResumeLayout(false);
+            this.UsernamePanel.ResumeLayout(false);
+            this.UsernamePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.PasswordBorder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,20 +321,22 @@
 
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.TextBox PasswordTxt;
-        private System.Windows.Forms.TextBox UsernameTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox ShowPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PasswordPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Drawing.Printing.PrintDocument testPrint;
         private System.Windows.Forms.PrintPreviewDialog testPrintPreview;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox CloseCb;
         private System.Windows.Forms.CheckBox MinimizeCb;
+        private System.Windows.Forms.Panel UsernameBorder;
+        private System.Windows.Forms.Panel UsernamePanel;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox UsernameTxt;
+        private System.Windows.Forms.Panel PasswordBorder;
     }
 }
 

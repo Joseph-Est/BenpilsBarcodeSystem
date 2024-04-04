@@ -182,6 +182,10 @@ namespace BenpilsBarcodeSystem
             {
                 userForm.updateTable();
             }
+            else if (form is StatisticReport sr)
+            {
+                sr.RefreshData();
+            }
             else if (form is Dashboard dashForm && (MainPanel.Controls[0] is Dashboard))
             {
                 if (!dashForm.IsLoadCalled)

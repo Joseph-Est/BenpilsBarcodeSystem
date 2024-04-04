@@ -37,6 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,8 +46,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ItemsTbl = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +60,16 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.OrdersTbl = new System.Windows.Forms.DataGridView();
+            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatted_order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatted_receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backorder_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.complete_order = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel25 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.PSearchTxt = new System.Windows.Forms.TextBox();
@@ -131,16 +141,8 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.order_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formatted_order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formatted_receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiving_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backorder_from = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.complete_order = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.PRefreshPb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
             this.SupplierTab.SuspendLayout();
             this.PurchasePage.SuspendLayout();
@@ -183,6 +185,8 @@
             this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
+            this.panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).BeginInit();
             this.SuspendLayout();
             // 
             // ItemsTbl
@@ -438,8 +442,100 @@
             this.OrdersTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellClick);
             this.OrdersTbl.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellDoubleClick);
             // 
+            // order_id
+            // 
+            this.order_id.DataPropertyName = "order_id";
+            this.order_id.HeaderText = "Order ID";
+            this.order_id.Name = "order_id";
+            this.order_id.ReadOnly = true;
+            this.order_id.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "contact_name";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // formatted_order_date
+            // 
+            this.formatted_order_date.DataPropertyName = "formatted_order_date";
+            this.formatted_order_date.HeaderText = "Order Date";
+            this.formatted_order_date.Name = "formatted_order_date";
+            this.formatted_order_date.ReadOnly = true;
+            this.formatted_order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formatted_order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // order_date
+            // 
+            this.order_date.DataPropertyName = "order_date";
+            this.order_date.HeaderText = "Order Date";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
+            this.order_date.Visible = false;
+            // 
+            // formatted_receiving_date
+            // 
+            this.formatted_receiving_date.DataPropertyName = "formatted_receiving_date";
+            this.formatted_receiving_date.HeaderText = "Delivery Date";
+            this.formatted_receiving_date.Name = "formatted_receiving_date";
+            this.formatted_receiving_date.ReadOnly = true;
+            // 
+            // receiving_date
+            // 
+            this.receiving_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.receiving_date.DataPropertyName = "receiving_date";
+            this.receiving_date.HeaderText = "Delivery Date";
+            this.receiving_date.Name = "receiving_date";
+            this.receiving_date.ReadOnly = true;
+            this.receiving_date.Visible = false;
+            this.receiving_date.Width = 106;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.status.DefaultCellStyle = dataGridViewCellStyle9;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 80;
+            // 
+            // backorder_from
+            // 
+            this.backorder_from.DataPropertyName = "backorder_from";
+            this.backorder_from.HeaderText = "Backorder From";
+            this.backorder_from.Name = "backorder_from";
+            this.backorder_from.ReadOnly = true;
+            this.backorder_from.Visible = false;
+            // 
+            // view_details
+            // 
+            this.view_details.DataPropertyName = "view_details";
+            this.view_details.HeaderText = "";
+            this.view_details.Name = "view_details";
+            this.view_details.ReadOnly = true;
+            this.view_details.Text = "Details";
+            this.view_details.UseColumnTextForButtonValue = true;
+            this.view_details.Width = 80;
+            // 
+            // complete_order
+            // 
+            this.complete_order.DataPropertyName = "complete_order";
+            this.complete_order.HeaderText = "";
+            this.complete_order.Name = "complete_order";
+            this.complete_order.ReadOnly = true;
+            this.complete_order.Text = "Complete";
+            this.complete_order.UseColumnTextForButtonValue = true;
+            // 
             // panel25
             // 
+            this.panel25.Controls.Add(this.panel27);
             this.panel25.Controls.Add(this.label3);
             this.panel25.Controls.Add(this.PSearchTxt);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1306,96 +1402,27 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Width = 40;
             // 
-            // order_id
+            // panel27
             // 
-            this.order_id.DataPropertyName = "order_id";
-            this.order_id.HeaderText = "Order ID";
-            this.order_id.Name = "order_id";
-            this.order_id.ReadOnly = true;
-            this.order_id.Width = 80;
+            this.panel27.Controls.Add(this.PRefreshPb);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel27.Location = new System.Drawing.Point(629, 0);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(39, 67);
+            this.panel27.TabIndex = 180;
             // 
-            // dataGridViewTextBoxColumn2
+            // PRefreshPb
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "contact_name";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Supplier Name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // formatted_order_date
-            // 
-            this.formatted_order_date.DataPropertyName = "formatted_order_date";
-            this.formatted_order_date.HeaderText = "Order Date";
-            this.formatted_order_date.Name = "formatted_order_date";
-            this.formatted_order_date.ReadOnly = true;
-            this.formatted_order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.formatted_order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // order_date
-            // 
-            this.order_date.DataPropertyName = "order_date";
-            this.order_date.HeaderText = "Order Date";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
-            this.order_date.Visible = false;
-            // 
-            // formatted_receiving_date
-            // 
-            this.formatted_receiving_date.DataPropertyName = "formatted_receiving_date";
-            this.formatted_receiving_date.HeaderText = "Delivery Date";
-            this.formatted_receiving_date.Name = "formatted_receiving_date";
-            this.formatted_receiving_date.ReadOnly = true;
-            // 
-            // receiving_date
-            // 
-            this.receiving_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.receiving_date.DataPropertyName = "receiving_date";
-            this.receiving_date.HeaderText = "Delivery Date";
-            this.receiving_date.Name = "receiving_date";
-            this.receiving_date.ReadOnly = true;
-            this.receiving_date.Visible = false;
-            this.receiving_date.Width = 104;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.status.DefaultCellStyle = dataGridViewCellStyle9;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 80;
-            // 
-            // backorder_from
-            // 
-            this.backorder_from.DataPropertyName = "backorder_from";
-            this.backorder_from.HeaderText = "Backorder From";
-            this.backorder_from.Name = "backorder_from";
-            this.backorder_from.ReadOnly = true;
-            this.backorder_from.Visible = false;
-            // 
-            // view_details
-            // 
-            this.view_details.DataPropertyName = "view_details";
-            this.view_details.HeaderText = "";
-            this.view_details.Name = "view_details";
-            this.view_details.ReadOnly = true;
-            this.view_details.Text = "Details";
-            this.view_details.UseColumnTextForButtonValue = true;
-            this.view_details.Width = 80;
-            // 
-            // complete_order
-            // 
-            this.complete_order.DataPropertyName = "complete_order";
-            this.complete_order.HeaderText = "";
-            this.complete_order.Name = "complete_order";
-            this.complete_order.ReadOnly = true;
-            this.complete_order.Text = "Complete";
-            this.complete_order.UseColumnTextForButtonValue = true;
+            this.PRefreshPb.BackColor = System.Drawing.SystemColors.Control;
+            this.PRefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PRefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("PRefreshPb.Image")));
+            this.PRefreshPb.Location = new System.Drawing.Point(10, 36);
+            this.PRefreshPb.Name = "PRefreshPb";
+            this.PRefreshPb.Size = new System.Drawing.Size(29, 28);
+            this.PRefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PRefreshPb.TabIndex = 170;
+            this.PRefreshPb.TabStop = false;
+            this.PRefreshPb.Click += new System.EventHandler(this.PRefreshPb_Click);
             // 
             // PurchaseOrder
             // 
@@ -1460,6 +1487,8 @@
             this.panel36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
+            this.panel27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1560,5 +1589,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn backorder_from;
         private System.Windows.Forms.DataGridViewButtonColumn view_details;
         private System.Windows.Forms.DataGridViewButtonColumn complete_order;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.PictureBox PRefreshPb;
     }
 }

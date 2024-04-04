@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
@@ -28,6 +29,7 @@ namespace BenpilsBarcodeSystem
 
         private void StatisticReport_Load(object sender, EventArgs e)
         {
+            CategoryTbl.MouseWheel += CategoryTbl_MouseWheel;
             RefreshData();
             comboBox1.SelectedIndex = 0;
         }
@@ -87,8 +89,8 @@ namespace BenpilsBarcodeSystem
 
             LoadCategoryDistribution(inventoryRepository);
             LoadBrandPopularity(inventoryRepository);
-            LoadCategorySalesChart(inventoryRepository);
-            LoadBrandSalesChart(inventoryRepository);
+            LoadCategorySalesChart(inventoryRepository, categorySalesChartCurrentPage);
+            LoadBrandSalesChart(inventoryRepository, brandSalesChartCurrentPage);
 
             //int activeItemCount = await inventoryRepository.GetItemAcount(false);
             //int categoryCount = await inventoryRepository.GetCategoryCount();
@@ -144,16 +146,42 @@ namespace BenpilsBarcodeSystem
                 DataTable category = await repository.GetItemCountByCategoryAsync();
                 CategoryDistributionChart.Series["Series1"].Points.Clear();
 
+
                 if (category.Rows.Count > 0)
                 {
-                    CategoryDistributionChart.DataSource = category;
+                    if (category.Rows.Count > 8)
+                    {
+                        CategoryTblPanel.Visible = true;
+                        category.Columns.Add("Rank", typeof(int));
+                        int rank = 1;
 
-                    CategoryDistributionChart.Series["Series1"].XValueMember = "Category";
-                    CategoryDistributionChart.Series["Series1"].YValueMembers = "Count";
+                        foreach (DataRow row in category.Rows)
+                        {
+                            row["Rank"] = rank;
+                            int indexOfSpace = row["Category"].ToString().IndexOf(' ');
+                            if (indexOfSpace > -1)
+                            {
+                                row["Category"] = row["Category"].ToString().Substring(indexOfSpace + 1);
+                            }
+                            rank++;
+                        }
 
-                    CategoryDistributionChart.Series["Series1"].IsValueShownAsLabel = true;
+                        CategoryTbl.DataBindings.Clear();
+                        CategoryTbl.AutoGenerateColumns = false;
+                        CategoryTbl.DataSource = category;
+                    }
+                    else
+                    {
+                        CategoryTblPanel.Visible = false;
+                        CategoryDistributionChart.DataSource = category;
 
-                    CategoryDistributionChart.DataBind();
+                        CategoryDistributionChart.Series["Series1"].XValueMember = "Category";
+                        CategoryDistributionChart.Series["Series1"].YValueMembers = "Count";
+
+                        CategoryDistributionChart.Series["Series1"].IsValueShownAsLabel = true;
+
+                        CategoryDistributionChart.DataBind();
+                    }
                 }
                 else
                 {
@@ -173,6 +201,20 @@ namespace BenpilsBarcodeSystem
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void CategoryTbl_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (CategoryTbl.RowCount == 0) return;
+
+            if (e.Delta > 0 && CategoryTbl.FirstDisplayedScrollingRowIndex > 0)
+            {
+                CategoryTbl.FirstDisplayedScrollingRowIndex--;
+            }
+            else if (e.Delta < 0 && CategoryTbl.FirstDisplayedScrollingRowIndex < CategoryTbl.RowCount - 1)
+            {
+                CategoryTbl.FirstDisplayedScrollingRowIndex++;
             }
         }
 
@@ -215,11 +257,10 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void BrandPopularityChart_PostPaint(object sender, System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs e)
-        {
-        }
+        private int categorySalesChartCurrentPage = 0;
+        private int categorySalesChartItemPerPage = 5;
 
-        private async void LoadCategorySalesChart(InventoryRepository repository)
+        private async void LoadCategorySalesChart(InventoryRepository repository, int page)
         {
             try
             {
@@ -227,10 +268,12 @@ namespace BenpilsBarcodeSystem
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    SalesChart.Series["Series1"].Points.DataBindXY(dt.AsEnumerable().Select(r => r["Category"].ToString()).ToArray(), dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).ToArray());
+                    var pagedData = dt.AsEnumerable().Skip(page * categorySalesChartItemPerPage).Take(categorySalesChartItemPerPage);
 
-                    decimal minY = dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).Min();
-                    decimal maxY = dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).Max();
+                    SalesChart.Series["Series1"].Points.DataBindXY(pagedData.Select(r => r["Category"].ToString()).ToArray(), pagedData.Select(r => r.Field<decimal>("TotalSales")).ToArray());
+
+                    decimal minY = pagedData.Min(r => r.Field<decimal>("TotalSales"));
+                    decimal maxY = pagedData.Max(r => r.Field<decimal>("TotalSales"));
 
                     decimal padding = (maxY - minY) * 0.1m;
 
@@ -239,8 +282,10 @@ namespace BenpilsBarcodeSystem
                         padding = 10m;
                     }
 
-                    SalesChart.ChartAreas[0].AxisY.Minimum = (double)(minY - padding);
-                    SalesChart.ChartAreas[0].AxisY.Maximum = (double)(maxY + padding);
+                    SalesChartNextBtn.Enabled = dt.Rows.Count > (page + 1) * categorySalesChartItemPerPage;
+                    SalesChartPrevBtn.Enabled = page > 0;
+
+                    SPrevNextPanel.Visible = SalesChartNextBtn.Enabled || SalesChartPrevBtn.Enabled;
                 }
                 else
                 {
@@ -261,7 +306,25 @@ namespace BenpilsBarcodeSystem
             SalesChart.DataBind();
         }
 
-        private async void LoadBrandSalesChart(InventoryRepository repository)
+        private void SalesChartPrevBtn_Click(object sender, EventArgs e)
+        {
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            categorySalesChartCurrentPage--;
+            LoadCategorySalesChart(inventoryRepository, categorySalesChartCurrentPage);
+        }
+
+        private void SalesChartNextBtn_Click(object sender, EventArgs e)
+        {
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            categorySalesChartCurrentPage++;
+            LoadCategorySalesChart(inventoryRepository, categorySalesChartCurrentPage);
+        }
+
+
+        private int brandSalesChartCurrentPage = 0;
+        private int brandSalesChartItemPerPage = 5;
+
+        private async void LoadBrandSalesChart(InventoryRepository repository, int page)
         {
             try
             {
@@ -269,10 +332,13 @@ namespace BenpilsBarcodeSystem
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    BrandChart.Series["Series1"].Points.DataBindXY(dt.AsEnumerable().Select(r => r["Brand"].ToString()).ToArray(), dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).ToArray());
+                    var pagedData = dt.AsEnumerable().Skip(page * brandSalesChartItemPerPage).Take(brandSalesChartItemPerPage);
 
-                    decimal minY = dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).Min();
-                    decimal maxY = dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).Max();
+                    BrandChart.Series["Series1"].Points.DataBindXY(pagedData.Select(r => r["Brand"].ToString()).ToArray(), pagedData.Select(r => r.Field<decimal>("TotalSales")).ToArray());
+
+
+                    decimal minY = pagedData.Min(r => r.Field<decimal>("TotalSales"));
+                    decimal maxY = pagedData.Max(r => r.Field<decimal>("TotalSales"));
 
                     decimal padding = (maxY - minY) * 0.1m;
 
@@ -283,6 +349,11 @@ namespace BenpilsBarcodeSystem
 
                     BrandChart.ChartAreas[0].AxisY.Minimum = (double)(minY - padding);
                     BrandChart.ChartAreas[0].AxisY.Maximum = (double)(maxY + padding);
+
+                    BrandChartNextBtn.Enabled = dt.Rows.Count > (page + 1) * brandSalesChartItemPerPage;
+                    BrandChartPrevBtn.Enabled = page > 0;
+
+                    BPrevNextPanel.Visible = BrandChartNextBtn.Enabled || BrandChartPrevBtn.Enabled;
                 }
                 else
                 {
@@ -301,6 +372,21 @@ namespace BenpilsBarcodeSystem
             }
 
             BrandChart.DataBind();
+        }
+
+        private void BrandChartPrevBtn_Click(object sender, EventArgs e)
+        {
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            brandSalesChartCurrentPage--;
+            LoadBrandSalesChart(inventoryRepository, brandSalesChartCurrentPage);
+            
+        }
+
+        private void BrandChartNextBtn_Click(object sender, EventArgs e)
+        {
+            InventoryRepository inventoryRepository = new InventoryRepository();
+            brandSalesChartCurrentPage++;
+            LoadBrandSalesChart(inventoryRepository, brandSalesChartCurrentPage);
         }
     }
 }

@@ -55,12 +55,12 @@ namespace BenpilsBarcodeSystem.Helpers
 
             if (backup)
             {
-                MessageBox.Show("backup setted up");
+                //MessageBox.Show("backup setted up");
                 autoBackupTimer.Start();
             }
             else
             {
-                MessageBox.Show("backup not setted up");
+                //MessageBox.Show("backup not setted up");
 
             }
         }

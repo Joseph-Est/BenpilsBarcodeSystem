@@ -487,7 +487,10 @@ namespace BenpilsBarcodeSystem
                     if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
                     {
                         OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
-                        orderDetails.ShowDialog();
+                        if (orderDetails.ShowDialog() == DialogResult.OK)
+                        {
+                            UpdatePurchaseOrdersDG();
+                        }
                     }
                     else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
                     {
@@ -628,6 +631,11 @@ namespace BenpilsBarcodeSystem
         private void PSearchTxt_TextChanged(object sender, EventArgs e)
         {
             UpdatePurchaseOrdersDG(PSearchTxt.Text);
+        }
+
+        private void PRefreshPb_Click(object sender, EventArgs e)
+        {
+            UpdatePurchaseOrdersDG();
         }
 
         private void EnablePurchasePanel(bool isEnable)

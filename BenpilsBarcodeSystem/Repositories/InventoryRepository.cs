@@ -854,9 +854,10 @@ namespace BenpilsBarcodeSystem.Repository
                         WHEN {col_category} = 'N/A' THEN 'Uncategorized'
                         ELSE {col_category}
                     END as Category,
-                    COUNT(*) 
+                    COUNT(*) as Count
                 FROM {tbl_name} 
-                GROUP BY Category";
+                GROUP BY Category
+                ORDER BY Count DESC";
 
             try
             {
@@ -891,7 +892,8 @@ namespace BenpilsBarcodeSystem.Repository
             brandPopularity.Columns.Add("ItemCount", typeof(int));
 
             string countQuery = $@"
-                SELECT i.{col_brand}, SUM(td.{POSRepository.col_quantity}) 
+                SELECT TOP 8 
+                i.{col_brand}, SUM(td.{POSRepository.col_quantity}) 
                 FROM {POSRepository.tbl_transaction_details} td
                 INNER JOIN {tbl_name} i ON td.{POSRepository.col_item_id} = i.{col_id}
                 WHERE i.{col_brand} != 'N/A'
@@ -1097,10 +1099,11 @@ namespace BenpilsBarcodeSystem.Repository
                 var groupedData = salesDataList.GroupBy(d => d.Brand)
                     .Select(g => new
                     {
-                        Brand = g.Key,
+                        Brand = g.Key == "N/A" ? "Unbranded" : g.Key,
                         TotalSales = g.Sum(s => s.TotalSales)
                     })
-                    .OrderByDescending(g => g.TotalSales);
+                    .OrderByDescending(g => g.TotalSales)
+                    .Take(8); // Limit the results to the top 10 categories
 
                 foreach (var item in groupedData)
                 {

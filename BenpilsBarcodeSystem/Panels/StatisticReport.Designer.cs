@@ -31,24 +31,28 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,10 +76,12 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.SalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.SPrevNextPanel = new System.Windows.Forms.Panel();
+            this.SalesChartPrevBtn = new System.Windows.Forms.Button();
+            this.SalesChartNextBtn = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.BrandChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,6 +91,11 @@
             this.BrandPopularityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.CategoryTblPanel = new System.Windows.Forms.Panel();
+            this.CategoryTbl = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryDistributionChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -125,6 +136,12 @@
             this.TStockValueLbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.BPrevNextPanel = new System.Windows.Forms.Panel();
+            this.BrandChartPrevBtn = new System.Windows.Forms.Button();
+            this.BrandChartNextBtn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.BrandChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -139,8 +156,9 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).BeginInit();
+            this.panel31.SuspendLayout();
+            this.SPrevNextPanel.SuspendLayout();
             this.panel29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel22.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -149,6 +167,8 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrandPopularityChart)).BeginInit();
             this.panel7.SuspendLayout();
+            this.CategoryTblPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDistributionChart)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -170,6 +190,9 @@
             this.panel30.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel33.SuspendLayout();
+            this.BPrevNextPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -451,7 +474,7 @@
             // panel27
             // 
             this.panel27.Controls.Add(this.SalesChart);
-            this.panel27.Controls.Add(this.label20);
+            this.panel27.Controls.Add(this.panel31);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel27.Location = new System.Drawing.Point(0, 0);
             this.panel27.Margin = new System.Windows.Forms.Padding(0);
@@ -465,10 +488,6 @@
             this.SalesChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SalesChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.White;
@@ -480,7 +499,10 @@
             chartArea1.AxisX.MajorTickMark.Size = 3F;
             chartArea1.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
@@ -533,23 +555,77 @@
             this.SalesChart.TabIndex = 12;
             this.SalesChart.Text = "chart1";
             // 
+            // panel31
+            // 
+            this.panel31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel31.Controls.Add(this.SPrevNextPanel);
+            this.panel31.Controls.Add(this.label20);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel31.Location = new System.Drawing.Point(0, 0);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(439, 39);
+            this.panel31.TabIndex = 13;
+            // 
+            // SPrevNextPanel
+            // 
+            this.SPrevNextPanel.Controls.Add(this.SalesChartPrevBtn);
+            this.SPrevNextPanel.Controls.Add(this.SalesChartNextBtn);
+            this.SPrevNextPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SPrevNextPanel.Location = new System.Drawing.Point(255, 0);
+            this.SPrevNextPanel.Name = "SPrevNextPanel";
+            this.SPrevNextPanel.Padding = new System.Windows.Forms.Padding(5, 14, 20, 2);
+            this.SPrevNextPanel.Size = new System.Drawing.Size(184, 39);
+            this.SPrevNextPanel.TabIndex = 4;
+            // 
+            // SalesChartPrevBtn
+            // 
+            this.SalesChartPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesChartPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SalesChartPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesChartPrevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesChartPrevBtn.ForeColor = System.Drawing.Color.White;
+            this.SalesChartPrevBtn.Location = new System.Drawing.Point(42, 14);
+            this.SalesChartPrevBtn.Name = "SalesChartPrevBtn";
+            this.SalesChartPrevBtn.Size = new System.Drawing.Size(61, 23);
+            this.SalesChartPrevBtn.TabIndex = 1;
+            this.SalesChartPrevBtn.TabStop = false;
+            this.SalesChartPrevBtn.Text = "PREV";
+            this.SalesChartPrevBtn.UseVisualStyleBackColor = true;
+            this.SalesChartPrevBtn.Click += new System.EventHandler(this.SalesChartPrevBtn_Click);
+            // 
+            // SalesChartNextBtn
+            // 
+            this.SalesChartNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesChartNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SalesChartNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesChartNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesChartNextBtn.ForeColor = System.Drawing.Color.White;
+            this.SalesChartNextBtn.Location = new System.Drawing.Point(103, 14);
+            this.SalesChartNextBtn.Name = "SalesChartNextBtn";
+            this.SalesChartNextBtn.Size = new System.Drawing.Size(61, 23);
+            this.SalesChartNextBtn.TabIndex = 0;
+            this.SalesChartNextBtn.TabStop = false;
+            this.SalesChartNextBtn.Text = "NEXT";
+            this.SalesChartNextBtn.UseVisualStyleBackColor = true;
+            this.SalesChartNextBtn.Click += new System.EventHandler(this.SalesChartNextBtn_Click);
+            // 
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Left;
             this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(0, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(439, 39);
-            this.label20.TabIndex = 11;
+            this.label20.Size = new System.Drawing.Size(190, 39);
+            this.label20.TabIndex = 12;
             this.label20.Text = "SALES BY CATEGORY";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel29
             // 
             this.panel29.Controls.Add(this.BrandChart);
-            this.panel29.Controls.Add(this.label21);
+            this.panel29.Controls.Add(this.panel33);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel29.Location = new System.Drawing.Point(0, 264);
             this.panel29.Margin = new System.Windows.Forms.Padding(0);
@@ -557,92 +633,6 @@
             this.panel29.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panel29.Size = new System.Drawing.Size(439, 265);
             this.panel29.TabIndex = 1;
-            // 
-            // BrandChart
-            // 
-            this.BrandChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BrandChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep90) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineWidth = 0;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisX.MajorTickMark.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.Size = 3F;
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.LineWidth = 0;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            chartArea2.BorderColor = System.Drawing.Color.White;
-            chartArea2.Name = "ChartArea1";
-            this.BrandChart.ChartAreas.Add(chartArea2);
-            this.BrandChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Alignment = System.Drawing.StringAlignment.Center;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.Enabled = false;
-            legend2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.BrandChart.Legends.Add(legend2);
-            this.BrandChart.Location = new System.Drawing.Point(0, 44);
-            this.BrandChart.Name = "BrandChart";
-            this.BrandChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.BorderColor = System.Drawing.Color.White;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsValueShownAsLabel = true;
-            series2.IsVisibleInLegend = false;
-            series2.LabelBackColor = System.Drawing.Color.White;
-            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.LabelFormat = "₱ {0:#,##0.##}";
-            series2.Legend = "Legend1";
-            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            series2.MarkerColor = System.Drawing.Color.White;
-            series2.MarkerSize = 7;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Silver;
-            series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
-            series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
-            series2.YValuesPerPoint = 6;
-            this.BrandChart.Series.Add(series2);
-            this.BrandChart.Size = new System.Drawing.Size(439, 221);
-            this.BrandChart.TabIndex = 13;
-            this.BrandChart.Text = "chart1";
-            // 
-            // label21
-            // 
-            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label21.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(0, 5);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(439, 39);
-            this.label21.TabIndex = 12;
-            this.label21.Text = "SALES BY BRAND";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel11
             // 
@@ -784,6 +774,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.CategoryTblPanel);
             this.panel7.Controls.Add(this.CategoryDistributionChart);
             this.panel7.Controls.Add(this.label10);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -792,6 +783,95 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(344, 189);
             this.panel7.TabIndex = 0;
+            // 
+            // CategoryTblPanel
+            // 
+            this.CategoryTblPanel.Controls.Add(this.CategoryTbl);
+            this.CategoryTblPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CategoryTblPanel.Location = new System.Drawing.Point(0, 39);
+            this.CategoryTblPanel.Name = "CategoryTblPanel";
+            this.CategoryTblPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.CategoryTblPanel.Size = new System.Drawing.Size(344, 150);
+            this.CategoryTblPanel.TabIndex = 13;
+            // 
+            // CategoryTbl
+            // 
+            this.CategoryTbl.AllowUserToAddRows = false;
+            this.CategoryTbl.AllowUserToDeleteRows = false;
+            this.CategoryTbl.AllowUserToResizeColumns = false;
+            this.CategoryTbl.AllowUserToResizeRows = false;
+            this.CategoryTbl.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.CategoryTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CategoryTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.CategoryTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CategoryTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.CategoryTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CategoryTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.Category,
+            this.Count});
+            this.CategoryTbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CategoryTbl.EnableHeadersVisualStyles = false;
+            this.CategoryTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CategoryTbl.Location = new System.Drawing.Point(0, 10);
+            this.CategoryTbl.MultiSelect = false;
+            this.CategoryTbl.Name = "CategoryTbl";
+            this.CategoryTbl.ReadOnly = true;
+            this.CategoryTbl.RowHeadersVisible = false;
+            this.CategoryTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.CategoryTbl.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.CategoryTbl.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoryTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CategoryTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
+            this.CategoryTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CategoryTbl.RowTemplate.DividerHeight = 1;
+            this.CategoryTbl.RowTemplate.Height = 40;
+            this.CategoryTbl.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.CategoryTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.CategoryTbl.Size = new System.Drawing.Size(344, 140);
+            this.CategoryTbl.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Rank";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn5.HeaderText = "";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 17;
+            // 
+            // Category
+            // 
+            this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Category.DataPropertyName = "Category";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.Category.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Count.DataPropertyName = "Count";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.Count.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Count.HeaderText = "Items";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.Width = 55;
             // 
             // CategoryDistributionChart
             // 
@@ -932,14 +1012,14 @@
             this.ProfitMarginTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProfitMarginTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProfitMarginTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProfitMarginTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProfitMarginTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ProfitMarginTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProfitMarginTbl.ColumnHeadersVisible = false;
             this.ProfitMarginTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -970,8 +1050,8 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Rank";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn3.HeaderText = "";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -981,9 +1061,9 @@
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "DisplayItemName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn4.HeaderText = "Item";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -1087,14 +1167,14 @@
             this.LeastSellingTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LeastSellingTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.LeastSellingTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.LeastSellingTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LeastSellingTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.LeastSellingTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LeastSellingTbl.ColumnHeadersVisible = false;
             this.LeastSellingTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1124,8 +1204,8 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Rank";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn1.HeaderText = "";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1135,9 +1215,9 @@
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Item";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn2.HeaderText = "Item";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1200,14 +1280,14 @@
             this.BestSellingTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BestSellingTbl.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BestSellingTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BestSellingTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BestSellingTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.BestSellingTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BestSellingTbl.ColumnHeadersVisible = false;
             this.BestSellingTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1237,8 +1317,8 @@
             // 
             this.Rank.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Rank.DataPropertyName = "Rank";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Rank.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Rank.DefaultCellStyle = dataGridViewCellStyle12;
             this.Rank.HeaderText = "";
             this.Rank.Name = "Rank";
             this.Rank.ReadOnly = true;
@@ -1248,9 +1328,9 @@
             // 
             this.Item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Item.DataPropertyName = "Item";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
-            this.Item.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.Item.DefaultCellStyle = dataGridViewCellStyle13;
             this.Item.HeaderText = "Item";
             this.Item.Name = "Item";
             this.Item.ReadOnly = true;
@@ -1436,6 +1516,145 @@
             this.label2.Text = "SALES PROJECTION";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel33
+            // 
+            this.panel33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel33.Controls.Add(this.BPrevNextPanel);
+            this.panel33.Controls.Add(this.label11);
+            this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel33.Location = new System.Drawing.Point(0, 5);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(439, 39);
+            this.panel33.TabIndex = 14;
+            // 
+            // BPrevNextPanel
+            // 
+            this.BPrevNextPanel.Controls.Add(this.BrandChartPrevBtn);
+            this.BPrevNextPanel.Controls.Add(this.BrandChartNextBtn);
+            this.BPrevNextPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BPrevNextPanel.Location = new System.Drawing.Point(255, 0);
+            this.BPrevNextPanel.Name = "BPrevNextPanel";
+            this.BPrevNextPanel.Padding = new System.Windows.Forms.Padding(5, 14, 20, 2);
+            this.BPrevNextPanel.Size = new System.Drawing.Size(184, 39);
+            this.BPrevNextPanel.TabIndex = 4;
+            // 
+            // BrandChartPrevBtn
+            // 
+            this.BrandChartPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BrandChartPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BrandChartPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BrandChartPrevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrandChartPrevBtn.ForeColor = System.Drawing.Color.White;
+            this.BrandChartPrevBtn.Location = new System.Drawing.Point(42, 14);
+            this.BrandChartPrevBtn.Name = "BrandChartPrevBtn";
+            this.BrandChartPrevBtn.Size = new System.Drawing.Size(61, 23);
+            this.BrandChartPrevBtn.TabIndex = 1;
+            this.BrandChartPrevBtn.TabStop = false;
+            this.BrandChartPrevBtn.Text = "PREV";
+            this.BrandChartPrevBtn.UseVisualStyleBackColor = true;
+            this.BrandChartPrevBtn.Click += new System.EventHandler(this.BrandChartPrevBtn_Click);
+            // 
+            // BrandChartNextBtn
+            // 
+            this.BrandChartNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BrandChartNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BrandChartNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BrandChartNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrandChartNextBtn.ForeColor = System.Drawing.Color.White;
+            this.BrandChartNextBtn.Location = new System.Drawing.Point(103, 14);
+            this.BrandChartNextBtn.Name = "BrandChartNextBtn";
+            this.BrandChartNextBtn.Size = new System.Drawing.Size(61, 23);
+            this.BrandChartNextBtn.TabIndex = 0;
+            this.BrandChartNextBtn.TabStop = false;
+            this.BrandChartNextBtn.Text = "NEXT";
+            this.BrandChartNextBtn.UseVisualStyleBackColor = true;
+            this.BrandChartNextBtn.Click += new System.EventHandler(this.BrandChartNextBtn_Click);
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(0, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(190, 39);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "SALES BY CATEGORY";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BrandChart
+            // 
+            this.BrandChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BrandChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineWidth = 0;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.LineWidth = 0;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisX.MajorTickMark.LineWidth = 0;
+            chartArea2.AxisX.MajorTickMark.Size = 3F;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.Format = "₱ {0:#,##0.##}";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineWidth = 0;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.LightGray;
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            chartArea2.BorderColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.BrandChart.ChartAreas.Add(chartArea2);
+            this.BrandChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend2.Enabled = false;
+            legend2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.BrandChart.Legends.Add(legend2);
+            this.BrandChart.Location = new System.Drawing.Point(0, 44);
+            this.BrandChart.Name = "BrandChart";
+            this.BrandChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.IsVisibleInLegend = false;
+            series2.LabelBackColor = System.Drawing.Color.White;
+            series2.LabelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.LabelFormat = "₱ {0:#,##0.##}";
+            series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            series2.MarkerColor = System.Drawing.Color.White;
+            series2.MarkerSize = 7;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Silver;
+            series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
+            series2.YValuesPerPoint = 6;
+            this.BrandChart.Series.Add(series2);
+            this.BrandChart.Size = new System.Drawing.Size(439, 221);
+            this.BrandChart.TabIndex = 15;
+            this.BrandChart.Text = "chart1";
+            // 
             // StatisticReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1462,8 +1681,9 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).EndInit();
+            this.panel31.ResumeLayout(false);
+            this.SPrevNextPanel.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1472,6 +1692,8 @@
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BrandPopularityChart)).EndInit();
             this.panel7.ResumeLayout(false);
+            this.CategoryTblPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CategoryTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDistributionChart)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
@@ -1494,6 +1716,9 @@
             this.panel30.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panel33.ResumeLayout(false);
+            this.BPrevNextPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BrandChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1562,9 +1787,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvgProfitMargin;
         private System.Windows.Forms.DataVisualization.Charting.Chart SalesChart;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DataVisualization.Charting.Chart BrandChart;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.Panel panel28;
@@ -1575,5 +1797,21 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label ProjectedSalesLbl;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel CategoryTblPanel;
+        private System.Windows.Forms.DataGridView CategoryTbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Panel SPrevNextPanel;
+        private System.Windows.Forms.Button SalesChartPrevBtn;
+        private System.Windows.Forms.Button SalesChartNextBtn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Panel panel33;
+        private System.Windows.Forms.Panel BPrevNextPanel;
+        private System.Windows.Forms.Button BrandChartPrevBtn;
+        private System.Windows.Forms.Button BrandChartNextBtn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataVisualization.Charting.Chart BrandChart;
     }
 }

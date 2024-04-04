@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
@@ -78,12 +79,13 @@ namespace BenpilsBarcodeSystem
             //{
             //    Console.WriteLine($"Date: {sale.Date}, Item: {sale.DisplayItemName}, Total Item Sold: {sale.TotalItemSold}, Total Sales: {sale.TotalSales}, Total Profit: {sale.TotalProfit}");
             //}
+            salesChartCurrentPage = -1;
 
             ItemsSoldLbl.Text = currentSalesData.Sum(s => s.TotalItemSold).ToString();
             TotalSalesLbl.Text = currentSalesData.Sum(s => s.TotalSales).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
             TotalProfitLbl.Text = currentSalesData.Sum(s => s.TotalProfit).ToString("C", CultureInfo.CreateSpecificCulture("en-PH")).Replace("₱", "₱ ");
 
-            LoadSalesChart(posRepository, currentSalesData);
+            LoadSalesChart(posRepository);
             LoadTopSellingItems(posRepository, currentSalesData);
 
             lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
@@ -116,18 +118,48 @@ namespace BenpilsBarcodeSystem
             IsLoadCalled = false;
         }
 
-        private async void LoadSalesChart(POSRepository posRepository, List<SalesData> salesData)
+        private int salesChartCurrentPage = -1;
+        private int salesChartItemPerPage = 8;
+
+        private void SalesChartNextBtn_Click(object sender, EventArgs e)
+        {
+            POSRepository repository = new POSRepository();
+            salesChartCurrentPage++;
+            LoadSalesChart(repository);
+        }
+
+        private void SalesChartPrevBtn_Click(object sender, EventArgs e)
+        {
+            POSRepository repository = new POSRepository();
+            salesChartCurrentPage--;
+            LoadSalesChart(repository);
+        }
+
+        private async void LoadSalesChart(POSRepository posRepository)
         {
             try
             {
-                DataTable dt = await posRepository.GetSalesChartDataAsync(salesData, selectedCb);
+                DataTable dt = await posRepository.GetSalesChartDataAsync(currentSalesData, selectedCb);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    SalesChart.Series["Series1"].Points.DataBindXY(dt.AsEnumerable().Select(r => r["Date"].ToString()).ToArray(), dt.AsEnumerable().Select(r => r.Field<decimal>("SalesAmount")).ToArray());
+                    int totalItems = dt.Rows.Count;
+                    int totalPages = (totalItems + salesChartItemPerPage - 1) / salesChartItemPerPage; // Calculate total pages
 
-                    decimal minY = dt.AsEnumerable().Select(r => r.Field<decimal>("SalesAmount")).Min();
-                    decimal maxY = dt.AsEnumerable().Select(r => r.Field<decimal>("SalesAmount")).Max();
+                    if (salesChartCurrentPage == -1) // Initialize currentPage to the last page
+                    {
+                        salesChartCurrentPage = totalPages - 1;
+                    }
+
+
+                    var pagedData = dt.AsEnumerable().Skip(salesChartCurrentPage * salesChartItemPerPage).Take(salesChartItemPerPage);
+
+                    SalesChart.Series["Series1"].Points.DataBindXY(pagedData.Select(r => r["Date"].ToString()).ToArray(), pagedData.Select(r => r.Field<decimal>("SalesAmount")).ToArray());
+
+                    //SalesChart.Series["Series1"].Points.DataBindXY(dt.AsEnumerable().Select(r => r["Date"].ToString()).ToArray(), dt.AsEnumerable().Select(r => r.Field<decimal>("SalesAmount")).ToArray());
+
+                    decimal minY = pagedData.Min(r => r.Field<decimal>("SalesAmount"));
+                    decimal maxY = pagedData.Max(r => r.Field<decimal>("SalesAmount"));
 
                     decimal padding = (maxY - minY) * 0.1m;
 
@@ -138,6 +170,11 @@ namespace BenpilsBarcodeSystem
 
                     SalesChart.ChartAreas[0].AxisY.Minimum = (double)(minY - padding);
                     SalesChart.ChartAreas[0].AxisY.Maximum = (double)(maxY + padding);
+
+                    SalesChartNextBtn.Enabled = salesChartCurrentPage < totalPages - 1; // "Next" button is visible if there are next pages
+                    SalesChartPrevBtn.Enabled = salesChartCurrentPage > 0; // "Prev" button is visible if there are previous pages
+
+                    PrevNextPanel.Visible = SalesChartNextBtn.Enabled || SalesChartPrevBtn.Enabled;
                 }
                 else
                 {

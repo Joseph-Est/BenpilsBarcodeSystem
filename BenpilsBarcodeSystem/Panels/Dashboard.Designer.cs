@@ -56,6 +56,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.SalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.PrevNextPanel = new System.Windows.Forms.Panel();
+            this.SalesChartPrevBtn = new System.Windows.Forms.Button();
+            this.SalesChartNextBtn = new System.Windows.Forms.Button();
+            this.SalesTitleLbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -120,11 +125,6 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel36 = new System.Windows.Forms.Panel();
-            this.SalesTitleLbl = new System.Windows.Forms.Label();
-            this.PrevNextPanel = new System.Windows.Forms.Panel();
-            this.SalesChartPrevBtn = new System.Windows.Forms.Button();
-            this.SalesChartNextBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -134,6 +134,8 @@
             this.panel5.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).BeginInit();
+            this.panel36.SuspendLayout();
+            this.PrevNextPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -162,8 +164,6 @@
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
-            this.panel36.SuspendLayout();
-            this.PrevNextPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -446,6 +446,77 @@
             this.SalesChart.Size = new System.Drawing.Size(713, 272);
             this.SalesChart.TabIndex = 2;
             this.SalesChart.Text = "chart1";
+            // 
+            // panel36
+            // 
+            this.panel36.Controls.Add(this.PrevNextPanel);
+            this.panel36.Controls.Add(this.SalesTitleLbl);
+            this.panel36.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel36.Location = new System.Drawing.Point(0, 20);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(713, 27);
+            this.panel36.TabIndex = 3;
+            // 
+            // PrevNextPanel
+            // 
+            this.PrevNextPanel.Controls.Add(this.SalesChartPrevBtn);
+            this.PrevNextPanel.Controls.Add(this.SalesChartNextBtn);
+            this.PrevNextPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PrevNextPanel.Location = new System.Drawing.Point(529, 0);
+            this.PrevNextPanel.Name = "PrevNextPanel";
+            this.PrevNextPanel.Padding = new System.Windows.Forms.Padding(5, 0, 28, 2);
+            this.PrevNextPanel.Size = new System.Drawing.Size(184, 27);
+            this.PrevNextPanel.TabIndex = 5;
+            // 
+            // SalesChartPrevBtn
+            // 
+            this.SalesChartPrevBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.SalesChartPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesChartPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SalesChartPrevBtn.Enabled = false;
+            this.SalesChartPrevBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesChartPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesChartPrevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesChartPrevBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesChartPrevBtn.Location = new System.Drawing.Point(34, 0);
+            this.SalesChartPrevBtn.Name = "SalesChartPrevBtn";
+            this.SalesChartPrevBtn.Size = new System.Drawing.Size(61, 25);
+            this.SalesChartPrevBtn.TabIndex = 1;
+            this.SalesChartPrevBtn.TabStop = false;
+            this.SalesChartPrevBtn.Text = "PREV";
+            this.SalesChartPrevBtn.UseVisualStyleBackColor = false;
+            this.SalesChartPrevBtn.Click += new System.EventHandler(this.SalesChartPrevBtn_Click);
+            // 
+            // SalesChartNextBtn
+            // 
+            this.SalesChartNextBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.SalesChartNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesChartNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SalesChartNextBtn.Enabled = false;
+            this.SalesChartNextBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesChartNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesChartNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesChartNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesChartNextBtn.Location = new System.Drawing.Point(95, 0);
+            this.SalesChartNextBtn.Name = "SalesChartNextBtn";
+            this.SalesChartNextBtn.Size = new System.Drawing.Size(61, 25);
+            this.SalesChartNextBtn.TabIndex = 0;
+            this.SalesChartNextBtn.TabStop = false;
+            this.SalesChartNextBtn.Text = "NEXT";
+            this.SalesChartNextBtn.UseVisualStyleBackColor = false;
+            this.SalesChartNextBtn.Click += new System.EventHandler(this.SalesChartNextBtn_Click);
+            // 
+            // SalesTitleLbl
+            // 
+            this.SalesTitleLbl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SalesTitleLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesTitleLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SalesTitleLbl.Location = new System.Drawing.Point(0, 0);
+            this.SalesTitleLbl.Name = "SalesTitleLbl";
+            this.SalesTitleLbl.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.SalesTitleLbl.Size = new System.Drawing.Size(396, 27);
+            this.SalesTitleLbl.TabIndex = 4;
+            this.SalesTitleLbl.Text = "Sales Today";
             // 
             // tableLayoutPanel1
             // 
@@ -1310,75 +1381,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
             // 
-            // panel36
-            // 
-            this.panel36.Controls.Add(this.PrevNextPanel);
-            this.panel36.Controls.Add(this.SalesTitleLbl);
-            this.panel36.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel36.Location = new System.Drawing.Point(0, 20);
-            this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(713, 27);
-            this.panel36.TabIndex = 3;
-            // 
-            // SalesTitleLbl
-            // 
-            this.SalesTitleLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SalesTitleLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesTitleLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesTitleLbl.Location = new System.Drawing.Point(0, 0);
-            this.SalesTitleLbl.Name = "SalesTitleLbl";
-            this.SalesTitleLbl.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.SalesTitleLbl.Size = new System.Drawing.Size(396, 27);
-            this.SalesTitleLbl.TabIndex = 4;
-            this.SalesTitleLbl.Text = "Sales Today";
-            // 
-            // PrevNextPanel
-            // 
-            this.PrevNextPanel.Controls.Add(this.SalesChartPrevBtn);
-            this.PrevNextPanel.Controls.Add(this.SalesChartNextBtn);
-            this.PrevNextPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PrevNextPanel.Location = new System.Drawing.Point(529, 0);
-            this.PrevNextPanel.Name = "PrevNextPanel";
-            this.PrevNextPanel.Padding = new System.Windows.Forms.Padding(5, 0, 28, 2);
-            this.PrevNextPanel.Size = new System.Drawing.Size(184, 27);
-            this.PrevNextPanel.TabIndex = 5;
-            // 
-            // SalesChartPrevBtn
-            // 
-            this.SalesChartPrevBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.SalesChartPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SalesChartPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SalesChartPrevBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesChartPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesChartPrevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesChartPrevBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesChartPrevBtn.Location = new System.Drawing.Point(34, 0);
-            this.SalesChartPrevBtn.Name = "SalesChartPrevBtn";
-            this.SalesChartPrevBtn.Size = new System.Drawing.Size(61, 25);
-            this.SalesChartPrevBtn.TabIndex = 1;
-            this.SalesChartPrevBtn.TabStop = false;
-            this.SalesChartPrevBtn.Text = "PREV";
-            this.SalesChartPrevBtn.UseVisualStyleBackColor = false;
-            this.SalesChartPrevBtn.Click += new System.EventHandler(this.SalesChartPrevBtn_Click);
-            // 
-            // SalesChartNextBtn
-            // 
-            this.SalesChartNextBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.SalesChartNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SalesChartNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SalesChartNextBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesChartNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesChartNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesChartNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SalesChartNextBtn.Location = new System.Drawing.Point(95, 0);
-            this.SalesChartNextBtn.Name = "SalesChartNextBtn";
-            this.SalesChartNextBtn.Size = new System.Drawing.Size(61, 25);
-            this.SalesChartNextBtn.TabIndex = 0;
-            this.SalesChartNextBtn.TabStop = false;
-            this.SalesChartNextBtn.Text = "NEXT";
-            this.SalesChartNextBtn.UseVisualStyleBackColor = false;
-            this.SalesChartNextBtn.Click += new System.EventHandler(this.SalesChartNextBtn_Click);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1404,6 +1406,8 @@
             this.panel5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).EndInit();
+            this.panel36.ResumeLayout(false);
+            this.PrevNextPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
@@ -1440,8 +1444,6 @@
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
-            this.panel36.ResumeLayout(false);
-            this.PrevNextPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

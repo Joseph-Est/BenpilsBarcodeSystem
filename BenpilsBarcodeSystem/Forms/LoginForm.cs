@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BenpilsBarcodeSystem.Utils;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
+using BenpilsBarcodeSystem.Database;
 
 namespace BenpilsBarcodeSystem
 {
@@ -30,8 +31,19 @@ namespace BenpilsBarcodeSystem
             PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            DatabaseInitializer dbInitializer = new DatabaseInitializer();
+
+            if(await dbInitializer.InitializeDatabaseAsync())
+            {
+                btnLogin.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("The application was unable to initialize the database and will now exit. Please check your database configuration and try again.", "Database Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             UsernameTxt.Select();
             this.AcceptButton = btnLogin;
         }

@@ -185,6 +185,7 @@ namespace BenpilsBarcodeSystem
                 }
                 else
                 {
+                    CategoryTblPanel.Visible = false;
                     CategoryDistributionChart.DataSource = null;
                     CategoryDistributionChart.DataBind();
 

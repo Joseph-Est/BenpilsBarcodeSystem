@@ -119,7 +119,7 @@ namespace BenpilsBarcodeSystem
         }
 
         private int salesChartCurrentPage = -1;
-        private int salesChartItemPerPage = 8;
+        private int salesChartItemPerPage = 10;
 
         private void SalesChartNextBtn_Click(object sender, EventArgs e)
         {
@@ -139,7 +139,7 @@ namespace BenpilsBarcodeSystem
         {
             try
             {
-                DataTable dt = await posRepository.GetSalesChartDataAsync(currentSalesData, selectedCb);
+                DataTable dt = selectedCb == "year" ? await posRepository.GetSalesChartDataAsync(currentSalesData, selectedCb, DailyRb.Checked ? "day" : "month") : await posRepository.GetSalesChartDataAsync(currentSalesData, selectedCb);
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
@@ -252,6 +252,8 @@ namespace BenpilsBarcodeSystem
                     }
                 }
 
+               RbPanel.Visible = false;
+
                 if (senderCb == TodayCb)
                 {
                     SalesTitleLbl.Text = "Sales Today";
@@ -284,10 +286,37 @@ namespace BenpilsBarcodeSystem
                     DateTime lastDayOfYear = new DateTime(DateTime.Today.Year, 12, 31);
                     dateFrom = firstDayOfYear;
                     dateTo = lastDayOfYear;
+                    RbPanel.Visible = true;
                 }
 
                 RefreshData(dateFrom, dateTo);
                 UpdateCheckboxStyles();
+            }
+        }
+
+        private void RB_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+
+            if (radioButton != null && radioButton.Checked)
+            {
+                string radioButtonName = radioButton.Name;
+                if(selectedCb == "year")
+                {
+                    POSRepository repository = new POSRepository();
+                    salesChartCurrentPage = -1;
+                    switch (radioButtonName)
+                    {
+                        case "DailyRb":
+                            LoadSalesChart(repository);
+                            break;
+                        case "MonthlyRb":
+                            LoadSalesChart(repository);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
         }
 

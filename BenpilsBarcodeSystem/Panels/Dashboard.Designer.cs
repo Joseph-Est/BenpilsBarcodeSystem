@@ -125,6 +125,9 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.DailyRb = new System.Windows.Forms.RadioButton();
+            this.MonthlyRb = new System.Windows.Forms.RadioButton();
+            this.RbPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -164,6 +167,7 @@
             this.panel31.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
+            this.RbPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -449,6 +453,7 @@
             // 
             // panel36
             // 
+            this.panel36.Controls.Add(this.RbPanel);
             this.panel36.Controls.Add(this.PrevNextPanel);
             this.panel36.Controls.Add(this.SalesTitleLbl);
             this.panel36.Dock = System.Windows.Forms.DockStyle.Top;
@@ -508,13 +513,14 @@
             // 
             // SalesTitleLbl
             // 
+            this.SalesTitleLbl.AutoSize = true;
             this.SalesTitleLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.SalesTitleLbl.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesTitleLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SalesTitleLbl.Location = new System.Drawing.Point(0, 0);
             this.SalesTitleLbl.Name = "SalesTitleLbl";
             this.SalesTitleLbl.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.SalesTitleLbl.Size = new System.Drawing.Size(396, 27);
+            this.SalesTitleLbl.Size = new System.Drawing.Size(182, 27);
             this.SalesTitleLbl.TabIndex = 4;
             this.SalesTitleLbl.Text = "Sales Today";
             // 
@@ -1381,6 +1387,46 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
             // 
+            // DailyRb
+            // 
+            this.DailyRb.AutoSize = true;
+            this.DailyRb.Checked = true;
+            this.DailyRb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DailyRb.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DailyRb.Location = new System.Drawing.Point(0, 0);
+            this.DailyRb.Name = "DailyRb";
+            this.DailyRb.Padding = new System.Windows.Forms.Padding(2, 5, 0, 5);
+            this.DailyRb.Size = new System.Drawing.Size(50, 27);
+            this.DailyRb.TabIndex = 205;
+            this.DailyRb.TabStop = true;
+            this.DailyRb.Text = "Daily";
+            this.DailyRb.UseVisualStyleBackColor = true;
+            this.DailyRb.CheckedChanged += new System.EventHandler(this.RB_CheckedChanged);
+            // 
+            // MonthlyRb
+            // 
+            this.MonthlyRb.AutoSize = true;
+            this.MonthlyRb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MonthlyRb.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthlyRb.Location = new System.Drawing.Point(50, 0);
+            this.MonthlyRb.Name = "MonthlyRb";
+            this.MonthlyRb.Padding = new System.Windows.Forms.Padding(2, 5, 0, 5);
+            this.MonthlyRb.Size = new System.Drawing.Size(64, 27);
+            this.MonthlyRb.TabIndex = 206;
+            this.MonthlyRb.Text = "Monthly";
+            this.MonthlyRb.UseVisualStyleBackColor = true;
+            this.MonthlyRb.CheckedChanged += new System.EventHandler(this.RB_CheckedChanged);
+            // 
+            // RbPanel
+            // 
+            this.RbPanel.Controls.Add(this.MonthlyRb);
+            this.RbPanel.Controls.Add(this.DailyRb);
+            this.RbPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RbPanel.Location = new System.Drawing.Point(182, 0);
+            this.RbPanel.Name = "RbPanel";
+            this.RbPanel.Size = new System.Drawing.Size(128, 27);
+            this.RbPanel.TabIndex = 6;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1407,6 +1453,7 @@
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SalesChart)).EndInit();
             this.panel36.ResumeLayout(false);
+            this.panel36.PerformLayout();
             this.PrevNextPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -1444,6 +1491,8 @@
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            this.RbPanel.ResumeLayout(false);
+            this.RbPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1532,5 +1581,8 @@
         private System.Windows.Forms.Panel PrevNextPanel;
         private System.Windows.Forms.Button SalesChartPrevBtn;
         private System.Windows.Forms.Button SalesChartNextBtn;
+        private System.Windows.Forms.Panel RbPanel;
+        private System.Windows.Forms.RadioButton MonthlyRb;
+        private System.Windows.Forms.RadioButton DailyRb;
     }
 }

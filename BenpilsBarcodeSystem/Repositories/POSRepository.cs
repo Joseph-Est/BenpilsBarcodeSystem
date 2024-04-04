@@ -203,7 +203,7 @@ namespace BenpilsBarcodeSystem.Repository
             MessageBox.Show(sb.ToString(), "Sales Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null)
+        public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null, string interval = null)
         {
 
             DataTable dt = new DataTable();
@@ -228,24 +228,33 @@ namespace BenpilsBarcodeSystem.Repository
                     }
                     else
                     {
-                        return d.Date.ToString("dd-MM-yy");
+                        return interval == "month" ? d.Date.ToString("MM-yy") : d.Date.ToString("dd-MM-yy");
                     }
                 })
                 .Select(g => new
                 {
-                    Date = timeFrame == "today" ? g.Key : DateTime.ParseExact(g.Key, "dd-MM-yy", CultureInfo.InvariantCulture).ToString("MMM-dd"),
+                    Date = timeFrame == "today" ? g.Key : timeFrame == "year" && interval == "month" ? DateTime.ParseExact(g.Key, "MM-yy", CultureInfo.InvariantCulture).ToString("MMM") : DateTime.ParseExact(g.Key, "dd-MM-yy", CultureInfo.InvariantCulture).ToString("MMM-dd"),
                     SalesAmount = g.Sum(s => s.TotalSales)
                 })
                 .OrderBy(g =>
                 {
-                    if (DateTime.TryParseExact(g.Date, "MMM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+                    if (timeFrame == "today" && DateTime.TryParseExact(g.Date, "h tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+                    {
+                        return result;
+                    }
+                    else if (timeFrame == "year" && interval == "month" && DateTime.TryParseExact(g.Date, "MMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+                    {
+                        return result;
+                    }
+                    else if (DateTime.TryParseExact(g.Date, "MMM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
                     {
                         return result;
                     }
                     else
                     {
-                        return DateTime.ParseExact(g.Date, "h tt", CultureInfo.InvariantCulture);
+                        throw new FormatException($"Invalid date format for the given time frame: {timeFrame}");
                     }
+
                 });
 
                 foreach (var item in groupedData)
@@ -256,6 +265,74 @@ namespace BenpilsBarcodeSystem.Repository
 
             return Task.FromResult(dt);
         }
+
+        //public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null)
+        //{
+
+        //    DataTable dt = new DataTable();
+
+        //    dt.Columns.Add("Date", typeof(string));
+        //    dt.Columns.Add("SalesAmount", typeof(decimal));
+
+        //    if (salesDataList.Count > 0)
+        //    {
+        //        var groupedData = salesDataList.GroupBy(d =>
+        //        {
+        //            if (timeFrame == "today")
+        //            {
+        //                return d.Date.ToString("h tt");
+        //            }
+        //            else if (timeFrame == "week")
+        //            {
+        //                return d.Date.ToString("dd-MM-yy");
+        //            }
+        //            else if (timeFrame == "month")
+        //            {
+        //                return d.Date.ToString("MM-yy");
+        //            }
+        //            else
+        //            {
+        //                return d.Date.ToString("yy");
+        //            }
+        //        })
+        //        .Select(g => new
+        //        {
+        //            Date = timeFrame == "today" ? g.Key : timeFrame == "week" ? DateTime.ParseExact(g.Key, "dd-MM-yy", CultureInfo.InvariantCulture).ToString("MMM-dd") :
+        //                   timeFrame == "month" ? DateTime.ParseExact(g.Key, "MM-yy", CultureInfo.InvariantCulture).ToString("MMM") : DateTime.ParseExact(g.Key, "yy", CultureInfo.InvariantCulture).ToString("yyyy"),
+        //            SalesAmount = g.Sum(s => s.TotalSales)
+        //        })
+        //        .OrderBy(g =>
+        //        {
+        //            if (timeFrame == "today" && DateTime.TryParseExact(g.Date, "h tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
+        //            {
+        //                return result;
+        //            }
+        //            else if (timeFrame == "week" && DateTime.TryParseExact(g.Date, "MMM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+        //            {
+        //                return result;
+        //            }
+        //            else if (timeFrame == "month" && DateTime.TryParseExact(g.Date, "MMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+        //            {
+        //                return result;
+        //            }
+        //            else if (DateTime.TryParseExact(g.Date, "yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+        //            {
+        //                return result;
+        //            }
+        //            else
+        //            {
+        //                throw new FormatException($"Invalid date format for the given time frame: {timeFrame}");
+        //            }
+        //        });
+
+        //        foreach (var item in groupedData)
+        //        {
+        //            dt.Rows.Add(item.Date, item.SalesAmount);
+        //        }
+        //    }
+
+        //    return Task.FromResult(dt);
+        //}
 
         public Task<DataTable> GetTopSellingItems(List<SalesData> salesDataList)
         {

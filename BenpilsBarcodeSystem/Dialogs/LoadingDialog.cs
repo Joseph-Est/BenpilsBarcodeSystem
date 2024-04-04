@@ -1,4 +1,6 @@
-﻿using BenpilsBarcodeSystem.Utils;
+﻿using BenpilsBarcodeSystem.Repositories;
+using BenpilsBarcodeSystem.Repository;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,48 +21,124 @@ namespace BenpilsBarcodeSystem.Dialogs
 
     public partial class LoadingDialog : Form
     {
-        LoadingFor loadingFor;
-        Dictionary<DataTable, string> dataTableSheetMapping;
-        private Timer hideLoadingTimer;
-        private string message;
+        readonly LoadingFor LoadingFor;
+        readonly List<string> Data;
+        private readonly Timer hideLoadingTimer;
+        private string Message;
         private bool canClose = false;
+        readonly DateTime FromDate;
+        readonly DateTime ToDate;
 
-        internal LoadingDialog(string title, LoadingFor loadingFor = LoadingFor.ManualBackup, Dictionary<DataTable, string> dataTableSheetMapping = null)
+        internal LoadingDialog(string title, LoadingFor loadingFor, DateTime fromDate, DateTime toDate, List<string> data = null)
         {
             InitializeComponent();
             TitleLbl.Text = title;
-            this.loadingFor = loadingFor;
-            this.dataTableSheetMapping = dataTableSheetMapping;
+            LoadingFor = loadingFor;
+            Data = data;
+            FromDate = fromDate;
+            ToDate = toDate;
 
-            hideLoadingTimer = new Timer();
-            hideLoadingTimer.Interval = 2000; 
+            hideLoadingTimer = new Timer
+            {
+                Interval = 2000
+            };
+
             hideLoadingTimer.Tick += HideLoadingTimer_Tick;
         }
 
         private void LoadingDialog_Load(object sender, EventArgs e)
         {
            
-            if (loadingFor == LoadingFor.ManualBackup)
+            if (LoadingFor == LoadingFor.ManualBackup)
             {
                 ManualBackup();
             }
         }
 
-        private void ManualBackup()
+        private async void ManualBackup()
         {
+            Dictionary<DataTable, string> dataTableSheetMapping = new Dictionary<DataTable, string>();
+
+            bool inventoryExists = Data != null && Data.Any(item => item.ToLower() == "inventory");
+            bool supplierExists = Data != null && Data.Any(item => item.ToLower() == "suppliers");
+            bool purchaseOrderExists = Data != null && Data.Any(item => item.ToLower() == "purchase order");
+            bool salesExists = Data != null && Data.Any(item => item.ToLower() == "sales");
+            bool inventoryReportExists = Data != null && Data.Any(item => item.ToLower() == "inventory report");
+            bool auditTrailExists = Data != null && Data.Any(item => item.ToLower() == "audit trail");
+
+            if (inventoryExists)
+            {
+                InventoryRepository repository = new InventoryRepository();
+                DataTable dt = await repository.GetInventoryExportDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Inventory");
+                }
+            }
+
+            if (supplierExists)
+            {
+                SuppliersRepository repository = new SuppliersRepository();
+                DataTable dt = await repository.GetSuppliersDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Suppliers");
+                }
+            }
+
+            if (purchaseOrderExists)
+            {
+                ReportsRepository repository = new ReportsRepository();
+                DataTable dt = await repository.GetPurchaseOrderExportDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Purchase Order");
+                }
+            }
+
+            if (salesExists)
+            {
+                ReportsRepository repository = new ReportsRepository();
+                DataTable dt = await repository.GetSalesTransactionsExportDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Sales Transactions");
+                }
+            }
+
+            if (inventoryReportExists)
+            {
+                ReportsRepository repository = new ReportsRepository();
+                DataTable dt = await repository.GetInventoryReportExportDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Inventory Report");
+                }
+            }
+
+            if (auditTrailExists)
+            {
+                ReportsRepository repository = new ReportsRepository();
+                DataTable dt = await repository.GetAuditTrailExportDT(FromDate, ToDate);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dataTableSheetMapping.Add(dt, "Audit Trail");
+                }
+            }
+
             switch (Util.ExportData(this, dataTableSheetMapping))
             {
                 case 0:
-                    message = "Backup completed successfully.";
+                    Message = "Backup completed successfully.";
                     break;
                 case 1:
-                    message = "Backup failed: No data available.";
+                    Message = "Backup failed: No Data available.";
                     break;
                 case 2:
-                    message = "Backup failed: Unable to overwrite existing file.";
+                    Message = "Backup failed: Unable to overwrite existing file.";
                     break;
                 case 3:
-                    message = "Backup failed: Unable to export backup.";
+                    Message = "Backup failed: Unable to export backup.";
                     break;
                 case 5:
                     canClose = true;
@@ -75,17 +153,8 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void HideLoadingTimer_Tick(object sender, EventArgs e)
         {
-            TitleLbl.Text = message;
+            TitleLbl.Text = Message;
             AcceptBtn.Visible = true;
-
-            //if (backupSuccess)
-            //{
-            //    AcceptBtn.BackColor = Color.FromArgb(26, 185, 93);
-            //}
-            //else
-            //{
-            //    AcceptBtn.BackColor = Color.FromArgb(193, 57, 57);
-            //}
 
             hideLoadingTimer.Stop();
         }

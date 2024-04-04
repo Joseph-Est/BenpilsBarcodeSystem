@@ -274,6 +274,12 @@ namespace BenpilsBarcodeSystem
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + Util.ConvertDateLong(DateTime.Now);
+
+            //if (autoBackupManager != null && autoBackupManager.autoBackupTimer != null)
+            //{
+            //    TimeSpan timeLeft = TimeSpan.FromMilliseconds(autoBackupManager.autoBackupTimer.Interval - autoBackupManager.autoBackupTimer.ElapsedMilliseconds);
+            //    BackupTxt.Text = $"Next backup in: {timeLeft.Hours}h {timeLeft.Minutes}m {timeLeft.Seconds}s";
+            //}
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

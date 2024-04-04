@@ -53,12 +53,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DesignationTxt = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.UsernameTxt = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.BackupTxt = new System.Windows.Forms.Label();
+            this.DesignationTxt = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -482,6 +483,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.panel3.Controls.Add(this.DesignationTxt);
+            this.panel3.Controls.Add(this.BackupTxt);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.UsernameTxt);
             this.panel3.Controls.Add(this.label4);
@@ -490,19 +492,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1207, 36);
             this.panel3.TabIndex = 20;
-            // 
-            // DesignationTxt
-            // 
-            this.DesignationTxt.BackColor = System.Drawing.Color.Transparent;
-            this.DesignationTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesignationTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DesignationTxt.ForeColor = System.Drawing.Color.White;
-            this.DesignationTxt.Location = new System.Drawing.Point(90, 0);
-            this.DesignationTxt.Name = "DesignationTxt";
-            this.DesignationTxt.Size = new System.Drawing.Size(1010, 36);
-            this.DesignationTxt.TabIndex = 4;
-            this.DesignationTxt.Text = "Designation:";
-            this.DesignationTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -565,6 +554,32 @@
             this.panel5.Size = new System.Drawing.Size(1207, 10);
             this.panel5.TabIndex = 21;
             // 
+            // BackupTxt
+            // 
+            this.BackupTxt.AutoSize = true;
+            this.BackupTxt.BackColor = System.Drawing.Color.Transparent;
+            this.BackupTxt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BackupTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackupTxt.ForeColor = System.Drawing.Color.White;
+            this.BackupTxt.Location = new System.Drawing.Point(1090, 0);
+            this.BackupTxt.Name = "BackupTxt";
+            this.BackupTxt.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.BackupTxt.Size = new System.Drawing.Size(10, 27);
+            this.BackupTxt.TabIndex = 5;
+            // 
+            // DesignationTxt
+            // 
+            this.DesignationTxt.BackColor = System.Drawing.Color.Transparent;
+            this.DesignationTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesignationTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DesignationTxt.ForeColor = System.Drawing.Color.White;
+            this.DesignationTxt.Location = new System.Drawing.Point(90, 0);
+            this.DesignationTxt.Name = "DesignationTxt";
+            this.DesignationTxt.Size = new System.Drawing.Size(1000, 36);
+            this.DesignationTxt.TabIndex = 6;
+            this.DesignationTxt.Text = "Designation:";
+            this.DesignationTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -624,8 +639,9 @@
         private System.Windows.Forms.CheckBox CloseCb;
         private System.Windows.Forms.CheckBox RestoreCb;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label DesignationTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label DesignationTxt;
+        private System.Windows.Forms.Label BackupTxt;
     }
 }

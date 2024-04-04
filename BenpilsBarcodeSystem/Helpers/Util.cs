@@ -458,7 +458,7 @@ namespace BenpilsBarcodeSystem.Utils
                 reorderedDt.Columns[columnName].SetOrdinal(columnOrder.IndexOf(columnName));
             }
 
-            // Import the data from the original table
+            // Import the Data from the original table
             foreach (DataRow row in dt.Rows)
             {
                 reorderedDt.ImportRow(row);

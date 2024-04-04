@@ -14,7 +14,7 @@ namespace BenpilsBarcodeSystem.Helpers
 {
     public class AutoBackupManager
     {
-        private System.Timers.Timer autoBackupTimer;
+        public System.Timers.Timer autoBackupTimer;
 
         public void SetupAutoBackup(Form form)
         {
@@ -30,6 +30,7 @@ namespace BenpilsBarcodeSystem.Helpers
             autoBackupTimer.Elapsed += async (sender, e) => await AutoBackup(form);
 
             bool backup = true;
+
 
             switch (settings.Interval)
             {
@@ -54,14 +55,20 @@ namespace BenpilsBarcodeSystem.Helpers
 
             if (backup)
             {
+                MessageBox.Show("backup setted up");
                 autoBackupTimer.Start();
+            }
+            else
+            {
+                MessageBox.Show("backup not setted up");
+
             }
         }
 
         private async Task AutoBackup(Form form)
         {
             BackupSettings settings = LoadBackupSettings();
-
+            MessageBox.Show("backup happening");
             if (IsWithinActiveHours(settings.ActiveStartTime, settings.ActiveEndTime))
             {
                 bool backupSucceeded = false;
@@ -141,7 +148,7 @@ namespace BenpilsBarcodeSystem.Helpers
                                 Util.Log($"Attempt {retryCount} success");
                                 break;
                             case 1:
-                                Util.Log($"Attempt {retryCount} failed: No available data to backup.");
+                                Util.Log($"Attempt {retryCount} failed: No available Data to backup.");
                                 retryCount++;
                                 await Task.Delay(30000);
                                 break;

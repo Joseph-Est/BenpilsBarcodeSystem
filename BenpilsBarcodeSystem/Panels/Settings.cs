@@ -278,81 +278,28 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private async void ExportBtn_Click(object sender, EventArgs e)
+        private void ExportBtn_Click(object sender, EventArgs e)
         {
             if (Util.IsAnyCheckboxChecked(InventoryCb, SuppliersCb, PurchaseOrdersCb, SalesTransactionsCb, InventoryReportCb, AuditTrailCb))
             {
-                Dictionary<DataTable, string> dataTableSheetMapping = new Dictionary<DataTable, string>();
-
                 DateTime fromDate = StartDt.Value;
-                DateTime endDate = EndDt.Value;
+                DateTime toDate = EndDt.Value;
 
-                if (InventoryCb.Checked)
-                {
-                    InventoryRepository repository = new InventoryRepository();
-                    DataTable dt = await repository.GetInventoryExportDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Inventory");
-                    }
-                }
+                List<string> checkedCB = new List<string>();
 
-                if (SuppliersCb.Checked)
-                {
-                    SuppliersRepository repository = new SuppliersRepository();
-                    DataTable dt = await repository.GetSuppliersDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Suppliers");
-                    }
-                }
+                if (InventoryCb.Checked) checkedCB.Add("inventory");
+                if (SuppliersCb.Checked) checkedCB.Add("suppliers");
+                if (PurchaseOrdersCb.Checked) checkedCB.Add("purchase order");
+                if (SalesTransactionsCb.Checked) checkedCB.Add("sales");
+                if (InventoryReportCb.Checked) checkedCB.Add("inventory report");
+                if (AuditTrailCb.Checked) checkedCB.Add("audit trail");
 
-                if (PurchaseOrdersCb.Checked)
-                {
-                    ReportsRepository repository = new ReportsRepository();
-                    DataTable dt = await repository.GetPurchaseOrderExportDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Purchase Order");
-                    }
-                }
-
-                if (SalesTransactionsCb.Checked)
-                {
-                    ReportsRepository repository = new ReportsRepository();
-                    DataTable dt = await repository.GetSalesTransactionsExportDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Sales Transactions");
-                    }
-                }
-
-                if (InventoryReportCb.Checked)
-                {
-                    ReportsRepository repository = new ReportsRepository();
-                    DataTable dt = await repository.GetInventoryReportExportDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Inventory Report");
-                    }
-                }
-
-                if (AuditTrailCb.Checked)
-                {
-                    ReportsRepository repository = new ReportsRepository();
-                    DataTable dt = await repository.GetAuditTrailExportDT(fromDate, endDate);
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        dataTableSheetMapping.Add(dt, "Audit Trail");
-                    }
-                }
-
-                LoadingDialog loading = new LoadingDialog("Backing up data, please wait ...", LoadingFor.ManualBackup, dataTableSheetMapping);
+                LoadingDialog loading = new LoadingDialog("Backing up Data, please wait ...", LoadingFor.ManualBackup, fromDate, toDate, checkedCB);
                 loading.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Please check a data to export", "Export Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please check a Data to export", "Export Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -534,7 +481,7 @@ namespace BenpilsBarcodeSystem
             }
             else
             {
-                MessageBox.Show("Please check a data to backup", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please check a Data to backup", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

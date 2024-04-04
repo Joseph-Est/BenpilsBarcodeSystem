@@ -73,7 +73,7 @@
             this.TitleLbl.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.TitleLbl.Size = new System.Drawing.Size(319, 73);
             this.TitleLbl.TabIndex = 85;
-            this.TitleLbl.Text = "Backing up data. Please wait ...";
+            this.TitleLbl.Text = "Backing up Data. Please wait ...";
             this.TitleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoadingDialog

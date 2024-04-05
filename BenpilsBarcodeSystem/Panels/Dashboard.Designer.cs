@@ -114,7 +114,7 @@
             this.panel24 = new System.Windows.Forms.Panel();
             this.LowStockTbl = new System.Windows.Forms.DataGridView();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel30 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
@@ -1280,7 +1280,7 @@
             this.LowStockTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LowStockTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Item,
-            this.quantity});
+            this.Quantity});
             this.LowStockTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LowStockTbl.EnableHeadersVisualStyles = false;
             this.LowStockTbl.GridColor = System.Drawing.Color.LightGray;
@@ -1314,13 +1314,13 @@
             // 
             // Quantity
             // 
-            this.quantity.DataPropertyName = "Quantity";
+            this.Quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle7;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "Quantity";
-            this.quantity.ReadOnly = true;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // panel30
             // 
@@ -1442,7 +1442,6 @@
             this.Padding = new System.Windows.Forms.Padding(30);
             this.Text = "StatisticReport";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1584,5 +1583,6 @@
         private System.Windows.Forms.Panel RbPanel;
         private System.Windows.Forms.RadioButton MonthlyRb;
         private System.Windows.Forms.RadioButton DailyRb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }

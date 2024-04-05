@@ -17,14 +17,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class Ser : Form
+    public partial class UserCredentials : Form
     {
         private bool isAdding = false;
         private bool isUpdating = false;
         private string prevUsername;
         private int selectedID = 0;
         MainForm mainForm;
-        public Ser()
+        public UserCredentials()
         {
             InitializeComponent();
             InputValidator.AllowOnlyDigits(ContactNoTxt);

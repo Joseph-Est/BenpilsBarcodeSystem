@@ -1,6 +1,6 @@
 ﻿namespace BenpilsBarcodeSystem
 {
-    partial class Ser
+    partial class UserCredentials
     {
         /// <summary>
         /// Required designer variable.
@@ -749,7 +749,7 @@
             // 
             this.tblusercredentialBindingSource1.DataMember = "tbl_usercredential";
             // 
-            // Ser
+            // UserCredentials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -758,7 +758,7 @@
             this.Controls.Add(this.ClearBtn);
             this.Controls.Add(this.UpdateBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Ser";
+            this.Name = "UserCredentials";
             this.Text = "UserCredentials";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserCredentials_Load);

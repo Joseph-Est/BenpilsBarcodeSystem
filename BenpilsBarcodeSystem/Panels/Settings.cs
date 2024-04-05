@@ -44,7 +44,7 @@ namespace BenpilsBarcodeSystem
         private void Settings_Load(object sender, EventArgs e)
         {
             mainForm = (MainForm)this.ParentForm;
-            UpdateInventoryDG();
+            //UpdateInventoryDG();
         }
 
         private void ArchiveTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +63,37 @@ namespace BenpilsBarcodeSystem
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void UpdateCurrentTable()
+        {
+            TabPage selectedTab = tabControl1.SelectedTab;
+
+            if (selectedTab != null)
+            {
+                if (selectedTab.Name == "tabArchive")
+                {
+                    TabPage selectedArchiveTab = tabControl2.SelectedTab;
+                    if (selectedArchiveTab != null)
+                    {
+                        switch (selectedArchiveTab.Name)
+                        {
+                            case "tabInventory":
+                                UpdateInventoryDG();
+                                break;
+                            case "tabSupplier":
+                                UpdateSupplierDG();
+                                break;
+                            case "tabUsers":
+                                UpdateUsersDG();
+                                break;
+                            default:
+                                break;
+                        }
+                    
+                    }
+                }
             }
         }
 

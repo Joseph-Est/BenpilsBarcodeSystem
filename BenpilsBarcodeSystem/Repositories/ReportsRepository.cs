@@ -59,7 +59,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<DataTable> GetInventoryReportsAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        public async Task<DataTable> GetInventoryReportsAsync(DateTime startDate, DateTime endDate, string searchText = "", int pageNumber = 1, int pageSize = 30)
         {
             string whereClause = $"WHERE ir.{col_date} BETWEEN @StartDate AND @EndDate";
 
@@ -71,6 +71,8 @@ namespace BenpilsBarcodeSystem.Repository
                                 im.{InventoryRepository.col_size} LIKE '%' + @SearchTxt + '%' OR 
                                 ir.{col_action} LIKE '%' + @SearchTxt + '%')";
             }
+
+            int skip = (pageNumber - 1) * pageSize;
 
             string selectQuery = $@"
                 SELECT 
@@ -95,7 +97,8 @@ namespace BenpilsBarcodeSystem.Repository
                 JOIN {InventoryRepository.tbl_name} im ON ir.{col_item_id} = im.{InventoryRepository.col_id}
                 JOIN {UserCredentialsRepository.tbl_name} uc ON ir.{col_modified_by} = uc.{UserCredentialsRepository.col_id}
                 {whereClause}
-                ORDER BY ir.{col_date} DESC";
+                ORDER BY ir.{col_date} DESC
+                OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 
             try
             {
@@ -132,6 +135,49 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
+        public async Task<int> GetInventoryReportCountAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        {
+            string whereClause = $"WHERE ir.{col_date} BETWEEN @StartDate AND @EndDate";
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                whereClause += $@" AND (im.{InventoryRepository.col_barcode} LIKE '%' + @SearchTxt + '%' OR 
+                                im.{InventoryRepository.col_item_name} LIKE '%' + @SearchTxt + '%' OR 
+                                im.{InventoryRepository.col_brand} LIKE '%' + @SearchTxt + '%' OR 
+                                im.{InventoryRepository.col_size} LIKE '%' + @SearchTxt + '%' OR 
+                                ir.{col_action} LIKE '%' + @SearchTxt + '%')";
+            }
+
+            string countQuery = $@"SELECT COUNT(*) 
+                                FROM {tbl_inventory_report} ir
+                                JOIN {InventoryRepository.tbl_name} im ON ir.{col_item_id} = im.{InventoryRepository.col_id}
+                               {whereClause}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand command = new SqlCommand(countQuery, con))
+                    {
+                        DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
+                        DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
+
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@SearchTxt", searchText);
+
+                        int count = (int)await command.ExecuteScalarAsync();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return -1;
+            }
+        }
+
         public async Task<bool> AddModificationReportAsync(SqlTransaction transaction, int itemId, int modifiedBy ,string fieldModified, string oldValue, string newValue)
         {
             string insertQuery = $"INSERT INTO {tbl_item_modifications} ({col_item_id}, {col_modified_by}, {col_field_modified}, {col_old_value}, {col_new_value}) " +
@@ -161,7 +207,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         //PURCHASE ORDER
 
-        public async Task<DataTable> GetPurchaseOrderTransactionsAsync(DateTime startDate, DateTime endDate, string searchText = null)
+        public async Task<DataTable> GetPurchaseOrderTransactionsAsync(DateTime startDate, DateTime endDate, string searchText = null, int pageNumber = 1, int pageSize = 30)
         {
             string whereClause = $"WHERE po.{PurchaseOrderRepository.col_order_date} BETWEEN @StartDate AND @EndDate";
 
@@ -173,10 +219,15 @@ namespace BenpilsBarcodeSystem.Repository
                                 po.{PurchaseOrderRepository.col_status} LIKE '%' + @SearchTxt + '%')";
             }
 
+
+            int skip = (pageNumber - 1) * pageSize;
+
             string selectQuery = $"SELECT po.{PurchaseOrderRepository.col_order_id}, u.{UserCredentialsRepository.col_username} as operated_by, po.{PurchaseOrderRepository.col_backorder_from}, s.{SuppliersRepository.col_contact_name}, po.{PurchaseOrderRepository.col_order_date}, po.{PurchaseOrderRepository.col_receiving_date}, po.{PurchaseOrderRepository.col_status}, ISNULL(po.{PurchaseOrderRepository.col_remarks}, 'N/A') AS {PurchaseOrderRepository.col_remarks} FROM {PurchaseOrderRepository.tbl_purchase_order} po " +
                 $"INNER JOIN {SuppliersRepository.tbl_name} s ON po.{PurchaseOrderRepository.col_supplier_id} = s.{SuppliersRepository.col_id} " +
                 $"INNER JOIN {UserCredentialsRepository.tbl_name} u ON po.{PurchaseOrderRepository.col_operated_by} = u.{UserCredentialsRepository.col_id} " +
-                $"{whereClause} ORDER BY po.{PurchaseOrderRepository.col_order_date} DESC";
+                $"{whereClause} " +
+                $"ORDER BY po.{PurchaseOrderRepository.col_order_date} DESC " +
+                $"OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 
             try
             {
@@ -225,6 +276,50 @@ namespace BenpilsBarcodeSystem.Repository
                 return null;
             }
         }
+
+        public async Task<int> GetPurchaseOrderTransactionsCountAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        {
+            string whereClause = $"WHERE po.{PurchaseOrderRepository.col_order_date} BETWEEN @StartDate AND @EndDate";
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                whereClause += $@" AND (po.{PurchaseOrderRepository.col_order_id} LIKE '%' + @SearchTxt + '%' OR 
+                                u.{UserCredentialsRepository.col_username} LIKE '%' + @SearchTxt + '%' OR 
+                                s.{SuppliersRepository.col_contact_name} LIKE '%' + @SearchTxt + '%' OR 
+                                po.{PurchaseOrderRepository.col_status} LIKE '%' + @SearchTxt + '%')";
+            }
+
+            string countQuery = $@"SELECT COUNT(*) 
+                                FROM {PurchaseOrderRepository.tbl_purchase_order} po 
+                                INNER JOIN {SuppliersRepository.tbl_name} s ON po.{PurchaseOrderRepository.col_supplier_id} = s.{SuppliersRepository.col_id}
+                                INNER JOIN {UserCredentialsRepository.tbl_name} u ON po.{PurchaseOrderRepository.col_operated_by} = u.{UserCredentialsRepository.col_id}
+                               {whereClause}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand command = new SqlCommand(countQuery, con))
+                    {
+                        DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
+                        DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
+
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@SearchTxt", searchText);
+
+                        int count = (int)await command.ExecuteScalarAsync();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return -1;
+            }
+        }
+
 
         public async Task<DataTable> GetPurchaseOrderTransactionsFullAsync(DateTime startDate, DateTime endDate)
         {
@@ -289,7 +384,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         //SALES REPORT
 
-        public async Task<DataTable> GetSalesAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        public async Task<DataTable> GetSalesAsync(DateTime startDate, DateTime endDate, string searchText = "", int pageNumber = 1, int pageSize = 30)
         {
             string whereClause = $"WHERE t.{POSRepository.col_transaction_date} BETWEEN @StartDate AND @EndDate";
 
@@ -299,6 +394,8 @@ namespace BenpilsBarcodeSystem.Repository
                                 im.{InventoryRepository.col_item_name} LIKE '%' + @SearchTxt + '%' OR 
                                 u.{UserCredentialsRepository.col_username} LIKE '%' + @SearchTxt + '%')";
             }
+
+            int skip = (pageNumber - 1) * pageSize;
 
             string selectQuery = $@"SELECT t.{POSRepository.col_transaction_id}, u.{UserCredentialsRepository.col_username}, t.{POSRepository.col_payment_received}, t.{POSRepository.col_transaction_date}, 
                                 CASE
@@ -312,7 +409,9 @@ namespace BenpilsBarcodeSystem.Repository
                                 INNER JOIN {UserCredentialsRepository.tbl_name} u ON t.{POSRepository.col_operated_by} = u.{UserCredentialsRepository.col_id} 
                                 INNER JOIN {POSRepository.tbl_transaction_details} d ON t.{POSRepository.col_transaction_id} = d.{POSRepository.col_transaction_id} 
                                 INNER JOIN {InventoryRepository.tbl_name} im ON d.{POSRepository.col_item_id} = im.{InventoryRepository.col_id}
-                                {whereClause} ORDER BY t.{POSRepository.col_transaction_date} DESC";
+                                {whereClause} 
+                                ORDER BY t.{POSRepository.col_transaction_date} DESC
+                                OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 
             try
             {
@@ -350,115 +449,48 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<DataTable> GetSalesReportAsync(DateTime startDate, DateTime endDate, string searchText = null)
+        public async Task<int> GetSalesCountAsync(DateTime startDate, DateTime endDate, string searchText = "")
         {
             string whereClause = $"WHERE t.{POSRepository.col_transaction_date} BETWEEN @StartDate AND @EndDate";
 
             if (!string.IsNullOrEmpty(searchText))
             {
                 whereClause += $@" AND (t.{POSRepository.col_transaction_id} LIKE '%' + @SearchTxt + '%' OR 
+                                im.{InventoryRepository.col_item_name} LIKE '%' + @SearchTxt + '%' OR 
                                 u.{UserCredentialsRepository.col_username} LIKE '%' + @SearchTxt + '%')";
             }
 
-            string selectQuery = $"SELECT t.{POSRepository.col_transaction_id}, u.{UserCredentialsRepository.col_username}, t.{POSRepository.col_payment_received}, t.{POSRepository.col_transaction_date} FROM {POSRepository.tbl_transactions} t INNER JOIN {UserCredentialsRepository.tbl_name} u ON t.{POSRepository.col_operated_by} = u.{UserCredentialsRepository.col_id} {whereClause}";
-           
+            string countQuery = $@"SELECT COUNT(*) 
+                                FROM {POSRepository.tbl_transactions} t
+                                INNER JOIN {UserCredentialsRepository.tbl_name} u ON t.{POSRepository.col_operated_by} = u.{UserCredentialsRepository.col_id} 
+                                INNER JOIN {POSRepository.tbl_transaction_details} d ON t.{POSRepository.col_transaction_id} = d.{POSRepository.col_transaction_id} 
+                                {whereClause}";
+
             try
             {
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                    using (SqlCommand command = new SqlCommand(countQuery, con))
                     {
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@SearchTxt", searchText);
 
-                        DataTable dt = new DataTable();
-                        await Task.Run(() => adapter.Fill(dt));
-
-                        dt.Columns.Add("formatted_transaction_date", typeof(string));
-
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            DateTime transactionDate = Convert.ToDateTime(row[POSRepository.col_transaction_date]);
-
-                            row["formatted_transaction_date"] = Util.ConvertDateLongWithTime(transactionDate);
-                        }
-
-                        return dt;
+                        int count = (int)await command.ExecuteScalarAsync();
+                        return count;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                return null;
+                return -1;
             }
         }
 
-        public async Task <Cart> GetSalesDetailsAsync(string transactionId)
-        {
-            Cart cart = new Cart();
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    string sql = $"SELECT * FROM {POSRepository.tbl_transaction_details} WHERE {POSRepository.col_transaction_id} = @transactionId";
-                    using (SqlCommand cmdTransactionDetails = new SqlCommand(sql, con))
-                    {
-                        cmdTransactionDetails.Parameters.AddWithValue("@transactionId", transactionId);
-
-                        List<int> itemIds = new List<int>();
-                        List<int> quantities = new List<int>();
-                        List<decimal> totals = new List<decimal>();
-
-                        using (SqlDataReader reader = await cmdTransactionDetails.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                itemIds.Add(reader[POSRepository.col_item_id] == DBNull.Value ? 0 : (int)reader[POSRepository.col_item_id]);
-                                quantities.Add(reader[POSRepository.col_quantity] == DBNull.Value ? 0 : (int)reader[POSRepository.col_quantity]);
-                                totals.Add(reader[POSRepository.col_total] == DBNull.Value ? 0m : (decimal)reader[POSRepository.col_total]);
-                            }
-                        }
-
-                        for (int i = 0; i < itemIds.Count; i++)
-                        {
-                            sql = $"SELECT * FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @item_id";
-                            using (SqlCommand cmdItem = new SqlCommand(sql, con))
-                            {
-                                cmdItem.Parameters.AddWithValue("@item_id", itemIds[i]);
-                                using (SqlDataReader itemReader = await cmdItem.ExecuteReaderAsync())
-                                {
-                                    if (await itemReader.ReadAsync())
-                                    {
-                                        PurchaseItem purchaseItem = new PurchaseItem
-                                        {
-                                            Id = (int)itemReader[InventoryRepository.col_id],
-                                            ItemName = itemReader[InventoryRepository.col_item_name].ToString(),
-                                            Brand = itemReader[InventoryRepository.col_brand].ToString(),
-                                            Size = itemReader[InventoryRepository.col_size].ToString(),
-                                            Quantity = quantities[i],
-                                            PurchasePrice = totals[i] / quantities[i],
-                                        };
-                                        cart.Items.Add(purchaseItem);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-
-            return cart;
-        }
 
         //AUDIT TRAIL
 
@@ -492,7 +524,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<DataTable> GetAuditTrailAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        public async Task<DataTable> GetAuditTrailAsync(DateTime startDate, DateTime endDate, string searchText = "", int pageNumber = 1, int pageSize = 30)
         {
             string whereClause = $"WHERE a.{col_date} BETWEEN @StartDate AND @EndDate";
 
@@ -504,7 +536,15 @@ namespace BenpilsBarcodeSystem.Repository
                                 a.{col_action} LIKE '%' + @SearchTxt + '%')";
             }
 
-            string selectQuery = $"SELECT a.{col_id}, u.{UserCredentialsRepository.col_username}, u.{UserCredentialsRepository.col_first_name}, u.{UserCredentialsRepository.col_last_name}, a.{col_action}, a.{col_date}, a.{col_details} FROM {tbl_audit_trail} a INNER JOIN {UserCredentialsRepository.tbl_name} u ON a.{col_user_id} = u.{UserCredentialsRepository.col_id} {whereClause} ORDER BY a.{col_date} DESC";
+            int skip = (pageNumber - 1) * pageSize;
+
+            string selectQuery = $@"SELECT a.{col_id}, u.{UserCredentialsRepository.col_username}, u.{UserCredentialsRepository.col_first_name}, 
+                            u.{UserCredentialsRepository.col_last_name}, a.{col_action}, a.{col_date}, a.{col_details} 
+                            FROM {tbl_audit_trail} a 
+                            INNER JOIN {UserCredentialsRepository.tbl_name} u ON a.{col_user_id} = u.{UserCredentialsRepository.col_id} 
+                            {whereClause} 
+                            ORDER BY a.{col_date} DESC 
+                            OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 
             try
             {
@@ -541,6 +581,48 @@ namespace BenpilsBarcodeSystem.Repository
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return null;
+            }
+        }
+
+        public async Task<int> GetAuditTrailCountAsync(DateTime startDate, DateTime endDate, string searchText = "")
+        {
+            string whereClause = $"WHERE a.{col_date} BETWEEN @StartDate AND @EndDate";
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                whereClause += $@" AND (u.{UserCredentialsRepository.col_username} LIKE '%' + @SearchTxt + '%' OR 
+                            u.{UserCredentialsRepository.col_first_name} LIKE '%' + @SearchTxt + '%' OR 
+                            u.{UserCredentialsRepository.col_last_name} LIKE '%' + @SearchTxt + '%' OR 
+                            a.{col_action} LIKE '%' + @SearchTxt + '%')";
+            }
+
+            string countQuery = $@"SELECT COUNT(*) 
+                           FROM {tbl_audit_trail} a 
+                           INNER JOIN {UserCredentialsRepository.tbl_name} u ON a.{col_user_id} = u.{UserCredentialsRepository.col_id} 
+                           {whereClause}";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand command = new SqlCommand(countQuery, con))
+                    {
+                        DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
+                        DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
+
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@SearchTxt", searchText);
+
+                        int count = (int)await command.ExecuteScalarAsync();
+                        return count;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return -1;
             }
         }
 

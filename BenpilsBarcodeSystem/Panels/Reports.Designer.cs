@@ -100,6 +100,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.SummaryLbl = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.SRPrevBtn = new System.Windows.Forms.Button();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.SrPageLbl = new System.Windows.Forms.Label();
+            this.SRNxtBtn = new System.Windows.Forms.Button();
             this.PurchaseReportTab = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.OrdersTbl = new System.Windows.Forms.DataGridView();
@@ -137,6 +142,11 @@
             this.TotalPendingLbl = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.PRPrevBtn = new System.Windows.Forms.Button();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.PRPageLbl = new System.Windows.Forms.Label();
+            this.PRNextBtn = new System.Windows.Forms.Button();
             this.InventoryReportTab = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.InventoryTbl = new System.Windows.Forms.DataGridView();
@@ -146,7 +156,7 @@
             this.action = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.old_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.new_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -161,6 +171,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.InventorySearchTxt = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.InventoryPrevBtn = new System.Windows.Forms.Button();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.InventoryPageLbl = new System.Windows.Forms.Label();
+            this.InventoryNextBtn = new System.Windows.Forms.Button();
             this.ReportsTabControl = new System.Windows.Forms.TabControl();
             this.AuditTrailTab = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -180,6 +195,11 @@
             this.AuditStartDateDt = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.AuditSearchTxt = new System.Windows.Forms.TextBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.AuditTrailPrevPage = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.AuditTrailPageNumberLbl = new System.Windows.Forms.Label();
+            this.AuditTrailNextPage = new System.Windows.Forms.Button();
             this.SalesReportTab.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalesTbl)).BeginInit();
@@ -191,6 +211,8 @@
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel24.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.PurchaseReportTab.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).BeginInit();
@@ -202,18 +224,24 @@
             this.panel19.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel20.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
             this.InventoryReportTab.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel28.SuspendLayout();
+            this.panel29.SuspendLayout();
             this.ReportsTabControl.SuspendLayout();
             this.AuditTrailTab.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AuditTrailTbl)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.SuspendLayout();
             // 
             // SalesReportTab
@@ -223,6 +251,7 @@
             this.SalesReportTab.Controls.Add(this.panel6);
             this.SalesReportTab.Controls.Add(this.panel9);
             this.SalesReportTab.Controls.Add(this.pictureBox3);
+            this.SalesReportTab.Controls.Add(this.panel24);
             this.SalesReportTab.Location = new System.Drawing.Point(4, 28);
             this.SalesReportTab.Name = "SalesReportTab";
             this.SalesReportTab.Size = new System.Drawing.Size(1199, 678);
@@ -237,8 +266,8 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 177);
             this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(30, 0, 30, 0);
-            this.panel5.Size = new System.Drawing.Size(1199, 501);
+            this.panel5.Padding = new System.Windows.Forms.Padding(30, 0, 30, 15);
+            this.panel5.Size = new System.Drawing.Size(1199, 439);
             this.panel5.TabIndex = 38;
             // 
             // SalesTbl
@@ -292,7 +321,7 @@
             this.SalesTbl.RowTemplate.Height = 30;
             this.SalesTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.SalesTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SalesTbl.Size = new System.Drawing.Size(1139, 501);
+            this.SalesTbl.Size = new System.Drawing.Size(1139, 424);
             this.SalesTbl.TabIndex = 183;
             this.SalesTbl.TabStop = false;
             // 
@@ -679,12 +708,87 @@
             this.pictureBox3.UseWaitCursor = true;
             this.pictureBox3.Visible = false;
             // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.SRPrevBtn);
+            this.panel24.Controls.Add(this.panel25);
+            this.panel24.Controls.Add(this.SRNxtBtn);
+            this.panel24.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel24.Location = new System.Drawing.Point(0, 616);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(0, 0, 28, 30);
+            this.panel24.Size = new System.Drawing.Size(1199, 62);
+            this.panel24.TabIndex = 43;
+            // 
+            // SRPrevBtn
+            // 
+            this.SRPrevBtn.BackColor = System.Drawing.Color.White;
+            this.SRPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SRPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SRPrevBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SRPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SRPrevBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SRPrevBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SRPrevBtn.Location = new System.Drawing.Point(979, 0);
+            this.SRPrevBtn.Name = "SRPrevBtn";
+            this.SRPrevBtn.Size = new System.Drawing.Size(75, 32);
+            this.SRPrevBtn.TabIndex = 2;
+            this.SRPrevBtn.TabStop = false;
+            this.SRPrevBtn.Text = "PREV PAGE";
+            this.SRPrevBtn.UseVisualStyleBackColor = false;
+            this.SRPrevBtn.Click += new System.EventHandler(this.SRPrevBtn_Click);
+            // 
+            // panel25
+            // 
+            this.panel25.AutoSize = true;
+            this.panel25.Controls.Add(this.SrPageLbl);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel25.Location = new System.Drawing.Point(1054, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(42, 32);
+            this.panel25.TabIndex = 3;
+            // 
+            // SrPageLbl
+            // 
+            this.SrPageLbl.AutoSize = true;
+            this.SrPageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SrPageLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SrPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SrPageLbl.Location = new System.Drawing.Point(0, 0);
+            this.SrPageLbl.Name = "SrPageLbl";
+            this.SrPageLbl.Padding = new System.Windows.Forms.Padding(5, 7, 5, 0);
+            this.SrPageLbl.Size = new System.Drawing.Size(42, 23);
+            this.SrPageLbl.TabIndex = 2;
+            this.SrPageLbl.Text = "1 | 0";
+            this.SrPageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // SRNxtBtn
+            // 
+            this.SRNxtBtn.BackColor = System.Drawing.Color.White;
+            this.SRNxtBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SRNxtBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SRNxtBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SRNxtBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SRNxtBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SRNxtBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SRNxtBtn.Location = new System.Drawing.Point(1096, 0);
+            this.SRNxtBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.SRNxtBtn.Name = "SRNxtBtn";
+            this.SRNxtBtn.Size = new System.Drawing.Size(75, 32);
+            this.SRNxtBtn.TabIndex = 0;
+            this.SRNxtBtn.TabStop = false;
+            this.SRNxtBtn.Text = "NEXT PAGE";
+            this.SRNxtBtn.UseVisualStyleBackColor = false;
+            this.SRNxtBtn.Click += new System.EventHandler(this.SRNxtBtn_Click);
+            // 
             // PurchaseReportTab
             // 
             this.PurchaseReportTab.BackColor = System.Drawing.Color.Transparent;
             this.PurchaseReportTab.Controls.Add(this.panel3);
             this.PurchaseReportTab.Controls.Add(this.panel4);
             this.PurchaseReportTab.Controls.Add(this.panel13);
+            this.PurchaseReportTab.Controls.Add(this.panel26);
             this.PurchaseReportTab.Location = new System.Drawing.Point(4, 28);
             this.PurchaseReportTab.Name = "PurchaseReportTab";
             this.PurchaseReportTab.Size = new System.Drawing.Size(1199, 678);
@@ -699,8 +803,8 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 177);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel3.Size = new System.Drawing.Size(1199, 501);
+            this.panel3.Padding = new System.Windows.Forms.Padding(30, 0, 30, 15);
+            this.panel3.Size = new System.Drawing.Size(1199, 439);
             this.panel3.TabIndex = 38;
             // 
             // OrdersTbl
@@ -758,7 +862,7 @@
             this.OrdersTbl.RowTemplate.Height = 30;
             this.OrdersTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrdersTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrdersTbl.Size = new System.Drawing.Size(1139, 471);
+            this.OrdersTbl.Size = new System.Drawing.Size(1139, 424);
             this.OrdersTbl.TabIndex = 182;
             this.OrdersTbl.TabStop = false;
             this.OrdersTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersTbl_CellContentClick);
@@ -1203,12 +1307,87 @@
             this.label5.Text = "PURCHASE ORDER SUMMARY";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.PRPrevBtn);
+            this.panel26.Controls.Add(this.panel27);
+            this.panel26.Controls.Add(this.PRNextBtn);
+            this.panel26.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel26.Location = new System.Drawing.Point(0, 616);
+            this.panel26.Name = "panel26";
+            this.panel26.Padding = new System.Windows.Forms.Padding(0, 0, 28, 30);
+            this.panel26.Size = new System.Drawing.Size(1199, 62);
+            this.panel26.TabIndex = 44;
+            // 
+            // PRPrevBtn
+            // 
+            this.PRPrevBtn.BackColor = System.Drawing.Color.White;
+            this.PRPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PRPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PRPrevBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PRPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PRPrevBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PRPrevBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PRPrevBtn.Location = new System.Drawing.Point(979, 0);
+            this.PRPrevBtn.Name = "PRPrevBtn";
+            this.PRPrevBtn.Size = new System.Drawing.Size(75, 32);
+            this.PRPrevBtn.TabIndex = 2;
+            this.PRPrevBtn.TabStop = false;
+            this.PRPrevBtn.Text = "PREV PAGE";
+            this.PRPrevBtn.UseVisualStyleBackColor = false;
+            this.PRPrevBtn.Click += new System.EventHandler(this.PRPrevBtn_Click);
+            // 
+            // panel27
+            // 
+            this.panel27.AutoSize = true;
+            this.panel27.Controls.Add(this.PRPageLbl);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel27.Location = new System.Drawing.Point(1054, 0);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(42, 32);
+            this.panel27.TabIndex = 3;
+            // 
+            // PRPageLbl
+            // 
+            this.PRPageLbl.AutoSize = true;
+            this.PRPageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PRPageLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PRPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PRPageLbl.Location = new System.Drawing.Point(0, 0);
+            this.PRPageLbl.Name = "PRPageLbl";
+            this.PRPageLbl.Padding = new System.Windows.Forms.Padding(5, 7, 5, 0);
+            this.PRPageLbl.Size = new System.Drawing.Size(42, 23);
+            this.PRPageLbl.TabIndex = 2;
+            this.PRPageLbl.Text = "1 | 0";
+            this.PRPageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PRNextBtn
+            // 
+            this.PRNextBtn.BackColor = System.Drawing.Color.White;
+            this.PRNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PRNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PRNextBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PRNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PRNextBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PRNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PRNextBtn.Location = new System.Drawing.Point(1096, 0);
+            this.PRNextBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.PRNextBtn.Name = "PRNextBtn";
+            this.PRNextBtn.Size = new System.Drawing.Size(75, 32);
+            this.PRNextBtn.TabIndex = 0;
+            this.PRNextBtn.TabStop = false;
+            this.PRNextBtn.Text = "NEXT PAGE";
+            this.PRNextBtn.UseVisualStyleBackColor = false;
+            this.PRNextBtn.Click += new System.EventHandler(this.PRNextBtn_Click);
+            // 
             // InventoryReportTab
             // 
             this.InventoryReportTab.BackColor = System.Drawing.Color.Transparent;
             this.InventoryReportTab.Controls.Add(this.panel1);
             this.InventoryReportTab.Controls.Add(this.panel2);
             this.InventoryReportTab.Controls.Add(this.pictureBox2);
+            this.InventoryReportTab.Controls.Add(this.panel28);
             this.InventoryReportTab.Cursor = System.Windows.Forms.Cursors.Default;
             this.InventoryReportTab.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InventoryReportTab.Location = new System.Drawing.Point(4, 28);
@@ -1224,8 +1403,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel1.Size = new System.Drawing.Size(1199, 611);
+            this.panel1.Padding = new System.Windows.Forms.Padding(30, 0, 30, 15);
+            this.panel1.Size = new System.Drawing.Size(1199, 549);
             this.panel1.TabIndex = 36;
             // 
             // InventoryTbl
@@ -1254,7 +1433,7 @@
             this.action,
             this.barcode,
             this.item,
-            this.quantity,
+            this.Quantity,
             this.old_stock,
             this.new_stock,
             this.remarks});
@@ -1281,7 +1460,7 @@
             this.InventoryTbl.RowTemplate.Height = 30;
             this.InventoryTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.InventoryTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InventoryTbl.Size = new System.Drawing.Size(1139, 581);
+            this.InventoryTbl.Size = new System.Drawing.Size(1139, 534);
             this.InventoryTbl.TabIndex = 183;
             this.InventoryTbl.TabStop = false;
             // 
@@ -1355,15 +1534,15 @@
             // 
             // Quantity
             // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantity.DataPropertyName = "Quantity";
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle26;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "Quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 74;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle26;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 74;
             // 
             // old_stock
             // 
@@ -1544,6 +1723,80 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.InventoryPrevBtn);
+            this.panel28.Controls.Add(this.panel29);
+            this.panel28.Controls.Add(this.InventoryNextBtn);
+            this.panel28.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel28.Location = new System.Drawing.Point(0, 616);
+            this.panel28.Name = "panel28";
+            this.panel28.Padding = new System.Windows.Forms.Padding(0, 0, 28, 30);
+            this.panel28.Size = new System.Drawing.Size(1199, 62);
+            this.panel28.TabIndex = 44;
+            // 
+            // InventoryPrevBtn
+            // 
+            this.InventoryPrevBtn.BackColor = System.Drawing.Color.White;
+            this.InventoryPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InventoryPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InventoryPrevBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryPrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InventoryPrevBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryPrevBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryPrevBtn.Location = new System.Drawing.Point(979, 0);
+            this.InventoryPrevBtn.Name = "InventoryPrevBtn";
+            this.InventoryPrevBtn.Size = new System.Drawing.Size(75, 32);
+            this.InventoryPrevBtn.TabIndex = 2;
+            this.InventoryPrevBtn.TabStop = false;
+            this.InventoryPrevBtn.Text = "PREV PAGE";
+            this.InventoryPrevBtn.UseVisualStyleBackColor = false;
+            this.InventoryPrevBtn.Click += new System.EventHandler(this.InventoryPrevBtn_Click);
+            // 
+            // panel29
+            // 
+            this.panel29.AutoSize = true;
+            this.panel29.Controls.Add(this.InventoryPageLbl);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel29.Location = new System.Drawing.Point(1054, 0);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(42, 32);
+            this.panel29.TabIndex = 3;
+            // 
+            // InventoryPageLbl
+            // 
+            this.InventoryPageLbl.AutoSize = true;
+            this.InventoryPageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InventoryPageLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryPageLbl.Location = new System.Drawing.Point(0, 0);
+            this.InventoryPageLbl.Name = "InventoryPageLbl";
+            this.InventoryPageLbl.Padding = new System.Windows.Forms.Padding(5, 7, 5, 0);
+            this.InventoryPageLbl.Size = new System.Drawing.Size(42, 23);
+            this.InventoryPageLbl.TabIndex = 2;
+            this.InventoryPageLbl.Text = "1 | 0";
+            this.InventoryPageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // InventoryNextBtn
+            // 
+            this.InventoryNextBtn.BackColor = System.Drawing.Color.White;
+            this.InventoryNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InventoryNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.InventoryNextBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryNextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InventoryNextBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventoryNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.InventoryNextBtn.Location = new System.Drawing.Point(1096, 0);
+            this.InventoryNextBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.InventoryNextBtn.Name = "InventoryNextBtn";
+            this.InventoryNextBtn.Size = new System.Drawing.Size(75, 32);
+            this.InventoryNextBtn.TabIndex = 0;
+            this.InventoryNextBtn.TabStop = false;
+            this.InventoryNextBtn.Text = "NEXT PAGE";
+            this.InventoryNextBtn.UseVisualStyleBackColor = false;
+            this.InventoryNextBtn.Click += new System.EventHandler(this.InventoryNextBtn_Click);
+            // 
             // ReportsTabControl
             // 
             this.ReportsTabControl.Controls.Add(this.InventoryReportTab);
@@ -1566,6 +1819,7 @@
             this.AuditTrailTab.BackColor = System.Drawing.Color.Transparent;
             this.AuditTrailTab.Controls.Add(this.panel7);
             this.AuditTrailTab.Controls.Add(this.panel8);
+            this.AuditTrailTab.Controls.Add(this.panel22);
             this.AuditTrailTab.Location = new System.Drawing.Point(4, 28);
             this.AuditTrailTab.Name = "AuditTrailTab";
             this.AuditTrailTab.Size = new System.Drawing.Size(1199, 678);
@@ -1580,8 +1834,8 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 67);
             this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(30, 0, 30, 30);
-            this.panel7.Size = new System.Drawing.Size(1199, 611);
+            this.panel7.Padding = new System.Windows.Forms.Padding(30, 0, 30, 15);
+            this.panel7.Size = new System.Drawing.Size(1199, 549);
             this.panel7.TabIndex = 40;
             // 
             // AuditTrailTbl
@@ -1632,7 +1886,7 @@
             this.AuditTrailTbl.RowTemplate.Height = 30;
             this.AuditTrailTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AuditTrailTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AuditTrailTbl.Size = new System.Drawing.Size(1139, 581);
+            this.AuditTrailTbl.Size = new System.Drawing.Size(1139, 534);
             this.AuditTrailTbl.TabIndex = 183;
             this.AuditTrailTbl.TabStop = false;
             // 
@@ -1829,6 +2083,80 @@
             this.AuditSearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
             this.AuditSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTxt_KeyPress);
             // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.AuditTrailPrevPage);
+            this.panel22.Controls.Add(this.panel23);
+            this.panel22.Controls.Add(this.AuditTrailNextPage);
+            this.panel22.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel22.Location = new System.Drawing.Point(0, 616);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(0, 0, 28, 30);
+            this.panel22.Size = new System.Drawing.Size(1199, 62);
+            this.panel22.TabIndex = 42;
+            // 
+            // AuditTrailPrevPage
+            // 
+            this.AuditTrailPrevPage.BackColor = System.Drawing.Color.White;
+            this.AuditTrailPrevPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AuditTrailPrevPage.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AuditTrailPrevPage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AuditTrailPrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuditTrailPrevPage.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AuditTrailPrevPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AuditTrailPrevPage.Location = new System.Drawing.Point(979, 0);
+            this.AuditTrailPrevPage.Name = "AuditTrailPrevPage";
+            this.AuditTrailPrevPage.Size = new System.Drawing.Size(75, 32);
+            this.AuditTrailPrevPage.TabIndex = 2;
+            this.AuditTrailPrevPage.TabStop = false;
+            this.AuditTrailPrevPage.Text = "PREV PAGE";
+            this.AuditTrailPrevPage.UseVisualStyleBackColor = false;
+            this.AuditTrailPrevPage.Click += new System.EventHandler(this.AuditTrailPrevPage_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.AutoSize = true;
+            this.panel23.Controls.Add(this.AuditTrailPageNumberLbl);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel23.Location = new System.Drawing.Point(1054, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(42, 32);
+            this.panel23.TabIndex = 3;
+            // 
+            // AuditTrailPageNumberLbl
+            // 
+            this.AuditTrailPageNumberLbl.AutoSize = true;
+            this.AuditTrailPageNumberLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AuditTrailPageNumberLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AuditTrailPageNumberLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AuditTrailPageNumberLbl.Location = new System.Drawing.Point(0, 0);
+            this.AuditTrailPageNumberLbl.Name = "AuditTrailPageNumberLbl";
+            this.AuditTrailPageNumberLbl.Padding = new System.Windows.Forms.Padding(5, 7, 5, 0);
+            this.AuditTrailPageNumberLbl.Size = new System.Drawing.Size(42, 23);
+            this.AuditTrailPageNumberLbl.TabIndex = 2;
+            this.AuditTrailPageNumberLbl.Text = "1 | 0";
+            this.AuditTrailPageNumberLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AuditTrailNextPage
+            // 
+            this.AuditTrailNextPage.BackColor = System.Drawing.Color.White;
+            this.AuditTrailNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AuditTrailNextPage.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AuditTrailNextPage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AuditTrailNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AuditTrailNextPage.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AuditTrailNextPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AuditTrailNextPage.Location = new System.Drawing.Point(1096, 0);
+            this.AuditTrailNextPage.Margin = new System.Windows.Forms.Padding(0);
+            this.AuditTrailNextPage.Name = "AuditTrailNextPage";
+            this.AuditTrailNextPage.Size = new System.Drawing.Size(75, 32);
+            this.AuditTrailNextPage.TabIndex = 0;
+            this.AuditTrailNextPage.TabStop = false;
+            this.AuditTrailNextPage.Text = "NEXT PAGE";
+            this.AuditTrailNextPage.UseVisualStyleBackColor = false;
+            this.AuditTrailNextPage.Click += new System.EventHandler(this.AuditTrailNextPage_Click);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1853,6 +2181,10 @@
             this.panel11.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.PurchaseReportTab.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).EndInit();
@@ -1866,6 +2198,10 @@
             this.panel19.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
             this.InventoryReportTab.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InventoryTbl)).EndInit();
@@ -1874,6 +2210,10 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
             this.ReportsTabControl.ResumeLayout(false);
             this.AuditTrailTab.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -1882,6 +2222,10 @@
             this.panel8.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2001,5 +2345,26 @@
         private System.Windows.Forms.Label TotalOverdueLbl;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Button AuditTrailNextPage;
+        private System.Windows.Forms.Button AuditTrailPrevPage;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label AuditTrailPageNumberLbl;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Button SRPrevBtn;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Label SrPageLbl;
+        private System.Windows.Forms.Button SRNxtBtn;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Button PRPrevBtn;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Label PRPageLbl;
+        private System.Windows.Forms.Button PRNextBtn;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Button InventoryPrevBtn;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Label InventoryPageLbl;
+        private System.Windows.Forms.Button InventoryNextBtn;
     }
 }

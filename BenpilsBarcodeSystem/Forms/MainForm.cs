@@ -138,6 +138,7 @@ namespace BenpilsBarcodeSystem
         private void SwitchForm(CheckBox checkBox)
         {
             Form form;
+
             if (checkBoxToForm.ContainsKey(checkBox))
             {
                 form = checkBoxToForm[checkBox];
@@ -156,10 +157,8 @@ namespace BenpilsBarcodeSystem
                 }
             }
 
-           
             SelectedModuleLbl.Text = checkBox.Text.Trim();
             MainPanel.Controls.Clear();
-            
             form.TopLevel = false;
             MainPanel.Controls.Add(form);
             form.Dock = DockStyle.Fill;
@@ -173,14 +172,10 @@ namespace BenpilsBarcodeSystem
                 inventoryForm.UpdateTable();
                 UpdateInventoryTable = false;
             }
-            else if (form is Ser users)
+            else if (form is UserCredentials users)
             {
                 users.UpdateTable();
                 UpdateInventoryTable = false;
-            }
-            else if (form is Ser userForm)
-            {
-                userForm.UpdateTable();
             }
             else if (form is StatisticReport sr)
             {
@@ -188,10 +183,15 @@ namespace BenpilsBarcodeSystem
             }
             else if (form is Dashboard dashForm && (MainPanel.Controls[0] is Dashboard))
             {
-                if (!dashForm.IsLoadCalled)
-                {
-                    dashForm.Dashboard_Load(null, null);
-                }
+                dashForm.RefreshDashboard();
+            }
+            else if (form is Reports reports)
+            {
+                reports.UpdateCurrentTable();
+            }
+            else if (form is Settings settings)
+            {
+                settings.UpdateCurrentTable();
             }
         }
 
@@ -269,7 +269,7 @@ namespace BenpilsBarcodeSystem
             checkBoxToFormType[PosCb] = typeof(POS);
             checkBoxToFormType[ReportsCb] = typeof(Reports);
             checkBoxToFormType[StatisticsCb] = typeof(StatisticReport);
-            checkBoxToFormType[UsersCb] = typeof(Ser);
+            checkBoxToFormType[UsersCb] = typeof(UserCredentials);
             checkBoxToFormType[SettingsCb] = typeof(Settings);
         }
 

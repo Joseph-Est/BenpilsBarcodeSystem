@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace BenpilsBarcodeSystem
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            UpdateInventoryReportsDG();
+            //UpdateInventoryReportsDG();
         }
 
         private void ReportsTabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +52,32 @@ namespace BenpilsBarcodeSystem
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void UpdateCurrentTable()
+        {
+            TabPage selectedTab = ReportsTabControl.SelectedTab;
+
+            if (selectedTab != null)
+            {
+                switch (selectedTab.Name)
+                {
+                    case "InventoryReportTab":
+                        UpdateInventoryReportsDG();
+                        break;
+                    case "PurchaseReportTab":
+                        UpdatePurchaseReportDG();
+                        break;
+                    case "SalesReportTab":
+                        UpdateSalesReportDG();
+                        break;
+                    case "AuditTrailTab":
+                        UpdateAuditTrailDG();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -195,6 +222,9 @@ namespace BenpilsBarcodeSystem
 
         //INVENTORY REPORT
 
+        private int inventoryPageNumber = 1;
+        private readonly int inventoryPageSize = 30;
+
         public async void UpdateInventoryReportsDG()
         {
             if (string.IsNullOrWhiteSpace(InventorySearchTxt.Text))
@@ -205,9 +235,18 @@ namespace BenpilsBarcodeSystem
             try
             {
                 ReportsRepository repository = new ReportsRepository();
-                DataTable ir = await repository.GetInventoryReportsAsync(InventoryStartDateDt.Value, InventoryEndDateDt.Value, InventorySearchTxt.Text);
+                DataTable ir = await repository.GetInventoryReportsAsync(InventoryStartDateDt.Value, InventoryEndDateDt.Value, InventorySearchTxt.Text, inventoryPageNumber, inventoryPageSize);
+
                 InventoryTbl.AutoGenerateColumns = false;
                 InventoryTbl.DataSource = ir;
+
+                int totalRecords = await repository.GetInventoryReportCountAsync(InventoryStartDateDt.Value, InventoryEndDateDt.Value, InventorySearchTxt.Text);
+                int totalPages = (int)Math.Ceiling((double)totalRecords / inventoryPageSize);
+
+                InventoryPageLbl.Text = $"{inventoryPageNumber} | {totalPages}";
+
+                InventoryNextBtn.Enabled = inventoryPageNumber < totalPages;
+                InventoryPrevBtn.Enabled = inventoryPageNumber > 1;
             }
             catch (Exception ex)
             {
@@ -215,7 +254,26 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+       
+        private void InventoryNextBtn_Click(object sender, EventArgs e)
+        {
+            inventoryPageNumber++;
+            UpdateInventoryReportsDG();
+        }
+
+        private void InventoryPrevBtn_Click(object sender, EventArgs e)
+        {
+            if (inventoryPageNumber > 1)
+            {
+                inventoryPageNumber--;
+                UpdateInventoryReportsDG();
+            }
+        }
+
         //PURCHASE REPORT
+
+        private int prPageNumber = 1;
+        private readonly int prPageSize = 30;
 
         public async void UpdatePurchaseReportDG()
         {
@@ -227,9 +285,17 @@ namespace BenpilsBarcodeSystem
             try
             {
                 ReportsRepository repository = new ReportsRepository();
-                DataTable pr = await repository.GetPurchaseOrderTransactionsAsync(PurchaseStartDateDt.Value, PurchaseEndDateDt.Value, PurchaseSearchTxt.Text);
+                DataTable pr = await repository.GetPurchaseOrderTransactionsAsync(PurchaseStartDateDt.Value, PurchaseEndDateDt.Value, PurchaseSearchTxt.Text, prPageNumber, prPageSize);
                 OrdersTbl.AutoGenerateColumns = false;
                 OrdersTbl.DataSource = pr;
+
+                int totalRecords = await repository.GetPurchaseOrderTransactionsCountAsync(PurchaseStartDateDt.Value, PurchaseEndDateDt.Value, PurchaseSearchTxt.Text);
+                int totalPages = (int)Math.Ceiling((double)totalRecords / prPageSize);
+
+                PRPageLbl.Text = $"{prPageNumber} | {totalPages}";
+
+                PRNextBtn.Enabled = prPageNumber < totalPages;
+                PRPrevBtn.Enabled = prPageNumber > 1;
 
                 PurchaseOrderRepository posRepository = new PurchaseOrderRepository();
                 (int delivered, int pending, int overdue, int pendingToday) = await posRepository.GetOrderStatusCountsAsync();
@@ -241,6 +307,21 @@ namespace BenpilsBarcodeSystem
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void PRNextBtn_Click(object sender, EventArgs e)
+        {
+            prPageNumber++;
+            UpdatePurchaseReportDG();
+        }
+
+        private void PRPrevBtn_Click(object sender, EventArgs e)
+        {
+            if (prPageNumber > 1)
+            {
+                prPageNumber--;
+                UpdatePurchaseReportDG();
             }
         }
 
@@ -278,6 +359,9 @@ namespace BenpilsBarcodeSystem
 
         //SALES REPORT
 
+        private int srPageNumber = 1;
+        private readonly int srPageSize = 30;
+
         public async void UpdateSalesReportDG()
         {
             if (string.IsNullOrWhiteSpace(SalesSearchTxt.Text))
@@ -288,10 +372,18 @@ namespace BenpilsBarcodeSystem
             try
             {
                 ReportsRepository repository = new ReportsRepository();
-                DataTable pr = await repository.GetSalesAsync(SalesStartDateDt.Value, SalesEndDateDt.Value, SalesSearchTxt.Text);
+                DataTable pr = await repository.GetSalesAsync(SalesStartDateDt.Value, SalesEndDateDt.Value, SalesSearchTxt.Text, srPageNumber, srPageSize);
                 SalesTbl.AutoGenerateColumns = false;
                 SalesTbl.DataSource = pr;
                 SalesTbl.ClearSelection();
+
+                int totalRecords = await repository.GetPurchaseOrderTransactionsCountAsync(SalesStartDateDt.Value, SalesEndDateDt.Value, SalesSearchTxt.Text);
+                int totalPages = (int)Math.Ceiling((double)totalRecords / srPageSize);
+
+                SrPageLbl.Text = $"{srPageNumber} | {totalPages}";
+
+                SRNxtBtn.Enabled = srPageNumber < totalPages;
+                SRPrevBtn.Enabled = srPageNumber > 1;
 
                 POSRepository posRepository = new POSRepository();
 
@@ -320,7 +412,25 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void SRNxtBtn_Click(object sender, EventArgs e)
+        {
+            srPageNumber++;
+            UpdateAuditTrailDG();
+        }
+
+        private void SRPrevBtn_Click(object sender, EventArgs e)
+        {
+            if (srPageNumber > 1)
+            {
+                srPageNumber--;
+                UpdateAuditTrailDG();
+            }
+        }
+
         //AUDIT TRAIL
+
+        private int auditTrailPageNumber = 1;
+        private readonly int auditTrailPageSize = 30;
 
         public async void UpdateAuditTrailDG()
         {
@@ -332,9 +442,17 @@ namespace BenpilsBarcodeSystem
             try
             {
                 ReportsRepository repository = new ReportsRepository();
-                DataTable at = await repository.GetAuditTrailAsync(AuditStartDateDt.Value, AuditEndDateDt.Value, AuditSearchTxt.Text);
+                DataTable at = await repository.GetAuditTrailAsync(AuditStartDateDt.Value, AuditEndDateDt.Value, AuditSearchTxt.Text, auditTrailPageNumber, auditTrailPageSize);
                 AuditTrailTbl.AutoGenerateColumns = false;
                 AuditTrailTbl.DataSource = at;
+
+                int totalRecords = await repository.GetAuditTrailCountAsync(AuditStartDateDt.Value, AuditEndDateDt.Value, AuditSearchTxt.Text);
+                int totalPages = (int)Math.Ceiling((double)totalRecords / auditTrailPageSize);
+
+                AuditTrailPageNumberLbl.Text = $"{auditTrailPageNumber} | {totalPages}";
+
+                AuditTrailNextPage.Enabled = auditTrailPageNumber < totalPages;
+                AuditTrailPrevPage.Enabled = auditTrailPageNumber > 1;
             }
             catch (Exception ex)
             {
@@ -345,6 +463,36 @@ namespace BenpilsBarcodeSystem
         private void SearchTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
+
+        private void AuditTrailNextPage_Click(object sender, EventArgs e)
+        {
+            auditTrailPageNumber++;
+            UpdateAuditTrailDG();
+        }   
+
+        private void AuditTrailPrevPage_Click(object sender, EventArgs e)
+        {
+            if (auditTrailPageNumber > 1)
+            {
+                auditTrailPageNumber--;
+                UpdateAuditTrailDG();
+            }
+        }
+
+        private class CustomFlatButton : Button
+        {
+            protected override void OnPaint(PaintEventArgs pevent)
+            {
+                if (!this.Enabled)
+                {
+                    TextRenderer.DrawText(pevent.Graphics, this.Text, this.Font, this.ClientRectangle, Color.Red); // Change Color.Red to your desired color
+                }
+                else
+                {
+                    base.OnPaint(pevent);
+                }
+            }
         }
     }
 }

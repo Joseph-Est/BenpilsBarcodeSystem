@@ -40,23 +40,20 @@ namespace BenpilsBarcodeSystem
             toolTip3.SetToolTip(LowStockLbl, "Low stock tems");
             toolTip4.SetToolTip(NoStockLbl, "Out of stock items");
             toolTip4.SetToolTip(PendingTodayLbl, "Due today");
+
+            TodayCb.Checked = true;
+
+            LowStockTbl.RowPrePaint += LowStockTbl_RowPrePaint;
+            LowStockTbl.MouseWheel += LowStockTbl_MouseWheel;
+            OverdueTbl.MouseWheel += OverdueTbl_MouseWheel;
+
+            dateFrom = DateTime.Today;
+            dateTo = DateTime.Today;
         }
 
-        public void Dashboard_Load(object sender, EventArgs e)
+        public void RefreshDashboard()
         {
-            if (!IsLoadCalled)
-            {
-                TodayCb.Checked = true;
-                dateFrom = DateTime.Today;
-                dateTo = DateTime.Today;
-                LowStockTbl.RowPrePaint += LowStockTbl_RowPrePaint;
-
-                RefreshData(dateFrom, dateTo);
-                LowStockTbl.MouseWheel += LowStockTbl_MouseWheel;
-                OverdueTbl.MouseWheel += OverdueTbl_MouseWheel;
-
-                IsLoadCalled = true;
-            }
+            RefreshData(dateFrom, dateTo);
         }
 
         public async void RefreshData(DateTime dateFrom, DateTime dateTo)

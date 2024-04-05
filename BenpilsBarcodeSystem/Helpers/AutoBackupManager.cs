@@ -123,6 +123,7 @@ namespace BenpilsBarcodeSystem.Helpers
                             autoBackupTimer.Interval = (activeStartTimeToday - DateTime.Now).TotalMilliseconds;
                         }
 
+                        autoBackupTimer.AutoReset = false;
                         autoBackupTimer.Start();
                     }
                 }

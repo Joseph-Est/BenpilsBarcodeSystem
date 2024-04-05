@@ -188,6 +188,16 @@ namespace BenpilsBarcodeSystem.Helpers
 
         private BackupSettings LoadBackupSettings()
         {
+            BackupInterval interval;
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.Interval))
+            {
+                interval = (BackupInterval)Enum.Parse(typeof(BackupInterval), Properties.Settings.Default.Interval);
+            }
+            else
+            {
+                interval = default;
+            }
+
             return new BackupSettings
             {
                 IsEnabled = Properties.Settings.Default.AutomaticBackupEnabled,
@@ -198,7 +208,7 @@ namespace BenpilsBarcodeSystem.Helpers
                 BackupInventoryReport = Properties.Settings.Default.BackupInventoryReport,
                 BackupAuditTrail = Properties.Settings.Default.BackupAuditTrail,
 
-                Interval = (BackupInterval)Enum.Parse(typeof(BackupInterval), Properties.Settings.Default.Interval),
+                Interval = interval,
                 IntervalValue = Properties.Settings.Default.IntervalValue,
 
                 UseActiveHours = Properties.Settings.Default.UseActiveHours,

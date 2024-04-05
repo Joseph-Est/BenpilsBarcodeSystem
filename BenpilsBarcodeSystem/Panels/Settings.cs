@@ -27,6 +27,7 @@ namespace BenpilsBarcodeSystem
     {
         private BackupInterval selectedInterval;
         MainForm mainForm;
+        bool backingUp = false;
 
         public Settings()
         {
@@ -657,6 +658,57 @@ namespace BenpilsBarcodeSystem
                     SaveLocationTxt.Text = folderBrowserDialog.SelectedPath;
                 }
             }
+        }
+
+        private static readonly string logFilePath = @"autobackup_log.txt";
+
+        private void BackupLogsBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] logLines = System.IO.File.ReadAllLines(logFilePath);
+
+                List<object[]> data = new List<object[]>();
+                foreach (string line in logLines)
+                {
+                    int firstSeparatorIndex = line.IndexOf(':');
+                    int secondSeparatorIndex = line.IndexOf(':', firstSeparatorIndex + 1);
+                    int thirdSeparatorIndex = line.IndexOf(':', secondSeparatorIndex + 1);
+
+                    if (thirdSeparatorIndex > 0)
+                    {
+                        string datePart = line.Substring(0, thirdSeparatorIndex).Trim();
+                        string messagePart = line.Substring(thirdSeparatorIndex + 1).Trim();
+
+                        object[] row = new object[] { datePart, messagePart };
+                        data.Add(row);
+                    }
+                }
+                LogsDialog dialog = new LogsDialog(data);
+                dialog.ShowDialog();
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                MessageBox.Show("No available logs to show");
+                return;
+            }
+        }
+        private async void BackupNowBtn_Click(object sender, EventArgs e)
+        {
+            if (!backingUp)
+            {
+                backingUp = true;
+                if(await mainForm.AutoBackupManagerInstance.AutoBackup(true))
+                {
+                    MessageBox.Show("Backup Success");
+                }
+                else
+                {
+                    MessageBox.Show("Backup failed");
+
+                }
+            }
+            backingUp = false;
         }
     }
 }

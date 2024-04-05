@@ -321,7 +321,7 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
-        public static int ExportData(Form form, Dictionary<DataTable, string> dataTableSheetMapping, string saveLocation = null, bool isAutoBackup = false)
+        public static int ExportData(Dictionary<DataTable, string> dataTableSheetMapping, string saveLocation = null, bool isAutoBackup = false)
         {
             int result = 0;
 
@@ -506,6 +506,30 @@ namespace BenpilsBarcodeSystem.Utils
             {
                 Console.WriteLine($"Failed to write to log file: {ex.Message}");
             }
+        }
+
+        public static bool IsBackupSuccessfulToday()
+        {
+            try
+            {
+                string lastLine = File.ReadLines(logFilePath).LastOrDefault();
+                if (lastLine != null && lastLine.Contains("success"))
+                {
+                    string[] parts = lastLine.Split(':');
+                    DateTime logDate = DateTime.Parse(parts[0] + ":" + parts[1] + ":" + parts[2].Split(' ')[0]);
+
+                    if (logDate.Date == DateTime.Now.Date)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to read from log file: {ex.Message}");
+            }
+
+            return false;
         }
     }
 }

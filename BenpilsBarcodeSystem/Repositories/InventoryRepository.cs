@@ -750,7 +750,7 @@ namespace BenpilsBarcodeSystem.Repository
         {
             List<Item> lowStockItems = new List<Item>();
 
-            string selectQuery = $"SELECT {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_quantity} < {lowStockThreshold} AND {col_is_active} = 'true'";
+            string selectQuery = $"SELECT {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_quantity} < {lowStockThreshold} AND {col_is_active} = 'true' ORDER BY {col_quantity} DESC";
 
             try
             {

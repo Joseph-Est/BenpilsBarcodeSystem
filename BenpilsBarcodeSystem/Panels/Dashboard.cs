@@ -49,6 +49,7 @@ namespace BenpilsBarcodeSystem
                 TodayCb.Checked = true;
                 dateFrom = DateTime.Today;
                 dateTo = DateTime.Today;
+                LowStockTbl.RowPrePaint += LowStockTbl_RowPrePaint;
 
                 RefreshData(dateFrom, dateTo);
                 LowStockTbl.MouseWheel += LowStockTbl_MouseWheel;
@@ -724,6 +725,16 @@ namespace BenpilsBarcodeSystem
                         label.Parent.BackColor = Color.FromArgb(193, 57, 57);
                     }
                 }
+            }
+        }
+
+        private void LowStockTbl_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (Convert.ToInt32(LowStockTbl.Rows[e.RowIndex].Cells["Quantity"].Value) == 0)
+            {
+                LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.FromArgb(193, 57, 57);
+                LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.FromArgb(193, 57, 57);
+                LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.White;
             }
         }
     }

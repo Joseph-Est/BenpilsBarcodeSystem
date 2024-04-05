@@ -126,7 +126,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                 }
             }
 
-            switch (Util.ExportData(this, dataTableSheetMapping))
+            switch (Util.ExportData(dataTableSheetMapping))
             {
                 case 0:
                     Message = "Backup completed successfully.";

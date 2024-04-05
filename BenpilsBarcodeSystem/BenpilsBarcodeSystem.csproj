@@ -357,6 +357,12 @@
     <Compile Include="Dialogs\LoadingDialog.Designer.cs">
       <DependentUpon>LoadingDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\LogsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\LogsDialog.Designer.cs">
+      <DependentUpon>LogsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\OrderDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LoadingDialog.resx">
       <DependentUpon>LoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\LogsDialog.resx">
+      <DependentUpon>LogsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OrderDetails.resx">
       <DependentUpon>OrderDetails.cs</DependentUpon>

@@ -33,25 +33,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseCb = new System.Windows.Forms.CheckBox();
-            this.RestoreCb = new System.Windows.Forms.CheckBox();
-            this.MinimizeCb = new System.Windows.Forms.CheckBox();
             this.SelectedModuleLbl = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.SidebarPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.DashboardCb = new System.Windows.Forms.CheckBox();
-            this.InventoryCb = new System.Windows.Forms.CheckBox();
-            this.PurchasingCb = new System.Windows.Forms.CheckBox();
-            this.PosCb = new System.Windows.Forms.CheckBox();
-            this.ReportsCb = new System.Windows.Forms.CheckBox();
-            this.StatisticsCb = new System.Windows.Forms.CheckBox();
-            this.UsersCb = new System.Windows.Forms.CheckBox();
-            this.SettingsCb = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.LogoutCb = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DesignationTxt = new System.Windows.Forms.Label();
             this.BackupTxt = new System.Windows.Forms.Label();
@@ -60,14 +47,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.DashboardCb = new System.Windows.Forms.CheckBox();
+            this.InventoryCb = new System.Windows.Forms.CheckBox();
+            this.PurchasingCb = new System.Windows.Forms.CheckBox();
+            this.PosCb = new System.Windows.Forms.CheckBox();
+            this.ReportsCb = new System.Windows.Forms.CheckBox();
+            this.StatisticsCb = new System.Windows.Forms.CheckBox();
+            this.UsersCb = new System.Windows.Forms.CheckBox();
+            this.SettingsCb = new System.Windows.Forms.CheckBox();
+            this.LogoutCb = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CloseCb = new System.Windows.Forms.CheckBox();
+            this.RestoreCb = new System.Windows.Forms.CheckBox();
+            this.MinimizeCb = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SidebarPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -108,63 +108,6 @@
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(86, 35);
             this.flowLayoutPanel1.TabIndex = 27;
-            // 
-            // CloseCb
-            // 
-            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.CloseCb.AutoCheck = false;
-            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseCb.FlatAppearance.BorderSize = 0;
-            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseCb.Location = new System.Drawing.Point(58, 8);
-            this.CloseCb.Name = "CloseCb";
-            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
-            this.CloseCb.Size = new System.Drawing.Size(20, 20);
-            this.CloseCb.TabIndex = 26;
-            this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RestoreCb
-            // 
-            this.RestoreCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RestoreCb.AutoCheck = false;
-            this.RestoreCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_restore_down_30;
-            this.RestoreCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RestoreCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RestoreCb.FlatAppearance.BorderSize = 0;
-            this.RestoreCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.RestoreCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.RestoreCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RestoreCb.Location = new System.Drawing.Point(32, 8);
-            this.RestoreCb.Name = "RestoreCb";
-            this.RestoreCb.Padding = new System.Windows.Forms.Padding(5);
-            this.RestoreCb.Size = new System.Drawing.Size(20, 20);
-            this.RestoreCb.TabIndex = 25;
-            this.RestoreCb.UseVisualStyleBackColor = true;
-            this.RestoreCb.Click += new System.EventHandler(this.MaximizeBtn_Click);
-            // 
-            // MinimizeCb
-            // 
-            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.MinimizeCb.AutoCheck = false;
-            this.MinimizeCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
-            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeCb.FlatAppearance.BorderSize = 0;
-            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeCb.Location = new System.Drawing.Point(6, 8);
-            this.MinimizeCb.Name = "MinimizeCb";
-            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
-            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
-            this.MinimizeCb.TabIndex = 24;
-            this.MinimizeCb.UseVisualStyleBackColor = true;
-            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // SelectedModuleLbl
             // 
@@ -214,6 +157,127 @@
             this.SidebarPanel.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.SidebarPanel.Size = new System.Drawing.Size(249, 613);
             this.SidebarPanel.TabIndex = 35;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel6.Controls.Add(this.LogoutCb);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 728);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(249, 53);
+            this.panel6.TabIndex = 34;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(249, 115);
+            this.panel4.TabIndex = 33;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel3.Controls.Add(this.DesignationTxt);
+            this.panel3.Controls.Add(this.BackupTxt);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.UsernameTxt);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(249, 35);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1207, 36);
+            this.panel3.TabIndex = 20;
+            // 
+            // DesignationTxt
+            // 
+            this.DesignationTxt.BackColor = System.Drawing.Color.Transparent;
+            this.DesignationTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesignationTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DesignationTxt.ForeColor = System.Drawing.Color.White;
+            this.DesignationTxt.Location = new System.Drawing.Point(90, 0);
+            this.DesignationTxt.Name = "DesignationTxt";
+            this.DesignationTxt.Size = new System.Drawing.Size(1000, 36);
+            this.DesignationTxt.TabIndex = 6;
+            this.DesignationTxt.Text = "Designation:";
+            this.DesignationTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BackupTxt
+            // 
+            this.BackupTxt.AutoSize = true;
+            this.BackupTxt.BackColor = System.Drawing.Color.Transparent;
+            this.BackupTxt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BackupTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackupTxt.ForeColor = System.Drawing.Color.White;
+            this.BackupTxt.Location = new System.Drawing.Point(1090, 0);
+            this.BackupTxt.Name = "BackupTxt";
+            this.BackupTxt.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.BackupTxt.Size = new System.Drawing.Size(10, 27);
+            this.BackupTxt.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(1100, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.label3.Size = new System.Drawing.Size(53, 27);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Date:";
+            // 
+            // UsernameTxt
+            // 
+            this.UsernameTxt.AutoSize = true;
+            this.UsernameTxt.BackColor = System.Drawing.Color.Transparent;
+            this.UsernameTxt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.UsernameTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameTxt.ForeColor = System.Drawing.Color.White;
+            this.UsernameTxt.Location = new System.Drawing.Point(0, 0);
+            this.UsernameTxt.Name = "UsernameTxt";
+            this.UsernameTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.UsernameTxt.Size = new System.Drawing.Size(90, 27);
+            this.UsernameTxt.TabIndex = 0;
+            this.UsernameTxt.Text = "Username:";
+            this.UsernameTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(1153, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
+            this.label4.Size = new System.Drawing.Size(54, 27);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Time:";
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(249, 71);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(1207, 735);
+            this.MainPanel.TabIndex = 22;
+            this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(249, 806);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1207, 10);
+            this.panel5.TabIndex = 21;
             // 
             // DashboardCb
             // 
@@ -423,16 +487,6 @@
             this.SettingsCb.UseVisualStyleBackColor = true;
             this.SettingsCb.Click += new System.EventHandler(this.Checkbox_Clicked);
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel6.Controls.Add(this.LogoutCb);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 728);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(249, 53);
-            this.panel6.TabIndex = 34;
-            // 
             // LogoutCb
             // 
             this.LogoutCb.Appearance = System.Windows.Forms.Appearance.Button;
@@ -459,16 +513,6 @@
             this.LogoutCb.UseVisualStyleBackColor = true;
             this.LogoutCb.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(249, 115);
-            this.panel4.TabIndex = 33;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.xconvert_com;
@@ -479,106 +523,62 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // panel3
+            // CloseCb
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel3.Controls.Add(this.DesignationTxt);
-            this.panel3.Controls.Add(this.BackupTxt);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.UsernameTxt);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(249, 35);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1207, 36);
-            this.panel3.TabIndex = 20;
+            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.CloseCb.AutoCheck = false;
+            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseCb.FlatAppearance.BorderSize = 0;
+            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseCb.Location = new System.Drawing.Point(58, 8);
+            this.CloseCb.Name = "CloseCb";
+            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
+            this.CloseCb.Size = new System.Drawing.Size(20, 20);
+            this.CloseCb.TabIndex = 26;
+            this.CloseCb.UseVisualStyleBackColor = true;
+            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // DesignationTxt
+            // RestoreCb
             // 
-            this.DesignationTxt.BackColor = System.Drawing.Color.Transparent;
-            this.DesignationTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesignationTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DesignationTxt.ForeColor = System.Drawing.Color.White;
-            this.DesignationTxt.Location = new System.Drawing.Point(90, 0);
-            this.DesignationTxt.Name = "DesignationTxt";
-            this.DesignationTxt.Size = new System.Drawing.Size(1000, 36);
-            this.DesignationTxt.TabIndex = 6;
-            this.DesignationTxt.Text = "Designation:";
-            this.DesignationTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RestoreCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RestoreCb.AutoCheck = false;
+            this.RestoreCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_restore_down_30;
+            this.RestoreCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RestoreCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RestoreCb.FlatAppearance.BorderSize = 0;
+            this.RestoreCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.RestoreCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.RestoreCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestoreCb.Location = new System.Drawing.Point(32, 8);
+            this.RestoreCb.Name = "RestoreCb";
+            this.RestoreCb.Padding = new System.Windows.Forms.Padding(5);
+            this.RestoreCb.Size = new System.Drawing.Size(20, 20);
+            this.RestoreCb.TabIndex = 25;
+            this.RestoreCb.UseVisualStyleBackColor = true;
+            this.RestoreCb.Click += new System.EventHandler(this.MaximizeBtn_Click);
             // 
-            // BackupTxt
+            // MinimizeCb
             // 
-            this.BackupTxt.AutoSize = true;
-            this.BackupTxt.BackColor = System.Drawing.Color.Transparent;
-            this.BackupTxt.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BackupTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackupTxt.ForeColor = System.Drawing.Color.White;
-            this.BackupTxt.Location = new System.Drawing.Point(1090, 0);
-            this.BackupTxt.Name = "BackupTxt";
-            this.BackupTxt.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.BackupTxt.Size = new System.Drawing.Size(10, 27);
-            this.BackupTxt.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1100, 0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.label3.Size = new System.Drawing.Size(53, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Date:";
-            // 
-            // UsernameTxt
-            // 
-            this.UsernameTxt.AutoSize = true;
-            this.UsernameTxt.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameTxt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.UsernameTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTxt.ForeColor = System.Drawing.Color.White;
-            this.UsernameTxt.Location = new System.Drawing.Point(0, 0);
-            this.UsernameTxt.Name = "UsernameTxt";
-            this.UsernameTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.UsernameTxt.Size = new System.Drawing.Size(90, 27);
-            this.UsernameTxt.TabIndex = 0;
-            this.UsernameTxt.Text = "Username:";
-            this.UsernameTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1153, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.label4.Size = new System.Drawing.Size(54, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Time:";
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(249, 71);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1207, 735);
-            this.MainPanel.TabIndex = 22;
-            this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(249, 806);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1207, 10);
-            this.panel5.TabIndex = 21;
+            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.MinimizeCb.AutoCheck = false;
+            this.MinimizeCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
+            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MinimizeCb.FlatAppearance.BorderSize = 0;
+            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeCb.Location = new System.Drawing.Point(6, 8);
+            this.MinimizeCb.Name = "MinimizeCb";
+            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
+            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
+            this.MinimizeCb.TabIndex = 24;
+            this.MinimizeCb.UseVisualStyleBackColor = true;
+            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // MainForm
             // 
@@ -604,9 +604,9 @@
             this.SidebarPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

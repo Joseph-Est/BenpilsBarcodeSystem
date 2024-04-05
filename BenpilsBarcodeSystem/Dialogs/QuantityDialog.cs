@@ -13,9 +13,9 @@ namespace BenpilsBarcodeSystem.Dialogs
 {
     public partial class QuantityDialog : Form
     {
-        public int quantity { get; set; }
+        public int Quantity { get; set; }
         bool canClose = false;
-        private int defaultQuantity;
+        private readonly int defaultQuantity;
 
         public QuantityDialog(int stock, string itemName, string itemSize, string itemBrand, string price, int defaultQuantity = 1)
         {
@@ -39,14 +39,14 @@ namespace BenpilsBarcodeSystem.Dialogs
         {
             if (InputValidator.ParseToInt(QuantityTxt.Text) > 0)
             {
-                quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+                Quantity = InputValidator.ParseToInt(QuantityTxt.Text);
                 canClose = true;
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid Quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -58,7 +58,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             canClose = true;
             DialogResult = DialogResult.Cancel;

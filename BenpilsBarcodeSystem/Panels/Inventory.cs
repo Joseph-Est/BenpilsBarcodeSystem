@@ -93,7 +93,7 @@ namespace BenpilsBarcodeSystem
 
                 if (isUpdating && (prevSize != SizeCb.Text || prevItemName != ItemNameTxt.Text) || prevBrand != BrandInputCb.Text || prevMotorBrand != MotorBrandInputCb.Text)
                 {
-                    if (await repository.isItemExists(itemName, brand, motorBrand, size))
+                    if (await repository.IsItemExists(itemName, brand, motorBrand, size))
                     {
                         MessageBox.Show("The item you're trying to update already exists. Please check the item details.", "Item Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -235,24 +235,24 @@ namespace BenpilsBarcodeSystem
                 int id = reduceStockForm.SelectedId;
                 int amountToDeduct = reduceStockForm.AmountToDeduct;
                 string reason = reduceStockForm.Reason;
-                string itemName = reduceStockForm.itemName;
+                string itemName = reduceStockForm.ItemName;
 
                 InventoryRepository inventoryRepository = new InventoryRepository();
                 if (await inventoryRepository.DeductStockAsync(id, amountToDeduct, reason))
                 {
-                    MessageBox.Show($"The quantity of '{itemName}' has been successfully reduced.", "Quantity Reduced", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"The Quantity of '{itemName}' has been successfully reduced.", "Quantity Reduced", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateDataGridView();
                     ClearFields();
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred while attempting to reduce the item quantity. Please try again.", "Quantity Reduction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred while attempting to reduce the item Quantity. Please try again.", "Quantity Reduction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
         }
 
-        private void dataGridItemMasterdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void InventoryTbl_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(!isUpdating)
             {
@@ -266,11 +266,11 @@ namespace BenpilsBarcodeSystem
                     BrandInputCb.Text = row.Cells["brand"].Value.ToString();
                     PurchasePriceTxt.Text = row.Cells["purchase_price"].Value.ToString();
                     SellingPriceTxt.Text = row.Cells["selling_price"].Value.ToString();
-                    QuantityTxt.Text = row.Cells["quantity"].Value.ToString();
+                    QuantityTxt.Text = row.Cells["Quantity"].Value.ToString();
                     CategoryInputCb.Text = row.Cells["category"].Value.ToString();
                     SizeCb.Text = row.Cells["size"].Value.ToString();
                     UpdateBtn.Enabled = true;
-                    ArchiveBtn.Enabled = InputValidator.ParseToInt(row.Cells["quantity"].Value.ToString()) <= 0;
+                    ArchiveBtn.Enabled = InputValidator.ParseToInt(row.Cells["Quantity"].Value.ToString()) <= 0;
                     ReduceStockBtn.Enabled = true;
                 }
             }
@@ -389,8 +389,7 @@ namespace BenpilsBarcodeSystem
 
         private async void ComboBox_Enter(object sender, EventArgs e)
         {
-            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
-            if (cb != null && cb.Enabled == true && cb.Items.Count == 0)
+            if (sender is System.Windows.Forms.ComboBox cb && cb.Enabled == true && cb.Items.Count == 0)
             {
                 string selectedItem = cb.Text;
                 InventoryRepository repository = new InventoryRepository();
@@ -418,8 +417,7 @@ namespace BenpilsBarcodeSystem
 
         private void ComboBox_Leave(object sender, EventArgs e)
         {
-            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
-            if (cb != null && string.IsNullOrEmpty(cb.Text.Trim()))
+            if (sender is System.Windows.Forms.ComboBox cb && string.IsNullOrEmpty(cb.Text.Trim()))
             {
                 cb.SelectedIndex = 0;
             }
@@ -427,14 +425,13 @@ namespace BenpilsBarcodeSystem
 
         private void NumberTextBox_Leave(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox tb = sender as System.Windows.Forms.TextBox;
-            if (tb != null && tb.ReadOnly == false && string.IsNullOrEmpty(tb.Text.Trim()))
+            if (sender is TextBox tb && tb.ReadOnly == false && string.IsNullOrEmpty(tb.Text.Trim()))
             {
                 tb.Text = "0";
             }
         }
 
-        public void updateTable()
+        public void UpdateTable()
         {
             UpdateDataGridView();
         }

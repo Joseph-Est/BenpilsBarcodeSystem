@@ -17,7 +17,7 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
 
         public static string tbl_inventory_report = "tbl_inventory_report", tbl_audit_trail = "tbl_audit_trail", tbl_item_modifications = "tbl_item_modifications";
-        public static string col_id = "id", col_item_id = "item_id", col_purchase_order_id = "purchase_order_id", col_date = "date", col_action = "action", col_quantity = "quantity",
+        public static string col_id = "id", col_item_id = "item_id", col_purchase_order_id = "purchase_order_id", col_date = "date", col_action = "action", col_quantity = "Quantity",
                              col_modified_by = "modified_by", col_remarks = "remarks", col_old_stock = "old_stock", col_new_stock = "new_stock";
         public static string col_user_id = "user_id", col_details = "details";
         public static string col_modification_id = "modification_id", col_field_modified = "field_modified", col_old_value = "old_value", col_new_value = "new_value"; 

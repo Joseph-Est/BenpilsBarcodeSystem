@@ -13,7 +13,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 {
     public partial class SearchItem : Form
     {
-        public string barcode { get; set; }
+        public string Barcode { get; set; }
         bool canClose = false;
 
         public SearchItem()
@@ -53,13 +53,13 @@ namespace BenpilsBarcodeSystem.Dialogs
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = ItemsTbl.Rows[e.RowIndex];
-                barcode = row.Cells["item_barcode"].Value.ToString();
+                Barcode = row.Cells["item_barcode"].Value.ToString();
             }
         }
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(barcode))
+            if (!string.IsNullOrEmpty(Barcode))
             {
                 canClose = true;
                 DialogResult = DialogResult.OK;
@@ -94,9 +94,9 @@ namespace BenpilsBarcodeSystem.Dialogs
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = ItemsTbl.Rows[e.RowIndex];
-                barcode = row.Cells["item_barcode"].Value.ToString();
+                Barcode = row.Cells["item_barcode"].Value.ToString();
 
-                if (!string.IsNullOrEmpty(barcode))
+                if (!string.IsNullOrEmpty(Barcode))
                 {
                     canClose = true;
                     DialogResult = DialogResult.OK;

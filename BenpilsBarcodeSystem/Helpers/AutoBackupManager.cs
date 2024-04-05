@@ -39,7 +39,7 @@ namespace BenpilsBarcodeSystem.Helpers
             }
         }
 
-        public async void SetupAutoBackup(Form form)
+        public void SetupAutoBackup()
         {
             if (autoBackupTimer != null)
             {
@@ -161,7 +161,7 @@ namespace BenpilsBarcodeSystem.Helpers
                             if (settings.BackupInventory)
                             {
                                 InventoryRepository repository = new InventoryRepository();
-                                DataTable dt = await repository.GetInventoryExportDT(fromDate, endDate);
+                                DataTable dt = await repository.GetInventoryExportDT();
                                 if (dt != null && dt.Rows.Count > 0)
                                 {
                                     dataTableSheetMapping.Add(dt, "Inventory");
@@ -171,7 +171,7 @@ namespace BenpilsBarcodeSystem.Helpers
                             if (settings.BackupSuppliers)
                             {
                                 SuppliersRepository repository = new SuppliersRepository();
-                                DataTable dt = await repository.GetSuppliersDT(fromDate, endDate);
+                                DataTable dt = await repository.GetSuppliersDT();
                                 if (dt != null && dt.Rows.Count > 0)
                                 {
                                     dataTableSheetMapping.Add(dt, "Suppliers");

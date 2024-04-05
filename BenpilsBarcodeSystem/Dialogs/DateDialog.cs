@@ -12,14 +12,14 @@ namespace BenpilsBarcodeSystem.Dialogs
 {
     public partial class DateDialog : Form
     {
-        public DateTime receivingDate { get; set; }
+        public DateTime ReceivingDate { get; set; }
         private bool canClose = false;
 
         public DateDialog()
         {
             InitializeComponent();
             ReceivingDateDt.MinDate = DateTime.Today;
-            receivingDate = ReceivingDateDt.Value;
+            ReceivingDate = ReceivingDateDt.Value;
         }
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void ReceivingDateDt_ValueChanged(object sender, EventArgs e)
         {
-            receivingDate = ReceivingDateDt.Value;
+            ReceivingDate = ReceivingDateDt.Value;
         }
 
         private void DateDialog_FormClosed(object sender, FormClosedEventArgs e)

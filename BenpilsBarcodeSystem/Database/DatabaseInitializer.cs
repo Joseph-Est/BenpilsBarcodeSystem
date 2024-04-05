@@ -12,7 +12,7 @@ namespace BenpilsBarcodeSystem.Database
     internal class DatabaseInitializer
     {
         private readonly DatabaseConnection dbConnection;
-        string ScriptFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Database", "database.sql");
+        readonly string ScriptFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Database", "database.sql");
 
         public DatabaseInitializer()
         {
@@ -74,7 +74,7 @@ namespace BenpilsBarcodeSystem.Database
 
                             transaction.Commit();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             transaction.Rollback();
 

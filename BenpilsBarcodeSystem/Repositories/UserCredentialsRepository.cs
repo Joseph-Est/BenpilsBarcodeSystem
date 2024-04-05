@@ -47,7 +47,7 @@ namespace BenpilsBarcodeSystem.Repository
                         await cmd.ExecuteNonQueryAsync();
                         //ReportsRepository repository = new ReportsRepository();
 
-                        //bool reportAdded = await repository.AddAuditTrailAsync(con, CurrentUser.User.iD, "Add User", $"Added new user: {username}");
+                        //bool reportAdded = await repository.AddAuditTrailAsync(con, CurrentUser.User.ID, "Add User", $"Added new user: {username}");
 
                         //if (!reportAdded)
                         //{
@@ -92,7 +92,7 @@ namespace BenpilsBarcodeSystem.Repository
                         //if (rowsAffected > 0)
                         //{
                         //    ReportsRepository repository = new ReportsRepository();
-                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Update Product", quantity, modifiedBy, "Product updated successfully");
+                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Update Product", Quantity, modifiedBy, "Product updated successfully");
 
                         //    if (!reportAdded)
                         //    {
@@ -208,7 +208,7 @@ namespace BenpilsBarcodeSystem.Repository
                                     int userId = Convert.ToInt32(passwordDataTable.Rows[0][col_id]);
                                     CurrentUser.User = new User
                                     {
-                                        iD = userId,
+                                        ID = userId,
                                         FirstName = passwordDataTable.Rows[0][col_first_name].ToString(),
                                         LastName = passwordDataTable.Rows[0][col_last_name].ToString(),
                                         Username = passwordDataTable.Rows[0][col_username].ToString(),
@@ -258,7 +258,7 @@ namespace BenpilsBarcodeSystem.Repository
                     {
                         ReportsRepository repository = new ReportsRepository();
 
-                        bool auditTrailAdded = await repository.AddAuditTrailAsync(connection, CurrentUser.User.iD, "Logout", "User logged out successfully.");
+                        bool auditTrailAdded = await repository.AddAuditTrailAsync(connection, CurrentUser.User.ID, "Logout", "User logged out successfully.");
 
                         if (!auditTrailAdded)
                         {
@@ -321,7 +321,7 @@ namespace BenpilsBarcodeSystem.Repository
                         //if (rowsAffected > 0)
                         //{
                         //    ReportsRepository repository = new ReportsRepository();
-                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Archive Item", 0, 0, 0, CurrentUser.User.iD, "Item archived succesfully");
+                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Archive Item", 0, 0, 0, CurrentUser.User.ID, "Item archived succesfully");
 
                         //    if (!reportAdded)
                         //    {

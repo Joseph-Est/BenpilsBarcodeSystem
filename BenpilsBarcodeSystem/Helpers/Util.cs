@@ -151,7 +151,7 @@ namespace BenpilsBarcodeSystem.Utils
 
             string dashes = "- - - - - - - - - - - - - - -";
             string space = " ";
-            string date = $"Date: {DateTime.Now.ToString("MM/dd/yyyy")}";
+            string date = $"Date: {DateTime.Now:MM/dd/yyyy}";
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
             string shopName = "Benpils Motorcycle Parts and Accessories";
@@ -223,7 +223,7 @@ namespace BenpilsBarcodeSystem.Utils
             y = DrawText(graphics, dashes, fontDash, y + 20, 315);
             y = DrawText(graphics, space, fontDash, y, 315);
             y = DrawText(graphics, thankYouMessage, fontBoldSmall, y, 315, 50);
-            y = DrawText(graphics, space, fontDash, y, 315);
+            _ = DrawText(graphics, space, fontDash, y, 315);
         }
 
         private static int DrawText(Graphics graphics, string text, Font font, int startY, int maxWidth, int padding = 0)

@@ -149,7 +149,7 @@ namespace BenpilsBarcodeSystem.Dialogs
                     DialogResult dialogResult = MessageBox.Show("Are you sure all the items is delivered exactly, and you want to complete this order?", "Confirm Order Completion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, PurchaseOrderRepository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart, null))
+                        if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.ID, PurchaseOrderRepository.delivered_status, repository.remarks_complete_delivery, CurrentPurchaseCart, null))
                         {
                             MessageBox.Show("The purchase order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             canClose = true;
@@ -171,8 +171,8 @@ namespace BenpilsBarcodeSystem.Dialogs
 
                         if (dateDialog.ShowDialog() == DialogResult.OK)
                         {
-                            DateTime receivingDate = dateDialog.receivingDate;
-                            if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.iD, PurchaseOrderRepository.partially_delivered_status, repository.remarks_partially_delivered, CurrentPurchaseCart, receivingDate))
+                            DateTime receivingDate = dateDialog.ReceivingDate;
+                            if (await repository.CompletePurchaseOrderAsync(InputValidator.ParseToInt(OrderNo), CurrentUser.User.ID, PurchaseOrderRepository.partially_delivered_status, repository.remarks_partially_delivered, CurrentPurchaseCart, receivingDate))
                             {
                                 MessageBox.Show("The order has been successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 canClose = true;

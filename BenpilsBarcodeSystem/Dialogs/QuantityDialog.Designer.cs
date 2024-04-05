@@ -124,7 +124,7 @@
             this.CancelBtn.TabIndex = 143;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.button1_Click);
+            this.CancelBtn.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ConfrimBtn
             // 

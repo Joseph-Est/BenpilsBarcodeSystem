@@ -18,7 +18,7 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_name = "tbl_item_master_data";
         public static string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
-                       col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "quantity", col_category = "category", col_size = "size", col_is_active = "is_active", col_date_created = "date_created", col_date_updated = "date_updated";
+                       col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "Quantity", col_category = "category", col_size = "size", col_is_active = "is_active", col_date_created = "date_created", col_date_updated = "date_updated";
 
         private int lowStockThreshold = 20;
         private int highStockThreshold = 100;
@@ -167,7 +167,7 @@ namespace BenpilsBarcodeSystem.Repository
 
                         ReportsRepository repository = new ReportsRepository();
 
-                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, itemId, null, "Add Item", quantity, 0, quantity, CurrentUser.User.iD, "Item added succesfully");
+                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, itemId, null, "Add Item", quantity, 0, quantity, CurrentUser.User.ID, "Item added succesfully");
 
                         if (!reportAdded)
                         {
@@ -214,7 +214,7 @@ namespace BenpilsBarcodeSystem.Repository
                         //if (rowsAffected > 0)
                         //{
                         //    ReportsRepository repository = new ReportsRepository();
-                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Update Product", quantity, modifiedBy, "Product updated successfully");
+                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Update Product", Quantity, modifiedBy, "Product updated successfully");
 
                         //    if (!reportAdded)
                         //    {
@@ -282,7 +282,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> isItemExists(string itemName, string brand, string motorBrand, string size)
+        public async Task<bool> IsItemExists(string itemName, string brand, string motorBrand, string size)
         {
             string selectQuery = $"SELECT COUNT(*) FROM {tbl_name} WHERE " +
                 $"{col_item_name} = @ItemName COLLATE SQL_Latin1_General_CP1_CI_AS AND " +
@@ -330,7 +330,7 @@ namespace BenpilsBarcodeSystem.Repository
                         if (rowsAffected > 0)
                         {
                             ReportsRepository repository = new ReportsRepository();
-                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, archive == true ? "Archive Item" : "Restore Item", 0, 0, 0, CurrentUser.User.iD, archive == true ? "Item archived succesfully" : "Item restored succesfully");
+                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, archive == true ? "Archive Item" : "Restore Item", 0, 0, 0, CurrentUser.User.ID, archive == true ? "Item archived succesfully" : "Item restored succesfully");
 
                             if (!reportAdded)
                             {
@@ -490,7 +490,7 @@ namespace BenpilsBarcodeSystem.Repository
                     if (rowsAffected > 0)
                     {
                         ReportsRepository repository = new ReportsRepository();
-                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Reduce Stock", amountToDeduct, oldStock, newStock, CurrentUser.User.iD, remarks);
+                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Reduce Stock", amountToDeduct, oldStock, newStock, CurrentUser.User.ID, remarks);
 
                         if (!reportAdded)
                         {
@@ -1114,7 +1114,7 @@ namespace BenpilsBarcodeSystem.Repository
             return Task.FromResult(dt);
         }
 
-        public async Task<DataTable> GetInventoryExportDT(DateTime dateFom, DateTime dateTo)
+        public async Task<DataTable> GetInventoryExportDT()
         {
             DataTable dt = await GetProductsAsync(true);
 

@@ -25,8 +25,7 @@ namespace BenpilsBarcodeSystem
         {
             Random rand = new Random();
             string randomBarcode = rand.Next(1000000, 9999999).ToString();
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-            barcodeWriter.Format = BarcodeFormat.CODE_128;
+            BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             ManualRegenratetxt.Text = randomBarcode;
         }
@@ -36,8 +35,7 @@ namespace BenpilsBarcodeSystem
 
             if (!string.IsNullOrWhiteSpace(inputText))
             {
-                BarcodeWriter barcodeWriter = new BarcodeWriter();
-                barcodeWriter.Format = BarcodeFormat.CODE_128;
+                BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
 
                 // Generate the barcode image.
                 var barcodeBitmap = barcodeWriter.Write(inputText);
@@ -54,7 +52,7 @@ namespace BenpilsBarcodeSystem
         {
             ManualRegenratetxt.Text  = "";
         }
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -64,7 +62,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
             {
@@ -72,7 +70,7 @@ namespace BenpilsBarcodeSystem
                 this.Top += e.Y - mouseY;
             }
         }
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void Panel1_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
@@ -91,12 +89,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void generatedpicture_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(ManualRegenratetxt.Text))
             {

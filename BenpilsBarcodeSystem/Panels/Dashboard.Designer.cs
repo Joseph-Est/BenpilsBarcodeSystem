@@ -69,22 +69,27 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.TotalProfitLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ItemsSoldLbl = new System.Windows.Forms.Label();
             this.ItemsSoldTitleLbl = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.TotalSalesLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.TotalItemsLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.TotalSuppliersLbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -123,11 +128,6 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -642,6 +642,20 @@
             this.label6.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label6.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
+            // panel19
+            // 
+            this.panel19.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_money_bag_55;
+            this.panel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel19.Location = new System.Drawing.Point(10, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(74, 80);
+            this.panel19.TabIndex = 8;
+            this.panel19.Click += new System.EventHandler(this.Profit_Click);
+            this.panel19.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel19.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel13);
@@ -704,6 +718,20 @@
             this.ItemsSoldTitleLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.ItemsSoldTitleLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sell_55;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(10, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 80);
+            this.panel1.TabIndex = 5;
+            this.panel1.Click += new System.EventHandler(this.ItemsSold_Click);
+            this.panel1.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel12);
@@ -764,6 +792,20 @@
             this.label4.Click += new System.EventHandler(this.Sales_Click);
             this.label4.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label4.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel18
+            // 
+            this.panel18.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sales_55;
+            this.panel18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel18.Location = new System.Drawing.Point(10, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(81, 80);
+            this.panel18.TabIndex = 5;
+            this.panel18.Click += new System.EventHandler(this.Sales_Click);
+            this.panel18.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel18.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // panel8
             // 
@@ -832,6 +874,20 @@
             this.label14.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label14.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
+            // panel23
+            // 
+            this.panel23.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_package_351;
+            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(59, 51);
+            this.panel23.TabIndex = 6;
+            this.panel23.Click += new System.EventHandler(this.ItemsClick);
+            this.panel23.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel23.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
             // panel20
             // 
             this.panel20.Controls.Add(this.TotalSuppliersLbl);
@@ -877,6 +933,20 @@
             this.label11.Click += new System.EventHandler(this.Supplier_Click);
             this.label11.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label11.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel22
+            // 
+            this.panel22.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_supplier_351;
+            this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(59, 52);
+            this.panel22.TabIndex = 0;
+            this.panel22.Click += new System.EventHandler(this.Supplier_Click);
+            this.panel22.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel22.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // label10
             // 
@@ -1242,14 +1312,14 @@
             this.Item.Name = "Item";
             this.Item.ReadOnly = true;
             // 
-            // quantity
+            // Quantity
             // 
             this.quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.quantity.DefaultCellStyle = dataGridViewCellStyle7;
             this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
+            this.quantity.Name = "Quantity";
             this.quantity.ReadOnly = true;
             // 
             // panel30
@@ -1356,76 +1426,6 @@
             this.label7.Size = new System.Drawing.Size(219, 36);
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
-            // 
-            // panel23
-            // 
-            this.panel23.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_package_351;
-            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel23.Location = new System.Drawing.Point(0, 0);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(59, 51);
-            this.panel23.TabIndex = 6;
-            this.panel23.Click += new System.EventHandler(this.ItemsClick);
-            this.panel23.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel23.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel22
-            // 
-            this.panel22.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_supplier_351;
-            this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(59, 52);
-            this.panel22.TabIndex = 0;
-            this.panel22.Click += new System.EventHandler(this.Supplier_Click);
-            this.panel22.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel22.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel19
-            // 
-            this.panel19.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_money_bag_55;
-            this.panel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(10, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(74, 80);
-            this.panel19.TabIndex = 8;
-            this.panel19.Click += new System.EventHandler(this.Profit_Click);
-            this.panel19.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel19.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sell_55;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(10, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(75, 80);
-            this.panel1.TabIndex = 5;
-            this.panel1.Click += new System.EventHandler(this.ItemsSold_Click);
-            this.panel1.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel1.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel18
-            // 
-            this.panel18.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sales_55;
-            this.panel18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(10, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(81, 80);
-            this.panel18.TabIndex = 5;
-            this.panel18.Click += new System.EventHandler(this.Sales_Click);
-            this.panel18.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel18.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // Dashboard
             // 

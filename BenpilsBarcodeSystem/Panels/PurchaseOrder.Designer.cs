@@ -39,13 +39,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder));
             this.ItemsTbl = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisplayItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +71,8 @@
             this.view_details = new System.Windows.Forms.DataGridViewButtonColumn();
             this.complete_order = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.PRefreshPb = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PSearchTxt = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -141,8 +143,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.PRefreshPb = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsTbl)).BeginInit();
             this.SupplierTab.SuspendLayout();
             this.PurchasePage.SuspendLayout();
@@ -151,6 +151,8 @@
             this.panel26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).BeginInit();
             this.panel25.SuspendLayout();
+            this.panel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).BeginInit();
             this.panel7.SuspendLayout();
             this.CancelPanel.SuspendLayout();
             this.CompletePanel.SuspendLayout();
@@ -185,8 +187,6 @@
             this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
-            this.panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).BeginInit();
             this.SuspendLayout();
             // 
             // ItemsTbl
@@ -270,13 +270,13 @@
             // decrease
             // 
             this.decrease.DataPropertyName = "decrease";
-            this.decrease.Description = "Edit quantity";
+            this.decrease.Description = "Edit Quantity";
             this.decrease.FillWeight = 5F;
             this.decrease.HeaderText = "";
             this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
             this.decrease.Name = "decrease";
             this.decrease.ReadOnly = true;
-            this.decrease.ToolTipText = "Edit quantity";
+            this.decrease.ToolTipText = "Edit Quantity";
             this.decrease.Width = 40;
             // 
             // Quantity
@@ -544,6 +544,28 @@
             this.panel25.Size = new System.Drawing.Size(668, 67);
             this.panel25.TabIndex = 0;
             // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.PRefreshPb);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel27.Location = new System.Drawing.Point(629, 0);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(39, 67);
+            this.panel27.TabIndex = 180;
+            // 
+            // PRefreshPb
+            // 
+            this.PRefreshPb.BackColor = System.Drawing.SystemColors.Control;
+            this.PRefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PRefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("PRefreshPb.Image")));
+            this.PRefreshPb.Location = new System.Drawing.Point(10, 36);
+            this.PRefreshPb.Name = "PRefreshPb";
+            this.PRefreshPb.Size = new System.Drawing.Size(29, 28);
+            this.PRefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PRefreshPb.TabIndex = 170;
+            this.PRefreshPb.TabStop = false;
+            this.PRefreshPb.Click += new System.EventHandler(this.PRefreshPb_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -566,7 +588,7 @@
             this.PSearchTxt.Size = new System.Drawing.Size(162, 24);
             this.PSearchTxt.TabIndex = 178;
             this.PSearchTxt.TextChanged += new System.EventHandler(this.PSearchTxt_TextChanged);
-            this.PSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.PSearchTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
             // 
             // panel7
             // 
@@ -1373,13 +1395,13 @@
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewImageColumn1.DataPropertyName = "edit";
-            this.dataGridViewImageColumn1.Description = "Edit quantity";
+            this.dataGridViewImageColumn1.Description = "Edit Quantity";
             this.dataGridViewImageColumn1.FillWeight = 10F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_edit_15;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.ToolTipText = "Edit quantity";
+            this.dataGridViewImageColumn1.ToolTipText = "Edit Quantity";
             // 
             // dataGridViewImageColumn2
             // 
@@ -1402,28 +1424,6 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Width = 40;
             // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.PRefreshPb);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel27.Location = new System.Drawing.Point(629, 0);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(39, 67);
-            this.panel27.TabIndex = 180;
-            // 
-            // PRefreshPb
-            // 
-            this.PRefreshPb.BackColor = System.Drawing.SystemColors.Control;
-            this.PRefreshPb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PRefreshPb.Image = ((System.Drawing.Image)(resources.GetObject("PRefreshPb.Image")));
-            this.PRefreshPb.Location = new System.Drawing.Point(10, 36);
-            this.PRefreshPb.Name = "PRefreshPb";
-            this.PRefreshPb.Size = new System.Drawing.Size(29, 28);
-            this.PRefreshPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PRefreshPb.TabIndex = 170;
-            this.PRefreshPb.TabStop = false;
-            this.PRefreshPb.Click += new System.EventHandler(this.PRefreshPb_Click);
-            // 
             // PurchaseOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1444,6 +1444,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).EndInit();
             this.panel7.ResumeLayout(false);
             this.CancelPanel.ResumeLayout(false);
             this.CompletePanel.ResumeLayout(false);
@@ -1487,8 +1489,6 @@
             this.panel36.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RefreshPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
-            this.panel27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PRefreshPb)).EndInit();
             this.ResumeLayout(false);
 
         }

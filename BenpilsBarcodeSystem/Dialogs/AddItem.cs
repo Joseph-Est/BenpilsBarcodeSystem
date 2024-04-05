@@ -23,7 +23,7 @@ namespace BenpilsBarcodeSystem
     {
         public Item NewItem = new Item();
         public Supplier CurrentSupplier = new Supplier();  
-        public bool isSupplierItem { get; set; }
+        public bool IsSupplierItem { get; set; }
         bool canClose = false;
 
         public AddItem(Supplier supplier = null)
@@ -37,14 +37,14 @@ namespace BenpilsBarcodeSystem
 
             if (supplier != null)
             {
-                isSupplierItem = true;
+                IsSupplierItem = true;
                 CurrentSupplier = supplier;
             }
         }
 
         private void AddItem_Load(object sender, EventArgs e)
         {
-            if (isSupplierItem) {
+            if (IsSupplierItem) {
                 string supplier = $"{CurrentSupplier.ContactName} ({CurrentSupplier.ContactNo})";
                 SupplierCb.Enabled = false;
                 SupplierCb.Items.Clear();
@@ -91,7 +91,7 @@ namespace BenpilsBarcodeSystem
 
             InventoryRepository repository = new InventoryRepository();
 
-            if(await repository.isItemExists(itemName, brand, motorBrand, size))
+            if(await repository.IsItemExists(itemName, brand, motorBrand, size))
             {
                 MessageBox.Show("The item already exists. Please check the item details.", "Item Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -149,7 +149,7 @@ namespace BenpilsBarcodeSystem
 
         private void SupplierCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!isSupplierItem)
+            if (!IsSupplierItem)
             {
                 if (SupplierCb.SelectedIndex != 0)
                 {
@@ -178,9 +178,12 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeBtn_Click(object sender, EventArgs e)
         {
-            GenerateBarcode generateBarcode = new GenerateBarcode();
-            generateBarcode.StartPosition = FormStartPosition.Manual;
-            generateBarcode.Location = new Point(this.Location.X + this.Width + 10, this.Location.Y);
+            GenerateBarcode generateBarcode = new GenerateBarcode
+            {
+                StartPosition = FormStartPosition.Manual,
+                Location = new Point(this.Location.X + this.Width + 10, this.Location.Y)
+            };
+
             if (generateBarcode.ShowDialog() == DialogResult.OK)
             {
                 BarcodeTxt.Text = Clipboard.GetText();
@@ -207,8 +210,7 @@ namespace BenpilsBarcodeSystem
 
         private async void ComboBox_Enter(object sender, EventArgs e)
         {
-            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
-            if (cb != null && cb.Items.Count == 0)
+            if (sender is System.Windows.Forms.ComboBox cb && cb.Items.Count == 0)
             {
                 InventoryRepository repository = new InventoryRepository();
                 string column = "";
@@ -234,8 +236,7 @@ namespace BenpilsBarcodeSystem
 
         private void ComboBox_Leave(object sender, EventArgs e)
         {
-            System.Windows.Forms.ComboBox cb = sender as System.Windows.Forms.ComboBox;
-            if (cb != null && string.IsNullOrEmpty(cb.Text.Trim()))
+            if (sender is System.Windows.Forms.ComboBox cb && string.IsNullOrEmpty(cb.Text.Trim()))
             {
                 cb.SelectedIndex = 0;
             }
@@ -243,8 +244,7 @@ namespace BenpilsBarcodeSystem
 
         private void NumberTextBox_Leave(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox tb = sender as System.Windows.Forms.TextBox;
-            if (tb != null && string.IsNullOrEmpty(tb.Text.Trim()))
+            if (sender is System.Windows.Forms.TextBox tb && string.IsNullOrEmpty(tb.Text.Trim()))
             {
                 tb.Text = "0";
             }

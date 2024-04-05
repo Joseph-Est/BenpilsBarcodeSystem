@@ -475,7 +475,6 @@
     <Compile Include="Repositories\POSRepository.cs" />
     <Compile Include="Repositories\PurchaseOrderRepository.cs" />
     <Compile Include="Repositories\ReportsRepository.cs" />
-    <Compile Include="Repositories\SettingsRepository.cs" />
     <Compile Include="Repositories\SuppliersRepository.cs" />
     <Compile Include="Repositories\UserCredentialsRepository.cs" />
     <Compile Include="Helpers\Util.cs" />

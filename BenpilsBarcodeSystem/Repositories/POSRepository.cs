@@ -17,7 +17,7 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_transactions = "tbl_transactions", tbl_transaction_details = "tbl_transaction_details";
         public static string col_transaction_id = "transaction_id", col_transaction_date = "transaction_date", col_operated_by = "operated_by", col_payment_received = "payment_received";
-        public static string col_id = "id", col_item_id = "item_id", col_quantity = "quantity", col_total = "total";
+        public static string col_id = "id", col_item_id = "item_id", col_quantity = "Quantity", col_total = "total";
 
         public POSRepository()
         {
@@ -27,9 +27,9 @@ namespace BenpilsBarcodeSystem.Repository
         public async Task<bool> InsertTransactionAsync(string transactionId, Cart cart, decimal payment)
         {
             string insertOrderQuery = $"INSERT INTO {tbl_transactions} ({col_transaction_id}, {col_operated_by}, {col_payment_received}) VALUES (@transactionId, @operatedBy, @paymentReceived)";
-            string insertOrderDetailsQuery = $"INSERT INTO {tbl_transaction_details} ({col_transaction_id}, {col_item_id}, {col_quantity}, {col_total}) VALUES (@transactionId, @itemId, @quantity, @total)";
-            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
-            string updateItemQuantityQuery = $"UPDATE tbl_item_master_data SET quantity = quantity - @quantity WHERE id = @itemId";
+            string insertOrderDetailsQuery = $"INSERT INTO {tbl_transaction_details} ({col_transaction_id}, {col_item_id}, {col_quantity}, {col_total}) VALUES (@transactionId, @ItemId, @Quantity, @total)";
+            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
+            string updateItemQuantityQuery = $"UPDATE tbl_item_master_data SET Quantity = Quantity - @Quantity WHERE id = @ItemId";
 
             try
             {
@@ -42,7 +42,7 @@ namespace BenpilsBarcodeSystem.Repository
                         using (SqlCommand cmd = new SqlCommand(insertOrderQuery, con, transaction))
                         {
                             cmd.Parameters.AddWithValue("@transactionId", transactionId);
-                            cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.iD);
+                            cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.ID);
                             cmd.Parameters.AddWithValue("@paymentReceived", payment);
 
                             await cmd.ExecuteNonQueryAsync();
@@ -54,8 +54,8 @@ namespace BenpilsBarcodeSystem.Repository
                                 using (SqlCommand cmdDetails = new SqlCommand(insertOrderDetailsQuery, con, transaction))
                                 {
                                     cmdDetails.Parameters.AddWithValue("@transactionId", transactionId);
-                                    cmdDetails.Parameters.AddWithValue("@itemId", item.Id);
-                                    cmdDetails.Parameters.AddWithValue("@quantity", item.Quantity);
+                                    cmdDetails.Parameters.AddWithValue("@ItemId", item.Id);
+                                    cmdDetails.Parameters.AddWithValue("@Quantity", item.Quantity);
                                     cmdDetails.Parameters.AddWithValue("@total", item.SellingPrice * item.Quantity);
 
                                     await cmdDetails.ExecuteNonQueryAsync();
@@ -66,7 +66,7 @@ namespace BenpilsBarcodeSystem.Repository
 
                                 using (SqlCommand cmdGetItemQuantity = new SqlCommand(getItemQuantityQuery, con, transaction))
                                 {
-                                    cmdGetItemQuantity.Parameters.AddWithValue("@itemId", item.Id);
+                                    cmdGetItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
                                     oldStock = Convert.ToInt32(await cmdGetItemQuantity.ExecuteScalarAsync());
                                 }
 
@@ -74,13 +74,13 @@ namespace BenpilsBarcodeSystem.Repository
 
                                 using (SqlCommand cmdUpdateItemQuantity = new SqlCommand(updateItemQuantityQuery, con, transaction))
                                 {
-                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@itemId", item.Id);
-                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@quantity", item.Quantity);
+                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
+                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@Quantity", item.Quantity);
 
                                     await cmdUpdateItemQuantity.ExecuteNonQueryAsync();
                                 }
 
-                                bool reportAdded = await repository.AddInventoryReportAsync(transaction, item.Id, null, $"Item Sold", item.Quantity, oldStock, newStock, CurrentUser.User.iD, $"Transaction no. {transactionId}");
+                                bool reportAdded = await repository.AddInventoryReportAsync(transaction, item.Id, null, $"Item Sold", item.Quantity, oldStock, newStock, CurrentUser.User.ID, $"Transaction no. {transactionId}");
 
                                 if (!reportAdded)
                                 {
@@ -188,19 +188,6 @@ namespace BenpilsBarcodeSystem.Repository
             }
 
             return salesDataList;
-        }
-
-
-        private void DisplaySalesDataInMessageBox(List<SalesData> salesDataList)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (var salesData in salesDataList)
-            {
-                sb.AppendLine($"Date: {salesData.Date}, TotalItemSold: {salesData.TotalItemSold}, TotalSales: {salesData.TotalSales}, TotalProfit: {salesData.TotalProfit}, ItemName: {salesData.ItemName}, Brand: {salesData.Brand}, Size: {salesData.Size}");
-            }
-
-            MessageBox.Show(sb.ToString(), "Sales Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null, string interval = null)

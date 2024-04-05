@@ -296,7 +296,7 @@ namespace BenpilsBarcodeSystem.Repositories
             return supplier;
         }
 
-        public async Task<DataTable> GetSuppliersDT(DateTime dateFom, DateTime dateTo)
+        public async Task<DataTable> GetSuppliersDT()
         {
             DataTable dt = await GetSupplierAsync(true);
 

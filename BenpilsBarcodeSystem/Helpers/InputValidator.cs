@@ -21,18 +21,15 @@ namespace BenpilsBarcodeSystem.Helpers
         public static bool IsValidInt(string input)
         {
             string trimmedInput = input.Trim();
-
-            int result;
-            return int.TryParse(trimmedInput, out result);
+            return int.TryParse(trimmedInput, out _);
         }
 
         public static decimal ParseToDecimal(string input)
         {
             string cleanedInput = input.Replace(",", "").Trim();
 
-            decimal result;
 
-            if (decimal.TryParse(cleanedInput, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out result))
+            if (decimal.TryParse(cleanedInput, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal result))
             {
                 return Math.Round(result, 2, MidpointRounding.AwayFromZero);
             }
@@ -46,8 +43,7 @@ namespace BenpilsBarcodeSystem.Helpers
         {
             string trimmedInput = input.Trim();
 
-            int result;
-            if (int.TryParse(trimmedInput, out result))
+            if (int.TryParse(trimmedInput, out int result))
             {
                 return result;
             }
@@ -197,8 +193,7 @@ namespace BenpilsBarcodeSystem.Helpers
             }
             else
             {
-                int value;
-                return int.TryParse(input, out value) ? input : "0";
+                return int.TryParse(input, out _) ? input : "0";
             }
         }
 

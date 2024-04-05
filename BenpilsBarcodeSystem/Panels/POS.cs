@@ -83,7 +83,7 @@ namespace BenpilsBarcodeSystem
                 {
                     if (isExistingItem)
                     {
-                        MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -97,13 +97,13 @@ namespace BenpilsBarcodeSystem
                 QuantityDialog quantityDialog = new QuantityDialog(stock, CurrentItem.ItemName, CurrentItem.Size, CurrentItem.Brand, InputValidator.DecimalToFormattedStringPrice(CurrentItem.SellingPrice));
                 
                 if(quantityDialog.ShowDialog() == DialogResult.OK){
-                    int quantity = quantityDialog.quantity;
+                    int quantity = quantityDialog.Quantity;
 
                     if (isExistingItem)
                     {
                         if (CurrentItem.Quantity - existingItem.Quantity - quantity < 0)
                         {
-                            MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             BarcodeTxt.Clear();
                             return;
 
@@ -115,7 +115,7 @@ namespace BenpilsBarcodeSystem
                     {
                         if (CurrentItem.Quantity - quantity < 0)
                         {
-                            MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             BarcodeTxt.Clear();
                             return;
                         }
@@ -225,11 +225,11 @@ namespace BenpilsBarcodeSystem
 
                             if (quantityDialog.ShowDialog() == DialogResult.OK)
                             {
-                                int quantity = quantityDialog.quantity;
+                                int quantity = quantityDialog.Quantity;
 
                                 if (CurrentItem.Quantity - quantity < 0)
                                 {
-                                    MessageBox.Show("Item quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     BarcodeTxt.Clear();
                                     return;
 
@@ -304,7 +304,7 @@ namespace BenpilsBarcodeSystem
                         TransactionNo = transactionNo;
                         PrintReceipt();
                         ClearCart();
-                        mainForm.updateInventoryTable = true;
+                        mainForm.UpdateInventoryTable = true;
                     }
                     else
                     {
@@ -325,7 +325,7 @@ namespace BenpilsBarcodeSystem
 
             if (searchItemDialog.ShowDialog() == DialogResult.OK)
             {
-                BarcodeTxt.Text = searchItemDialog.barcode;
+                BarcodeTxt.Text = searchItemDialog.Barcode;
             }
         }
 

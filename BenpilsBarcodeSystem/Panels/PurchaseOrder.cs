@@ -335,7 +335,7 @@ namespace BenpilsBarcodeSystem
                     string brand = addPurchaseItem.SelectedItem.Brand;
                     string size = addPurchaseItem.SelectedItem.Size;
                     decimal purchasePrice = addPurchaseItem.SelectedItem.PurchasePrice;
-                    int quantity = addPurchaseItem.quantity;
+                    int quantity = addPurchaseItem.Quantity;
 
                     var existingItem = CurrentPurchaseCart.Items.FirstOrDefault(item => item.Id == id);
                     if (existingItem != null)
@@ -439,8 +439,8 @@ namespace BenpilsBarcodeSystem
                     AddPurchaseItem addPurchaseItem = new AddPurchaseItem(null, true, selectedItem.Id, selectedItem.DisplayItemName);
                     if (addPurchaseItem.ShowDialog() == DialogResult.OK)
                     {
-                        int id = addPurchaseItem.itemId;
-                        int quantity = addPurchaseItem.quantity;
+                        int id = addPurchaseItem.ItemId;
+                        int quantity = addPurchaseItem.Quantity;
 
                         var existingItem = CurrentPurchaseCart.Items.FirstOrDefault(item => item.Id == id);
 
@@ -471,7 +471,6 @@ namespace BenpilsBarcodeSystem
                     int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
                     string orderDate = Util.ConvertDateLongWithTime(DateTime.Parse(row.Cells["order_date"].Value.ToString()));
                     string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
-                    string backorderFrom = row.Cells["backorder_from"].Value.ToString();
 
                     PurchaseOrderRepository repository = new PurchaseOrderRepository();
 
@@ -498,7 +497,7 @@ namespace BenpilsBarcodeSystem
                         if (orderDetails.ShowDialog() == DialogResult.OK)
                         {
                             UpdatePurchaseOrdersDG();
-                            mainForm.updateInventoryTable = true;
+                            mainForm.UpdateInventoryTable = true;
                         }
                     }
                 }
@@ -618,7 +617,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = e.KeyChar == (char)Keys.Enter;
         }

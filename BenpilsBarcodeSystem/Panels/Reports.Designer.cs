@@ -353,7 +353,7 @@
             // item_quantity
             // 
             this.item_quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.item_quantity.DataPropertyName = "quantity";
+            this.item_quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.item_quantity.DefaultCellStyle = dataGridViewCellStyle6;
@@ -1353,15 +1353,15 @@
             this.item.Name = "item";
             this.item.ReadOnly = true;
             // 
-            // quantity
+            // Quantity
             // 
             this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantity.DataPropertyName = "quantity";
+            this.quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.quantity.DefaultCellStyle = dataGridViewCellStyle26;
             this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
+            this.quantity.Name = "Quantity";
             this.quantity.ReadOnly = true;
             this.quantity.Width = 74;
             // 

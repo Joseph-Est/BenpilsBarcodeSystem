@@ -36,7 +36,7 @@ namespace BenpilsBarcodeSystem
             UpdateDataGridView();
         }
 
-        public void updateTable()
+        public void UpdateTable()
         {
             UpdateDataGridView();
         }
@@ -105,7 +105,7 @@ namespace BenpilsBarcodeSystem
                     int id = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["id"].Value);
                     string userDesignation = senderGrid.Rows[e.RowIndex].Cells["designation"].Value.ToString();
 
-                    if (CurrentUser.User.iD != id)
+                    if (CurrentUser.User.ID != id)
                     {
                         if(CurrentUser.User.Designation == "Admin" && userDesignation == "Super Admin")
                         {
@@ -217,10 +217,10 @@ namespace BenpilsBarcodeSystem
                         contactNo
                     ))
                     {
-                        if (!prevUsername.Equals(username) && (selectedID == CurrentUser.User.iD))
+                        if (!prevUsername.Equals(username) && (selectedID == CurrentUser.User.ID))
                         {
                             CurrentUser.User.Username = username;
-                            mainForm.updateUsername();
+                            mainForm.UpdateUsername();
                         }
 
                         ClearFields();
@@ -266,7 +266,7 @@ namespace BenpilsBarcodeSystem
         {
             Util.SetTextBoxesReadOnly(mode, FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
 
-            if(selectedID != CurrentUser.User.iD)
+            if(selectedID != CurrentUser.User.ID)
             {
                 Util.SetComboBoxesDisabled(mode, DesignationCb);
             }

@@ -18,8 +18,8 @@ namespace BenpilsBarcodeSystem
 {
     public partial class LoginForm : Form
     {
-        private string usernamePlaceholder = "Username";
-        private string passwordPlaceholder = "Password";
+        private readonly string usernamePlaceholder = "Username";
+        private readonly string passwordPlaceholder = "Password";
         private bool isLoggingIn = false;
 
         public LoginForm()
@@ -48,7 +48,7 @@ namespace BenpilsBarcodeSystem
             this.AcceptButton = btnLogin;
         }
 
-        private async void btnlogin_Click(object sender, EventArgs e)
+        private async void LoginBtn_Click(object sender, EventArgs e)
         {
             if (!isLoggingIn)
             {
@@ -114,15 +114,10 @@ namespace BenpilsBarcodeSystem
             isLoggingIn = false;
         }
 
-        private void testPrint_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            
-        }
-
         private bool isDragging = false;
         private int mouseX, mouseY;
 
-        private void panelHeader_MouseDown(object sender, MouseEventArgs e)
+        private void PanelHeader_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -132,7 +127,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panelHeader_MouseMove(object sender, MouseEventArgs e)
+        private void PanelHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
             {
@@ -141,7 +136,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panelHeader_MouseUp(object sender, MouseEventArgs e)
+        private void PanelHeader_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
@@ -225,7 +220,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -240,7 +235,7 @@ namespace BenpilsBarcodeSystem
             PasswordTxt.Select();
         }
 
-        private void minimizeBtn_Click(object sender, EventArgs e)
+        private void MinimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

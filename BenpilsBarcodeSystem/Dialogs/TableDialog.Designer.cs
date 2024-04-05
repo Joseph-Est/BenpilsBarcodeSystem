@@ -33,13 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseCb = new System.Windows.Forms.CheckBox();
             this.TitleLbl = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.TableTbl = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TotalLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CloseCb = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -58,7 +58,6 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel2.Size = new System.Drawing.Size(646, 33);
             this.panel2.TabIndex = 89;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -69,7 +68,25 @@
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(37, 33);
             this.flowLayoutPanel1.TabIndex = 85;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // CloseCb
+            // 
+            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.CloseCb.AutoCheck = false;
+            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseCb.FlatAppearance.BorderSize = 0;
+            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseCb.Location = new System.Drawing.Point(9, 8);
+            this.CloseCb.Name = "CloseCb";
+            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
+            this.CloseCb.Size = new System.Drawing.Size(20, 20);
+            this.CloseCb.TabIndex = 26;
+            this.CloseCb.UseVisualStyleBackColor = true;
+            this.CloseCb.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // TitleLbl
             // 
@@ -82,7 +99,6 @@
             this.TitleLbl.Size = new System.Drawing.Size(40, 18);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Title";
-            this.TitleLbl.Click += new System.EventHandler(this.TitleLbl_Click);
             // 
             // panel5
             // 
@@ -94,7 +110,6 @@
             this.panel5.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
             this.panel5.Size = new System.Drawing.Size(646, 278);
             this.panel5.TabIndex = 94;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // TableTbl
             // 
@@ -147,7 +162,6 @@
             this.TableTbl.Size = new System.Drawing.Size(606, 258);
             this.TableTbl.TabIndex = 184;
             this.TableTbl.TabStop = false;
-            this.TableTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TableTbl_CellContentClick);
             // 
             // panel1
             // 
@@ -160,7 +174,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(20, 5, 20, 0);
             this.panel1.Size = new System.Drawing.Size(646, 74);
             this.panel1.TabIndex = 95;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TotalLbl
             // 
@@ -175,7 +188,6 @@
             this.TotalLbl.TabIndex = 133;
             this.TotalLbl.Text = "69,420";
             this.TotalLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TotalLbl.Click += new System.EventHandler(this.TotalLbl_Click);
             // 
             // label1
             // 
@@ -191,27 +203,6 @@
             this.label1.TabIndex = 134;
             this.label1.Text = "Total";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // CloseCb
-            // 
-            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.CloseCb.AutoCheck = false;
-            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseCb.FlatAppearance.BorderSize = 0;
-            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseCb.Location = new System.Drawing.Point(9, 8);
-            this.CloseCb.Name = "CloseCb";
-            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
-            this.CloseCb.Size = new System.Drawing.Size(20, 20);
-            this.CloseCb.TabIndex = 26;
-            this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.CheckedChanged += new System.EventHandler(this.CloseCb_CheckedChanged);
-            this.CloseCb.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // TableDialog
             // 

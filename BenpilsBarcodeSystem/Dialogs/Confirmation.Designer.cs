@@ -88,7 +88,6 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel1.Size = new System.Drawing.Size(285, 33);
             this.panel1.TabIndex = 10;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label1
             // 
@@ -100,7 +99,7 @@
             this.label1.Size = new System.Drawing.Size(277, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Confirmation";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseDown);
             // 
             // panel2
             // 

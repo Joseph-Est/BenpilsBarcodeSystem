@@ -58,12 +58,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-          
-        }
-
-        private void label1_MouseDown(object sender, MouseEventArgs e)
+        private void Label1_MouseDown(object sender, MouseEventArgs e)
         {
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)

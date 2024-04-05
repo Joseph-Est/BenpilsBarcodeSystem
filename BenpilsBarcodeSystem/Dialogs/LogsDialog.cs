@@ -25,11 +25,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
         }
 
-        private void CloseCb_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CloseCb_Click(object sender, EventArgs e)
         {
             this.Close();

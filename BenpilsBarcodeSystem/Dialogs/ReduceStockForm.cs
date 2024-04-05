@@ -18,7 +18,7 @@ namespace BenpilsBarcodeSystem
         public int AmountToDeduct { get; private set; }
         public string Reason { get; private set; }
         private int StockQuantity { get; set; }
-        public string itemName { get; set; }
+        public string ItemName { get; set; }
 
         public ReduceStockForm(int selectedId, string itemName, string size, int quantity)
         {
@@ -30,7 +30,7 @@ namespace BenpilsBarcodeSystem
 
             SelectedId = selectedId;
             StockQuantity = quantity;
-            this.itemName = itemName;
+            this.ItemName = itemName;
 
             InputValidator.AllowOnlyDigits(ReduceTxt);
         }
@@ -49,7 +49,7 @@ namespace BenpilsBarcodeSystem
                 }
                 else
                 {
-                    ErrorTxt.Text = "The amount to deduct cannot exceed the available stock quantity";
+                    ErrorTxt.Text = "The amount to deduct cannot exceed the available stock Quantity";
                     ErrorTxt.Visible = true;
                 }
             }

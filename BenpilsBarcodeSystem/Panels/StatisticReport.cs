@@ -109,15 +109,15 @@ namespace BenpilsBarcodeSystem
             topLowestProfitMargin = TopLowestProfitMarginItems;
             topHighestProfitMargin = TopHighestProfitMarginItems;
 
-            updateProfitMarginDG();
+            UpdateProfitMarginDG();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updateProfitMarginDG();
+            UpdateProfitMarginDG();
         }
 
-        private void updateProfitMarginDG()
+        private void UpdateProfitMarginDG()
         {
             ProfitMarginTbl.DataSource = null;
             ProfitMarginTbl.AutoGenerateColumns = false;
@@ -259,7 +259,7 @@ namespace BenpilsBarcodeSystem
         }
 
         private int categorySalesChartCurrentPage = 0;
-        private int categorySalesChartItemPerPage = 5;
+        private readonly int categorySalesChartItemPerPage = 5;
 
         private async void LoadCategorySalesChart(InventoryRepository repository, int page)
         {
@@ -323,7 +323,7 @@ namespace BenpilsBarcodeSystem
 
 
         private int brandSalesChartCurrentPage = 0;
-        private int brandSalesChartItemPerPage = 5;
+        private readonly int brandSalesChartItemPerPage = 5;
 
         private async void LoadBrandSalesChart(InventoryRepository repository, int page)
         {

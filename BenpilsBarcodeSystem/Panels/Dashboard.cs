@@ -120,7 +120,7 @@ namespace BenpilsBarcodeSystem
         }
 
         private int salesChartCurrentPage = -1;
-        private int salesChartItemPerPage = 10;
+        private readonly int salesChartItemPerPage = 10;
 
         private void SalesChartNextBtn_Click(object sender, EventArgs e)
         {
@@ -297,12 +297,10 @@ namespace BenpilsBarcodeSystem
 
         private void RB_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton radioButton = sender as RadioButton;
-
-            if (radioButton != null && radioButton.Checked)
+            if (sender is RadioButton radioButton && radioButton.Checked)
             {
                 string radioButtonName = radioButton.Name;
-                if(selectedCb == "year")
+                if (selectedCb == "year")
                 {
                     POSRepository repository = new POSRepository();
                     salesChartCurrentPage = -1;

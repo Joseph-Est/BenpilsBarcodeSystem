@@ -59,9 +59,9 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel1.Size = new System.Drawing.Size(289, 33);
             this.panel1.TabIndex = 13;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
             // CloseBtn
             // 
@@ -129,7 +129,7 @@
             this.CopyBtn.Text = "  Copy and Close";
             this.CopyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CopyBtn.UseVisualStyleBackColor = false;
-            this.CopyBtn.Click += new System.EventHandler(this.button1_Click);
+            this.CopyBtn.Click += new System.EventHandler(this.Button1_Click);
             // 
             // panel4
             // 

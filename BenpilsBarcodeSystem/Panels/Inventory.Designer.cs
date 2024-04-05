@@ -755,7 +755,7 @@
             this.InventoryTbl.Size = new System.Drawing.Size(780, 613);
             this.InventoryTbl.TabIndex = 179;
             this.InventoryTbl.TabStop = false;
-            this.InventoryTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridItemMasterdata_CellClick);
+            this.InventoryTbl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryTbl_CellClick);
             // 
             // id
             // 
@@ -846,13 +846,13 @@
             this.formatted_selling_price.Name = "formatted_selling_price";
             this.formatted_selling_price.ReadOnly = true;
             // 
-            // quantity
+            // Quantity
             // 
-            this.quantity.DataPropertyName = "quantity";
+            this.quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.quantity.DefaultCellStyle = dataGridViewCellStyle8;
             this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
+            this.quantity.Name = "Quantity";
             this.quantity.ReadOnly = true;
             this.quantity.Width = 80;
             // 

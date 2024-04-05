@@ -93,8 +93,8 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<bool> InsertPurchaseOrderAsync(int orderID, Cart cart, Supplier supplier, DateTime orderDate, DateTime receivingDate, SqlTransaction transaction = null, bool isBackOrder = false, int backOrderFrom = 0)
         {
-            string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}, {col_is_backorder}, {col_backorder_from}) VALUES (@orderId, @supplierId, @orderDate, @receivingDate, @operatedBy, @isBackOrder, @backOrderFrom)";
-            string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_order_quantity}, {col_total}) VALUES (@orderId, @itemId, @quantity, @total)";
+            string insertOrderQuery = $"INSERT INTO {tbl_purchase_order} ({col_order_id}, {col_supplier_id}, {col_order_date}, {col_receiving_date}, {col_operated_by}, {col_is_backorder}, {col_backorder_from}) VALUES (@orderId, @supplierId, @orderDate, @ReceivingDate, @operatedBy, @isBackOrder, @backOrderFrom)";
+            string insertOrderDetailsQuery = $"INSERT INTO {tbl_purchase_order_details} ({col_order_id}, {col_item_id}, {col_order_quantity}, {col_total}) VALUES (@orderId, @ItemId, @Quantity, @total)";
 
             SqlConnection con = null;
 
@@ -105,8 +105,8 @@ namespace BenpilsBarcodeSystem.Repositories
                     cmd.Parameters.AddWithValue("@orderId", orderID);
                     cmd.Parameters.AddWithValue("@supplierId", supplier.SupplierID);
                     cmd.Parameters.AddWithValue("@orderDate", orderDate);
-                    cmd.Parameters.AddWithValue("@receivingDate", receivingDate);
-                    cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.iD);
+                    cmd.Parameters.AddWithValue("@ReceivingDate", receivingDate);
+                    cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.ID);
                     cmd.Parameters.AddWithValue("@isBackOrder", isBackOrder ? 1 : 0);
                     cmd.Parameters.AddWithValue("@backOrderFrom", backOrderFrom);
 
@@ -120,8 +120,8 @@ namespace BenpilsBarcodeSystem.Repositories
                         cmd.Parameters.Clear();
 
                         cmd.Parameters.AddWithValue("@orderId", orderID);
-                        cmd.Parameters.AddWithValue("@itemId", item.Id);
-                        cmd.Parameters.AddWithValue("@quantity", item.Quantity);
+                        cmd.Parameters.AddWithValue("@ItemId", item.Id);
+                        cmd.Parameters.AddWithValue("@Quantity", item.Quantity);
                         cmd.Parameters.AddWithValue("@total", item.PurchasePrice * item.Quantity);
 
                         await cmd.ExecuteNonQueryAsync();
@@ -317,9 +317,9 @@ namespace BenpilsBarcodeSystem.Repositories
         //public async Task<bool> CompletePurchaseOrderAsync2(int orderId, int fulfilledBy, string status, string remarks, Cart cart, DateTime? newReceivingDate)
         //{
         //    string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
-        //    string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @itemId";
-        //    string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
-        //    string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId";
+        //    string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @ItemId";
+        //    string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
+        //    string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @ItemId";
 
         //    SqlTransaction transaction = null;
 
@@ -345,7 +345,7 @@ namespace BenpilsBarcodeSystem.Repositories
         //                    {
         //                        cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
         //                        cmd.Parameters.AddWithValue("@orderId", orderId);
-        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        cmd.Parameters.AddWithValue("@ItemId", item.Id);
         //                        await cmd.ExecuteNonQueryAsync();
         //                    }
 
@@ -354,7 +354,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         //                    using (SqlCommand cmd = new SqlCommand(getItemQuantityQuery, con, transaction))
         //                    {
-        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        cmd.Parameters.AddWithValue("@ItemId", item.Id);
         //                        oldStock = Convert.ToInt32(await cmd.ExecuteScalarAsync());
         //                    }
 
@@ -363,7 +363,7 @@ namespace BenpilsBarcodeSystem.Repositories
         //                    using (SqlCommand cmd = new SqlCommand(updateItemMasterDataQuery, con, transaction))
         //                    {
         //                        cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
-        //                        cmd.Parameters.AddWithValue("@itemId", item.Id);
+        //                        cmd.Parameters.AddWithValue("@ItemId", item.Id);
         //                        await cmd.ExecuteNonQueryAsync();
         //                    }
 
@@ -397,9 +397,9 @@ namespace BenpilsBarcodeSystem.Repositories
         public async Task<bool> CompletePurchaseOrderAsync(int orderId, int fulfilledBy, string status, string remarks, Cart cart, DateTime? newReceivingDate)
         {
             string updatePurchaseOrderQuery = $"UPDATE {tbl_purchase_order} SET {col_fulfillment_date} = @fulfillmentDate, {col_fulfilled_by} = @fulfilledBy, {col_remarks} = @remarks, {col_status} = @status WHERE {col_order_id} = @orderId";
-            string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @itemId";
-            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
-            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @itemId";
+            string updatePurchaseOrderDetailsQuery = $"UPDATE {tbl_purchase_order_details} SET {col_received_quantity} = @receivedQuantity WHERE {col_order_id} = @orderId AND {col_item_id} = @ItemId";
+            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
+            string updateItemMasterDataQuery = $"UPDATE {InventoryRepository.tbl_name} SET {InventoryRepository.col_quantity} = {InventoryRepository.col_quantity} + @receivedQuantity WHERE {InventoryRepository.col_id} = @ItemId";
             string getSupplierIdQuery = $"SELECT {col_supplier_id} FROM {tbl_purchase_order} WHERE {col_order_id} = @orderId";
 
             SqlTransaction transaction = null;
@@ -426,7 +426,7 @@ namespace BenpilsBarcodeSystem.Repositories
                             {
                                 cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
                                 cmd.Parameters.AddWithValue("@orderId", orderId);
-                                cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                cmd.Parameters.AddWithValue("@ItemId", item.Id);
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
@@ -435,7 +435,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
                             using (SqlCommand cmd = new SqlCommand(getItemQuantityQuery, con, transaction))
                             {
-                                cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                cmd.Parameters.AddWithValue("@ItemId", item.Id);
                                 oldStock = Convert.ToInt32(await cmd.ExecuteScalarAsync());
                             }
 
@@ -444,7 +444,7 @@ namespace BenpilsBarcodeSystem.Repositories
                             using (SqlCommand cmd = new SqlCommand(updateItemMasterDataQuery, con, transaction))
                             {
                                 cmd.Parameters.AddWithValue("@receivedQuantity", item.ReceivedQuantity);
-                                cmd.Parameters.AddWithValue("@itemId", item.Id);
+                                cmd.Parameters.AddWithValue("@ItemId", item.Id);
                                 await cmd.ExecuteNonQueryAsync();
                             }
 
@@ -539,7 +539,7 @@ namespace BenpilsBarcodeSystem.Repositories
                         using (SqlCommand cmd = new SqlCommand(updatePurchaseOrderQuery, con, transaction))
                         {
                             cmd.Parameters.AddWithValue("@fulfillmentDate", DateTime.Now);
-                            cmd.Parameters.AddWithValue("@fulfilledBy", CurrentUser.User.iD);
+                            cmd.Parameters.AddWithValue("@fulfilledBy", CurrentUser.User.ID);
                             cmd.Parameters.AddWithValue("@remarks", string.IsNullOrEmpty(remarks) ? "N/A" : remarks);
                             cmd.Parameters.AddWithValue("@status", cancelled_status);
                             cmd.Parameters.AddWithValue("@orderId", orderId);

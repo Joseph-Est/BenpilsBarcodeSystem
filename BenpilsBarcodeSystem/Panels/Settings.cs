@@ -323,9 +323,7 @@ namespace BenpilsBarcodeSystem
 
         private void RB_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton radioButton = sender as RadioButton;
-
-            if (radioButton != null && radioButton.Checked)
+            if (sender is RadioButton radioButton && radioButton.Checked)
             {
                 string radioButtonName = radioButton.Name;
 
@@ -408,15 +406,16 @@ namespace BenpilsBarcodeSystem
         {
             if (Util.IsAnyCheckboxChecked(AInventoryCb, ASuppliersCb, ASalesTransactionsCb, AInventoryReportCb, AAuditTrailCb))
             {
-                BackupSettings settings = new BackupSettings();
-
-                settings.IsEnabled = true;
-                settings.BackupInventory = AInventoryCb.Checked;
-                settings.BackupSuppliers = ASuppliersCb.Checked;
-                settings.BackupPurchaseOrder = APurchaseOrdersCb.Checked;
-                settings.BackupSalesTransactions = ASalesTransactionsCb.Checked;
-                settings.BackupInventoryReport = AInventoryReportCb.Checked;
-                settings.BackupAuditTrail = AAuditTrailCb.Checked;
+                BackupSettings settings = new BackupSettings
+                {
+                    IsEnabled = true,
+                    BackupInventory = AInventoryCb.Checked,
+                    BackupSuppliers = ASuppliersCb.Checked,
+                    BackupPurchaseOrder = APurchaseOrdersCb.Checked,
+                    BackupSalesTransactions = ASalesTransactionsCb.Checked,
+                    BackupInventoryReport = AInventoryReportCb.Checked,
+                    BackupAuditTrail = AAuditTrailCb.Checked
+                };
 
                 if (!Util.IsAnyRadioButtonChecked(HourlyRb, EveryHoursRb, DailyRb, WeeklyRb, MonthlyRb))
                 {
@@ -638,7 +637,7 @@ namespace BenpilsBarcodeSystem
 
             MessageBox.Show("Settings saved succesfully");
 
-            mainForm.AutoBackupManagerInstance.SetupAutoBackup(mainForm);
+            mainForm.AutoBackupManagerInstance.SetupAutoBackup();
         }
 
         private void EnableAutomaticBackup(bool enable)

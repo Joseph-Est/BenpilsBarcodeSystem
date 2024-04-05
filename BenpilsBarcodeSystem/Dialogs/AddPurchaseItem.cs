@@ -19,9 +19,9 @@ namespace BenpilsBarcodeSystem.Dialogs
         public Supplier CurrentSupplier = new Supplier();
         public Item SelectedItem = new Item();
         private bool canClose = false;
-        public int quantity {get; set;}
-        public bool isModify { get; set; }
-        public int itemId { get; set; }
+        public int Quantity {get; set;}
+        public bool IsModify { get; set; }
+        public int ItemId { get; set; }
         public bool isExistingItem;
 
         public AddPurchaseItem(Supplier supplier = null, bool isModify = false, int itemId = 0, string itemName = null)
@@ -29,7 +29,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             InitializeComponent();
             InputValidator.AllowOnlyDigitsMinMax(QuantityTxt, 1, 999999999);
 
-            this.isModify = isModify;
+            this.IsModify = isModify;
 
             if (!isModify && supplier != null)
             {
@@ -37,7 +37,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
             else if(isModify && itemId > 0)
             {
-                this.itemId = itemId;
+                this.ItemId = itemId;
                 ItemsCb.Items.Add(itemName);
                 ItemsCb.SelectedItem = itemName;
                 ItemsCb.Enabled = false;
@@ -46,7 +46,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void AddPurchaseItem_Load(object sender, EventArgs e)
         {
-            if (isModify)
+            if (IsModify)
             {
                 AcceptBtn.Text = "Done";
                 TitleLbl.Text = "Modify Supplier Item";
@@ -109,7 +109,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex != 0)
             {
@@ -131,13 +131,13 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             if (quantity <= 0)
             {
-                MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid Quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            this.quantity = quantity;
+            this.Quantity = quantity;
 
-            if (isModify)
+            if (IsModify)
             {
                 canClose = true;
                 DialogResult = DialogResult.OK;

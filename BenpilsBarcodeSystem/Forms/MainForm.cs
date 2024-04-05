@@ -29,7 +29,7 @@ namespace BenpilsBarcodeSystem
         [DllImportAttribute("user32.dll")]
         private static extern bool ReleaseCapture();
         public bool CanSwitchPanel { get; set; } = true;
-        public bool updateInventoryTable { get; set; } = false;
+        public bool UpdateInventoryTable { get; set; } = false;
 
         private CheckBox lastChecked = null;
         private readonly Dictionary<CheckBox, Image> checkedImages = new Dictionary<CheckBox, Image>();
@@ -54,7 +54,7 @@ namespace BenpilsBarcodeSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
             autoBackupManager = new AutoBackupManager();
-            autoBackupManager.SetupAutoBackup(this);
+            autoBackupManager.SetupAutoBackup();
         }
 
         private void Checkbox_Clicked(object sender, EventArgs e)
@@ -168,19 +168,19 @@ namespace BenpilsBarcodeSystem
             if (form is POS posForm)
             {
                 posForm.SelectBarcode();
-            }else if (form is Inventory inventoryForm && updateInventoryTable)
+            }else if (form is Inventory inventoryForm && UpdateInventoryTable)
             {
-                inventoryForm.updateTable();
-                updateInventoryTable = false;
+                inventoryForm.UpdateTable();
+                UpdateInventoryTable = false;
             }
             else if (form is Ser users)
             {
-                users.updateTable();
-                updateInventoryTable = false;
+                users.UpdateTable();
+                UpdateInventoryTable = false;
             }
             else if (form is Ser userForm)
             {
-                userForm.updateTable();
+                userForm.UpdateTable();
             }
             else if (form is StatisticReport sr)
             {
@@ -229,16 +229,15 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        public void updateUsername()
+        public void UpdateUsername()
         {
             UsernameTxt.Text = "Username: " + CurrentUser.User.Username;
         }
 
         private void SetTimer()
         {
-            Timer timer = new Timer();
-            timer.Interval = 1000;
-            timer.Tick += timer_Tick;
+            Timer timer = new Timer { Interval = 1000 };
+            timer.Tick += Timer_Tick;
             timer.Start();
         }
 
@@ -274,7 +273,7 @@ namespace BenpilsBarcodeSystem
             checkBoxToFormType[SettingsCb] = typeof(Settings);
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             label4.Text = "Time: " + DateTime.Now.ToString("hh:mm:ss");
             label3.Text = "Date: " + Util.ConvertDateLong(DateTime.Now);
@@ -286,7 +285,7 @@ namespace BenpilsBarcodeSystem
             //}
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             base.OnMouseDown(e);
             if (e.Button == MouseButtons.Left)

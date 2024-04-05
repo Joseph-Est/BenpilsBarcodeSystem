@@ -69,7 +69,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             if (inventoryExists)
             {
                 InventoryRepository repository = new InventoryRepository();
-                DataTable dt = await repository.GetInventoryExportDT(FromDate, ToDate);
+                DataTable dt = await repository.GetInventoryExportDT();
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     dataTableSheetMapping.Add(dt, "Inventory");
@@ -79,7 +79,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             if (supplierExists)
             {
                 SuppliersRepository repository = new SuppliersRepository();
-                DataTable dt = await repository.GetSuppliersDT(FromDate, ToDate);
+                DataTable dt = await repository.GetSuppliersDT();
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     dataTableSheetMapping.Add(dt, "Suppliers");

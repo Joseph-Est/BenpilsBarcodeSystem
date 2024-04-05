@@ -67,9 +67,9 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(287, 38);
             this.panelHeader.TabIndex = 12;
-            this.panelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseDown);
-            this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseMove);
-            this.panelHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseUp);
+            this.panelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseDown);
+            this.panelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseMove);
+            this.panelHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelHeader_MouseUp);
             // 
             // flowLayoutPanel1
             // 
@@ -101,7 +101,7 @@
             this.CloseCb.TabIndex = 26;
             this.CloseCb.TabStop = false;
             this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.Click += new System.EventHandler(this.closeBtn_Click);
+            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // MinimizeCb
             // 
@@ -121,7 +121,7 @@
             this.MinimizeCb.TabIndex = 24;
             this.MinimizeCb.TabStop = false;
             this.MinimizeCb.UseVisualStyleBackColor = true;
-            this.MinimizeCb.Click += new System.EventHandler(this.minimizeBtn_Click);
+            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
             // 
             // label3
             // 
@@ -179,7 +179,7 @@
             this.btnLogin.TabStop = false;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnlogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // PasswordPanel
             // 
@@ -207,7 +207,6 @@
             // 
             // testPrint
             // 
-            this.testPrint.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.testPrint_PrintPage);
             // 
             // testPrintPreview
             // 

@@ -56,11 +56,11 @@ namespace BenpilsBarcodeSystem
 
                 if (UsernameTxt.Text == "")
                 {
-                    MessageBox.Show("Enter your username!");
+                    MessageBox.Show("Please enter your username to proceed.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (PasswordTxt.Text == "")
                 {
-                    MessageBox.Show("Enter your password!");
+                    MessageBox.Show("Please enter your password to proceed.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

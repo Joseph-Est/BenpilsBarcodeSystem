@@ -226,5 +226,5 @@ REFERENCES [dbo].[tbl_user_credentials] ([id]);
 GO
 
 -- Insert default admin user
-INSERT INTO [dbo].[tbl_user_credentials] ([first_name], [last_name], [username], [password], [designation]) VALUES ('Super', 'Admin', 'sa', 'password', 'Super Admin');
+INSERT INTO [dbo].[tbl_user_credentials] ([first_name], [last_name], [username], [password], [designation]) VALUES ('Super', 'Admin', 'benpill_01', 'benpils22222', 'Super Admin');
 GO

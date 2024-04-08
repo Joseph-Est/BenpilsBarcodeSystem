@@ -1074,7 +1074,7 @@ namespace BenpilsBarcodeSystem.Repository
                 var groupedData = salesDataList.GroupBy(d => d.Category)
                     .Select(g => new
                     {
-                        Category = g.Key,
+                        Category = g.Key == "N/A" ? "Uncategorized" : g.Key,
                         TotalSales = g.Sum(s => s.TotalSales)
                     })
                     .OrderByDescending(g => g.TotalSales);

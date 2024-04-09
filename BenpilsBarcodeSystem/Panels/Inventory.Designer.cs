@@ -95,7 +95,7 @@
             this.formatted_purchase_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatted_selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -726,7 +726,7 @@
             this.formatted_purchase_price,
             this.selling_price,
             this.formatted_selling_price,
-            this.quantity,
+            this.Quantity,
             this.category,
             this.size,
             this.Status});
@@ -848,13 +848,13 @@
             // 
             // Quantity
             // 
-            this.quantity.DataPropertyName = "Quantity";
+            this.Quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle8;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "Quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 80;
             // 
             // category
             // 
@@ -1147,5 +1147,6 @@
         private System.Windows.Forms.ComboBox BrandInputCb;
         private System.Windows.Forms.ComboBox CategoryInputCb;
         private System.Windows.Forms.CheckBox CancelFilterCb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }

@@ -120,6 +120,13 @@ namespace BenpilsBarcodeSystem
                             return;
                         }
 
+                        if (CurrentItem.SellingPrice < 1)
+                        {
+                            MessageBox.Show("The item you're trying to add to the cart has a selling price of 0. Please update the selling price in the inventory before adding it to the cart.", "Cart Addition Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            BarcodeTxt.Clear();
+                            return;
+                        }
+
                         var purchaseItem = new PurchaseItem
                         {
                             Id = CurrentItem.Id,

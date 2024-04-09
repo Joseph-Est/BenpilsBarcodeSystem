@@ -27,7 +27,7 @@ namespace BenpilsBarcodeSystem
         public UserCredentials()
         {
             InitializeComponent();
-            InputValidator.AllowOnlyDigits(ContactNoTxt);
+            InputValidator.AllowOnlyPhoneNumber(ContactNoTxt);
         }
 
         private void UserCredentials_Load(object sender, EventArgs e)

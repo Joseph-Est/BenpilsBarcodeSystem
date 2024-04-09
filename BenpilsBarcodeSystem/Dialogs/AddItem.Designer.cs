@@ -280,6 +280,7 @@
             this.PurchasePriceTxt.Name = "PurchasePriceTxt";
             this.PurchasePriceTxt.Size = new System.Drawing.Size(298, 24);
             this.PurchasePriceTxt.TabIndex = 102;
+            this.PurchasePriceTxt.TextChanged += new System.EventHandler(this.PurchasePriceTxt_TextChanged);
             this.PurchasePriceTxt.Leave += new System.EventHandler(this.NumberTextBox_Leave);
             // 
             // lblcategory

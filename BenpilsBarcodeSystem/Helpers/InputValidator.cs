@@ -90,6 +90,17 @@ namespace BenpilsBarcodeSystem.Helpers
             };
         }
 
+        public static void AllowOnlyPhoneNumber(TextBox textBox)
+        {
+            textBox.KeyPress += (sender, e) =>
+            {
+                if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != '+')
+                {
+                    e.Handled = true;
+                }
+            };
+        }
+
         public static void AllowOnlyDigitsMinMax(TextBox textBox, int min, int max)
         {
             textBox.KeyPress += (sender, e) =>

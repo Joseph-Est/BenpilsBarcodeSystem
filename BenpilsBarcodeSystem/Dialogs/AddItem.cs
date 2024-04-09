@@ -103,6 +103,12 @@ namespace BenpilsBarcodeSystem
                 return;
             }
 
+            if (purchasePrice > sellingPrice)
+            {
+                MessageBox.Show("Invalid input: The purchase price must not be higher than the selling price.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (await repository.AddProductAsync(
                 barcode,
                 itemName,
@@ -248,6 +254,11 @@ namespace BenpilsBarcodeSystem
             {
                 tb.Text = "0";
             }
+        }
+
+        private void PurchasePriceTxt_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

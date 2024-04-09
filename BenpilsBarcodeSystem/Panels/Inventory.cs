@@ -83,11 +83,15 @@ namespace BenpilsBarcodeSystem
                     return;
                 }
 
+                decimal purchasePrice = InputValidator.ParseToDecimal(PurchasePriceTxt.Text);
+
                 if (!string.IsNullOrEmpty(SellingPriceTxt.Text.Trim()) && !InputValidator.IsValidPrice(SellingPriceTxt.Text))
                 {
                     MessageBox.Show("The selling price entered is not valid. Please enter a valid number.", "Invalid Selling Price", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                decimal sellingPrice = InputValidator.ParseToDecimal(SellingPriceTxt.Text);
 
                 InventoryRepository repository = new InventoryRepository();
 
@@ -109,6 +113,12 @@ namespace BenpilsBarcodeSystem
                     }
                 }
 
+                if (purchasePrice > sellingPrice)
+                {
+                    MessageBox.Show("Invalid input: The purchase price must not be higher than the selling price.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (await repository.UpdateProductAsync(
                     selectedID,
                     BarcodeTxt.Text,
@@ -118,8 +128,8 @@ namespace BenpilsBarcodeSystem
                     motorBrand,
                     size,
                     InputValidator.ParseToInt(QuantityTxt.Text),
-                    InputValidator.ParseToDecimal(PurchasePriceTxt.Text),
-                    InputValidator.ParseToDecimal(SellingPriceTxt.Text)
+                    purchasePrice,
+                    sellingPrice
                 ))
                 {
                     isUpdating = false;

@@ -33,7 +33,7 @@ namespace BenpilsBarcodeSystem
         public PurchaseOrder()
         {
             InitializeComponent();
-            InputValidator.AllowOnlyDigits(ContactNoTxt);
+            InputValidator.AllowOnlyPhoneNumber(ContactNoTxt);
             Util.SetDateTimePickerFormat("MMM dd, yyyy", OrderDt, DeliveryDt);
         }
 

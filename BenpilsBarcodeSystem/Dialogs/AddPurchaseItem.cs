@@ -151,7 +151,11 @@ namespace BenpilsBarcodeSystem.Dialogs
                     return;
                 }
 
-                
+                if (SelectedItem.PurchasePrice < 1)
+                {
+                    MessageBox.Show("The selected item has a purchase price of 0. Please update the item's data in the inventory.", "Inventory Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (isExistingItem)
                 {

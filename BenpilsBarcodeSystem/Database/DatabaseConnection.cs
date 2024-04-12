@@ -41,7 +41,18 @@ namespace BenpilsBarcodeSystem.Database
                     }
                     else
                     {
-                        throw new Exception("Unable to connect to server");
+                        DataSource = "localhost\\SQLExpress";
+                        connectionString = $"Data Source={DataSource};Initial Catalog={InitialCatalog};Integrated Security=True";
+
+                        if (TestConnection(connectionString))
+                        {
+                            Properties.Settings.Default.ConnectionString = connectionString;
+                            Properties.Settings.Default.Save();
+                        }
+                        else
+                        {
+                            throw new Exception("Unable to connect to server");
+                        }
                     }
                 }
             }
@@ -61,18 +72,22 @@ namespace BenpilsBarcodeSystem.Database
 
         private bool TestConnection(string connectionString)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            string dataSource = new SqlConnectionStringBuilder(connectionString).DataSource;
+
+            string testConnectionString = $"Data Source={dataSource};Integrated Security=True";
+
+            using (SqlConnection connection = new SqlConnection(testConnectionString))
             {
                 connection.ConnectionString += ";Connect Timeout=5";
                 try
                 {
                     connection.Open();
-                    Console.WriteLine($"Successfully established a connection with: ({connectionString})");
+                    Console.WriteLine($"Successfully established a connection with: ({testConnectionString})");
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Unable to establish a connection with: ({connectionString}). The following error occurred: '{ex.Message}'.");
+                    Console.WriteLine($"Unable to establish a connection with: ({testConnectionString}). The following error occurred: '{ex.Message}'.");
                     return false;
                 }
             }

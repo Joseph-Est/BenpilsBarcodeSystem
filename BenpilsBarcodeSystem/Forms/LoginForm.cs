@@ -42,6 +42,7 @@ namespace BenpilsBarcodeSystem
             else
             {
                 MessageBox.Show("The application was unable to initialize the database and will now exit. Please check your database configuration and try again.", "Database Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
 
             UsernameTxt.Select();
@@ -76,7 +77,7 @@ namespace BenpilsBarcodeSystem
                                 MainForm dash = new MainForm();
                                 dash.Show();
                                 dash.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                                this.Hide();
+                                    this.Hide();
                                 break;
                             case 1:
                                 MessageBox.Show("The username you entered does not match any account. Please check your username and try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);

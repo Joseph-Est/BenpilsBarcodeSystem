@@ -4,38 +4,78 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem.Database
 {
     internal class DatabaseConnection
     {
-        private readonly string DataSource;
         private const string InitialCatalog = "BenpilsMotorcycleDatabase";
         private readonly string connectionString;
 
         public DatabaseConnection()
         {
             string projectConnectionString = Properties.Settings.Default.ConnectionString;
-
             if (!string.IsNullOrEmpty(projectConnectionString))
             {
                 connectionString = projectConnectionString;
             }
             else
             {
-                DataSource = Environment.MachineName;
+                string DataSource = ".\\SQLExpress";
                 connectionString = $"Data Source={DataSource};Initial Catalog={InitialCatalog};Integrated Security=True";
+                if (TestConnection(connectionString))
+                {
+                    Properties.Settings.Default.ConnectionString = connectionString;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    DataSource = Environment.MachineName;
+                    connectionString = $"Data Source={DataSource};Initial Catalog={InitialCatalog};Integrated Security=True";
+                    
+                    if (TestConnection(connectionString))
+                    {
+                        Properties.Settings.Default.ConnectionString = connectionString;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        throw new Exception("Unable to connect to server");
+                    }
+                }
             }
         }
 
         public string GetServerConnectionString()
         {
-            return $"Data Source={DataSource};Integrated Security=True;TrustServerCertificate=True";
+            string dataSource = new SqlConnectionStringBuilder(connectionString).DataSource;
+
+            return $"Data Source={dataSource};Integrated Security=True;TrustServerCertificate=True;Connect Timeout=5";
         }
 
         public string GetDbName()
         {
             return InitialCatalog;
+        }
+
+        private bool TestConnection(string connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.ConnectionString += ";Connect Timeout=5";
+                try
+                {
+                    connection.Open();
+                    Console.WriteLine($"Successfully established a connection with: ({connectionString})");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Unable to establish a connection with: ({connectionString}). The following error occurred: '{ex.Message}'.");
+                    return false;
+                }
+            }
         }
 
         public SqlConnection OpenConnection()
@@ -47,7 +87,7 @@ namespace BenpilsBarcodeSystem.Database
                 return connection;
             }catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine(ex.Message);
                 return null;
             }
         }
@@ -74,30 +114,39 @@ namespace BenpilsBarcodeSystem.Database
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine(ex.Message);
                 return null;
             }
         }
 
         public async Task<bool> DatabaseExistsAsync()
         {
-            using (SqlConnection connection = OpenServerConnection())
+            try
             {
-                if (connection != null)
+                using (SqlConnection connection = OpenServerConnection())
                 {
-                    using (SqlCommand command = new SqlCommand($"SELECT database_id FROM sys.databases WHERE Name = '{InitialCatalog}'", connection))
+                    if (connection != null)
                     {
-                        command.CommandTimeout = 10;
+                        using (SqlCommand command = new SqlCommand($"SELECT database_id FROM sys.databases WHERE Name = '{InitialCatalog}'", connection))
+                        {
+                            command.CommandTimeout = 10;
 
-                        object result = await command.ExecuteScalarAsync();
-                        return result != null;
+                            object result = await command.ExecuteScalarAsync();
+                            return result != null;
+                        }
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
-                else
-                {
-                    return false;
-                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DatabaseExistsMethod Error:{ex}");
+                return false;
+            }
+            
         }
     }
 }

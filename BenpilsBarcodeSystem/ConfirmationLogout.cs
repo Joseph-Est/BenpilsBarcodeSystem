@@ -29,7 +29,7 @@ namespace BenpilsBarcodeSystem
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-            Form1 form = new Form1();
+            LoginForm form = new LoginForm();
             form.Show();
         }
 

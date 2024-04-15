@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         private bool isDragging = false;
         private int mouseX, mouseY;
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }

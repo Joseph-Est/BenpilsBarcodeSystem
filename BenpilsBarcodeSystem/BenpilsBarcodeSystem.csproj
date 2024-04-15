@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,26 +40,99 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.35.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.35.0\lib\net472\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.10.3.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Identity.1.10.3\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs, Version=12.18.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Blobs.12.18.0\lib\netstandard2.0\Azure.Storage.Blobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Common, Version=12.17.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Common.12.17.0\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.1.0\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.21.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.SqlClient.5.1.4\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.56.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.56.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=4.56.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.Extensions.Msal.4.56.0\lib\netstandard2.0\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.24.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.24.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.24.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.24.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.24.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.24.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.AppContext.4.1.0\lib\net463\System.AppContext.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Console, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.0.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Tracing, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.Tracing.4.1.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
@@ -68,6 +144,10 @@
       <HintPath>..\packages\System.Globalization.Calendars.4.0.1\lib\net46\System.Globalization.Calendars.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.24.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
     <Reference Include="System.IO, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.1.0\lib\net462\System.IO.dll</HintPath>
@@ -90,10 +170,16 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Hashing.6.0.0\lib\net461\System.IO.Hashing.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.4.1.0\lib\net463\System.Linq.dll</HintPath>
@@ -105,6 +191,13 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.1.0\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -116,15 +209,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Reflection, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reflection.4.1.0\lib\net462\System.Reflection.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Resources.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Resources.Extensions.4.6.0\lib\netstandard2.0\System.Resources.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.1.0\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.Extensions.4.1.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
@@ -136,10 +238,14 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.2.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
@@ -156,16 +262,40 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.1.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.RegularExpressions.4.1.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -174,8 +304,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="USB-Barcode-Scanner">
-      <HintPath>..\..\..\..\Desktop\USB-Barcode-Scanner.dll</HintPath>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
     <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
@@ -188,346 +319,216 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItemSupplier.cs">
+    <Compile Include="Dialogs\AddItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItemSupplier.Designer.cs">
-      <DependentUpon>AddItemSupplier.cs</DependentUpon>
+    <Compile Include="Dialogs\AddItem.Designer.cs">
+      <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="BenpillBarcodeDatabaseInventory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleArchivedItemMaster.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabasefinal1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinalChange.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartDatabaseFinalFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleCartFinalReally.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseDataSet21.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePOStable22.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseSupplier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleDatabaseVoidTable.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmasterdata2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmasterDataMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemMasterDataOnPOS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleItemmmasterdataforPOS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleMasterData2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcyclePurchaseOrderList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcyclePurchaseOrderListMain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceReportDatabases.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServices.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesDataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesDatabaseFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicestransactionDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServicesTransactionsDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleServiceTransactions.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleStockManagementDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSuppier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSupplier.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleSupplierList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleTableCartDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BenpillMotorcycleUsercredentialmain.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ConfirmationExit.cs">
+    <Compile Include="Dialogs\ConfirmationWithRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmationExit.Designer.cs">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
+    <Compile Include="Dialogs\ConfirmationWithRemarks.Designer.cs">
+      <DependentUpon>ConfirmationWithRemarks.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmationLogout.cs">
+    <Compile Include="Dialogs\Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmationLogout.Designer.cs">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <Compile Include="Dialogs\Confirmation.Designer.cs">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Database\DatabaseInitializer.cs" />
+    <Compile Include="Dialogs\AddPurchaseItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="Dialogs\AddPurchaseItem.Designer.cs">
+      <DependentUpon>AddPurchaseItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Datatableservices.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Dialogs\DateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Dialogs\DateDialog.Designer.cs">
+      <DependentUpon>DateDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenerateBarcode.cs">
+    <Compile Include="Dialogs\LoadingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GenerateBarcode.Designer.cs">
+    <Compile Include="Dialogs\LoadingDialog.Designer.cs">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\LogsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\LogsDialog.Designer.cs">
+      <DependentUpon>LogsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\OrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OrderDetails.Designer.cs">
+      <DependentUpon>OrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\QuantityDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\QuantityDialog.Designer.cs">
+      <DependentUpon>QuantityDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SearchItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SearchItem.Designer.cs">
+      <DependentUpon>SearchItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TableDialog.Designer.cs">
+      <DependentUpon>TableDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BackupSettings.cs" />
+    <Compile Include="Entities\CurrentUser.cs" />
+    <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\PurchaseOrderEntity.cs" />
+    <Compile Include="Entities\SalesData.cs" />
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GenerateBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\GenerateBarcode.Designer.cs">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs">
+    <Compile Include="Helpers\AutoBackupManager.cs" />
+    <Compile Include="Helpers\InputValidator.cs" />
+    <Compile Include="Panels\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory.Designer.cs">
+    <Compile Include="Panels\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
-    <Compile Include="POSS.cs">
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Panels\POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="POSS.Designer.cs">
-      <DependentUpon>POSS.cs</DependentUpon>
+    <Compile Include="Panels\POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Print Invoice.cs">
+    <Compile Include="Panels\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Print Invoice.Designer.cs">
-      <DependentUpon>Print Invoice.cs</DependentUpon>
+    <Compile Include="Panels\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Purchaserr.cs">
+    <Compile Include="Panels\PurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchaserr.Designer.cs">
-      <DependentUpon>Purchaserr.cs</DependentUpon>
+    <Compile Include="Panels\PurchaseOrder.Designer.cs">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quantityform.cs">
+    <Compile Include="Dialogs\ReduceStockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quantityform.Designer.cs">
-      <DependentUpon>Quantityform.cs</DependentUpon>
+    <Compile Include="Dialogs\ReduceStockForm.Designer.cs">
+      <DependentUpon>ReduceStockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports.cs">
+    <Compile Include="Panels\Reports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.cs">
+    <Compile Include="Panels\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service Invoice.cs">
+    <Compile Include="Panels\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Service Invoice.Designer.cs">
-      <DependentUpon>Service Invoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Services.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Services.Designer.cs">
-      <DependentUpon>Services.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Panels\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatisticReport.cs">
+    <Compile Include="Panels\StatisticReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatisticReport.Designer.cs">
+    <Compile Include="Panels\StatisticReport.Designer.cs">
       <DependentUpon>StatisticReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCredentials.cs">
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Panels\UserCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserCredentials.Designer.cs">
+    <Compile Include="Panels\UserCredentials.Designer.cs">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddItemSupplier.resx">
-      <DependentUpon>AddItemSupplier.cs</DependentUpon>
+    <Compile Include="Repositories\InventoryRepository.cs" />
+    <Compile Include="Repositories\POSRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderRepository.cs" />
+    <Compile Include="Repositories\ReportsRepository.cs" />
+    <Compile Include="Repositories\SuppliersRepository.cs" />
+    <Compile Include="Repositories\UserCredentialsRepository.cs" />
+    <Compile Include="Helpers\Util.cs" />
+    <EmbeddedResource Include="Dialogs\AddItem.resx">
+      <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmationExit.resx">
-      <DependentUpon>ConfirmationExit.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\AddPurchaseItem.resx">
+      <DependentUpon>AddPurchaseItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmationLogout.resx">
-      <DependentUpon>ConfirmationLogout.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ConfirmationWithRemarks.resx">
+      <DependentUpon>ConfirmationWithRemarks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\Confirmation.resx">
+      <DependentUpon>Confirmation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\DateDialog.resx">
+      <DependentUpon>DateDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GenerateBarcode.resx">
+    <EmbeddedResource Include="Dialogs\LoadingDialog.resx">
+      <DependentUpon>LoadingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\LogsDialog.resx">
+      <DependentUpon>LogsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\OrderDetails.resx">
+      <DependentUpon>OrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\QuantityDialog.resx">
+      <DependentUpon>QuantityDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SearchItem.resx">
+      <DependentUpon>SearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TableDialog.resx">
+      <DependentUpon>TableDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\GenerateBarcode.resx">
       <DependentUpon>GenerateBarcode.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory.resx">
+    <EmbeddedResource Include="Panels\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="POSS.resx">
-      <DependentUpon>POSS.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Print Invoice.resx">
-      <DependentUpon>Print Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -537,483 +538,27 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Purchaserr.resx">
-      <DependentUpon>Purchaserr.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\PurchaseOrder.resx">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Quantityform.resx">
-      <DependentUpon>Quantityform.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ReduceStockForm.resx">
+      <DependentUpon>ReduceStockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
+    <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Service Invoice.resx">
-      <DependentUpon>Service Invoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Services.resx">
-      <DependentUpon>Services.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Panels\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatisticReport.resx">
+    <EmbeddedResource Include="Panels\StatisticReport.resx">
       <DependentUpon>StatisticReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCredentials.resx">
+    <EmbeddedResource Include="Panels\UserCredentials.resx">
       <DependentUpon>UserCredentials.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BenpillBarcodeDatabaseInventory.xsc">
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillBarcodeDatabaseInventory.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillBarcodeDatabaseInventory.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillBarcodeDatabaseInventory.xss">
-      <DependentUpon>BenpillBarcodeDatabaseInventory.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xsc">
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleArchivedItemMaster.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleArchivedItemMaster.xss">
-      <DependentUpon>BenpillMotorcycleArchivedItemMaster.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabase.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabasefinal1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabasefinal1.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabasefinal1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinalChange.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalChange.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalChange.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xsc">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartDatabaseFinalFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartDatabaseFinalFinal.xss">
-      <DependentUpon>BenpillMotorcycleCartDatabaseFinalFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xsc">
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleCartFinalReally.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleCartFinalReally.xss">
-      <DependentUpon>BenpillMotorcycleCartFinalReally.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet1.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseDataSet21.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseDataSet21.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseDataSet21.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable2.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePOStable22.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePOStable22.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePOStable22.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderList2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderList2.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderList2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsc">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabasePurchaseOrderListMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabasePurchaseOrderListMain.xss">
-      <DependentUpon>BenpillMotorcycleDatabasePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseSupplier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseSupplier.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xsc">
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleDatabaseVoidTable.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleDatabaseVoidTable.xss">
-      <DependentUpon>BenpillMotorcycleDatabaseVoidTable.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xsc">
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmasterdata2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterdata2.xss">
-      <DependentUpon>BenpillMotorcycleItemmasterdata2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xsc">
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmasterDataMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmasterDataMain.xss">
-      <DependentUpon>BenpillMotorcycleItemmasterDataMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsc">
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemMasterDataOnPOS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemMasterDataOnPOS.xss">
-      <DependentUpon>BenpillMotorcycleItemMasterDataOnPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsc">
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleItemmmasterdataforPOS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleItemmmasterdataforPOS.xss">
-      <DependentUpon>BenpillMotorcycleItemmmasterdataforPOS.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xsc">
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleMasterData2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleMasterData2.xss">
-      <DependentUpon>BenpillMotorcycleMasterData2.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xsc">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcyclePurchaseOrderList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderList.xss">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsc">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcyclePurchaseOrderListMain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcyclePurchaseOrderListMain.xss">
-      <DependentUpon>BenpillMotorcyclePurchaseOrderListMain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xsc">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceReportDatabases.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceReportDatabases.xss">
-      <DependentUpon>BenpillMotorcycleServiceReportDatabases.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServices.xsc">
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServices.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServices.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServices.xss">
-      <DependentUpon>BenpillMotorcycleServices.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xsc">
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesDataBase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesDataBase.xss">
-      <DependentUpon>BenpillMotorcycleServicesDataBase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xsc">
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesDatabaseFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesDatabaseFinal.xss">
-      <DependentUpon>BenpillMotorcycleServicesDatabaseFinal.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicestransactionDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicestransactionDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServicestransactionDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServicesTransactionsDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServicesTransactionsDatabase.xss">
-      <DependentUpon>BenpillMotorcycleServicesTransactionsDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xsc">
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleServiceTransactions.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleServiceTransactions.xss">
-      <DependentUpon>BenpillMotorcycleServiceTransactions.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleStockManagementDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleStockManagementDatabase.xss">
-      <DependentUpon>BenpillMotorcycleStockManagementDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xsc">
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSuppier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSuppier.xss">
-      <DependentUpon>BenpillMotorcycleSuppier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xsc">
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSupplier.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSupplier.xss">
-      <DependentUpon>BenpillMotorcycleSupplier.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xsc">
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleSupplierList.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleSupplierList.xss">
-      <DependentUpon>BenpillMotorcycleSupplierList.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xsc">
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleTableCartDatabase.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleTableCartDatabase.xss">
-      <DependentUpon>BenpillMotorcycleTableCartDatabase.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xsc">
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BenpillMotorcycleUsercredentialmain.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BenpillMotorcycleUsercredentialmain.xss">
-      <DependentUpon>BenpillMotorcycleUsercredentialmain.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1028,5 +573,288 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-full-screen-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-lock-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-303.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ben_small-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-full-screen-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-point-of-sales-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-erase-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-unpacking-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-barcode-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-box-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-multiply-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-downloading-updates-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clipboard-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-documents-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-random-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-pencil-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restore-down-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-services-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-point-of-sales-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-30-white1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-services-30 -white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-analytics-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-graph-report-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-point-of-sales-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-basket-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-inventory-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-30-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-graph-report-30-ios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minus-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-15 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-archive-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-box-15 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-box-15 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-15 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-15 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-product-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-product-75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-total-sales-75 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-total-sales-75 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-coin-in-hand-75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-45 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-products-45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-package-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-coin-in-hand-75-edited.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-product-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sales-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-70 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money-bag-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sell-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sales-55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-351.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-package-351.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-30 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ben and ben.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-switch-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-on-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-toggle-off-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-icon-animated-gif-9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xconvert.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\database.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.5.1.1\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
 </Project>

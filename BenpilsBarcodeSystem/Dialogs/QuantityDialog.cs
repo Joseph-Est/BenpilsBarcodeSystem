@@ -64,5 +64,15 @@ namespace BenpilsBarcodeSystem.Dialogs
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void QuantityTxt_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
+        }
     }
 }

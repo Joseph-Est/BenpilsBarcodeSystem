@@ -368,13 +368,13 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
-            {
-                e.Handled = true;
-                MessageBox.Show("The barcode you entered does not match any existing items. Please check the barcode and try again.", "Barcode Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                BarcodeTxt.Clear();
-                BarcodeTxt.Select();
-            }
+            //if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Return)
+            //{
+            //    e.Handled = true;
+            //    MessageBox.Show("The barcode you entered does not match any existing items. Please check the barcode and try again.", "Barcode Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    BarcodeTxt.Clear();
+            //    BarcodeTxt.Select();
+            //}
         }
 
         private void PrintReceipt()

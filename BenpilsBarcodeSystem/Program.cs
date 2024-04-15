@@ -13,10 +13,6 @@ namespace BenpilsBarcodeSystem
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
-
             if (mutex.WaitOne(TimeSpan.Zero, true))
             {
                 Application.EnableVisualStyles();

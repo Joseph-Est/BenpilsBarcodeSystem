@@ -13,11 +13,10 @@ namespace BenpilsBarcodeSystem
         [STAThread]
         static void Main()
         {
-<<<<<<< HEAD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-=======
+
             if (mutex.WaitOne(TimeSpan.Zero, true))
             {
                 Application.EnableVisualStyles();
@@ -29,7 +28,6 @@ namespace BenpilsBarcodeSystem
             {
                 MessageBox.Show("Only one instance of this application is allowed to run.");
             }
->>>>>>> test
         }
     }
 }

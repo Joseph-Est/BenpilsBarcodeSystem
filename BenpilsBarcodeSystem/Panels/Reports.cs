@@ -326,7 +326,6 @@ namespace BenpilsBarcodeSystem
 
             try
             {
-                Console.WriteLine("dumaan naman");
                 ReportsRepository repository = new ReportsRepository();
                 DataTable ir = await repository.GetInventoryReportsAsync(InventoryStartDateDt.Value, InventoryEndDateDt.Value, InventorySearchTxt.Text, inventoryPageNumber, inventoryPageSize);
 

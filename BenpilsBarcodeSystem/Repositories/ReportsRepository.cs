@@ -96,6 +96,7 @@ namespace BenpilsBarcodeSystem.Repository
                 FROM {tbl_inventory_report} ir
                 JOIN {InventoryRepository.tbl_name} im ON ir.{col_item_id} = im.{InventoryRepository.col_id}
                 JOIN {UserCredentialsRepository.tbl_name} uc ON ir.{col_modified_by} = uc.{UserCredentialsRepository.col_id}
+                {whereClause}
                 ORDER BY ir.{col_date} DESC
                 OFFSET {skip} ROWS FETCH NEXT {pageSize} ROWS ONLY";
 

@@ -33,6 +33,12 @@ namespace BenpilsBarcodeSystem.Dialogs
         {
             QuantityTxt.Text = defaultQuantity.ToString();
             QuantityTxt.Select();
+            QuantityTxt.TextChanged += QuantityTxt_TextChanged;
+        }
+
+        private void QuantityTxt_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = ConfirmBtn;
         }
 
         private void AcceptBtn_Click(object sender, EventArgs e)
@@ -70,11 +76,6 @@ namespace BenpilsBarcodeSystem.Dialogs
             canClose = true;
             DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void QuantityTxt_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)

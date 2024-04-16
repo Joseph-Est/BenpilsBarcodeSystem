@@ -33,7 +33,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.CancelBtn = new System.Windows.Forms.Button();
-            this.ConfrimBtn = new System.Windows.Forms.Button();
+            this.ConfirmBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.QuantityTxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -100,7 +100,7 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.CancelBtn);
-            this.panel14.Controls.Add(this.ConfrimBtn);
+            this.panel14.Controls.Add(this.ConfirmBtn);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(20, 139);
             this.panel14.MinimumSize = new System.Drawing.Size(230, 54);
@@ -126,21 +126,21 @@
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // ConfrimBtn
+            // ConfirmBtn
             // 
-            this.ConfrimBtn.BackColor = System.Drawing.Color.White;
-            this.ConfrimBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConfrimBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ConfrimBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ConfrimBtn.FlatAppearance.BorderSize = 0;
-            this.ConfrimBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.ConfrimBtn.Location = new System.Drawing.Point(0, 13);
-            this.ConfrimBtn.Name = "ConfrimBtn";
-            this.ConfrimBtn.Size = new System.Drawing.Size(110, 35);
-            this.ConfrimBtn.TabIndex = 142;
-            this.ConfrimBtn.Text = "Confirm";
-            this.ConfrimBtn.UseVisualStyleBackColor = false;
-            this.ConfrimBtn.Click += new System.EventHandler(this.AcceptBtn_Click);
+            this.ConfirmBtn.BackColor = System.Drawing.Color.White;
+            this.ConfirmBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConfirmBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ConfirmBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ConfirmBtn.FlatAppearance.BorderSize = 0;
+            this.ConfirmBtn.Font = new System.Drawing.Font("Arial", 9F);
+            this.ConfirmBtn.Location = new System.Drawing.Point(0, 13);
+            this.ConfirmBtn.Name = "ConfirmBtn";
+            this.ConfirmBtn.Size = new System.Drawing.Size(110, 35);
+            this.ConfirmBtn.TabIndex = 142;
+            this.ConfirmBtn.Text = "Confirm";
+            this.ConfirmBtn.UseVisualStyleBackColor = false;
+            this.ConfirmBtn.Click += new System.EventHandler(this.AcceptBtn_Click);
             // 
             // panel4
             // 
@@ -163,7 +163,6 @@
             this.QuantityTxt.Size = new System.Drawing.Size(230, 25);
             this.QuantityTxt.TabIndex = 1;
             this.QuantityTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.QuantityTxt.TextChanged += new System.EventHandler(this.QuantityTxt_TextChanged);
             this.QuantityTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityTxt_KeyPress);
             // 
             // panel1
@@ -356,7 +355,7 @@
         private System.Windows.Forms.Label SizeLbl;
         private System.Windows.Forms.Label ItemLbl;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Button ConfrimBtn;
+        private System.Windows.Forms.Button ConfirmBtn;
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label PriceLblTxt;

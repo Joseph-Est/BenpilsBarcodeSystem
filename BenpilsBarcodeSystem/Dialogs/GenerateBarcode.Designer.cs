@@ -98,6 +98,7 @@
             this.ManualRegenratetxt.Size = new System.Drawing.Size(247, 20);
             this.ManualRegenratetxt.TabIndex = 1;
             this.ManualRegenratetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ManualRegenratetxt.TextChanged += new System.EventHandler(this.ManualRegenratetxt_TextChanged);
             this.ManualRegenratetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ManualRegenratetxt_KeyPress);
             // 
             // panel2
@@ -119,6 +120,7 @@
             // 
             this.CopyBtn.BackColor = System.Drawing.Color.White;
             this.CopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CopyBtn.Enabled = false;
             this.CopyBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CopyBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_documents_15;
             this.CopyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;

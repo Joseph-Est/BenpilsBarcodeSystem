@@ -33,21 +33,34 @@ namespace BenpilsBarcodeSystem.Dialogs
         {
             QuantityTxt.Text = defaultQuantity.ToString();
             QuantityTxt.Select();
+            QuantityTxt.TextChanged += QuantityTxt_TextChanged;
+        }
+
+        private void QuantityTxt_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = ConfirmBtn;
         }
 
         private void AcceptBtn_Click(object sender, EventArgs e)
         {
-            if (InputValidator.ParseToInt(QuantityTxt.Text) > 0)
-            {
-                Quantity = InputValidator.ParseToInt(QuantityTxt.Text);
-                canClose = true;
-                DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
+            int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+            if (quantity < 1)
             {
                 MessageBox.Show("Please enter a valid Quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            if(quantity > InputValidator.ParseToInt(StockLbl.Text))
+            {
+                MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                QuantityTxt.Select();
+                return;
+            }
+
+            Quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+            canClose = true;
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void QuantityDialog_FormClosing(object sender, FormClosingEventArgs e)
@@ -63,6 +76,11 @@ namespace BenpilsBarcodeSystem.Dialogs
             canClose = true;
             DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void QuantityTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = e.KeyChar == (char)Keys.Enter;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,7 @@ namespace BenpilsBarcodeSystem
             BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
             generatedpicture.Image = barcodeWriter.Write(randomBarcode);
             ManualRegenratetxt.Text = randomBarcode;
+            CopyBtn.Enabled = true;
         }
         private void ManualGenerateBtn_Click(object sender, EventArgs e)
         {
@@ -42,6 +44,8 @@ namespace BenpilsBarcodeSystem
 
                 // Display the generated barcode in the PictureBox.
                 generatedpicture.Image = barcodeBitmap;
+
+                CopyBtn.Enabled = true;
             }
             else
             {
@@ -110,6 +114,14 @@ namespace BenpilsBarcodeSystem
             if (!canClose)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void ManualRegenratetxt_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ManualRegenratetxt.Text.Trim()))
+            {
+                CopyBtn.Enabled = false;
             }
         }
 

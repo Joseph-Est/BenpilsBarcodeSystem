@@ -146,8 +146,8 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     using (SqlCommand cmd = new SqlCommand(selectQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@dateFrom", startDateWithTime);
-                        cmd.Parameters.AddWithValue("@dateTo", endDateWithTime);
+                        cmd.Parameters.AddWithValue("@dateFrom", startDateWithTime.ToString("s"));
+                        cmd.Parameters.AddWithValue("@dateTo", endDateWithTime.ToString("s"));
 
                         using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {

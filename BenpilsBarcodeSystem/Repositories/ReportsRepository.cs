@@ -109,8 +109,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         DataTable dt = new DataTable();
@@ -162,8 +162,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         command.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         int count = (int)await command.ExecuteScalarAsync();
@@ -238,8 +238,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         DataTable dt = new DataTable();
@@ -304,8 +304,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         command.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         int count = (int)await command.ExecuteScalarAsync();
@@ -353,8 +353,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
 
                         DataTable dt = new DataTable();
                         await Task.Run(() => adapter.Fill(dt));
@@ -422,8 +422,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         DataTable dt = new DataTable();
@@ -475,8 +475,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         command.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         int count = (int)await command.ExecuteScalarAsync();
@@ -555,8 +555,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        adapter.SelectCommand.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        adapter.SelectCommand.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         DataTable dt = new DataTable();
@@ -610,8 +610,8 @@ namespace BenpilsBarcodeSystem.Repository
                         DateTime startDateWithTime = startDate.Date.Add(new TimeSpan(00, 00, 00));
                         DateTime endDateWithTime = endDate.Date.Add(new TimeSpan(23, 59, 59));
 
-                        command.Parameters.AddWithValue("@StartDate", startDateWithTime);
-                        command.Parameters.AddWithValue("@EndDate", endDateWithTime);
+                        command.Parameters.AddWithValue("@StartDate", startDateWithTime.ToString("s"));
+                        command.Parameters.AddWithValue("@EndDate", endDateWithTime.ToString("s"));
                         command.Parameters.AddWithValue("@SearchTxt", searchText);
 
                         int count = (int)await command.ExecuteScalarAsync();

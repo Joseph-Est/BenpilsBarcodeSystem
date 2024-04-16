@@ -169,7 +169,8 @@
             this.ReasonCb.FormattingEnabled = true;
             this.ReasonCb.Items.AddRange(new object[] {
             "Damaged",
-            "Lost"});
+            "Lost",
+            "Expired"});
             this.ReasonCb.Location = new System.Drawing.Point(142, 122);
             this.ReasonCb.Name = "ReasonCb";
             this.ReasonCb.Size = new System.Drawing.Size(163, 23);

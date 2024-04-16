@@ -16,7 +16,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace BenpilsBarcodeSystem
 {
@@ -26,6 +25,7 @@ namespace BenpilsBarcodeSystem
         {
             InitializeComponent();
             Util.SetDateTimePickerFormat("MMM dd, yyyy", InventoryStartDateDt, InventoryEndDateDt, PurchaseEndDateDt, PurchaseStartDateDt, SalesStartDateDt, SalesEndDateDt, AuditEndDateDt, AuditStartDateDt);
+            CheckToday();
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -92,21 +92,25 @@ namespace BenpilsBarcodeSystem
                         InventoryEndDateDt.MinDate = InventoryStartDateDt.Value;
                         UpdateInventoryReportsDG();
                         InventoryCancelDateCb.Visible = InventoryStartDateDt.Value != DateTime.Today || InventoryEndDateDt.Value != DateTime.Today;
+                        inventoryPageNumber = 1;
                         break;
                     case "PurchaseStartDateDt":
                         PurchaseEndDateDt.MinDate = PurchaseStartDateDt.Value;
                         UpdatePurchaseReportDG();
                         PurchaseCancelDateCb.Visible = PurchaseStartDateDt.Value != DateTime.Today || PurchaseEndDateDt.Value != DateTime.Today;
+                        prPageNumber = 1;
                         break;
                     case "SalesStartDateDt":
                         SalesEndDateDt.MinDate = SalesStartDateDt.Value;
                         UpdateSalesReportDG();
                         SalesCancelDateCb.Visible = SalesStartDateDt.Value != DateTime.Today || SalesEndDateDt.Value != DateTime.Today;
+                        srPageNumber = 1;
                         break;
                     case "AuditStartDateDt":
                         AuditEndDateDt.MinDate = AuditStartDateDt.Value;
                         UpdateAuditTrailDG();
                         AuditCancelDateCb.Visible = AuditStartDateDt.Value != DateTime.Today || AuditEndDateDt.Value != DateTime.Today;
+                        auditTrailPageNumber = 1;
                         break;
 
                 }
@@ -123,18 +127,22 @@ namespace BenpilsBarcodeSystem
                     case "InventoryEndDateDt":
                         UpdateInventoryReportsDG();
                         InventoryCancelDateCb.Visible = InventoryStartDateDt.Value != DateTime.Today || InventoryEndDateDt.Value != DateTime.Today;
+                        inventoryPageNumber = 1;
                         break;
                     case "PurchaseEndDateDt":
                         UpdatePurchaseReportDG();
                         PurchaseCancelDateCb.Visible = PurchaseStartDateDt.Value != DateTime.Today || PurchaseEndDateDt.Value != DateTime.Today;
+                        prPageNumber = 1;
                         break;
                     case "SalesEndDateDt":
                         UpdateSalesReportDG();
                         SalesCancelDateCb.Visible = SalesStartDateDt.Value != DateTime.Today || SalesEndDateDt.Value != DateTime.Today;
+                        srPageNumber = 1;
                         break;
                     case "AuditEndDateDt":
                         UpdateAuditTrailDG();
                         AuditCancelDateCb.Visible = AuditStartDateDt.Value != DateTime.Today || AuditEndDateDt.Value != DateTime.Today;
+                        auditTrailPageNumber = 1;
                         break;
 
                 }
@@ -148,20 +156,16 @@ namespace BenpilsBarcodeSystem
                 switch (checkBox.Name)
                 {
                     case "InventoryCancelDateCb":
-                        InventoryStartDateDt.Value = DateTime.Today;
-                        InventoryEndDateDt.Value = DateTime.Today;
+                        InventoryTodayCb.Checked = true;
                         break;
                     case "PurchaseCancelDateCb":
-                        PurchaseStartDateDt.Value = DateTime.Today;
-                        PurchaseEndDateDt.Value = DateTime.Today;
+                        PurchaseTodayCb.Checked = true;
                         break;
                     case "SalesCancelDateCb":
-                        SalesStartDateDt.Value = DateTime.Today;
-                        SalesEndDateDt.Value = DateTime.Today;
+                        SalesTodayCb.Checked = true;
                         break;
                     case "AuditCancelDateCb":
-                        AuditStartDateDt.Value = DateTime.Today;
-                        AuditEndDateDt.Value = DateTime.Today;
+                        AuditTodayCb.Checked = true;
                         break;
 
                 }
@@ -218,6 +222,94 @@ namespace BenpilsBarcodeSystem
                 }
                 checkBox.Visible = false;
             }
+        }
+
+        private void DateCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is CheckBox senderCb && senderCb.Checked)
+            {
+                var sets = new[]
+                {
+                    new { TodayCb = InventoryTodayCb, WeekCb = InventoryWeekCb, MonthCb = InventoryMonthCb, YearCb = InventoryYearCb, StartDateDt = InventoryStartDateDt, EndDateDt = InventoryEndDateDt, PageNumber = inventoryPageNumber },
+                    new { TodayCb = PurchaseTodayCb, WeekCb = PurchaseWeekCb, MonthCb = PurchaseMonthCb, YearCb = PurchaseYearCb, StartDateDt = PurchaseStartDateDt, EndDateDt = PurchaseEndDateDt, PageNumber = prPageNumber  },
+                    new { TodayCb = SalesTodayCb, WeekCb = SalesWeekCb, MonthCb = SalesMonthCb, YearCb = SalesYearCb, StartDateDt = SalesStartDateDt, EndDateDt = SalesEndDateDt , PageNumber = srPageNumber },
+                    new { TodayCb = AuditTodayCb, WeekCb = AuditWeekCb, MonthCb = AuditMonthCb, YearCb = AuditYearCb, StartDateDt = AuditStartDateDt, EndDateDt = AuditEndDateDt, PageNumber = auditTrailPageNumber  },
+                };
+
+                foreach (var set in sets)
+                {
+                    var checkboxes = new[] { set.TodayCb, set.WeekCb, set.MonthCb, set.YearCb };
+                    if (checkboxes.Contains(senderCb))
+                    {
+                        foreach (var checkbox in checkboxes)
+                        {
+                            if (checkbox != senderCb)
+                            {
+                                checkbox.Checked = false;
+                            }
+                        }
+
+                        if (senderCb == set.TodayCb)
+                        {
+                            if (set.StartDateDt.Value.Date != DateTime.Today)
+                            {
+                                set.StartDateDt.Value = DateTime.Today;
+                            }
+                            if (set.EndDateDt.Value.Date != DateTime.Today)
+                            {
+                                set.EndDateDt.Value = DateTime.Today;
+                            }
+                        }
+                        else if (senderCb == set.WeekCb)
+                        {
+                            DateTime today = DateTime.Today;
+                            set.StartDateDt.Value = today.AddDays(-(int)today.DayOfWeek).Date;
+                            set.EndDateDt.Value = today;
+                        }
+                        else if (senderCb == set.MonthCb)
+                        {
+                            DateTime firstDayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                            DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                            set.StartDateDt.Value = firstDayOfMonth;
+                            set.EndDateDt.Value = lastDayOfMonth;
+                        }
+                        else if (senderCb == set.YearCb)
+                        {
+                            DateTime firstDayOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+                            DateTime lastDayOfYear = new DateTime(DateTime.Today.Year, 12, 31);
+                            set.StartDateDt.Value = firstDayOfYear;
+                            set.EndDateDt.Value = lastDayOfYear;
+                        }
+
+                        UpdateCheckboxStyles(set.TodayCb, set.WeekCb, set.MonthCb, set.YearCb);
+                    }
+                }
+            }
+        }
+
+        private void UpdateCheckboxStyles(params CheckBox[] checkboxes)
+        {
+            foreach (var checkbox in checkboxes)
+            {
+                if (checkbox.Checked)
+                {
+                    checkbox.BackColor = Color.FromArgb(40, 40, 40);
+                    checkbox.ForeColor = Color.White;
+                }
+                else
+                {
+                    checkbox.BackColor = SystemColors.Control;
+                    checkbox.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void CheckToday()
+        {
+            InventoryTodayCb.Checked = true;
+            PurchaseTodayCb.Checked = true;
+            SalesTodayCb.Checked = true;
+            AuditTodayCb.Checked = true;
         }
 
         //INVENTORY REPORT

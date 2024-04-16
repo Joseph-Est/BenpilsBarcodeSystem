@@ -37,17 +37,24 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private void AcceptBtn_Click(object sender, EventArgs e)
         {
-            if (InputValidator.ParseToInt(QuantityTxt.Text) > 0)
-            {
-                Quantity = InputValidator.ParseToInt(QuantityTxt.Text);
-                canClose = true;
-                DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
+            int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+            if (quantity < 1)
             {
                 MessageBox.Show("Please enter a valid Quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            if(quantity > InputValidator.ParseToInt(StockLbl.Text))
+            {
+                MessageBox.Show("Item Quantity exceeds the available stock.", "Insufficient Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                QuantityTxt.Select();
+                return;
+            }
+
+            Quantity = InputValidator.ParseToInt(QuantityTxt.Text);
+            canClose = true;
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void QuantityDialog_FormClosing(object sender, FormClosingEventArgs e)

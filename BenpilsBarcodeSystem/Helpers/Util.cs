@@ -158,6 +158,8 @@ namespace BenpilsBarcodeSystem.Utils
             string contactNo = "09295228592";
             string shopAddress = "Ortigas, Cainta, Rizal";
             string thankYouMessage = "Thank you for shopping, have a great day!!";
+            string cashier = "Cashier:";
+            string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
 
             int y = 10;
 
@@ -176,6 +178,12 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawText(graphics, space, fontDash, y, 315);
                 y = DrawText(graphics, delivery, fontRegularSmall, y, 315);
                 y = DrawText(graphics, deliveryDate, fontBoldSmall, y, 315);
+            }
+            else
+            {
+                y = DrawText(graphics, dashes, fontDash, y + 10, 315);
+                y = DrawText(graphics, cashier, fontRegularSmall, y, 315);
+                y = DrawText(graphics, cashierName, fontBoldSmall, y, 315, 30);
             }
 
             y = DrawText(graphics, dashes, fontDash, y + 5, 315);

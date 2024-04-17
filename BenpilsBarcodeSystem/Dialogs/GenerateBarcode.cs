@@ -33,24 +33,38 @@ namespace BenpilsBarcodeSystem
         }
         private void ManualGenerateBtn_Click(object sender, EventArgs e)
         {
-            string inputText = ManualRegenratetxt.Text;
-
-            if (!string.IsNullOrWhiteSpace(inputText))
+            
+            if (ManualGenerateBtn.Text.Contains("Manual"))
             {
-                BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
-
-                // Generate the barcode image.
-                var barcodeBitmap = barcodeWriter.Write(inputText);
-
-                // Display the generated barcode in the PictureBox.
-                generatedpicture.Image = barcodeBitmap;
-
-                CopyBtn.Enabled = true;
+                ManualRegenratetxt.ReadOnly = false;
+                GenerateBtn.Enabled = false;
+                ManualGenerateBtn.Text = " Generate";
             }
             else
             {
-                MessageBox.Show("Please enter the Data for which you want to generate a barcode.", "No Data Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string inputText = ManualRegenratetxt.Text;
+
+                if (!string.IsNullOrWhiteSpace(inputText))
+                {
+                    BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
+
+                    // Generate the barcode image.
+                    var barcodeBitmap = barcodeWriter.Write(inputText);
+
+                    // Display the generated barcode in the PictureBox.
+                    generatedpicture.Image = barcodeBitmap;
+                    ManualGenerateBtn.Text = " Manual";
+                    ManualRegenratetxt.ReadOnly = true;
+                    GenerateBtn.Enabled = true;
+                    CopyBtn.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter the Data for which you want to generate a barcode.", "No Data Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+
+            
         }
         private void ClearBtn_Click(object sender, EventArgs e)
         {

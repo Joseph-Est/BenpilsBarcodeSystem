@@ -8,7 +8,9 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -31,13 +33,15 @@ namespace BenpilsBarcodeSystem.Repository
             string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
             string updateItemQuantityQuery = $"UPDATE tbl_item_master_data SET Quantity = Quantity - @Quantity WHERE id = @ItemId";
 
+            SqlTransaction transaction = null;
+
             try
             {
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
                     ReportsRepository repository = new ReportsRepository();
 
-                    using (SqlTransaction transaction = con.BeginTransaction())
+                    using (transaction = con.BeginTransaction())
                     {
                         using (SqlCommand cmd = new SqlCommand(insertOrderQuery, con, transaction))
                         {
@@ -49,8 +53,12 @@ namespace BenpilsBarcodeSystem.Repository
 
                             cmd.CommandText = insertOrderDetailsQuery;
 
+                            int itemCount = 0;
+
                             foreach (var item in cart.Items)
                             {
+                                itemCount += item.Quantity;
+
                                 using (SqlCommand cmdDetails = new SqlCommand(insertOrderDetailsQuery, con, transaction))
                                 {
                                     cmdDetails.Parameters.AddWithValue("@transactionId", transactionId);
@@ -72,6 +80,11 @@ namespace BenpilsBarcodeSystem.Repository
 
                                 newStock = oldStock - item.Quantity;
 
+                                if (newStock < 0)
+                                {
+                                    throw new Exception("New stock quantity cannot be negative.");
+                                }
+
                                 using (SqlCommand cmdUpdateItemQuantity = new SqlCommand(updateItemQuantityQuery, con, transaction))
                                 {
                                     cmdUpdateItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
@@ -87,6 +100,13 @@ namespace BenpilsBarcodeSystem.Repository
                                     throw new Exception("Failed to add inventory report");
                                 }
                             }
+
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "POS Transaction", $"User has sold {itemCount} item(s). Transaction no. {transactionId}.");
+
+                            if (!auditTrailAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
+                            }
                         }
 
                         transaction.Commit();
@@ -96,6 +116,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
             catch (Exception ex)
             {
+                transaction?.Rollback();
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }

@@ -99,7 +99,6 @@
             this.ItemsSoldLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.SummaryLbl = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel24 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.SalesTodayCb = new System.Windows.Forms.CheckBox();
@@ -110,6 +109,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.SrPageLbl = new System.Windows.Forms.Label();
             this.SRNxtBtn = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.PurchaseReportTab = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.OrdersTbl = new System.Windows.Forms.DataGridView();
@@ -230,10 +230,10 @@
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel24.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.PurchaseReportTab.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).BeginInit();
@@ -274,8 +274,8 @@
             this.SalesReportTab.Controls.Add(this.panel5);
             this.SalesReportTab.Controls.Add(this.panel6);
             this.SalesReportTab.Controls.Add(this.panel9);
-            this.SalesReportTab.Controls.Add(this.pictureBox3);
             this.SalesReportTab.Controls.Add(this.panel24);
+            this.SalesReportTab.Controls.Add(this.pictureBox3);
             this.SalesReportTab.Location = new System.Drawing.Point(4, 28);
             this.SalesReportTab.Name = "SalesReportTab";
             this.SalesReportTab.Size = new System.Drawing.Size(1199, 678);
@@ -500,6 +500,7 @@
             this.SalesEndDateDt.Size = new System.Drawing.Size(160, 22);
             this.SalesEndDateDt.TabIndex = 183;
             this.SalesEndDateDt.ValueChanged += new System.EventHandler(this.EndDateDt_ValueChanged);
+            this.SalesEndDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label3
             // 
@@ -534,6 +535,7 @@
             this.SalesStartDateDt.Size = new System.Drawing.Size(160, 22);
             this.SalesStartDateDt.TabIndex = 182;
             this.SalesStartDateDt.ValueChanged += new System.EventHandler(this.StartDateDt_ValueChanged);
+            this.SalesStartDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label13
             // 
@@ -720,18 +722,6 @@
             this.SummaryLbl.Text = "SALES REPORT FOR TODAY";
             this.SummaryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(1279, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.UseWaitCursor = true;
-            this.pictureBox3.Visible = false;
-            // 
             // panel24
             // 
             this.panel24.Controls.Add(this.flowLayoutPanel3);
@@ -895,6 +885,18 @@
             this.SRNxtBtn.Text = "NEXT PAGE";
             this.SRNxtBtn.UseVisualStyleBackColor = false;
             this.SRNxtBtn.Click += new System.EventHandler(this.SRNxtBtn_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Location = new System.Drawing.Point(1279, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.UseWaitCursor = true;
+            this.pictureBox3.Visible = false;
             // 
             // PurchaseReportTab
             // 
@@ -1159,6 +1161,7 @@
             this.PurchaseEndDateDt.Size = new System.Drawing.Size(160, 22);
             this.PurchaseEndDateDt.TabIndex = 183;
             this.PurchaseEndDateDt.ValueChanged += new System.EventHandler(this.EndDateDt_ValueChanged);
+            this.PurchaseEndDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label1
             // 
@@ -1193,6 +1196,7 @@
             this.PurchaseStartDateDt.Size = new System.Drawing.Size(160, 22);
             this.PurchaseStartDateDt.TabIndex = 182;
             this.PurchaseStartDateDt.ValueChanged += new System.EventHandler(this.StartDateDt_ValueChanged);
+            this.PurchaseStartDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label11
             // 
@@ -1845,6 +1849,7 @@
             this.InventoryCancelDateCb.TabIndex = 187;
             this.InventoryCancelDateCb.UseVisualStyleBackColor = true;
             this.InventoryCancelDateCb.Visible = false;
+            this.InventoryCancelDateCb.CheckedChanged += new System.EventHandler(this.InventoryCancelDateCb_CheckedChanged);
             this.InventoryCancelDateCb.Click += new System.EventHandler(this.CancelDateCb_Click);
             // 
             // InventoryEndDateDt
@@ -1856,6 +1861,7 @@
             this.InventoryEndDateDt.Size = new System.Drawing.Size(160, 22);
             this.InventoryEndDateDt.TabIndex = 183;
             this.InventoryEndDateDt.ValueChanged += new System.EventHandler(this.EndDateDt_ValueChanged);
+            this.InventoryEndDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label8
             // 
@@ -1890,6 +1896,7 @@
             this.InventoryStartDateDt.Size = new System.Drawing.Size(160, 22);
             this.InventoryStartDateDt.TabIndex = 182;
             this.InventoryStartDateDt.ValueChanged += new System.EventHandler(this.StartDateDt_ValueChanged);
+            this.InventoryStartDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label2
             // 
@@ -1951,7 +1958,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(28, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(458, 32);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(464, 32);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // InventoryTodayCb
@@ -2021,7 +2028,7 @@
             this.InventoryYearCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InventoryYearCb.Font = new System.Drawing.Font("Arial", 8.25F);
             this.InventoryYearCb.Location = new System.Drawing.Point(345, 0);
-            this.InventoryYearCb.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.InventoryYearCb.Margin = new System.Windows.Forms.Padding(3, 0, 8, 0);
             this.InventoryYearCb.Name = "InventoryYearCb";
             this.InventoryYearCb.Size = new System.Drawing.Size(104, 32);
             this.InventoryYearCb.TabIndex = 11;
@@ -2317,6 +2324,7 @@
             this.AuditEndDateDt.Size = new System.Drawing.Size(160, 22);
             this.AuditEndDateDt.TabIndex = 183;
             this.AuditEndDateDt.ValueChanged += new System.EventHandler(this.EndDateDt_ValueChanged);
+            this.AuditEndDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label4
             // 
@@ -2351,6 +2359,7 @@
             this.AuditStartDateDt.Size = new System.Drawing.Size(160, 22);
             this.AuditStartDateDt.TabIndex = 182;
             this.AuditStartDateDt.ValueChanged += new System.EventHandler(this.StartDateDt_ValueChanged);
+            this.AuditStartDateDt.DropDown += new System.EventHandler(this.DateDt_DropDown);
             // 
             // label15
             // 
@@ -2564,12 +2573,12 @@
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.PurchaseReportTab.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersTbl)).EndInit();
@@ -2641,7 +2650,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn action;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn old_stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn new_stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn remarks;

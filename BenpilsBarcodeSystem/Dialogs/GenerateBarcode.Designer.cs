@@ -95,6 +95,7 @@
             this.ManualRegenratetxt.MaxLength = 15;
             this.ManualRegenratetxt.Multiline = true;
             this.ManualRegenratetxt.Name = "ManualRegenratetxt";
+            this.ManualRegenratetxt.ReadOnly = true;
             this.ManualRegenratetxt.Size = new System.Drawing.Size(247, 20);
             this.ManualRegenratetxt.TabIndex = 1;
             this.ManualRegenratetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

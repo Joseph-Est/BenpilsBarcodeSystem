@@ -1537,7 +1537,6 @@
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.DataGridView LowStockTbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.DataGridView OverdueTbl;
         private System.Windows.Forms.Panel panel5;

@@ -315,7 +315,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("The transaction failed due to an error. Please try again later.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("The transaction failed due to an error. Please try again.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

@@ -403,7 +403,9 @@ namespace BenpilsBarcodeSystem
             string[] products = CurrentCart.GetProductNames();
             decimal[] prices = CurrentCart.GetPrices();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text));
+            string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
+
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text), cashierName);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

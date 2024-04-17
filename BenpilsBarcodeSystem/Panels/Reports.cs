@@ -15,6 +15,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
@@ -557,6 +558,71 @@ namespace BenpilsBarcodeSystem
                 srPageNumber--;
                 UpdateAuditTrailDG();
             }
+        }
+
+        private async void SalesTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+
+                if (row.Cells != null && row.Cells.Count > 0)
+                {
+                    if (senderGrid.Columns[e.ColumnIndex].Name == "generate_receipt")
+                    {
+                        string transactionId = row.Cells["transaction_id"].Value.ToString();
+
+                        POSRepository repository = new POSRepository();
+                        (Cart cart, decimal paymentReceived, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(transactionId);
+
+                        GenerateReceipt(transactionId, cart, salesPerson, paymentReceived, transactionDate);
+                        
+                    }
+                }
+            }
+        }
+
+        private void GenerateReceipt(string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        {
+            if (currentCart != null)
+            {
+                int itemRowCount = currentCart.Items.Count;
+                int paperHeight = 1000;
+
+                if (itemRowCount > 10)
+                {
+                    paperHeight += (itemRowCount - 10) * 20;
+                }
+
+                PrintDocument pd = new PrintDocument();
+
+                pd.PrintPage += (sender, e) => PrintDocument_PrintPage(sender, e, transactionNo, currentCart, salesPerson, paymentReceived, transactionDate);
+
+                pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, paperHeight);
+
+                PrintPreviewDialog ppd = new PrintPreviewDialog { Document = pd };
+                ppd.ShowDialog();
+            }
+        }
+
+        private static void PrintDocument_PrintPage(object sender, PrintPageEventArgs e, string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        {
+            //Bitmap bitmap = new Bitmap(315, 1000);
+
+            Graphics graphics = e.Graphics;
+
+            string TransactionNo = $"Trx No. {transactionNo}";
+
+            string[] products = currentCart.GetProductNames();
+            decimal[] prices = currentCart.GetPrices();
+
+            decimal change = paymentReceived - currentCart.GetTotalPrice();
+
+            Util.PrintReceipt(graphics, TransactionNo, products, prices, currentCart.GetTotalPrice(), paymentReceived, change, salesPerson, null, null, null, transactionDate);
+
+            //bitmap.Save("receipt.png", ImageFormat.Png);
         }
 
         //AUDIT TRAIL

@@ -144,16 +144,17 @@ namespace BenpilsBarcodeSystem.Utils
             return formattedDate;
         }
 
-        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string supplierName = null, string deliveryDate = null)
+        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string cashierName = null, string supplierName = null, string deliveryDate = null, string orderDate = null, string transactionDate = null)
         {
             Font fontBold = new Font("Courier New", 12, FontStyle.Bold);
             Font fontDash = new Font("Courier New", 12, FontStyle.Regular);
             Font fontRegularSmall = new Font("Courier New", 10, FontStyle.Regular);
             Font fontBoldSmall = new Font("Courier New", 10, FontStyle.Bold);
 
+            string date = transactionDate ?? orderDate ?? Util.ConvertDateShort(DateTime.Now);
             string dashes = "- - - - - - - - - - - - - - -";
             string space = " ";
-            string date = $"Date: {DateTime.Now:MM/dd/yyyy}";
+            date = $"Date: {date}";
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
             string shopName = "Benpils Motorcycle Parts and Accessories";
@@ -161,7 +162,6 @@ namespace BenpilsBarcodeSystem.Utils
             string shopAddress = "Ortigas, Cainta, Rizal";
             string thankYouMessage = "Thank you for shopping, have a great day!!";
             string cashier = "Cashier:";
-            string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
             string customerName = "Customer:";
             string customerField = "___________________";
 
@@ -183,7 +183,7 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawText(graphics, delivery, fontRegularSmall, y, 315);
                 y = DrawText(graphics, deliveryDate, fontBoldSmall, y, 315);
             }
-            else
+            else if (cashierName != null)
             {
                 y = DrawText(graphics, dashes, fontDash, y + 10, 315);
                 y = DrawText(graphics, cashier, fontRegularSmall, y, 315);
@@ -566,7 +566,7 @@ namespace BenpilsBarcodeSystem.Utils
             if (picture.Image != null)
             {
                 PrintDocument pd = new PrintDocument();
-                pd.PrintPage += (sender, e) => PrintPage(sender, e, picture.Image, imageWidthInches, marginInches);
+                pd.PrintPage += (sender, e) => PrintPage(e, picture.Image, imageWidthInches, marginInches);
 
                 float paperWidth = (imageWidthInches + marginInches * 2) * 100;
                 float paperHeight = (marginInches * 2 + picture.Image.Height * imageWidthInches / picture.Image.Width) * 100;
@@ -583,7 +583,7 @@ namespace BenpilsBarcodeSystem.Utils
             }
         }
 
-        public static void PrintPage(object sender, PrintPageEventArgs e, Image image, float imageWidthInches, float marginInches)
+        public static void PrintPage(PrintPageEventArgs e, Image image, float imageWidthInches, float marginInches)
         {
             float imageWidth = imageWidthInches * 100;
             float imageHeight = image.Height * imageWidthInches / image.Width * 100;

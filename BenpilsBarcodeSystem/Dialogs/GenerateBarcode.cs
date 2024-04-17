@@ -1,9 +1,11 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using BenpilsBarcodeSystem.Utils;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,9 +28,9 @@ namespace BenpilsBarcodeSystem
         {
             Random rand = new Random();
             string randomBarcode = rand.Next(1000000, 9999999).ToString();
-            BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
-            generatedpicture.Image = barcodeWriter.Write(randomBarcode);
-            ManualRegenratetxt.Text = randomBarcode;
+            GeneratedBarcodePb.Image = Util.GenerateBarcode(randomBarcode);
+            PrintBtn.Enabled = true;
+            BarcodeTxt.Text = randomBarcode;
             CopyBtn.Enabled = true;
         }
         private void ManualGenerateBtn_Click(object sender, EventArgs e)
@@ -36,25 +38,24 @@ namespace BenpilsBarcodeSystem
             
             if (ManualGenerateBtn.Text.Contains("Manual"))
             {
-                ManualRegenratetxt.ReadOnly = false;
+                BarcodeTxt.ReadOnly = false;
                 GenerateBtn.Enabled = false;
                 ManualGenerateBtn.Text = " Generate";
+                PrintBtn.Enabled = false;
+                GeneratedBarcodePb.Image = null;
+                BarcodeTxt.Text = "";
+                BarcodeTxt.Focus();
             }
             else
             {
-                string inputText = ManualRegenratetxt.Text;
+                string inputText = BarcodeTxt.Text;
 
                 if (!string.IsNullOrWhiteSpace(inputText))
                 {
-                    BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
-
-                    // Generate the barcode image.
-                    var barcodeBitmap = barcodeWriter.Write(inputText);
-
-                    // Display the generated barcode in the PictureBox.
-                    generatedpicture.Image = barcodeBitmap;
+                    GeneratedBarcodePb.Image = Util.GenerateBarcode(inputText);
+                    PrintBtn.Enabled = true;
                     ManualGenerateBtn.Text = " Manual";
-                    ManualRegenratetxt.ReadOnly = true;
+                    BarcodeTxt.ReadOnly = true;
                     GenerateBtn.Enabled = true;
                     CopyBtn.Enabled = true;
                 }
@@ -63,12 +64,28 @@ namespace BenpilsBarcodeSystem
                     MessageBox.Show("Please enter the Data for which you want to generate a barcode.", "No Data Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-
-            
         }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            if (GeneratedBarcodePb.Image != null)
+            {
+                Util.PrintBarcode(GeneratedBarcodePb, 1.46f, 0.2f);
+            }
+            else
+            {
+                MessageBox.Show("No barcode to print.", "No Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void ClearBtn_Click(object sender, EventArgs e)
         {
-            ManualRegenratetxt.Text  = "";
+            ManualGenerateBtn.Enabled = false;
+            GenerateBtn.Enabled = true;
+            BarcodeTxt.ReadOnly = true;
+            PrintBtn.Enabled = false;
+            BarcodeTxt.Text  = "";
+            GeneratedBarcodePb.Image = null;
         }
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -109,10 +126,10 @@ namespace BenpilsBarcodeSystem
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(ManualRegenratetxt.Text))
+            if (!string.IsNullOrWhiteSpace(BarcodeTxt.Text))
             {
                 canClose = true;
-                Clipboard.SetText(ManualRegenratetxt.Text);
+                Clipboard.SetText(BarcodeTxt.Text);
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -120,7 +137,7 @@ namespace BenpilsBarcodeSystem
 
         private void GenerateBarcode_Load(object sender, EventArgs e)
         {
-            ManualRegenratetxt.Focus();
+            BarcodeTxt.Focus();
         }
 
         private void GenerateBarcode_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,7 +150,7 @@ namespace BenpilsBarcodeSystem
 
         private void ManualRegenratetxt_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ManualRegenratetxt.Text.Trim()))
+            if (string.IsNullOrEmpty(BarcodeTxt.Text.Trim()))
             {
                 CopyBtn.Enabled = false;
             }

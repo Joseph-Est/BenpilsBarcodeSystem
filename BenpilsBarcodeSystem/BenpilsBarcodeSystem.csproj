@@ -847,6 +847,7 @@
     <Content Include="Database\database.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-print-15.png" />
     <None Include="Resources\icons8-show-password-15.png" />
     <None Include="Resources\icons8-hide-15.png" />
   </ItemGroup>

@@ -200,8 +200,6 @@ namespace BenpilsBarcodeSystem.Repository
                         }
                     }
                 }
-                //Console.WriteLine($"Fetched {salesDataList.Count} records. in {startDateWithTime} to {endDateWithTime}");
-                //DisplaySalesDataInMessageBox(salesDataList);
             }
             catch (Exception ex)
             {

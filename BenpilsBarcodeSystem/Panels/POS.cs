@@ -379,7 +379,15 @@ namespace BenpilsBarcodeSystem
 
         private void PrintReceipt()
         {
-            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 1000);
+            int itemRowCount = CurrentCart.Items.Count;
+            int paperHeight = 1000;
+
+            if (itemRowCount > 10)
+            {
+                paperHeight += (itemRowCount - 10) * 20;
+            }
+
+            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, paperHeight);
             PrintPreview.Document = PrintDocument;
             PrintPreview.ShowDialog();
         }

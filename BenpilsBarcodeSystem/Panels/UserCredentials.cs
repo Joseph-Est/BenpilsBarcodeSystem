@@ -137,6 +137,7 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            selectedID = 0;
             ClearFields();
             isAdding = true;
             SetFieldsReadOnly(false);
@@ -265,7 +266,7 @@ namespace BenpilsBarcodeSystem
         {
             Util.SetTextBoxesReadOnly(mode, FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
 
-            if(!isUpdating && selectedID != CurrentUser.User.ID)
+            if(selectedID != CurrentUser.User.ID)
             {
                 Util.SetComboBoxesDisabled(mode, DesignationCb);
             }

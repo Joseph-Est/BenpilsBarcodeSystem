@@ -265,7 +265,7 @@ namespace BenpilsBarcodeSystem
         {
             Util.SetTextBoxesReadOnly(mode, FirstNameTxt, LastNameTxt, UsernameTxt, PasswordTxt, AddressTxt, ContactNoTxt);
 
-            if(selectedID != CurrentUser.User.ID)
+            if(!isUpdating && selectedID != CurrentUser.User.ID)
             {
                 Util.SetComboBoxesDisabled(mode, DesignationCb);
             }

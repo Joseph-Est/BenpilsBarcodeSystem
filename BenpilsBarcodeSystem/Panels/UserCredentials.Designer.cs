@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,22 +72,22 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.CancelBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.ShowPasswordCb = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchTxt = new System.Windows.Forms.TextBox();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.CancelBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.ShowPasswordCb = new System.Windows.Forms.CheckBox();
             this.tblusercredentialBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tblusercredentialBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -341,14 +341,14 @@
             this.UserTbl.BackgroundColor = System.Drawing.Color.White;
             this.UserTbl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UserTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.UserTbl.ColumnHeadersHeight = 30;
             this.UserTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.UserTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -371,15 +371,15 @@
             this.UserTbl.Name = "UserTbl";
             this.UserTbl.ReadOnly = true;
             this.UserTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.UserTbl.RowHeadersVisible = false;
             this.UserTbl.RowHeadersWidth = 51;
             this.UserTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.Black;
-            this.UserTbl.RowsDefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.UserTbl.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.UserTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.UserTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
             this.UserTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
@@ -421,9 +421,9 @@
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "name";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.name.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.name.DefaultCellStyle = dataGridViewCellStyle2;
             this.name.FillWeight = 50F;
             this.name.HeaderText = "Name";
             this.name.MinimumWidth = 200;
@@ -434,9 +434,9 @@
             // 
             this.username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.username.DataPropertyName = "username";
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.username.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.username.DefaultCellStyle = dataGridViewCellStyle3;
             this.username.FillWeight = 50F;
             this.username.HeaderText = "Username";
             this.username.MinimumWidth = 100;
@@ -447,10 +447,10 @@
             // 
             this.designation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.designation.DataPropertyName = "designation";
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.designation.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.designation.DefaultCellStyle = dataGridViewCellStyle4;
             this.designation.FillWeight = 45F;
             this.designation.HeaderText = "Designation";
             this.designation.Name = "designation";
@@ -461,9 +461,9 @@
             // 
             this.address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.address.DataPropertyName = "address";
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.address.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.address.DefaultCellStyle = dataGridViewCellStyle5;
             this.address.HeaderText = "Address";
             this.address.Name = "address";
             this.address.ReadOnly = true;
@@ -473,9 +473,9 @@
             // 
             this.contact_no.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.contact_no.DataPropertyName = "contact_no";
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle56.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.contact_no.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.contact_no.DefaultCellStyle = dataGridViewCellStyle6;
             this.contact_no.HeaderText = "Contact #";
             this.contact_no.Name = "contact_no";
             this.contact_no.ReadOnly = true;
@@ -493,9 +493,9 @@
             // 
             this.update.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.update.DataPropertyName = "update";
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle57.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.update.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.update.DefaultCellStyle = dataGridViewCellStyle7;
             this.update.HeaderText = "";
             this.update.Name = "update";
             this.update.ReadOnly = true;
@@ -507,9 +507,9 @@
             // 
             this.archive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.archive.DataPropertyName = "archive";
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle58.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.archive.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.archive.DefaultCellStyle = dataGridViewCellStyle8;
             this.archive.HeaderText = "";
             this.archive.Name = "archive";
             this.archive.ReadOnly = true;
@@ -548,6 +548,26 @@
             this.panel15.Size = new System.Drawing.Size(806, 79);
             this.panel15.TabIndex = 55;
             // 
+            // AddBtn
+            // 
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_user_15;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(610, 10);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(196, 69);
+            this.AddBtn.TabIndex = 51;
+            this.AddBtn.Text = " Add New User";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.CancelBtn);
@@ -558,6 +578,47 @@
             this.panel13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panel13.Size = new System.Drawing.Size(806, 85);
             this.panel13.TabIndex = 53;
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15__3_;
+            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelBtn.Location = new System.Drawing.Point(3, 45);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(196, 25);
+            this.CancelBtn.TabIndex = 53;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Visible = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15__2_;
+            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SaveBtn.Location = new System.Drawing.Point(3, 10);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(196, 25);
+            this.SaveBtn.TabIndex = 52;
+            this.SaveBtn.Text = " Save";
+            this.SaveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Visible = false;
+            this.SaveBtn.VisibleChanged += new System.EventHandler(this.SaveBtn_VisibleChanged);
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // panel4
             // 
@@ -619,6 +680,26 @@
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel8.Size = new System.Drawing.Size(331, 35);
             this.panel8.TabIndex = 51;
+            // 
+            // ShowPasswordCb
+            // 
+            this.ShowPasswordCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ShowPasswordCb.AutoSize = true;
+            this.ShowPasswordCb.BackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShowPasswordCb.FlatAppearance.BorderSize = 0;
+            this.ShowPasswordCb.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowPasswordCb.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_hide_15;
+            this.ShowPasswordCb.Location = new System.Drawing.Point(306, 2);
+            this.ShowPasswordCb.Name = "ShowPasswordCb";
+            this.ShowPasswordCb.Size = new System.Drawing.Size(21, 21);
+            this.ShowPasswordCb.TabIndex = 31;
+            this.ShowPasswordCb.UseVisualStyleBackColor = false;
+            this.ShowPasswordCb.Visible = false;
+            this.ShowPasswordCb.Click += new System.EventHandler(this.ShowPasswordCb_Click);
             // 
             // panel7
             // 
@@ -685,87 +766,6 @@
             this.SearchTxt.Size = new System.Drawing.Size(162, 24);
             this.SearchTxt.TabIndex = 1;
             this.SearchTxt.TextChanged += new System.EventHandler(this.SearchTxt_TextChanged);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.AddBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AddBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_user_15;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(610, 10);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(196, 69);
-            this.AddBtn.TabIndex = 51;
-            this.AddBtn.Text = " Add New User";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.CancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15__3_;
-            this.CancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelBtn.Location = new System.Drawing.Point(3, 45);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(196, 25);
-            this.CancelBtn.TabIndex = 53;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Visible = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.SaveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_update_15__2_;
-            this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SaveBtn.Location = new System.Drawing.Point(3, 10);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(196, 25);
-            this.SaveBtn.TabIndex = 52;
-            this.SaveBtn.Text = " Save";
-            this.SaveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Visible = false;
-            this.SaveBtn.VisibleChanged += new System.EventHandler(this.SaveBtn_VisibleChanged);
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // ShowPasswordCb
-            // 
-            this.ShowPasswordCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ShowPasswordCb.AutoSize = true;
-            this.ShowPasswordCb.BackColor = System.Drawing.Color.White;
-            this.ShowPasswordCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ShowPasswordCb.FlatAppearance.BorderSize = 0;
-            this.ShowPasswordCb.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.ShowPasswordCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.ShowPasswordCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.ShowPasswordCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowPasswordCb.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_hide_15;
-            this.ShowPasswordCb.Location = new System.Drawing.Point(306, 2);
-            this.ShowPasswordCb.Name = "ShowPasswordCb";
-            this.ShowPasswordCb.Size = new System.Drawing.Size(21, 21);
-            this.ShowPasswordCb.TabIndex = 31;
-            this.ShowPasswordCb.UseVisualStyleBackColor = false;
-            this.ShowPasswordCb.Visible = false;
-            this.ShowPasswordCb.Click += new System.EventHandler(this.ShowPasswordCb_Click);
             // 
             // tblusercredentialBindingSource2
             // 

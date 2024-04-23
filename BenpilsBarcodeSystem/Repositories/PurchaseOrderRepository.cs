@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
@@ -98,6 +99,8 @@ namespace BenpilsBarcodeSystem.Repositories
 
             SqlConnection con = null;
 
+            int itemCount = 0;
+
             try
             {
                 using (SqlCommand cmd = new SqlCommand(insertOrderQuery, transaction?.Connection ?? databaseConnection.OpenConnection(), transaction))
@@ -117,6 +120,8 @@ namespace BenpilsBarcodeSystem.Repositories
                 {
                     foreach (var item in cart.Items)
                     {
+                        itemCount += item.Quantity;
+
                         cmd.Parameters.Clear();
 
                         cmd.Parameters.AddWithValue("@orderId", orderID);
@@ -128,9 +133,21 @@ namespace BenpilsBarcodeSystem.Repositories
                     }
                 }
 
+              
+
                 if (transaction != null && !isBackOrder)
                 {
                     transaction.Commit();
+                }
+                else
+                {
+                    ReportsRepository repository = new ReportsRepository();
+                    bool auditTrailAdded = await repository.AddAuditTrailAsyncConnection(databaseConnection.OpenConnection(), CurrentUser.User.ID, "Purchase Order", $"User has ordered {itemCount} item(s). Order no. {orderID}.");
+
+                    if (!auditTrailAdded)
+                    {
+                        throw new Exception("Failed to add audit trail");
+                    }
                 }
 
                 return true;

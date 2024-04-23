@@ -206,6 +206,7 @@ ALTER TABLE [dbo].[tbl_inventory_report] ADD  CONSTRAINT [FK__tbl_invent__purch_
 REFERENCES [dbo].[tbl_purchase_order] ([order_id]);
 ALTER TABLE [dbo].[tbl_inventory_report] ADD  CONSTRAINT [FK__tbl_invent__modif__6B24EA82] FOREIGN KEY([modified_by])
 REFERENCES [dbo].[tbl_user_credentials] ([id]);
+ALTER TABLE [dbo].[tbl_inventory_report] ADD  DEFAULT (getdate()) FOR [date];
 GO
 
 CREATE TABLE [dbo].[tbl_audit_trail](
@@ -223,6 +224,7 @@ GO
 
 ALTER TABLE [dbo].[tbl_audit_trail] ADD  CONSTRAINT [FK__tbl_audit__user___6C190EBB] FOREIGN KEY([user_id])
 REFERENCES [dbo].[tbl_user_credentials] ([id]);
+ALTER TABLE [dbo].[tbl_audit_trail] ADD  DEFAULT (getdate()) FOR [date];
 GO
 
 -- Insert default admin user

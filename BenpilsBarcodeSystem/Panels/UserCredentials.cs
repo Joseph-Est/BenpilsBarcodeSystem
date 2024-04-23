@@ -94,10 +94,17 @@ namespace BenpilsBarcodeSystem
                         return;
                     }
 
+                    int id = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["id"].Value);
+
+                    if ((CurrentUser.User.Designation == "Admin" && userDesignation == "Admin") && CurrentUser.User.ID != id)
+                    {
+                        MessageBox.Show("You do not have the necessary privileges to update this user.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     isUpdating = true;
                     SetFieldsReadOnly(false);
                     prevUsername = UsernameTxt.Text;
-
                     SetUpDesignation(userDesignation);
                 }
                 else if (senderGrid.Columns[e.ColumnIndex].Name == "archive")
@@ -138,6 +145,7 @@ namespace BenpilsBarcodeSystem
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            selectedID = 0;
             ClearFields();
             isAdding = true;
             SetFieldsReadOnly(false);
@@ -276,35 +284,27 @@ namespace BenpilsBarcodeSystem
             CancelBtn.Visible = !mode;
             FirstNameTxt.Select();
             mainForm.CanSwitchPanel = mode;
+            ShowPasswordEye(!mode);
         }
 
         private void SetUpDesignation(string selectedRow = null)
         {
+            var designations = new List<string> { "-- Select --", "Super Admin", "Admin" };
+
+            if (!isUpdating || selectedRow == null || (!selectedRow.Equals("Admin") && !selectedRow.Equals("Super Admin")))
+            {
+                designations.AddRange(new[] { "Inventory Manager", "Cashier" });
+            }
+
             DesignationCb.Items.Clear();
-            DesignationCb.Items.Add("-- Select --");
+            DesignationCb.Items.AddRange(designations.ToArray());
 
-            DesignationCb.Items.Add("Super Admin");
-            DesignationCb.Items.Add("Admin");
-            DesignationCb.Items.Add("Inventory Manager");
-            DesignationCb.Items.Add("Cashier");
-
-            if(isAdding || isUpdating)
+            if ((isAdding || isUpdating) && CurrentUser.User.Designation != "Super Admin")
             {
-                if (CurrentUser.User.Designation != "Super Admin")
-                {
-                    DesignationCb.Items.Remove("Super Admin");
-                }
+                DesignationCb.Items.Remove("Super Admin");
             }
 
-            if (selectedRow == null)
-            {
-                DesignationCb.SelectedItem = "-- Select --";
-            }
-            else
-            {
-                DesignationCb.SelectedItem = selectedRow;
-            }
-           
+            DesignationCb.SelectedItem = selectedRow ?? "-- Select --";
         }
 
         private void SaveBtn_VisibleChanged(object sender, EventArgs e)
@@ -318,6 +318,31 @@ namespace BenpilsBarcodeSystem
             {
                 this.AcceptButton = AddBtn;
             }
+        }
+
+        private void ShowPasswordCb_Click(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+
+            if (checkBox.CheckState == CheckState.Checked)
+            {
+                checkBox.Image = Properties.Resources.icons8_show_password_15;
+                PasswordTxt.PasswordChar = '\0';
+            }
+            else
+            {
+                checkBox.Image = Properties.Resources.icons8_hide_15;
+                PasswordTxt.PasswordChar = '•';
+            }
+        }
+
+        private void ShowPasswordEye(bool show)
+        {
+            ShowPasswordCb.Visible = show;
+            ShowPasswordCb.Checked = false;
+            ShowPasswordCb.Image = Properties.Resources.icons8_hide_15;
+            PasswordTxt.PasswordChar = '•';
+
         }
     }
 }

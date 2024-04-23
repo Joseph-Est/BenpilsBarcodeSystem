@@ -458,57 +458,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private async void OrdersTbl_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
-            {
-                DataGridViewRow row = senderGrid.Rows[e.RowIndex];
-
-                if (row.Cells != null && row.Cells.Count > 0)
-                {
-                    int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
-                    string orderDate = Util.ConvertDateLongWithTime(DateTime.Parse(row.Cells["order_date"].Value.ToString()));
-                    string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
-
-                    PurchaseOrderRepository repository = new PurchaseOrderRepository();
-
-                    (Supplier supplier, Cart cart, Dictionary<string, object> details) = await repository.GetOrderDetails(orderId);
-
-                    string orderedBy = (string)details["OrderedBy"];
-                    string status = (string)details["Status"];
-                    string remarks = (string)details["Remarks"];
-                    string dateFulfilled = (string)details["DateFulfilled"];
-                    string fulfilledBy = (string)details["FulfilledBy"];
-                    bool isBackorder = (bool)details["IsBackorder"];
-
-                    if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
-                    {
-                        OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
-                        if (orderDetails.ShowDialog() == DialogResult.OK)
-                        {
-                            UpdatePurchaseOrdersDG();
-                        }
-                    }
-                    else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
-                    {
-                        OrderDetails orderDetails = new OrderDetails(Mode.OrderCompletion, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
-                        if (orderDetails.ShowDialog() == DialogResult.OK)
-                        {
-                            UpdatePurchaseOrdersDG();
-                            mainForm.UpdateInventoryTable = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void OrdersTbl_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void SupplierCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (isPurchasing)
@@ -590,7 +539,7 @@ namespace BenpilsBarcodeSystem
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, SelectedSupplier.ContactName, Util.ConvertDateLongWithTime(DeliveryDt.Value));
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, null, SelectedSupplier.ContactName, Util.ConvertDateLongWithTime(DeliveryDt.Value));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }
@@ -635,6 +584,68 @@ namespace BenpilsBarcodeSystem
         private void PRefreshPb_Click(object sender, EventArgs e)
         {
             UpdatePurchaseOrdersDG();
+        }
+
+        private async void OrdersTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+
+                if (row.Cells != null && row.Cells.Count > 0)
+                {
+                    int orderId = InputValidator.ParseToInt(row.Cells["order_id"].Value.ToString());
+                    string orderDate = Util.ConvertDateLongWithTime(DateTime.Parse(row.Cells["order_date"].Value.ToString()));
+                    string deliveryDate = row.Cells["formatted_receiving_date"].Value.ToString();
+
+                    PurchaseOrderRepository repository = new PurchaseOrderRepository();
+
+                    (Supplier supplier, Cart cart, Dictionary<string, object> details) = await repository.GetOrderDetails(orderId);
+
+                    string orderedBy = (string)details["OrderedBy"];
+                    string status = (string)details["Status"];
+                    string remarks = (string)details["Remarks"];
+                    string dateFulfilled = (string)details["DateFulfilled"];
+                    string fulfilledBy = (string)details["FulfilledBy"];
+                    bool isBackorder = (bool)details["IsBackorder"];
+
+                    if (senderGrid.Columns[e.ColumnIndex].Name == "view_details")
+                    {
+                        OrderDetails orderDetails = new OrderDetails(Mode.OrderView, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
+                        if (orderDetails.ShowDialog() == DialogResult.OK)
+                        {
+                            UpdatePurchaseOrdersDG();
+                        }
+                    }
+                    else if (senderGrid.Columns[e.ColumnIndex].Name == "complete_order")
+                    {
+                        OrderDetails orderDetails = new OrderDetails(Mode.OrderCompletion, cart, supplier, orderDate, deliveryDate, orderId.ToString(), orderedBy, status, dateFulfilled, fulfilledBy, remarks, isBackorder);
+                        if (orderDetails.ShowDialog() == DialogResult.OK)
+                        {
+                            UpdatePurchaseOrdersDG();
+                            mainForm.UpdateInventoryTable = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ItemsTbl_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (ItemsTbl.Columns[e.ColumnIndex].Name == "Qty")
+            //{
+            //    this.Cursor = Cursors.Hand;
+            //}
+        }
+
+        private void ItemsTbl_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (ItemsTbl.Columns[e.ColumnIndex].Name == "Qty")
+            //{
+            //    this.Cursor = Cursors.Default;
+            //}
         }
 
         private void EnablePurchasePanel(bool isEnable)

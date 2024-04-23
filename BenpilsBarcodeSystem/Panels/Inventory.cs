@@ -127,7 +127,6 @@ namespace BenpilsBarcodeSystem
                     brand,
                     motorBrand,
                     size,
-                    InputValidator.ParseToInt(QuantityTxt.Text),
                     purchasePrice,
                     sellingPrice
                 ))
@@ -286,18 +285,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void BarcodeGeneratorBtn_Click(object sender, EventArgs e)
-        {
-            GenerateBarcode generateBarcode = new GenerateBarcode();
-            if (generateBarcode.ShowDialog() == DialogResult.OK)
-            {
-                if(BarcodeTxt.ReadOnly == false)
-                {
-                    BarcodeTxt.Text = Clipboard.GetText();
-                }
-            }
-        }
-
         private void RefreshPb_Click(object sender, EventArgs e)
         {
             PopulateComboBoxes();
@@ -326,7 +313,7 @@ namespace BenpilsBarcodeSystem
 
         private void SetFieldsReadOnly(bool mode)
         {
-            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, QuantityTxt, PurchasePriceTxt,SellingPriceTxt);
+            Util.SetTextBoxesReadOnly(mode, BarcodeTxt, ItemNameTxt, PurchasePriceTxt,SellingPriceTxt);
             Util.SetComboBoxesDisabled(mode, CategoryInputCb, BrandInputCb, MotorBrandInputCb, SizeCb);
             mainForm.CanSwitchPanel = mode;
         }

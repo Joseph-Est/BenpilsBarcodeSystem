@@ -20,8 +20,8 @@ namespace BenpilsBarcodeSystem.Repository
         public static string col_id = "id", col_barcode = "barcode", col_item_name = "item_name", col_motor_brand = "motor_brand", 
                        col_brand = "brand", col_purchase_price = "purchase_price", col_selling_price = "selling_price", col_quantity = "Quantity", col_category = "category", col_size = "size", col_is_active = "is_active", col_date_created = "date_created", col_date_updated = "date_updated";
 
-        private int lowStockThreshold = 20;
-        private int highStockThreshold = 100;
+        private readonly int lowStockThreshold = 20;
+        private readonly int highStockThreshold = 100;
 
         public InventoryRepository()
         {
@@ -187,9 +187,9 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<bool> UpdateProductAsync(int id, string barcode, string itemName, string category, string brand, string motorBrand, string size, int quantity, decimal purchasePrice, decimal sellingPrice)
+        public async Task<bool> UpdateProductAsync(int id, string barcode, string itemName, string category, string brand, string motorBrand, string size, decimal purchasePrice, decimal sellingPrice)
         {
-            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_purchase_price} = @PurchasePrice, {col_selling_price} = @SellingPrice, {col_quantity} = @Quantity, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_barcode} = @Barcode, {col_item_name} = @ItemName, {col_motor_brand} = @MotorBrand, {col_brand} = @Brand, {col_purchase_price} = @PurchasePrice, {col_selling_price} = @SellingPrice, {col_category} = @Category, {col_size} = @Size WHERE {col_id} = @ID";
 
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
@@ -204,7 +204,6 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@Brand", brand);
                         cmd.Parameters.AddWithValue("@PurchasePrice", purchasePrice);
                         cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@Quantity", quantity);
                         cmd.Parameters.AddWithValue("@Category", category);
                         cmd.Parameters.AddWithValue("@Size", size);
                         cmd.Parameters.AddWithValue("@ID", id);
@@ -315,12 +314,20 @@ namespace BenpilsBarcodeSystem.Repository
         public async Task<bool> ArchiveProductAsync(int id, bool archive = true)
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{!archive}' WHERE {col_id} = @ID";
+            string selectQuery = $"SELECT {col_item_name} FROM {tbl_name} WHERE {col_id} = @ID";
 
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
                 SqlTransaction transaction = con.BeginTransaction();
                 try
                 {
+                    string itemName;
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        itemName = (string)await cmd.ExecuteScalarAsync();
+                    }
+
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
@@ -335,6 +342,13 @@ namespace BenpilsBarcodeSystem.Repository
                             if (!reportAdded)
                             {
                                 throw new Exception("Failed to add inventory report");
+                            }
+
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, archive == true ? "Archive Item" : "Restore Item", archive == true ? $"User has archived an item ({itemName})." : $"User has restored an item ({itemName}).");
+
+                            if (!auditTrailAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
                             }
                         }
 
@@ -469,42 +483,69 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<bool> DeductStockAsync(int id, int amountToDeduct, string remarks)
         {
+            string selectQuantityQuery = $"SELECT {col_quantity} FROM {tbl_name} WHERE {col_id} = @Id";
+            string selectNameQuery = $"SELECT {col_item_name} FROM {tbl_name} WHERE {col_id} = @Id";
+            string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
+
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
                 SqlTransaction transaction = con.BeginTransaction();
                 try
                 {
-                    string selectQuery = $"SELECT {col_quantity} FROM {tbl_name} WHERE {col_id} = @Id";
-                    SqlCommand selectCmd = new SqlCommand(selectQuery, con, transaction);
-                    selectCmd.Parameters.AddWithValue("@Id", id);
-                    int oldStock = (int)await selectCmd.ExecuteScalarAsync();
-
-                    string updateQuery = $"UPDATE {tbl_name} SET {col_quantity} = {col_quantity} - @AmountToDeduct WHERE {col_id} = @Id";
-                    SqlCommand updateCmd = new SqlCommand(updateQuery, con, transaction);
-                    updateCmd.Parameters.AddWithValue("@AmountToDeduct", amountToDeduct);
-                    updateCmd.Parameters.AddWithValue("@Id", id);
-                    int rowsAffected = await updateCmd.ExecuteNonQueryAsync();
-
-                    int newStock = oldStock - amountToDeduct;
-
-                    if (rowsAffected > 0)
+                    string itemName;
+                    using (SqlCommand selectCmd = new SqlCommand(selectNameQuery, con, transaction))
                     {
-                        ReportsRepository repository = new ReportsRepository();
-                        bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Reduce Stock", amountToDeduct, oldStock, newStock, CurrentUser.User.ID, remarks);
-
-                        if (!reportAdded)
-                        {
-                            throw new Exception("Failed to add inventory report");
-                        }
+                        selectCmd.Parameters.AddWithValue("@Id", id);
+                        itemName = (string)await selectCmd.ExecuteScalarAsync();
                     }
 
-                    transaction.Commit();
-                    return rowsAffected > 0;
+                    int oldStock;
+                    using (SqlCommand selectCmd = new SqlCommand(selectQuantityQuery, con, transaction))
+                    {
+                        selectCmd.Parameters.AddWithValue("@Id", id);
+                        oldStock = (int)await selectCmd.ExecuteScalarAsync();
+                    }
+
+                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, con, transaction))
+                    {
+                        updateCmd.Parameters.AddWithValue("@AmountToDeduct", amountToDeduct);
+                        updateCmd.Parameters.AddWithValue("@Id", id);
+
+                        int rowsAffected = await updateCmd.ExecuteNonQueryAsync();
+
+                        int newStock = oldStock - amountToDeduct;
+
+                        if (newStock < 0)
+                        {
+                            throw new Exception("New stock quantity cannot be negative.");
+                        }
+
+                        if (rowsAffected > 0)
+                        {
+                            ReportsRepository repository = new ReportsRepository();
+                            bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Reduce Stock", amountToDeduct, oldStock, newStock, CurrentUser.User.ID, remarks);
+
+                            if (!reportAdded)
+                            {
+                                throw new Exception("Failed to add inventory report");
+                            }
+
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "Reduce Stock", $"User has reduced {amountToDeduct} stock to an item ({itemName}). Reason: {remarks}");
+
+                            if (!auditTrailAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
+                            }
+                        }
+
+                        transaction.Commit();
+                        return rowsAffected > 0;
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                    transaction.Rollback();
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction?.Rollback();
                     return false;
                 }
             }

@@ -29,6 +29,7 @@ namespace BenpilsBarcodeSystem
             UsernameTxt.ForeColor = System.Drawing.SystemColors.GrayText;
             PasswordTxt.Text = passwordPlaceholder;
             PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
+            passwordModified = false;
         }
 
         private async void Form1_Load(object sender, EventArgs e)
@@ -198,25 +199,34 @@ namespace BenpilsBarcodeSystem
             PasswordBorder.BackColor = Color.FromArgb(40, 40, 40);
             if (!passwordModified)
             {
-                PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
                 PasswordTxt.Text = passwordPlaceholder;
                 PasswordTxt.UseSystemPasswordChar = false;
+                PasswordTxt.ForeColor = System.Drawing.SystemColors.GrayText;
+                passwordModified = false;
             }
         }
 
         private void PasswordTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(PasswordTxt.Text))
-            {
-                PasswordTxt.ForeColor = System.Drawing.SystemColors.ControlText;
-                passwordModified = true;
-            }
+            //if (!string.IsNullOrWhiteSpace(PasswordTxt.Text))
+            //{
+            //    PasswordTxt.ForeColor = System.Drawing.SystemColors.ControlText;
+            //    //MessageBox.Show("modified1");
+            //    passwordModified = true;
+            //}
         }
 
         private void PasswordTxt_TextChanged(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(PasswordTxt.Text))
+            if(!string.IsNullOrWhiteSpace(PasswordTxt.Text.Trim()))
             {
+                //MessageBox.Show("modified2:" + PasswordTxt.Text.Trim());
+                PasswordTxt.ForeColor = System.Drawing.SystemColors.ControlText;
+                passwordModified = true;
+            }
+            else
+            {
+                //MessageBox.Show("not modified");
                 passwordModified = false;
             }
         }

@@ -206,7 +206,8 @@ namespace BenpilsBarcodeSystem
             }
             else if (CurrentUser.User.Designation == "Admin")
             {
-
+                ReportsCb.Visible = false;
+                StatisticsCb.Visible = false;
             }
             else if (CurrentUser.User.Designation == "Inventory Manager")
             {

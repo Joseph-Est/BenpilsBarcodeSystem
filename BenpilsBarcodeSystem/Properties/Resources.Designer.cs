@@ -393,6 +393,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_hide_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hide-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_inventory_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-inventory-30", resourceCulture);
@@ -593,6 +603,16 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_print_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-print-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_product_60 {
             get {
                 object obj = ResourceManager.GetObject("icons8-product-60", resourceCulture);
@@ -736,6 +756,16 @@ namespace BenpilsBarcodeSystem.Properties {
         internal static System.Drawing.Bitmap icons8_settings_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-settings-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_show_password_15 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-show-password-15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

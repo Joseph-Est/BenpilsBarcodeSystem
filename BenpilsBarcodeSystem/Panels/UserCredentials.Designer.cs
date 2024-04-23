@@ -81,6 +81,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.ShowPasswordCb = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -206,6 +207,7 @@
             this.FirstNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FirstNameTxt.Location = new System.Drawing.Point(86, 0);
             this.FirstNameTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.FirstNameTxt.MaxLength = 30;
             this.FirstNameTxt.Multiline = true;
             this.FirstNameTxt.Name = "FirstNameTxt";
             this.FirstNameTxt.ReadOnly = true;
@@ -218,6 +220,7 @@
             this.LastNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastNameTxt.Location = new System.Drawing.Point(86, 0);
             this.LastNameTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.LastNameTxt.MaxLength = 30;
             this.LastNameTxt.Multiline = true;
             this.LastNameTxt.Name = "LastNameTxt";
             this.LastNameTxt.ReadOnly = true;
@@ -230,6 +233,7 @@
             this.UsernameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameTxt.Location = new System.Drawing.Point(86, 0);
             this.UsernameTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.UsernameTxt.MaxLength = 30;
             this.UsernameTxt.Multiline = true;
             this.UsernameTxt.Name = "UsernameTxt";
             this.UsernameTxt.ReadOnly = true;
@@ -667,6 +671,7 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.ShowPasswordCb);
             this.panel8.Controls.Add(this.PasswordTxt);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
@@ -675,6 +680,26 @@
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel8.Size = new System.Drawing.Size(331, 35);
             this.panel8.TabIndex = 51;
+            // 
+            // ShowPasswordCb
+            // 
+            this.ShowPasswordCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ShowPasswordCb.AutoSize = true;
+            this.ShowPasswordCb.BackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShowPasswordCb.FlatAppearance.BorderSize = 0;
+            this.ShowPasswordCb.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.ShowPasswordCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowPasswordCb.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_hide_15;
+            this.ShowPasswordCb.Location = new System.Drawing.Point(306, 2);
+            this.ShowPasswordCb.Name = "ShowPasswordCb";
+            this.ShowPasswordCb.Size = new System.Drawing.Size(21, 21);
+            this.ShowPasswordCb.TabIndex = 31;
+            this.ShowPasswordCb.UseVisualStyleBackColor = false;
+            this.ShowPasswordCb.Visible = false;
+            this.ShowPasswordCb.Click += new System.EventHandler(this.ShowPasswordCb_Click);
             // 
             // panel7
             // 
@@ -844,5 +869,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewButtonColumn update;
         private System.Windows.Forms.DataGridViewButtonColumn archive;
+        private System.Windows.Forms.CheckBox ShowPasswordCb;
     }
 }

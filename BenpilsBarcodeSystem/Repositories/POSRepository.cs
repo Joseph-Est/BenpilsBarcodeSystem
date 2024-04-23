@@ -1,4 +1,5 @@
 ﻿using BenpilsBarcodeSystem.Entities;
+using BenpilsBarcodeSystem.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,9 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace BenpilsBarcodeSystem.Repository
 {
@@ -31,13 +34,15 @@ namespace BenpilsBarcodeSystem.Repository
             string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
             string updateItemQuantityQuery = $"UPDATE tbl_item_master_data SET Quantity = Quantity - @Quantity WHERE id = @ItemId";
 
+            SqlTransaction transaction = null;
+
             try
             {
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
                     ReportsRepository repository = new ReportsRepository();
 
-                    using (SqlTransaction transaction = con.BeginTransaction())
+                    using (transaction = con.BeginTransaction())
                     {
                         using (SqlCommand cmd = new SqlCommand(insertOrderQuery, con, transaction))
                         {
@@ -49,8 +54,12 @@ namespace BenpilsBarcodeSystem.Repository
 
                             cmd.CommandText = insertOrderDetailsQuery;
 
+                            int itemCount = 0;
+
                             foreach (var item in cart.Items)
                             {
+                                itemCount += item.Quantity;
+
                                 using (SqlCommand cmdDetails = new SqlCommand(insertOrderDetailsQuery, con, transaction))
                                 {
                                     cmdDetails.Parameters.AddWithValue("@transactionId", transactionId);
@@ -72,6 +81,11 @@ namespace BenpilsBarcodeSystem.Repository
 
                                 newStock = oldStock - item.Quantity;
 
+                                if (newStock < 0)
+                                {
+                                    throw new Exception("New stock quantity cannot be negative.");
+                                }
+
                                 using (SqlCommand cmdUpdateItemQuantity = new SqlCommand(updateItemQuantityQuery, con, transaction))
                                 {
                                     cmdUpdateItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
@@ -87,6 +101,13 @@ namespace BenpilsBarcodeSystem.Repository
                                     throw new Exception("Failed to add inventory report");
                                 }
                             }
+
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "POS Transaction", $"User has sold {itemCount} item(s). Transaction no. {transactionId}.");
+
+                            if (!auditTrailAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
+                            }
                         }
 
                         transaction.Commit();
@@ -96,9 +117,112 @@ namespace BenpilsBarcodeSystem.Repository
             }
             catch (Exception ex)
             {
+                transaction?.Rollback();
                 Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
+        }
+
+        public async Task<(Cart, decimal paymentReceived, string salesPerson, string transactionDate)> GetSalesDetailsAsync(string transactionId)
+        {
+            string selectTransactionQuery = $"SELECT {col_operated_by}, {col_payment_received}, {col_transaction_date} FROM {tbl_transactions} WHERE {col_transaction_id} = @transactionId";
+            string selectOrderDetailsQuery = $"SELECT {col_item_id}, {col_quantity}, {col_total} FROM {tbl_transaction_details} WHERE {col_transaction_id} = @transactionId";
+            string selectSalesPersonQuery = $"SELECT CONCAT({UserCredentialsRepository.col_first_name}, ' ', {UserCredentialsRepository.col_last_name}) FROM {UserCredentialsRepository.tbl_name} WHERE {UserCredentialsRepository.col_id} = @userId";
+
+            Cart cart = new Cart();
+            decimal paymentReceived = 0;
+            string salesPerson = "";
+            string transactionDate = "";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    // Retrieve transaction details
+                    using (SqlCommand cmdTransaction = new SqlCommand(selectTransactionQuery, con))
+                    {
+                        cmdTransaction.Parameters.AddWithValue("@transactionId", transactionId);
+                        SqlDataReader reader = await cmdTransaction.ExecuteReaderAsync();
+
+                        if (reader.Read())
+                        {
+                            // Get paymentReceived and salesPersonId
+                            DateTime date = reader.GetDateTime(2);
+                            transactionDate = Util.ConvertDateShort(date);
+                            paymentReceived = reader.GetDecimal(1);
+                            int salesPersonId = reader.GetInt32(0);
+
+                            reader.Close();
+
+                            // Retrieve salesPerson
+                            using (SqlCommand cmdSalesPerson = new SqlCommand(selectSalesPersonQuery, con))
+                            {
+                                cmdSalesPerson.Parameters.AddWithValue("@userId", salesPersonId);
+                                salesPerson = (string)await cmdSalesPerson.ExecuteScalarAsync();
+                            }
+                        }
+
+                        reader.Close();
+                    }
+
+                    // Lists to store item details
+                    List<int> itemIds = new List<int>();
+                    List<int> quantities = new List<int>();
+                    List<decimal> totals = new List<decimal>();
+
+                    // Retrieve order details and store in arrays
+                    using (SqlCommand cmdOrderDetails = new SqlCommand(selectOrderDetailsQuery, con))
+                    {
+                        cmdOrderDetails.Parameters.AddWithValue("@transactionId", transactionId);
+                        using (SqlDataReader reader = await cmdOrderDetails.ExecuteReaderAsync())
+                        {
+                            while (reader.Read())
+                            {
+                                // Add items details to arrays
+                                itemIds.Add(reader.GetInt32(0));
+                                quantities.Add(reader.GetInt32(1));
+                                totals.Add(reader.GetDecimal(2));
+                            }
+                        }
+                    }
+
+                    for (int i = 0; i < itemIds.Count; i++)
+                    {
+                        // Retrieve item details using itemId
+                        string selectItemQuery = $"SELECT * FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @itemId";
+
+                        using (SqlCommand cmdItem = new SqlCommand(selectItemQuery, con))
+                        {
+                            cmdItem.Parameters.AddWithValue("@itemId", itemIds[i]);
+                            using (SqlDataReader itemReader = await cmdItem.ExecuteReaderAsync())
+                            {
+                                if (itemReader.Read())
+                                {
+                                    PurchaseItem purchaseItem = new PurchaseItem
+                                    {
+                                        Id = itemIds[i],
+                                        ItemName = itemReader.GetString(itemReader.GetOrdinal(InventoryRepository.col_item_name)),
+                                        Brand = itemReader.GetString(itemReader.GetOrdinal(InventoryRepository.col_brand)),
+                                        Size = itemReader.GetString(itemReader.GetOrdinal(InventoryRepository.col_size)),
+                                        Quantity = quantities[i],
+                                        SellingPrice = totals[i] / quantities[i],
+                                    };
+
+                                    // Add item to the cart
+                                    cart.Items.Add(purchaseItem);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            
+
+            return (cart, paymentReceived, salesPerson, transactionDate);
         }
 
         public async Task<List<SalesData>> GetSalesAsync(DateTime dateFrom, DateTime dateTo, bool getAll = false)
@@ -146,8 +270,8 @@ namespace BenpilsBarcodeSystem.Repository
                 {
                     using (SqlCommand cmd = new SqlCommand(selectQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("@dateFrom", startDateWithTime);
-                        cmd.Parameters.AddWithValue("@dateTo", endDateWithTime);
+                        cmd.Parameters.AddWithValue("@dateFrom", startDateWithTime.ToString("s"));
+                        cmd.Parameters.AddWithValue("@dateTo", endDateWithTime.ToString("s"));
 
                         using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {
@@ -179,8 +303,6 @@ namespace BenpilsBarcodeSystem.Repository
                         }
                     }
                 }
-                //Console.WriteLine($"Fetched {salesDataList.Count} records. in {startDateWithTime} to {endDateWithTime}");
-                //DisplaySalesDataInMessageBox(salesDataList);
             }
             catch (Exception ex)
             {

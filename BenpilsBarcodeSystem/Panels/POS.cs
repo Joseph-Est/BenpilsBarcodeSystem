@@ -315,7 +315,7 @@ namespace BenpilsBarcodeSystem
                     }
                     else
                     {
-                        MessageBox.Show("The transaction failed due to an error. Please try again later.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("The transaction failed due to an error. Please try again.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -379,7 +379,15 @@ namespace BenpilsBarcodeSystem
 
         private void PrintReceipt()
         {
-            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, 1000);
+            int itemRowCount = CurrentCart.Items.Count;
+            int paperHeight = 1000;
+
+            if (itemRowCount > 10)
+            {
+                paperHeight += (itemRowCount - 10) * 20;
+            }
+
+            PrintDocument.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, paperHeight);
             PrintPreview.Document = PrintDocument;
             PrintPreview.ShowDialog();
         }
@@ -395,7 +403,9 @@ namespace BenpilsBarcodeSystem
             string[] products = CurrentCart.GetProductNames();
             decimal[] prices = CurrentCart.GetPrices();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text));
+            string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
+
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text), cashierName);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

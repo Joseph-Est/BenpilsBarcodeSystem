@@ -15,6 +15,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem
@@ -114,6 +115,8 @@ namespace BenpilsBarcodeSystem
                         break;
 
                 }
+
+                //UncheckActiveCb(dateTimePicker.Name);
             }
         }
 
@@ -146,6 +149,36 @@ namespace BenpilsBarcodeSystem
                         break;
 
                 }
+
+                //UncheckActiveCb(dateTimePicker.Name);
+            }
+        }
+
+        private void DateDt_DropDown(object sender, EventArgs e)
+        {
+            if (sender is DateTimePicker dateTimePicker)
+            {
+                string senderName = dateTimePicker.Name.ToLower();
+                var sets = new[]
+                {
+                    new { Name = "inventory", TodayCb = InventoryTodayCb, WeekCb = InventoryWeekCb, MonthCb = InventoryMonthCb, YearCb = InventoryYearCb },
+                    new { Name = "purchase", TodayCb = PurchaseTodayCb, WeekCb = PurchaseWeekCb, MonthCb = PurchaseMonthCb, YearCb = PurchaseYearCb },
+                    new { Name = "sales", TodayCb = SalesTodayCb, WeekCb = SalesWeekCb, MonthCb = SalesMonthCb, YearCb = SalesYearCb },
+                    new { Name = "audit", TodayCb = AuditTodayCb, WeekCb = AuditWeekCb, MonthCb = AuditMonthCb, YearCb = AuditYearCb },
+                };
+
+                foreach (var set in sets)
+                {
+                    if (senderName.Contains(set.Name))
+                    {
+                        var checkboxes = new[] { set.TodayCb, set.WeekCb, set.MonthCb, set.YearCb };
+                        foreach (var checkbox in checkboxes)
+                        {
+                            checkbox.Checked = false;
+                        }
+                        UpdateCheckboxStyles(set.TodayCb, set.WeekCb, set.MonthCb, set.YearCb);
+                    }
+                }
             }
         }
 
@@ -157,15 +190,23 @@ namespace BenpilsBarcodeSystem
                 {
                     case "InventoryCancelDateCb":
                         InventoryTodayCb.Checked = true;
+                        InventoryStartDateDt.Value = DateTime.Today;
+                        InventoryEndDateDt.Value = DateTime.Today;
                         break;
                     case "PurchaseCancelDateCb":
                         PurchaseTodayCb.Checked = true;
+                        PurchaseStartDateDt.Value = DateTime.Today;
+                        PurchaseEndDateDt.Value = DateTime.Today;
                         break;
                     case "SalesCancelDateCb":
                         SalesTodayCb.Checked = true;
+                        SalesStartDateDt.Value = DateTime.Today;
+                        SalesEndDateDt.Value = DateTime.Today;
                         break;
                     case "AuditCancelDateCb":
                         AuditTodayCb.Checked = true;
+                        AuditStartDateDt.Value = DateTime.Today;
+                        AuditEndDateDt.Value = DateTime.Today;
                         break;
 
                 }
@@ -519,6 +560,71 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private async void SalesTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                DataGridViewRow row = senderGrid.Rows[e.RowIndex];
+
+                if (row.Cells != null && row.Cells.Count > 0)
+                {
+                    if (senderGrid.Columns[e.ColumnIndex].Name == "generate_receipt")
+                    {
+                        string transactionId = row.Cells["transaction_id"].Value.ToString();
+
+                        POSRepository repository = new POSRepository();
+                        (Cart cart, decimal paymentReceived, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(transactionId);
+
+                        GenerateReceipt(transactionId, cart, salesPerson, paymentReceived, transactionDate);
+                        
+                    }
+                }
+            }
+        }
+
+        private void GenerateReceipt(string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        {
+            if (currentCart != null)
+            {
+                int itemRowCount = currentCart.Items.Count;
+                int paperHeight = 1000;
+
+                if (itemRowCount > 10)
+                {
+                    paperHeight += (itemRowCount - 10) * 20;
+                }
+
+                PrintDocument pd = new PrintDocument();
+
+                pd.PrintPage += (sender, e) => PrintDocument_PrintPage(sender, e, transactionNo, currentCart, salesPerson, paymentReceived, transactionDate);
+
+                pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, paperHeight);
+
+                PrintPreviewDialog ppd = new PrintPreviewDialog { Document = pd };
+                ppd.ShowDialog();
+            }
+        }
+
+        private static void PrintDocument_PrintPage(object sender, PrintPageEventArgs e, string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        {
+            //Bitmap bitmap = new Bitmap(315, 1000);
+
+            Graphics graphics = e.Graphics;
+
+            string TransactionNo = $"Trx No. {transactionNo}";
+
+            string[] products = currentCart.GetProductNames();
+            decimal[] prices = currentCart.GetPrices();
+
+            decimal change = paymentReceived - currentCart.GetTotalPrice();
+
+            Util.PrintReceipt(graphics, TransactionNo, products, prices, currentCart.GetTotalPrice(), paymentReceived, change, salesPerson, null, null, null, transactionDate);
+
+            //bitmap.Save("receipt.png", ImageFormat.Png);
+        }
+
         //AUDIT TRAIL
 
         private int auditTrailPageNumber = 1;
@@ -585,6 +691,11 @@ namespace BenpilsBarcodeSystem
                     base.OnPaint(pevent);
                 }
             }
+        }
+
+        private void InventoryCancelDateCb_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

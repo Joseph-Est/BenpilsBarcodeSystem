@@ -43,8 +43,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.InputFormPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BarcodeGeneratorBtn = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.panel39 = new System.Windows.Forms.Panel();
@@ -111,7 +109,6 @@
             this.panel36 = new System.Windows.Forms.Panel();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
             this.InputFormPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel39.SuspendLayout();
             this.panel38.SuspendLayout();
@@ -138,7 +135,6 @@
             // 
             // InputFormPanel
             // 
-            this.InputFormPanel.Controls.Add(this.panel3);
             this.InputFormPanel.Controls.Add(this.panel40);
             this.InputFormPanel.Controls.Add(this.panel39);
             this.InputFormPanel.Controls.Add(this.panel38);
@@ -160,33 +156,6 @@
             this.InputFormPanel.TabIndex = 186;
             this.InputFormPanel.Enter += new System.EventHandler(this.InputFormPanel_Enter);
             this.InputFormPanel.Leave += new System.EventHandler(this.InputFormPanel_Leave);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BarcodeGeneratorBtn);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(10, 563);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(0, 0, 30, 5);
-            this.panel3.Size = new System.Drawing.Size(377, 40);
-            this.panel3.TabIndex = 199;
-            // 
-            // BarcodeGeneratorBtn
-            // 
-            this.BarcodeGeneratorBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BarcodeGeneratorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarcodeGeneratorBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarcodeGeneratorBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_barcode_15;
-            this.BarcodeGeneratorBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BarcodeGeneratorBtn.Location = new System.Drawing.Point(0, 0);
-            this.BarcodeGeneratorBtn.Name = "BarcodeGeneratorBtn";
-            this.BarcodeGeneratorBtn.Size = new System.Drawing.Size(347, 35);
-            this.BarcodeGeneratorBtn.TabIndex = 36;
-            this.BarcodeGeneratorBtn.TabStop = false;
-            this.BarcodeGeneratorBtn.Text = " Barcode Generator";
-            this.BarcodeGeneratorBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BarcodeGeneratorBtn.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorBtn.Click += new System.EventHandler(this.BarcodeGeneratorBtn_Click);
             // 
             // panel40
             // 
@@ -374,6 +343,7 @@
             this.SellingPriceTxt.Dock = System.Windows.Forms.DockStyle.Right;
             this.SellingPriceTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.SellingPriceTxt.Location = new System.Drawing.Point(102, 0);
+            this.SellingPriceTxt.MaxLength = 15;
             this.SellingPriceTxt.Multiline = true;
             this.SellingPriceTxt.Name = "SellingPriceTxt";
             this.SellingPriceTxt.ReadOnly = true;
@@ -409,6 +379,7 @@
             this.PurchasePriceTxt.Dock = System.Windows.Forms.DockStyle.Right;
             this.PurchasePriceTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.PurchasePriceTxt.Location = new System.Drawing.Point(102, 0);
+            this.PurchasePriceTxt.MaxLength = 15;
             this.PurchasePriceTxt.Multiline = true;
             this.PurchasePriceTxt.Name = "PurchasePriceTxt";
             this.PurchasePriceTxt.ReadOnly = true;
@@ -472,7 +443,7 @@
             this.SizeCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.SizeCb.FormattingEnabled = true;
             this.SizeCb.Location = new System.Drawing.Point(102, 0);
-            this.SizeCb.MaxLength = 50;
+            this.SizeCb.MaxLength = 25;
             this.SizeCb.Name = "SizeCb";
             this.SizeCb.Size = new System.Drawing.Size(245, 24);
             this.SizeCb.TabIndex = 176;
@@ -511,7 +482,7 @@
             this.MotorBrandInputCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.MotorBrandInputCb.FormattingEnabled = true;
             this.MotorBrandInputCb.Location = new System.Drawing.Point(102, 0);
-            this.MotorBrandInputCb.MaxLength = 50;
+            this.MotorBrandInputCb.MaxLength = 25;
             this.MotorBrandInputCb.Name = "MotorBrandInputCb";
             this.MotorBrandInputCb.Size = new System.Drawing.Size(245, 24);
             this.MotorBrandInputCb.TabIndex = 175;
@@ -550,7 +521,7 @@
             this.BrandInputCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BrandInputCb.FormattingEnabled = true;
             this.BrandInputCb.Location = new System.Drawing.Point(102, 0);
-            this.BrandInputCb.MaxLength = 50;
+            this.BrandInputCb.MaxLength = 25;
             this.BrandInputCb.Name = "BrandInputCb";
             this.BrandInputCb.Size = new System.Drawing.Size(245, 24);
             this.BrandInputCb.TabIndex = 174;
@@ -589,7 +560,7 @@
             this.CategoryInputCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.CategoryInputCb.FormattingEnabled = true;
             this.CategoryInputCb.Location = new System.Drawing.Point(102, 0);
-            this.CategoryInputCb.MaxLength = 50;
+            this.CategoryInputCb.MaxLength = 25;
             this.CategoryInputCb.Name = "CategoryInputCb";
             this.CategoryInputCb.Size = new System.Drawing.Size(245, 24);
             this.CategoryInputCb.TabIndex = 173;
@@ -637,6 +608,7 @@
             this.ItemNameTxt.Dock = System.Windows.Forms.DockStyle.Right;
             this.ItemNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.ItemNameTxt.Location = new System.Drawing.Point(102, 0);
+            this.ItemNameTxt.MaxLength = 25;
             this.ItemNameTxt.Multiline = true;
             this.ItemNameTxt.Name = "ItemNameTxt";
             this.ItemNameTxt.ReadOnly = true;
@@ -1040,7 +1012,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inventory_Load);
             this.InputFormPanel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             this.panel40.PerformLayout();
             this.panel39.ResumeLayout(false);
@@ -1111,12 +1082,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn formatted_purchase_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn selling_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatted_selling_price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button BarcodeGeneratorBtn;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Button ArchiveBtn;
         private System.Windows.Forms.Panel panel39;

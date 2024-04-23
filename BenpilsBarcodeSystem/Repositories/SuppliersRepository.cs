@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BenpilsBarcodeSystem.Utils;
+using BenpilsBarcodeSystem.Entities;
+using System.Transactions;
+using System.Data.Common;
+using BenpilsBarcodeSystem.Repository;
 
 namespace BenpilsBarcodeSystem.Repositories
 {
@@ -140,25 +144,47 @@ namespace BenpilsBarcodeSystem.Repositories
         public async Task<bool> ArchiveSupplierAsync(int id, bool archive = false)
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{archive}' WHERE {col_id} = @ID";
+            string selectQuery = $"SELECT {col_contact_name} FROM {tbl_name} WHERE {col_id} = @ID";
 
-            try
+            using (SqlConnection con = databaseConnection.OpenConnection())
             {
-                using (SqlConnection con = databaseConnection.OpenConnection())
+                SqlTransaction transaction = con.BeginTransaction();
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                    string contactName;
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        contactName = (string)await cmd.ExecuteScalarAsync();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
 
                         int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
+                        if (rowsAffected > 0)
+                        {
+                            ReportsRepository repository = new ReportsRepository();
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, archive == true ? "Restore Supplier" : "Archive Supplier", archive == true ? $"User has restored a supplier ({contactName})." : $"User has archived a supplier ({contactName}).");
+
+                            if (!auditTrailAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
+                            }
+                        }
+
+                        transaction.Commit();
                         return rowsAffected > 0;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
             }
         }
 

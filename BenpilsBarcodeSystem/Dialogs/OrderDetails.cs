@@ -234,7 +234,9 @@ namespace BenpilsBarcodeSystem.Dialogs
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, CurrentSupplier.ContactName, DeliveryDateLbl.Text);
+            string orderDate = OrderDateLbl.Text.Remove(OrderDateLbl.Text.Length - 9);
+
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, null, CurrentSupplier.ContactName, DeliveryDateLbl.Text, orderDate);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

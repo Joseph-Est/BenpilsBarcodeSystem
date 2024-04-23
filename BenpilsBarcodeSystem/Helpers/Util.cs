@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace BenpilsBarcodeSystem.Utils
 {
@@ -142,16 +144,17 @@ namespace BenpilsBarcodeSystem.Utils
             return formattedDate;
         }
 
-        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string supplierName = null, string deliveryDate = null)
+        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string cashierName = null, string supplierName = null, string deliveryDate = null, string orderDate = null, string transactionDate = null)
         {
             Font fontBold = new Font("Courier New", 12, FontStyle.Bold);
             Font fontDash = new Font("Courier New", 12, FontStyle.Regular);
             Font fontRegularSmall = new Font("Courier New", 10, FontStyle.Regular);
             Font fontBoldSmall = new Font("Courier New", 10, FontStyle.Bold);
 
+            string date = transactionDate ?? orderDate ?? Util.ConvertDateShort(DateTime.Now);
             string dashes = "- - - - - - - - - - - - - - -";
             string space = " ";
-            string date = $"Date: {DateTime.Now:MM/dd/yyyy}";
+            date = $"Date: {date}";
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
             string shopName = "Benpils Motorcycle Parts and Accessories";
@@ -159,7 +162,8 @@ namespace BenpilsBarcodeSystem.Utils
             string shopAddress = "Ortigas, Cainta, Rizal";
             string thankYouMessage = "Thank you for shopping, have a great day!!";
             string cashier = "Cashier:";
-            string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
+            string customerName = "Customer:";
+            string customerField = "___________________";
 
             int y = 10;
 
@@ -179,7 +183,7 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawText(graphics, delivery, fontRegularSmall, y, 315);
                 y = DrawText(graphics, deliveryDate, fontBoldSmall, y, 315);
             }
-            else
+            else if (cashierName != null)
             {
                 y = DrawText(graphics, dashes, fontDash, y + 10, 315);
                 y = DrawText(graphics, cashier, fontRegularSmall, y, 315);
@@ -230,7 +234,16 @@ namespace BenpilsBarcodeSystem.Utils
 
             y = DrawText(graphics, dashes, fontDash, y + 20, 315);
             y = DrawText(graphics, space, fontDash, y, 315);
-            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y, 315, 50);
+
+            if (cashierName != null)
+            {
+                y = DrawText(graphics, customerName, fontRegularSmall, y, 315);
+                y = DrawText(graphics, customerField, fontBoldSmall, y, 315, 30);
+            }
+         
+
+
+            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y+20 , 315, 50);
             _ = DrawText(graphics, space, fontDash, y, 315);
         }
 
@@ -538,6 +551,59 @@ namespace BenpilsBarcodeSystem.Utils
             }
 
             return false;
+        }
+
+        public static Image GenerateBarcode(string value)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(value.Trim()))
+                {
+                    BarcodeWriter barcodeWriter = new BarcodeWriter { Format = BarcodeFormat.CODE_128 };
+                    return barcodeWriter.Write(value);
+                }
+            }
+            catch { }
+            
+            return null;
+        }
+
+        public static void PrintBarcode(PictureBox picture, float imageWidthInches, float marginInches)
+        {
+            if (picture.Image != null)
+            {
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += (sender, e) => PrintPage(e, picture.Image, imageWidthInches, marginInches);
+
+                float paperWidth = (imageWidthInches + marginInches * 2) * 100;
+                float paperHeight = (marginInches * 2 + picture.Image.Height * imageWidthInches / picture.Image.Width) * 100;
+
+                pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", (int)paperWidth, (int)paperHeight);
+                pd.PrinterSettings.DefaultPageSettings.PaperSize = new PaperSize("Custom", (int)paperWidth, (int)paperHeight);
+
+                PrintPreviewDialog ppd = new PrintPreviewDialog { Document = pd };
+                ppd.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No image to print.", "No Image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public static void PrintPage(PrintPageEventArgs e, Image image, float imageWidthInches, float marginInches)
+        {
+            float imageWidth = imageWidthInches * 100;
+            float imageHeight = image.Height * imageWidthInches / image.Width * 100;
+
+            int margin = (int)(marginInches * 100);
+
+            int availableWidth = e.PageBounds.Width - 2 * margin;
+            int availableHeight = e.PageBounds.Height - 2 * margin;
+
+            int posX = margin + (availableWidth - (int)imageWidth) / 2;
+            int posY = margin + (availableHeight - (int)imageHeight) / 2;
+
+            e.Graphics.DrawImage(image, posX, posY, imageWidth, imageHeight);
         }
     }
 }

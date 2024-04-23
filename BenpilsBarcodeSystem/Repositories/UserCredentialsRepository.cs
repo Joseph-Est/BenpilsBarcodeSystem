@@ -45,14 +45,15 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@ContactNo", contactNo);
 
                         await cmd.ExecuteNonQueryAsync();
-                        //ReportsRepository repository = new ReportsRepository();
 
-                        //bool reportAdded = await repository.AddAuditTrailAsync(con, CurrentUser.User.ID, "Add User", $"Added new user: {username}");
+                        ReportsRepository repository = new ReportsRepository();
 
-                        //if (!reportAdded)
-                        //{
-                        //    throw new Exception("Failed to add audit trail");
-                        //}
+                        bool reportAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "Add User", $"User has created new user ({username}).");
+
+                        if (!reportAdded)
+                        {
+                            throw new Exception("Failed to add audit trail");
+                        }
 
                         transaction.Commit();
                         return true;
@@ -217,7 +218,7 @@ namespace BenpilsBarcodeSystem.Repository
 
                                     ReportsRepository repository = new ReportsRepository();
 
-                                    bool auditTrailAdded = await repository.AddAuditTrailAsync(connection, userId, "Login", "User logged in successfully.");
+                                    bool auditTrailAdded = await repository.AddAuditTrailAsyncConnection(connection, userId, "Login", "User logged in successfully.");
 
                                     if (!auditTrailAdded)
                                     {
@@ -258,7 +259,7 @@ namespace BenpilsBarcodeSystem.Repository
                     {
                         ReportsRepository repository = new ReportsRepository();
 
-                        bool auditTrailAdded = await repository.AddAuditTrailAsync(connection, CurrentUser.User.ID, "Logout", "User logged out successfully.");
+                        bool auditTrailAdded = await repository.AddAuditTrailAsyncConnection(connection, CurrentUser.User.ID, "Logout", "User logged out successfully.");
 
                         if (!auditTrailAdded)
                         {
@@ -306,28 +307,47 @@ namespace BenpilsBarcodeSystem.Repository
         public async Task<bool> ArchiveUserAsync(int id, bool archive = false)
         {
             string updateQuery = $"UPDATE {tbl_name} SET {col_is_active} = '{archive}' WHERE {col_id} = @ID";
+            string selectQuery = $"SELECT {col_username} FROM {tbl_name} WHERE {col_id} = @ID";
 
             using (SqlConnection con = databaseConnection.OpenConnection())
             {
                 SqlTransaction transaction = con.BeginTransaction();
                 try
                 {
+                    string username;
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        username = (string)await cmd.ExecuteScalarAsync();
+                    }
+
                     using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
 
                         int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
-                        //if (rowsAffected > 0)
-                        //{
-                        //    ReportsRepository repository = new ReportsRepository();
-                        //    bool reportAdded = await repository.AddInventoryReportAsync(transaction, id, null, "Archive Item", 0, 0, 0, CurrentUser.User.ID, "Item archived succesfully");
+                        if (rowsAffected > 0)
+                        {
+                            ReportsRepository repository = new ReportsRepository();
 
-                        //    if (!reportAdded)
-                        //    {
-                        //        throw new Exception("Failed to add inventory report");
-                        //    }
-                        //}
+                            bool reportAdded;
+
+                            if (archive)
+                            {
+                                reportAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "Restore User", $"User has restored a user: ({username}).");
+                            }
+                            else
+                            {
+                                reportAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "Archive User", $"User has archived a user ({username}).");
+                            }
+                            
+
+                            if (!reportAdded)
+                            {
+                                throw new Exception("Failed to add audit trail");
+                            }
+                        }
 
                         transaction.Commit();
                         return rowsAffected > 0;

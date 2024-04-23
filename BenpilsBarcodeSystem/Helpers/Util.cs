@@ -188,8 +188,6 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawText(graphics, dashes, fontDash, y + 10, 315);
                 y = DrawText(graphics, cashier, fontRegularSmall, y, 315);
                 y = DrawText(graphics, cashierName, fontBoldSmall, y, 315, 30);
-                y = DrawText(graphics, customerName, fontRegularSmall, y+10, 315);
-                y = DrawText(graphics, customerField, fontBoldSmall, y, 315, 30);
             }
 
             y = DrawText(graphics, dashes, fontDash, y + 5, 315);
@@ -236,7 +234,16 @@ namespace BenpilsBarcodeSystem.Utils
 
             y = DrawText(graphics, dashes, fontDash, y + 20, 315);
             y = DrawText(graphics, space, fontDash, y, 315);
-            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y, 315, 50);
+
+            if (cashierName != null)
+            {
+                y = DrawText(graphics, customerName, fontRegularSmall, y, 315);
+                y = DrawText(graphics, customerField, fontBoldSmall, y, 315, 30);
+            }
+         
+
+
+            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y+20 , 315, 50);
             _ = DrawText(graphics, space, fontDash, y, 315);
         }
 

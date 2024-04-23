@@ -50,6 +50,8 @@ namespace BenpilsBarcodeSystem
                 SupplierCb.Items.Clear();
                 SupplierCb.Items.Add(supplier);
                 SupplierCb.SelectedItem = supplier;
+                QuantityTxt.ReadOnly = true;
+                QuantityTxt.Text = "0";
             }
             else
             {

@@ -94,6 +94,14 @@ namespace BenpilsBarcodeSystem
                         return;
                     }
 
+                    int id = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["id"].Value);
+
+                    if ((CurrentUser.User.Designation == "Admin" && userDesignation == "Admin") && CurrentUser.User.ID != id)
+                    {
+                        MessageBox.Show("You do not have the necessary privileges to update this user.", "Action Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     isUpdating = true;
                     SetFieldsReadOnly(false);
                     prevUsername = UsernameTxt.Text;

@@ -352,6 +352,70 @@ namespace BenpilsBarcodeSystem
             SalesTodayCb.Checked = true;
             AuditTodayCb.Checked = true;
         }
+        public void ShowCustomReport(string title, List<object[]> data, string[] headers, int fillColumnIndex, int[] middleCenterColumns, int[] middleRightColumns, bool countTotal = true)
+        {
+            TableDialog dialog = new TableDialog(title, data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, countTotal);
+            dialog.ShowDialog();
+        }
+
+        private void Panel_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Panel panel)
+            {
+                if (panel.Parent != null)
+                {
+                    panel.Parent.BackColor = Color.FromArgb(60, 60, 60);
+                }
+            }
+            else if (sender is Label label)
+            {
+                if (label.Parent != null)
+                {
+                    if (label.Parent.BackColor == Color.White)
+                    {
+                        label.Parent.BackColor = Color.LightGray;
+                    }
+                    else if (label.Parent.BackColor == Color.FromArgb(40, 40, 40))
+                    {
+                        label.Parent.BackColor = Color.FromArgb(60, 60, 60);
+                    }
+                    else if (label.Parent.BackColor == Color.FromArgb(193, 57, 57))
+                    {
+                        label.Parent.BackColor = Color.FromArgb(242, 92, 92);
+                    }
+                }
+            }
+        }
+
+        private void Panel_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Panel panel)
+            {
+                if (panel.Parent != null)
+                {
+                    panel.Parent.BackColor = Color.FromArgb(40, 40, 40);
+                }
+            }
+            else if (sender is Label label)
+            {
+                if (label.Parent != null)
+                {
+                    if (label.Parent.BackColor == Color.LightGray)
+                    {
+                        label.Parent.BackColor = Color.White;
+                    }
+                    else if (label.Parent.BackColor == Color.FromArgb(60, 60, 60))
+                    {
+                        label.Parent.BackColor = Color.FromArgb(40, 40, 40);
+                    }
+                    else if (label.Parent.BackColor == Color.FromArgb(242, 92, 92))
+                    {
+                        label.Parent.BackColor = Color.FromArgb(193, 57, 57);
+                    }
+                }
+            }
+        }
+
 
         //INVENTORY REPORT
 
@@ -407,6 +471,8 @@ namespace BenpilsBarcodeSystem
 
         private int prPageNumber = 1;
         private readonly int prPageSize = 30;
+        private List<PurchaseOrderEntity> purchaseOrder;
+        private List<PurchaseOrderEntity> deliveredPurchaseOrder;
 
         public async void UpdatePurchaseReportDG()
         {
@@ -430,8 +496,10 @@ namespace BenpilsBarcodeSystem
                 PRNextBtn.Enabled = prPageNumber < totalPages;
                 PRPrevBtn.Enabled = prPageNumber > 1;
 
-                PurchaseOrderRepository posRepository = new PurchaseOrderRepository();
-                (int delivered, int pending, int overdue, int pendingToday) = await posRepository.GetOrderStatusCountsAsync();
+                PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
+                purchaseOrder = await purchaseOrderRepository.GetPendingOrdersAsync();
+                deliveredPurchaseOrder = await purchaseOrderRepository.GetDeliveredOrdersAsync();
+                (int delivered, int pending, int overdue, int pendingToday) = await purchaseOrderRepository.GetOrderStatusCountsAsync();
                 DueToday.Text = pendingToday.ToString();
                 TotalPendingLbl.Text = pending.ToString();
                 TotalOverdueLbl.Text = overdue.ToString();
@@ -441,6 +509,121 @@ namespace BenpilsBarcodeSystem
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
+        }
+        private void DueToday_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                if (order.DeliveryStatus.ToLower().Equals("today"))
+                {
+                    data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+                }
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Due Today", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+        private void TotalPendingLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Pending Orders", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+        private void TotalOverdueLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!purchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in purchaseOrder)
+            {
+                if (order.DeliveryStatus.ToLower().Contains("overdue") || order.DeliveryStatus.ToLower().Contains("yesterday"))
+                {
+                    data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });
+                }
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Overdue Orders", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
+        }
+
+        private void TotalDeliveredLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!deliveredPurchaseOrder.Any())
+            {
+                return;
+            }
+
+            foreach (var order in deliveredPurchaseOrder)
+            {
+                data.Add(new object[] { order.OrderId, order.SupplierName, order.OrderDate, order.DeliveryDate });              
+            }
+
+            if (!data.Any())
+            {
+                return;
+            }
+
+            string[] headers = { "Order ID", "Supplier", "Order Date", "Delivery Date" };
+            int fillColumnIndex = 1;
+
+            int[] middleCenterColumns = { 0 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Total Delivered", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns, false);
         }
 
         private void PRNextBtn_Click(object sender, EventArgs e)
@@ -494,6 +677,7 @@ namespace BenpilsBarcodeSystem
 
         private int srPageNumber = 1;
         private readonly int srPageSize = 30;
+        private List<SalesData> salesData;
 
         public async void UpdateSalesReportDG()
         {
@@ -520,7 +704,7 @@ namespace BenpilsBarcodeSystem
 
                 POSRepository posRepository = new POSRepository();
 
-                List<SalesData> salesData = await posRepository.GetSalesAsync(SalesStartDateDt.Value, SalesEndDateDt.Value);
+                salesData = await posRepository.GetSalesAsync(SalesStartDateDt.Value, SalesEndDateDt.Value);
 
                 if (SalesStartDateDt.Value.Date == DateTime.Now.Date && SalesEndDateDt.Value.Date == DateTime.Now.Date)
                 {
@@ -545,6 +729,98 @@ namespace BenpilsBarcodeSystem
             }
         }
 
+        private void ItemsSoldLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!salesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = salesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
+                                              })
+                                              .OrderByDescending(g => g.Date);
+
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Quantity });
+            }
+
+            string[] headers = { "Date", "Item", "Qty" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = { 2 };
+            int[] middleRightColumns = { };
+
+            ShowCustomReport("Total Items Sold", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
+        }
+
+        private void SalesRevenueLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!salesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = salesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Amount = g.Sum(s => s.TotalSales),
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
+                                              })
+                                              .OrderByDescending(g => g.Date);
+
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Quantity, item.Amount });
+            }
+
+            string[] headers = { "Date", "Item", "Qty", "Total Sales" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = { 2 };
+            int[] middleRightColumns = { 3 };
+
+            ShowCustomReport("Total Sales", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
+        }
+        private void ProfitLbl_Click(object sender, EventArgs e)
+        {
+            List<object[]> data = new List<object[]>();
+
+            if (!salesData.Any())
+            {
+                return;
+            }
+
+            var groupedData = salesData.GroupBy(s => new { s.DisplayItemName, s.Date })
+                                              .Select(g => new
+                                              {
+                                                  Date = Util.ConvertDateLongWithTime(g.Key.Date),
+                                                  Item = g.Key.DisplayItemName,
+                                                  Profit = g.Sum(s => s.TotalProfit),
+                                                  Quantity = g.Sum(s => s.TotalItemSold)
+                                              })
+                                              .OrderByDescending(g => g.Date);
+            foreach (var item in groupedData)
+            {
+                data.Add(new object[] { item.Date, item.Item, item.Quantity, item.Profit });
+            }
+
+            string[] headers = { "Date", "Item", "Qty", "Total Profit" };
+            int fillColumnIndex = 1;
+            int[] middleCenterColumns = { 2 };
+            int[] middleRightColumns = { 3 };
+
+            ShowCustomReport("Total Profit", data, headers, fillColumnIndex, middleCenterColumns, middleRightColumns);
+        }
         private void SRNxtBtn_Click(object sender, EventArgs e)
         {
             srPageNumber++;
@@ -697,5 +973,7 @@ namespace BenpilsBarcodeSystem
         {
 
         }
+
+       
     }
 }

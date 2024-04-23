@@ -637,6 +637,67 @@ namespace BenpilsBarcodeSystem.Repositories
 
             return overdueOrders;
         }
+        public async Task<List<PurchaseOrderEntity>> GetDeliveredOrdersAsync()
+        {
+            List<PurchaseOrderEntity> overdueOrders = new List<PurchaseOrderEntity>();
+
+            string selectQuery = $@"
+                SELECT 
+                    po.{col_order_id}, 
+                    po.{col_receiving_date},
+                    po.{col_order_date},
+                    s.{SuppliersRepository.col_contact_name} as supplier_name
+                FROM 
+                    {tbl_purchase_order} po
+                INNER JOIN 
+                    {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id}
+                WHERE 
+                    po.{col_status} = @status OR po.{col_status} = @status2
+                ORDER BY
+                    po.{col_receiving_date} ASC";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@status", delivered_status);
+                        cmd.Parameters.AddWithValue("@status2", partially_delivered_status);
+                        cmd.Parameters.AddWithValue("@currentDate", DateTime.Now);
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                int orderId = reader.GetInt32(reader.GetOrdinal(col_order_id));
+                                DateTime deliveryDate = reader.GetDateTime(reader.GetOrdinal(col_receiving_date));
+                                DateTime orderDate = reader.GetDateTime(reader.GetOrdinal(col_order_date));
+                                string supplierName = reader.GetString(reader.GetOrdinal("supplier_name"));
+
+                                string days = CalculateDays(deliveryDate);
+
+                                PurchaseOrderEntity order = new PurchaseOrderEntity
+                                {
+                                    OrderId = orderId,
+                                    OrderDate = Util.ConvertDateLong(orderDate),
+                                    DeliveryDate = Util.ConvertDateLong(deliveryDate),
+                                    SupplierName = supplierName
+                                };
+
+                                overdueOrders.Add(order);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return overdueOrders;
+        }
 
         private string CalculateDays(DateTime deliveryDate)
         {

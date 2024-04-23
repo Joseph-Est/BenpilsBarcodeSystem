@@ -158,8 +158,8 @@ namespace BenpilsBarcodeSystem.Utils
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
             string shopName = "Benpils Motorcycle Parts and Accessories";
-            string contactNo = "09295228592";
-            string shopAddress = "Ortigas, Cainta, Rizal";
+            string contactNo = "09178253571";
+            string shopAddress = "L. Santos St. Brgy. San Juan Cainta";
             string thankYouMessage = "Thank you for shopping, have a great day!!";
             string cashier = "Cashier:";
             string customerName = "Customer:";
@@ -170,7 +170,7 @@ namespace BenpilsBarcodeSystem.Utils
             y = DrawText(graphics, shopName, fontBold, y + 20, 315, 30);
             y = DrawText(graphics, dashes, fontDash, y, 315);
             y = DrawText(graphics, date, fontRegularSmall, y + 5, 315, 30);
-            y = DrawText(graphics, shopAddress, fontBoldSmall, y + 10, 315);
+            y = DrawText(graphics, shopAddress, fontBoldSmall, y + 10, 315,20);
             y = DrawText(graphics, contactNo, fontBoldSmall, y, 315);
             y = DrawText(graphics, transactionNo, fontRegularSmall, y + 20, 315);
 

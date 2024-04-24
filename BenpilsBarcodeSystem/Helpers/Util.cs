@@ -147,8 +147,8 @@ namespace BenpilsBarcodeSystem.Utils
         public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string cashierName = null, string supplierName = null, string deliveryDate = null, string orderDate = null, string transactionDate = null)
         {
             Font fontBold = new Font("Courier New", 12, FontStyle.Bold);
-            Font fontDash = new Font("Courier New", 12, FontStyle.Regular);
-            Font fontRegularSmall = new Font("Courier New", 10, FontStyle.Regular);
+            Font fontDash = new Font("Courier New", 12, FontStyle.Bold);
+            Font fontRegularSmall = new Font("Courier New", 10, FontStyle.Bold);
             Font fontBoldSmall = new Font("Courier New", 10, FontStyle.Bold);
 
             string date = transactionDate ?? orderDate ?? Util.ConvertDateShort(DateTime.Now);
@@ -170,7 +170,7 @@ namespace BenpilsBarcodeSystem.Utils
             y = DrawText(graphics, shopName, fontBold, y + 20, 315, 30);
             y = DrawText(graphics, dashes, fontDash, y, 315);
             y = DrawText(graphics, date, fontRegularSmall, y + 5, 315, 30);
-            y = DrawText(graphics, shopAddress, fontBoldSmall, y + 10, 315,20);
+            y = DrawText(graphics, shopAddress, fontBoldSmall, y + 10, 315, 20);
             y = DrawText(graphics, contactNo, fontBoldSmall, y, 315);
             y = DrawText(graphics, transactionNo, fontRegularSmall, y + 20, 315);
 
@@ -219,7 +219,7 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawTwoColumns(graphics, totals[i], amount[i], fontBoldSmall, y, 315, 10);
             }
 
-            if(paymentReceived > 0)
+            if (paymentReceived > 0)
             {
                 y = DrawText(graphics, space, fontDash, y, 315);
 
@@ -240,10 +240,9 @@ namespace BenpilsBarcodeSystem.Utils
                 y = DrawText(graphics, customerName, fontRegularSmall, y, 315);
                 y = DrawText(graphics, customerField, fontBoldSmall, y, 315, 30);
             }
-         
 
 
-            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y+20 , 315, 50);
+            y = DrawText(graphics, thankYouMessage, fontBoldSmall, y + 20, 315, 50);
             _ = DrawText(graphics, space, fontDash, y, 315);
         }
 

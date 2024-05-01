@@ -108,6 +108,7 @@
             this.BrandCb = new System.Windows.Forms.ComboBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
+            this.BarcodeGeneratorbtnclick = new System.Windows.Forms.Button();
             this.InputFormPanel.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel39.SuspendLayout();
@@ -135,6 +136,7 @@
             // 
             // InputFormPanel
             // 
+            this.InputFormPanel.Controls.Add(this.BarcodeGeneratorbtnclick);
             this.InputFormPanel.Controls.Add(this.panel40);
             this.InputFormPanel.Controls.Add(this.panel39);
             this.InputFormPanel.Controls.Add(this.panel38);
@@ -999,6 +1001,16 @@
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
             // 
+            // BarcodeGeneratorbtnclick
+            // 
+            this.BarcodeGeneratorbtnclick.Location = new System.Drawing.Point(10, 569);
+            this.BarcodeGeneratorbtnclick.Name = "BarcodeGeneratorbtnclick";
+            this.BarcodeGeneratorbtnclick.Size = new System.Drawing.Size(347, 37);
+            this.BarcodeGeneratorbtnclick.TabIndex = 199;
+            this.BarcodeGeneratorbtnclick.Text = "Barcode generator";
+            this.BarcodeGeneratorbtnclick.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorbtnclick.Click += new System.EventHandler(this.BarcodeGeneratorbtnclick_Click);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1116,5 +1128,6 @@
         private System.Windows.Forms.ComboBox CategoryInputCb;
         private System.Windows.Forms.CheckBox CancelFilterCb;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.Button BarcodeGeneratorbtnclick;
     }
 }

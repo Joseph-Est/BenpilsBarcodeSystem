@@ -71,7 +71,7 @@ namespace BenpilsBarcodeSystem
                 string motorBrand = MotorBrandInputCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(MotorBrandInputCb.Text);
                 string size = SizeCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(SizeCb.Text);
 
-                if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
+                if (Util.AreTextBoxesNullOrEmpty(ItemNameTxt))
                 {
                     MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -381,6 +381,21 @@ namespace BenpilsBarcodeSystem
         private void CB_DropDownClosed(object sender, EventArgs e)
         {
             InventoryTbl.Focus();
+
+        }
+
+        private void BarcodeGeneratorbtnclick_Click(object sender, EventArgs e)
+        {
+            GenerateBarcode generateBarcode = new GenerateBarcode
+            {
+                StartPosition = FormStartPosition.CenterParent,
+                Location = new Point(this.Location.X + this.Width + 10, this.Location.Y)
+            };
+
+            if (generateBarcode.ShowDialog() == DialogResult.OK)
+            {
+                BarcodeTxt.Text = Clipboard.GetText();
+            }
 
         }
 

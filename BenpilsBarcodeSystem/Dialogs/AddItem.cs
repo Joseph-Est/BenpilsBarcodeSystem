@@ -69,7 +69,7 @@ namespace BenpilsBarcodeSystem
             string size = SizeCb.Text.Trim().ToLower() == "n/a" ? "N/A" : Util.CapitalizeOrNA(SizeCb.Text);
             int quantity = InputValidator.ParseToInt(QuantityTxt.Text);
 
-            if (Util.AreTextBoxesNullOrEmpty(BarcodeTxt, ItemNameTxt))
+            if (Util.AreTextBoxesNullOrEmpty(ItemNameTxt))
             {
                 MessageBox.Show("Please ensure all required fields are filled in before proceeding.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

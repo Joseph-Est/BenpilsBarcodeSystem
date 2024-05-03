@@ -5,16 +5,27 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenpilsBarcodeSystem", "BenpilsBarcodeSystem\BenpilsBarcodeSystem.csproj", "{310D014F-782D-4349-9860-0F2E17642351}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Benpill", "Benpill\Benpill.aiproj", "{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{310D014F-782D-4349-9860-0F2E17642351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{310D014F-782D-4349-9860-0F2E17642351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{310D014F-782D-4349-9860-0F2E17642351}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{310D014F-782D-4349-9860-0F2E17642351}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
 		{310D014F-782D-4349-9860-0F2E17642351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{310D014F-782D-4349-9860-0F2E17642351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.Debug|Any CPU.Build.0 = DefaultBuild
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{72C20ACE-C8BB-4730-BDF0-1D5EADC44715}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

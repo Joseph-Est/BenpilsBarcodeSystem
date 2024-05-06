@@ -158,12 +158,17 @@ namespace BenpilsBarcodeSystem.Utils
             string supplier = "Supplier:";
             string delivery = "Delivery Date:";
             string shopName = "Benpils Motorcycle Parts and Accessories";
+
             string contactNo = "09178253571";
             string shopAddress = "L. Santos St. Brgy. San Juan Cainta";
-            string thankYouMessage = "Thank you for shopping, have a great day!!";
+            string thankYouMessage = "This is not a offical receipt";
             string cashier = "Cashier:";
             string customerName = "Customer:";
             string customerField = "___________________";
+
+            // Define TIN Number
+            string tinLabel = "TIN:484-398-900-0000";
+           
 
             int y = 10;
 
@@ -171,6 +176,7 @@ namespace BenpilsBarcodeSystem.Utils
             y = DrawText(graphics, dashes, fontDash, y, 315);
             y = DrawText(graphics, date, fontRegularSmall, y + 5, 315, 30);
             y = DrawText(graphics, shopAddress, fontBoldSmall, y + 10, 315, 20);
+            y = DrawText(graphics, tinLabel, fontRegularSmall, y, 315); // Draw TIN Label
             y = DrawText(graphics, contactNo, fontBoldSmall, y, 315);
             y = DrawText(graphics, transactionNo, fontRegularSmall, y + 20, 315);
 

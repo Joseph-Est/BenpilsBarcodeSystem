@@ -63,20 +63,9 @@ namespace BenpilsBarcodeSystem
             PurchaseOrderRepository purchaseOrderRepository = new PurchaseOrderRepository();
             POSRepository posRepository = new POSRepository();
 
-            // Monthly Test
-            //DateTime firstDayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            //DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
-
-            // Tomorrow Test
-            //DateTime tomorrow = DateTime.Today.AddDays(1);
-            //DateTime tomorrowEnd = tomorrow.AddDays(1).AddTicks(-1);  // End of tomorrow
 
             currentSalesData = await posRepository.GetSalesAsync(dateFrom, dateTo);
 
-            //foreach (var sale in currentSalesData)
-            //{
-            //    Console.WriteLine($"Date: {sale.Date}, Item: {sale.DisplayItemName}, Total Item Sold: {sale.TotalItemSold}, Total Sales: {sale.TotalSales}, Total Profit: {sale.TotalProfit}");
-            //}
             salesChartCurrentPage = -1;
 
             ItemsSoldLbl.Text = currentSalesData.Sum(s => s.TotalItemSold).ToString();

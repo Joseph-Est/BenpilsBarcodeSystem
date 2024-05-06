@@ -366,7 +366,7 @@
             this.StatisticsCb.Size = new System.Drawing.Size(246, 50);
             this.StatisticsCb.TabIndex = 5;
             this.StatisticsCb.TabStop = false;
-            this.StatisticsCb.Text = "  Statistic Reports";
+            this.StatisticsCb.Text = "  Forecasting";
             this.StatisticsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StatisticsCb.UseVisualStyleBackColor = true;
             this.StatisticsCb.Click += new System.EventHandler(this.Checkbox_Clicked);
@@ -418,7 +418,7 @@
             this.SettingsCb.Size = new System.Drawing.Size(246, 50);
             this.SettingsCb.TabIndex = 7;
             this.SettingsCb.TabStop = false;
-            this.SettingsCb.Text = "  Settings";
+            this.SettingsCb.Text = " Archive Backup";
             this.SettingsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SettingsCb.UseVisualStyleBackColor = true;
             this.SettingsCb.Click += new System.EventHandler(this.Checkbox_Clicked);

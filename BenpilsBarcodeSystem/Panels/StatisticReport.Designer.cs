@@ -878,10 +878,10 @@
             this.BrandPopularityChart.Name = "BrandPopularityChart";
             this.BrandPopularityChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.BrandPopularityChart.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))))};
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.Silver,
+        System.Drawing.Color.Gray,
+        System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))))};
             this.BrandPopularityChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));

@@ -20,7 +20,8 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_transactions = "tbl_transactions", tbl_transaction_details = "tbl_transaction_details";
         public static string col_transaction_id = "transaction_id", col_transaction_date = "transaction_date", col_operated_by = "operated_by", col_payment_received = "payment_received";
-        public static string col_id = "id", col_item_id = "item_id", col_quantity = "Quantity", col_total = "total";
+        public static string col_id = "id", col_item_id = "item_id", col_quantity = "Quantity", col_total = "total", col_status = "status";
+        public static string transaction_completed = "COMPLETED", transaction_refunded = "REFUNDED";
 
         public POSRepository()
         {
@@ -248,7 +249,11 @@ namespace BenpilsBarcodeSystem.Repository
 
             if (!getAll)
             {
-                selectQuery += $@" WHERE t.{col_transaction_date} BETWEEN @dateFrom AND @dateTo";
+                selectQuery += $@" WHERE t.{col_transaction_date} BETWEEN @dateFrom AND @dateTo AND t.{col_status} = '{transaction_completed}'";
+            }
+            else
+            {
+                selectQuery += $@" WHERE t.{col_status} = '{transaction_completed}'";
             }
 
             selectQuery += $@"
@@ -310,6 +315,52 @@ namespace BenpilsBarcodeSystem.Repository
             }
 
             return salesDataList;
+        }
+
+        public async Task<DataTable> GetTransactionsAsync(string searchText = "")
+        {
+            string whereClause = $"WHERE {col_status} = '{transaction_completed}'";
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                whereClause += $@" AND ({col_transaction_id} LIKE '%' + @SearchTxt + '%')";
+            }
+
+            string selectQuery = $@"
+                SELECT {col_transaction_id}, {col_transaction_date} 
+                FROM {tbl_transactions} 
+                {whereClause} 
+                ORDER BY {col_transaction_date} DESC";
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, con))
+                    {
+                        adapter.SelectCommand.Parameters.AddWithValue("@SearchTxt", searchText);
+
+                        DataTable dt = new DataTable();
+                        await Task.Run(() => adapter.Fill(dt));
+
+                        dt.Columns.Add("formatted_transaction_date", typeof(string));
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            DateTime transactionDate = Convert.ToDateTime(row[POSRepository.col_transaction_date]);
+
+                            row["formatted_transaction_date"] = Util.ConvertDateLongWithTime(transactionDate);
+                        }
+
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return null;
+            }
         }
 
         public Task<DataTable> GetSalesChartDataAsync(List<SalesData> salesDataList, string timeFrame = null, string interval = null)
@@ -465,5 +516,101 @@ namespace BenpilsBarcodeSystem.Repository
 
             return Task.FromResult(dt);
         }
+
+        public async Task<int> RefundTransactionAsync(string transactionId, Cart cart)
+        {
+            string updateTransactionQuery = $"UPDATE {tbl_transactions} SET {col_status} = @status WHERE {col_transaction_id} = @transactionId";
+            string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId AND {InventoryRepository.col_is_active} = 1";
+            string updateItemQuantityQuery = $"UPDATE {InventoryRepository.tbl_name} SET quantity = quantity + @Quantity WHERE id = @ItemId";
+
+            SqlTransaction transaction = null;
+
+            int returnInt = 0;
+
+            try
+            {
+                using (SqlConnection con = databaseConnection.OpenConnection())
+                {
+                    ReportsRepository repository = new ReportsRepository();
+
+                    using (transaction = con.BeginTransaction())
+                    {
+                        using (SqlCommand cmd = new SqlCommand(updateTransactionQuery, con, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@status", transaction_refunded);
+                            cmd.Parameters.AddWithValue("@transactionId", transactionId);
+                            await cmd.ExecuteNonQueryAsync();
+
+                            int itemCount = 0;
+
+                            foreach (var item in cart.Items)
+                            {
+                                itemCount += item.Quantity;
+
+                                int oldStock;
+                                int newStock;
+
+                                using (SqlCommand cmdGetItemQuantity = new SqlCommand(getItemQuantityQuery, con, transaction))
+                                {
+                                    cmdGetItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
+                                    object result = await cmdGetItemQuantity.ExecuteScalarAsync();
+                                    if (result == null)
+                                    {
+                                        returnInt = 1;
+                                        throw new Exception($"Item with ID {item.Id} is archived and cannot be refunded.");
+                                    }
+                                    oldStock = Convert.ToInt32(result);
+                                }
+
+                                newStock = oldStock + item.Quantity;
+
+                                if (newStock < 0)
+                                {
+                                    returnInt = 2;
+                                    throw new Exception("New stock quantity cannot be negative.");
+                                }
+
+                                using (SqlCommand cmdUpdateItemQuantity = new SqlCommand(updateItemQuantityQuery, con, transaction))
+                                {
+                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@ItemId", item.Id);
+                                    cmdUpdateItemQuantity.Parameters.AddWithValue("@Quantity", item.Quantity);
+
+                                    await cmdUpdateItemQuantity.ExecuteNonQueryAsync();
+                                }
+
+                                bool reportAdded = await repository.AddInventoryReportAsync(transaction, item.Id, null, $"Item Refunded", item.Quantity, oldStock, newStock, CurrentUser.User.ID, $"Transaction no. {transactionId}");
+
+                                if (!reportAdded)
+                                {
+                                    returnInt = 3;
+                                    throw new Exception("Failed to add inventory report");
+                                }
+                            }
+
+                            bool auditTrailAdded = await repository.AddAuditTrailAsyncTransaction(transaction, CurrentUser.User.ID, "POS Transaction", $"User has refunded {itemCount} item(s). Transaction no. {transactionId}.");
+
+                            if (!auditTrailAdded)
+                            {
+                                returnInt = 4;
+                                throw new Exception("Failed to add audit trail");
+                            }
+                        }
+
+                        transaction.Commit();
+                    }
+                }
+                returnInt = 0;
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                Console.WriteLine("An error occurred: " + ex.Message);
+                returnInt = returnInt == 0 ? 5 : returnInt;
+            }
+
+            return returnInt;
+        }
+
+
     }
 }

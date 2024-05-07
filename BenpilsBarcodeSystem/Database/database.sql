@@ -114,6 +114,7 @@ CREATE TABLE [dbo].[tbl_transactions](
     [transaction_date] [datetime] NULL,
     [operated_by] [int] NULL,
     [payment_received] [decimal](10, 2) NULL,
+    [status] [varchar](50) NULL,
     PRIMARY KEY CLUSTERED 
     (
         [transaction_id] ASC
@@ -122,6 +123,7 @@ CREATE TABLE [dbo].[tbl_transactions](
 GO
 
 ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [DF__tbl_trans__trans__59C55456]  DEFAULT (getdate()) FOR [transaction_date];
+ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [DF_Status_Default]  DEFAULT ('COMPLETED') FOR [status];
 ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [FK__tbl_trans__opera__607251E5] FOREIGN KEY([operated_by])
 REFERENCES [dbo].[tbl_user_credentials] ([id]);
 GO

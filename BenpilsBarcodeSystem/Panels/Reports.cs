@@ -694,7 +694,7 @@ namespace BenpilsBarcodeSystem
                 SalesTbl.DataSource = pr;
                 SalesTbl.ClearSelection();
 
-                int totalRecords = await repository.GetPurchaseOrderTransactionsCountAsync(SalesStartDateDt.Value, SalesEndDateDt.Value, SalesSearchTxt.Text);
+                int totalRecords = await repository.GetSalesCountAsync(SalesStartDateDt.Value, SalesEndDateDt.Value, SalesSearchTxt.Text);
                 int totalPages = (int)Math.Ceiling((double)totalRecords / srPageSize);
 
                 SrPageLbl.Text = $"{srPageNumber} | {totalPages}";
@@ -824,7 +824,7 @@ namespace BenpilsBarcodeSystem
         private void SRNxtBtn_Click(object sender, EventArgs e)
         {
             srPageNumber++;
-            UpdateAuditTrailDG();
+            UpdateSalesReportDG();
         }
 
         private void SRPrevBtn_Click(object sender, EventArgs e)
@@ -832,7 +832,7 @@ namespace BenpilsBarcodeSystem
             if (srPageNumber > 1)
             {
                 srPageNumber--;
-                UpdateAuditTrailDG();
+                UpdateSalesReportDG();
             }
         }
 

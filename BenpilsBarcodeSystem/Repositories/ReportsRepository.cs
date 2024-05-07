@@ -397,7 +397,7 @@ namespace BenpilsBarcodeSystem.Repository
 
             int skip = (pageNumber - 1) * pageSize;
 
-            string selectQuery = $@"SELECT t.{POSRepository.col_transaction_id}, u.{UserCredentialsRepository.col_username}, t.{POSRepository.col_payment_received}, t.{POSRepository.col_transaction_date}, 
+            string selectQuery = $@"SELECT t.{POSRepository.col_transaction_id}, u.{UserCredentialsRepository.col_username}, t.{POSRepository.col_payment_received}, t.{POSRepository.col_transaction_date}, t.{POSRepository.col_status},
                                 CASE
                                     WHEN im.{InventoryRepository.col_brand} = 'N/A' AND im.{InventoryRepository.col_size} = 'N/A' THEN im.{InventoryRepository.col_item_name}
                                     WHEN im.{InventoryRepository.col_brand} = 'N/A' THEN im.{InventoryRepository.col_item_name} + ', ' + im.{InventoryRepository.col_size}
@@ -451,7 +451,7 @@ namespace BenpilsBarcodeSystem.Repository
 
         public async Task<int> GetSalesCountAsync(DateTime startDate, DateTime endDate, string searchText = "")
         {
-            string whereClause = $"WHERE t.{POSRepository.col_transaction_date} BETWEEN @StartDate AND @EndDate";
+            string whereClause = $"WHERE t.{POSRepository.col_transaction_date} BETWEEN @StartDate AND @EndDate AND t.{POSRepository.col_status} = '{POSRepository.transaction_completed}'";
 
             if (!string.IsNullOrEmpty(searchText))
             {

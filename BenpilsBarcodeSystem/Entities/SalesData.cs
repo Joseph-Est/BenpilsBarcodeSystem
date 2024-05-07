@@ -8,6 +8,7 @@ namespace BenpilsBarcodeSystem.Entities
 {
     internal class SalesData
     {
+        public string transactionId {get; set;}
         public DateTime Date { get; set; }
         public int TotalItemSold { get; set; }
         public decimal TotalSales { get; set; }

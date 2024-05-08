@@ -366,7 +366,7 @@
             this.StatisticsCb.Size = new System.Drawing.Size(246, 50);
             this.StatisticsCb.TabIndex = 5;
             this.StatisticsCb.TabStop = false;
-            this.StatisticsCb.Text = "  Forecasting";
+            this.StatisticsCb.Text = "  Statistics";
             this.StatisticsCb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StatisticsCb.UseVisualStyleBackColor = true;
             this.StatisticsCb.Click += new System.EventHandler(this.Checkbox_Clicked);

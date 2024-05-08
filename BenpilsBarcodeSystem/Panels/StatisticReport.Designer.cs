@@ -255,7 +255,7 @@
             // 
             this.ASalesMonthlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesMonthlyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesMonthlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.ASalesMonthlyLbl.ForeColor = System.Drawing.Color.White;
             this.ASalesMonthlyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesMonthlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesMonthlyLbl.Name = "ASalesMonthlyLbl";
@@ -294,7 +294,7 @@
             // 
             this.ASalesYearlyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesYearlyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesYearlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.ASalesYearlyLbl.ForeColor = System.Drawing.Color.White;
             this.ASalesYearlyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesYearlyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesYearlyLbl.Name = "ASalesYearlyLbl";
@@ -333,7 +333,7 @@
             // 
             this.ASalesDailyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesDailyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesDailyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.ASalesDailyLbl.ForeColor = System.Drawing.Color.White;
             this.ASalesDailyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesDailyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesDailyLbl.Name = "ASalesDailyLbl";
@@ -372,7 +372,7 @@
             // 
             this.ASalesWeeklyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ASalesWeeklyLbl.Font = new System.Drawing.Font("Arial", 18F);
-            this.ASalesWeeklyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.ASalesWeeklyLbl.ForeColor = System.Drawing.Color.White;
             this.ASalesWeeklyLbl.Location = new System.Drawing.Point(0, 30);
             this.ASalesWeeklyLbl.Margin = new System.Windows.Forms.Padding(3, 0, 15, 0);
             this.ASalesWeeklyLbl.Name = "ASalesWeeklyLbl";
@@ -532,7 +532,7 @@
             series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             series1.BorderColor = System.Drawing.Color.White;
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             series1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.IsValueShownAsLabel = true;
             series1.IsVisibleInLegend = false;
@@ -579,6 +579,7 @@
             // 
             // SalesChartPrevBtn
             // 
+            this.SalesChartPrevBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SalesChartPrevBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SalesChartPrevBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.SalesChartPrevBtn.Enabled = false;
@@ -591,11 +592,12 @@
             this.SalesChartPrevBtn.TabIndex = 1;
             this.SalesChartPrevBtn.TabStop = false;
             this.SalesChartPrevBtn.Text = "PREV";
-            this.SalesChartPrevBtn.UseVisualStyleBackColor = true;
+            this.SalesChartPrevBtn.UseVisualStyleBackColor = false;
             this.SalesChartPrevBtn.Click += new System.EventHandler(this.SalesChartPrevBtn_Click);
             // 
             // SalesChartNextBtn
             // 
+            this.SalesChartNextBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.SalesChartNextBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SalesChartNextBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.SalesChartNextBtn.Enabled = false;
@@ -608,7 +610,7 @@
             this.SalesChartNextBtn.TabIndex = 0;
             this.SalesChartNextBtn.TabStop = false;
             this.SalesChartNextBtn.Text = "NEXT";
-            this.SalesChartNextBtn.UseVisualStyleBackColor = true;
+            this.SalesChartNextBtn.UseVisualStyleBackColor = false;
             this.SalesChartNextBtn.Click += new System.EventHandler(this.SalesChartNextBtn_Click);
             // 
             // label20
@@ -685,7 +687,7 @@
             series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             series2.BorderColor = System.Drawing.Color.White;
             series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.IsValueShownAsLabel = true;
             series2.IsVisibleInLegend = false;
@@ -878,17 +880,17 @@
             this.BrandPopularityChart.Name = "BrandPopularityChart";
             this.BrandPopularityChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.BrandPopularityChart.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.Silver,
-        System.Drawing.Color.Gray,
-        System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))))};
+        System.Drawing.Color.Cyan,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))))};
             this.BrandPopularityChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             series3.BorderColor = System.Drawing.SystemColors.Control;
             series3.BorderWidth = 2;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series3.Color = System.Drawing.SystemColors.Control;
             series3.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series3.IsValueShownAsLabel = true;
@@ -1082,6 +1084,7 @@
             this.label10.TabIndex = 10;
             this.label10.Text = "CATEGORY DISTRIBUTION";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // tableLayoutPanel5
             // 

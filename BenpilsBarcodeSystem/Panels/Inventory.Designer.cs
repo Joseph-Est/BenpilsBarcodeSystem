@@ -43,6 +43,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.InputFormPanel = new System.Windows.Forms.Panel();
+            this.BarcodeGeneratorbtnclick = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.ArchiveBtn = new System.Windows.Forms.Button();
             this.panel39 = new System.Windows.Forms.Panel();
@@ -108,7 +109,6 @@
             this.BrandCb = new System.Windows.Forms.ComboBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.RefreshPb = new System.Windows.Forms.PictureBox();
-            this.BarcodeGeneratorbtnclick = new System.Windows.Forms.Button();
             this.InputFormPanel.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel39.SuspendLayout();
@@ -158,6 +158,16 @@
             this.InputFormPanel.TabIndex = 186;
             this.InputFormPanel.Enter += new System.EventHandler(this.InputFormPanel_Enter);
             this.InputFormPanel.Leave += new System.EventHandler(this.InputFormPanel_Leave);
+            // 
+            // BarcodeGeneratorbtnclick
+            // 
+            this.BarcodeGeneratorbtnclick.Location = new System.Drawing.Point(10, 569);
+            this.BarcodeGeneratorbtnclick.Name = "BarcodeGeneratorbtnclick";
+            this.BarcodeGeneratorbtnclick.Size = new System.Drawing.Size(347, 37);
+            this.BarcodeGeneratorbtnclick.TabIndex = 199;
+            this.BarcodeGeneratorbtnclick.Text = "Barcode generator";
+            this.BarcodeGeneratorbtnclick.UseVisualStyleBackColor = true;
+            this.BarcodeGeneratorbtnclick.Click += new System.EventHandler(this.BarcodeGeneratorbtnclick_Click);
             // 
             // panel40
             // 
@@ -1000,16 +1010,6 @@
             this.RefreshPb.TabIndex = 170;
             this.RefreshPb.TabStop = false;
             this.RefreshPb.Click += new System.EventHandler(this.RefreshPb_Click);
-            // 
-            // BarcodeGeneratorbtnclick
-            // 
-            this.BarcodeGeneratorbtnclick.Location = new System.Drawing.Point(10, 569);
-            this.BarcodeGeneratorbtnclick.Name = "BarcodeGeneratorbtnclick";
-            this.BarcodeGeneratorbtnclick.Size = new System.Drawing.Size(347, 37);
-            this.BarcodeGeneratorbtnclick.TabIndex = 199;
-            this.BarcodeGeneratorbtnclick.Text = "Barcode generator";
-            this.BarcodeGeneratorbtnclick.UseVisualStyleBackColor = true;
-            this.BarcodeGeneratorbtnclick.Click += new System.EventHandler(this.BarcodeGeneratorbtnclick_Click);
             // 
             // Inventory
             // 

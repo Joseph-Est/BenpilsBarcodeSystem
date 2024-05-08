@@ -42,6 +42,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.TodayCb = new System.Windows.Forms.CheckBox();
             this.WeeklyCb = new System.Windows.Forms.CheckBox();
@@ -69,27 +70,22 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.TotalProfitLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ItemsSoldLbl = new System.Windows.Forms.Label();
             this.ItemsSoldTitleLbl = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.TotalSalesLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.TotalItemsLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.TotalSuppliersLbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -128,6 +124,11 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -313,17 +314,18 @@
             this.SellingItemsChart.Name = "SellingItemsChart";
             this.SellingItemsChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.SellingItemsChart.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.Silver,
-        System.Drawing.Color.Gray,
-        System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))))};
+        System.Drawing.Color.MediumTurquoise,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255))))),
+        System.Drawing.Color.DodgerBlue,
+        System.Drawing.Color.Lime,
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))))};
             this.SellingItemsChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             series1.BorderColor = System.Drawing.SystemColors.Control;
             series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.IsValueShownAsLabel = true;
             series1.LabelForeColor = System.Drawing.Color.White;
             series1.Legend = "Legend1";
@@ -428,7 +430,7 @@
             series2.BorderWidth = 3;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            series2.Color = System.Drawing.Color.Cyan;
             series2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.IsValueShownAsLabel = true;
             series2.IsVisibleInLegend = false;
@@ -442,7 +444,7 @@
             series2.MarkerSize = 7;
             series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
             series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Silver;
+            series2.ShadowColor = System.Drawing.Color.MediumTurquoise;
             series2.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
             series2.SmartLabelStyle.CalloutBackColor = System.Drawing.Color.Black;
             series2.YValuesPerPoint = 6;
@@ -630,7 +632,7 @@
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
             this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(84, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(5, 15, 0, 0);
@@ -641,20 +643,6 @@
             this.label6.Click += new System.EventHandler(this.Profit_Click);
             this.label6.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label6.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel19
-            // 
-            this.panel19.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_money_bag_55;
-            this.panel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel19.Location = new System.Drawing.Point(10, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(74, 80);
-            this.panel19.TabIndex = 8;
-            this.panel19.Click += new System.EventHandler(this.Profit_Click);
-            this.panel19.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel19.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // panel3
             // 
@@ -706,7 +694,7 @@
             this.ItemsSoldTitleLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ItemsSoldTitleLbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.ItemsSoldTitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemsSoldTitleLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.ItemsSoldTitleLbl.ForeColor = System.Drawing.Color.White;
             this.ItemsSoldTitleLbl.Location = new System.Drawing.Point(85, 0);
             this.ItemsSoldTitleLbl.Name = "ItemsSoldTitleLbl";
             this.ItemsSoldTitleLbl.Padding = new System.Windows.Forms.Padding(4, 15, 0, 0);
@@ -717,20 +705,6 @@
             this.ItemsSoldTitleLbl.Click += new System.EventHandler(this.ItemsSold_Click);
             this.ItemsSoldTitleLbl.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.ItemsSoldTitleLbl.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sell_55;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(10, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(75, 80);
-            this.panel1.TabIndex = 5;
-            this.panel1.Click += new System.EventHandler(this.ItemsSold_Click);
-            this.panel1.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel1.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // panel2
             // 
@@ -781,7 +755,7 @@
             this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(91, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(2, 15, 0, 0);
@@ -792,20 +766,6 @@
             this.label4.Click += new System.EventHandler(this.Sales_Click);
             this.label4.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label4.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel18
-            // 
-            this.panel18.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_sales_55;
-            this.panel18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel18.Location = new System.Drawing.Point(10, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(81, 80);
-            this.panel18.TabIndex = 5;
-            this.panel18.Click += new System.EventHandler(this.Sales_Click);
-            this.panel18.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel18.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // panel8
             // 
@@ -823,6 +783,7 @@
             this.panel15.Controls.Add(this.panel20);
             this.panel15.Controls.Add(this.label10);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel15.Location = new System.Drawing.Point(0, 0);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(20);
@@ -862,7 +823,7 @@
             this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label14.Dock = System.Windows.Forms.DockStyle.Top;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(59, 0);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -873,20 +834,6 @@
             this.label14.Click += new System.EventHandler(this.ItemsClick);
             this.label14.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label14.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
-            // panel23
-            // 
-            this.panel23.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_package_351;
-            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel23.Location = new System.Drawing.Point(0, 0);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(59, 51);
-            this.panel23.TabIndex = 6;
-            this.panel23.Click += new System.EventHandler(this.ItemsClick);
-            this.panel23.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel23.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // panel20
             // 
@@ -922,7 +869,7 @@
             this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label11.Dock = System.Windows.Forms.DockStyle.Top;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(59, 0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -934,23 +881,9 @@
             this.label11.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.label11.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
-            // panel22
-            // 
-            this.panel22.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_supplier_351;
-            this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel22.Location = new System.Drawing.Point(0, 0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(59, 52);
-            this.panel22.TabIndex = 0;
-            this.panel22.Click += new System.EventHandler(this.Supplier_Click);
-            this.panel22.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
-            this.panel22.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
-            // 
             // label10
             // 
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(35)))));
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label10.Dock = System.Windows.Forms.DockStyle.Top;
             this.label10.Font = new System.Drawing.Font("Arial", 13F);
             this.label10.ForeColor = System.Drawing.Color.White;
@@ -1426,6 +1359,76 @@
             this.label7.Size = new System.Drawing.Size(219, 36);
             this.label7.TabIndex = 6;
             this.label7.Text = "Critical Inventory Stocks";
+            // 
+            // panel23
+            // 
+            this.panel23.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel23.BackgroundImage")));
+            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(59, 51);
+            this.panel23.TabIndex = 6;
+            this.panel23.Click += new System.EventHandler(this.ItemsClick);
+            this.panel23.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel23.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel22
+            // 
+            this.panel22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel22.BackgroundImage")));
+            this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(59, 52);
+            this.panel22.TabIndex = 0;
+            this.panel22.Click += new System.EventHandler(this.Supplier_Click);
+            this.panel22.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel22.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel19
+            // 
+            this.panel19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel19.BackgroundImage")));
+            this.panel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel19.Location = new System.Drawing.Point(10, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(74, 80);
+            this.panel19.TabIndex = 8;
+            this.panel19.Click += new System.EventHandler(this.Profit_Click);
+            this.panel19.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel19.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.item_removebg_preview;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(10, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 80);
+            this.panel1.TabIndex = 5;
+            this.panel1.Click += new System.EventHandler(this.ItemsSold_Click);
+            this.panel1.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
+            // 
+            // panel18
+            // 
+            this.panel18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel18.BackgroundImage")));
+            this.panel18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel18.Location = new System.Drawing.Point(10, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(81, 80);
+            this.panel18.TabIndex = 5;
+            this.panel18.Click += new System.EventHandler(this.Sales_Click);
+            this.panel18.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panel18.MouseLeave += new System.EventHandler(this.Panel_MouseLeave);
             // 
             // Dashboard
             // 

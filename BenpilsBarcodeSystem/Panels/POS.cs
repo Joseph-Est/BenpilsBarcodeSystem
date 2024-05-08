@@ -445,5 +445,14 @@ namespace BenpilsBarcodeSystem
                 BarcodeTxt.Select();
             }
         }
+
+        private void RefundBtn_Click(object sender, EventArgs e)
+        {
+            RefundDialog refund = new RefundDialog();
+
+            if (refund.ShowDialog() == DialogResult.OK)
+            {
+            }
+        }
     }
 }

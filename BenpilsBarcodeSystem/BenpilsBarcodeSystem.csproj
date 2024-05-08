@@ -375,6 +375,12 @@
     <Compile Include="Dialogs\QuantityDialog.Designer.cs">
       <DependentUpon>QuantityDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\RefundDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RefundDialog.Designer.cs">
+      <DependentUpon>RefundDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\SearchItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +392,12 @@
     </Compile>
     <Compile Include="Dialogs\TableDialog.Designer.cs">
       <DependentUpon>TableDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TransactionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TransactionDetails.Designer.cs">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BackupSettings.cs" />
     <Compile Include="Entities\CurrentUser.cs" />
@@ -505,11 +517,17 @@
     <EmbeddedResource Include="Dialogs\QuantityDialog.resx">
       <DependentUpon>QuantityDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RefundDialog.resx">
+      <DependentUpon>RefundDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SearchItem.resx">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TableDialog.resx">
       <DependentUpon>TableDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TransactionDetails.resx">
+      <DependentUpon>TransactionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -847,6 +865,11 @@
     <Content Include="Database\database.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\item-removebg-preview.png" />
+    <None Include="Resources\Sell.png" />
+    <None Include="Resources\vecteezy_ilustracao-de-icone-de-dar-dinheiro-png-em-fundo-transparente_14455861.png" />
+    <None Include="Resources\close -1.png" />
+    <None Include="Resources\close1.png" />
     <None Include="Resources\icons8-print-15.png" />
     <None Include="Resources\icons8-show-password-15.png" />
     <None Include="Resources\icons8-hide-15.png" />

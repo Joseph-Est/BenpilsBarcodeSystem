@@ -223,7 +223,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.TitleLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(1, 1);
@@ -237,7 +237,7 @@
             this.TitleLbl.AutoSize = true;
             this.TitleLbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
-            this.TitleLbl.ForeColor = System.Drawing.Color.White;
+            this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
             this.TitleLbl.Size = new System.Drawing.Size(133, 18);

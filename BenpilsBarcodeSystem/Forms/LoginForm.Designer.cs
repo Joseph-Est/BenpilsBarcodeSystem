@@ -31,36 +31,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseCb = new System.Windows.Forms.CheckBox();
-            this.MinimizeCb = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PasswordTxt = new System.Windows.Forms.TextBox();
             this.ShowPassword = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.PasswordPanel = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.testPrint = new System.Drawing.Printing.PrintDocument();
             this.testPrintPreview = new System.Windows.Forms.PrintPreviewDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UsernameBorder = new System.Windows.Forms.Panel();
             this.UsernamePanel = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.UsernameTxt = new System.Windows.Forms.TextBox();
             this.PasswordBorder = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.CloseCb = new System.Windows.Forms.CheckBox();
+            this.MinimizeCb = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.PasswordPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UsernameBorder.SuspendLayout();
             this.UsernamePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.PasswordBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panelHeader.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panelHeader.Controls.Add(this.flowLayoutPanel1);
             this.panelHeader.Controls.Add(this.label3);
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -83,51 +83,11 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(69, 38);
             this.flowLayoutPanel1.TabIndex = 28;
             // 
-            // CloseCb
-            // 
-            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.CloseCb.AutoCheck = false;
-            this.CloseCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseCb.FlatAppearance.BorderSize = 0;
-            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseCb.Location = new System.Drawing.Point(41, 8);
-            this.CloseCb.Name = "CloseCb";
-            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
-            this.CloseCb.Size = new System.Drawing.Size(20, 20);
-            this.CloseCb.TabIndex = 26;
-            this.CloseCb.TabStop = false;
-            this.CloseCb.UseVisualStyleBackColor = true;
-            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // MinimizeCb
-            // 
-            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.MinimizeCb.AutoCheck = false;
-            this.MinimizeCb.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_subtract_30;
-            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinimizeCb.FlatAppearance.BorderSize = 0;
-            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeCb.Location = new System.Drawing.Point(15, 8);
-            this.MinimizeCb.Name = "MinimizeCb";
-            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
-            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
-            this.MinimizeCb.TabIndex = 24;
-            this.MinimizeCb.TabStop = false;
-            this.MinimizeCb.UseVisualStyleBackColor = true;
-            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(9, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
@@ -164,13 +124,13 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.btnLogin.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Enabled = false;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(38, 280);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
@@ -194,20 +154,6 @@
             this.PasswordPanel.TabIndex = 24;
             this.PasswordPanel.Click += new System.EventHandler(this.PasswordPanel_Click);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_password_30;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(8, 7);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox5.TabIndex = 20;
-            this.pictureBox5.TabStop = false;
-            // 
-            // testPrint
-            // 
-            // 
             // testPrintPreview
             // 
             this.testPrintPreview.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -217,16 +163,6 @@
             this.testPrintPreview.Icon = ((System.Drawing.Icon)(resources.GetObject("testPrintPreview.Icon")));
             this.testPrintPreview.Name = "testPrintPreview";
             this.testPrintPreview.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.xconvert_com;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(59, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 77);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
             // 
             // UsernameBorder
             // 
@@ -251,17 +187,6 @@
             this.UsernamePanel.TabIndex = 24;
             this.UsernamePanel.Click += new System.EventHandler(this.UsernamePanel_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_user_30__2_;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 8);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.TabIndex = 19;
-            this.pictureBox4.TabStop = false;
-            // 
             // UsernameTxt
             // 
             this.UsernameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -282,6 +207,78 @@
             this.PasswordBorder.Padding = new System.Windows.Forms.Padding(1);
             this.PasswordBorder.Size = new System.Drawing.Size(220, 40);
             this.PasswordBorder.TabIndex = 26;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(8, 7);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox5.TabIndex = 20;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
+            // 
+            // CloseCb
+            // 
+            this.CloseCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.CloseCb.AutoCheck = false;
+            this.CloseCb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseCb.BackgroundImage")));
+            this.CloseCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseCb.FlatAppearance.BorderSize = 0;
+            this.CloseCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CloseCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CloseCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseCb.Location = new System.Drawing.Point(41, 8);
+            this.CloseCb.Name = "CloseCb";
+            this.CloseCb.Padding = new System.Windows.Forms.Padding(5);
+            this.CloseCb.Size = new System.Drawing.Size(20, 20);
+            this.CloseCb.TabIndex = 26;
+            this.CloseCb.TabStop = false;
+            this.CloseCb.UseVisualStyleBackColor = true;
+            this.CloseCb.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // MinimizeCb
+            // 
+            this.MinimizeCb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.MinimizeCb.AutoCheck = false;
+            this.MinimizeCb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MinimizeCb.BackgroundImage")));
+            this.MinimizeCb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeCb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MinimizeCb.FlatAppearance.BorderSize = 0;
+            this.MinimizeCb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MinimizeCb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.MinimizeCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeCb.Location = new System.Drawing.Point(15, 8);
+            this.MinimizeCb.Name = "MinimizeCb";
+            this.MinimizeCb.Padding = new System.Windows.Forms.Padding(5);
+            this.MinimizeCb.Size = new System.Drawing.Size(20, 20);
+            this.MinimizeCb.TabIndex = 24;
+            this.MinimizeCb.TabStop = false;
+            this.MinimizeCb.UseVisualStyleBackColor = true;
+            this.MinimizeCb.Click += new System.EventHandler(this.MinimizeBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(59, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(174, 77);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -305,13 +302,13 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.PasswordPanel.ResumeLayout(false);
             this.PasswordPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.UsernameBorder.ResumeLayout(false);
             this.UsernamePanel.ResumeLayout(false);
             this.UsernamePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.PasswordBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

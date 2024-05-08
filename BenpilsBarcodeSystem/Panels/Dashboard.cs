@@ -671,7 +671,7 @@ namespace BenpilsBarcodeSystem
                     {
                         label.Parent.BackColor = Color.LightGray;
                     }
-                    else if (label.Parent.BackColor == Color.FromArgb(40, 40, 40))
+                    else if (label.Parent.BackColor == Color.FromArgb(0,255,255))
                     {
                         label.Parent.BackColor = Color.FromArgb(60, 60, 60);
                     }

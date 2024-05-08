@@ -83,6 +83,26 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close__1 {
+            get {
+                object obj = ResourceManager.GetObject("close -1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_15 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-15", resourceCulture);
@@ -973,9 +993,39 @@ namespace BenpilsBarcodeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap item_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("item-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loading_icon_animated_gif_9 {
             get {
                 object obj = ResourceManager.GetObject("loading-icon-animated-gif-9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sell {
+            get {
+                object obj = ResourceManager.GetObject("Sell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_ilustracao_de_icone_de_dar_dinheiro_png_em_fundo_transparente_14455861 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_ilustracao-de-icone-de-dar-dinheiro-png-em-fundo-transparente_14455861", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -52,6 +52,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.VoidCartBtn = new System.Windows.Forms.Button();
+            this.RefundBtn = new System.Windows.Forms.Button();
             this.SearchItemBtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
@@ -217,6 +218,7 @@
             this.SellingPrice.HeaderText = "Price";
             this.SellingPrice.Name = "SellingPrice";
             this.SellingPrice.ReadOnly = true;
+            this.SellingPrice.Width = 101;
             // 
             // decrease
             // 
@@ -257,6 +259,7 @@
             this.PriceTotal.ReadOnly = true;
             this.PriceTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PriceTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PriceTotal.Width = 101;
             // 
             // Void
             // 
@@ -266,6 +269,7 @@
             this.Void.ReadOnly = true;
             this.Void.Text = "Void";
             this.Void.UseColumnTextForButtonValue = true;
+            this.Void.Width = 101;
             // 
             // panel4
             // 
@@ -282,6 +286,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.VoidCartBtn);
+            this.flowLayoutPanel1.Controls.Add(this.RefundBtn);
             this.flowLayoutPanel1.Controls.Add(this.SearchItemBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -294,13 +299,13 @@
             // 
             // VoidCartBtn
             // 
-            this.VoidCartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.VoidCartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.VoidCartBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VoidCartBtn.Enabled = false;
             this.VoidCartBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.VoidCartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VoidCartBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VoidCartBtn.ForeColor = System.Drawing.Color.White;
+            this.VoidCartBtn.ForeColor = System.Drawing.Color.Black;
             this.VoidCartBtn.Location = new System.Drawing.Point(343, 0);
             this.VoidCartBtn.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.VoidCartBtn.Name = "VoidCartBtn";
@@ -311,6 +316,24 @@
             this.VoidCartBtn.UseVisualStyleBackColor = false;
             this.VoidCartBtn.Click += new System.EventHandler(this.VoidCartBtn_Click);
             // 
+            // RefundBtn
+            // 
+            this.RefundBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.RefundBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefundBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RefundBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefundBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefundBtn.ForeColor = System.Drawing.Color.White;
+            this.RefundBtn.Location = new System.Drawing.Point(244, 0);
+            this.RefundBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.RefundBtn.Name = "RefundBtn";
+            this.RefundBtn.Size = new System.Drawing.Size(92, 32);
+            this.RefundBtn.TabIndex = 204;
+            this.RefundBtn.TabStop = false;
+            this.RefundBtn.Text = "Refund";
+            this.RefundBtn.UseVisualStyleBackColor = false;
+            this.RefundBtn.Click += new System.EventHandler(this.RefundBtn_Click);
+            // 
             // SearchItemBtn
             // 
             this.SearchItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -319,8 +342,8 @@
             this.SearchItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchItemBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchItemBtn.Location = new System.Drawing.Point(222, 0);
-            this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.SearchItemBtn.Location = new System.Drawing.Point(123, 0);
+            this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.SearchItemBtn.Name = "SearchItemBtn";
             this.SearchItemBtn.Size = new System.Drawing.Size(114, 32);
             this.SearchItemBtn.TabIndex = 203;
@@ -695,5 +718,6 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox PaymentTxt;
         private System.Windows.Forms.Button CheckoutBtn;
+        private System.Windows.Forms.Button RefundBtn;
     }
 }

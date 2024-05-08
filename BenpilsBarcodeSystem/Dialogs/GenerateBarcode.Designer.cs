@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseBtn = new System.Windows.Forms.PictureBox();
             this.LvlBarcodeGenerator = new System.Windows.Forms.Label();
             this.BarcodeTxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.CopyBtn = new System.Windows.Forms.Button();
             this.PrintBtn = new System.Windows.Forms.Button();
+            this.CopyBtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.GeneratedBarcodePb = new System.Windows.Forms.PictureBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.ManualGenerateBtn = new System.Windows.Forms.Button();
             this.GenerateBtn = new System.Windows.Forms.Button();
-            this.CloseBtn = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GeneratedBarcodePb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.CloseBtn);
             this.panel1.Controls.Add(this.LvlBarcodeGenerator);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -64,12 +64,24 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
+            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBtn.Location = new System.Drawing.Point(262, 7);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(20, 20);
+            this.CloseBtn.TabIndex = 7;
+            this.CloseBtn.TabStop = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
             // LvlBarcodeGenerator
             // 
             this.LvlBarcodeGenerator.AutoSize = true;
             this.LvlBarcodeGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvlBarcodeGenerator.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
-            this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.White;
+            this.LvlBarcodeGenerator.ForeColor = System.Drawing.Color.Black;
             this.LvlBarcodeGenerator.Location = new System.Drawing.Point(8, 8);
             this.LvlBarcodeGenerator.Name = "LvlBarcodeGenerator";
             this.LvlBarcodeGenerator.Size = new System.Drawing.Size(145, 18);
@@ -107,27 +119,22 @@
             this.panel2.Size = new System.Drawing.Size(289, 349);
             this.panel2.TabIndex = 119;
             // 
-            // panel4
+            // PrintBtn
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.GeneratedBarcodePb);
-            this.panel4.Location = new System.Drawing.Point(21, 18);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(247, 150);
-            this.panel4.TabIndex = 119;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(1);
-            this.panel3.Size = new System.Drawing.Size(291, 384);
-            this.panel3.TabIndex = 120;
+            this.PrintBtn.BackColor = System.Drawing.Color.White;
+            this.PrintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PrintBtn.Enabled = false;
+            this.PrintBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_print_15;
+            this.PrintBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PrintBtn.Location = new System.Drawing.Point(21, 255);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.Size = new System.Drawing.Size(247, 35);
+            this.PrintBtn.TabIndex = 120;
+            this.PrintBtn.Text = "Print";
+            this.PrintBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.PrintBtn.UseVisualStyleBackColor = false;
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 
             // CopyBtn
             // 
@@ -146,22 +153,15 @@
             this.CopyBtn.UseVisualStyleBackColor = false;
             this.CopyBtn.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // PrintBtn
+            // panel4
             // 
-            this.PrintBtn.BackColor = System.Drawing.Color.White;
-            this.PrintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PrintBtn.Enabled = false;
-            this.PrintBtn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_print_15;
-            this.PrintBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PrintBtn.Location = new System.Drawing.Point(21, 255);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.Size = new System.Drawing.Size(247, 35);
-            this.PrintBtn.TabIndex = 120;
-            this.PrintBtn.Text = "Print";
-            this.PrintBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.PrintBtn.UseVisualStyleBackColor = false;
-            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.GeneratedBarcodePb);
+            this.panel4.Location = new System.Drawing.Point(21, 18);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(247, 150);
+            this.panel4.TabIndex = 119;
             // 
             // GeneratedBarcodePb
             // 
@@ -221,17 +221,17 @@
             this.GenerateBtn.UseVisualStyleBackColor = false;
             this.GenerateBtn.Click += new System.EventHandler(this.GenerateBtn_Click);
             // 
-            // CloseBtn
+            // panel3
             // 
-            this.CloseBtn.BackgroundImage = global::BenpilsBarcodeSystem.Properties.Resources.icons8_close_30;
-            this.CloseBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBtn.Location = new System.Drawing.Point(262, 7);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(20, 20);
-            this.CloseBtn.TabIndex = 7;
-            this.CloseBtn.TabStop = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(1);
+            this.panel3.Size = new System.Drawing.Size(291, 384);
+            this.panel3.TabIndex = 120;
             // 
             // GenerateBarcode
             // 
@@ -252,12 +252,12 @@
             this.Load += new System.EventHandler(this.GenerateBarcode_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GeneratedBarcodePb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -253,9 +253,11 @@
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // DisplayItemName
             // 
@@ -266,6 +268,7 @@
             this.DisplayItemName.DefaultCellStyle = dataGridViewCellStyle2;
             this.DisplayItemName.FillWeight = 20.58823F;
             this.DisplayItemName.HeaderText = "Item";
+            this.DisplayItemName.MinimumWidth = 6;
             this.DisplayItemName.Name = "DisplayItemName";
             this.DisplayItemName.ReadOnly = true;
             // 
@@ -276,6 +279,7 @@
             this.decrease.FillWeight = 5F;
             this.decrease.HeaderText = "";
             this.decrease.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_minus_30;
+            this.decrease.MinimumWidth = 6;
             this.decrease.Name = "decrease";
             this.decrease.ReadOnly = true;
             this.decrease.ToolTipText = "Edit Quantity";
@@ -287,6 +291,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.Quantity.HeaderText = "Qty";
+            this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
             this.Quantity.Width = 50;
@@ -298,6 +303,7 @@
             this.increase.FillWeight = 5F;
             this.increase.HeaderText = "";
             this.increase.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_add_30;
+            this.increase.MinimumWidth = 6;
             this.increase.Name = "increase";
             this.increase.ReadOnly = true;
             this.increase.ToolTipText = "Remove item";
@@ -311,14 +317,17 @@
             this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotalAmount.FillWeight = 20F;
             this.TotalAmount.HeaderText = "Subtotal";
+            this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.Width = 125;
             // 
             // remove
             // 
             this.remove.FillWeight = 5F;
             this.remove.HeaderText = "";
             this.remove.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15;
+            this.remove.MinimumWidth = 6;
             this.remove.Name = "remove";
             this.remove.ReadOnly = true;
             this.remove.Width = 40;
@@ -447,6 +456,7 @@
             // 
             this.order_id.DataPropertyName = "order_id";
             this.order_id.HeaderText = "Order ID";
+            this.order_id.MinimumWidth = 6;
             this.order_id.Name = "order_id";
             this.order_id.ReadOnly = true;
             this.order_id.Width = 80;
@@ -467,31 +477,38 @@
             // 
             this.formatted_order_date.DataPropertyName = "formatted_order_date";
             this.formatted_order_date.HeaderText = "Order Date";
+            this.formatted_order_date.MinimumWidth = 6;
             this.formatted_order_date.Name = "formatted_order_date";
             this.formatted_order_date.ReadOnly = true;
             this.formatted_order_date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.formatted_order_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.formatted_order_date.Width = 125;
             // 
             // order_date
             // 
             this.order_date.DataPropertyName = "order_date";
             this.order_date.HeaderText = "Order Date";
+            this.order_date.MinimumWidth = 6;
             this.order_date.Name = "order_date";
             this.order_date.ReadOnly = true;
             this.order_date.Visible = false;
+            this.order_date.Width = 125;
             // 
             // formatted_receiving_date
             // 
             this.formatted_receiving_date.DataPropertyName = "formatted_receiving_date";
             this.formatted_receiving_date.HeaderText = "Delivery Date";
+            this.formatted_receiving_date.MinimumWidth = 6;
             this.formatted_receiving_date.Name = "formatted_receiving_date";
             this.formatted_receiving_date.ReadOnly = true;
+            this.formatted_receiving_date.Width = 125;
             // 
             // receiving_date
             // 
             this.receiving_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.receiving_date.DataPropertyName = "receiving_date";
             this.receiving_date.HeaderText = "Delivery Date";
+            this.receiving_date.MinimumWidth = 6;
             this.receiving_date.Name = "receiving_date";
             this.receiving_date.ReadOnly = true;
             this.receiving_date.Visible = false;
@@ -503,6 +520,7 @@
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.status.DefaultCellStyle = dataGridViewCellStyle9;
             this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 6;
             this.status.Name = "status";
             this.status.ReadOnly = true;
             this.status.Width = 80;
@@ -511,14 +529,17 @@
             // 
             this.backorder_from.DataPropertyName = "backorder_from";
             this.backorder_from.HeaderText = "Backorder From";
+            this.backorder_from.MinimumWidth = 6;
             this.backorder_from.Name = "backorder_from";
             this.backorder_from.ReadOnly = true;
             this.backorder_from.Visible = false;
+            this.backorder_from.Width = 125;
             // 
             // view_details
             // 
             this.view_details.DataPropertyName = "view_details";
             this.view_details.HeaderText = "";
+            this.view_details.MinimumWidth = 6;
             this.view_details.Name = "view_details";
             this.view_details.ReadOnly = true;
             this.view_details.Text = "Details";
@@ -529,10 +550,12 @@
             // 
             this.complete_order.DataPropertyName = "complete_order";
             this.complete_order.HeaderText = "";
+            this.complete_order.MinimumWidth = 6;
             this.complete_order.Name = "complete_order";
             this.complete_order.ReadOnly = true;
             this.complete_order.Text = "Complete";
             this.complete_order.UseColumnTextForButtonValue = true;
+            this.complete_order.Width = 125;
             // 
             // panel25
             // 
@@ -937,9 +960,11 @@
             // 
             this.supplier_id.DataPropertyName = "supplier_id";
             this.supplier_id.HeaderText = "Supplier ID";
+            this.supplier_id.MinimumWidth = 6;
             this.supplier_id.Name = "supplier_id";
             this.supplier_id.ReadOnly = true;
             this.supplier_id.Visible = false;
+            this.supplier_id.Width = 125;
             // 
             // contact_name
             // 
@@ -950,6 +975,7 @@
             this.contact_name.DefaultCellStyle = dataGridViewCellStyle13;
             this.contact_name.FillWeight = 30F;
             this.contact_name.HeaderText = "Name";
+            this.contact_name.MinimumWidth = 6;
             this.contact_name.Name = "contact_name";
             this.contact_name.ReadOnly = true;
             // 
@@ -962,6 +988,7 @@
             this.contact_no.DefaultCellStyle = dataGridViewCellStyle14;
             this.contact_no.FillWeight = 25F;
             this.contact_no.HeaderText = "Contact #";
+            this.contact_no.MinimumWidth = 6;
             this.contact_no.Name = "contact_no";
             this.contact_no.ReadOnly = true;
             // 
@@ -975,6 +1002,7 @@
             this.address.DefaultCellStyle = dataGridViewCellStyle15;
             this.address.FillWeight = 45F;
             this.address.HeaderText = "Address";
+            this.address.MinimumWidth = 6;
             this.address.Name = "address";
             this.address.ReadOnly = true;
             // 
@@ -1401,6 +1429,7 @@
             this.dataGridViewImageColumn1.FillWeight = 10F;
             this.dataGridViewImageColumn1.HeaderText = "";
             this.dataGridViewImageColumn1.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_edit_15;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.ToolTipText = "Edit Quantity";
@@ -1413,6 +1442,7 @@
             this.dataGridViewImageColumn2.FillWeight = 10F;
             this.dataGridViewImageColumn2.HeaderText = "";
             this.dataGridViewImageColumn2.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_remove_15;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.ToolTipText = "Remove item";
@@ -1422,6 +1452,7 @@
             this.dataGridViewImageColumn3.FillWeight = 5F;
             this.dataGridViewImageColumn3.HeaderText = "";
             this.dataGridViewImageColumn3.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_cancel_15;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Width = 40;

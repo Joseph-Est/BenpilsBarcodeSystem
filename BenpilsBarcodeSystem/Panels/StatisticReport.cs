@@ -389,5 +389,10 @@ namespace BenpilsBarcodeSystem
             brandSalesChartCurrentPage++;
             LoadBrandSalesChart(inventoryRepository, brandSalesChartCurrentPage);
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

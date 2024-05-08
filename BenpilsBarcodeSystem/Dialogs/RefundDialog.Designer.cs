@@ -46,9 +46,6 @@
             this.SearchTxt = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TitleLbl = new System.Windows.Forms.Label();
-            this.transaction_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transaction_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refund = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransactionsTbl)).BeginInit();
             this.panel4.SuspendLayout();
@@ -203,7 +200,6 @@
             this.label2.Location = new System.Drawing.Point(18, 13);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.Size = new System.Drawing.Size(124, 19);
             this.label2.TabIndex = 177;
             this.label2.Text = "Search Transaction No.:";
@@ -221,8 +217,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.TitleLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(1, 1);
@@ -236,50 +231,12 @@
             this.TitleLbl.AutoSize = true;
             this.TitleLbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
-            this.TitleLbl.ForeColor = System.Drawing.Color.White;
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(65, 19);
             this.TitleLbl.Size = new System.Drawing.Size(60, 18);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Refund";
-            // 
-            // transaction_date
-            // 
-            this.transaction_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.transaction_date.DataPropertyName = "transaction_date";
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.transaction_date.DefaultCellStyle = dataGridViewCellStyle2;
-            this.transaction_date.HeaderText = "Date";
-            this.transaction_date.Name = "transaction_date";
-            this.transaction_date.ReadOnly = true;
-            this.transaction_date.Width = 57;
-            // 
-            // transaction_id
-            // 
-            this.transaction_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.transaction_id.DataPropertyName = "transaction_id";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.transaction_id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.transaction_id.HeaderText = "Transaction ID";
-            this.transaction_id.Name = "transaction_id";
-            this.transaction_id.ReadOnly = true;
-            // 
-            // refund
-            // 
-            this.refund.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.refund.DataPropertyName = "refund";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.refund.DefaultCellStyle = dataGridViewCellStyle4;
-            this.refund.HeaderText = "";
-            this.refund.Name = "refund";
-            this.refund.ReadOnly = true;
-            this.refund.Text = "Refund";
-            this.refund.UseColumnTextForButtonValue = true;
-            this.refund.Width = 5;
             // 
             // RefundDialog
             // 

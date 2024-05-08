@@ -394,5 +394,10 @@ namespace BenpilsBarcodeSystem
         {
 
         }
+
+        private void CategoryTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

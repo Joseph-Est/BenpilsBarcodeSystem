@@ -932,8 +932,7 @@
             // CategoryTblPanel
             // 
             this.CategoryTblPanel.Controls.Add(this.CategoryTbl);
-            this.CategoryTblPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CategoryTblPanel.Location = new System.Drawing.Point(0, 39);
+            this.CategoryTblPanel.Location = new System.Drawing.Point(3, 36);
             this.CategoryTblPanel.Name = "CategoryTblPanel";
             this.CategoryTblPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.CategoryTblPanel.Size = new System.Drawing.Size(344, 150);
@@ -942,6 +941,7 @@
             // 
             // CategoryTbl
             // 
+            this.CategoryTbl.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.CategoryTbl.AllowUserToAddRows = false;
             this.CategoryTbl.AllowUserToDeleteRows = false;
             this.CategoryTbl.AllowUserToResizeColumns = false;
@@ -963,10 +963,9 @@
             this.dataGridViewTextBoxColumn5,
             this.Category,
             this.Count});
-            this.CategoryTbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CategoryTbl.EnableHeadersVisualStyles = false;
             this.CategoryTbl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.CategoryTbl.Location = new System.Drawing.Point(0, 10);
+            this.CategoryTbl.Location = new System.Drawing.Point(0, 0);
             this.CategoryTbl.MultiSelect = false;
             this.CategoryTbl.Name = "CategoryTbl";
             this.CategoryTbl.ReadOnly = true;
@@ -983,6 +982,7 @@
             this.CategoryTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.CategoryTbl.Size = new System.Drawing.Size(344, 140);
             this.CategoryTbl.TabIndex = 14;
+            this.CategoryTbl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryTbl_CellContentClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1048,10 +1048,10 @@
             this.CategoryDistributionChart.Name = "CategoryDistributionChart";
             this.CategoryDistributionChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.CategoryDistributionChart.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))))};
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192))))),
+        System.Drawing.Color.Cyan,
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))))};
             this.CategoryDistributionChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));

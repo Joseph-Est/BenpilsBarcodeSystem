@@ -106,7 +106,7 @@
             this.label12.Location = new System.Drawing.Point(30, 35);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.label12.Size = new System.Drawing.Size(80, 26);
+            this.label12.Size = new System.Drawing.Size(86, 27);
             this.label12.TabIndex = 189;
             this.label12.Text = "Barcode : ";
             // 
@@ -290,11 +290,11 @@
             this.flowLayoutPanel1.Controls.Add(this.SearchItemBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(297, 35);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(303, 35);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(467, 32);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(461, 32);
             this.flowLayoutPanel1.TabIndex = 190;
             // 
             // VoidCartBtn
@@ -305,6 +305,8 @@
             this.VoidCartBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.VoidCartBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VoidCartBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VoidCartBtn.ForeColor = System.Drawing.Color.White;
+            this.VoidCartBtn.Location = new System.Drawing.Point(337, 0);
             this.VoidCartBtn.ForeColor = System.Drawing.Color.Black;
             this.VoidCartBtn.Location = new System.Drawing.Point(343, 0);
             this.VoidCartBtn.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -315,6 +317,24 @@
             this.VoidCartBtn.Text = "Void Cart";
             this.VoidCartBtn.UseVisualStyleBackColor = false;
             this.VoidCartBtn.Click += new System.EventHandler(this.VoidCartBtn_Click);
+            // 
+            // RefundBtn
+            // 
+            this.RefundBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.RefundBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefundBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RefundBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefundBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefundBtn.ForeColor = System.Drawing.Color.White;
+            this.RefundBtn.Location = new System.Drawing.Point(238, 0);
+            this.RefundBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.RefundBtn.Name = "RefundBtn";
+            this.RefundBtn.Size = new System.Drawing.Size(92, 32);
+            this.RefundBtn.TabIndex = 204;
+            this.RefundBtn.TabStop = false;
+            this.RefundBtn.Text = "Refund";
+            this.RefundBtn.UseVisualStyleBackColor = false;
+            this.RefundBtn.Click += new System.EventHandler(this.RefundBtn_Click);
             // 
             // RefundBtn
             // 
@@ -342,6 +362,8 @@
             this.SearchItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchItemBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchItemBtn.ForeColor = System.Drawing.Color.White;
+            this.SearchItemBtn.Location = new System.Drawing.Point(117, 0);
+            this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.SearchItemBtn.Location = new System.Drawing.Point(123, 0);
             this.SearchItemBtn.Margin = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.SearchItemBtn.Name = "SearchItemBtn";
@@ -358,7 +380,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.BarcodeTxt);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(110, 35);
+            this.panel6.Location = new System.Drawing.Point(116, 35);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(187, 32);
             this.panel6.TabIndex = 191;
@@ -468,11 +490,11 @@
             this.ChangeLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.ChangeLbl.Font = new System.Drawing.Font("Arial", 14.25F);
             this.ChangeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ChangeLbl.Location = new System.Drawing.Point(338, 10);
+            this.ChangeLbl.Location = new System.Drawing.Point(337, 10);
             this.ChangeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ChangeLbl.Name = "ChangeLbl";
             this.ChangeLbl.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ChangeLbl.Size = new System.Drawing.Size(53, 22);
+            this.ChangeLbl.Size = new System.Drawing.Size(54, 23);
             this.ChangeLbl.TabIndex = 195;
             this.ChangeLbl.Text = "0.00";
             // 
@@ -484,7 +506,7 @@
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(0, 10);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(86, 22);
+            this.label14.Size = new System.Drawing.Size(89, 23);
             this.label14.TabIndex = 194;
             this.label14.Text = "Change :";
             // 
@@ -519,7 +541,7 @@
             this.PaymentTxt.Location = new System.Drawing.Point(6, 5);
             this.PaymentTxt.MaxLength = 10;
             this.PaymentTxt.Name = "PaymentTxt";
-            this.PaymentTxt.Size = new System.Drawing.Size(186, 17);
+            this.PaymentTxt.Size = new System.Drawing.Size(186, 18);
             this.PaymentTxt.TabIndex = 3;
             this.PaymentTxt.TabStop = false;
             this.PaymentTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -535,7 +557,7 @@
             this.label11.Location = new System.Drawing.Point(0, 10);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label11.Size = new System.Drawing.Size(161, 26);
+            this.label11.Size = new System.Drawing.Size(169, 27);
             this.label11.TabIndex = 188;
             this.label11.Text = "Payment amount :";
             // 
@@ -557,11 +579,11 @@
             this.TotalLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.TotalLbl.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.TotalLbl.Location = new System.Drawing.Point(306, 0);
+            this.TotalLbl.Location = new System.Drawing.Point(302, 0);
             this.TotalLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TotalLbl.Name = "TotalLbl";
             this.TotalLbl.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.TotalLbl.Size = new System.Drawing.Size(85, 51);
+            this.TotalLbl.Size = new System.Drawing.Size(89, 53);
             this.TotalLbl.TabIndex = 185;
             this.TotalLbl.Text = "0.00";
             // 
@@ -574,7 +596,7 @@
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.label7.Size = new System.Drawing.Size(60, 42);
+            this.label7.Size = new System.Drawing.Size(64, 43);
             this.label7.TabIndex = 184;
             this.label7.Text = "Total :";
             // 

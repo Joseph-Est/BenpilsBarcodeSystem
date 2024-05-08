@@ -62,9 +62,10 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(356, 235);
+            this.panel1.Size = new System.Drawing.Size(475, 289);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -77,11 +78,12 @@
             this.panel3.Controls.Add(this.ExistingItemPanel);
             this.panel3.Controls.Add(this.ItemsCb);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(1, 34);
-            this.panel3.MinimumSize = new System.Drawing.Size(354, 200);
+            this.panel3.Location = new System.Drawing.Point(1, 42);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.MinimumSize = new System.Drawing.Size(472, 246);
             this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.panel3.Size = new System.Drawing.Size(354, 200);
+            this.panel3.Padding = new System.Windows.Forms.Padding(27, 25, 27, 0);
+            this.panel3.Size = new System.Drawing.Size(473, 246);
             this.panel3.TabIndex = 87;
             // 
             // panel14
@@ -89,20 +91,22 @@
             this.panel14.Controls.Add(this.panel16);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(20, 125);
-            this.panel14.MinimumSize = new System.Drawing.Size(314, 75);
+            this.panel14.Location = new System.Drawing.Point(27, 154);
+            this.panel14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel14.MinimumSize = new System.Drawing.Size(419, 92);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(314, 75);
+            this.panel14.Size = new System.Drawing.Size(419, 92);
             this.panel14.TabIndex = 136;
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.CancelBtn);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(157, 0);
+            this.panel16.Location = new System.Drawing.Point(209, 0);
+            this.panel16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel16.Name = "panel16";
-            this.panel16.Padding = new System.Windows.Forms.Padding(10, 20, 0, 20);
-            this.panel16.Size = new System.Drawing.Size(157, 75);
+            this.panel16.Padding = new System.Windows.Forms.Padding(13, 25, 0, 25);
+            this.panel16.Size = new System.Drawing.Size(210, 92);
             this.panel16.TabIndex = 130;
             // 
             // CancelBtn
@@ -115,10 +119,11 @@
             this.CancelBtn.FlatAppearance.BorderSize = 0;
             this.CancelBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.Black;
-            this.CancelBtn.Location = new System.Drawing.Point(10, 20);
-            this.CancelBtn.MaximumSize = new System.Drawing.Size(0, 35);
+            this.CancelBtn.Location = new System.Drawing.Point(13, 25);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelBtn.MaximumSize = new System.Drawing.Size(0, 43);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(147, 35);
+            this.CancelBtn.Size = new System.Drawing.Size(197, 42);
             this.CancelBtn.TabIndex = 128;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = false;
@@ -129,9 +134,10 @@
             this.panel15.Controls.Add(this.AcceptBtn);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel15.Name = "panel15";
-            this.panel15.Padding = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.panel15.Size = new System.Drawing.Size(157, 75);
+            this.panel15.Padding = new System.Windows.Forms.Padding(0, 25, 13, 25);
+            this.panel15.Size = new System.Drawing.Size(209, 92);
             this.panel15.TabIndex = 129;
             // 
             // AcceptBtn
@@ -144,10 +150,11 @@
             this.AcceptBtn.FlatAppearance.BorderSize = 0;
             this.AcceptBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcceptBtn.ForeColor = System.Drawing.Color.Black;
-            this.AcceptBtn.Location = new System.Drawing.Point(0, 20);
-            this.AcceptBtn.MaximumSize = new System.Drawing.Size(0, 35);
+            this.AcceptBtn.Location = new System.Drawing.Point(0, 25);
+            this.AcceptBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AcceptBtn.MaximumSize = new System.Drawing.Size(0, 43);
             this.AcceptBtn.Name = "AcceptBtn";
-            this.AcceptBtn.Size = new System.Drawing.Size(147, 35);
+            this.AcceptBtn.Size = new System.Drawing.Size(196, 42);
             this.AcceptBtn.TabIndex = 127;
             this.AcceptBtn.Text = "Add";
             this.AcceptBtn.UseVisualStyleBackColor = false;
@@ -158,19 +165,21 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.QuantityTxt);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(20, 90);
+            this.panel4.Location = new System.Drawing.Point(27, 108);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(314, 35);
+            this.panel4.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(419, 43);
             this.panel4.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 14);
+            this.label2.Location = new System.Drawing.Point(8, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(79, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Quantity :";
             // 
@@ -178,21 +187,23 @@
             // 
             this.QuantityTxt.Dock = System.Windows.Forms.DockStyle.Right;
             this.QuantityTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QuantityTxt.Location = new System.Drawing.Point(76, 10);
+            this.QuantityTxt.Location = new System.Drawing.Point(103, 12);
+            this.QuantityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.QuantityTxt.MaxLength = 9;
             this.QuantityTxt.Multiline = true;
             this.QuantityTxt.Name = "QuantityTxt";
-            this.QuantityTxt.Size = new System.Drawing.Size(238, 25);
+            this.QuantityTxt.Size = new System.Drawing.Size(316, 31);
             this.QuantityTxt.TabIndex = 2;
             // 
             // ExistingItemPanel
             // 
             this.ExistingItemPanel.Controls.Add(this.comboBox1);
             this.ExistingItemPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExistingItemPanel.Location = new System.Drawing.Point(20, 44);
+            this.ExistingItemPanel.Location = new System.Drawing.Point(27, 51);
+            this.ExistingItemPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ExistingItemPanel.Name = "ExistingItemPanel";
-            this.ExistingItemPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.ExistingItemPanel.Size = new System.Drawing.Size(314, 46);
+            this.ExistingItemPanel.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.ExistingItemPanel.Size = new System.Drawing.Size(419, 57);
             this.ExistingItemPanel.TabIndex = 137;
             this.ExistingItemPanel.Visible = false;
             // 
@@ -202,9 +213,10 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 10);
+            this.comboBox1.Location = new System.Drawing.Point(0, 12);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(314, 24);
+            this.comboBox1.Size = new System.Drawing.Size(419, 26);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
@@ -214,10 +226,11 @@
             this.ItemsCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ItemsCb.Font = new System.Drawing.Font("Arial", 9.75F);
             this.ItemsCb.FormattingEnabled = true;
-            this.ItemsCb.Location = new System.Drawing.Point(20, 20);
-            this.ItemsCb.MinimumSize = new System.Drawing.Size(314, 0);
+            this.ItemsCb.Location = new System.Drawing.Point(27, 25);
+            this.ItemsCb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ItemsCb.MinimumSize = new System.Drawing.Size(417, 0);
             this.ItemsCb.Name = "ItemsCb";
-            this.ItemsCb.Size = new System.Drawing.Size(314, 24);
+            this.ItemsCb.Size = new System.Drawing.Size(419, 26);
             this.ItemsCb.TabIndex = 1;
             this.ItemsCb.SelectedIndexChanged += new System.EventHandler(this.ItemsCb_SelectedIndexChanged);
             // 
@@ -227,9 +240,10 @@
             this.panel2.Controls.Add(this.TitleLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(354, 33);
+            this.panel2.Padding = new System.Windows.Forms.Padding(11, 10, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(473, 41);
             this.panel2.TabIndex = 86;
             // 
             // TitleLbl
@@ -237,24 +251,28 @@
             this.TitleLbl.AutoSize = true;
             this.TitleLbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
+            this.TitleLbl.ForeColor = System.Drawing.Color.White;
+            this.TitleLbl.Location = new System.Drawing.Point(11, 10);
+            this.TitleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(133, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(174, 22);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Add Supplier Item";
             // 
             // AddPurchaseItem
             // 
             this.AcceptButton = this.AcceptBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(356, 235);
+            this.ClientSize = new System.Drawing.Size(475, 289);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(356, 200);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(475, 246);
             this.Name = "AddPurchaseItem";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

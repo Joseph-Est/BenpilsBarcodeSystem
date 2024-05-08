@@ -2,6 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>72c20ace-c8bb-4730-bdf0-1d5eadc44715</ProjectGuid>
     <ProjectGuid>1f0a3f66-5522-4122-aba1-c63bebad8a2d</ProjectGuid>
     <OutputType>msi</OutputType>
     <ProjectHome>.</ProjectHome>

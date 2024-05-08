@@ -44,7 +44,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel1.Controls.Add(this.TitleLbl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -52,10 +52,11 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.panel1.Size = new System.Drawing.Size(330, 35);
             this.panel1.TabIndex = 17;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TitleLbl
             // 
-            this.TitleLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TitleLbl.BackColor = System.Drawing.Color.LightSeaGreen;
             this.TitleLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;

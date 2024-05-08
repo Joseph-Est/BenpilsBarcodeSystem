@@ -34,12 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionDetails));
             this.OrderedByPanel = new System.Windows.Forms.Panel();
             this.SalespersonLbl = new System.Windows.Forms.Label();
@@ -108,7 +102,6 @@
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label1.Size = new System.Drawing.Size(93, 21);
-            this.label1.Size = new System.Drawing.Size(103, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Salesperson :";
             // 
@@ -141,7 +134,6 @@
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label10.Size = new System.Drawing.Size(105, 21);
-            this.label10.Size = new System.Drawing.Size(114, 21);
             this.label10.TabIndex = 3;
             this.label10.Text = "Transaction ID :";
             // 
@@ -174,14 +166,12 @@
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label12.Size = new System.Drawing.Size(44, 21);
-            this.label12.Size = new System.Drawing.Size(47, 21);
             this.label12.TabIndex = 3;
             this.label12.Text = "Date :";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(62)))));
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.TitleLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(1, 1);
@@ -195,12 +185,10 @@
             this.TitleLbl.AutoSize = true;
             this.TitleLbl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
-            this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.ForeColor = System.Drawing.Color.White;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
             this.TitleLbl.Size = new System.Drawing.Size(144, 18);
-            this.TitleLbl.Size = new System.Drawing.Size(155, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Transaction Details";
             // 
@@ -272,11 +260,9 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(325, 5);
-            this.label7.Location = new System.Drawing.Point(315, 5);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label7.Size = new System.Drawing.Size(42, 21);
-            this.label7.Size = new System.Drawing.Size(45, 21);
             this.label7.TabIndex = 5;
             this.label7.Text = "Total :";
             // 
@@ -286,11 +272,9 @@
             this.TotalLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.TotalLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalLbl.Location = new System.Drawing.Point(367, 5);
-            this.TotalLbl.Location = new System.Drawing.Point(360, 5);
             this.TotalLbl.Name = "TotalLbl";
             this.TotalLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.TotalLbl.Size = new System.Drawing.Size(60, 21);
-            this.TotalLbl.Size = new System.Drawing.Size(67, 21);
             this.TotalLbl.TabIndex = 4;
             this.TotalLbl.Text = "10000.00";
             // 
@@ -321,14 +305,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ItemsTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ItemsTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.ItemsTbl.ColumnHeadersHeight = 30;
             this.ItemsTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ItemsTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -347,8 +323,6 @@
             this.ItemsTbl.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.ItemsTbl.RowHeadersVisible = false;
             this.ItemsTbl.RowHeadersWidth = 51;
             this.ItemsTbl.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -356,10 +330,6 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             this.ItemsTbl.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.ItemsTbl.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.ItemsTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ItemsTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
             this.ItemsTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
@@ -394,13 +364,9 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle8;
             this.SellingPrice.HeaderText = "Price";
             this.SellingPrice.Name = "SellingPrice";
             this.SellingPrice.Width = 60;
-            this.SellingPrice.Width = 63;
             // 
             // Quantity
             // 
@@ -408,13 +374,10 @@
             this.Quantity.DataPropertyName = "Quantity";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle9;
             this.Quantity.HeaderText = "Qty";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
             this.Quantity.Width = 49;
-            this.Quantity.Width = 51;
             // 
             // PriceTotal
             // 
@@ -423,14 +386,10 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.PriceTotal.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.PriceTotal.DefaultCellStyle = dataGridViewCellStyle10;
             this.PriceTotal.HeaderText = "Subtotal";
             this.PriceTotal.Name = "PriceTotal";
             this.PriceTotal.ReadOnly = true;
             this.PriceTotal.Width = 77;
-            this.PriceTotal.Width = 83;
             // 
             // PrintPreview
             // 

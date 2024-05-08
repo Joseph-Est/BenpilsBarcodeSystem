@@ -43,5 +43,10 @@ namespace BenpilsBarcodeSystem.Dialogs
             canClose = true;
             Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

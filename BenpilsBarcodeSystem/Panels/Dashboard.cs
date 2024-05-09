@@ -75,7 +75,7 @@ namespace BenpilsBarcodeSystem
             LoadSalesChart(posRepository);
             LoadTopSellingItems(posRepository, currentSalesData);
 
-            lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
+            lowStockItems = await inventoryRepository.GetLowStockItemsAsyncGPT();
 
             LowStockTbl.AutoGenerateColumns = false;
             LowStockTbl.DataSource = lowStockItems;
@@ -717,7 +717,7 @@ namespace BenpilsBarcodeSystem
             if (Convert.ToInt32(LowStockTbl.Rows[e.RowIndex].Cells["Quantity"].Value) == 0)
             {
                 LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.FromArgb(193, 57, 57);
-                LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.FromArgb(193, 57, 57);
+                LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightSeaGreen;
                 LowStockTbl.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.White;
             }
         }

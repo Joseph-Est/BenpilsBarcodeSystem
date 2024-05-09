@@ -96,7 +96,7 @@
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(40, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(41, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Title";
             // 
@@ -153,7 +153,7 @@
             this.TableTbl.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TableTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.TableTbl.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 5, 20, 5);
-            this.TableTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.TableTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
             this.TableTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.TableTbl.RowTemplate.Height = 30;
             this.TableTbl.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;

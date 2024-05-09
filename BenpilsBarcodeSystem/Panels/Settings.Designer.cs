@@ -337,6 +337,7 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Visible = false;
+            this.id.Width = 101;
             // 
             // barcode
             // 
@@ -348,7 +349,7 @@
             this.barcode.HeaderText = "Barcode";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 78;
+            this.barcode.Width = 83;
             // 
             // item_name
             // 
@@ -372,7 +373,7 @@
             this.brand.HeaderText = "Brand";
             this.brand.Name = "brand";
             this.brand.ReadOnly = true;
-            this.brand.Width = 64;
+            this.brand.Width = 68;
             // 
             // motor_brand
             // 
@@ -384,6 +385,7 @@
             this.motor_brand.HeaderText = "Motor Brand";
             this.motor_brand.Name = "motor_brand";
             this.motor_brand.ReadOnly = true;
+            this.motor_brand.Width = 108;
             // 
             // size
             // 
@@ -395,7 +397,7 @@
             this.size.HeaderText = "Size";
             this.size.Name = "size";
             this.size.ReadOnly = true;
-            this.size.Width = 54;
+            this.size.Width = 58;
             // 
             // restore
             // 
@@ -430,7 +432,7 @@
             this.label2.Location = new System.Drawing.Point(28, 16);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 181;
             this.label2.Text = "Search:";
             // 
@@ -531,6 +533,7 @@
             this.supplier_id.Name = "supplier_id";
             this.supplier_id.ReadOnly = true;
             this.supplier_id.Visible = false;
+            this.supplier_id.Width = 101;
             // 
             // contact_name
             // 
@@ -604,7 +607,7 @@
             this.label1.Location = new System.Drawing.Point(28, 16);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 181;
             this.label1.Text = "Search:";
             // 
@@ -709,6 +712,7 @@
             this.user_id.Name = "user_id";
             this.user_id.ReadOnly = true;
             this.user_id.Visible = false;
+            this.user_id.Width = 101;
             // 
             // first_name
             // 
@@ -717,6 +721,7 @@
             this.first_name.Name = "first_name";
             this.first_name.ReadOnly = true;
             this.first_name.Visible = false;
+            this.first_name.Width = 101;
             // 
             // last_name
             // 
@@ -725,6 +730,7 @@
             this.last_name.Name = "last_name";
             this.last_name.ReadOnly = true;
             this.last_name.Visible = false;
+            this.last_name.Width = 101;
             // 
             // name
             // 
@@ -823,7 +829,7 @@
             this.label3.Location = new System.Drawing.Point(28, 16);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 181;
             this.label3.Text = "Search:";
             // 
@@ -1029,7 +1035,7 @@
             this.HoursPanel.Controls.Add(this.Hour1Txt);
             this.HoursPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.HoursPanel.Enabled = false;
-            this.HoursPanel.Location = new System.Drawing.Point(562, 0);
+            this.HoursPanel.Location = new System.Drawing.Point(579, 0);
             this.HoursPanel.Name = "HoursPanel";
             this.HoursPanel.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.HoursPanel.Size = new System.Drawing.Size(307, 25);
@@ -1175,7 +1181,7 @@
             this.MonthlyCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MonthlyCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonthlyCb.FormattingEnabled = true;
-            this.MonthlyCb.Location = new System.Drawing.Point(516, 0);
+            this.MonthlyCb.Location = new System.Drawing.Point(533, 0);
             this.MonthlyCb.Name = "MonthlyCb";
             this.MonthlyCb.Size = new System.Drawing.Size(46, 23);
             this.MonthlyCb.TabIndex = 211;
@@ -1185,10 +1191,10 @@
             this.MonthlyRb.AutoSize = true;
             this.MonthlyRb.Dock = System.Windows.Forms.DockStyle.Left;
             this.MonthlyRb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthlyRb.Location = new System.Drawing.Point(447, 0);
+            this.MonthlyRb.Location = new System.Drawing.Point(459, 0);
             this.MonthlyRb.Name = "MonthlyRb";
             this.MonthlyRb.Padding = new System.Windows.Forms.Padding(3, 0, 0, 5);
-            this.MonthlyRb.Size = new System.Drawing.Size(69, 25);
+            this.MonthlyRb.Size = new System.Drawing.Size(74, 25);
             this.MonthlyRb.TabIndex = 210;
             this.MonthlyRb.TabStop = true;
             this.MonthlyRb.Text = "Monthly";
@@ -1202,7 +1208,7 @@
             this.WeeklyCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WeeklyCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeeklyCb.FormattingEnabled = true;
-            this.WeeklyCb.Location = new System.Drawing.Point(357, 0);
+            this.WeeklyCb.Location = new System.Drawing.Point(369, 0);
             this.WeeklyCb.Name = "WeeklyCb";
             this.WeeklyCb.Size = new System.Drawing.Size(90, 23);
             this.WeeklyCb.TabIndex = 209;
@@ -1213,10 +1219,10 @@
             this.WeeklyRb.AutoSize = true;
             this.WeeklyRb.Dock = System.Windows.Forms.DockStyle.Left;
             this.WeeklyRb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeeklyRb.Location = new System.Drawing.Point(291, 0);
+            this.WeeklyRb.Location = new System.Drawing.Point(298, 0);
             this.WeeklyRb.Name = "WeeklyRb";
             this.WeeklyRb.Padding = new System.Windows.Forms.Padding(2, 0, 0, 5);
-            this.WeeklyRb.Size = new System.Drawing.Size(66, 25);
+            this.WeeklyRb.Size = new System.Drawing.Size(71, 25);
             this.WeeklyRb.TabIndex = 208;
             this.WeeklyRb.TabStop = true;
             this.WeeklyRb.Text = "Weekly";
@@ -1228,10 +1234,10 @@
             this.DailyRb.AutoSize = true;
             this.DailyRb.Dock = System.Windows.Forms.DockStyle.Left;
             this.DailyRb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DailyRb.Location = new System.Drawing.Point(232, 0);
+            this.DailyRb.Location = new System.Drawing.Point(237, 0);
             this.DailyRb.Name = "DailyRb";
             this.DailyRb.Padding = new System.Windows.Forms.Padding(2, 0, 5, 5);
-            this.DailyRb.Size = new System.Drawing.Size(59, 25);
+            this.DailyRb.Size = new System.Drawing.Size(61, 25);
             this.DailyRb.TabIndex = 207;
             this.DailyRb.TabStop = true;
             this.DailyRb.Text = "Daily";
@@ -1243,10 +1249,10 @@
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("Arial", 9F);
-            this.label12.Location = new System.Drawing.Point(185, 0);
+            this.label12.Location = new System.Drawing.Point(190, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(3, 2, 3, 0);
-            this.label12.Size = new System.Drawing.Size(47, 17);
+            this.label12.Size = new System.Drawing.Size(47, 18);
             this.label12.TabIndex = 206;
             this.label12.Text = "Hours";
             // 
@@ -1258,7 +1264,7 @@
             this.HoursCb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HoursCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HoursCb.FormattingEnabled = true;
-            this.HoursCb.Location = new System.Drawing.Point(148, 0);
+            this.HoursCb.Location = new System.Drawing.Point(153, 0);
             this.HoursCb.Name = "HoursCb";
             this.HoursCb.Size = new System.Drawing.Size(37, 23);
             this.HoursCb.TabIndex = 205;
@@ -1268,10 +1274,10 @@
             this.EveryHoursRb.AutoSize = true;
             this.EveryHoursRb.Dock = System.Windows.Forms.DockStyle.Left;
             this.EveryHoursRb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EveryHoursRb.Location = new System.Drawing.Point(92, 0);
+            this.EveryHoursRb.Location = new System.Drawing.Point(94, 0);
             this.EveryHoursRb.Name = "EveryHoursRb";
             this.EveryHoursRb.Padding = new System.Windows.Forms.Padding(2, 0, 0, 5);
-            this.EveryHoursRb.Size = new System.Drawing.Size(56, 25);
+            this.EveryHoursRb.Size = new System.Drawing.Size(59, 25);
             this.EveryHoursRb.TabIndex = 204;
             this.EveryHoursRb.TabStop = true;
             this.EveryHoursRb.Text = "Every";
@@ -1282,7 +1288,7 @@
             // 
             this.label19.Dock = System.Windows.Forms.DockStyle.Left;
             this.label19.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(82, 0);
+            this.label19.Location = new System.Drawing.Point(84, 0);
             this.label19.Name = "label19";
             this.label19.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label19.Size = new System.Drawing.Size(10, 25);
@@ -1297,7 +1303,7 @@
             this.HourlyRb.Location = new System.Drawing.Point(20, 0);
             this.HourlyRb.Name = "HourlyRb";
             this.HourlyRb.Padding = new System.Windows.Forms.Padding(2, 0, 0, 5);
-            this.HourlyRb.Size = new System.Drawing.Size(62, 25);
+            this.HourlyRb.Size = new System.Drawing.Size(64, 25);
             this.HourlyRb.TabIndex = 202;
             this.HourlyRb.TabStop = true;
             this.HourlyRb.Text = "Hourly";
@@ -1321,7 +1327,7 @@
             this.ActiveHoursPanel.Enabled = false;
             this.ActiveHoursPanel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActiveHoursPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ActiveHoursPanel.Location = new System.Drawing.Point(587, 5);
+            this.ActiveHoursPanel.Location = new System.Drawing.Point(602, 5);
             this.ActiveHoursPanel.Name = "ActiveHoursPanel";
             this.ActiveHoursPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.ActiveHoursPanel.Size = new System.Drawing.Size(567, 30);
@@ -1337,7 +1343,7 @@
             this.label11.Location = new System.Drawing.Point(20, 5);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.label11.Size = new System.Drawing.Size(567, 30);
+            this.label11.Size = new System.Drawing.Size(582, 30);
             this.label11.TabIndex = 1;
             this.label11.Text = "Interval";
             this.label11.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1362,10 +1368,10 @@
             this.AAuditTrailCb.AutoSize = true;
             this.AAuditTrailCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.AAuditTrailCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AAuditTrailCb.Location = new System.Drawing.Point(593, 0);
+            this.AAuditTrailCb.Location = new System.Drawing.Point(610, 0);
             this.AAuditTrailCb.Name = "AAuditTrailCb";
             this.AAuditTrailCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.AAuditTrailCb.Size = new System.Drawing.Size(90, 20);
+            this.AAuditTrailCb.Size = new System.Drawing.Size(94, 20);
             this.AAuditTrailCb.TabIndex = 14;
             this.AAuditTrailCb.Text = "Audit Trail";
             this.AAuditTrailCb.UseVisualStyleBackColor = true;
@@ -1375,10 +1381,10 @@
             this.AInventoryReportCb.AutoSize = true;
             this.AInventoryReportCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.AInventoryReportCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AInventoryReportCb.Location = new System.Drawing.Point(469, 0);
+            this.AInventoryReportCb.Location = new System.Drawing.Point(481, 0);
             this.AInventoryReportCb.Name = "AInventoryReportCb";
             this.AInventoryReportCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.AInventoryReportCb.Size = new System.Drawing.Size(124, 20);
+            this.AInventoryReportCb.Size = new System.Drawing.Size(129, 20);
             this.AInventoryReportCb.TabIndex = 12;
             this.AInventoryReportCb.Text = "Inventory Report";
             this.AInventoryReportCb.UseVisualStyleBackColor = true;
@@ -1388,10 +1394,10 @@
             this.ASalesTransactionsCb.AutoSize = true;
             this.ASalesTransactionsCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.ASalesTransactionsCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ASalesTransactionsCb.Location = new System.Drawing.Point(326, 0);
+            this.ASalesTransactionsCb.Location = new System.Drawing.Point(334, 0);
             this.ASalesTransactionsCb.Name = "ASalesTransactionsCb";
             this.ASalesTransactionsCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.ASalesTransactionsCb.Size = new System.Drawing.Size(143, 20);
+            this.ASalesTransactionsCb.Size = new System.Drawing.Size(147, 20);
             this.ASalesTransactionsCb.TabIndex = 11;
             this.ASalesTransactionsCb.Text = "Sales Transactions";
             this.ASalesTransactionsCb.UseVisualStyleBackColor = true;
@@ -1401,10 +1407,10 @@
             this.APurchaseOrdersCb.AutoSize = true;
             this.APurchaseOrdersCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.APurchaseOrdersCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.APurchaseOrdersCb.Location = new System.Drawing.Point(196, 0);
+            this.APurchaseOrdersCb.Location = new System.Drawing.Point(200, 0);
             this.APurchaseOrdersCb.Name = "APurchaseOrdersCb";
             this.APurchaseOrdersCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.APurchaseOrdersCb.Size = new System.Drawing.Size(130, 20);
+            this.APurchaseOrdersCb.Size = new System.Drawing.Size(134, 20);
             this.APurchaseOrdersCb.TabIndex = 10;
             this.APurchaseOrdersCb.Text = "Purchase Orders";
             this.APurchaseOrdersCb.UseVisualStyleBackColor = true;
@@ -1414,10 +1420,10 @@
             this.ASuppliersCb.AutoSize = true;
             this.ASuppliersCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.ASuppliersCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ASuppliersCb.Location = new System.Drawing.Point(107, 0);
+            this.ASuppliersCb.Location = new System.Drawing.Point(110, 0);
             this.ASuppliersCb.Name = "ASuppliersCb";
             this.ASuppliersCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.ASuppliersCb.Size = new System.Drawing.Size(89, 20);
+            this.ASuppliersCb.Size = new System.Drawing.Size(90, 20);
             this.ASuppliersCb.TabIndex = 9;
             this.ASuppliersCb.Text = "Suppliers";
             this.ASuppliersCb.UseVisualStyleBackColor = true;
@@ -1430,7 +1436,7 @@
             this.AInventoryCb.Location = new System.Drawing.Point(23, 0);
             this.AInventoryCb.Name = "AInventoryCb";
             this.AInventoryCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.AInventoryCb.Size = new System.Drawing.Size(84, 20);
+            this.AInventoryCb.Size = new System.Drawing.Size(87, 20);
             this.AInventoryCb.TabIndex = 8;
             this.AInventoryCb.Text = "Inventory";
             this.AInventoryCb.UseVisualStyleBackColor = true;
@@ -1533,7 +1539,7 @@
             this.DisabledLbl.Location = new System.Drawing.Point(215, 0);
             this.DisabledLbl.Name = "DisabledLbl";
             this.DisabledLbl.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
-            this.DisabledLbl.Size = new System.Drawing.Size(56, 29);
+            this.DisabledLbl.Size = new System.Drawing.Size(62, 30);
             this.DisabledLbl.TabIndex = 0;
             this.DisabledLbl.Text = "Disabled";
             // 
@@ -1623,7 +1629,7 @@
             this.EndDt.CalendarFont = new System.Drawing.Font("Arial", 9.75F);
             this.EndDt.Dock = System.Windows.Forms.DockStyle.Left;
             this.EndDt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDt.Location = new System.Drawing.Point(296, 0);
+            this.EndDt.Location = new System.Drawing.Point(308, 0);
             this.EndDt.Name = "EndDt";
             this.EndDt.Size = new System.Drawing.Size(146, 21);
             this.EndDt.TabIndex = 7;
@@ -1633,10 +1639,10 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
             this.label7.Font = new System.Drawing.Font("Arial", 9F);
-            this.label7.Location = new System.Drawing.Point(213, 0);
+            this.label7.Location = new System.Drawing.Point(220, 0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(19, 3, 0, 0);
-            this.label7.Size = new System.Drawing.Size(83, 18);
+            this.label7.Size = new System.Drawing.Size(88, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "End Date :";
             // 
@@ -1645,7 +1651,7 @@
             this.StartDt.CalendarFont = new System.Drawing.Font("Arial", 9.75F);
             this.StartDt.Dock = System.Windows.Forms.DockStyle.Left;
             this.StartDt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartDt.Location = new System.Drawing.Point(67, 0);
+            this.StartDt.Location = new System.Drawing.Point(74, 0);
             this.StartDt.Name = "StartDt";
             this.StartDt.Size = new System.Drawing.Size(146, 21);
             this.StartDt.TabIndex = 4;
@@ -1658,7 +1664,7 @@
             this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label9.Size = new System.Drawing.Size(67, 18);
+            this.label9.Size = new System.Drawing.Size(74, 19);
             this.label9.TabIndex = 5;
             this.label9.Text = "Start Date :";
             // 
@@ -1733,10 +1739,10 @@
             this.AuditTrailCb.AutoSize = true;
             this.AuditTrailCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.AuditTrailCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AuditTrailCb.Location = new System.Drawing.Point(573, 0);
+            this.AuditTrailCb.Location = new System.Drawing.Point(590, 0);
             this.AuditTrailCb.Name = "AuditTrailCb";
             this.AuditTrailCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.AuditTrailCb.Size = new System.Drawing.Size(90, 20);
+            this.AuditTrailCb.Size = new System.Drawing.Size(94, 20);
             this.AuditTrailCb.TabIndex = 14;
             this.AuditTrailCb.Text = "Audit Trail";
             this.AuditTrailCb.UseVisualStyleBackColor = true;
@@ -1747,10 +1753,10 @@
             this.InventoryReportCb.AutoSize = true;
             this.InventoryReportCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.InventoryReportCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryReportCb.Location = new System.Drawing.Point(449, 0);
+            this.InventoryReportCb.Location = new System.Drawing.Point(461, 0);
             this.InventoryReportCb.Name = "InventoryReportCb";
             this.InventoryReportCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.InventoryReportCb.Size = new System.Drawing.Size(124, 20);
+            this.InventoryReportCb.Size = new System.Drawing.Size(129, 20);
             this.InventoryReportCb.TabIndex = 12;
             this.InventoryReportCb.Text = "Inventory Report";
             this.InventoryReportCb.UseVisualStyleBackColor = true;
@@ -1761,10 +1767,10 @@
             this.SalesTransactionsCb.AutoSize = true;
             this.SalesTransactionsCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.SalesTransactionsCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesTransactionsCb.Location = new System.Drawing.Point(306, 0);
+            this.SalesTransactionsCb.Location = new System.Drawing.Point(314, 0);
             this.SalesTransactionsCb.Name = "SalesTransactionsCb";
             this.SalesTransactionsCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.SalesTransactionsCb.Size = new System.Drawing.Size(143, 20);
+            this.SalesTransactionsCb.Size = new System.Drawing.Size(147, 20);
             this.SalesTransactionsCb.TabIndex = 11;
             this.SalesTransactionsCb.Text = "Sales Transactions";
             this.SalesTransactionsCb.UseVisualStyleBackColor = true;
@@ -1775,10 +1781,10 @@
             this.PurchaseOrdersCb.AutoSize = true;
             this.PurchaseOrdersCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.PurchaseOrdersCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PurchaseOrdersCb.Location = new System.Drawing.Point(176, 0);
+            this.PurchaseOrdersCb.Location = new System.Drawing.Point(180, 0);
             this.PurchaseOrdersCb.Name = "PurchaseOrdersCb";
             this.PurchaseOrdersCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.PurchaseOrdersCb.Size = new System.Drawing.Size(130, 20);
+            this.PurchaseOrdersCb.Size = new System.Drawing.Size(134, 20);
             this.PurchaseOrdersCb.TabIndex = 10;
             this.PurchaseOrdersCb.Text = "Purchase Orders";
             this.PurchaseOrdersCb.UseVisualStyleBackColor = true;
@@ -1789,10 +1795,10 @@
             this.SuppliersCb.AutoSize = true;
             this.SuppliersCb.Dock = System.Windows.Forms.DockStyle.Left;
             this.SuppliersCb.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SuppliersCb.Location = new System.Drawing.Point(87, 0);
+            this.SuppliersCb.Location = new System.Drawing.Point(90, 0);
             this.SuppliersCb.Name = "SuppliersCb";
             this.SuppliersCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.SuppliersCb.Size = new System.Drawing.Size(89, 20);
+            this.SuppliersCb.Size = new System.Drawing.Size(90, 20);
             this.SuppliersCb.TabIndex = 9;
             this.SuppliersCb.Text = "Suppliers";
             this.SuppliersCb.UseVisualStyleBackColor = true;
@@ -1806,7 +1812,7 @@
             this.InventoryCb.Location = new System.Drawing.Point(3, 0);
             this.InventoryCb.Name = "InventoryCb";
             this.InventoryCb.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.InventoryCb.Size = new System.Drawing.Size(84, 20);
+            this.InventoryCb.Size = new System.Drawing.Size(87, 20);
             this.InventoryCb.TabIndex = 8;
             this.InventoryCb.Text = "Inventory";
             this.InventoryCb.UseVisualStyleBackColor = true;

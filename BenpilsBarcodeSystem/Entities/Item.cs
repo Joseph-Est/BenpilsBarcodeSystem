@@ -55,5 +55,7 @@ namespace BenpilsBarcodeSystem
             return displayName;
         }
 
+        public double AverageDailySales { get; set; }
+
     }
 }

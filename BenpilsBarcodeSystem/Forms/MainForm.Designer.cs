@@ -79,7 +79,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.label5.Location = new System.Drawing.Point(526, 7);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(404, 19);
+            this.label5.Size = new System.Drawing.Size(411, 19);
             this.label5.TabIndex = 10;
             this.label5.Text = "BENPIL MOTORCYCLE PARTS AND ACCESSORIES";
             // 
@@ -174,7 +174,7 @@
             this.SelectedModuleLbl.ForeColor = System.Drawing.Color.Black;
             this.SelectedModuleLbl.Location = new System.Drawing.Point(9, 8);
             this.SelectedModuleLbl.Name = "SelectedModuleLbl";
-            this.SelectedModuleLbl.Size = new System.Drawing.Size(94, 19);
+            this.SelectedModuleLbl.Size = new System.Drawing.Size(95, 19);
             this.SelectedModuleLbl.TabIndex = 21;
             this.SelectedModuleLbl.Text = "Dashboard";
             // 
@@ -499,9 +499,9 @@
             this.DesignationTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesignationTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DesignationTxt.ForeColor = System.Drawing.Color.White;
-            this.DesignationTxt.Location = new System.Drawing.Point(90, 0);
+            this.DesignationTxt.Location = new System.Drawing.Point(94, 0);
             this.DesignationTxt.Name = "DesignationTxt";
-            this.DesignationTxt.Size = new System.Drawing.Size(1000, 36);
+            this.DesignationTxt.Size = new System.Drawing.Size(991, 36);
             this.DesignationTxt.TabIndex = 6;
             this.DesignationTxt.Text = "Designation:";
             this.DesignationTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -513,10 +513,10 @@
             this.BackupTxt.Dock = System.Windows.Forms.DockStyle.Right;
             this.BackupTxt.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackupTxt.ForeColor = System.Drawing.Color.White;
-            this.BackupTxt.Location = new System.Drawing.Point(1090, 0);
+            this.BackupTxt.Location = new System.Drawing.Point(1085, 0);
             this.BackupTxt.Name = "BackupTxt";
             this.BackupTxt.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.BackupTxt.Size = new System.Drawing.Size(10, 27);
+            this.BackupTxt.Size = new System.Drawing.Size(10, 28);
             this.BackupTxt.TabIndex = 5;
             // 
             // label3
@@ -526,10 +526,10 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1100, 0);
+            this.label3.Location = new System.Drawing.Point(1095, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.label3.Size = new System.Drawing.Size(53, 27);
+            this.label3.Size = new System.Drawing.Size(56, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date:";
             // 
@@ -543,7 +543,7 @@
             this.UsernameTxt.Location = new System.Drawing.Point(0, 0);
             this.UsernameTxt.Name = "UsernameTxt";
             this.UsernameTxt.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.UsernameTxt.Size = new System.Drawing.Size(90, 27);
+            this.UsernameTxt.Size = new System.Drawing.Size(94, 28);
             this.UsernameTxt.TabIndex = 0;
             this.UsernameTxt.Text = "Username:";
             this.UsernameTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -555,10 +555,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1153, 0);
+            this.label4.Location = new System.Drawing.Point(1151, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.label4.Size = new System.Drawing.Size(54, 27);
+            this.label4.Size = new System.Drawing.Size(56, 28);
             this.label4.TabIndex = 3;
             this.label4.Text = "Time:";
             // 

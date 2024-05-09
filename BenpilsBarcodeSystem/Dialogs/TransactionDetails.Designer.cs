@@ -101,7 +101,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(93, 21);
+            this.label1.Size = new System.Drawing.Size(103, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Salesperson :";
             // 
@@ -133,7 +133,7 @@
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(105, 21);
+            this.label10.Size = new System.Drawing.Size(114, 21);
             this.label10.TabIndex = 3;
             this.label10.Text = "Transaction ID :";
             // 
@@ -165,7 +165,7 @@
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label12.Size = new System.Drawing.Size(44, 21);
+            this.label12.Size = new System.Drawing.Size(47, 21);
             this.label12.TabIndex = 3;
             this.label12.Text = "Date :";
             // 
@@ -188,7 +188,7 @@
             this.TitleLbl.ForeColor = System.Drawing.Color.White;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(144, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(155, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Transaction Details";
             // 
@@ -259,10 +259,10 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(325, 5);
+            this.label7.Location = new System.Drawing.Point(315, 5);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(42, 21);
+            this.label7.Size = new System.Drawing.Size(45, 21);
             this.label7.TabIndex = 5;
             this.label7.Text = "Total :";
             // 
@@ -271,10 +271,10 @@
             this.TotalLbl.AutoSize = true;
             this.TotalLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.TotalLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalLbl.Location = new System.Drawing.Point(367, 5);
+            this.TotalLbl.Location = new System.Drawing.Point(360, 5);
             this.TotalLbl.Name = "TotalLbl";
             this.TotalLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.TotalLbl.Size = new System.Drawing.Size(60, 21);
+            this.TotalLbl.Size = new System.Drawing.Size(67, 21);
             this.TotalLbl.TabIndex = 4;
             this.TotalLbl.Text = "10000.00";
             // 
@@ -366,7 +366,7 @@
             this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.SellingPrice.HeaderText = "Price";
             this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.Width = 60;
+            this.SellingPrice.Width = 63;
             // 
             // Quantity
             // 
@@ -377,7 +377,7 @@
             this.Quantity.HeaderText = "Qty";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 49;
+            this.Quantity.Width = 51;
             // 
             // PriceTotal
             // 
@@ -389,7 +389,7 @@
             this.PriceTotal.HeaderText = "Subtotal";
             this.PriceTotal.Name = "PriceTotal";
             this.PriceTotal.ReadOnly = true;
-            this.PriceTotal.Width = 77;
+            this.PriceTotal.Width = 83;
             // 
             // PrintPreview
             // 

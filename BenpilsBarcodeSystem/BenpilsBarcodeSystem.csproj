@@ -325,6 +325,12 @@
     <Compile Include="Dialogs\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\AuthorizationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AuthorizationDialog.Designer.cs">
+      <DependentUpon>AuthorizationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ConfirmationWithRemarks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AddPurchaseItem.resx">
       <DependentUpon>AddPurchaseItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AuthorizationDialog.resx">
+      <DependentUpon>AuthorizationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ConfirmationWithRemarks.resx">
       <DependentUpon>ConfirmationWithRemarks.cs</DependentUpon>

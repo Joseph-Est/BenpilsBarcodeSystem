@@ -147,6 +147,7 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
+            this.Id.Width = 101;
             // 
             // item_barcode
             // 
@@ -155,6 +156,7 @@
             this.item_barcode.Name = "item_barcode";
             this.item_barcode.ReadOnly = true;
             this.item_barcode.Visible = false;
+            this.item_barcode.Width = 101;
             // 
             // item_name
             // 
@@ -177,7 +179,7 @@
             this.item_brand.HeaderText = "Brand";
             this.item_brand.Name = "item_brand";
             this.item_brand.ReadOnly = true;
-            this.item_brand.Width = 63;
+            this.item_brand.Width = 64;
             // 
             // item_size
             // 
@@ -189,7 +191,7 @@
             this.item_size.HeaderText = "Size";
             this.item_size.Name = "item_size";
             this.item_size.ReadOnly = true;
-            this.item_size.Width = 53;
+            this.item_size.Width = 56;
             // 
             // Quantity
             // 
@@ -201,7 +203,7 @@
             this.Quantity.HeaderText = "Stock";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 60;
+            this.Quantity.Width = 64;
             // 
             // panel4
             // 
@@ -266,7 +268,7 @@
             this.label2.Location = new System.Drawing.Point(18, 14);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 177;
             this.label2.Text = "Search:";
             // 
@@ -300,7 +302,7 @@
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(92, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(99, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Search Item";
             // 

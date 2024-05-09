@@ -126,7 +126,7 @@
             this.transaction_date.HeaderText = "Date";
             this.transaction_date.Name = "transaction_date";
             this.transaction_date.ReadOnly = true;
-            this.transaction_date.Width = 56;
+            this.transaction_date.Width = 57;
             // 
             // transaction_id
             // 
@@ -200,7 +200,7 @@
             this.label2.Location = new System.Drawing.Point(18, 13);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(124, 19);
+            this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 177;
             this.label2.Text = "Search Transaction No.:";
             // 
@@ -234,7 +234,7 @@
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(60, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(65, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Refund";
             // 

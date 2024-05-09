@@ -469,7 +469,7 @@
             this.RbPanel.Controls.Add(this.MonthlyRb);
             this.RbPanel.Controls.Add(this.DailyRb);
             this.RbPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RbPanel.Location = new System.Drawing.Point(182, 0);
+            this.RbPanel.Location = new System.Drawing.Point(188, 0);
             this.RbPanel.Name = "RbPanel";
             this.RbPanel.Size = new System.Drawing.Size(128, 27);
             this.RbPanel.TabIndex = 6;
@@ -479,10 +479,10 @@
             this.MonthlyRb.AutoSize = true;
             this.MonthlyRb.Dock = System.Windows.Forms.DockStyle.Left;
             this.MonthlyRb.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthlyRb.Location = new System.Drawing.Point(50, 0);
+            this.MonthlyRb.Location = new System.Drawing.Point(54, 0);
             this.MonthlyRb.Name = "MonthlyRb";
             this.MonthlyRb.Padding = new System.Windows.Forms.Padding(2, 5, 0, 5);
-            this.MonthlyRb.Size = new System.Drawing.Size(64, 27);
+            this.MonthlyRb.Size = new System.Drawing.Size(68, 27);
             this.MonthlyRb.TabIndex = 206;
             this.MonthlyRb.Text = "Monthly";
             this.MonthlyRb.UseVisualStyleBackColor = true;
@@ -497,7 +497,7 @@
             this.DailyRb.Location = new System.Drawing.Point(0, 0);
             this.DailyRb.Name = "DailyRb";
             this.DailyRb.Padding = new System.Windows.Forms.Padding(2, 5, 0, 5);
-            this.DailyRb.Size = new System.Drawing.Size(50, 27);
+            this.DailyRb.Size = new System.Drawing.Size(54, 27);
             this.DailyRb.TabIndex = 205;
             this.DailyRb.TabStop = true;
             this.DailyRb.Text = "Daily";
@@ -562,7 +562,7 @@
             this.SalesTitleLbl.Location = new System.Drawing.Point(0, 0);
             this.SalesTitleLbl.Name = "SalesTitleLbl";
             this.SalesTitleLbl.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.SalesTitleLbl.Size = new System.Drawing.Size(182, 27);
+            this.SalesTitleLbl.Size = new System.Drawing.Size(188, 28);
             this.SalesTitleLbl.TabIndex = 4;
             this.SalesTitleLbl.Text = "Sales Today";
             // 
@@ -1037,7 +1037,7 @@
             this.OverdueTbl.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.OverdueTbl.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OverdueTbl.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.OverdueTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.OverdueTbl.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
             this.OverdueTbl.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.OverdueTbl.RowTemplate.Height = 30;
             this.OverdueTbl.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1138,7 +1138,7 @@
             this.PendingTodayLbl.Location = new System.Drawing.Point(0, 0);
             this.PendingTodayLbl.Name = "PendingTodayLbl";
             this.PendingTodayLbl.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.PendingTodayLbl.Size = new System.Drawing.Size(18, 16);
+            this.PendingTodayLbl.Size = new System.Drawing.Size(19, 16);
             this.PendingTodayLbl.TabIndex = 1;
             this.PendingTodayLbl.Text = "0";
             this.PendingTodayLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1153,7 +1153,7 @@
             this.label2.Location = new System.Drawing.Point(24, 2);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
-            this.label2.Size = new System.Drawing.Size(8, 18);
+            this.label2.Size = new System.Drawing.Size(8, 19);
             this.label2.TabIndex = 11;
             // 
             // panel27
@@ -1178,7 +1178,7 @@
             this.PendingOrdersLbl.Location = new System.Drawing.Point(0, 0);
             this.PendingOrdersLbl.Name = "PendingOrdersLbl";
             this.PendingOrdersLbl.Padding = new System.Windows.Forms.Padding(3, 1, 0, 0);
-            this.PendingOrdersLbl.Size = new System.Drawing.Size(17, 17);
+            this.PendingOrdersLbl.Size = new System.Drawing.Size(18, 17);
             this.PendingOrdersLbl.TabIndex = 0;
             this.PendingOrdersLbl.Text = "0";
             this.PendingOrdersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1195,7 +1195,7 @@
             this.label1.Location = new System.Drawing.Point(52, 2);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
-            this.label1.Size = new System.Drawing.Size(8, 18);
+            this.label1.Size = new System.Drawing.Size(8, 19);
             this.label1.TabIndex = 9;
             // 
             // panel28
@@ -1220,7 +1220,7 @@
             this.OverdueOrdersLbl.Location = new System.Drawing.Point(0, 0);
             this.OverdueOrdersLbl.Name = "OverdueOrdersLbl";
             this.OverdueOrdersLbl.Padding = new System.Windows.Forms.Padding(3, 1, 0, 0);
-            this.OverdueOrdersLbl.Size = new System.Drawing.Size(17, 17);
+            this.OverdueOrdersLbl.Size = new System.Drawing.Size(18, 17);
             this.OverdueOrdersLbl.TabIndex = 1;
             this.OverdueOrdersLbl.Text = "0";
             this.OverdueOrdersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1324,6 +1324,7 @@
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 101;
             // 
             // panel30
             // 
@@ -1369,7 +1370,7 @@
             this.LowStockLbl.Location = new System.Drawing.Point(0, 0);
             this.LowStockLbl.Name = "LowStockLbl";
             this.LowStockLbl.Padding = new System.Windows.Forms.Padding(3, 1, 0, 0);
-            this.LowStockLbl.Size = new System.Drawing.Size(17, 17);
+            this.LowStockLbl.Size = new System.Drawing.Size(18, 17);
             this.LowStockLbl.TabIndex = 0;
             this.LowStockLbl.Text = "0";
             this.LowStockLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1386,7 +1387,7 @@
             this.label3.Location = new System.Drawing.Point(49, 2);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(8, 4, 0, 0);
-            this.label3.Size = new System.Drawing.Size(8, 18);
+            this.label3.Size = new System.Drawing.Size(8, 19);
             this.label3.TabIndex = 9;
             // 
             // panel33
@@ -1411,7 +1412,7 @@
             this.NoStockLbl.Location = new System.Drawing.Point(0, 0);
             this.NoStockLbl.Name = "NoStockLbl";
             this.NoStockLbl.Padding = new System.Windows.Forms.Padding(3, 1, 0, 0);
-            this.NoStockLbl.Size = new System.Drawing.Size(17, 17);
+            this.NoStockLbl.Size = new System.Drawing.Size(18, 17);
             this.NoStockLbl.TabIndex = 1;
             this.NoStockLbl.Text = "0";
             this.NoStockLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -145,7 +145,7 @@ namespace BenpilsBarcodeSystem
         
         private void UsernameTxt_Enter(object sender, EventArgs e)
         {
-            UsernameBorder.BackColor = Color.FromArgb(193, 57, 57);
+            UsernameBorder.BackColor = Color.LightSeaGreen;
             if (UsernameTxt.Text == usernamePlaceholder)
             {
                 UsernameTxt.Text = "";
@@ -182,7 +182,7 @@ namespace BenpilsBarcodeSystem
 
         private void PasswordTxt_Enter(object sender, EventArgs e)
         {
-            PasswordBorder.BackColor = Color.FromArgb(193, 57, 57);
+            PasswordBorder.BackColor = Color.LightSeaGreen;
             if (!passwordModified)
             {
                 if (!ShowPassword.Checked)

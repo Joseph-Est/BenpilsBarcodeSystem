@@ -55,26 +55,49 @@ namespace BenpilsBarcodeSystem.Dialogs
 
         private async void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            POSRepository repository = new POSRepository();
-
-            switch (await repository.RefundTransactionAsync(transactionId, CurrentCart))
+            string designation = CurrentUser.User.Designation.ToLower();
+            bool allowConfirm = true;
+            if (designation != "admin" && designation != "super admin")
             {
-                case 0:
-                    MessageBox.Show("The refund process has been successfully completed!.", "Refund Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    canClose = true;
-                    DialogResult = DialogResult.OK;
-                    this.Close();
-                    break;
-                case 1:
-                    MessageBox.Show("Refund operation could not be completed because some items are currently archived.", "Refund Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    MessageBox.Show("Something went wrong, please contact administrator.", "Refund Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
+                AuthorizationDialog ad = new AuthorizationDialog();
+                if (ad.ShowDialog() == DialogResult.OK)
+                {
+                    allowConfirm = true;
+                }
+                else
+                {
+                    allowConfirm = false;
+                }
             }
+
+            if (allowConfirm)
+            {
+                POSRepository repository = new POSRepository();
+
+                switch (await repository.RefundTransactionAsync(transactionId, CurrentCart))
+                {
+                    case 0:
+                        MessageBox.Show("The refund process has been successfully completed!.", "Refund Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        canClose = true;
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                        break;
+                    case 1:
+                        MessageBox.Show("Refund operation could not be completed because some items are currently archived.", "Refund Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        MessageBox.Show("Something went wrong, please contact administrator.", "Refund Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Refund operation could not be completed. Authorization failed.", "Refund Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

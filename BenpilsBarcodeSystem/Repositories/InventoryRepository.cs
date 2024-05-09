@@ -832,52 +832,6 @@ namespace BenpilsBarcodeSystem.Repository
             return lowStockItems;
         }
 
-        public async Task<List<Item>> GetLowStockItemsAverageAsync()
-        {
-            List<Item> lowStockItems = new List<Item>();
-
-            string selectQuery = $"SELECT {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size}, (SELECT AVG({col_quantity}) FROM {POSRepository.tbl_transaction_details} WHERE {col_id} = {col_id} AND DATEDIFF(day, {POSRepository.col_transaction_date}, GETDATE()) <= 30) AS AverageDailySales FROM {tbl_name} WHERE {col_quantity} < (SELECT AVG({col_quantity}) FROM {POSRepository.tbl_transaction_details} WHERE {col_id} = {col_id} AND DATEDIFF(day, {POSRepository.tbl_transaction_details}, GETDATE()) <= 30) AND {col_is_active} = 'true' ORDER BY {col_quantity} DESC";
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
-                    {
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
-                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
-                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
-                                string size = reader.GetString(reader.GetOrdinal(col_size));
-                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
-                                double averageDailySales = reader.GetDouble(reader.GetOrdinal("AverageDailySales"));
-
-                                Item item = new Item
-                                {
-                                    Barcode = barcode,
-                                    ItemName = itemName,
-                                    Brand = brand,
-                                    Size = size,
-                                    Quantity = quantity,
-                                };
-
-                                lowStockItems.Add(item);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-
-            return lowStockItems;
-        }
-
         public async Task<List<Item>> GetLowStockItemsAsyncGPT()
         {
             List<Item> lowStockItems = new List<Item>();
@@ -909,10 +863,11 @@ namespace BenpilsBarcodeSystem.Repository
                                 t.{POSRepository.col_transaction_date} >= @startDate 
                                 AND t.{POSRepository.col_status} = 'COMPLETED'
                             GROUP BY 
-                                td.{POSRepository.col_item_id}
+                                td.{POSRepository.col_item_id},
+                                CONVERT(date, t.{POSRepository.col_transaction_date})
                         ) t ON i.{col_id} = t.{POSRepository.col_item_id}
                         WHERE 
-                            i.{col_quantity} < (ISNULL(t.avgDailySales, 0) * @daysThreshold)
+                            i.{col_quantity} < (ISNULL(t.avgDailySales, 0))
                             AND i.{col_is_active} = 'true'";
 
                     using (SqlCommand cmd = new SqlCommand(selectQuery, con))
@@ -921,8 +876,8 @@ namespace BenpilsBarcodeSystem.Repository
                         cmd.Parameters.AddWithValue("@startDate", startDate);
 
                         // Define the number of days to consider for the dynamic threshold
-                        int daysThreshold = 30; // Adjust as needed
-                        cmd.Parameters.AddWithValue("@daysThreshold", daysThreshold);
+                        //int daysThreshold = 30; // Adjust as needed
+                        //cmd.Parameters.AddWithValue("@daysThreshold", daysThreshold);
 
                         using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {

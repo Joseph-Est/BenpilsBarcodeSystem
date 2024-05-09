@@ -249,6 +249,91 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
+        public async Task<int> AuthorizeAsync(string username, string password)
+        {
+            try
+            {
+                using (SqlConnection connection = await Task.Run(() => databaseConnection.OpenConnection()))
+                {
+                    if (connection != null)
+                    {
+                        // First, check if the username exists
+                        string usernameQuery = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username";
+
+                        using (SqlCommand usernameCommand = new SqlCommand(usernameQuery, connection))
+                        {
+                            usernameCommand.Parameters.AddWithValue("@Username", username);
+
+                            using (SqlDataAdapter usernameAdapter = new SqlDataAdapter(usernameCommand))
+                            {
+                                DataTable usernameDataTable = new DataTable();
+                                await Task.Run(() => usernameAdapter.Fill(usernameDataTable));
+
+                                if (usernameDataTable.Rows.Count == 0)
+                                {
+                                    // Username does not exist
+                                    return 1;
+                                }
+                                else if (usernameDataTable.Rows[0][col_is_active].ToString() != "True")
+                                {
+                                    // User exists but is not active (archived)
+                                    return 2;
+                                }
+                            }
+                        }
+
+                        // Then, check if the password is correct
+                        string passwordQuery = $"SELECT * FROM {tbl_name} WHERE {col_username} = @Username AND {col_password} = @Password AND {col_is_active} = 'true'";
+
+                        using (SqlCommand passwordCommand = new SqlCommand(passwordQuery, connection))
+                        {
+                            passwordCommand.Parameters.AddWithValue("@Username", username);
+                            passwordCommand.Parameters.AddWithValue("@Password", password);
+
+                            using (SqlDataAdapter passwordAdapter = new SqlDataAdapter(passwordCommand))
+                            {
+                                DataTable passwordDataTable = new DataTable();
+                                await Task.Run(() => passwordAdapter.Fill(passwordDataTable));
+
+                                if (passwordDataTable.Rows.Count > 0)
+                                {
+                                    // Password is correct
+                                    int userId = Convert.ToInt32(passwordDataTable.Rows[0][col_id]);
+
+                                    switch (passwordDataTable.Rows[0][col_designation].ToString().ToLower())
+                                    {
+                                        case "admin":
+                                        case "super admin":
+                                            return 0;
+                                        default:
+                                            return 3;
+                                    }
+
+
+                                     // Login successful
+                                }
+                                else
+                                {
+                                    // Password is incorrect
+                                    return 4;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Database connection failed.");
+                        return 5; // Database connection failed
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return 6; // An error occurred
+            }
+        }
+
         public async Task<bool> LogoutAsync()
         {
             try

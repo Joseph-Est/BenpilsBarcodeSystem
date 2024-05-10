@@ -75,7 +75,14 @@ namespace BenpilsBarcodeSystem
             LoadSalesChart(posRepository);
             LoadTopSellingItems(posRepository, currentSalesData);
 
-            lowStockItems = await inventoryRepository.GetLowStockItemsAsyncGPT();
+            lowStockItems = await inventoryRepository.GetLowStockItems();
+
+            foreach (var item in lowStockItems)
+            {
+                Console.WriteLine($"Item Name: {item.ItemName}");
+                Console.WriteLine($"Average Daily Sales: {item.AverageDailySales}");
+                Console.WriteLine();
+            }
 
             LowStockTbl.AutoGenerateColumns = false;
             LowStockTbl.DataSource = lowStockItems;

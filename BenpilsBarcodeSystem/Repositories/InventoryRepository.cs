@@ -833,7 +833,7 @@ namespace BenpilsBarcodeSystem.Repository
             return lowStockItems;
         }
 
-        public async Task<List<Item>> GetLowStockItemsAsyncGPT()
+        public async Task<List<Item>> GetLowStockItems()
         {
             List<Item> lowStockItems = new List<Item>();
 
@@ -932,7 +932,7 @@ namespace BenpilsBarcodeSystem.Repository
 
                     // Query for items with col_quantity equal to 0
                     string zeroQuantityQuery = $@"
-                        SELECT 
+                        SELECT DISTINCT
                             {col_barcode}, 
                             {col_item_name}, 
                             {col_brand}, 
@@ -951,101 +951,26 @@ namespace BenpilsBarcodeSystem.Repository
                             while (await reader.ReadAsync())
                             {
                                 string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
-                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
-                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
-                                string size = reader.GetString(reader.GetOrdinal(col_size));
-                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
 
-                                Item item = new Item
+                                // Check if item with same barcode already exists in lowStockItems
+                                if (!lowStockItems.Any(item => item.Barcode == barcode))
                                 {
-                                    Barcode = barcode,
-                                    ItemName = itemName,
-                                    Brand = brand,
-                                    Size = size,
-                                    Quantity = quantity,
-                                };
+                                    string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
+                                    string brand = reader.GetString(reader.GetOrdinal(col_brand));
+                                    string size = reader.GetString(reader.GetOrdinal(col_size));
+                                    int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
 
-                                lowStockItems.Add(item);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
+                                    Item item = new Item
+                                    {
+                                        Barcode = barcode,
+                                        ItemName = itemName,
+                                        Brand = brand,
+                                        Size = size,
+                                        Quantity = quantity
+                                    };
 
-            return lowStockItems;
-        }
-
-        public async Task<List<Item>> GetLowStockItems()
-        {
-            List<Item> lowStockItems = new List<Item>();
-
-            // Calculate average sales for each item
-            string avgSalesQuery = @"
-                SELECT 
-                    i.id AS item_id,
-                    CONVERT(date, t.transaction_date) AS transaction_date,
-                    AVG(d.quantity) AS avg_sales
-                FROM 
-                    tbl_transactions t
-                JOIN 
-                    tbl_transaction_details d ON t.transaction_id = d.transaction_id
-                JOIN 
-                    tbl_item_master_data i ON d.item_id = i.id
-                WHERE 
-                    t.status = 'COMPLETED'
-                GROUP BY 
-                    i.id, CONVERT(date, t.transaction_date)
-            "
-            ;
-
-            string selectQuery = $@"
-                SELECT 
-                    i.barcode, 
-                    i.item_name, 
-                    i.brand, 
-                    i.size, 
-                    i.quantity
-                FROM 
-                    tbl_item_master_data i
-                LEFT JOIN 
-                    ({avgSalesQuery}) AS avgSales ON i.id = avgSales.item_id
-                WHERE 
-                    i.quantity < ISNULL(avgSales.avg_sales, 0)
-                    AND i.is_active = 'true'
-                ORDER BY 
-                    i.quantity DESC
-            ";
-
-            try
-            {
-                using (SqlConnection con = databaseConnection.OpenConnection())
-                {
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, con))
-                    {
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                string barcode = reader.GetString(reader.GetOrdinal("barcode"));
-                                string itemName = reader.GetString(reader.GetOrdinal("item_name"));
-                                string brand = reader.GetString(reader.GetOrdinal("brand"));
-                                string size = reader.GetString(reader.GetOrdinal("size"));
-                                int quantity = reader.GetInt32(reader.GetOrdinal("quantity"));
-
-                                Item item = new Item
-                                {
-                                    Barcode = barcode,
-                                    ItemName = itemName,
-                                    Brand = brand,
-                                    Size = size,
-                                    Quantity = quantity,
-                                };
-
-                                lowStockItems.Add(item);
+                                    lowStockItems.Add(item);
+                                }
                             }
                         }
                     }

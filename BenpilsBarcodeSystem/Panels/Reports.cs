@@ -851,16 +851,16 @@ namespace BenpilsBarcodeSystem
                         string transactionId = row.Cells["transaction_id"].Value.ToString();
 
                         POSRepository repository = new POSRepository();
-                        (Cart cart, decimal paymentReceived, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(transactionId);
+                        (Cart cart, decimal paymentReceived, decimal discount, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(transactionId);
 
-                        GenerateReceipt(transactionId, cart, salesPerson, paymentReceived, transactionDate);
+                        GenerateReceipt(transactionId, cart, salesPerson, paymentReceived, discount, transactionDate);
                         
                     }
                 }
             }
         }
 
-        private void GenerateReceipt(string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        private void GenerateReceipt(string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, decimal discount, string transactionDate)
         {
             if (currentCart != null)
             {
@@ -874,7 +874,7 @@ namespace BenpilsBarcodeSystem
 
                 PrintDocument pd = new PrintDocument();
 
-                pd.PrintPage += (sender, e) => PrintDocument_PrintPage(sender, e, transactionNo, currentCart, salesPerson, paymentReceived, transactionDate);
+                pd.PrintPage += (sender, e) => PrintDocument_PrintPage(sender, e, transactionNo, currentCart, salesPerson, paymentReceived, discount, transactionDate);
 
                 pd.DefaultPageSettings.PaperSize = new PaperSize("Custom", 315, paperHeight);
 
@@ -883,7 +883,7 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private static void PrintDocument_PrintPage(object sender, PrintPageEventArgs e, string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, string transactionDate)
+        private static void PrintDocument_PrintPage(object sender, PrintPageEventArgs e, string transactionNo, Cart currentCart, string salesPerson, decimal paymentReceived, decimal discount, string transactionDate)
         {
             //Bitmap bitmap = new Bitmap(315, 1000);
 
@@ -894,9 +894,9 @@ namespace BenpilsBarcodeSystem
             string[] products = currentCart.GetProductNames();
             decimal[] prices = currentCart.GetPrices();
 
-            decimal change = paymentReceived - currentCart.GetTotalPrice();
+            decimal change = paymentReceived - (currentCart.GetTotalPrice() - discount);
 
-            Util.PrintReceipt(graphics, TransactionNo, products, prices, currentCart.GetTotalPrice(), paymentReceived, change, salesPerson, null, null, null, transactionDate);
+            Util.PrintReceipt(graphics, TransactionNo, products, prices, currentCart.GetTotalPrice() - discount, paymentReceived, change, discount, salesPerson, null, null, null, transactionDate);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

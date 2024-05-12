@@ -512,7 +512,7 @@
             this.receiving_date.Name = "receiving_date";
             this.receiving_date.ReadOnly = true;
             this.receiving_date.Visible = false;
-            this.receiving_date.Width = 106;
+            this.receiving_date.Width = 117;
             // 
             // status
             // 
@@ -598,7 +598,7 @@
             this.label3.Location = new System.Drawing.Point(22, 16);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 179;
             this.label3.Text = "Search:";
             // 
@@ -606,7 +606,7 @@
             // 
             this.PSearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PSearchTxt.Location = new System.Drawing.Point(24, 35);
-            this.PSearchTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PSearchTxt.Margin = new System.Windows.Forms.Padding(2);
             this.PSearchTxt.Multiline = true;
             this.PSearchTxt.Name = "PSearchTxt";
             this.PSearchTxt.Size = new System.Drawing.Size(162, 24);
@@ -777,7 +777,7 @@
             this.DeliveryDt.CalendarFont = new System.Drawing.Font("Arial", 9.75F);
             this.DeliveryDt.Dock = System.Windows.Forms.DockStyle.Left;
             this.DeliveryDt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDt.Location = new System.Drawing.Point(344, 0);
+            this.DeliveryDt.Location = new System.Drawing.Point(361, 0);
             this.DeliveryDt.Name = "DeliveryDt";
             this.DeliveryDt.Size = new System.Drawing.Size(146, 21);
             this.DeliveryDt.TabIndex = 3;
@@ -787,10 +787,10 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.label1.Location = new System.Drawing.Point(234, 0);
+            this.label1.Location = new System.Drawing.Point(242, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(19, 2, 0, 0);
-            this.label1.Size = new System.Drawing.Size(110, 18);
+            this.label1.Size = new System.Drawing.Size(119, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Delivery Date :";
             // 
@@ -800,7 +800,7 @@
             this.OrderDt.Dock = System.Windows.Forms.DockStyle.Left;
             this.OrderDt.Enabled = false;
             this.OrderDt.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderDt.Location = new System.Drawing.Point(88, 0);
+            this.OrderDt.Location = new System.Drawing.Point(96, 0);
             this.OrderDt.Name = "OrderDt";
             this.OrderDt.Size = new System.Drawing.Size(146, 21);
             this.OrderDt.TabIndex = 0;
@@ -814,7 +814,7 @@
             this.label6.Location = new System.Drawing.Point(10, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label6.Size = new System.Drawing.Size(78, 18);
+            this.label6.Size = new System.Drawing.Size(86, 18);
             this.label6.TabIndex = 1;
             this.label6.Text = "Order Date :";
             // 
@@ -1044,7 +1044,7 @@
             this.ArchiveBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_box_15;
             this.ArchiveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ArchiveBtn.Location = new System.Drawing.Point(0, 0);
-            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ArchiveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ArchiveBtn.Name = "ArchiveBtn";
             this.ArchiveBtn.Size = new System.Drawing.Size(481, 35);
             this.ArchiveBtn.TabIndex = 41;
@@ -1072,7 +1072,7 @@
             this.ClearBtn.Image = global::BenpilsBarcodeSystem.Properties.Resources.icons8_erase_15;
             this.ClearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ClearBtn.Location = new System.Drawing.Point(0, 0);
-            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(481, 35);
             this.ClearBtn.TabIndex = 33;
@@ -1189,7 +1189,7 @@
             this.ContactNoTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContactNoTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.ContactNoTxt.Location = new System.Drawing.Point(0, 0);
-            this.ContactNoTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContactNoTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContactNoTxt.MaxLength = 20;
             this.ContactNoTxt.Multiline = true;
             this.ContactNoTxt.Name = "ContactNoTxt";
@@ -1212,7 +1212,7 @@
             this.LblContactNo.Font = new System.Drawing.Font("Arial", 9.75F);
             this.LblContactNo.Location = new System.Drawing.Point(6, 5);
             this.LblContactNo.Name = "LblContactNo";
-            this.LblContactNo.Size = new System.Drawing.Size(80, 16);
+            this.LblContactNo.Size = new System.Drawing.Size(85, 16);
             this.LblContactNo.TabIndex = 3;
             this.LblContactNo.Text = "Contact No :";
             // 
@@ -1241,7 +1241,7 @@
             this.AddressTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddressTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.AddressTxt.Location = new System.Drawing.Point(0, 0);
-            this.AddressTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddressTxt.Margin = new System.Windows.Forms.Padding(4);
             this.AddressTxt.Multiline = true;
             this.AddressTxt.Name = "AddressTxt";
             this.AddressTxt.ReadOnly = true;
@@ -1263,7 +1263,7 @@
             this.LblAddress.Font = new System.Drawing.Font("Arial", 9.75F);
             this.LblAddress.Location = new System.Drawing.Point(6, 5);
             this.LblAddress.Name = "LblAddress";
-            this.LblAddress.Size = new System.Drawing.Size(63, 16);
+            this.LblAddress.Size = new System.Drawing.Size(67, 16);
             this.LblAddress.TabIndex = 2;
             this.LblAddress.Text = "Address :";
             // 
@@ -1292,7 +1292,7 @@
             this.ContactNameTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContactNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.ContactNameTxt.Location = new System.Drawing.Point(0, 0);
-            this.ContactNameTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContactNameTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ContactNameTxt.Multiline = true;
             this.ContactNameTxt.Name = "ContactNameTxt";
             this.ContactNameTxt.ReadOnly = true;
@@ -1314,7 +1314,7 @@
             this.LblContactName.Font = new System.Drawing.Font("Arial", 9.75F);
             this.LblContactName.Location = new System.Drawing.Point(6, 5);
             this.LblContactName.Name = "LblContactName";
-            this.LblContactName.Size = new System.Drawing.Size(98, 16);
+            this.LblContactName.Size = new System.Drawing.Size(104, 16);
             this.LblContactName.TabIndex = 1;
             this.LblContactName.Text = "Contact Name :";
             // 
@@ -1370,7 +1370,7 @@
             this.label2.Location = new System.Drawing.Point(22, 16);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 177;
             this.label2.Text = "Search:";
             // 
@@ -1378,7 +1378,7 @@
             // 
             this.SearchTxt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchTxt.Location = new System.Drawing.Point(24, 35);
-            this.SearchTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchTxt.Margin = new System.Windows.Forms.Padding(2);
             this.SearchTxt.Multiline = true;
             this.SearchTxt.Name = "SearchTxt";
             this.SearchTxt.Size = new System.Drawing.Size(162, 24);
@@ -1399,7 +1399,7 @@
             this.RefreshBtn.BackColor = System.Drawing.Color.White;
             this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
             this.RefreshBtn.Location = new System.Drawing.Point(1200, 29);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(4);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(40, 39);
             this.RefreshBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

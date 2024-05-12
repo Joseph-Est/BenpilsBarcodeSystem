@@ -539,7 +539,7 @@ namespace BenpilsBarcodeSystem
             string[] products = CurrentPurchaseCart.GetProductNames();
             decimal[] prices = CurrentPurchaseCart.GetAmounts();
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, null, SelectedSupplier.ContactName, Util.ConvertDateLongWithTime(DeliveryDt.Value));
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, 0, null, SelectedSupplier.ContactName, Util.ConvertDateLongWithTime(DeliveryDt.Value));
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

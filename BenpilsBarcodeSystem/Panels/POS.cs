@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
+using System.Transactions;
 using System.Windows.Forms;
 using ZXing.QrCode.Internal;
 
@@ -51,6 +52,7 @@ namespace BenpilsBarcodeSystem
             mainForm = (MainForm)this.ParentForm;
             CurrentCart = new Cart();
             InputValidator.AllowOnlyDigitsAndDecimal(PaymentTxt);
+            InputValidator.AllowOnlyDigitsAndDecimal(DiscountTxt);
         }
 
         private async void BarcodeTxt_TextChanged(object sender, EventArgs e)
@@ -252,11 +254,6 @@ namespace BenpilsBarcodeSystem
             }
         }
 
-        private void CartTbl_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void VoidCartBtn_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to remove all items from the cart?", "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -269,9 +266,19 @@ namespace BenpilsBarcodeSystem
 
         private void PaymentTxt_TextChanged(object sender, EventArgs e)
         {
-            decimal change = InputValidator.ParseToDecimal(PaymentTxt.Text) - InputValidator.ParseToDecimal(TotalLbl.Text);
+            CalculateChange();
+        }
 
-            if(change > 0)
+        private void DiscountTxt_TextChanged(object sender, EventArgs e)
+        {
+            CalculateChange();
+        }
+
+        private void CalculateChange()
+        {
+            decimal change = InputValidator.ParseToDecimal(PaymentTxt.Text) - (InputValidator.ParseToDecimal(TotalLbl.Text) - InputValidator.ParseToDecimal(DiscountTxt.Text));
+
+            if (change > 0)
             {
                 ChangeLbl.Text = InputValidator.DecimalToFormattedStringPrice(change);
             }
@@ -279,44 +286,75 @@ namespace BenpilsBarcodeSystem
             {
                 ChangeLbl.Text = "0.00";
             }
-            
         }
 
         private async void CheckoutBtn_Click(object sender, EventArgs e)
         {
             if (CurrentCart.HasItems())
             {
+                decimal discount = InputValidator.ParseToDecimal(DiscountTxt.Text);
+
                 if (string.IsNullOrEmpty(PaymentTxt.Text.Trim())){
                     MessageBox.Show("Please enter the amount received from the customer.", "Payment Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PaymentTxt.Focus();
                     return;
                 }
 
+                if (discount >= CurrentCart.GetTotalPrice())
+                {
+                    MessageBox.Show("The discount amount entered is not valid. Please enter a valid discount.", "Invalid Discount Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PaymentTxt.Select();
+                    return;
+                }
 
-                if(InputValidator.ParseToDecimal(PaymentTxt.Text.Trim()) < CurrentCart.GetTotalPrice())
+
+                if (InputValidator.ParseToDecimal(PaymentTxt.Text.Trim()) < (CurrentCart.GetTotalPrice() - discount))
                 {
                     MessageBox.Show("The payment amount entered is not valid. Please enter a valid number.", "Invalid Payment Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PaymentTxt.Select();
                     return;
                 }
 
-                var result = MessageBox.Show("Checkout transaction?", "Confirm Checkout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                string designation = CurrentUser.User.Designation.ToLower();
+                bool allowCheckout = true;
 
-                if (result == DialogResult.Yes)
+                if (designation != "admin" && designation != "super admin" && discount > 0)
                 {
-                    string transactionNo = Util.GenerateRandomNumberWithLetter(100000, 999999, "TRX");
-                    POSRepository repository = new POSRepository();
-                    if (await repository.InsertTransactionAsync(transactionNo, CurrentCart, InputValidator.ParseToDecimal(PaymentTxt.Text)))
+                    AuthorizationDialog ad = new AuthorizationDialog(AuthorizationMode.Discount);
+                    if (ad.ShowDialog() == DialogResult.OK)
                     {
-                        TransactionNo = transactionNo;
-                        PrintReceipt();
-                        ClearCart();
-                        mainForm.UpdateInventoryTable = true;
+                        allowCheckout = true;
                     }
                     else
                     {
-                        MessageBox.Show("The transaction failed due to an error. Please try again.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        allowCheckout = false;
                     }
+                }
+
+                if (allowCheckout)
+                {
+                    var result = MessageBox.Show("Checkout transaction?", "Confirm Checkout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        string transactionNo = Util.GenerateRandomNumberWithLetter(100000, 999999, "TRX");
+                        POSRepository repository = new POSRepository();
+                        if (await repository.InsertTransactionAsync(transactionNo, CurrentCart, InputValidator.ParseToDecimal(PaymentTxt.Text), discount))
+                        {
+                            TransactionNo = transactionNo;
+                            PrintReceipt();
+                            ClearCart();
+                            mainForm.UpdateInventoryTable = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("The transaction failed due to an error. Please try again.", "Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Transaction could not be completed. Authorization failed.", "Discount Authorization Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -362,6 +400,7 @@ namespace BenpilsBarcodeSystem
             ChangeLbl.Text = "0.00";
             TotalLbl.Text = "0.00";
             PaymentTxt.Text = null;
+            DiscountTxt.Text = null;
             BarcodeTxt.Text = null;
             CartCheck();
         }
@@ -405,7 +444,7 @@ namespace BenpilsBarcodeSystem
 
             string cashierName = $"{CurrentUser.User.FirstName} {CurrentUser.User.LastName}";
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice(), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text), cashierName);
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentCart.GetTotalPrice() - InputValidator.ParseToDecimal(DiscountTxt.Text), InputValidator.ParseToDecimal(PaymentTxt.Text), InputValidator.ParseToDecimal(ChangeLbl.Text), InputValidator.ParseToDecimal(DiscountTxt.Text), cashierName);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }
@@ -418,7 +457,7 @@ namespace BenpilsBarcodeSystem
 
         private void BarcodeTxt_Leave(object sender, EventArgs e)
         {
-            if (PaymentTxt.Focused)
+            if (PaymentTxt.Focused || DiscountTxt.Focused)
             {
                 this.AcceptButton = CheckoutBtn;
             }
@@ -429,6 +468,11 @@ namespace BenpilsBarcodeSystem
         }
 
         private void PaymentTxt_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void DiscountTxt_Leave(object sender, EventArgs e)
         {
             FocusBarcode();
         }

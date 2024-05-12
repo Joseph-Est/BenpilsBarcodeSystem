@@ -20,7 +20,7 @@ namespace BenpilsBarcodeSystem.Repository
         private readonly Database.DatabaseConnection databaseConnection;
         public static string tbl_transactions = "tbl_transactions", tbl_transaction_details = "tbl_transaction_details";
         public static string col_transaction_id = "transaction_id", col_transaction_date = "transaction_date", col_operated_by = "operated_by", col_payment_received = "payment_received";
-        public static string col_id = "id", col_item_id = "item_id", col_quantity = "Quantity", col_total = "total", col_status = "status";
+        public static string col_id = "id", col_item_id = "item_id", col_quantity = "Quantity", col_total = "total", col_status = "status", col_discount = "discount";
         public static string transaction_completed = "COMPLETED", transaction_refunded = "REFUNDED";
 
         public POSRepository()
@@ -28,12 +28,14 @@ namespace BenpilsBarcodeSystem.Repository
             databaseConnection = new Database.DatabaseConnection();
         }
 
-        public async Task<bool> InsertTransactionAsync(string transactionId, Cart cart, decimal payment)
+        public async Task<bool> InsertTransactionAsync(string transactionId, Cart cart, decimal payment, decimal discount = 0)
         {
-            string insertOrderQuery = $"INSERT INTO {tbl_transactions} ({col_transaction_id}, {col_operated_by}, {col_payment_received}) VALUES (@transactionId, @operatedBy, @paymentReceived)";
-            string insertOrderDetailsQuery = $"INSERT INTO {tbl_transaction_details} ({col_transaction_id}, {col_item_id}, {col_quantity}, {col_total}) VALUES (@transactionId, @ItemId, @Quantity, @total)";
+            string insertOrderQuery = $"INSERT INTO {tbl_transactions} ({col_transaction_id}, {col_operated_by}, {col_payment_received}, {col_discount}) VALUES (@transactionId, @operatedBy, @paymentReceived, @discount)";
+            string insertOrderDetailsQuery = $"INSERT INTO {tbl_transaction_details} ({col_transaction_id}, {col_item_id}, {col_quantity}, {col_total}, {col_discount}) VALUES (@transactionId, @ItemId, @Quantity, @total, @discount)";
             string getItemQuantityQuery = $"SELECT {InventoryRepository.col_quantity} FROM {InventoryRepository.tbl_name} WHERE {InventoryRepository.col_id} = @ItemId";
             string updateItemQuantityQuery = $"UPDATE tbl_item_master_data SET Quantity = Quantity - @Quantity WHERE id = @ItemId";
+
+            int totalCartItemCount = cart.GetTotalItemCount();
 
             SqlTransaction transaction = null;
 
@@ -50,16 +52,21 @@ namespace BenpilsBarcodeSystem.Repository
                             cmd.Parameters.AddWithValue("@transactionId", transactionId);
                             cmd.Parameters.AddWithValue("@operatedBy", CurrentUser.User.ID);
                             cmd.Parameters.AddWithValue("@paymentReceived", payment);
+                            cmd.Parameters.AddWithValue("@discount", discount);
 
                             await cmd.ExecuteNonQueryAsync();
 
                             cmd.CommandText = insertOrderDetailsQuery;
 
                             int itemCount = 0;
+                            
 
                             foreach (var item in cart.Items)
                             {
                                 itemCount += item.Quantity;
+
+                                decimal itemTotal = item.SellingPrice * item.Quantity;
+                                decimal itemDiscount = (itemTotal / cart.GetTotalPrice()) * discount;
 
                                 using (SqlCommand cmdDetails = new SqlCommand(insertOrderDetailsQuery, con, transaction))
                                 {
@@ -67,6 +74,7 @@ namespace BenpilsBarcodeSystem.Repository
                                     cmdDetails.Parameters.AddWithValue("@ItemId", item.Id);
                                     cmdDetails.Parameters.AddWithValue("@Quantity", item.Quantity);
                                     cmdDetails.Parameters.AddWithValue("@total", item.SellingPrice * item.Quantity);
+                                    cmdDetails.Parameters.AddWithValue("@discount", itemDiscount);
 
                                     await cmdDetails.ExecuteNonQueryAsync();
                                 }
@@ -124,13 +132,14 @@ namespace BenpilsBarcodeSystem.Repository
             }
         }
 
-        public async Task<(Cart, decimal paymentReceived, string salesPerson, string transactionDate)> GetSalesDetailsAsync(string transactionId)
+        public async Task<(Cart, decimal paymentReceived, decimal discount, string salesPerson, string transactionDate)> GetSalesDetailsAsync(string transactionId)
         {
-            string selectTransactionQuery = $"SELECT {col_operated_by}, {col_payment_received}, {col_transaction_date} FROM {tbl_transactions} WHERE {col_transaction_id} = @transactionId";
+            string selectTransactionQuery = $"SELECT {col_operated_by}, {col_payment_received}, {col_discount}, {col_transaction_date} FROM {tbl_transactions} WHERE {col_transaction_id} = @transactionId";
             string selectOrderDetailsQuery = $"SELECT {col_item_id}, {col_quantity}, {col_total} FROM {tbl_transaction_details} WHERE {col_transaction_id} = @transactionId";
             string selectSalesPersonQuery = $"SELECT CONCAT({UserCredentialsRepository.col_first_name}, ' ', {UserCredentialsRepository.col_last_name}) FROM {UserCredentialsRepository.tbl_name} WHERE {UserCredentialsRepository.col_id} = @userId";
 
             Cart cart = new Cart();
+            decimal discount = 0;
             decimal paymentReceived = 0;
             string salesPerson = "";
             string transactionDate = "";
@@ -148,8 +157,9 @@ namespace BenpilsBarcodeSystem.Repository
                         if (reader.Read())
                         {
                             // Get paymentReceived and salesPersonId
-                            DateTime date = reader.GetDateTime(2);
+                            DateTime date = reader.GetDateTime(3);
                             transactionDate = Util.ConvertDateShort(date);
+                            discount = reader.GetDecimal(2);
                             paymentReceived = reader.GetDecimal(1);
                             int salesPersonId = reader.GetInt32(0);
 
@@ -223,7 +233,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
             
 
-            return (cart, paymentReceived, salesPerson, transactionDate);
+            return (cart, paymentReceived, discount, salesPerson, transactionDate);
         }
 
         public async Task<List<SalesData>> GetSalesAsync(DateTime dateFrom, DateTime dateTo, bool getAll = false)
@@ -234,8 +244,8 @@ namespace BenpilsBarcodeSystem.Repository
                 SELECT 
                     t.{col_transaction_date}, 
                     SUM(td.{col_quantity}) AS TotalItemSold, 
-                    SUM(td.{col_total}) AS TotalSales,
-                    SUM((td.{col_quantity} * (imd.{InventoryRepository.col_selling_price} - imd.{InventoryRepository.col_purchase_price}))) AS TotalProfit,
+                    SUM(td.{col_total} - td.{col_discount}) AS TotalSales,
+                    imd.{InventoryRepository.col_purchase_price} as PurchasePrice,
                     imd.{InventoryRepository.col_item_name} AS ItemName,
                     imd.{InventoryRepository.col_brand} AS ItemBrand,
                     imd.{InventoryRepository.col_size} AS ItemSize,
@@ -259,6 +269,7 @@ namespace BenpilsBarcodeSystem.Repository
             selectQuery += $@"
                 GROUP BY 
                     t.{col_transaction_date}, 
+                    imd.{InventoryRepository.col_purchase_price},
                     imd.{InventoryRepository.col_item_name},
                     imd.{InventoryRepository.col_brand},
                     imd.{InventoryRepository.col_size},
@@ -285,7 +296,7 @@ namespace BenpilsBarcodeSystem.Repository
                                 DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal(col_transaction_date));
                                 int totalItemSold = reader.GetInt32(reader.GetOrdinal("TotalItemSold"));
                                 decimal totalSales = reader.GetDecimal(reader.GetOrdinal("TotalSales"));
-                                decimal totalProfit = reader.GetDecimal(reader.GetOrdinal("TotalProfit"));
+                                decimal purchasePrice = reader.GetDecimal(reader.GetOrdinal("PurchasePrice"));
                                 string itemName = reader.GetString(reader.GetOrdinal("ItemName"));
                                 string itemBrand = reader.GetString(reader.GetOrdinal("itemBrand"));
                                 string itemSize = reader.GetString(reader.GetOrdinal("itemSize"));
@@ -296,7 +307,7 @@ namespace BenpilsBarcodeSystem.Repository
                                     Date = transactionDate,
                                     TotalItemSold = totalItemSold,
                                     TotalSales = totalSales,
-                                    TotalProfit = totalProfit,
+                                    TotalProfit = totalItemSold * ((totalSales/totalItemSold) - purchasePrice),
                                     ItemName = itemName,
                                     Brand = itemBrand,
                                     Size = itemSize,

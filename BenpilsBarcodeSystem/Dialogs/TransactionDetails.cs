@@ -17,12 +17,15 @@ namespace BenpilsBarcodeSystem.Dialogs
         private readonly Cart CurrentCart;
         private bool canClose = false;
         private readonly string transactionId;
+        private decimal discount;
 
-        internal TransactionDetails(string transactionDate, string transactionId, string salesperson, Cart CurrentCart)
+        internal TransactionDetails(string transactionDate, string transactionId, string salesperson, Cart CurrentCart, decimal discount = 0)
         {
             InitializeComponent();
             this.CurrentCart = CurrentCart;
             this.transactionId = transactionId;
+            this.discount = discount;
+            DiscountLbl.Text = discount.ToString();
             TransactionIdLbl.Text = transactionId;
             TransactionDateLbl.Text = transactionDate;
             SalespersonLbl.Text = salesperson;
@@ -42,7 +45,7 @@ namespace BenpilsBarcodeSystem.Dialogs
             ItemsTbl.DataSource = CurrentCart.Items;
             ItemsTbl.Refresh();
 
-            TotalLbl.Text = CurrentCart.GetTotalPriceAsString();
+            TotalLbl.Text = (CurrentCart.GetTotalPrice() - discount).ToString();
         }
 
         private void TransactionDetails_FormClosing(object sender, FormClosingEventArgs e)

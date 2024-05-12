@@ -117,7 +117,7 @@
             this.TitleLbl.ForeColor = System.Drawing.Color.Black;
             this.TitleLbl.Location = new System.Drawing.Point(8, 8);
             this.TitleLbl.Name = "TitleLbl";
-            this.TitleLbl.Size = new System.Drawing.Size(103, 18);
+            this.TitleLbl.Size = new System.Drawing.Size(108, 19);
             this.TitleLbl.TabIndex = 84;
             this.TitleLbl.Text = "Order Details";
             // 
@@ -213,10 +213,10 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(325, 5);
+            this.label7.Location = new System.Drawing.Point(315, 5);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(42, 21);
+            this.label7.Size = new System.Drawing.Size(45, 21);
             this.label7.TabIndex = 5;
             this.label7.Text = "Total :";
             // 
@@ -225,10 +225,10 @@
             this.TotalLbl.AutoSize = true;
             this.TotalLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.TotalLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalLbl.Location = new System.Drawing.Point(367, 5);
+            this.TotalLbl.Location = new System.Drawing.Point(360, 5);
             this.TotalLbl.Name = "TotalLbl";
             this.TotalLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.TotalLbl.Size = new System.Drawing.Size(60, 21);
+            this.TotalLbl.Size = new System.Drawing.Size(67, 21);
             this.TotalLbl.TabIndex = 4;
             this.TotalLbl.Text = "10000.00";
             // 
@@ -304,6 +304,7 @@
             this.Id.HeaderText = "ID";
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 101;
             // 
             // DisplayItemName
             // 
@@ -322,7 +323,7 @@
             this.Quantity.HeaderText = "Qty";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 49;
+            this.Quantity.Width = 51;
             // 
             // TotalAmount
             // 
@@ -334,7 +335,7 @@
             this.TotalAmount.HeaderText = "Subtotal";
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.Width = 77;
+            this.TotalAmount.Width = 83;
             // 
             // ReceivedQuantity
             // 
@@ -346,7 +347,7 @@
             this.ReceivedQuantity.MinimumWidth = 10;
             this.ReceivedQuantity.Name = "ReceivedQuantity";
             this.ReceivedQuantity.Visible = false;
-            this.ReceivedQuantity.Width = 85;
+            this.ReceivedQuantity.Width = 93;
             // 
             // RemarksPanel
             // 
@@ -376,7 +377,7 @@
             this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label8.Size = new System.Drawing.Size(70, 21);
+            this.label8.Size = new System.Drawing.Size(76, 21);
             this.label8.TabIndex = 3;
             this.label8.Text = "Remarks :";
             // 
@@ -408,7 +409,7 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(91, 21);
+            this.label4.Size = new System.Drawing.Size(97, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "Fullfilled By :";
             // 
@@ -440,7 +441,7 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(100, 21);
+            this.label3.Size = new System.Drawing.Size(108, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date Fulfilled :";
             // 
@@ -472,7 +473,7 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(54, 21);
+            this.label2.Size = new System.Drawing.Size(59, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Status :";
             // 
@@ -504,7 +505,7 @@
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Size = new System.Drawing.Size(69, 21);
+            this.label5.Size = new System.Drawing.Size(74, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "Supplier :";
             // 
@@ -536,7 +537,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(87, 21);
+            this.label1.Size = new System.Drawing.Size(95, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ordered By :";
             // 
@@ -568,7 +569,7 @@
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(100, 21);
+            this.label10.Size = new System.Drawing.Size(109, 21);
             this.label10.TabIndex = 3;
             this.label10.Text = "Delivery Date :";
             // 
@@ -600,7 +601,7 @@
             this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label12.Size = new System.Drawing.Size(84, 21);
+            this.label12.Size = new System.Drawing.Size(92, 21);
             this.label12.TabIndex = 3;
             this.label12.Text = "Order Date :";
             // 
@@ -632,7 +633,7 @@
             this.label14.Location = new System.Drawing.Point(0, 0);
             this.label14.Name = "label14";
             this.label14.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label14.Size = new System.Drawing.Size(72, 21);
+            this.label14.Size = new System.Drawing.Size(79, 21);
             this.label14.TabIndex = 2;
             this.label14.Text = "Order No :";
             // 

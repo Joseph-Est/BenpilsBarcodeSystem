@@ -404,7 +404,7 @@ namespace BenpilsBarcodeSystem.Repository
                                     WHEN im.{InventoryRepository.col_size} = 'N/A' THEN im.{InventoryRepository.col_item_name} + ', ' + im.{InventoryRepository.col_brand}
                                     ELSE im.{InventoryRepository.col_item_name} + ', ' + im.{InventoryRepository.col_brand} + ', ' + im.{InventoryRepository.col_size}
                                 END AS item_name,
-                                d.{POSRepository.col_quantity}, d.{POSRepository.col_total}
+                                d.{POSRepository.col_quantity}, (d.{POSRepository.col_total} - d.{POSRepository.col_discount}) AS total, d.{POSRepository.col_discount}
                                 FROM {POSRepository.tbl_transactions} t 
                                 INNER JOIN {UserCredentialsRepository.tbl_name} u ON t.{POSRepository.col_operated_by} = u.{UserCredentialsRepository.col_id} 
                                 INNER JOIN {POSRepository.tbl_transaction_details} d ON t.{POSRepository.col_transaction_id} = d.{POSRepository.col_transaction_id} 
@@ -773,6 +773,8 @@ namespace BenpilsBarcodeSystem.Repository
                     {"item_name", "Item"},
                     {POSRepository.col_quantity, "Quantity"},
                     {POSRepository.col_total, "Total"},
+                    {POSRepository.col_discount, "Discount"},
+                    {POSRepository.col_status, "Status"},
                 };
 
             foreach (var item in columnRenameDict)
@@ -788,6 +790,8 @@ namespace BenpilsBarcodeSystem.Repository
                     "Item",
                     "Quantity",
                     "Total",
+                    "Discount",
+                    "Status",
                 };
 
             return Util.ReorderColumns(dt, columnOrder);

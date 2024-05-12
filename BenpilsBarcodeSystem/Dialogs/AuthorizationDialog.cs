@@ -11,12 +11,31 @@ using System.Windows.Forms;
 
 namespace BenpilsBarcodeSystem.Dialogs
 {
+    enum AuthorizationMode
+    {
+        Refund = 1,
+        Discount = 2,
+    }
+
     public partial class AuthorizationDialog : Form
     {
+        private readonly AuthorizationMode mode;
         private bool canClose = false;
-        public AuthorizationDialog()
+
+        internal AuthorizationDialog(AuthorizationMode mode = AuthorizationMode.Refund)
         {
             InitializeComponent();
+
+            this.mode = mode;
+
+            if(mode == AuthorizationMode.Refund)
+            {
+                TitleLbl.Text = "Admin Refund Confirmation";
+            }
+            else
+            {
+                TitleLbl.Text = "Admin Discount Confirmation";
+            }
         }
 
         private async void AcceptBtn_Click(object sender, EventArgs e)

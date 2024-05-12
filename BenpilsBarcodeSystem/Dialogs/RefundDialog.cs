@@ -80,9 +80,9 @@ namespace BenpilsBarcodeSystem.Dialogs
                 {
                     selectedID = senderGrid.Rows[e.RowIndex].Cells["transaction_id"].Value.ToString();
                     POSRepository repository = new POSRepository();
-                    (Cart cart, decimal paymentReceived, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(selectedID);
+                    (Cart cart, decimal paymentReceived, decimal discount, string salesPerson, string transactionDate) = await repository.GetSalesDetailsAsync(selectedID);
 
-                    TransactionDetails td = new TransactionDetails(transactionDate, selectedID, salesPerson, cart);
+                    TransactionDetails td = new TransactionDetails(transactionDate, selectedID, salesPerson, cart, discount);
 
                     if (td.ShowDialog() == DialogResult.OK)
                     {

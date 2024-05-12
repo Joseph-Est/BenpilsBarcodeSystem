@@ -144,7 +144,7 @@ namespace BenpilsBarcodeSystem.Utils
             return formattedDate;
         }
 
-        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, string cashierName = null, string supplierName = null, string deliveryDate = null, string orderDate = null, string transactionDate = null)
+        public static void PrintReceipt(Graphics graphics, string transactionNo, string[] products, decimal[] prices, decimal total, decimal paymentReceived = 0, decimal change = 0, decimal discount = 0, string cashierName = null, string supplierName = null, string deliveryDate = null, string orderDate = null, string transactionDate = null)
         {
             Font fontBold = new Font("Courier New", 12, FontStyle.Bold);
             Font fontDash = new Font("Courier New", 12, FontStyle.Bold);
@@ -217,8 +217,8 @@ namespace BenpilsBarcodeSystem.Utils
             y = DrawText(graphics, space, fontDash, y, 315);
             y = DrawText(graphics, dashes, fontDash, y + 5, 315);
 
-            string[] totals = { "VAT", "Discount", "Total" };
-            decimal[] amount = { 0.00m, 0.00m, total };
+            string[] totals = {"Discount", "Total" };
+            decimal[] amount = {discount, total };
 
             for (int i = 0; i < totals.Length; i++)
             {

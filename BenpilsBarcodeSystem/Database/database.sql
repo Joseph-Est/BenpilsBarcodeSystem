@@ -115,6 +115,7 @@ CREATE TABLE [dbo].[tbl_transactions](
     [operated_by] [int] NULL,
     [payment_received] [decimal](10, 2) NULL,
     [status] [varchar](50) NULL,
+    [discount] [decimal](10, 2) NULL,
     PRIMARY KEY CLUSTERED 
     (
         [transaction_id] ASC
@@ -124,6 +125,7 @@ GO
 
 ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [DF__tbl_trans__trans__59C55456]  DEFAULT (getdate()) FOR [transaction_date];
 ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [DF_Status_Default]  DEFAULT ('COMPLETED') FOR [status];
+ALTER TABLE [dbo].[tbl_transactions] ADD  DEFAULT ((0)) FOR [discount];
 ALTER TABLE [dbo].[tbl_transactions] ADD  CONSTRAINT [FK__tbl_trans__opera__607251E5] FOREIGN KEY([operated_by])
 REFERENCES [dbo].[tbl_user_credentials] ([id]);
 GO
@@ -171,6 +173,7 @@ CREATE TABLE [dbo].[tbl_transaction_details](
     [item_id] [int] NULL,
     [quantity] [int] NULL,
     [total] [decimal](18, 2) NULL,
+    [discount] [decimal](10, 2) NULL,
     PRIMARY KEY CLUSTERED 
     (
         [id] ASC
@@ -180,6 +183,7 @@ GO
 
 ALTER TABLE [dbo].[tbl_transaction_details] ADD  CONSTRAINT [FK__tbl_trans__trans__5F7E2DAC] FOREIGN KEY([transaction_id])
 REFERENCES [dbo].[tbl_transactions] ([transaction_id]);
+ALTER TABLE [dbo].[tbl_transaction_details] ADD  DEFAULT ((0)) FOR [discount];
 ALTER TABLE [dbo].[tbl_transaction_details] ADD  CONSTRAINT [FK__tbl_trans__item___5E8A0973] FOREIGN KEY([item_id])
 REFERENCES [dbo].[tbl_item_master_data] ([id]);
 GO

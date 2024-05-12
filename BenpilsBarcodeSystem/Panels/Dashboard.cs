@@ -77,12 +77,12 @@ namespace BenpilsBarcodeSystem
 
             lowStockItems = await inventoryRepository.GetLowStockItems();
 
-            foreach (var item in lowStockItems)
-            {
-                Console.WriteLine($"Item Name: {item.ItemName}");
-                Console.WriteLine($"Average Daily Sales: {item.AverageDailySales}");
-                Console.WriteLine();
-            }
+            //foreach (var item in lowStockItems)
+            //{
+            //    Console.WriteLine($"Item Name: {item.ItemName}");
+            //    Console.WriteLine($"Average Daily Sales: {item.AverageDailySales}");
+            //    Console.WriteLine();
+            //}
 
             LowStockTbl.AutoGenerateColumns = false;
             LowStockTbl.DataSource = lowStockItems;

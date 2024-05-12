@@ -236,7 +236,7 @@ namespace BenpilsBarcodeSystem.Dialogs
 
             string orderDate = OrderDateLbl.Text.Remove(OrderDateLbl.Text.Length - 9);
 
-            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, null, CurrentSupplier.ContactName, DeliveryDateLbl.Text, orderDate);
+            Util.PrintReceipt(graphics, transactionNo, products, prices, CurrentPurchaseCart.GetTotalAmount(), 0, 0, 0, null, CurrentSupplier.ContactName, DeliveryDateLbl.Text, orderDate);
 
             //bitmap.Save("receipt.png", ImageFormat.Png);
         }

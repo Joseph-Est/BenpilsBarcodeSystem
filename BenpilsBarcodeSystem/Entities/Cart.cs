@@ -112,5 +112,10 @@ namespace BenpilsBarcodeSystem.Entities
         {
             return Items.All(item => item.Quantity == item.ReceivedQuantity);
         }
+
+        public int GetTotalItemCount()
+        {
+            return Items.Count;
+        }
     }
 }

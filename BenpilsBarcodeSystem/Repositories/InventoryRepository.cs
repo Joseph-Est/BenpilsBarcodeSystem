@@ -39,7 +39,7 @@ namespace BenpilsBarcodeSystem.Repository
 
             }
 
-            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause}";
+            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause} ORDER BY {col_id} DESC";
 
 
             if (string.IsNullOrWhiteSpace(searchText) && category == "All" && brand == "All")
@@ -48,7 +48,7 @@ namespace BenpilsBarcodeSystem.Repository
             }
             else
             {
-                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause}";
+                selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_motor_brand}, {col_purchase_price}, {col_selling_price}, {col_quantity}, {col_category}, {col_size}, {col_date_created} FROM {tbl_name} WHERE {whereClause} ORDER BY {col_id} DESC";
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
@@ -104,16 +104,21 @@ namespace BenpilsBarcodeSystem.Repository
 
                         foreach (DataRow row in dt.Rows)
                         {
+                            int itemId = Convert.ToInt32(row[col_id]);
+                            decimal averageDailySales = await CalculateAverageDailySalesAsync(itemId);
                             int quantity = Convert.ToInt32(row[col_quantity]);
 
-                            if (quantity > highStockThreshold)
-                                row["status"] = "High-Stock";
-                            else if (quantity >= lowStockThreshold)
-                                row["status"] = "In-Stock";
-                            else if (quantity < lowStockThreshold && quantity > 0)
-                                row["status"] = "Low-Stock";
+                            if (quantity > 0)
+                            {
+                                if (quantity >= averageDailySales)
+                                    row["status"] = "In-Stock";
+                                else
+                                    row["status"] = "Low-Stock";
+                            }
                             else
+                            {
                                 row["status"] = "No Stock";
+                            }
 
                             row["formatted_purchase_price"] = InputValidator.StringToFormattedPrice(row[col_purchase_price].ToString());
                             row["formatted_selling_price"] = InputValidator.StringToFormattedPrice(row[col_selling_price].ToString());
@@ -788,11 +793,59 @@ namespace BenpilsBarcodeSystem.Repository
             return count;
         }
 
+        //public async Task<List<Item>> GetLowStockItemsAsync()
+        //{
+        //    List<Item> lowStockItems = new List<Item>();
+
+        //    string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_is_active} = 'true' ORDER BY {col_quantity} DESC";
+
+        //    try
+        //    {
+        //        using (SqlConnection con = databaseConnection.OpenConnection())
+        //        {
+        //            using (SqlCommand cmd = new SqlCommand(selectQuery, con))
+        //            {
+        //                using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+        //                {
+        //                    while (await reader.ReadAsync())
+        //                    {
+        //                        int id = reader.GetInt32(reader.GetOrdinal(col_id));
+        //                        string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
+        //                        string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
+        //                        string brand = reader.GetString(reader.GetOrdinal(col_brand));
+        //                        string size = reader.GetString(reader.GetOrdinal(col_size));
+        //                        int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
+
+        //                        //new query here
+
+        //                        Item item = new Item
+        //                        {
+        //                            Barcode = barcode,
+        //                            ItemName = itemName,
+        //                            Brand = brand,
+        //                            Size = size,
+        //                            Quantity = quantity,
+        //                        };
+
+        //                        lowStockItems.Add(item);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("An error occurred: " + ex.Message);
+        //    }
+
+        //    return lowStockItems;
+        //}
+
         public async Task<List<Item>> GetLowStockItemsAsync()
         {
             List<Item> lowStockItems = new List<Item>();
 
-            string selectQuery = $"SELECT {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_quantity} < {lowStockThreshold} AND {col_is_active} = 'true' ORDER BY {col_quantity} DESC";
+            string selectQuery = $"SELECT {col_id}, {col_barcode}, {col_item_name}, {col_brand}, {col_quantity}, {col_size} FROM {tbl_name} WHERE {col_is_active} = 'true' ORDER BY {col_quantity} DESC";
 
             try
             {
@@ -804,22 +857,48 @@ namespace BenpilsBarcodeSystem.Repository
                         {
                             while (await reader.ReadAsync())
                             {
+                                int id = reader.GetInt32(reader.GetOrdinal(col_id));
                                 string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
                                 string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
                                 string brand = reader.GetString(reader.GetOrdinal(col_brand));
                                 string size = reader.GetString(reader.GetOrdinal(col_size));
                                 int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
 
-                                Item item = new Item
+                                // Check if quantity is 0
+                                if (quantity == 0)
                                 {
-                                    Barcode = barcode,
-                                    ItemName = itemName,
-                                    Brand = brand,
-                                    Size = size,
-                                    Quantity = quantity,
-                                };
+                                    lowStockItems.Add(new Item
+                                    {
+                                        Barcode = barcode,
+                                        ItemName = itemName,
+                                        Brand = brand,
+                                        Size = size,
+                                        Quantity = quantity
+                                    });
+                                    continue; // Skip the rest of the processing
+                                }
 
-                                lowStockItems.Add(item);
+                                // Calculate average daily sales
+                                decimal averageDailySales = await CalculateAverageDailySalesAsync(id);
+
+                                //Console.WriteLine($"item: {itemName}");
+                                //Console.WriteLine($"quantity: {quantity}");
+                                //Console.WriteLine($"average per day: {averageDailySales}");
+                                //Console.WriteLine("");
+
+
+                                // Compare quantity with average daily sales
+                                if (quantity < averageDailySales)
+                                {
+                                    lowStockItems.Add(new Item
+                                    {
+                                        Barcode = barcode,
+                                        ItemName = itemName,
+                                        Brand = brand,
+                                        Size = size,
+                                        Quantity = quantity
+                                    });
+                                }
                             }
                         }
                     }
@@ -833,155 +912,62 @@ namespace BenpilsBarcodeSystem.Repository
             return lowStockItems;
         }
 
-        public async Task<List<Item>> GetLowStockItems()
+
+        private async Task<decimal> CalculateAverageDailySalesAsync(int itemId)
         {
-            List<Item> lowStockItems = new List<Item>();
+            decimal averageDailySales = 0;
 
             try
             {
+                string selectQuery = $"SELECT SUM({POSRepository.col_quantity}) AS TotalQuantity, " +
+                                     $"CONVERT(date, t.{POSRepository.col_transaction_date}) AS TransactionDate " +
+                                     $"FROM {POSRepository.tbl_transaction_details} AS td " +
+                                     $"INNER JOIN {POSRepository.tbl_transactions} AS t ON td.{POSRepository.col_transaction_id} = t.{POSRepository.col_transaction_id} " +
+                                     $"WHERE td.{POSRepository.col_item_id} = @ItemId AND t.{POSRepository.col_status} = 'COMPLETED' " +
+                                     $"GROUP BY CONVERT(date, t.{POSRepository.col_transaction_date})";
+
+                List<(decimal TotalQuantity, DateTime TransactionDate)> salesData = new List<(decimal, DateTime)>();
+
                 using (SqlConnection con = databaseConnection.OpenConnection())
                 {
-                    // Query for items with col_quantity less than the dynamic threshold
-                    string selectQuery = $@"
-                        SELECT 
-                            i.{col_barcode}, 
-                            i.{col_item_name}, 
-                            i.{col_brand}, 
-                            i.{col_size}, 
-                            i.{col_quantity},
-                            ISNULL(t.avgDailySales, 0) AS avgDailySales
-                        FROM 
-                            {tbl_name} i
-                        LEFT JOIN (
-                            SELECT 
-                                td.{POSRepository.col_item_id},
-                                AVG(td.{col_quantity}) AS avgDailySales
-                            FROM 
-                                {POSRepository.tbl_transaction_details} td
-                            JOIN 
-                                {POSRepository.tbl_transactions} t ON td.{POSRepository.col_transaction_id} = t.{POSRepository.col_transaction_id}
-                            WHERE 
-                                t.{POSRepository.col_transaction_date} >= @startDate 
-                                AND t.{POSRepository.col_status} = 'COMPLETED'
-                            GROUP BY 
-                                td.{POSRepository.col_item_id},
-                                CONVERT(date, t.{POSRepository.col_transaction_date})
-                        ) t ON i.{col_id} = t.{POSRepository.col_item_id}
-                        WHERE 
-                            i.{col_quantity} < (ISNULL(t.avgDailySales, 0))
-                            AND i.{col_is_active} = 'true'";
-
                     using (SqlCommand cmd = new SqlCommand(selectQuery, con))
                     {
-                        DateTime startDate = DateTime.Today.AddMonths(-1);
-                        cmd.Parameters.AddWithValue("@startDate", startDate);
-
-                        // Define the number of days to consider for the dynamic threshold
-                        //int daysThreshold = 30; // Adjust as needed
-                        //cmd.Parameters.AddWithValue("@daysThreshold", daysThreshold);
+                        cmd.Parameters.AddWithValue("@ItemId", itemId);
 
                         using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                         {
                             while (await reader.ReadAsync())
                             {
-                                string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
-                                string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
-                                string brand = reader.GetString(reader.GetOrdinal(col_brand));
-                                string size = reader.GetString(reader.GetOrdinal(col_size));
-                                int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
-                                double avgDailySales;
-
-                                // Check if the column exists and its data type
-                                int avgDailySalesOrdinal = reader.GetOrdinal("avgDailySales");
-                                if (!reader.IsDBNull(avgDailySalesOrdinal))
-                                {
-                                    object value = reader.GetValue(avgDailySalesOrdinal);
-                                    if (value is int intValue)
-                                    {
-                                        avgDailySales = (double)intValue; // Convert int to double
-                                    }
-                                    else if (value is double doubleValue)
-                                    {
-                                        avgDailySales = doubleValue;
-                                    }
-                                    else
-                                    {
-                                        throw new InvalidCastException($"Unexpected data type '{value.GetType()}' for 'avgDailySales' column.");
-                                    }
-                                }
-                                else
-                                {
-                                    avgDailySales = 0; // or any other default value you prefer
-                                }
-
-
-                                Item item = new Item
-                                {
-                                    Barcode = barcode,
-                                    ItemName = itemName,
-                                    Brand = brand,
-                                    Size = size,
-                                    Quantity = quantity,
-                                    AverageDailySales = avgDailySales // Add average daily sales to Item class
-                                };
-
-                                lowStockItems.Add(item);
-                            }
-                        }
-                    }
-
-                    // Query for items with col_quantity equal to 0
-                    string zeroQuantityQuery = $@"
-                        SELECT DISTINCT
-                            {col_barcode}, 
-                            {col_item_name}, 
-                            {col_brand}, 
-                            {col_size}, 
-                            {col_quantity}
-                        FROM 
-                            {tbl_name}
-                        WHERE 
-                            {col_quantity} = 0
-                            AND {col_is_active} = 'true'";
-
-                    using (SqlCommand cmd = new SqlCommand(zeroQuantityQuery, con))
-                    {
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                string barcode = reader.GetString(reader.GetOrdinal(col_barcode));
-
-                                // Check if item with same barcode already exists in lowStockItems
-                                if (!lowStockItems.Any(item => item.Barcode == barcode))
-                                {
-                                    string itemName = reader.GetString(reader.GetOrdinal(col_item_name));
-                                    string brand = reader.GetString(reader.GetOrdinal(col_brand));
-                                    string size = reader.GetString(reader.GetOrdinal(col_size));
-                                    int quantity = reader.GetInt32(reader.GetOrdinal(col_quantity));
-
-                                    Item item = new Item
-                                    {
-                                        Barcode = barcode,
-                                        ItemName = itemName,
-                                        Brand = brand,
-                                        Size = size,
-                                        Quantity = quantity
-                                    };
-
-                                    lowStockItems.Add(item);
-                                }
+                                int quantity = reader.GetInt32(reader.GetOrdinal("TotalQuantity"));
+                                DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal("TransactionDate"));
+                                salesData.Add((quantity, transactionDate));
                             }
                         }
                     }
                 }
+
+                // Calculate total quantity and number of days
+                decimal totalQuantity = 0;
+                int totalDays = 0;
+
+                foreach (var (dailyQuantity, _) in salesData)
+                {
+                    totalQuantity += dailyQuantity;
+                    totalDays++;
+                }
+
+                // Calculate average daily quantity sold
+                if (totalDays > 0)
+                {
+                    averageDailySales = totalQuantity / totalDays;
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                Console.WriteLine("An error occurred while calculating average daily sales: " + ex.Message);
             }
 
-            return lowStockItems;
+            return averageDailySales;
         }
 
         public async Task<bool> HasPendingOrdersAsync(int itemId)

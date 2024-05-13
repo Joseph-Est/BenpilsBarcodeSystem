@@ -75,7 +75,7 @@ namespace BenpilsBarcodeSystem
             LoadSalesChart(posRepository);
             LoadTopSellingItems(posRepository, currentSalesData);
 
-            lowStockItems = await inventoryRepository.GetLowStockItems();
+            lowStockItems = await inventoryRepository.GetLowStockItemsAsync();
 
             //foreach (var item in lowStockItems)
             //{

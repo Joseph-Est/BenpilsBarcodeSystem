@@ -37,7 +37,7 @@ namespace BenpilsBarcodeSystem.Repositories
 
         public async Task<DataTable> GetPurchaseOrderTransactionsAsync(string searchText = null)
         {
-            string selectQuery = $"SELECT po.{col_order_id}, s.{SuppliersRepository.col_contact_name}, po.{col_order_date}, po.{col_receiving_date}, po.{col_backorder_from} FROM {tbl_purchase_order} po INNER JOIN {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id} WHERE po.{col_status} = 'PENDING'";
+            string selectQuery = $"SELECT po.{col_order_id}, s.{SuppliersRepository.col_contact_name}, po.{col_order_date}, po.{col_receiving_date}, po.{col_backorder_from} FROM {tbl_purchase_order} po INNER JOIN {SuppliersRepository.tbl_name} s ON po.{col_supplier_id} = s.{SuppliersRepository.col_id} WHERE po.{col_status} = 'PENDING' ORDER BY po.{col_order_date} DESC";
 
             if (!string.IsNullOrWhiteSpace(searchText))
             {

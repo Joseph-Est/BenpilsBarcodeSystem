@@ -1568,7 +1568,7 @@
             this.label6.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label6.Size = new System.Drawing.Size(224, 18);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Projected Profit";
+            this.label6.Text = "Estimated Total Profit";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel28
@@ -1608,7 +1608,7 @@
             this.label4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Size = new System.Drawing.Size(223, 18);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Projected Sales";
+            this.label4.Text = "Estimated Total Sales";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel9
@@ -1648,7 +1648,7 @@
             this.label18.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label18.Size = new System.Drawing.Size(189, 18);
             this.label18.TabIndex = 5;
-            this.label18.Text = "Total Stock Value";
+            this.label18.Text = "Estimated Total Stock Value";
             this.label18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label2
@@ -1663,7 +1663,7 @@
             this.label2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.label2.Size = new System.Drawing.Size(684, 40);
             this.label2.TabIndex = 11;
-            this.label2.Text = "SALES PROJECTION";
+            this.label2.Text = "ESTIMATED INVENTORY VALUE";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StatisticReport
